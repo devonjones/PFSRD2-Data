@@ -9,11 +9,14 @@
                 {
                     "name": "Creative Mimics",
                     "type": "sidebar",
-                    "sections": [],
                     "text": "The older the mimic, the more creative its guise, but within practical limits. For example, a mimic can appear as a neatly organized bookshelf with a single book out of place, a dried-up cistern with something glittering at its center, or an inconspicuous wooden door with a conveniently placed peephole.",
                     "source": {
+                        "type": "source",
                         "name": "Bestiary",
                         "link": {
+                            "type": "link",
+                            "name": "Bestiary pg. 236",
+                            "alt": "Bestiary pg. 236",
                             "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
                         },
                         "page": 236
@@ -46,27 +49,40 @@
                     "type": "stat_block_element",
                     "subtype": "trait",
                     "link": {
+                        "type": "link",
+                        "name": "Aberration",
+                        "alt": "Aberration",
                         "game-obj": "Traits",
                         "aonid": "1"
                     }
                 }
             ],
             "image": {
-                "link": {
-                    "href": "Mimic.png"
-                }
+                "type": "image",
+                "name": "Mimic",
+                "game-obj": "Monster",
+                "image": "Mimic.png"
             },
             "source": {
+                "type": "source",
                 "name": "Bestiary",
                 "link": {
+                    "type": "link",
+                    "name": "Bestiary pg. 236",
+                    "alt": "Bestiary pg. 236",
                     "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
                 },
                 "page": 236
             },
             "perception": {
+                "type": "stat_block_section",
+                "subtype": "perception",
+                "name": "perception",
                 "value": 9,
                 "special_senses": [
                     {
+                        "type": "stat_block_element",
+                        "subtype": "special_sense",
                         "name": "darkvision"
                     }
                 ]
@@ -76,10 +92,16 @@
                     "name": "Common",
                     "type": "stat_block_element",
                     "subtype": "language",
-                    "link": {
-                        "game-obj": "Languages",
-                        "aonid": "1"
-                    }
+                    "link": [
+                        "Common",
+                        {
+                            "type": "link",
+                            "name": "Common",
+                            "alt": "Common",
+                            "game-obj": "Languages",
+                            "aonid": "1"
+                        }
+                    ]
                 }
             ],
             "skills": [
@@ -88,6 +110,9 @@
                     "subtype": "skill",
                     "name": "Athletics",
                     "link": {
+                        "type": "link",
+                        "name": "Athletics",
+                        "alt": "Athletics",
                         "game-obj": "Skills",
                         "aonid": "3"
                     },
@@ -98,6 +123,9 @@
                     "subtype": "skill",
                     "name": "Deception",
                     "link": {
+                        "type": "link",
+                        "name": "Deception",
+                        "alt": "Deception",
                         "game-obj": "Skills",
                         "aonid": "5"
                     },
@@ -108,11 +136,20 @@
                     "subtype": "skill",
                     "name": "Dwelling Lore",
                     "link": {
+                        "type": "link",
+                        "name": "Dwelling Lore",
+                        "alt": "Dwelling Lore",
                         "game-obj": "Skills",
                         "aonid": "8"
                     },
                     "value": 10,
-                    "modifier": "applies only to the dungeon it lives in"
+                    "modifiers": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "applies only to the dungeon it lives in"
+                        }
+                    ]
                 }
             ],
             "str": 4,
@@ -122,23 +159,34 @@
             "wis": 1,
             "cha": 0,
             "defense": {
+                "type": "stat_block_section",
+                "subtype": "defense",
+                "name": "Defense",
                 "ac": {
                     "type": "stat_block_element",
                     "subtype": "armor_class",
+                    "name": "AC",
                     "value": 20
                 },
                 "saves": {
                     "type": "stat_block_element",
                     "subtype": "saves",
+                    "name": "Saves",
                     "fort": {
+                        "type": "stat_block_section",
+                        "subtype": "save",
                         "name": "Fort",
                         "value": 11
                     },
                     "ref": {
+                        "type": "stat_block_section",
+                        "subtype": "save",
                         "name": "Ref",
                         "value": 9
                     },
                     "will": {
+                        "type": "stat_block_section",
+                        "subtype": "save",
                         "name": "Will",
                         "value": 9
                     }
@@ -146,13 +194,15 @@
                 "hp": {
                     "type": "stat_block_element",
                     "subtype": "hitpoints",
+                    "name": "HP",
                     "value": 75
                 }
             },
             "automatic_abilities": [
                 {
                     "type": "stat_block_element",
-                    "subtype": "automatic_ability",
+                    "subtype": "ability",
+                    "ability_type": "automatic",
                     "name": "Adhesive",
                     "text": "The mimic is coated in an adhesive slime. Any creature that hits the mimic, is hit by the mimic, or otherwise touches the mimic must succeed at a DC 23 Reflex save or become grabbed (Escape DC 23). A weapon that hits the mimic is stuck to the mimic and can be removed with a successful DC 23 Athletics check (made as a single action). A mimic can have any number of objects or creatures stuck to it at a time. The mimic can release a stuck creature or object by using a single action, and the adhesive dissolves 1 minute after the mimic dies, releasing all stuck objects and creatures."
                 }
@@ -160,22 +210,33 @@
             "reactive_abilities": [
                 {
                     "type": "stat_block_element",
-                    "subtype": "reactive_ability",
+                    "subtype": "ability",
+                    "ability_type": "reactive",
                     "name": "Object Lesson",
                     "trigger": "A creature touches or physically interacts with the mimic while the mimic is transformed using Mimic Object.",
                     "effect": "The triggering creature is automatically stuck by the mimic\u2019s adhesive (it receives no save). The mimic then makes a pseudopod Strike against any creature adjacent to the mimic. Object Lesson can\u2019t be used again until the mimic escapes and takes on a new disguise.",
                     "action": {
-                        "action": "Reaction",
+                        "type": "stat_block_section",
+                        "subtype": "action",
+                        "name": "Reaction",
                         "image": "Reaction.png"
                     }
                 }
             ],
             "offense": {
+                "type": "stat_block_section",
+                "subtype": "offense",
+                "name": "Offense",
                 "speed": {
                     "type": "stat_block_element",
                     "subtype": "speed",
-                    "movements": [
-                        "10 feet"
+                    "name": "Speed",
+                    "movement": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "speed",
+                            "name": "10 feet"
+                        }
                     ]
                 },
                 "offensive_actions": [
@@ -184,7 +245,9 @@
                         "type": "offensive_action",
                         "text": "pseudopod + 14, <b>Damage</b> 2d8+4 bludgeoning plus adhesive",
                         "action": {
-                            "action": "Single Action",
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
                             "image": "OneAction.png"
                         },
                         "subtype": "melee"
@@ -194,7 +257,9 @@
                         "type": "offensive_action",
                         "text": "The mimic assumes the shape of any Medium object. This doesn't change the mimic's texture or overall size but can alter its coloration and visual appearance. It has an automatic result of 28 on Deception checks and DCs to pass as the object that it's mimicking.",
                         "action": {
-                            "action": "Single Action",
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
                             "image": "OneAction.png"
                         },
                         "traits": [
@@ -203,6 +268,9 @@
                                 "subtype": "trait",
                                 "name": "concentrate",
                                 "link": {
+                                    "type": "link",
+                                    "name": "concentrate",
+                                    "alt": "concentrate",
                                     "game-obj": "Traits",
                                     "aonid": "32"
                                 }
@@ -212,6 +280,9 @@
                                 "subtype": "trait",
                                 "name": "polymorph",
                                 "link": {
+                                    "type": "link",
+                                    "name": "polymorph",
+                                    "alt": "polymorph",
                                     "game-obj": "Traits",
                                     "aonid": "127"
                                 }
@@ -224,11 +295,14 @@
         {
             "name": "Mimic",
             "type": "section",
-            "sections": [],
             "text": "Thought to be the result of a failed experiment meant to animate objects or a sinister alghollthu creation, mimics are clever monsters that can take the form of common manufactured objects. Mimics are ambush predators and voracious eaters, surprising their prey through their uncanny ability to mimic the form of common furniture and miscellany. They remain disguised until unsuspecting adventurers happen by, then they lash out in ambush.<br/><br/> Mimics possess complex alien minds, and while often cruel and self-serving, they also enjoy conversation with their prey from time to time. For unknown reasons, they are especially interested in humanoids. Mimics have a strong dislike for others of their kind and tend to live alone. A mimic can remain in its alternate form for an extremely long period of time, sometimes remaining disguised in a dungeon chamber for decades. Regardless of how long it waits, the mimic remains vigilant and alert, ready to strike at any moment.<br/><br/><b><u><a aonid=\"5\" game-obj=\"Skills\" general=\"true\">Recall Knowledge - Aberration</a></u> (<u><a aonid=\"11\" game-obj=\"Skills\">Occultism</a></u>)</b>: DC 19",
             "source": {
+                "type": "source",
                 "name": "Bestiary",
                 "link": {
+                    "type": "link",
+                    "name": "Bestiary pg. 236",
+                    "alt": "Bestiary pg. 236",
                     "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
                 },
                 "page": 236
@@ -236,8 +310,12 @@
         }
     ],
     "source": {
+        "type": "source",
         "name": "Bestiary",
         "link": {
+            "type": "link",
+            "name": "Bestiary pg. 236",
+            "alt": "Bestiary pg. 236",
             "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
         },
         "page": 236

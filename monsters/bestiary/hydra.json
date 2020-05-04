@@ -9,11 +9,14 @@
                 {
                     "name": "Variant Hydras",
                     "type": "sidebar",
-                    "sections": [],
                     "text": "Scholars of bestial lore can describe several hydra variations. Though rare, hydras with more than five heads live in very isolated areas, sometimes guarding incredibly powerful artifacts. Explorers who have visited colder swamps and frozen glaciers tell tales of hydras with blue-tinged scales that are immune to the cold and can exhale clouds of icy death. Similar stories describe fiery hydras that breathe gouts of flame and swim in the molten lava of active volcanoes.",
                     "source": {
+                        "type": "source",
                         "name": "Bestiary",
                         "link": {
+                            "type": "link",
+                            "name": "Bestiary pg. 210",
+                            "alt": "Bestiary pg. 210",
                             "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
                         },
                         "page": 210
@@ -46,30 +49,45 @@
                     "type": "stat_block_element",
                     "subtype": "trait",
                     "link": {
+                        "type": "link",
+                        "name": "Beast",
+                        "alt": "Beast",
                         "game-obj": "Traits",
                         "aonid": "20"
                     }
                 }
             ],
             "image": {
-                "link": {
-                    "href": "Hydra.png"
-                }
+                "type": "image",
+                "name": "Hydra",
+                "game-obj": "Monster",
+                "image": "Hydra.png"
             },
             "source": {
+                "type": "source",
                 "name": "Bestiary",
                 "link": {
+                    "type": "link",
+                    "name": "Bestiary pg. 210",
+                    "alt": "Bestiary pg. 210",
                     "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
                 },
                 "page": 210
             },
             "perception": {
+                "type": "stat_block_section",
+                "subtype": "perception",
+                "name": "perception",
                 "value": 17,
                 "special_senses": [
                     {
+                        "type": "stat_block_element",
+                        "subtype": "special_sense",
                         "name": "low-light vision"
                     },
                     {
+                        "type": "stat_block_element",
+                        "subtype": "special_sense",
                         "name": "scent (imprecise) 30 feet"
                     }
                 ]
@@ -80,6 +98,9 @@
                     "subtype": "skill",
                     "name": "Athletics",
                     "link": {
+                        "type": "link",
+                        "name": "Athletics",
+                        "alt": "Athletics",
                         "game-obj": "Skills",
                         "aonid": "3"
                     },
@@ -90,11 +111,20 @@
                     "subtype": "skill",
                     "name": "Stealth",
                     "link": {
+                        "type": "link",
+                        "name": "Stealth",
+                        "alt": "Stealth",
                         "game-obj": "Skills",
                         "aonid": "15"
                     },
                     "value": 12,
-                    "modifier": "+15 in water"
+                    "modifiers": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "+15 in water"
+                        }
+                    ]
                 }
             ],
             "str": 7,
@@ -104,26 +134,41 @@
             "wis": 2,
             "cha": -1,
             "defense": {
+                "type": "stat_block_section",
+                "subtype": "defense",
+                "name": "Defense",
                 "ac": {
                     "type": "stat_block_element",
                     "subtype": "armor_class",
+                    "name": "AC",
                     "value": 23,
                     "modifiers": [
-                        "all-around vision"
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "all-around vision"
+                        }
                     ]
                 },
                 "saves": {
                     "type": "stat_block_element",
                     "subtype": "saves",
+                    "name": "Saves",
                     "fort": {
+                        "type": "stat_block_section",
+                        "subtype": "save",
                         "name": "Fort",
                         "value": 15
                     },
                     "ref": {
+                        "type": "stat_block_section",
+                        "subtype": "save",
                         "name": "Ref",
                         "value": 12
                     },
                     "will": {
+                        "type": "stat_block_section",
+                        "subtype": "save",
                         "name": "Will",
                         "value": 10
                     }
@@ -131,28 +176,60 @@
                 "hp": {
                     "type": "stat_block_element",
                     "subtype": "hitpoints",
+                    "name": "HP",
                     "value": 90,
-                    "special": [
-                        "90 (body)",
-                        "hydra regeneration",
-                        "15 (head)",
-                        "head regrowth"
+                    "automatic_abilities": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "ability",
+                            "name": "90 (body)",
+                            "ability_type": "automatic"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "ability",
+                            "name": "hydra regeneration",
+                            "ability_type": "automatic"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "ability",
+                            "name": "15 (head)",
+                            "ability_type": "automatic"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "ability",
+                            "name": "head regrowth",
+                            "ability_type": "automatic"
+                        }
                     ]
                 }
             },
             "immunities": [
-                "area damage"
+                {
+                    "type": "stat_block_section",
+                    "subtype": "immunity",
+                    "name": "area damage"
+                }
             ],
             "weaknesses": [
-                "slashing 5"
+                {
+                    "type": "stat_block_section",
+                    "subtype": "weakness",
+                    "name": "slashing 5"
+                }
             ],
             "reactive_abilities": [
                 {
                     "type": "stat_block_element",
-                    "subtype": "reactive_ability",
+                    "subtype": "ability",
+                    "ability_type": "reactive",
                     "name": "Attack of Opportunity",
                     "action": {
-                        "action": "Reaction",
+                        "type": "stat_block_section",
+                        "subtype": "action",
+                        "name": "Reaction",
                         "image": "Reaction.png"
                     }
                 }
@@ -160,30 +237,45 @@
             "automatic_abilities": [
                 {
                     "type": "stat_block_element",
-                    "subtype": "automatic_ability",
+                    "subtype": "ability",
+                    "ability_type": "automatic",
                     "name": "Head Regrowth",
                     "text": "A hydra ordinarily has five heads. A creature can attempt to sever one of the hydra\u2019s heads by specifically targeting it and dealing damage equal to the head\u2019s Hit Points. A head that is not completely severed returns to full Hit Points at the end of any creature\u2019s turn."
                 },
                 {
                     "type": "stat_block_element",
-                    "subtype": "automatic_ability",
+                    "subtype": "ability",
+                    "ability_type": "automatic",
                     "name": "Hydra Regeneration",
                     "text": "A hydra can regrow a severed head using Hydra Regeneration. A creature can prevent this regrowth by dealing acid or fire damage to the stump, cauterizing it. Single-target acid or fire effects need to be targeted at a specific stump, but effects that deal splash damage or affect areas covering the hydra\u2019s whole space cauterize all stumps if they deal acid or fire damage. If the attack that severs a head deals any acid or fire damage, the stump is cauterized instantly. If all five heads are cauterized, the hydra dies. The hydra has regeneration equal to 3 x the number of heads it has. If a hydra\u2019s body is missing any heads and the remaining stumps have not been cauterized, the hydra attempts a DC 25 Fortitude save after it regains Hit Points from regeneration. On a success, one uncauterized stump regrows two heads; on a critical success, two uncauterized stumps regrow into two heads each. The hydra can never grow more than double the number of heads it ordinarily has. The hydra\u2019s regeneration only fully deactivates if all its heads are severed and all stumps are cauterized, at which point it dies."
                 },
                 {
                     "type": "stat_block_element",
-                    "subtype": "automatic_ability",
+                    "subtype": "ability",
+                    "ability_type": "automatic",
                     "name": "Multiple Opportunities",
                     "text": "A hydra gains an extra reaction per round for each of its heads beyond the first, which it can use only to make Attacks of Opportunity. It can\u2019t use more than 1 reaction on the same triggering action, even if a creature leaves several squares within its reach, and the hydra must use a different head for each Attack of Opportunity it makes. Whenever one of the hydra\u2019s heads is severed, the hydra loses 1 of its extra reactions per round."
                 }
             ],
             "offense": {
+                "type": "stat_block_section",
+                "subtype": "offense",
+                "name": "Offense",
                 "speed": {
                     "type": "stat_block_element",
                     "subtype": "speed",
-                    "movements": [
-                        "25 feet",
-                        "swim 25 feet"
+                    "name": "Speed",
+                    "movement": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "speed",
+                            "name": "25 feet"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "speed",
+                            "name": "swim 25 feet"
+                        }
                     ]
                 },
                 "offensive_actions": [
@@ -192,7 +284,9 @@
                         "type": "offensive_action",
                         "text": "fangs +16 (<a aonid=\"192\" game-obj=\"Traits\"><u>reach 10 feet</u></a>), <b>Damage</b> 2d6+7 piercing",
                         "action": {
-                            "action": "Single Action",
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
                             "image": "OneAction.png"
                         },
                         "subtype": "melee"
@@ -202,7 +296,9 @@
                         "type": "offensive_action",
                         "text": "The hydra attacks a single target with its heads, overwhelming its foe with multiple attacks and leaving almost nowhere to dodge. The hydra Strikes with its fangs. On a successful attack, the hydra deals damage from its fangs Strike to the target, plus an additional 1d6 damage for every head it has beyond the first. Even on a failed attack, the hydra deals the damage from one fangs Strike to the target creature, though it still misses completely on a critical failure. This counts toward the hydra\u2019s multiple attack penalty as a number of attacks equal to the number of heads the hydra has.",
                         "action": {
-                            "action": "Two Actions",
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
                             "image": "TwoActions.png"
                         }
                     },
@@ -211,7 +307,9 @@
                         "type": "offensive_action",
                         "text": "The hydra makes a number of Strikes up to its number of heads, each against a different target. These attacks count toward the hydra\u2019s multiple attack penalty, but the multiple attack penalty doesn\u2019t increase until after the hydra makes all its attacks.",
                         "action": {
-                            "action": "Two Actions",
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
                             "image": "TwoActions.png"
                         }
                     }
@@ -221,11 +319,14 @@
         {
             "name": "Hydra",
             "type": "section",
-            "sections": [],
             "text": "Hydras are multiheaded, foul-tempered serpentine beasts with voracious appetites, widely feared for their regeneration abilities.<br/><br/><b><u><a aonid=\"5\" game-obj=\"Skills\" general=\"true\">Recall Knowledge - Beast</a></u> (<u><a aonid=\"2\" game-obj=\"Skills\">Arcana</a></u>, <u><a aonid=\"10\" game-obj=\"Skills\">Nature</a></u>)</b>: DC 22",
             "source": {
+                "type": "source",
                 "name": "Bestiary",
                 "link": {
+                    "type": "link",
+                    "name": "Bestiary pg. 210",
+                    "alt": "Bestiary pg. 210",
                     "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
                 },
                 "page": 210
@@ -233,8 +334,12 @@
         }
     ],
     "source": {
+        "type": "source",
         "name": "Bestiary",
         "link": {
+            "type": "link",
+            "name": "Bestiary pg. 210",
+            "alt": "Bestiary pg. 210",
             "href": "https://paizo.com/products/btq01y0m?Pathfinder-Bestiary"
         },
         "page": 210
