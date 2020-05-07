@@ -106,14 +106,14 @@
                 "value": 32,
                 "special_senses": [
                     {
-                        "type": "stat_block_element",
+                        "type": "stat_block_section",
                         "subtype": "special_sense",
                         "name": "darkvision"
                     },
                     {
-                        "name": "detect magic",
-                        "type": "stat_block_element",
+                        "type": "stat_block_section",
                         "subtype": "special_sense",
+                        "name": "detect magic",
                         "link": {
                             "type": "link",
                             "name": "detect magic",
@@ -123,14 +123,14 @@
                         }
                     },
                     {
-                        "type": "stat_block_element",
+                        "type": "stat_block_section",
                         "subtype": "special_sense",
                         "name": "painsight"
                     },
                     {
-                        "name": "true seeing",
-                        "type": "stat_block_element",
+                        "type": "stat_block_section",
                         "subtype": "special_sense",
+                        "name": "true seeing",
                         "link": {
                             "type": "link",
                             "name": "true seeing",
@@ -141,53 +141,58 @@
                     }
                 ]
             },
-            "language": [
-                {
-                    "name": "Common",
-                    "type": "stat_block_element",
-                    "subtype": "language",
-                    "link": [
-                        "Common",
-                        {
-                            "type": "link",
-                            "name": "Common",
-                            "alt": "Common",
-                            "game-obj": "Languages",
-                            "aonid": "1"
-                        }
-                    ]
-                },
-                {
-                    "name": "Infernal",
-                    "type": "stat_block_element",
-                    "subtype": "language",
-                    "link": [
-                        "Infernal",
-                        {
-                            "type": "link",
-                            "name": "Infernal",
-                            "alt": "Infernal",
-                            "game-obj": "Languages",
-                            "aonid": "19"
-                        }
-                    ]
-                },
-                {
-                    "name": "Shadowtongue",
-                    "type": "stat_block_element",
-                    "subtype": "language",
-                    "link": [
-                        "Shadowtongue",
-                        {
-                            "type": "link",
-                            "name": "Shadowtongue",
-                            "alt": "Shadowtongue",
-                            "game-obj": "Languages",
-                            "aonid": "21"
-                        }
-                    ]
-                }
-            ],
+            "languages": {
+                "type": "stat_block_element",
+                "subtype": "languages",
+                "name": "Languages",
+                "languages": [
+                    {
+                        "name": "Common",
+                        "type": "stat_block_element",
+                        "subtype": "language",
+                        "link": [
+                            "Common",
+                            {
+                                "type": "link",
+                                "name": "Common",
+                                "alt": "Common",
+                                "game-obj": "Languages",
+                                "aonid": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Infernal",
+                        "type": "stat_block_element",
+                        "subtype": "language",
+                        "link": [
+                            "Infernal",
+                            {
+                                "type": "link",
+                                "name": "Infernal",
+                                "alt": "Infernal",
+                                "game-obj": "Languages",
+                                "aonid": "19"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Shadowtongue",
+                        "type": "stat_block_element",
+                        "subtype": "language",
+                        "link": [
+                            "Shadowtongue",
+                            {
+                                "type": "link",
+                                "name": "Shadowtongue",
+                                "alt": "Shadowtongue",
+                                "game-obj": "Languages",
+                                "aonid": "21"
+                            }
+                        ]
+                    }
+                ]
+            },
             "skills": [
                 {
                     "type": "stat_block_element",
@@ -396,31 +401,51 @@
                         {
                             "type": "stat_block_section",
                             "subtype": "ability",
-                            "name": "regeneration 25 (deactivated by good or silver)",
-                            "ability_type": "automatic"
+                            "name": "regeneration",
+                            "ability_type": "automatic",
+                            "modifiers": [
+                                {
+                                    "type": "stat_block_section",
+                                    "subtype": "modifier",
+                                    "name": "deactivated by good or silver"
+                                }
+                            ],
+                            "value": 25
                         }
                     ]
                 }
             },
-            "immunities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "immunity",
-                    "name": "cold"
-                }
-            ],
-            "weaknesses": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "weakness",
-                    "name": "good 20"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "weakness",
-                    "name": "silver 20"
-                }
-            ],
+            "immunities": {
+                "type": "stat_block_section",
+                "subtype": "immunities",
+                "name": "Immunities",
+                "immunities": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "immunity",
+                        "name": "cold"
+                    }
+                ]
+            },
+            "weaknesses": {
+                "type": "stat_block_section",
+                "subtype": "weaknesses",
+                "name": "Weaknesses",
+                "weaknesses": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "weakness",
+                        "name": "good",
+                        "value": 20
+                    },
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "weakness",
+                        "name": "silver",
+                        "value": 20
+                    }
+                ]
+            },
             "automatic_abilities": [
                 {
                     "type": "stat_block_element",
@@ -509,7 +534,21 @@
                         {
                             "type": "stat_block_section",
                             "subtype": "speed",
-                            "name": "fly 30 feet (from <i><a aonid=\"125\" game-obj=\"Spells\">fly</a></i>)"
+                            "name": "fly 30 feet",
+                            "modifiers": [
+                                {
+                                    "type": "stat_block_section",
+                                    "subtype": "modifier",
+                                    "name": "from fly",
+                                    "link": {
+                                        "type": "link",
+                                        "name": "fly",
+                                        "alt": "fly",
+                                        "game-obj": "Spells",
+                                        "aonid": "125"
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },

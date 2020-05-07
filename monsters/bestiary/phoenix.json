@@ -109,14 +109,14 @@
                 "value": 27,
                 "special_senses": [
                     {
-                        "type": "stat_block_element",
+                        "type": "stat_block_section",
                         "subtype": "special_sense",
                         "name": "darkvision"
                     },
                     {
-                        "name": "detect magic",
-                        "type": "stat_block_element",
+                        "type": "stat_block_section",
                         "subtype": "special_sense",
+                        "name": "detect magic",
                         "link": {
                             "type": "link",
                             "name": "detect magic",
@@ -126,9 +126,9 @@
                         }
                     },
                     {
-                        "name": "see invisibility",
-                        "type": "stat_block_element",
+                        "type": "stat_block_section",
                         "subtype": "special_sense",
+                        "name": "see invisibility",
                         "link": {
                             "type": "link",
                             "name": "see invisibility",
@@ -139,68 +139,73 @@
                     }
                 ]
             },
-            "language": [
-                {
-                    "name": "Auran",
-                    "type": "stat_block_element",
-                    "subtype": "language",
-                    "link": [
-                        "Auran",
-                        {
-                            "type": "link",
-                            "name": "Auran",
-                            "alt": "Auran",
-                            "game-obj": "Languages",
-                            "aonid": "15"
-                        }
-                    ]
-                },
-                {
-                    "name": "Celestial",
-                    "type": "stat_block_element",
-                    "subtype": "language",
-                    "link": [
-                        "Celestial",
-                        {
-                            "type": "link",
-                            "name": "Celestial",
-                            "alt": "Celestial",
-                            "game-obj": "Languages",
-                            "aonid": "16"
-                        }
-                    ]
-                },
-                {
-                    "name": "Common",
-                    "type": "stat_block_element",
-                    "subtype": "language",
-                    "link": [
-                        "Common",
-                        {
-                            "type": "link",
-                            "name": "Common",
-                            "alt": "Common",
-                            "game-obj": "Languages",
-                            "aonid": "1"
-                        }
-                    ]
-                },
-                {
-                    "name": "Ignan",
-                    "type": "stat_block_element",
-                    "subtype": "language",
-                    "link": [
-                        "Ignan",
-                        {
-                            "type": "link",
-                            "name": "Ignan",
-                            "alt": "Ignan",
-                            "game-obj": "Languages",
-                            "aonid": "18"
-                        }
-                    ]
-                }
-            ],
+            "languages": {
+                "type": "stat_block_element",
+                "subtype": "languages",
+                "name": "Languages",
+                "languages": [
+                    {
+                        "name": "Auran",
+                        "type": "stat_block_element",
+                        "subtype": "language",
+                        "link": [
+                            "Auran",
+                            {
+                                "type": "link",
+                                "name": "Auran",
+                                "alt": "Auran",
+                                "game-obj": "Languages",
+                                "aonid": "15"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Celestial",
+                        "type": "stat_block_element",
+                        "subtype": "language",
+                        "link": [
+                            "Celestial",
+                            {
+                                "type": "link",
+                                "name": "Celestial",
+                                "alt": "Celestial",
+                                "game-obj": "Languages",
+                                "aonid": "16"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Common",
+                        "type": "stat_block_element",
+                        "subtype": "language",
+                        "link": [
+                            "Common",
+                            {
+                                "type": "link",
+                                "name": "Common",
+                                "alt": "Common",
+                                "game-obj": "Languages",
+                                "aonid": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Ignan",
+                        "type": "stat_block_element",
+                        "subtype": "language",
+                        "link": [
+                            "Ignan",
+                            {
+                                "type": "link",
+                                "name": "Ignan",
+                                "alt": "Ignan",
+                                "game-obj": "Languages",
+                                "aonid": "18"
+                            }
+                        ]
+                    }
+                ]
+            },
             "skills": [
                 {
                     "type": "stat_block_element",
@@ -323,8 +328,16 @@
                         {
                             "type": "stat_block_section",
                             "subtype": "ability",
-                            "name": "regeneration 20 (deactivated by cold or evil)",
-                            "ability_type": "automatic"
+                            "name": "regeneration",
+                            "ability_type": "automatic",
+                            "modifiers": [
+                                {
+                                    "type": "stat_block_section",
+                                    "subtype": "modifier",
+                                    "name": "deactivated by cold or evil"
+                                }
+                            ],
+                            "value": 20
                         },
                         {
                             "type": "stat_block_section",
@@ -335,25 +348,37 @@
                     ]
                 }
             },
-            "immunities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "immunity",
-                    "name": "fire"
-                }
-            ],
-            "weaknesses": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "weakness",
-                    "name": "cold 10"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "weakness",
-                    "name": "evil 10"
-                }
-            ],
+            "immunities": {
+                "type": "stat_block_section",
+                "subtype": "immunities",
+                "name": "Immunities",
+                "immunities": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "immunity",
+                        "name": "fire"
+                    }
+                ]
+            },
+            "weaknesses": {
+                "type": "stat_block_section",
+                "subtype": "weaknesses",
+                "name": "Weaknesses",
+                "weaknesses": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "weakness",
+                        "name": "cold",
+                        "value": 10
+                    },
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "weakness",
+                        "name": "evil",
+                        "value": 10
+                    }
+                ]
+            },
             "automatic_abilities": [
                 {
                     "type": "stat_block_element",
