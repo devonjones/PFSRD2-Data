@@ -749,13 +749,26 @@
                             27
                         ]
                     },
-                    "damage": {
-                        "type": "stat_block_section",
-                        "subtype": "attack_damage",
-                        "formula": "2d12+14",
-                        "damage_type": "slashing",
-                        "damage_notes": "plus 2d6 fire and 2d6 evil"
-                    },
+                    "damage": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "attack_damage",
+                            "formula": "2d12+14",
+                            "damage_type": "slashing"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "attack_damage",
+                            "formula": "2d6",
+                            "damage_type": "fire"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "attack_damage",
+                            "formula": "2d6",
+                            "damage_type": "evil"
+                        }
+                    ],
                     "traits": [
                         {
                             "type": "stat_block_section",
@@ -852,13 +865,37 @@
                             25
                         ]
                     },
-                    "damage": {
-                        "type": "stat_block_section",
-                        "subtype": "attack_damage",
-                        "formula": "4d8",
-                        "damage_type": "fire",
-                        "damage_notes": "plus 2d6 <a aonid=\"29\" game-obj=\"Conditions\">persistent fire</a> plus 8 fire splash"
-                    },
+                    "damage": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "attack_damage",
+                            "formula": "4d8",
+                            "damage_type": "fire"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "attack_damage",
+                            "formula": "2d6",
+                            "links": [
+                                {
+                                    "type": "link",
+                                    "name": "persistent fire",
+                                    "alt": "persistent fire",
+                                    "game-obj": "Conditions",
+                                    "aonid": 29
+                                }
+                            ],
+                            "persistent": true,
+                            "damage_type": "fire"
+                        },
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "attack_damage",
+                            "formula": "8",
+                            "splash": true,
+                            "damage_type": "fire"
+                        }
+                    ],
                     "traits": [
                         {
                             "type": "stat_block_section",
