@@ -796,7 +796,7 @@
                 {
                     "name": "Dream Haunting",
                     "type": "stat_block_section",
-                    "text": "A target that fails its save against the wendigo\u2019s <spells><i>nightmare</i> is exposed to wendigo torment.</spells>",
+                    "text": "A target that fails its save against the wendigo\u2019s <a aonid=\"208\" game-obj=\"Spells\"><i>nightmare</i></a> is exposed to wendigo torment.",
                     "subtype": "offensive_action"
                 },
                 {
@@ -904,7 +904,7 @@
                 {
                     "name": "Ride the Wind",
                     "type": "stat_block_section",
-                    "text": "<b>Trigger</b> The wendigo casts <spells><i>wind walk</i> while it has Grabbed a foe. <b>Effect</b> The wendigo attempts to turn the grabbed creature into wind and carry it along as part of the action. If the target succeeds at a DC 38 Will save, it prevents itself from being transformed; in this case, the wendigo still transforms, automatically releasing the victim. A creature forced to Ride the Wind along with the wendigo is exposed to wendigo torment. The target can attempt a new Will save each round to return to normal, though it immediately becomes corporeal and begins falling if it succeeds.</spells>",
+                    "text": "<b>Trigger</b> The wendigo casts <a aonid=\"376\" game-obj=\"Spells\"><i>wind walk</i></a> while it has Grabbed a foe. <b>Effect</b> The wendigo attempts to turn the grabbed creature into wind and carry it along as part of the action. If the target succeeds at a DC 38 Will save, it prevents itself from being transformed; in this case, the wendigo still transforms, automatically releasing the victim. A creature forced to Ride the Wind along with the wendigo is exposed to wendigo torment. The target can attempt a new Will save each round to return to normal, though it immediately becomes corporeal and begins falling if it succeeds.",
                     "subtype": "offensive_action",
                     "action": {
                         "type": "stat_block_section",
@@ -970,58 +970,78 @@
                 {
                     "name": "Wendigo Torment",
                     "type": "stat_block_section",
-                    "text": "A creature affected by wendigo torment can\u2019t recover beyond stage 1 until it has been restored to full HP. <b>Saving Throw</b> Will DC 38; <b>Stage 1</b> Stupefied 4 (1 day); <b>Stage 2</b> As stage 1 (1 day); <b>Stage 3</b> The creature searches for an individual of its own ancestry to kill and devour. It then becomes affected by <spells><i>wind walk</i> and sprints into the sky so fast that its feet burn away into jagged stumps. As the creature wind walks into the sky, it is replaced by a new wendigo over 2d6 minutes. Wish, similar magic, or a 9th-level resurrect ritual can return the victim to life. The new wendigo remains even if the victim is resurrected.</spells>",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "curse",
-                            "link": {
-                                "type": "link",
+                    "offensive_action_type": "affliction",
+                    "affliction": {
+                        "type": "stat_block_section",
+                        "subtype": "affliction",
+                        "name": "Wendigo Torment",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "curse",
-                                "alt": "curse",
-                                "game-obj": "Traits",
-                                "aonid": 38
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "enchantment",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "curse",
+                                    "alt": "curse",
+                                    "game-obj": "Traits",
+                                    "aonid": 38
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "enchantment",
-                                "alt": "enchantment",
-                                "game-obj": "Traits",
-                                "aonid": 61
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "mental",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "enchantment",
+                                    "alt": "enchantment",
+                                    "game-obj": "Traits",
+                                    "aonid": 61
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "mental",
-                                "alt": "mental",
-                                "game-obj": "Traits",
-                                "aonid": 106
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "primal",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "mental",
+                                    "alt": "mental",
+                                    "game-obj": "Traits",
+                                    "aonid": 106
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "primal",
-                                "alt": "primal",
-                                "game-obj": "Traits",
-                                "aonid": 134
+                                "link": {
+                                    "type": "link",
+                                    "name": "primal",
+                                    "alt": "primal",
+                                    "game-obj": "Traits",
+                                    "aonid": 134
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "wind walk",
+                                "alt": "wind walk",
+                                "game-obj": "Spells",
+                                "aonid": 376
+                            }
+                        ],
+                        "saving_throw": "A creature affected by wendigo torment can\u2019t recover beyond stage 1 until it has been restored to full HP.  Will DC 38",
+                        "stages": [
+                            "Stupefied 4 (1 day)",
+                            "As stage 1 (1 day)",
+                            "The creature searches for an individual of its own ancestry to kill and devour. It then becomes affected by wind walk and sprints into the sky so fast that its feet burn away into jagged stumps. As the creature wind walks into the sky, it is replaced by a new wendigo over 2d6 minutes. Wish, similar magic, or a 9th-level resurrect ritual can return the victim to life. The new wendigo remains even if the victim is resurrected."
+                        ]
+                    }
                 }
             ]
         }
