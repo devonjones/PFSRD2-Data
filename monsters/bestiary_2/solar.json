@@ -396,13 +396,15 @@
                     "subtype": "ability",
                     "name": "tongues",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "tongues",
-                        "alt": "tongues",
-                        "game-obj": "Spells",
-                        "aonid": 340
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "tongues",
+                            "alt": "tongues",
+                            "game-obj": "Spells",
+                            "aonid": 340
+                        }
+                    ]
                 }
             ]
         },
@@ -1446,122 +1448,174 @@
                 {
                     "name": "Animate Weapon",
                     "type": "stat_block_section",
-                    "text": "<b>Trigger</b> The solar hits with a melee weapon Strike while Animate Weapon is not already in effect; <b>Effect </b>The solar's weapon leaps into the air and moves with the solar as if held with both hands. The weapon gains the effects of the <a aonid=\"293\" game-obj=\"Equipment\">dancing</a> weapon rune for 1 minute.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Reaction",
-                        "image": {
-                            "type": "image",
+                        "subtype": "ability",
+                        "name": "Animate Weapon",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
                             "name": "Reaction",
-                            "image": "Reaction.png"
-                        }
+                            "image": {
+                                "type": "image",
+                                "name": "Reaction",
+                                "image": "Reaction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "dancing",
+                                "alt": "dancing",
+                                "game-obj": "Equipment",
+                                "aonid": 293
+                            }
+                        ],
+                        "trigger": " The solar hits with a melee weapon Strike while Animate Weapon is not already in effect; ",
+                        "effect": "The solar's weapon leaps into the air and moves with the solar as if held with both hands. The weapon gains the effects of the dancing weapon rune for 1 minute."
                     }
                 },
                 {
                     "name": "Arrow of Mortality",
                     "type": "stat_block_section",
-                    "text": "The solar doesn't need to provide ammunition for their bow. When they draw their bow, they create a magical arrow of light that sheds bright light in a 20-foot radius until the end of the solar's next turn. On a critical hit with the arrow, if the target has 75 or fewer Hit Points after taking the damage, it drops to 0 Hit Points and becomes <a aonid=\"11\" game-obj=\"Conditions\">dying 1</a> (or, if it was already dying, increases its dying value by 3).",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Arrow of Mortality",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "dying 1",
+                                "alt": "dying 1",
+                                "game-obj": "Conditions",
+                                "aonid": 11
+                            }
+                        ],
+                        "text": "The solar doesn't need to provide ammunition for their bow. When they draw their bow, they create a magical arrow of light that sheds bright light in a 20-foot radius until the end of the solar's next turn. On a critical hit with the arrow, if the target has 75 or fewer Hit Points after taking the damage, it drops to 0 Hit Points and becomes dying 1 (or, if it was already dying, increases its dying value by 3)."
+                    }
                 },
                 {
                     "name": "Change Shape",
                     "type": "stat_block_section",
-                    "text": "The solar can take on the appearance of any Small or Medium humanoid. This doesn't change their Speed or Strikes.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Change Shape",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "concentrate",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "concentrate",
-                                "alt": "concentrate",
-                                "game-obj": "Traits",
-                                "aonid": 32
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "concentrate",
+                                    "alt": "concentrate",
+                                    "game-obj": "Traits",
+                                    "aonid": 32
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "polymorph",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "polymorph",
-                                "alt": "polymorph",
-                                "game-obj": "Traits",
-                                "aonid": 127
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "transmutation",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "polymorph",
+                                    "alt": "polymorph",
+                                    "game-obj": "Traits",
+                                    "aonid": 127
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "transmutation",
-                                "alt": "transmutation",
-                                "game-obj": "Traits",
-                                "aonid": 157
+                                "link": {
+                                    "type": "link",
+                                    "name": "transmutation",
+                                    "alt": "transmutation",
+                                    "game-obj": "Traits",
+                                    "aonid": 157
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "text": "The solar can take on the appearance of any Small or Medium humanoid. This doesn't change their Speed or Strikes."
+                    }
                 },
                 {
                     "name": "Holy Armaments",
                     "type": "stat_block_section",
-                    "text": "Any weapon gains the effect of a <a aonid=\"299\" game-obj=\"Equipment\">holy</a> property rune while a solar wields it.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Holy Armaments",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "evocation",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "evocation",
-                                "alt": "evocation",
-                                "game-obj": "Traits",
-                                "aonid": 65
+                                "link": {
+                                    "type": "link",
+                                    "name": "evocation",
+                                    "alt": "evocation",
+                                    "game-obj": "Traits",
+                                    "aonid": 65
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "holy",
+                                "alt": "holy",
+                                "game-obj": "Equipment",
+                                "aonid": 299
+                            }
+                        ],
+                        "text": "Any weapon gains the effect of a holy property rune while a solar wields it."
+                    }
                 }
             ]
         }

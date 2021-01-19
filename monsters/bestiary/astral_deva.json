@@ -336,13 +336,15 @@
                     "subtype": "ability",
                     "name": "tongues",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "tongues",
-                        "alt": "tongues",
-                        "game-obj": "Spells",
-                        "aonid": 340
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "tongues",
+                            "alt": "tongues",
+                            "game-obj": "Spells",
+                            "aonid": 340
+                        }
+                    ]
                 }
             ]
         },
@@ -975,49 +977,87 @@
                 {
                     "name": "Divine Armament",
                     "type": "stat_block_section",
-                    "text": "Any weapon gains the effect of a <a aonid=\"299\" game-obj=\"Equipment\">holy</a> property rune while an astral deva wields it.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Divine Armament",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "evocation",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "evocation",
-                                "alt": "evocation",
-                                "game-obj": "Traits",
-                                "aonid": 65
+                                "link": {
+                                    "type": "link",
+                                    "name": "evocation",
+                                    "alt": "evocation",
+                                    "game-obj": "Traits",
+                                    "aonid": 65
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "holy",
+                                "alt": "holy",
+                                "game-obj": "Equipment",
+                                "aonid": 299
+                            }
+                        ],
+                        "text": "Any weapon gains the effect of a holy property rune while an astral deva wields it."
+                    }
                 },
                 {
                     "name": "Stunning Strike",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The astral deva hit a foe earlier this turn with a weapon Strike. <b>Effect</b> The astral deva makes a weapon Strike against the foe. On a success, the foe must succeed at a DC 34 Fortitude save or become <a aonid=\"36\" game-obj=\"Conditions\">stunned 1</a>. On a critical failure, the foe is <a aonid=\"36\" game-obj=\"Conditions\">stunned 2</a> instead.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Stunning Strike",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "stunned 1",
+                                "alt": "stunned 1",
+                                "game-obj": "Conditions",
+                                "aonid": 36
+                            },
+                            {
+                                "type": "link",
+                                "name": "stunned 2",
+                                "alt": "stunned 2",
+                                "game-obj": "Conditions",
+                                "aonid": 36
+                            }
+                        ],
+                        "requirement": " The astral deva hit a foe earlier this turn with a weapon Strike. ",
+                        "effect": " The astral deva makes a weapon Strike against the foe. On a success, the foe must succeed at a DC 34 Fortitude save or become stunned 1. On a critical failure, the foe is stunned 2 instead."
                     }
                 }
             ]

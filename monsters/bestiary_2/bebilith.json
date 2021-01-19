@@ -214,13 +214,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -352,13 +354,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ]
             }
         ],
         "offense": {
@@ -652,46 +656,119 @@
                 {
                     "name": "Abyssal Rot",
                     "type": "stat_block_section",
-                    "text": "The <a aonid=\"10\" game-obj=\"Conditions\">drained</a> condition from Abyssal rot is cumulative, to a maximum of drained 4; <b>Saving Throw </b>DC 29 Fortitude; <b>Maximum Duration </b>6 rounds; <b>Stage 1 </b>3d6 negative damage (1 round); <b>Stage 2 </b>3d6 negative damage and drained 1 (1 round); <b>Stage 3 </b>3d6 negative damage and drained 2 (1 round)",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "disease",
-                            "link": {
-                                "type": "link",
+                    "offensive_action_type": "affliction",
+                    "affliction": {
+                        "type": "stat_block_section",
+                        "subtype": "affliction",
+                        "name": "Abyssal Rot",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "disease",
-                                "alt": "disease",
-                                "game-obj": "Traits",
-                                "aonid": 46
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "disease",
+                                    "alt": "disease",
+                                    "game-obj": "Traits",
+                                    "aonid": 46
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "drained",
+                                "alt": "drained",
+                                "game-obj": "Conditions",
+                                "aonid": 10
+                            }
+                        ],
+                        "text": "The drained condition from Abyssal rot is cumulative, to a maximum of drained 4",
+                        "saving_throw": "DC 29 Fortitude",
+                        "maximum_duration": "6 rounds",
+                        "stages": [
+                            "3d6 negative damage (1 round)",
+                            "3d6 negative damage and drained 1 (1 round)",
+                            "3d6 negative damage and drained 2 (1 round)"
+                        ]
+                    }
                 },
                 {
                     "name": "Dimensional Tether",
                     "type": "stat_block_section",
-                    "text": "A creature hit by the bebilith's web Strike is <a aonid=\"33\" game-obj=\"Conditions\">restrained</a> and tethered to the bebilith, preventing it from moving further away from the bebilith. The restrained creature is also under the effects of a <a aonid=\"70\" game-obj=\"Spells\"><i>dimensional anchor</i></a> spell (DC 29) with a duration that lasts as long as the creature remains tethered. The bebilith can have only one creature tethered at a time. The DC to <a aonid=\"79\" game-obj=\"Actions\">Escape</a> or <a aonid=\"34\" game-obj=\"Actions\">Force Open</a> the tether is 29. The tether can be severed with a Strike (AC 20, Hardness 2, HP 20); this ends the dimensional anchor effect but does not free the restrained creature.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Dimensional Tether",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "restrained",
+                                "alt": "restrained",
+                                "game-obj": "Conditions",
+                                "aonid": 33
+                            },
+                            {
+                                "type": "link",
+                                "name": "dimensional anchor",
+                                "alt": "dimensional anchor",
+                                "game-obj": "Spells",
+                                "aonid": 70
+                            },
+                            {
+                                "type": "link",
+                                "name": "Escape",
+                                "alt": "Escape",
+                                "game-obj": "Actions",
+                                "aonid": 79
+                            },
+                            {
+                                "type": "link",
+                                "name": "Force Open",
+                                "alt": "Force Open",
+                                "game-obj": "Actions",
+                                "aonid": 34
+                            }
+                        ],
+                        "text": "A creature hit by the bebilith's web Strike is restrained and tethered to the bebilith, preventing it from moving further away from the bebilith. The restrained creature is also under the effects of a <i>dimensional anchor</i> spell (DC 29) with a duration that lasts as long as the creature remains tethered. The bebilith can have only one creature tethered at a time. The DC to Escape or Force Open the tether is 29. The tether can be severed with a Strike (AC 20, Hardness 2, HP 20); this ends the dimensional anchor effect but does not free the restrained creature."
+                    }
                 },
                 {
                     "name": "Penetrating Strike",
                     "type": "stat_block_section",
-                    "text": "Against demons, a bebilith's Strikes count as <a aonid=\"272\" game-obj=\"Equipment\">cold iron</a> and good.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Penetrating Strike",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "cold iron",
+                                "alt": "cold iron",
+                                "game-obj": "Equipment",
+                                "aonid": 272
+                            }
+                        ],
+                        "text": "Against demons, a bebilith's Strikes count as cold iron and good."
+                    }
                 }
             ]
         }

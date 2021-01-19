@@ -250,13 +250,15 @@
                     "subtype": "ability",
                     "name": "telepathy",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy",
-                        "alt": "telepathy",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy",
+                            "alt": "telepathy",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1102,142 +1104,193 @@
                 {
                     "name": "Blinding Stream",
                     "type": "stat_block_section",
-                    "text": "A creature hit by the Stabbing Beast's venom stream must succeed at a DC 33 Fortitude save or become <a aonid=\"1\" game-obj=\"Conditions\">blinded</a> for 1d4 rounds.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "poison",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Blinding Stream",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "poison",
-                                "alt": "poison",
-                                "game-obj": "Traits",
-                                "aonid": 126
+                                "link": {
+                                    "type": "link",
+                                    "name": "poison",
+                                    "alt": "poison",
+                                    "game-obj": "Traits",
+                                    "aonid": 126
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "blinded",
+                                "alt": "blinded",
+                                "game-obj": "Conditions",
+                                "aonid": 1
+                            }
+                        ],
+                        "text": "A creature hit by the Stabbing Beast's venom stream must succeed at a DC 33 Fortitude save or become blinded for 1d4 rounds."
+                    }
                 },
                 {
                     "name": "Change Shape",
                     "type": "stat_block_section",
-                    "text": "The Stabbing Beast takes on the appearance of a Medium humanoid with a scorpion's tail and chitinous, full-body plate armor. This doesn't change their Speed or Strikes, except that their reach becomes 5 feet and they can't make pincer Strikes.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Change Shape",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "concentrate",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "concentrate",
-                                "alt": "concentrate",
-                                "game-obj": "Traits",
-                                "aonid": 32
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "concentrate",
+                                    "alt": "concentrate",
+                                    "game-obj": "Traits",
+                                    "aonid": 32
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "polymorph",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "polymorph",
-                                "alt": "polymorph",
-                                "game-obj": "Traits",
-                                "aonid": 127
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "transmutation",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "polymorph",
+                                    "alt": "polymorph",
+                                    "game-obj": "Traits",
+                                    "aonid": 127
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "transmutation",
-                                "alt": "transmutation",
-                                "game-obj": "Traits",
-                                "aonid": 157
+                                "link": {
+                                    "type": "link",
+                                    "name": "transmutation",
+                                    "alt": "transmutation",
+                                    "game-obj": "Traits",
+                                    "aonid": 157
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "text": "The Stabbing Beast takes on the appearance of a Medium humanoid with a scorpion's tail and chitinous, full-body plate armor. This doesn't change their Speed or Strikes, except that their reach becomes 5 feet and they can't make pincer Strikes."
+                    }
                 },
                 {
                     "name": "Conjure Swords",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The Stabbing Beast is using Change Shape; <b>Effect</b> The Stabbing Beast summons one or two <i>+2 <a aonid=\"280\" game-obj=\"Equipment\">greater striking</a> <a aonid=\"300\" game-obj=\"Equipment\">keen</a> <a aonid=\"43\" game-obj=\"Weapons\">shortswords</a></i> into their hands. These weapons disappear if they leave the Stabbing Beast's grasp or if the Stabbing Beast ends Change Shape.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Conjure Swords",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "concentrate",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "concentrate",
-                                "alt": "concentrate",
-                                "game-obj": "Traits",
-                                "aonid": 32
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "conjuration",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "concentrate",
+                                    "alt": "concentrate",
+                                    "game-obj": "Traits",
+                                    "aonid": 32
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "conjuration",
-                                "alt": "conjuration",
-                                "game-obj": "Traits",
-                                "aonid": 33
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "conjuration",
+                                    "alt": "conjuration",
+                                    "game-obj": "Traits",
+                                    "aonid": 33
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "greater striking",
+                                "alt": "greater striking",
+                                "game-obj": "Equipment",
+                                "aonid": 280
+                            },
+                            {
+                                "type": "link",
+                                "name": "keen",
+                                "alt": "keen",
+                                "game-obj": "Equipment",
+                                "aonid": 300
+                            },
+                            {
+                                "type": "link",
+                                "name": "shortswords",
+                                "alt": "shortswords",
+                                "game-obj": "Weapons",
+                                "aonid": 43
+                            }
+                        ],
+                        "requirement": " The Stabbing Beast is using Change Shape; ",
+                        "effect": " The Stabbing Beast summons one or two <i>+2 greater striking keen shortswords</i> into their hands. These weapons disappear if they leave the Stabbing Beast's grasp or if the Stabbing Beast ends Change Shape."
+                    }
                 },
                 {
                     "name": "Stabbing Beast Venom",

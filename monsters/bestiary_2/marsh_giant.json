@@ -509,13 +509,15 @@
                 "subtype": "ability",
                 "ability_type": "reactive",
                 "name": "Catch Rock",
-                "link": {
-                    "type": "link",
-                    "name": "Catch Rock",
-                    "alt": "Catch Rock",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 7
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Catch Rock",
+                        "alt": "Catch Rock",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 7
+                    }
+                ],
                 "action": {
                     "type": "stat_block_section",
                     "subtype": "action",
@@ -877,49 +879,103 @@
                 {
                     "name": "Hook Shake",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> A creature adjacent to the marsh giant is <a aonid=\"31\" game-obj=\"Conditions\">prone</a> in water at least 1 foot deep; <b>Effect</b> The marsh giant uses its gaff to shake the creature back and forth and hold it underwater. The giant attempts an <a aonid=\"3\" game-obj=\"Skills\">Athletics</a> check against the target's Fortitude DC. <br/><b>Critical Success</b> The target takes 6d6+14 piercing damage and loses 5 rounds' worth of air if they were <a aonid=\"468\" game-obj=\"Rules\">holding their breath</a>. <br/><b>Success</b> The target takes 3d6+14 piercing damage and loses 3 rounds' worth of air if they were holding their breath. <br/><b>Failure</b> The target is unaffected. <br/><b>Critical Failure</b> As failure, but the giant drops its gaff as well.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Hook Shake",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "prone",
+                                "alt": "prone",
+                                "game-obj": "Conditions",
+                                "aonid": 31
+                            },
+                            {
+                                "type": "link",
+                                "name": "Athletics",
+                                "alt": "Athletics",
+                                "game-obj": "Skills",
+                                "aonid": 3
+                            },
+                            {
+                                "type": "link",
+                                "name": "holding their breath",
+                                "alt": "holding their breath",
+                                "game-obj": "Rules",
+                                "aonid": 468
+                            }
+                        ],
+                        "requirement": " A creature adjacent to the marsh giant is prone in water at least 1 foot deep; ",
+                        "effect": " The marsh giant uses its gaff to shake the creature back and forth and hold it underwater. The giant attempts an Athletics check against the target's Fortitude DC. <br/>",
+                        "critical_success": " The target takes 6d6+14 piercing damage and loses 5 rounds' worth of air if they were holding their breath. <br/>",
+                        "success": " The target takes 3d6+14 piercing damage and loses 3 rounds' worth of air if they were holding their breath. <br/>",
+                        "failure": " The target is unaffected. <br/>",
+                        "critical_failure": " As failure, but the giant drops its gaff as well."
                     }
                 },
                 {
                     "name": "Throw Rock",
                     "type": "stat_block_section",
-                    "text": "",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
+                        "subtype": "ability",
+                        "name": "Throw Rock",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
                         }
                     }
                 },
                 {
                     "name": "Twist the Hook",
                     "type": "stat_block_section",
-                    "text": "The marsh giant makes a melee Strike with its gaff. If it hits, it twists and yanks the gaff to create an awful wound, dealing 3d6 <a aonid=\"29\" game-obj=\"Conditions\">persistent bleed damage</a> to the creature.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Twist the Hook",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "persistent bleed damage",
+                                "alt": "persistent bleed damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            }
+                        ],
+                        "text": "The marsh giant makes a melee Strike with its gaff. If it hits, it twists and yanks the gaff to create an awful wound, dealing 3d6 persistent bleed damage to the creature."
                     }
                 }
             ]

@@ -346,13 +346,15 @@
                     "subtype": "ability",
                     "name": "telepathy",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy",
-                        "alt": "telepathy",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy",
+                            "alt": "telepathy",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1407,56 +1409,82 @@
                 {
                     "name": "Consume Knowledge",
                     "type": "stat_block_section",
-                    "text": "The thoughtmaw invades the mind of a creature within 100 feet and attempts to swallow its capacity for higher thought. The creature must attempt a DC 36 Will save. Using Consume Knowledge immediately ends any of the ability's previous effects on a different creature. <br/><b>Critical Success</b> The creature is unaffected. <br/><b>Success</b> The creature is <a aonid=\"35\" game-obj=\"Conditions\">slowed 1</a> for 1 round. <br/><b>Failure</b> The creature is slowed 1 and can take no actions other than basic actions for 1 minute. <br/><b>Critical Failure</b> As failure, and the thoughtmaw is <a aonid=\"32\" game-obj=\"Conditions\">quickened 1</a> for 1 minute. It can use this extra action to Stride, Strike, or Cast a Spell if the target had prepared spells or a spell repertoire.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Consume Knowledge",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divination",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divination",
-                                "alt": "divination",
-                                "game-obj": "Traits",
-                                "aonid": 47
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "mental",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divination",
+                                    "alt": "divination",
+                                    "game-obj": "Traits",
+                                    "aonid": 47
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "mental",
-                                "alt": "mental",
-                                "game-obj": "Traits",
-                                "aonid": 106
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "mental",
+                                    "alt": "mental",
+                                    "game-obj": "Traits",
+                                    "aonid": 106
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "slowed 1",
+                                "alt": "slowed 1",
+                                "game-obj": "Conditions",
+                                "aonid": 35
+                            },
+                            {
+                                "type": "link",
+                                "name": "quickened 1",
+                                "alt": "quickened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 32
+                            }
+                        ],
+                        "critical_success": " The creature is unaffected. <br/>",
+                        "success": " The creature is slowed 1 for 1 round. <br/>",
+                        "failure": " The creature is slowed 1 and can take no actions other than basic actions for 1 minute. <br/>",
+                        "critical_failure": " As failure, and the thoughtmaw is quickened 1 for 1 minute. It can use this extra action to Stride, Strike, or Cast a Spell if the target had prepared spells or a spell repertoire.",
+                        "text": "The thoughtmaw invades the mind of a creature within 100 feet and attempts to swallow its capacity for higher thought. The creature must attempt a DC 36 Will save. Using Consume Knowledge immediately ends any of the ability's previous effects on a different creature. <br/>"
+                    }
                 }
             ]
         }

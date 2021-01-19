@@ -256,13 +256,15 @@
                 "subtype": "ability",
                 "ability_type": "interaction",
                 "text": "",
-                "link": {
-                    "type": "link",
-                    "name": "Light Blindness",
-                    "alt": "Light Blindness",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 22
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Light Blindness",
+                        "alt": "Light Blindness",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 22
+                    }
+                ]
             }
         ],
         "items": [
@@ -542,46 +544,107 @@
                 {
                     "name": "Instinctual Tinker",
                     "type": "stat_block_section",
-                    "text": "The morlock tinkers with an adjacent construct or mechanical hazard. They attempt a <a aonid=\"4\" game-obj=\"Skills\">Crafting</a> check against the construct's or hazard's Fortitude DC. The morlock can't succeed if the target's level is more than double the morlock's. <br/><b>Critical Success</b> The target gains 4d6 HP and a +1 circumstance bonus to attack rolls for 1 minute. <br/><b>Success</b> The target gains 2d6 HP. <br/><b>Critical Failure</b> The morlock injures itself, taking 2d6 damage (typically bludgeoning, piercing, or slashing, but potentially a different type at the GM's discretion).",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Instinctual Tinker",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Crafting",
+                                "alt": "Crafting",
+                                "game-obj": "Skills",
+                                "aonid": 4
+                            }
+                        ],
+                        "critical_success": " The target gains 4d6 HP and a +1 circumstance bonus to attack rolls for 1 minute. <br/>",
+                        "success": " The target gains 2d6 HP. <br/>",
+                        "critical_failure": " The morlock injures itself, taking 2d6 damage (typically bludgeoning, piercing, or slashing, but potentially a different type at the GM's discretion).",
+                        "text": "The morlock tinkers with an adjacent construct or mechanical hazard. They attempt a Crafting check against the construct's or hazard's Fortitude DC. The morlock can't succeed if the target's level is more than double the morlock's. <br/>"
                     }
                 },
                 {
                     "name": "Leap Attack",
                     "type": "stat_block_section",
-                    "text": "The morlock Strides up to twice its Speed, during which it attempts a <a aonid=\"36\" game-obj=\"Actions\">High Jump</a> or a <a aonid=\"37\" game-obj=\"Actions\">Long Jump</a>. At any point during its movement, the morlock can make a melee Strike against an enemy in its reach. The morlock then can't use Leap Attack for 1 round.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Leap Attack",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "High Jump",
+                                "alt": "High Jump",
+                                "game-obj": "Actions",
+                                "aonid": 36
+                            },
+                            {
+                                "type": "link",
+                                "name": "Long Jump",
+                                "alt": "Long Jump",
+                                "game-obj": "Actions",
+                                "aonid": 37
+                            }
+                        ],
+                        "text": "The morlock Strides up to twice its Speed, during which it attempts a High Jump or a Long Jump. At any point during its movement, the morlock can make a melee Strike against an enemy in its reach. The morlock then can't use Leap Attack for 1 round."
                     }
                 },
                 {
                     "name": "Sneak Attack",
                     "type": "stat_block_section",
-                    "text": "A morlock's Strikes deal an extra 1d6 precision damage to <a aonid=\"16\" game-obj=\"Conditions\">flat-footed</a> creatures.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Sneak Attack",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "flat-footed",
+                                "alt": "flat-footed",
+                                "game-obj": "Conditions",
+                                "aonid": 16
+                            }
+                        ],
+                        "text": "A morlock's Strikes deal an extra 1d6 precision damage to flat-footed creatures."
+                    }
                 },
                 {
                     "name": "Swarming Stance",
                     "type": "stat_block_section",
-                    "text": "A morlock can share the same space as another morlock, but no more than two morlocks can occupy the same space. When morlocks share the same space, they gain a +1 circumstance bonus to attack rolls.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Swarming Stance",
+                        "ability_type": "offensive",
+                        "text": "A morlock can share the same space as another morlock, but no more than two morlocks can occupy the same space. When morlocks share the same space, they gain a +1 circumstance bonus to attack rolls."
+                    }
                 }
             ]
         }

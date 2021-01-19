@@ -490,13 +490,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1394,176 +1396,295 @@
                 {
                     "name": "Evisceration",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The eremite has a creature <a aonid=\"20\" game-obj=\"Conditions\">grabbed</a>; <b>Effect</b> The eremite excises flesh or bone from a creature it has grabbed. The target takes 6d10 <a aonid=\"29\" game-obj=\"Conditions\">persistent bleed damage</a>.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Evisceration",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "attack",
-                            "link": {
-                                "type": "link",
-                                "name": "attack",
-                                "alt": "attack",
-                                "game-obj": "Traits",
-                                "aonid": 15
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "attack",
+                                "link": {
+                                    "type": "link",
+                                    "name": "attack",
+                                    "alt": "attack",
+                                    "game-obj": "Traits",
+                                    "aonid": 15
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "grabbed",
+                                "alt": "grabbed",
+                                "game-obj": "Conditions",
+                                "aonid": 20
+                            },
+                            {
+                                "type": "link",
+                                "name": "persistent bleed damage",
+                                "alt": "persistent bleed damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            }
+                        ],
+                        "requirement": " The eremite has a creature grabbed; ",
+                        "effect": " The eremite excises flesh or bone from a creature it has grabbed. The target takes 6d10 persistent bleed damage."
+                    }
                 },
                 {
                     "name": "Exquisite Pain",
                     "type": "stat_block_section",
-                    "text": "An eremite's knowledge of pressure points and pain centers is unsurpassed. A creature hit by an eremite's melee Strikes must succeed at a DC 40 Fortitude save or be <a aonid=\"36\" game-obj=\"Conditions\">stunned 2</a> (stunned 4 on a critical failure). A creature that critically succeeds is temporarily immune for 24 hours.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Exquisite Pain",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "stunned 2",
+                                "alt": "stunned 2",
+                                "game-obj": "Conditions",
+                                "aonid": 36
+                            }
+                        ],
+                        "text": "An eremite's knowledge of pressure points and pain centers is unsurpassed. A creature hit by an eremite's melee Strikes must succeed at a DC 40 Fortitude save or be stunned 2 (stunned 4 on a critical failure). A creature that critically succeeds is temporarily immune for 24 hours."
+                    }
                 },
                 {
                     "name": "Focus Gaze",
                     "type": "stat_block_section",
-                    "text": "The eremite stares at a creature they can see within 30 feet. The creature must immediately attempt a Will save against Paralytic Perfection. In addition, if the creature was already <a aonid=\"28\" game-obj=\"Conditions\">paralyzed</a>, on a failed save, its unnatural longing causes it to become <a aonid=\"9\" game-obj=\"Conditions\">doomed 1</a>. After attempting this save, the creature is then temporarily immune until the start of the eremite's next turn.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Focus Gaze",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "concentrate",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "concentrate",
-                                "alt": "concentrate",
-                                "game-obj": "Traits",
-                                "aonid": 32
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "concentrate",
+                                    "alt": "concentrate",
+                                    "game-obj": "Traits",
+                                    "aonid": 32
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "enchantment",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "enchantment",
-                                "alt": "enchantment",
-                                "game-obj": "Traits",
-                                "aonid": 61
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "fear",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "enchantment",
+                                    "alt": "enchantment",
+                                    "game-obj": "Traits",
+                                    "aonid": 61
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "fear",
-                                "alt": "fear",
-                                "game-obj": "Traits",
-                                "aonid": 68
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "mental",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "fear",
+                                    "alt": "fear",
+                                    "game-obj": "Traits",
+                                    "aonid": 68
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "mental",
-                                "alt": "mental",
-                                "game-obj": "Traits",
-                                "aonid": 106
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "visual",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "mental",
+                                    "alt": "mental",
+                                    "game-obj": "Traits",
+                                    "aonid": 106
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "visual",
-                                "alt": "visual",
-                                "game-obj": "Traits",
-                                "aonid": 163
+                                "link": {
+                                    "type": "link",
+                                    "name": "visual",
+                                    "alt": "visual",
+                                    "game-obj": "Traits",
+                                    "aonid": 163
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "paralyzed",
+                                "alt": "paralyzed",
+                                "game-obj": "Conditions",
+                                "aonid": 28
+                            },
+                            {
+                                "type": "link",
+                                "name": "doomed 1",
+                                "alt": "doomed 1",
+                                "game-obj": "Conditions",
+                                "aonid": 9
+                            }
+                        ],
+                        "text": "The eremite stares at a creature they can see within 30 feet. The creature must immediately attempt a Will save against Paralytic Perfection. In addition, if the creature was already paralyzed, on a failed save, its unnatural longing causes it to become doomed 1. After attempting this save, the creature is then temporarily immune until the start of the eremite's next turn."
+                    }
                 },
                 {
                     "name": "Graft Flesh",
                     "type": "stat_block_section",
-                    "text": "<b>Requirement</b> The eremite holds a piece of flesh they collected via Evisceration; <b>Effect</b> The eremite attaches the stolen flesh to themself. They either regain 100 Hit Points; reduce the value of their <a aonid=\"3\" game-obj=\"Conditions\">clumsy</a>, <a aonid=\"10\" game-obj=\"Conditions\">drained</a>, <a aonid=\"13\" game-obj=\"Conditions\">enfeebled</a>, or <a aonid=\"37\" game-obj=\"Conditions\">stupefied</a> condition by 3; or reduce the stage of any affliction affecting them by 3.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Graft Flesh",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "clumsy",
+                                "alt": "clumsy",
+                                "game-obj": "Conditions",
+                                "aonid": 3
+                            },
+                            {
+                                "type": "link",
+                                "name": "drained",
+                                "alt": "drained",
+                                "game-obj": "Conditions",
+                                "aonid": 10
+                            },
+                            {
+                                "type": "link",
+                                "name": "enfeebled",
+                                "alt": "enfeebled",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            },
+                            {
+                                "type": "link",
+                                "name": "stupefied",
+                                "alt": "stupefied",
+                                "game-obj": "Conditions",
+                                "aonid": 37
+                            }
+                        ],
+                        "requirement": " The eremite holds a piece of flesh they collected via Evisceration; ",
+                        "effect": " The eremite attaches the stolen flesh to themself. They either regain 100 Hit Points; reduce the value of their clumsy, drained, enfeebled, or stupefied condition by 3; or reduce the stage of any affliction affecting them by 3."
                     }
                 },
                 {
                     "name": "Shadow Traveler",
                     "type": "stat_block_section",
-                    "text": "When an eremite uses <a aonid=\"222\" game-obj=\"Spells\"><i>plane shift</i></a> or <a aonid=\"275\" game-obj=\"Spells\"><i>shadow walk</i></a>, they arrive at exactly their intended destination.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Shadow Traveler",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divination",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divination",
-                                "alt": "divination",
-                                "game-obj": "Traits",
-                                "aonid": 47
+                                "link": {
+                                    "type": "link",
+                                    "name": "divination",
+                                    "alt": "divination",
+                                    "game-obj": "Traits",
+                                    "aonid": 47
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "plane shift",
+                                "alt": "plane shift",
+                                "game-obj": "Spells",
+                                "aonid": 222
+                            },
+                            {
+                                "type": "link",
+                                "name": "shadow walk",
+                                "alt": "shadow walk",
+                                "game-obj": "Spells",
+                                "aonid": 275
+                            }
+                        ],
+                        "text": "When an eremite uses <i>plane shift</i> or <i>shadow walk</i>, they arrive at exactly their intended destination."
+                    }
                 }
             ]
         }

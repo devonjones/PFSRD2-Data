@@ -314,13 +314,15 @@
                         "subtype": "ability",
                         "name": "negative healing",
                         "ability_type": "automatic",
-                        "link": {
-                            "type": "link",
-                            "name": "negative healing",
-                            "alt": "negative healing",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 42
-                        }
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "negative healing",
+                                "alt": "negative healing",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 42
+                            }
+                        ]
                     }
                 ]
             },
@@ -803,40 +805,84 @@
                 {
                     "name": "Drain Life",
                     "type": "stat_block_section",
-                    "text": "When the sceaduinar damages a living creature with its jaws Strike, the sceaduinar gains 5 temporary Hit Points and the creature must succeed at a DC 25 Fortitude save or become <a aonid=\"10\" game-obj=\"Conditions\">drained 1</a>. Further damage dealt to the creature by the sceaduinar increases the drained value by 1 on a failed save, to a maximum of drained 4.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Drain Life",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "drained 1",
+                                "alt": "drained 1",
+                                "game-obj": "Conditions",
+                                "aonid": 10
+                            }
+                        ],
+                        "text": "When the sceaduinar damages a living creature with its jaws Strike, the sceaduinar gains 5 temporary Hit Points and the creature must succeed at a DC 25 Fortitude save or become drained 1. Further damage dealt to the creature by the sceaduinar increases the drained value by 1 on a failed save, to a maximum of drained 4."
+                    }
                 },
                 {
                     "name": "Entropic Touch",
                     "type": "stat_block_section",
-                    "text": "Negative damage dealt by a sceaduinar damages <a aonid=\"160\" game-obj=\"Traits\">undead</a> and creatures with negative healing as if it were positive damage. The sceaduinar's melee Strikes have the benefits of the <a aonid=\"297\" game-obj=\"Equipment\"><i>ghost touch</i></a> property rune on attacks against <a aonid=\"222\" game-obj=\"Traits\">incorporeal</a> undead.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Entropic Touch",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "undead",
+                                "alt": "undead",
+                                "game-obj": "Traits",
+                                "aonid": 160
+                            },
+                            {
+                                "type": "link",
+                                "name": "ghost touch",
+                                "alt": "ghost touch",
+                                "game-obj": "Equipment",
+                                "aonid": 297
+                            },
+                            {
+                                "type": "link",
+                                "name": "incorporeal",
+                                "alt": "incorporeal",
+                                "game-obj": "Traits",
+                                "aonid": 222
+                            }
+                        ],
+                        "text": "Negative damage dealt by a sceaduinar damages undead and creatures with negative healing as if it were positive damage. The sceaduinar's melee Strikes have the benefits of the <i>ghost touch</i> property rune on attacks against incorporeal undead."
+                    }
                 }
             ]
         }

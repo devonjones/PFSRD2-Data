@@ -217,13 +217,15 @@
                         "subtype": "ability",
                         "name": "negative healing",
                         "ability_type": "automatic",
-                        "link": {
-                            "type": "link",
-                            "name": "negative healing",
-                            "alt": "negative healing",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 42
-                        }
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "negative healing",
+                                "alt": "negative healing",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 42
+                            }
+                        ]
                     }
                 ]
             },
@@ -446,17 +448,33 @@
                 {
                     "name": "Feed on Blood",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The void zombie's previous action was a successful feeding tendril Strike against the target creature; <b>Effect</b> The void zombie uses its feeding tendril to drain blood from the creature struck. The void zombie regains 4 Hit Points, and the creature is <a aonid=\"10\" game-obj=\"Conditions\">drained 1</a> until it receives healing of any kind or amount.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Feed on Blood",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "drained 1",
+                                "alt": "drained 1",
+                                "game-obj": "Conditions",
+                                "aonid": 10
+                            }
+                        ],
+                        "requirement": " The void zombie's previous action was a successful feeding tendril Strike against the target creature; ",
+                        "effect": " The void zombie uses its feeding tendril to drain blood from the creature struck. The void zombie regains 4 Hit Points, and the creature is drained 1 until it receives healing of any kind or amount."
                     }
                 }
             ]

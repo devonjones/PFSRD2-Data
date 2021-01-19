@@ -500,13 +500,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ],
                 "text": "cannot recover from <a aonid=\"29\" game-obj=\"Conditions\">persistent fire damage</a>.<br/><img alt=\"Reaction\" class=\"actiondark\" src=\"Images\\Actions\\Reaction.png\" style=\"height:15px; padding:0px 2px 0px 2px\"/><img alt=\"Reaction\" class=\"actionlight\" src=\"Images\\Actions\\Reaction_I.png\" style=\"height:15px; padding:0px 2px 0px 2px\"/>"
             }
         ],
@@ -972,17 +974,64 @@
                 {
                     "name": "Throw Rock",
                     "type": "stat_block_section",
-                    "text": "A lerritan can break stony scales off its body to throw; these scales reform at the end of each round, so the lerritan is never without a supply of rocks to hurl. <a aonid=\"360\" game-obj=\"Spells\"><i>Volcanic Eruption</i></a> <img alt=\"Two Actions\" class=\"actiondark\" src=\"Images\\Actions\\TwoActions.png\" style=\"height:15px; padding:0px 2px 0px 2px\"/><img alt=\"Two Actions\" class=\"actionlight\" src=\"Images\\Actions\\TwoActions_I.png\" style=\"height:15px; padding:0px 2px 0px 2px\"/> (earth, evocation, fire, primal); The volcano on the lerritan's back erupts and sends lava bombs raining down in a 30-foot emanation, dealing 12d12 fire damage. Each creature in the area must attempt a DC 46 Reflex saving throw. The lava globules quickly cool into heavy stones, transforming the area into greater difficult terrain for non-lerritans. The lerritan can't use Volcanic Eruption for 1d4 rounds. <br/><b>Critical Success</b> The creature is unaffected. <br/><b>Success</b> The creature takes half damage and is <a aonid=\"12\" game-obj=\"Conditions\">encumbered</a> for 1 round. <br/><b>Failure</b> The creature takes full damage and is <a aonid=\"24\" game-obj=\"Conditions\">immobilized</a> (Escape DC 46). <br/><b>Critical Failure</b> The creature takes double damage and is encased in a rocky crust with lava on the inside. The creature is <a aonid=\"33\" game-obj=\"Conditions\">restrained</a> (Escape DC 46), can't breathe, takes 3d12 <a aonid=\"29\" game-obj=\"Conditions\">persistent fire damage</a>, and can't recover from this persistent fire damage until freed.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Throw Rock",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Volcanic Eruption",
+                                "alt": "Volcanic Eruption",
+                                "game-obj": "Spells",
+                                "aonid": 360
+                            },
+                            {
+                                "type": "link",
+                                "name": "encumbered",
+                                "alt": "encumbered",
+                                "game-obj": "Conditions",
+                                "aonid": 12
+                            },
+                            {
+                                "type": "link",
+                                "name": "immobilized",
+                                "alt": "immobilized",
+                                "game-obj": "Conditions",
+                                "aonid": 24
+                            },
+                            {
+                                "type": "link",
+                                "name": "restrained",
+                                "alt": "restrained",
+                                "game-obj": "Conditions",
+                                "aonid": 33
+                            },
+                            {
+                                "type": "link",
+                                "name": "persistent fire damage",
+                                "alt": "persistent fire damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            }
+                        ],
+                        "critical_success": " The creature is unaffected. <br/>",
+                        "success": " The creature takes half damage and is encumbered for 1 round. <br/>",
+                        "failure": " The creature takes full damage and is immobilized (Escape DC 46). <br/>",
+                        "critical_failure": " The creature takes double damage and is encased in a rocky crust with lava on the inside. The creature is restrained (Escape DC 46), can't breathe, takes 3d12 persistent fire damage, and can't recover from this persistent fire damage until freed.",
+                        "text": "A lerritan can break stony scales off its body to throw; these scales reform at the end of each round, so the lerritan is never without a supply of rocks to hurl. <i>Volcanic Eruption</i> <img alt=\"Two Actions\" class=\"actiondark\" src=\"Images\\Actions\\TwoActions.png\" style=\"height:15px; padding:0px 2px 0px 2px\"/><img alt=\"Two Actions\" class=\"actionlight\" src=\"Images\\Actions\\TwoActions_I.png\" style=\"height:15px; padding:0px 2px 0px 2px\"/> (earth, evocation, fire, primal); The volcano on the lerritan's back erupts and sends lava bombs raining down in a 30-foot emanation, dealing 12d12 fire damage. Each creature in the area must attempt a DC 46 Reflex saving throw. The lava globules quickly cool into heavy stones, transforming the area into greater difficult terrain for non-lerritans. The lerritan can't use Volcanic Eruption for 1d4 rounds. <br/>"
                     }
                 }
             ]

@@ -455,13 +455,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1109,66 +1111,104 @@
                 {
                     "name": "Daemonic Famine",
                     "type": "stat_block_section",
-                    "text": "<b>Saving Throw </b>DC 29 Fortitude; <b>Stage 1 </b>carrier (1 day); <b>Stage 2 </b><a aonid=\"13\" game-obj=\"Conditions\">enfeebled 1</a> (1 day); <b>Stage 3 </b>enfeebled 2 (1 day); <b>Stage 4 </b>as stage 3; <b>Stage 5 </b>enfeebled 3 (1 week); <b>Stage 6 </b>dead",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "disease",
-                            "link": {
-                                "type": "link",
+                    "offensive_action_type": "affliction",
+                    "affliction": {
+                        "type": "stat_block_section",
+                        "subtype": "affliction",
+                        "name": "Daemonic Famine",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "disease",
-                                "alt": "disease",
-                                "game-obj": "Traits",
-                                "aonid": 46
+                                "link": {
+                                    "type": "link",
+                                    "name": "disease",
+                                    "alt": "disease",
+                                    "game-obj": "Traits",
+                                    "aonid": 46
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "enfeebled 1",
+                                "alt": "enfeebled 1",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            }
+                        ],
+                        "saving_throw": "DC 29 Fortitude",
+                        "stages": [
+                            "carrier (1 day)",
+                            "enfeebled 1 (1 day)",
+                            "enfeebled 2 (1 day)",
+                            "as stage 3",
+                            "enfeebled 3 (1 week)",
+                            "dead"
+                        ]
+                    }
                 },
                 {
                     "name": "Withering Touch",
                     "type": "stat_block_section",
-                    "text": "When the meladaemon hits with a claw Strike or a creature begins its turn grabbed by the meladaemon, the creature must attempt a DC 30 Fortitude save. On a failure, the creature takes 1d6 negative damage and becomes <a aonid=\"15\" game-obj=\"Conditions\">fatigued</a>. This fatigue ends when the creature drinks.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Withering Touch",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "evil",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "evil",
-                                "alt": "evil",
-                                "game-obj": "Traits",
-                                "aonid": 64
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "evil",
+                                    "alt": "evil",
+                                    "game-obj": "Traits",
+                                    "aonid": 64
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "fatigued",
+                                "alt": "fatigued",
+                                "game-obj": "Conditions",
+                                "aonid": 15
+                            }
+                        ],
+                        "text": "When the meladaemon hits with a claw Strike or a creature begins its turn grabbed by the meladaemon, the creature must attempt a DC 30 Fortitude save. On a failure, the creature takes 1d6 negative damage and becomes fatigued. This fatigue ends when the creature drinks."
+                    }
                 }
             ]
         }

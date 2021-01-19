@@ -475,13 +475,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1038,56 +1040,127 @@
                 {
                     "name": "Favored Host",
                     "type": "stat_block_section",
-                    "text": "Each invidiak has a particular type of creature they prefer possessing, chosen from the following list: <a aonid=\"1\" game-obj=\"Traits\">aberration</a>, <a aonid=\"9\" game-obj=\"Traits\">animal</a>, <a aonid=\"20\" game-obj=\"Traits\">beast</a>, or any <a aonid=\"91\" game-obj=\"Traits\">humanoid</a> (such as <a aonid=\"54\" game-obj=\"Traits\">dwarf</a>)\u2014in most cases, the favored type of target is <a aonid=\"90\" game-obj=\"Traits\">human</a>. When an invidiak uses possession against a favored host, the duration of possession increases to unlimited, and the effect lasts until dispelled or until the invidiak dismisses it.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Favored Host",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "aberration",
+                                "alt": "aberration",
+                                "game-obj": "Traits",
+                                "aonid": 1
+                            },
+                            {
+                                "type": "link",
+                                "name": "animal",
+                                "alt": "animal",
+                                "game-obj": "Traits",
+                                "aonid": 9
+                            },
+                            {
+                                "type": "link",
+                                "name": "beast",
+                                "alt": "beast",
+                                "game-obj": "Traits",
+                                "aonid": 20
+                            },
+                            {
+                                "type": "link",
+                                "name": "humanoid",
+                                "alt": "humanoid",
+                                "game-obj": "Traits",
+                                "aonid": 91
+                            },
+                            {
+                                "type": "link",
+                                "name": "dwarf",
+                                "alt": "dwarf",
+                                "game-obj": "Traits",
+                                "aonid": 54
+                            },
+                            {
+                                "type": "link",
+                                "name": "human",
+                                "alt": "human",
+                                "game-obj": "Traits",
+                                "aonid": 90
+                            }
+                        ],
+                        "text": "Each invidiak has a particular type of creature they prefer possessing, chosen from the following list: aberration, animal, beast, or any humanoid (such as dwarf)\u2014in most cases, the favored type of target is human. When an invidiak uses possession against a favored host, the duration of possession increases to unlimited, and the effect lasts until dispelled or until the invidiak dismisses it."
+                    }
                 },
                 {
                     "name": "Shadow Blend",
                     "type": "stat_block_section",
-                    "text": "The invidiak Strides up to twice their speed. If the invidiak ends their movement in an area of dim light, they become hidden as long as they don't move and the lighting in the area they're in doesn't grow brighter than dim light.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Shadow Blend",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
-                                "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
                             }
                         },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "illusion",
-                            "link": {
-                                "type": "link",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "divine",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "illusion",
-                                "alt": "illusion",
-                                "game-obj": "Traits",
-                                "aonid": 92
+                                "link": {
+                                    "type": "link",
+                                    "name": "illusion",
+                                    "alt": "illusion",
+                                    "game-obj": "Traits",
+                                    "aonid": 92
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "text": "The invidiak Strides up to twice their speed. If the invidiak ends their movement in an area of dim light, they become hidden as long as they don't move and the lighting in the area they're in doesn't grow brighter than dim light."
+                    }
                 },
                 {
                     "name": "Unbodied Possession",
                     "type": "stat_block_section",
-                    "text": "An invidiak leaves no body behind when using <a aonid=\"225\" game-obj=\"Spells\"><i>possession</i></a>.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Unbodied Possession",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "possession",
+                                "alt": "possession",
+                                "game-obj": "Spells",
+                                "aonid": 225
+                            }
+                        ],
+                        "text": "An invidiak leaves no body behind when using <i>possession</i>."
+                    }
                 }
             ]
         }

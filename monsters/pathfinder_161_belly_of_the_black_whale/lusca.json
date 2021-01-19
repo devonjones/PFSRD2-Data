@@ -335,13 +335,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "All-Around Vision",
-                "link": {
-                    "type": "link",
-                    "name": "All-Around Vision",
-                    "alt": "All-Around Vision",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 1
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "All-Around Vision",
+                        "alt": "All-Around Vision",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 1
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -393,13 +395,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ],
                 "text": "The lusca gains 2 extra reactions at the start of each of its turns that it can use only to make an Attack of Opportunity with its jaws. It can't use more than one Attack of Opportunity triggered by the same action."
             }
         ],
@@ -659,32 +663,54 @@
                 {
                     "name": "Capsize",
                     "type": "stat_block_section",
-                    "text": "The lusca tries to capsize an adjacent aquatic vessel of its size or smaller. It must succeed at an <a aonid=\"3\" game-obj=\"Skills\">Athletics</a> check with a DC of 35 (reduced by 5 for each size smaller the vessel is than the lusca) or the pilot's <a aonid=\"8\" game-obj=\"Skills\">Sailing Lore</a> DC, whichever is higher.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Capsize",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "attack",
-                            "link": {
-                                "type": "link",
-                                "name": "attack",
-                                "alt": "attack",
-                                "game-obj": "Traits",
-                                "aonid": 15
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "attack",
+                                "link": {
+                                    "type": "link",
+                                    "name": "attack",
+                                    "alt": "attack",
+                                    "game-obj": "Traits",
+                                    "aonid": 15
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Athletics",
+                                "alt": "Athletics",
+                                "game-obj": "Skills",
+                                "aonid": 3
+                            },
+                            {
+                                "type": "link",
+                                "name": "Sailing Lore",
+                                "alt": "Sailing Lore",
+                                "game-obj": "Skills",
+                                "aonid": 8
+                            }
+                        ],
+                        "text": "The lusca tries to capsize an adjacent aquatic vessel of its size or smaller. It must succeed at an Athletics check with a DC of 35 (reduced by 5 for each size smaller the vessel is than the lusca) or the pilot's Sailing Lore DC, whichever is higher."
+                    }
                 },
                 {
                     "name": "Lusca Venom",
@@ -729,64 +755,91 @@
                 {
                     "name": "Ravenous Jaws",
                     "type": "stat_block_section",
-                    "text": "The lusca makes three jaws Strikes, each against a different target. These attacks count toward the lusca's multiple attack penalty, but the penalty doesn't increase until after the lusca makes all of these attacks. If the lusca subsequently uses the <a aonid=\"18\" game-obj=\"MonsterAbilities\">Grab</a> action, it Grabs any number of creatures it hit with Ravenous Jaws.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Ravenous Jaws",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Grab",
+                                "alt": "Grab",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 18
+                            }
+                        ],
+                        "text": "The lusca makes three jaws Strikes, each against a different target. These attacks count toward the lusca's multiple attack penalty, but the penalty doesn't increase until after the lusca makes all of these attacks. If the lusca subsequently uses the Grab action, it Grabs any number of creatures it hit with Ravenous Jaws."
                     }
                 },
                 {
                     "name": "Rend",
                     "type": "stat_block_section",
-                    "text": "jaws",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Rend",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "text": "jaws"
                     }
                 },
                 {
                     "name": "Swallow Whole",
                     "type": "stat_block_section",
-                    "text": "Huge, 4d12+9 bludgeoning, Rupture 38",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Swallow Whole",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "attack",
-                            "link": {
-                                "type": "link",
-                                "name": "attack",
-                                "alt": "attack",
-                                "game-obj": "Traits",
-                                "aonid": 15
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "attack",
+                                "link": {
+                                    "type": "link",
+                                    "name": "attack",
+                                    "alt": "attack",
+                                    "game-obj": "Traits",
+                                    "aonid": 15
+                                }
+                            }
+                        ],
+                        "text": "Huge, 4d12+9 bludgeoning, Rupture 38"
+                    }
                 }
             ]
         }

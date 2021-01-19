@@ -309,13 +309,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ],
                 "text": "Tentacle only."
             }
         ],
@@ -503,48 +505,84 @@
                 {
                     "name": "Rampant Growth",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> A creature the tendriculos has Swallowed Whole has taken damage since the end of the tendriculos's last turn, and the tendriculos hasn't used any other actions this turn; <b>Effect</b> The tendriculos regains 3d8 HP and recovers from the <a aonid=\"15\" game-obj=\"Conditions\">fatigued</a> and <a aonid=\"35\" game-obj=\"Conditions\">slowed</a> conditions. It reduces any <a aonid=\"13\" game-obj=\"Conditions\">enfeebled</a> value it has by 2.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Rampant Growth",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "fatigued",
+                                "alt": "fatigued",
+                                "game-obj": "Conditions",
+                                "aonid": 15
+                            },
+                            {
+                                "type": "link",
+                                "name": "slowed",
+                                "alt": "slowed",
+                                "game-obj": "Conditions",
+                                "aonid": 35
+                            },
+                            {
+                                "type": "link",
+                                "name": "enfeebled",
+                                "alt": "enfeebled",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            }
+                        ],
+                        "requirement": " A creature the tendriculos has Swallowed Whole has taken damage since the end of the tendriculos's last turn, and the tendriculos hasn't used any other actions this turn; ",
+                        "effect": " The tendriculos regains 3d8 HP and recovers from the fatigued and slowed conditions. It reduces any enfeebled value it has by 2."
                     }
                 },
                 {
                     "name": "Swallow Whole",
                     "type": "stat_block_section",
-                    "text": "Large, 2d10+7 acid plus tendriculos venom, Rupture 14",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Swallow Whole",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "attack",
-                            "link": {
-                                "type": "link",
-                                "name": "attack",
-                                "alt": "attack",
-                                "game-obj": "Traits",
-                                "aonid": 15
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "attack",
+                                "link": {
+                                    "type": "link",
+                                    "name": "attack",
+                                    "alt": "attack",
+                                    "game-obj": "Traits",
+                                    "aonid": 15
+                                }
+                            }
+                        ],
+                        "text": "Large, 2d10+7 acid plus tendriculos venom, Rupture 14"
+                    }
                 },
                 {
                     "name": "Tendriculos Venom",

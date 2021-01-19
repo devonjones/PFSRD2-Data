@@ -435,13 +435,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -615,13 +617,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -1051,54 +1055,96 @@
                 {
                     "name": "Constrict",
                     "type": "stat_block_section",
-                    "text": "2d10+6 bludgeoning, DC 30",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Constrict",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "text": "2d10+6 bludgeoning, DC 30"
                     }
                 },
                 {
                     "name": "Gory Rend",
                     "type": "stat_block_section",
-                    "text": "The piscodaemon makes two claw Strikes against the same creature. If both hit, the creature takes 2d10 <a aonid=\"29\" game-obj=\"Conditions\">persistent bleed damage</a> and is exposed to piscovenom.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Gory Rend",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "persistent bleed damage",
+                                "alt": "persistent bleed damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            }
+                        ],
+                        "text": "The piscodaemon makes two claw Strikes against the same creature. If both hit, the creature takes 2d10 persistent bleed damage and is exposed to piscovenom."
                     }
                 },
                 {
                     "name": "Piscovenom",
                     "type": "stat_block_section",
-                    "text": "<b>Saving Throw </b>DC 30 Fortitude; <b>Maximum Duration </b>6 rounds; <b>Stage 1</b> 1d8 poison and <a aonid=\"13\" game-obj=\"Conditions\">enfeebled 1</a> (1 round); <b>Stage 2 </b>2d8 poison and enfeebled 1 (1 round); <b>Stage 3 </b>4d8 poison and enfeebled 2 (1 round)",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "poison",
-                            "link": {
-                                "type": "link",
+                    "offensive_action_type": "affliction",
+                    "affliction": {
+                        "type": "stat_block_section",
+                        "subtype": "affliction",
+                        "name": "Piscovenom",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "poison",
-                                "alt": "poison",
-                                "game-obj": "Traits",
-                                "aonid": 126
+                                "link": {
+                                    "type": "link",
+                                    "name": "poison",
+                                    "alt": "poison",
+                                    "game-obj": "Traits",
+                                    "aonid": 126
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "enfeebled 1",
+                                "alt": "enfeebled 1",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            }
+                        ],
+                        "saving_throw": "DC 30 Fortitude",
+                        "maximum_duration": "6 rounds",
+                        "stages": [
+                            "1d8 poison and enfeebled 1 (1 round)",
+                            "2d8 poison and enfeebled 1 (1 round)",
+                            "4d8 poison and enfeebled 2 (1 round)"
+                        ]
+                    }
                 }
             ]
         }

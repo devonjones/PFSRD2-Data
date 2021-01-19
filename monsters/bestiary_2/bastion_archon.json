@@ -421,13 +421,15 @@
                     "subtype": "ability",
                     "name": "tongues",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "tongues",
-                        "alt": "tongues",
-                        "game-obj": "Spells",
-                        "aonid": 340
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "tongues",
+                            "alt": "tongues",
+                            "game-obj": "Spells",
+                            "aonid": 340
+                        }
+                    ]
                 }
             ]
         },
@@ -542,13 +544,15 @@
                         "subtype": "ability",
                         "name": "fast healing",
                         "ability_type": "automatic",
-                        "link": {
-                            "type": "link",
-                            "name": "fast healing 30",
-                            "alt": "fast healing 30",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 15
-                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "fast healing 30",
+                                "alt": "fast healing 30",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 15
+                            }
+                        ],
                         "value": 30
                     }
                 ]
@@ -699,13 +703,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Retributive Strike ",
-                "link": {
-                    "type": "link",
-                    "name": "Retributive Strike",
-                    "alt": "Retributive Strike",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 31
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Retributive Strike",
+                        "alt": "Retributive Strike",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 31
+                    }
+                ]
             }
         ],
         "offense": {
@@ -1050,106 +1056,169 @@
                 {
                     "name": "Archon's Door",
                     "type": "stat_block_section",
-                    "text": "Once per day, if an archon sees another creature cast <a aonid=\"69\" game-obj=\"Spells\"><i>dimension door</i></a>, the archon can use dimension door (heightened to 5th level) within 1 round to attempt to follow that creature to the maximum distance of the archon's dimension door. If the archon's dimension door has enough distance, the archon appears the same distance and direction from the creature as before either creature used dimension door.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Archon's Door",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "dimension door",
+                                "alt": "dimension door",
+                                "game-obj": "Spells",
+                                "aonid": 69
+                            }
+                        ],
+                        "text": "Once per day, if an archon sees another creature cast <i>dimension door</i>, the archon can use dimension door (heightened to 5th level) within 1 round to attempt to follow that creature to the maximum distance of the archon's dimension door. If the archon's dimension door has enough distance, the archon appears the same distance and direction from the creature as before either creature used dimension door."
+                    }
                 },
                 {
                     "name": "Blinding Beams",
                     "type": "stat_block_section",
-                    "text": "<b>Trigger </b>The bastion archon hits a creature with two fist Strikes this turn and can use its Holy Beam; <b>Effect </b>The bastion archon fires its Holy Beam at only the creature it hit twice. The creature's save result is one degree of success worse than the result it rolled.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Free Action",
-                        "image": {
-                            "type": "image",
-                            "name": "FreeAction",
-                            "image": "FreeAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Blinding Beams",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Free Action",
+                            "image": {
+                                "type": "image",
+                                "name": "FreeAction",
+                                "image": "FreeAction.png"
+                            }
+                        },
+                        "trigger": "The bastion archon hits a creature with two fist Strikes this turn and can use its Holy Beam; ",
+                        "effect": "The bastion archon fires its Holy Beam at only the creature it hit twice. The creature's save result is one degree of success worse than the result it rolled."
                     }
                 },
                 {
                     "name": "Entrench",
                     "type": "stat_block_section",
-                    "text": "The bastion archon locks itself in place, becoming voluntarily <a aonid=\"24\" game-obj=\"Conditions\">immobilized</a>. While Entrenched, the archon can't be forcibly moved or tripped, and it gains a +2 circumstance bonus to AC and Reflex saves. Entrench ends automatically as soon as the bastion archon uses another <a aonid=\"114\" game-obj=\"Traits\">move</a> action.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Entrench",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "immobilized",
+                                "alt": "immobilized",
+                                "game-obj": "Conditions",
+                                "aonid": 24
+                            },
+                            {
+                                "type": "link",
+                                "name": "move",
+                                "alt": "move",
+                                "game-obj": "Traits",
+                                "aonid": 114
+                            }
+                        ],
+                        "text": "The bastion archon locks itself in place, becoming voluntarily immobilized. While Entrenched, the archon can't be forcibly moved or tripped, and it gains a +2 circumstance bonus to AC and Reflex saves. Entrench ends automatically as soon as the bastion archon uses another move action."
                     }
                 },
                 {
                     "name": "Holy Beam",
                     "type": "stat_block_section",
-                    "text": "The bastion archon releases a blinding beam of holy light in a 500-foot line that deals 20d6 good damage to non-archons in the area, with a DC 38 Reflex save. The bastion archon can't use Holy Beam again for 1d4 rounds. <br/><b>Critical Success </b>The creature is unaffected. <br/><b>Success </b>The creature takes half damage. <br/><b>Failure </b>The creature takes full damage and is <a aonid=\"1\" game-obj=\"Conditions\">blinded</a> for 1d4 rounds. <br/><b>Critical Failure </b>The creature takes double damage and is blinded permanently.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Holy Beam",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "good",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "good",
-                                "alt": "good",
-                                "game-obj": "Traits",
-                                "aonid": 83
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "incapacitation",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "good",
+                                    "alt": "good",
+                                    "game-obj": "Traits",
+                                    "aonid": 83
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "incapacitation",
-                                "alt": "incapacitation",
-                                "game-obj": "Traits",
-                                "aonid": 93
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "light",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "incapacitation",
+                                    "alt": "incapacitation",
+                                    "game-obj": "Traits",
+                                    "aonid": 93
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "light",
-                                "alt": "light",
-                                "game-obj": "Traits",
-                                "aonid": 100
+                                "link": {
+                                    "type": "link",
+                                    "name": "light",
+                                    "alt": "light",
+                                    "game-obj": "Traits",
+                                    "aonid": 100
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "blinded",
+                                "alt": "blinded",
+                                "game-obj": "Conditions",
+                                "aonid": 1
+                            }
+                        ],
+                        "critical_success": "The creature is unaffected. <br/>",
+                        "success": "The creature takes half damage. <br/>",
+                        "failure": "The creature takes full damage and is blinded for 1d4 rounds. <br/>",
+                        "critical_failure": "The creature takes double damage and is blinded permanently.",
+                        "text": "The bastion archon releases a blinding beam of holy light in a 500-foot line that deals 20d6 good damage to non-archons in the area, with a DC 38 Reflex save. The bastion archon can't use Holy Beam again for 1d4 rounds. <br/>"
+                    }
                 }
             ]
         }

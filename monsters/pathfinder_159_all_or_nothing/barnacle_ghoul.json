@@ -398,13 +398,15 @@
                         "subtype": "ability",
                         "name": "negative healing",
                         "ability_type": "automatic",
-                        "link": {
-                            "type": "link",
-                            "name": "negative healing",
-                            "alt": "negative healing",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 42
-                        }
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "negative healing",
+                                "alt": "negative healing",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 42
+                            }
+                        ]
                     }
                 ]
             },
@@ -742,32 +744,39 @@
                 {
                     "name": "Consume Flesh",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The ghoul is adjacent to the corpse of a creature that died within the last hour. <b>Effect</b> The ghoul devours a chunk of the corpse and regains 5d6 Hit Points. It can regain Hit Points from any given corpse only once.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Consume Flesh",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "manipulate",
-                            "link": {
-                                "type": "link",
-                                "name": "manipulate",
-                                "alt": "manipulate",
-                                "game-obj": "Traits",
-                                "aonid": 104
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "manipulate",
+                                "link": {
+                                    "type": "link",
+                                    "name": "manipulate",
+                                    "alt": "manipulate",
+                                    "game-obj": "Traits",
+                                    "aonid": 104
+                                }
+                            }
+                        ],
+                        "requirement": " The ghoul is adjacent to the corpse of a creature that died within the last hour. ",
+                        "effect": " The ghoul devours a chunk of the corpse and regains 5d6 Hit Points. It can regain Hit Points from any given corpse only once."
+                    }
                 },
                 {
                     "name": "Fill Lungs",
@@ -847,76 +856,97 @@
                 {
                     "name": "Nimble Swim",
                     "type": "stat_block_section",
-                    "text": "The barnacle ghoul Swims up to 20 feet. This movement doesn't trigger reactions.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Nimble Swim",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "move",
-                            "link": {
-                                "type": "link",
-                                "name": "move",
-                                "alt": "move",
-                                "game-obj": "Traits",
-                                "aonid": 114
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "move",
+                                "link": {
+                                    "type": "link",
+                                    "name": "move",
+                                    "alt": "move",
+                                    "game-obj": "Traits",
+                                    "aonid": 114
+                                }
+                            }
+                        ],
+                        "text": "The barnacle ghoul Swims up to 20 feet. This movement doesn't trigger reactions."
+                    }
                 },
                 {
                     "name": "Paralysis",
                     "type": "stat_block_section",
-                    "text": "Any living, non-<a aonid=\"58\" game-obj=\"Traits\">elf</a> creature hit by a ghoul's attack must succeed at a DC 26 Fortitude save or become paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "incapacitation",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Paralysis",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "incapacitation",
-                                "alt": "incapacitation",
-                                "game-obj": "Traits",
-                                "aonid": 93
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "incapacitation",
+                                    "alt": "incapacitation",
+                                    "game-obj": "Traits",
+                                    "aonid": 93
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "elf",
+                                "alt": "elf",
+                                "game-obj": "Traits",
+                                "aonid": 58
+                            }
+                        ],
+                        "text": "Any living, non-elf creature hit by a ghoul's attack must succeed at a DC 26 Fortitude save or become paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."
+                    }
                 }
             ]
         }

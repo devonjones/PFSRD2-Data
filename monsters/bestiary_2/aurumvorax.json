@@ -251,13 +251,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Ferocity ",
-                "link": {
-                    "type": "link",
-                    "name": "Ferocity",
-                    "alt": "Ferocity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 16
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Ferocity",
+                        "alt": "Ferocity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 16
+                    }
+                ]
             }
         ],
         "offense": {
@@ -425,39 +427,89 @@
                 {
                     "name": "Bleeding Critical",
                     "type": "stat_block_section",
-                    "text": "When an aurumvorax scores a critical hit, the target takes 1d6 <a aonid=\"29\" game-obj=\"Conditions\">persistent bleed damage</a>.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Bleeding Critical",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "persistent bleed damage",
+                                "alt": "persistent bleed damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            }
+                        ],
+                        "text": "When an aurumvorax scores a critical hit, the target takes 1d6 persistent bleed damage."
+                    }
                 },
                 {
                     "name": "Gnaw Metal",
                     "type": "stat_block_section",
-                    "text": "The aurumvorax makes a jaws Strike against a creature it has grabbed. If the attack hits, the target is knocked <a aonid=\"31\" game-obj=\"Conditions\">prone</a> if it is Medium or smaller. In addition, if the target is wearing armor with Hardness 10 or lower, the armor becomes <a aonid=\"2\" game-obj=\"Conditions\">broken</a>. If this Strike breaks a creature's armor or damages a creature that is unarmored or wearing broken armor, the target also takes 1d6 <a aonid=\"29\" game-obj=\"Conditions\">persistent bleed damage</a>. This Strike doesn't further damage armor that's already broken.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Gnaw Metal",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "prone",
+                                "alt": "prone",
+                                "game-obj": "Conditions",
+                                "aonid": 31
+                            },
+                            {
+                                "type": "link",
+                                "name": "broken",
+                                "alt": "broken",
+                                "game-obj": "Conditions",
+                                "aonid": 2
+                            },
+                            {
+                                "type": "link",
+                                "name": "persistent bleed damage",
+                                "alt": "persistent bleed damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            }
+                        ],
+                        "text": "The aurumvorax makes a jaws Strike against a creature it has grabbed. If the attack hits, the target is knocked prone if it is Medium or smaller. In addition, if the target is wearing armor with Hardness 10 or lower, the armor becomes broken. If this Strike breaks a creature's armor or damages a creature that is unarmored or wearing broken armor, the target also takes 1d6 persistent bleed damage. This Strike doesn't further damage armor that's already broken."
                     }
                 },
                 {
                     "name": "Rapid Rake",
                     "type": "stat_block_section",
-                    "text": "The aurumvorax makes four claw Strikes against a creature it has grabbed. Each attack counts toward the aurumvorax's multiple attack penalty, and the multiple attack penalty increases with each attack.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Rapid Rake",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "text": "The aurumvorax makes four claw Strikes against a creature it has grabbed. Each attack counts toward the aurumvorax's multiple attack penalty, and the multiple attack penalty increases with each attack."
                     }
                 }
             ]

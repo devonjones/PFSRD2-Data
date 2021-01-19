@@ -519,17 +519,61 @@
                 {
                     "name": "Blood Drain",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The mandragora has a creature <a aonid=\"20\" game-obj=\"Conditions\">grabbed</a>; <b>Effect</b> The mandragora drains blood from the creature it has grabbed, dealing 2d6 damage. If the creature is a <a aonid=\"28\" game-obj=\"MonsterFamilies\">demon</a>, <a aonid=\"69\" game-obj=\"Traits\">fey</a>, or <a aonid=\"11\" game-obj=\"Classes\">sorcerer</a>, the mandragora gains temporary Hit Points equal to the damage dealt. A creature that has its blood drained by a mandragora is <a aonid=\"10\" game-obj=\"Conditions\">drained 1</a> until it receives healing of any kind or amount.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Blood Drain",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "grabbed",
+                                "alt": "grabbed",
+                                "game-obj": "Conditions",
+                                "aonid": 20
+                            },
+                            {
+                                "type": "link",
+                                "name": "demon",
+                                "alt": "demon",
+                                "game-obj": "MonsterFamilies",
+                                "aonid": 28
+                            },
+                            {
+                                "type": "link",
+                                "name": "fey",
+                                "alt": "fey",
+                                "game-obj": "Traits",
+                                "aonid": 69
+                            },
+                            {
+                                "type": "link",
+                                "name": "sorcerer",
+                                "alt": "sorcerer",
+                                "game-obj": "Classes",
+                                "aonid": 11
+                            },
+                            {
+                                "type": "link",
+                                "name": "drained 1",
+                                "alt": "drained 1",
+                                "game-obj": "Conditions",
+                                "aonid": 10
+                            }
+                        ],
+                        "requirement": " The mandragora has a creature grabbed; ",
+                        "effect": " The mandragora drains blood from the creature it has grabbed, dealing 2d6 damage. If the creature is a demon, fey, or sorcerer, the mandragora gains temporary Hit Points equal to the damage dealt. A creature that has its blood drained by a mandragora is drained 1 until it receives healing of any kind or amount."
                     }
                 },
                 {
@@ -583,68 +627,95 @@
                 {
                     "name": "Piercing Shriek",
                     "type": "stat_block_section",
-                    "text": "<b>Frequency</b> once per day; <b>Effect</b> The mandragora emits an unsettling shriek. Each non-mandragora creature within 30 feet must attempt a DC 25 Will save. <br/><b>Critical Success</b> The creature is unaffected. <br/><b>Success</b> The creature is <a aonid=\"34\" game-obj=\"Conditions\">sickened 1</a>. <br/><b>Failure</b> The creature is sickened 2. <br/><b>Critical Failure</b> The creature is sickened 2 and <a aonid=\"35\" game-obj=\"Conditions\">slowed 1</a>. As long as the creature remains sickened, this slowed condition value can't be reduced below 1.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Piercing Shriek",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "auditory",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "auditory",
-                                "alt": "auditory",
-                                "game-obj": "Traits",
-                                "aonid": 16
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "evocation",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "auditory",
+                                    "alt": "auditory",
+                                    "game-obj": "Traits",
+                                    "aonid": 16
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "evocation",
-                                "alt": "evocation",
-                                "game-obj": "Traits",
-                                "aonid": 65
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "mental",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "evocation",
+                                    "alt": "evocation",
+                                    "game-obj": "Traits",
+                                    "aonid": 65
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "mental",
-                                "alt": "mental",
-                                "game-obj": "Traits",
-                                "aonid": 106
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "primal",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "mental",
+                                    "alt": "mental",
+                                    "game-obj": "Traits",
+                                    "aonid": 106
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "primal",
-                                "alt": "primal",
-                                "game-obj": "Traits",
-                                "aonid": 134
+                                "link": {
+                                    "type": "link",
+                                    "name": "primal",
+                                    "alt": "primal",
+                                    "game-obj": "Traits",
+                                    "aonid": 134
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "sickened 1",
+                                "alt": "sickened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 34
+                            },
+                            {
+                                "type": "link",
+                                "name": "slowed 1",
+                                "alt": "slowed 1",
+                                "game-obj": "Conditions",
+                                "aonid": 35
+                            }
+                        ],
+                        "frequency": " once per day; ",
+                        "effect": " The mandragora emits an unsettling shriek. Each non-mandragora creature within 30 feet must attempt a DC 25 Will save. <br/>",
+                        "critical_success": " The creature is unaffected. <br/>",
+                        "success": " The creature is sickened 1. <br/>",
+                        "failure": " The creature is sickened 2. <br/>",
+                        "critical_failure": " The creature is sickened 2 and slowed 1. As long as the creature remains sickened, this slowed condition value can't be reduced below 1."
+                    }
                 }
             ]
         }

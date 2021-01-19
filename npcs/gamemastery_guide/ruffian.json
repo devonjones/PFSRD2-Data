@@ -412,13 +412,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ]
             }
         ],
         "offense": {
@@ -636,30 +638,83 @@
                 {
                     "name": "Brutal Beating",
                     "type": "stat_block_section",
-                    "text": "The ruffian's brutality shakes foes' confidence. When the ruffian deals damage on a critical hit, the target is <a aonid=\"19\" game-obj=\"Conditions\">frightened 1</a>, and the ruffian can knock the target up to 10 feet away (this is <a aonid=\"451\" game-obj=\"Rules\">forced movement</a>).",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Brutal Beating",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "frightened 1",
+                                "alt": "frightened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 19
+                            },
+                            {
+                                "type": "link",
+                                "name": "forced movement",
+                                "alt": "forced movement",
+                                "game-obj": "Rules",
+                                "aonid": 451
+                            }
+                        ],
+                        "text": "The ruffian's brutality shakes foes' confidence. When the ruffian deals damage on a critical hit, the target is frightened 1, and the ruffian can knock the target up to 10 feet away (this is forced movement)."
+                    }
                 },
                 {
                     "name": "Snagging Strike",
                     "type": "stat_block_section",
-                    "text": "<b>Trigger</b> The ruffian has one hand free, and its target is within reach of that hand; <b>Effect</b> The ruffian makes a melee Strike while keeping one hand free. If this Strike hits, the target is <a aonid=\"16\" game-obj=\"Conditions\">flat-footed</a> until the start of the ruffian's next turn or until it leaves the ruffian's reach, whichever comes first.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Snagging Strike",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "flat-footed",
+                                "alt": "flat-footed",
+                                "game-obj": "Conditions",
+                                "aonid": 16
+                            }
+                        ],
+                        "trigger": " The ruffian has one hand free, and its target is within reach of that hand; ",
+                        "effect": " The ruffian makes a melee Strike while keeping one hand free. If this Strike hits, the target is flat-footed until the start of the ruffian's next turn or until it leaves the ruffian's reach, whichever comes first."
                     }
                 },
                 {
                     "name": "Sneak Attack",
                     "type": "stat_block_section",
-                    "text": "The ruffian deals an extra 1d6 precision damage to <a aonid=\"16\" game-obj=\"Conditions\">flat-footed</a> creatures.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Sneak Attack",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "flat-footed",
+                                "alt": "flat-footed",
+                                "game-obj": "Conditions",
+                                "aonid": 16
+                            }
+                        ],
+                        "text": "The ruffian deals an extra 1d6 precision damage to flat-footed creatures."
+                    }
                 }
             ]
         }

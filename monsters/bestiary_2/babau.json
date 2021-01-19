@@ -512,13 +512,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1191,24 +1193,54 @@
                 {
                     "name": "Grievous Strike",
                     "type": "stat_block_section",
-                    "text": "The babau attacks with the intent of creating a particularly horrific and gory wound. The babau makes a melee Strike. This counts as two attacks when calculating the daemon's multiple attack penalty. If this Strike hits, the babau deals an additional 2d6 damage of the same damage type, and the creature struck is <a aonid=\"19\" game-obj=\"Conditions\">frightened 2</a>.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Grievous Strike",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "frightened 2",
+                                "alt": "frightened 2",
+                                "game-obj": "Conditions",
+                                "aonid": 19
+                            }
+                        ],
+                        "text": "The babau attacks with the intent of creating a particularly horrific and gory wound. The babau makes a melee Strike. This counts as two attacks when calculating the daemon's multiple attack penalty. If this Strike hits, the babau deals an additional 2d6 damage of the same damage type, and the creature struck is frightened 2."
                     }
                 },
                 {
                     "name": "Sneak Attack",
                     "type": "stat_block_section",
-                    "text": "The babau's Strikes deal an extra 2d6 precision damage to <a aonid=\"16\" game-obj=\"Conditions\">flat-footed</a> creatures.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Sneak Attack",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "flat-footed",
+                                "alt": "flat-footed",
+                                "game-obj": "Conditions",
+                                "aonid": 16
+                            }
+                        ],
+                        "text": "The babau's Strikes deal an extra 2d6 precision damage to flat-footed creatures."
+                    }
                 }
             ]
         }

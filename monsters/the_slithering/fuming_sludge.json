@@ -341,13 +341,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ]
             }
         ],
         "offense": {
@@ -550,24 +552,59 @@
                 {
                     "name": "Constrict",
                     "type": "stat_block_section",
-                    "text": "1d8+6 bludgeoning plus 1d8 persistent fire, DC 24",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Constrict",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "text": "1d8+6 bludgeoning plus 1d8 persistent fire, DC 24"
                     }
                 },
                 {
                     "name": "Cooling Glob",
                     "type": "stat_block_section",
-                    "text": "A fuming sludge's ejected globs cling to targets. A creature hit by an ejected glob Strike is <a aonid=\"12\" game-obj=\"Conditions\">encumbered</a> for 1 round. If the attack was a critical hit, the creature is instead <a aonid=\"33\" game-obj=\"Conditions\">restrained</a> for 1 round (<a aonid=\"79\" game-obj=\"Actions\">Escape</a> DC 24).",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Cooling Glob",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "encumbered",
+                                "alt": "encumbered",
+                                "game-obj": "Conditions",
+                                "aonid": 12
+                            },
+                            {
+                                "type": "link",
+                                "name": "restrained",
+                                "alt": "restrained",
+                                "game-obj": "Conditions",
+                                "aonid": 33
+                            },
+                            {
+                                "type": "link",
+                                "name": "Escape",
+                                "alt": "Escape",
+                                "game-obj": "Actions",
+                                "aonid": 79
+                            }
+                        ],
+                        "text": "A fuming sludge's ejected globs cling to targets. A creature hit by an ejected glob Strike is encumbered for 1 round. If the attack was a critical hit, the creature is instead restrained for 1 round (Escape DC 24)."
+                    }
                 }
             ]
         }

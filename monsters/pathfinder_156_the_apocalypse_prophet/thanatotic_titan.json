@@ -291,13 +291,15 @@
                     "subtype": "ability",
                     "name": "telepathy",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy",
-                        "alt": "telepathy",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy",
+                            "alt": "telepathy",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -588,13 +590,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ],
                 "text": "The titan can use their Attack of Opportunity when a creature within their reach uses a <a aonid=\"32\" game-obj=\"Traits\">concentrate</a> action, in additional to its normal trigger. They disrupt actions on any hit, not just a critical hit\u2014including triggering concentrate actions."
             }
         ],
@@ -1136,121 +1140,188 @@
                 {
                     "name": "Godslayer",
                     "type": "stat_block_section",
-                    "text": "<b>Trigger</b> The titan damages a creature capable of using <a aonid=\"48\" game-obj=\"Traits\">divine</a> spells or abilities; <b>Effect</b> The creature must attempt a DC 45 Will save. <br/><b>Critical Success</b> The creature is unaffected. <br/><b>Success</b> The creature can't use divine spells or abilities for 1 round and is <a aonid=\"19\" game-obj=\"Conditions\">frightened 2</a>. Only powerful non-divine magic, such as <a aonid=\"377\" game-obj=\"Spells\"><i>wish</i></a>, can undo this effect. <br/><b>Failure</b> As success, but the duration is 1 minute. <br/><b>Critical Failure</b> As success, but the duration is unlimited.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Free Action",
-                        "image": {
-                            "type": "image",
-                            "name": "FreeAction",
-                            "image": "FreeAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Godslayer",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
+                            "subtype": "action",
+                            "name": "Free Action",
+                            "image": {
+                                "type": "image",
+                                "name": "FreeAction",
+                                "image": "FreeAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "divine",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
                                 "type": "link",
                                 "name": "divine",
                                 "alt": "divine",
                                 "game-obj": "Traits",
                                 "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "frightened 2",
+                                "alt": "frightened 2",
+                                "game-obj": "Conditions",
+                                "aonid": 19
+                            },
+                            {
+                                "type": "link",
+                                "name": "wish",
+                                "alt": "wish",
+                                "game-obj": "Spells",
+                                "aonid": 377
                             }
-                        }
-                    ]
+                        ],
+                        "trigger": " The titan damages a creature capable of using divine spells or abilities; ",
+                        "effect": " The creature must attempt a DC 45 Will save. <br/>",
+                        "critical_success": " The creature is unaffected. <br/>",
+                        "success": " The creature can't use divine spells or abilities for 1 round and is frightened 2. Only powerful non-divine magic, such as <i>wish</i>, can undo this effect. <br/>",
+                        "failure": " As success, but the duration is 1 minute. <br/>",
+                        "critical_failure": " As success, but the duration is unlimited."
+                    }
                 },
                 {
                     "name": "Throw Rock",
                     "type": "stat_block_section",
-                    "text": "If a titan's rock Strike isn't a critical failure, the rock explodes, dealing 10d6 damage of a damage type of the titan's choice to all creatures in a 20- foot burst (DC 45 basic Reflex save).",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Throw Rock",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
-                                "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
                         },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "transmutation",
-                            "link": {
-                                "type": "link",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "divine",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "transmutation",
-                                "alt": "transmutation",
-                                "game-obj": "Traits",
-                                "aonid": 157
+                                "link": {
+                                    "type": "link",
+                                    "name": "transmutation",
+                                    "alt": "transmutation",
+                                    "game-obj": "Traits",
+                                    "aonid": 157
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "text": "If a titan's rock Strike isn't a critical failure, the rock explodes, dealing 10d6 damage of a damage type of the titan's choice to all creatures in a 20- foot burst (DC 45 basic Reflex save)."
+                    }
                 },
                 {
                     "name": "Titanic Charge",
                     "type": "stat_block_section",
-                    "text": "The titan Strides twice and makes a melee Strike. If the Strike hits, the titan can cast <a aonid=\"95\" game-obj=\"Spells\"><i>earthquake</i></a> centered on the target as a free action.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Titanic Charge",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "earthquake",
+                                "alt": "earthquake",
+                                "game-obj": "Spells",
+                                "aonid": 95
+                            }
+                        ],
+                        "text": "The titan Strides twice and makes a melee Strike. If the Strike hits, the titan can cast <i>earthquake</i> centered on the target as a free action."
                     }
                 },
                 {
                     "name": "Trample",
                     "type": "stat_block_section",
-                    "text": "Huge or smaller, foot, DC 45",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Three Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "ThreeActions",
-                            "image": "ThreeActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Trample",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Three Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "ThreeActions",
+                                "image": "ThreeActions.png"
+                            }
+                        },
+                        "text": "Huge or smaller, foot, DC 45"
                     }
                 },
                 {
                     "name": "Wide Cleave",
                     "type": "stat_block_section",
-                    "text": "The titan makes a melee weapon Strike against each foe within their reach. This counts as three attacks for the titan's multiple attack penalty.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Wide Cleave",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "text": "The titan makes a melee weapon Strike against each foe within their reach. This counts as three attacks for the titan's multiple attack penalty."
                     }
                 }
             ]

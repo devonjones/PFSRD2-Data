@@ -413,26 +413,30 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Shield Block ",
-                "link": {
-                    "type": "link",
-                    "name": "Shield Block",
-                    "alt": "Shield Block",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 32
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Shield Block",
+                        "alt": "Shield Block",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 32
+                    }
+                ]
             }
         ],
         "offense": {
@@ -744,62 +748,91 @@
                 {
                     "name": "Double Slash",
                     "type": "stat_block_section",
-                    "text": "The xill makes two scimitar Strikes against a single target. If both hit, combine their damage for the purpose of the target's resistances and weaknesses. The xill applies its multiple attack penalty to each strike normally.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Double Slash",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "flourish",
-                            "link": {
-                                "type": "link",
-                                "name": "flourish",
-                                "alt": "flourish",
-                                "game-obj": "Traits",
-                                "aonid": 73
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "flourish",
+                                "link": {
+                                    "type": "link",
+                                    "name": "flourish",
+                                    "alt": "flourish",
+                                    "game-obj": "Traits",
+                                    "aonid": 73
+                                }
+                            }
+                        ],
+                        "text": "The xill makes two scimitar Strikes against a single target. If both hit, combine their damage for the purpose of the target's resistances and weaknesses. The xill applies its multiple attack penalty to each strike normally."
+                    }
                 },
                 {
                     "name": "Implant",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The xill is adjacent to a <a aonid=\"38\" game-obj=\"Conditions\">unconscious</a>, willing, or <a aonid=\"28\" game-obj=\"Conditions\">paralyzed</a> creature; <b>Effect</b> The xill implants xill eggs in the creature's flesh.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Implant",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "manipulate",
-                            "link": {
-                                "type": "link",
-                                "name": "manipulate",
-                                "alt": "manipulate",
-                                "game-obj": "Traits",
-                                "aonid": 104
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "manipulate",
+                                "link": {
+                                    "type": "link",
+                                    "name": "manipulate",
+                                    "alt": "manipulate",
+                                    "game-obj": "Traits",
+                                    "aonid": 104
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "unconscious",
+                                "alt": "unconscious",
+                                "game-obj": "Conditions",
+                                "aonid": 38
+                            },
+                            {
+                                "type": "link",
+                                "name": "paralyzed",
+                                "alt": "paralyzed",
+                                "game-obj": "Conditions",
+                                "aonid": 28
+                            }
+                        ],
+                        "requirement": " The xill is adjacent to a unconscious, willing, or paralyzed creature; ",
+                        "effect": " The xill implants xill eggs in the creature's flesh."
+                    }
                 },
                 {
                     "name": "Xill Eggs",
@@ -868,34 +901,60 @@
                 {
                     "name": "Xill Paralysis",
                     "type": "stat_block_section",
-                    "text": "A creature hit by the xill's bite Strike must attempt a DC 24 Fortitude save. <br/><b>Critical Success</b> The creature is unaffected and is immune to xill paralysis for 1 minute. <br/><b>Success</b> The creature is <a aonid=\"35\" game-obj=\"Conditions\">slowed 1</a> for 1 round. <br/><b>Failure</b> The creature is <a aonid=\"28\" game-obj=\"Conditions\">paralyzed</a> for 1 round. <br/><b>Critical Failure</b> The creature is paralyzed. It can attempt a new save at the end of each of its turns to recover, and the save DC decreases by 1 each round.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "incapacitation",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Xill Paralysis",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "incapacitation",
-                                "alt": "incapacitation",
-                                "game-obj": "Traits",
-                                "aonid": 93
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "incapacitation",
+                                    "alt": "incapacitation",
+                                    "game-obj": "Traits",
+                                    "aonid": 93
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "slowed 1",
+                                "alt": "slowed 1",
+                                "game-obj": "Conditions",
+                                "aonid": 35
+                            },
+                            {
+                                "type": "link",
+                                "name": "paralyzed",
+                                "alt": "paralyzed",
+                                "game-obj": "Conditions",
+                                "aonid": 28
+                            }
+                        ],
+                        "critical_success": " The creature is unaffected and is immune to xill paralysis for 1 minute. <br/>",
+                        "success": " The creature is slowed 1 for 1 round. <br/>",
+                        "failure": " The creature is paralyzed for 1 round. <br/>",
+                        "critical_failure": " The creature is paralyzed. It can attempt a new save at the end of each of its turns to recover, and the save DC decreases by 1 each round.",
+                        "text": "A creature hit by the xill's bite Strike must attempt a DC 24 Fortitude save. <br/>"
+                    }
                 }
             ]
         }

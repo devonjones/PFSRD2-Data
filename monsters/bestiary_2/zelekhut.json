@@ -507,13 +507,15 @@
                 "subtype": "ability",
                 "ability_type": "reactive",
                 "name": "Attack of Opportunity",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ],
                 "action": {
                     "type": "stat_block_section",
                     "subtype": "action",
@@ -851,17 +853,32 @@
                 {
                     "name": "Double Attack",
                     "type": "stat_block_section",
-                    "text": "The zelekhut makes two chain Strikes, each targeting a different creature. Each Strike counts toward the zelekhut's multiple attack penalty, but the penalty doesn't increase until after it has made both attacks. If the zelekhut subsequently uses the <a aonid=\"20\" game-obj=\"MonsterAbilities\">Knockdown</a> action, it affects all creatures it hit with Double Attack.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Double Attack",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Knockdown",
+                                "alt": "Knockdown",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 20
+                            }
+                        ],
+                        "text": "The zelekhut makes two chain Strikes, each targeting a different creature. Each Strike counts toward the zelekhut's multiple attack penalty, but the penalty doesn't increase until after it has made both attacks. If the zelekhut subsequently uses the Knockdown action, it affects all creatures it hit with Double Attack."
                     }
                 }
             ]

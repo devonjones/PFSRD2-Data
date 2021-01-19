@@ -283,13 +283,15 @@
                     "subtype": "ability",
                     "name": "tongues",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "tongues",
-                        "alt": "tongues",
-                        "game-obj": "Spells",
-                        "aonid": 340
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "tongues",
+                            "alt": "tongues",
+                            "game-obj": "Spells",
+                            "aonid": 340
+                        }
+                    ]
                 }
             ]
         },
@@ -1076,148 +1078,252 @@
                 {
                     "name": "Fated",
                     "type": "stat_block_section",
-                    "text": "When a creature is subject to a <a aonid=\"76\" game-obj=\"Traits\">fortune</a> effect from a norn and a <a aonid=\"110\" game-obj=\"Traits\">misfortune</a> effect from any source other than a norn (or vice versa), the norn's effect automatically counteracts the other effect and then takes place normally, rather than the two effects canceling each other out. If both the fortune and misfortune effect are from a norn, then the two cancel each other out as normal. At the GM's discretion, powerful entities related to fate or luck, like <a aonid=\"5\" game-obj=\"Deities\">Desna</a>, <a aonid=\"97\" game-obj=\"Deities\">Magdh</a>, or <a aonid=\"14\" game-obj=\"Deities\">Pharasma</a>, count as a norn for the purpose of this ability.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Fated",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "fortune",
+                                "alt": "fortune",
+                                "game-obj": "Traits",
+                                "aonid": 76
+                            },
+                            {
+                                "type": "link",
+                                "name": "misfortune",
+                                "alt": "misfortune",
+                                "game-obj": "Traits",
+                                "aonid": 110
+                            },
+                            {
+                                "type": "link",
+                                "name": "Desna",
+                                "alt": "Desna",
+                                "game-obj": "Deities",
+                                "aonid": 5
+                            },
+                            {
+                                "type": "link",
+                                "name": "Magdh",
+                                "alt": "Magdh",
+                                "game-obj": "Deities",
+                                "aonid": 97
+                            },
+                            {
+                                "type": "link",
+                                "name": "Pharasma",
+                                "alt": "Pharasma",
+                                "game-obj": "Deities",
+                                "aonid": 14
+                            }
+                        ],
+                        "text": "When a creature is subject to a fortune effect from a norn and a misfortune effect from any source other than a norn (or vice versa), the norn's effect automatically counteracts the other effect and then takes place normally, rather than the two effects canceling each other out. If both the fortune and misfortune effect are from a norn, then the two cancel each other out as normal. At the GM's discretion, powerful entities related to fate or luck, like Desna, Magdh, or Pharasma, count as a norn for the purpose of this ability."
+                    }
                 },
                 {
                     "name": "Sever Fate",
                     "type": "stat_block_section",
-                    "text": "When a norn deals negative damage with a Strike, she regains 10 Hit Points. The target must succeed at a DC 39 Fortitude save or become <a aonid=\"10\" game-obj=\"Conditions\">drained 1</a> (drained 2 on a critical failure). Further negative damage dealt by the norn increases the drained condition value by 1 on a failed save (or by 2 on a critical failure), to a maximum of drained 4.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Sever Fate",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "drained 1",
+                                "alt": "drained 1",
+                                "game-obj": "Conditions",
+                                "aonid": 10
+                            }
+                        ],
+                        "text": "When a norn deals negative damage with a Strike, she regains 10 Hit Points. The target must succeed at a DC 39 Fortitude save or become drained 1 (drained 2 on a critical failure). Further negative damage dealt by the norn increases the drained condition value by 1 on a failed save (or by 2 on a critical failure), to a maximum of drained 4."
+                    }
                 },
                 {
                     "name": "Shift Fate",
                     "type": "stat_block_section",
-                    "text": "<b>Trigger</b> A creature within 120 feet attempts a saving throw; <b>Effect</b> The creature rolls the saving throw twice, and then the norn decides which result applies. If the norn chooses the lower roll, this is a <a aonid=\"110\" game-obj=\"Traits\">misfortune</a> effect; if she chooses the higher roll, it's a <a aonid=\"76\" game-obj=\"Traits\">fortune</a> effect; if they're the same, she decides which trait to apply.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Reaction",
-                        "image": {
-                            "type": "image",
-                            "name": "Reaction",
-                            "image": "Reaction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Shift Fate",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divination",
-                            "link": {
-                                "type": "link",
-                                "name": "divination",
-                                "alt": "divination",
-                                "game-obj": "Traits",
-                                "aonid": 47
+                            "subtype": "action",
+                            "name": "Reaction",
+                            "image": {
+                                "type": "image",
+                                "name": "Reaction",
+                                "image": "Reaction.png"
                             }
                         },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "divination",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divination",
+                                    "alt": "divination",
+                                    "game-obj": "Traits",
+                                    "aonid": 47
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "misfortune",
+                                "alt": "misfortune",
+                                "game-obj": "Traits",
+                                "aonid": 110
+                            },
+                            {
+                                "type": "link",
+                                "name": "fortune",
+                                "alt": "fortune",
+                                "game-obj": "Traits",
+                                "aonid": 76
+                            }
+                        ],
+                        "trigger": " A creature within 120 feet attempts a saving throw; ",
+                        "effect": " The creature rolls the saving throw twice, and then the norn decides which result applies. If the norn chooses the lower roll, this is a misfortune effect; if she chooses the higher roll, it's a fortune effect; if they're the same, she decides which trait to apply."
+                    }
                 },
                 {
                     "name": "Snip Thread",
                     "type": "stat_block_section",
-                    "text": "<b>Frequency</b> three times per day; <b>Effect</b> The norn produces a golden thread linked to the fate of a creature within 100 feet of her, then snips it short with her shears. The target takes 100 negative damage (DC 42 basic Fortitude save). If the target is reduced to 0 Hit Points from this damage, the thread is completely severed and the creature dies immediately. A creature slain by Snip Thread can't be restored to life except by <a aonid=\"196\" game-obj=\"Spells\"><i>miracle</i></a>, <a aonid=\"377\" game-obj=\"Spells\"><i>wish</i></a>, or similarly powerful magic; or by divine intervention. Regardless of the outcome of their saving throw, a creature targeted by Snip Thread then becomes temporarily immune for 24 hours. The norn can't use Snip Thread again for 1d4 rounds.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Snip Thread",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "death",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "death",
-                                "alt": "death",
-                                "game-obj": "Traits",
-                                "aonid": 40
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "manipulate",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "death",
+                                    "alt": "death",
+                                    "game-obj": "Traits",
+                                    "aonid": 40
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "manipulate",
-                                "alt": "manipulate",
-                                "game-obj": "Traits",
-                                "aonid": 104
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "manipulate",
+                                    "alt": "manipulate",
+                                    "game-obj": "Traits",
+                                    "aonid": 104
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "miracle",
+                                "alt": "miracle",
+                                "game-obj": "Spells",
+                                "aonid": 196
+                            },
+                            {
+                                "type": "link",
+                                "name": "wish",
+                                "alt": "wish",
+                                "game-obj": "Spells",
+                                "aonid": 377
+                            }
+                        ],
+                        "frequency": " three times per day; ",
+                        "effect": " The norn produces a golden thread linked to the fate of a creature within 100 feet of her, then snips it short with her shears. The target takes 100 negative damage (DC 42 basic Fortitude save). If the target is reduced to 0 Hit Points from this damage, the thread is completely severed and the creature dies immediately. A creature slain by Snip Thread can't be restored to life except by <i>miracle</i>, <i>wish</i>, or similarly powerful magic; or by divine intervention. Regardless of the outcome of their saving throw, a creature targeted by Snip Thread then becomes temporarily immune for 24 hours. The norn can't use Snip Thread again for 1d4 rounds."
+                    }
                 }
             ]
         }

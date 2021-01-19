@@ -260,13 +260,15 @@
                         "subtype": "ability",
                         "name": "negative healing",
                         "ability_type": "automatic",
-                        "link": {
-                            "type": "link",
-                            "name": "negative healing",
-                            "alt": "negative healing",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 42
-                        }
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "negative healing",
+                                "alt": "negative healing",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 42
+                            }
+                        ]
                     }
                 ]
             },
@@ -607,102 +609,154 @@
                 {
                     "name": "Steal Breath",
                     "type": "stat_block_section",
-                    "text": "The attic whisperer siphons the breath from living creatures, sapping their strength. A living creature hit by a jaws Strike must attempt a DC 21 Fortitude save. <br/><b>Critical Success</b> The target is unaffected. <br/><b>Success </b>The target is <a aonid=\"13\" game-obj=\"Conditions\">enfeebled 1</a> for 1 round. <br/><b>Failure </b>The target is enfeebled 1 for 24 hours and <a aonid=\"15\" game-obj=\"Conditions\">fatigued</a>. <br/><b>Critical Failure </b>The target is enfeebled 1 for 24 hours, is fatigued, and falls <a aonid=\"38\" game-obj=\"Conditions\">unconscious</a>.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "curse",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Steal Breath",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "curse",
-                                "alt": "curse",
-                                "game-obj": "Traits",
+                                "link": {
+                                    "type": "link",
+                                    "name": "curse",
+                                    "alt": "curse",
+                                    "game-obj": "Traits",
+                                    "aonid": 38
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "incapacitation",
+                                "link": {
+                                    "type": "link",
+                                    "name": "incapacitation",
+                                    "alt": "incapacitation",
+                                    "game-obj": "Traits",
+                                    "aonid": 93
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "necromancy",
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "occult",
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "enfeebled 1",
+                                "alt": "enfeebled 1",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            },
+                            {
+                                "type": "link",
+                                "name": "fatigued",
+                                "alt": "fatigued",
+                                "game-obj": "Conditions",
+                                "aonid": 15
+                            },
+                            {
+                                "type": "link",
+                                "name": "unconscious",
+                                "alt": "unconscious",
+                                "game-obj": "Conditions",
                                 "aonid": 38
                             }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "incapacitation",
-                            "link": {
-                                "type": "link",
-                                "name": "incapacitation",
-                                "alt": "incapacitation",
-                                "game-obj": "Traits",
-                                "aonid": 93
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
-                                "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
-                                "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
-                            }
-                        }
-                    ]
+                        ],
+                        "critical_success": " The target is unaffected. <br/>",
+                        "success": "The target is enfeebled 1 for 1 round. <br/>",
+                        "failure": "The target is enfeebled 1 for 24 hours and fatigued. <br/>",
+                        "critical_failure": "The target is enfeebled 1 for 24 hours, is fatigued, and falls unconscious.",
+                        "text": "The attic whisperer siphons the breath from living creatures, sapping their strength. A living creature hit by a jaws Strike must attempt a DC 21 Fortitude save. <br/>"
+                    }
                 },
                 {
                     "name": "Steal Voice",
                     "type": "stat_block_section",
-                    "text": "When an attic whisperer hits a living creature with a bony hand Strike, it tries to pull the victim's voice into its aura. The victim must attempt a DC 21 Will save. <br/><b>Critical Success</b> The target is unaffected. <br/><b>Success </b>The target's voice is weak for 1 minute. Anytime it attempts an action with the <a aonid=\"16\" game-obj=\"Traits\">auditory</a> trait, it must succeed at a DC 5 flat check or the action is lost. <br/><b>Failure </b>The target loses the ability to speak for 1 hour, until the curse is removed, or until the attic whisperer is destroyed, whichever comes first. During this time, the attic whisperer can perfectly mimic the target's voice, and the target takes a \u20132 circumstance penalty to saving throws against that attic whisperer's aura of sobs. <br/><b>Critical Failure</b> As failure, but the effects lasts until the attic whisperer is destroyed or the curse is removed.",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "curse",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Steal Voice",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "curse",
-                                "alt": "curse",
-                                "game-obj": "Traits",
-                                "aonid": 38
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "curse",
+                                    "alt": "curse",
+                                    "game-obj": "Traits",
+                                    "aonid": 38
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "occult",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "occult",
-                                "alt": "occult",
-                                "game-obj": "Traits",
-                                "aonid": 120
+                                "link": {
+                                    "type": "link",
+                                    "name": "occult",
+                                    "alt": "occult",
+                                    "game-obj": "Traits",
+                                    "aonid": 120
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "auditory",
+                                "alt": "auditory",
+                                "game-obj": "Traits",
+                                "aonid": 16
+                            }
+                        ],
+                        "critical_success": " The target is unaffected. <br/>",
+                        "success": "The target's voice is weak for 1 minute. Anytime it attempts an action with the auditory trait, it must succeed at a DC 5 flat check or the action is lost. <br/>",
+                        "failure": "The target loses the ability to speak for 1 hour, until the curse is removed, or until the attic whisperer is destroyed, whichever comes first. During this time, the attic whisperer can perfectly mimic the target's voice, and the target takes a \u20132 circumstance penalty to saving throws against that attic whisperer's aura of sobs. <br/>",
+                        "critical_failure": " As failure, but the effects lasts until the attic whisperer is destroyed or the curse is removed.",
+                        "text": "When an attic whisperer hits a living creature with a bony hand Strike, it tries to pull the victim's voice into its aura. The victim must attempt a DC 21 Will save. <br/>"
+                    }
                 }
             ]
         }

@@ -264,13 +264,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ],
                 "text": "Tentacle only."
             }
         ],
@@ -622,40 +624,87 @@
                 {
                     "name": "Flooding Thrust",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The quoppopak's ventral tube is in water; <b>Effect</b> The quoppopak uses Tentacle Stab against a creature within reach; if either of these Strikes hits, the creature must attempt a DC 30 Reflex save. On a failed save, the quoppopak shoots water through its tentacles into the creature, dealing 2d6+5 bludgeoning damage and making the creature <a aonid=\"34\" game-obj=\"Conditions\">sickened 1</a> as its internal organs fill with water (double damage and sickened 2 on a critical failure).",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Flooding Thrust",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "sickened 1",
+                                "alt": "sickened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 34
+                            }
+                        ],
+                        "requirement": " The quoppopak's ventral tube is in water; ",
+                        "effect": " The quoppopak uses Tentacle Stab against a creature within reach; if either of these Strikes hits, the creature must attempt a DC 30 Reflex save. On a failed save, the quoppopak shoots water through its tentacles into the creature, dealing 2d6+5 bludgeoning damage and making the creature sickened 1 as its internal organs fill with water (double damage and sickened 2 on a critical failure)."
                     }
                 },
                 {
                     "name": "Tentacle Stab",
                     "type": "stat_block_section",
-                    "text": "<b>Frequency</b> once per round; <b>Effect</b> The quoppopak makes two tentacle Strikes against the same creature. These Strikes deal piercing damage instead of bludgeoning, and the quoppopak can't <a aonid=\"18\" game-obj=\"MonsterAbilities\">Grab</a> with them. Its multiple attack penalty doesn't increase until after both attacks.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Tentacle Stab",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Grab",
+                                "alt": "Grab",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 18
+                            }
+                        ],
+                        "frequency": " once per round; ",
+                        "effect": " The quoppopak makes two tentacle Strikes against the same creature. These Strikes deal piercing damage instead of bludgeoning, and the quoppopak can't Grab with them. Its multiple attack penalty doesn't increase until after both attacks."
                     }
                 },
                 {
                     "name": "Water Glide",
                     "type": "stat_block_section",
-                    "text": "The quoppopak can stand and move on the surface of water or other liquids without falling through. It can go underwater if it wishes, but it must <a aonid=\"39\" game-obj=\"Actions\">Swim</a> to do so.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Water Glide",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Swim",
+                                "alt": "Swim",
+                                "game-obj": "Actions",
+                                "aonid": 39
+                            }
+                        ],
+                        "text": "The quoppopak can stand and move on the surface of water or other liquids without falling through. It can go underwater if it wishes, but it must Swim to do so."
+                    }
                 }
             ]
         }

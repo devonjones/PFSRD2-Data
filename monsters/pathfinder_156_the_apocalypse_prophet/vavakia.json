@@ -526,13 +526,15 @@
                     "subtype": "ability",
                     "name": "telepathy",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy",
-                        "alt": "telepathy",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy",
+                            "alt": "telepathy",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -718,13 +720,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Frightful Presence",
-                "link": {
-                    "type": "link",
-                    "name": "Frightful Presence",
-                    "alt": "Frightful Presence",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 17
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Frightful Presence",
+                        "alt": "Frightful Presence",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 17
+                    }
+                ],
                 "traits": [
                     {
                         "type": "stat_block_section",
@@ -1404,163 +1408,228 @@
                 {
                     "name": "Smoking Wound",
                     "type": "stat_block_section",
-                    "text": "A creature damaged by the vavakia's jaws is <a aonid=\"34\" game-obj=\"Conditions\">sickened 1</a> from the rank smell of vapors from the wound.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Smoking Wound",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "sickened 1",
+                                "alt": "sickened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 34
+                            }
+                        ],
+                        "text": "A creature damaged by the vavakia's jaws is sickened 1 from the rank smell of vapors from the wound."
+                    }
                 },
                 {
                     "name": "Soulfire Breath",
                     "type": "stat_block_section",
-                    "text": "The vavakia exhales ghostly green fire in a 60-foot cone. Living creatures in the area take 20d6 negative damage (DC 42 basic Reflex save). A good creature that fails this save is becomes <a aonid=\"37\" game-obj=\"Conditions\">stupefied 2</a> for 1 minute (stupefied 4 on a critical failure). A creature slain by Soulfire Breath can't be resurrected except by powerful magic such as a <a aonid=\"377\" game-obj=\"Spells\"><i>wish</i></a> spell. The vavakia can't use Soulfire Breath again for 1d4 rounds.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Soulfire Breath",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "death",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "death",
-                                "alt": "death",
-                                "game-obj": "Traits",
-                                "aonid": 40
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "death",
+                                    "alt": "death",
+                                    "game-obj": "Traits",
+                                    "aonid": 40
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "negative",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "negative",
-                                "alt": "negative",
-                                "game-obj": "Traits",
-                                "aonid": 118
+                                "link": {
+                                    "type": "link",
+                                    "name": "negative",
+                                    "alt": "negative",
+                                    "game-obj": "Traits",
+                                    "aonid": 118
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "stupefied 2",
+                                "alt": "stupefied 2",
+                                "game-obj": "Conditions",
+                                "aonid": 37
+                            },
+                            {
+                                "type": "link",
+                                "name": "wish",
+                                "alt": "wish",
+                                "game-obj": "Spells",
+                                "aonid": 377
+                            }
+                        ],
+                        "text": "The vavakia exhales ghostly green fire in a 60-foot cone. Living creatures in the area take 20d6 negative damage (DC 42 basic Reflex save). A good creature that fails this save is becomes stupefied 2 for 1 minute (stupefied 4 on a critical failure). A creature slain by Soulfire Breath can't be resurrected except by powerful magic such as a <i>wish</i> spell. The vavakia can't use Soulfire Breath again for 1d4 rounds."
+                    }
                 },
                 {
                     "name": "Soulfire Inhalation",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The vavakia's last action was Soulfire Breath; <b>Effect</b> The vavakia inhales and regains 10 Hit Points for each creature damaged by its Soulfire Breath. Any excess healing is gained as temporary Hit Points, which remain for 1 minute.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Soulfire Inhalation",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "healing",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "healing",
-                                "alt": "healing",
-                                "game-obj": "Traits",
-                                "aonid": 89
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "necromancy",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "healing",
+                                    "alt": "healing",
+                                    "game-obj": "Traits",
+                                    "aonid": 89
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "necromancy",
-                                "alt": "necromancy",
-                                "game-obj": "Traits",
-                                "aonid": 117
+                                "link": {
+                                    "type": "link",
+                                    "name": "necromancy",
+                                    "alt": "necromancy",
+                                    "game-obj": "Traits",
+                                    "aonid": 117
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "requirement": " The vavakia's last action was Soulfire Breath; ",
+                        "effect": " The vavakia inhales and regains 10 Hit Points for each creature damaged by its Soulfire Breath. Any excess healing is gained as temporary Hit Points, which remain for 1 minute."
+                    }
                 },
                 {
                     "name": "Stunning Tail",
                     "type": "stat_block_section",
-                    "text": "If the vavakia critically hits with its tail Strike, the target must succeed at a DC 40 Fortitude save or be <a aonid=\"36\" game-obj=\"Conditions\">stunned</a> for 1 round (1d4 rounds on a critical failure).",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "incapacitation",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Stunning Tail",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "incapacitation",
-                                "alt": "incapacitation",
-                                "game-obj": "Traits",
-                                "aonid": 93
+                                "link": {
+                                    "type": "link",
+                                    "name": "incapacitation",
+                                    "alt": "incapacitation",
+                                    "game-obj": "Traits",
+                                    "aonid": 93
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "stunned",
+                                "alt": "stunned",
+                                "game-obj": "Conditions",
+                                "aonid": 36
+                            }
+                        ],
+                        "text": "If the vavakia critically hits with its tail Strike, the target must succeed at a DC 40 Fortitude save or be stunned for 1 round (1d4 rounds on a critical failure)."
+                    }
                 },
                 {
                     "name": "Trample",
                     "type": "stat_block_section",
-                    "text": "Large or smaller, claw, DC 40",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Three Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "ThreeActions",
-                            "image": "ThreeActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Trample",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Three Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "ThreeActions",
+                                "image": "ThreeActions.png"
+                            }
+                        },
+                        "text": "Large or smaller, claw, DC 40"
                     }
                 }
             ]

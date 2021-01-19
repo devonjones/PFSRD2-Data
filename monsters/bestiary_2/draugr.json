@@ -287,13 +287,15 @@
                         "subtype": "ability",
                         "name": "negative healing",
                         "ability_type": "automatic",
-                        "link": {
-                            "type": "link",
-                            "name": "negative healing",
-                            "alt": "negative healing",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 42
-                        }
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "negative healing",
+                                "alt": "negative healing",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 42
+                            }
+                        ]
                     }
                 ]
             },
@@ -599,37 +601,58 @@
                 {
                     "name": "Grotesque Gift",
                     "type": "stat_block_section",
-                    "text": "A draugr's attacks spatter their targets with rancid flesh and rotting seaweed. A creature damaged by a draugr's Strike must succeed at a DC 15 Fortitude save or become <a aonid=\"34\" game-obj=\"Conditions\">sickened 1</a> (sickened 2 on a critical failure).",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "olfactory",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Grotesque Gift",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "olfactory",
-                                "alt": "olfactory",
-                                "game-obj": "Traits",
-                                "aonid": 246
+                                "link": {
+                                    "type": "link",
+                                    "name": "olfactory",
+                                    "alt": "olfactory",
+                                    "game-obj": "Traits",
+                                    "aonid": 246
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "sickened 1",
+                                "alt": "sickened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 34
+                            }
+                        ],
+                        "text": "A draugr's attacks spatter their targets with rancid flesh and rotting seaweed. A creature damaged by a draugr's Strike must succeed at a DC 15 Fortitude save or become sickened 1 (sickened 2 on a critical failure)."
+                    }
                 },
                 {
                     "name": "Swipe",
                     "type": "stat_block_section",
-                    "text": "The draugr makes a melee Strike and compares the attack roll result to the AC of up to two foes, each of whom must be within its melee reach and adjacent to each other. Roll damage only once and apply it to each creature hit. A Swipe counts as two attacks for the draugr's multiple attack penalty.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Swipe",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "text": "The draugr makes a melee Strike and compares the attack roll result to the AC of up to two foes, each of whom must be within its melee reach and adjacent to each other. Roll damage only once and apply it to each creature hit. A Swipe counts as two attacks for the draugr's multiple attack penalty."
                     }
                 }
             ]

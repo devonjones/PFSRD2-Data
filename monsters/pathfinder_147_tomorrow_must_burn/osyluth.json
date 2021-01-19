@@ -529,13 +529,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1295,91 +1297,193 @@
                 {
                     "name": "Osyluth Venom",
                     "type": "stat_block_section",
-                    "text": "<b>Saving Throw </b>DC 25 Fortitude; <b>Maximum Duration </b>6 rounds; <b>Stage 1 </b>2d6 poison damage, <a aonid=\"13\" game-obj=\"Conditions\">enfeebled 1</a> (1 round); <b>Stage 2 </b>3d6 poison damage and enfeebled 1 (1 round); <b>Stage 3 </b>3d6 poison damage and enfeebled 2 (1 round). Once a creature reaches stage 3, it takes a \u20134 status penalty to Will saves against attempts to <a aonid=\"52\" game-obj=\"Actions\">Coerce</a> it for 1 hour (this is a mental effect).",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "poison",
-                            "link": {
-                                "type": "link",
+                    "offensive_action_type": "affliction",
+                    "affliction": {
+                        "type": "stat_block_section",
+                        "subtype": "affliction",
+                        "name": "Osyluth Venom",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "poison",
-                                "alt": "poison",
-                                "game-obj": "Traits",
-                                "aonid": 126
+                                "link": {
+                                    "type": "link",
+                                    "name": "poison",
+                                    "alt": "poison",
+                                    "game-obj": "Traits",
+                                    "aonid": 126
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "enfeebled 1",
+                                "alt": "enfeebled 1",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            },
+                            {
+                                "type": "link",
+                                "name": "Coerce",
+                                "alt": "Coerce",
+                                "game-obj": "Actions",
+                                "aonid": 52
+                            }
+                        ],
+                        "saving_throw": "DC 25 Fortitude",
+                        "maximum_duration": "6 rounds",
+                        "stages": [
+                            "2d6 poison damage, enfeebled 1 (1 round)",
+                            "3d6 poison damage and enfeebled 1 (1 round)",
+                            "3d6 poison damage and enfeebled 2 (1 round). Once a creature reaches stage 3, it takes a \u20134 status penalty to Will saves against attempts to Coerce it for 1 hour (this is a mental effect)."
+                        ]
+                    }
                 },
                 {
                     "name": "Quick Invisibility",
                     "type": "stat_block_section",
-                    "text": "The osyluth can cast innate <a aonid=\"164\" game-obj=\"Spells\"><i>invisibility</i></a> using only 1 action.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Quick Invisibility",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "invisibility",
+                                "alt": "invisibility",
+                                "game-obj": "Spells",
+                                "aonid": 164
+                            }
+                        ],
+                        "text": "The osyluth can cast innate <i>invisibility</i> using only 1 action."
+                    }
                 },
                 {
                     "name": "Sadistic Strike",
                     "type": "stat_block_section",
-                    "text": "An osyluth deals an extra 2d6 damage whenever they Strike an <a aonid=\"13\" game-obj=\"Conditions\">enfeebled</a>, <a aonid=\"19\" game-obj=\"Conditions\">frightened</a>, or <a aonid=\"31\" game-obj=\"Conditions\">prone</a> creature.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Sadistic Strike",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "enfeebled",
+                                "alt": "enfeebled",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            },
+                            {
+                                "type": "link",
+                                "name": "frightened",
+                                "alt": "frightened",
+                                "game-obj": "Conditions",
+                                "aonid": 19
+                            },
+                            {
+                                "type": "link",
+                                "name": "prone",
+                                "alt": "prone",
+                                "game-obj": "Conditions",
+                                "aonid": 31
+                            }
+                        ],
+                        "text": "An osyluth deals an extra 2d6 damage whenever they Strike an enfeebled, frightened, or prone creature."
+                    }
                 },
                 {
                     "name": "Stygian Inquisitor",
                     "type": "stat_block_section",
-                    "text": "The osyluth telepathically questions a creature affected by zone of truth. After 1 round, if the creature intentionally refuses to answer the question, it takes 2d6 <a aonid=\"106\" game-obj=\"Traits\">mental</a> damage.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Stygian Inquisitor",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "linguistic",
-                            "link": {
-                                "type": "link",
-                                "name": "linguistic",
-                                "alt": "linguistic",
-                                "game-obj": "Traits",
-                                "aonid": 101
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
                         },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "mental",
-                            "link": {
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "linguistic",
+                                "link": {
+                                    "type": "link",
+                                    "name": "linguistic",
+                                    "alt": "linguistic",
+                                    "game-obj": "Traits",
+                                    "aonid": 101
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "mental",
+                                "link": {
+                                    "type": "link",
+                                    "name": "mental",
+                                    "alt": "mental",
+                                    "game-obj": "Traits",
+                                    "aonid": 106
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
                                 "type": "link",
                                 "name": "mental",
                                 "alt": "mental",
                                 "game-obj": "Traits",
                                 "aonid": 106
                             }
-                        }
-                    ]
+                        ],
+                        "text": "The osyluth telepathically questions a creature affected by zone of truth. After 1 round, if the creature intentionally refuses to answer the question, it takes 2d6 mental damage."
+                    }
                 },
                 {
                     "name": "Tail Sweep",
                     "type": "stat_block_section",
-                    "text": "The osyluth sweeps their tail in a 15-foot cone. Each creature in the cone must succeed at a DC 26 Reflex save or be knocked <a aonid=\"31\" game-obj=\"Conditions\">prone</a>.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Tail Sweep",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "prone",
+                                "alt": "prone",
+                                "game-obj": "Conditions",
+                                "aonid": 31
+                            }
+                        ],
+                        "text": "The osyluth sweeps their tail in a 15-foot cone. Each creature in the cone must succeed at a DC 26 Reflex save or be knocked prone."
                     }
                 }
             ]

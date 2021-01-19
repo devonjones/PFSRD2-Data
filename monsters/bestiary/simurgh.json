@@ -193,13 +193,15 @@
                     "subtype": "ability",
                     "name": "tongues",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "tongues",
-                        "alt": "tongues",
-                        "game-obj": "Spells",
-                        "aonid": 340
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "tongues",
+                            "alt": "tongues",
+                            "game-obj": "Spells",
+                            "aonid": 340
+                        }
+                    ]
                 }
             ]
         },
@@ -1002,38 +1004,69 @@
                 {
                     "name": "Banishing Swipe",
                     "type": "stat_block_section",
-                    "text": "If a creature hit by the simurgh\u2019s tail Strike is not currently on its home plane, it must succeed at a DC 42 Will save or be affected by <a aonid=\"19\" game-obj=\"Spells\"><i>banishment</i></a>, except that if the creature critically succeeds its save the simurgh is not stunned.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Banishing Swipe",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "banishment",
+                                "alt": "banishment",
+                                "game-obj": "Spells",
+                                "aonid": 19
+                            }
+                        ],
+                        "text": "If a creature hit by the simurgh\u2019s tail Strike is not currently on its home plane, it must succeed at a DC 42 Will save or be affected by <i>banishment</i>, except that if the creature critically succeeds its save the simurgh is not stunned."
+                    }
                 },
                 {
                     "name": "Radiant Feathers",
                     "type": "stat_block_section",
-                    "text": "<b>Frequency</b> Once per day. <b>Effect</b> The simurgh fans out its glimmering tail feathers and blasts its foes with a 100-foot cone of radiant light. Aside from the size of the cone, this effect is identical to <i><a aonid=\"233\" game-obj=\"Spells\">prismatic spray</a></i> (DC 42).",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Radiant Feathers",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "attack",
-                            "link": {
-                                "type": "link",
-                                "name": "attack",
-                                "alt": "attack",
-                                "game-obj": "Traits",
-                                "aonid": 15
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "attack",
+                                "link": {
+                                    "type": "link",
+                                    "name": "attack",
+                                    "alt": "attack",
+                                    "game-obj": "Traits",
+                                    "aonid": 15
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "prismatic spray",
+                                "alt": "prismatic spray",
+                                "game-obj": "Spells",
+                                "aonid": 233
+                            }
+                        ],
+                        "frequency": " Once per day. ",
+                        "effect": " The simurgh fans out its glimmering tail feathers and blasts its foes with a 100-foot cone of radiant light. Aside from the size of the cone, this effect is identical to <i>prismatic spray</i> (DC 42)."
+                    }
                 }
             ]
         }

@@ -524,13 +524,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                }
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ]
             }
         ],
         "offense": {
@@ -761,64 +763,115 @@
                 {
                     "name": "Rapid Repair",
                     "type": "stat_block_section",
-                    "text": "The clockwork assassin spends 1 hour of its operational time to repair itself, regaining 25 Hit Points and refilling its integrated projectile launcher with 4 spinning blades (to a maximum of 10) and 2 smoke bombs (to a maximum of 5).",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "manipulate",
-                            "link": {
-                                "type": "link",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Rapid Repair",
+                        "ability_type": "offensive",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "manipulate",
-                                "alt": "manipulate",
-                                "game-obj": "Traits",
-                                "aonid": 104
+                                "link": {
+                                    "type": "link",
+                                    "name": "manipulate",
+                                    "alt": "manipulate",
+                                    "game-obj": "Traits",
+                                    "aonid": 104
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "text": "The clockwork assassin spends 1 hour of its operational time to repair itself, regaining 25 Hit Points and refilling its integrated projectile launcher with 4 spinning blades (to a maximum of 10) and 2 smoke bombs (to a maximum of 5)."
+                    }
                 },
                 {
                     "name": "Smoke Bomb Launcher",
                     "type": "stat_block_section",
-                    "text": "The clockwork assassin launches a smoke bomb. A screen of thick, opaque smoke fills a 10-foot burst within 60 feet of the clockwork assassin. Creatures within the area are <a aonid=\"4\" game-obj=\"Conditions\">concealed</a>, and all other creatures are concealed to them. The smoke lasts for 1 minute or until dispersed by a strong wind.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Smoke Bomb Launcher",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "manipulate",
-                            "link": {
-                                "type": "link",
-                                "name": "manipulate",
-                                "alt": "manipulate",
-                                "game-obj": "Traits",
-                                "aonid": 104
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "manipulate",
+                                "link": {
+                                    "type": "link",
+                                    "name": "manipulate",
+                                    "alt": "manipulate",
+                                    "game-obj": "Traits",
+                                    "aonid": 104
+                                }
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "concealed",
+                                "alt": "concealed",
+                                "game-obj": "Conditions",
+                                "aonid": 4
+                            }
+                        ],
+                        "text": "The clockwork assassin launches a smoke bomb. A screen of thick, opaque smoke fills a 10-foot burst within 60 feet of the clockwork assassin. Creatures within the area are concealed, and all other creatures are concealed to them. The smoke lasts for 1 minute or until dispersed by a strong wind."
+                    }
                 },
                 {
                     "name": "Sneak Attack",
                     "type": "stat_block_section",
-                    "text": "The clockwork assassin's Strikes deal an additional 3d6 precision damage to <a aonid=\"16\" game-obj=\"Conditions\">flat-footed</a> creatures.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Sneak Attack",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "flat-footed",
+                                "alt": "flat-footed",
+                                "game-obj": "Conditions",
+                                "aonid": 16
+                            }
+                        ],
+                        "text": "The clockwork assassin's Strikes deal an additional 3d6 precision damage to flat-footed creatures."
+                    }
                 },
                 {
                     "name": "Unbalancing Blow",
                     "type": "stat_block_section",
-                    "text": "Creatures hit by the clockwork assassin's rapier hand Strike are <a aonid=\"16\" game-obj=\"Conditions\">flat-footed</a> until the start of the clockwork assassin's next turn.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Unbalancing Blow",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "flat-footed",
+                                "alt": "flat-footed",
+                                "game-obj": "Conditions",
+                                "aonid": 16
+                            }
+                        ],
+                        "text": "Creatures hit by the clockwork assassin's rapier hand Strike are flat-footed until the start of the clockwork assassin's next turn."
+                    }
                 }
             ]
         }

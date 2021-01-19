@@ -188,13 +188,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -487,59 +489,92 @@
                 {
                     "name": "Dazzling Burst",
                     "type": "stat_block_section",
-                    "text": "The d'ziriak causes its body to flare with intense colorful light. Non-d'ziriaks in a 20-foot emanation must attempt a DC 20 Fortitude save. After using this ability, the d'ziriak loses its glow for 24 hours; during this time it can't use Dazzling Burst again. A creature that attempts this save is immune to all Dazzling Bursts for 1 minute. <br/><b>Critical Success </b>The creature is unaffected. <br/><b>Success </b>The creature is <a aonid=\"7\" game-obj=\"Conditions\">dazzled</a> for 1 round. <br/><b>Failure </b>The creature is dazzled for 1 minute. <br/><b>Critical Failure </b>The creature is <a aonid=\"1\" game-obj=\"Conditions\">blinded</a> for 1 round and dazzled for 1 minute.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Dazzling Burst",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "light",
-                            "link": {
-                                "type": "link",
-                                "name": "light",
-                                "alt": "light",
-                                "game-obj": "Traits",
-                                "aonid": 100
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
                             }
                         },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "visual",
-                            "link": {
-                                "type": "link",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "light",
+                                "link": {
+                                    "type": "link",
+                                    "name": "light",
+                                    "alt": "light",
+                                    "game-obj": "Traits",
+                                    "aonid": 100
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "visual",
-                                "alt": "visual",
-                                "game-obj": "Traits",
-                                "aonid": 163
+                                "link": {
+                                    "type": "link",
+                                    "name": "visual",
+                                    "alt": "visual",
+                                    "game-obj": "Traits",
+                                    "aonid": 163
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "dazzled",
+                                "alt": "dazzled",
+                                "game-obj": "Conditions",
+                                "aonid": 7
+                            },
+                            {
+                                "type": "link",
+                                "name": "blinded",
+                                "alt": "blinded",
+                                "game-obj": "Conditions",
+                                "aonid": 1
+                            }
+                        ],
+                        "critical_success": "The creature is unaffected. <br/>",
+                        "success": "The creature is dazzled for 1 round. <br/>",
+                        "failure": "The creature is dazzled for 1 minute. <br/>",
+                        "critical_failure": "The creature is blinded for 1 round and dazzled for 1 minute.",
+                        "text": "The d'ziriak causes its body to flare with intense colorful light. Non-d'ziriaks in a 20-foot emanation must attempt a DC 20 Fortitude save. After using this ability, the d'ziriak loses its glow for 24 hours; during this time it can't use Dazzling Burst again. A creature that attempts this save is immune to all Dazzling Bursts for 1 minute. <br/>"
+                    }
                 },
                 {
                     "name": "Double Claw",
                     "type": "stat_block_section",
-                    "text": "<b>Frequency </b>once per round; <b>Effect </b>The d'ziriak makes two claw Strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses. This counts as two attacks for the d'ziriak's multiple attack penalty, and the penalty doesn't increase until after both attacks.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Double Claw",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "frequency": "once per round; ",
+                        "effect": "The d'ziriak makes two claw Strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses. This counts as two attacks for the d'ziriak's multiple attack penalty, and the penalty doesn't increase until after both attacks."
                     }
                 }
             ]

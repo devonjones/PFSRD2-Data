@@ -393,26 +393,30 @@
                     "subtype": "ability",
                     "name": "telepathy 120 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 120 feet",
-                        "alt": "telepathy 120 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 120 feet",
+                            "alt": "telepathy 120 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
                     "name": "tongues",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "tongues",
-                        "alt": "tongues",
-                        "game-obj": "Spells",
-                        "aonid": 340
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "tongues",
+                            "alt": "tongues",
+                            "game-obj": "Spells",
+                            "aonid": 340
+                        }
+                    ]
                 }
             ]
         },
@@ -605,13 +609,15 @@
                         "subtype": "ability",
                         "name": "fast healing",
                         "ability_type": "automatic",
-                        "link": {
-                            "type": "link",
-                            "name": "fast healing 20",
-                            "alt": "fast healing 20",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 15
-                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "fast healing 20",
+                                "alt": "fast healing 20",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 15
+                            }
+                        ],
                         "value": 20
                     },
                     {
@@ -691,13 +697,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Frightful Presence",
-                "link": {
-                    "type": "link",
-                    "name": "Frightful Presence",
-                    "alt": "Frightful Presence",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 17
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Frightful Presence",
+                        "alt": "Frightful Presence",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 17
+                    }
+                ],
                 "traits": [
                     {
                         "type": "stat_block_section",
@@ -1365,56 +1373,119 @@
                 {
                     "name": "Breath Weapon",
                     "type": "stat_block_section",
-                    "text": "The yamaraj breathes a blast of beetles in a 50-foot cone that deals 14d8 slashing damage and 4d8 <a aonid=\"29\" game-obj=\"Conditions\">persistent slashing damage</a> to creatures in the area (DC 42 Reflex save). It can't use Breath Weapon again for 1d4 rounds. <br/><b>Critical Success</b> The creature takes no damage. <br/><b>Success</b> The creature takes half damage and is <a aonid=\"34\" game-obj=\"Conditions\">sickened 1</a>. <br/><b>Failure</b> The creature takes full damage and is sickened 2. <br/><b>Critical Failure</b> The creature takes double damage and is sickened 3.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Breath Weapon",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
-                                "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
                             }
                         },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "evocation",
-                            "link": {
-                                "type": "link",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "divine",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "evocation",
-                                "alt": "evocation",
-                                "game-obj": "Traits",
-                                "aonid": 65
+                                "link": {
+                                    "type": "link",
+                                    "name": "evocation",
+                                    "alt": "evocation",
+                                    "game-obj": "Traits",
+                                    "aonid": 65
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "persistent slashing damage",
+                                "alt": "persistent slashing damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            },
+                            {
+                                "type": "link",
+                                "name": "sickened 1",
+                                "alt": "sickened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 34
+                            }
+                        ],
+                        "critical_success": " The creature takes no damage. <br/>",
+                        "success": " The creature takes half damage and is sickened 1. <br/>",
+                        "failure": " The creature takes full damage and is sickened 2. <br/>",
+                        "critical_failure": " The creature takes double damage and is sickened 3.",
+                        "text": "The yamaraj breathes a blast of beetles in a 50-foot cone that deals 14d8 slashing damage and 4d8 persistent slashing damage to creatures in the area (DC 42 Reflex save). It can't use Breath Weapon again for 1d4 rounds. <br/>"
+                    }
                 },
                 {
                     "name": "Final Judgment",
                     "type": "stat_block_section",
-                    "text": "A yamaraj's miracle spells are used only to pronounce judgment, typically either to restore a dead or destroyed creature to life, bind a creature to the <a aonid=\"15\" game-obj=\"Planes\">Boneyard</a>, or banish a creature from the Boneyard.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Final Judgment",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Boneyard",
+                                "alt": "Boneyard",
+                                "game-obj": "Planes",
+                                "aonid": 15
+                            }
+                        ],
+                        "text": "A yamaraj's miracle spells are used only to pronounce judgment, typically either to restore a dead or destroyed creature to life, bind a creature to the Boneyard, or banish a creature from the Boneyard."
+                    }
                 },
                 {
                     "name": "Spirit Touch",
                     "type": "stat_block_section",
-                    "text": "A yamaraj's Strikes affect <a aonid=\"222\" game-obj=\"Traits\">incorporeal</a> creatures with the effects of a <a aonid=\"297\" game-obj=\"Equipment\"><i>ghost touch</i></a> property rune and deal 3d6 negative damage to living creatures and 3d6 positive damage to undead.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Spirit Touch",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "incorporeal",
+                                "alt": "incorporeal",
+                                "game-obj": "Traits",
+                                "aonid": 222
+                            },
+                            {
+                                "type": "link",
+                                "name": "ghost touch",
+                                "alt": "ghost touch",
+                                "game-obj": "Equipment",
+                                "aonid": 297
+                            }
+                        ],
+                        "text": "A yamaraj's Strikes affect incorporeal creatures with the effects of a <i>ghost touch</i> property rune and deal 3d6 negative damage to living creatures and 3d6 positive damage to undead."
+                    }
                 },
                 {
                     "name": "Yamaraj Venom",

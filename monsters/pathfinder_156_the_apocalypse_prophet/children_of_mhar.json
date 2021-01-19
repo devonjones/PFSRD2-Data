@@ -181,13 +181,15 @@
                     "subtype": "ability",
                     "name": "telepathy",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy",
-                        "alt": "telepathy",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy",
+                            "alt": "telepathy",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -614,75 +616,126 @@
                 {
                     "name": "Beak Crunch",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements</b> The deghuun has a creature <a aonid=\"20\" game-obj=\"Conditions\">grabbed</a> with its tentacles; <b>Effect</b> The creature takes 4d8+17 piercing damage.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Beak Crunch",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "grabbed",
+                                "alt": "grabbed",
+                                "game-obj": "Conditions",
+                                "aonid": 20
+                            }
+                        ],
+                        "requirement": " The deghuun has a creature grabbed with its tentacles; ",
+                        "effect": " The creature takes 4d8+17 piercing damage."
                     }
                 },
                 {
                     "name": "Sulfurous Plume",
                     "type": "stat_block_section",
-                    "text": "The deghuun vents caustic smog for 1d4 rounds. Any creature that ends its turn within 30 feet of the deghuun during this time takes 6d6 fire damage and is <a aonid=\"34\" game-obj=\"Conditions\">sickened 1</a> (DC 38 Fortitude save; the creature avoids the sickened condition on a critical success, or is sickened 2 on a critical failure). While sickened in this way, a creature takes a \u20132 status penalty to its saving throw against the deghuun's <a aonid=\"144\" game-obj=\"Spells\"><i>hallucination</i></a>. Any creature that's in the smog is <a aonid=\"4\" game-obj=\"Conditions\">concealed</a> and treats other creatures as concealed. Strong winds dissipate the smog.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Sulfurous Plume",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "fire",
-                            "link": {
-                                "type": "link",
-                                "name": "fire",
-                                "alt": "fire",
-                                "game-obj": "Traits",
-                                "aonid": 72
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
                             }
                         },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "poison",
-                            "link": {
-                                "type": "link",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "fire",
+                                "link": {
+                                    "type": "link",
+                                    "name": "fire",
+                                    "alt": "fire",
+                                    "game-obj": "Traits",
+                                    "aonid": 72
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "poison",
-                                "alt": "poison",
-                                "game-obj": "Traits",
-                                "aonid": 126
+                                "link": {
+                                    "type": "link",
+                                    "name": "poison",
+                                    "alt": "poison",
+                                    "game-obj": "Traits",
+                                    "aonid": 126
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "sickened 1",
+                                "alt": "sickened 1",
+                                "game-obj": "Conditions",
+                                "aonid": 34
+                            },
+                            {
+                                "type": "link",
+                                "name": "hallucination",
+                                "alt": "hallucination",
+                                "game-obj": "Spells",
+                                "aonid": 144
+                            },
+                            {
+                                "type": "link",
+                                "name": "concealed",
+                                "alt": "concealed",
+                                "game-obj": "Conditions",
+                                "aonid": 4
+                            }
+                        ],
+                        "text": "The deghuun vents caustic smog for 1d4 rounds. Any creature that ends its turn within 30 feet of the deghuun during this time takes 6d6 fire damage and is sickened 1 (DC 38 Fortitude save; the creature avoids the sickened condition on a critical success, or is sickened 2 on a critical failure). While sickened in this way, a creature takes a \u20132 status penalty to its saving throw against the deghuun's <i>hallucination</i>. Any creature that's in the smog is concealed and treats other creatures as concealed. Strong winds dissipate the smog."
+                    }
                 },
                 {
                     "name": "Tentacle Assault",
                     "type": "stat_block_section",
-                    "text": "The deghuun makes three tentacle Strikes, each against a different creature within reach. These attacks count toward its multiple attack penalty as normal.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Tentacle Assault",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "text": "The deghuun makes three tentacle Strikes, each against a different creature within reach. These attacks count toward its multiple attack penalty as normal."
                     }
                 }
             ]

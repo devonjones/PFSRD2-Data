@@ -474,13 +474,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -1074,108 +1076,176 @@
                 {
                     "name": "Bloodletting",
                     "type": "stat_block_section",
-                    "text": "On a critical hit, the hamatula's barbs deal 3d6 <a aonid=\"29\" game-obj=\"Conditions\">persistent bleed damage</a>.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Bloodletting",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "persistent bleed damage",
+                                "alt": "persistent bleed damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            }
+                        ],
+                        "text": "On a critical hit, the hamatula's barbs deal 3d6 persistent bleed damage."
+                    }
                 },
                 {
                     "name": "Frightful Strike",
                     "type": "stat_block_section",
-                    "text": "<b>Trigger </b>The hamatula hits a creature with a barb Strike; <b>Effect </b>The creature struck must succeed at a DC 27 Will save or become <a aonid=\"19\" game-obj=\"Conditions\">frightened 2</a> (or frightened 3 on a critical failure). Regardless of the result of its saving throw, the creature is then temporarily immune to Frightful Strike for 24 hours.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Free Action",
-                        "image": {
-                            "type": "image",
-                            "name": "FreeAction",
-                            "image": "FreeAction.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Frightful Strike",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Free Action",
+                            "image": {
+                                "type": "image",
+                                "name": "FreeAction",
+                                "image": "FreeAction.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "emotion",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "emotion",
-                                "alt": "emotion",
-                                "game-obj": "Traits",
-                                "aonid": 60
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "enchantment",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "emotion",
+                                    "alt": "emotion",
+                                    "game-obj": "Traits",
+                                    "aonid": 60
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "enchantment",
-                                "alt": "enchantment",
-                                "game-obj": "Traits",
-                                "aonid": 61
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "fear",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "enchantment",
+                                    "alt": "enchantment",
+                                    "game-obj": "Traits",
+                                    "aonid": 61
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "fear",
-                                "alt": "fear",
-                                "game-obj": "Traits",
-                                "aonid": 68
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "mental",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "fear",
+                                    "alt": "fear",
+                                    "game-obj": "Traits",
+                                    "aonid": 68
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "mental",
-                                "alt": "mental",
-                                "game-obj": "Traits",
-                                "aonid": 106
+                                "link": {
+                                    "type": "link",
+                                    "name": "mental",
+                                    "alt": "mental",
+                                    "game-obj": "Traits",
+                                    "aonid": 106
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "frightened 2",
+                                "alt": "frightened 2",
+                                "game-obj": "Conditions",
+                                "aonid": 19
+                            }
+                        ],
+                        "trigger": "The hamatula hits a creature with a barb Strike; ",
+                        "effect": "The creature struck must succeed at a DC 27 Will save or become frightened 2 (or frightened 3 on a critical failure). Regardless of the result of its saving throw, the creature is then temporarily immune to Frightful Strike for 24 hours."
+                    }
                 },
                 {
                     "name": "Impaling Barb",
                     "type": "stat_block_section",
-                    "text": "The hamatula makes a barb Strike, then Strides up to half its Speed without triggering reactions. If the Strike hits, the hamatula impales the target with one of its barbs and snaps the barb free as it moves away from the target. This deals an additional 2d8 piercing damage to the target and pins it to an adjacent surface, rendering it <a aonid=\"24\" game-obj=\"Conditions\">immobilized</a> (<a aonid=\"79\" game-obj=\"Actions\">Escape</a> DC 29).",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Impaling Barb",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "immobilized",
+                                "alt": "immobilized",
+                                "game-obj": "Conditions",
+                                "aonid": 24
+                            },
+                            {
+                                "type": "link",
+                                "name": "Escape",
+                                "alt": "Escape",
+                                "game-obj": "Actions",
+                                "aonid": 79
+                            }
+                        ],
+                        "text": "The hamatula makes a barb Strike, then Strides up to half its Speed without triggering reactions. If the Strike hits, the hamatula impales the target with one of its barbs and snaps the barb free as it moves away from the target. This deals an additional 2d8 piercing damage to the target and pins it to an adjacent surface, rendering it immobilized (Escape DC 29)."
                     }
                 },
                 {
                     "name": "Warden of Erebus",
                     "type": "stat_block_section",
-                    "text": "A hamatula's <a aonid=\"138\" game-obj=\"Spells\"><i>glyph of warding</i></a> innate spell can contain any common spell from the Core Rulebook that meets the criteria in glyph of warding; the hamatula doesn't need to provide the spell.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Warden of Erebus",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "glyph of warding",
+                                "alt": "glyph of warding",
+                                "game-obj": "Spells",
+                                "aonid": 138
+                            }
+                        ],
+                        "text": "A hamatula's <i>glyph of warding</i> innate spell can contain any common spell from the Core Rulebook that meets the criteria in glyph of warding; the hamatula doesn't need to provide the spell."
+                    }
                 }
             ]
         }

@@ -265,13 +265,15 @@
                     "subtype": "ability",
                     "name": "telepathy 100 feet",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "telepathy 100 feet",
-                        "alt": "telepathy 100 feet",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 37
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "telepathy 100 feet",
+                            "alt": "telepathy 100 feet",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 37
+                        }
+                    ]
                 }
             ]
         },
@@ -777,131 +779,222 @@
                 {
                     "name": "Greater Constrict",
                     "type": "stat_block_section",
-                    "text": "2d10+7 bludgeoning, DC 29",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Greater Constrict",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "text": "2d10+7 bludgeoning, DC 29"
                     }
                 },
                 {
                     "name": "Quetz Couatl Venom",
                     "type": "stat_block_section",
-                    "text": "A quetz couatl's venom deals good damage rather than poison damage to fiends; <b>Saving Throw </b>DC 29 Fortitude; <b>Maximum Duration </b>6 rounds; <b>Stage 1 </b>2d6 poison damage and <a aonid=\"13\" game-obj=\"Conditions\">enfeebled 1</a> (1 round); <b>Stage 2 </b>2d8 poison damage, enfeebled 1, and <a aonid=\"16\" game-obj=\"Conditions\">flat-footed</a> (1 round); <b>Stage 3 </b>2d10 poison damage, enfeebled 2, and flat-footed (1 round)",
                     "subtype": "offensive_action",
-                    "traits": [
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "poison",
-                            "link": {
-                                "type": "link",
+                    "offensive_action_type": "affliction",
+                    "affliction": {
+                        "type": "stat_block_section",
+                        "subtype": "affliction",
+                        "name": "Quetz Couatl Venom",
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "poison",
-                                "alt": "poison",
-                                "game-obj": "Traits",
-                                "aonid": 126
+                                "link": {
+                                    "type": "link",
+                                    "name": "poison",
+                                    "alt": "poison",
+                                    "game-obj": "Traits",
+                                    "aonid": 126
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "enfeebled 1",
+                                "alt": "enfeebled 1",
+                                "game-obj": "Conditions",
+                                "aonid": 13
+                            },
+                            {
+                                "type": "link",
+                                "name": "flat-footed",
+                                "alt": "flat-footed",
+                                "game-obj": "Conditions",
+                                "aonid": 16
+                            }
+                        ],
+                        "text": "A quetz couatl's venom deals good damage rather than poison damage to fiends",
+                        "saving_throw": "DC 29 Fortitude",
+                        "maximum_duration": "6 rounds",
+                        "stages": [
+                            "2d6 poison damage and enfeebled 1 (1 round)",
+                            "2d8 poison damage, enfeebled 1, and flat-footed (1 round)",
+                            "2d10 poison damage, enfeebled 2, and flat-footed (1 round)"
+                        ]
+                    }
                 },
                 {
                     "name": "Radiant Wings",
                     "type": "stat_block_section",
-                    "text": "The quetz couatl spreads its multicolored wings and radiant plumage. Each enemy within 30 feet must attempt a DC 29 Will save. <br/><b>Critical Success </b>The creature is unaffected and is temporarily immune to Radiant Wings for 24 hours. <br/><b>Success </b>The creature is <a aonid=\"7\" game-obj=\"Conditions\">dazzled</a> for 1 round. <br/><b>Failure </b>The creature is dazzled for 1 minute. <br/><b>Critical Failure </b>As failure, but if the creature is evil, it is also <a aonid=\"36\" game-obj=\"Conditions\">stunned 3</a>.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Radiant Wings",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "divine",
-                            "link": {
-                                "type": "link",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "divine",
-                                "alt": "divine",
-                                "game-obj": "Traits",
-                                "aonid": 48
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "enchantment",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "divine",
+                                    "alt": "divine",
+                                    "game-obj": "Traits",
+                                    "aonid": 48
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "enchantment",
-                                "alt": "enchantment",
-                                "game-obj": "Traits",
-                                "aonid": 61
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "incapacitation",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "enchantment",
+                                    "alt": "enchantment",
+                                    "game-obj": "Traits",
+                                    "aonid": 61
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "incapacitation",
-                                "alt": "incapacitation",
-                                "game-obj": "Traits",
-                                "aonid": 93
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "mental",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "incapacitation",
+                                    "alt": "incapacitation",
+                                    "game-obj": "Traits",
+                                    "aonid": 93
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "mental",
-                                "alt": "mental",
-                                "game-obj": "Traits",
-                                "aonid": 106
-                            }
-                        },
-                        {
-                            "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "visual",
-                            "link": {
-                                "type": "link",
+                                "link": {
+                                    "type": "link",
+                                    "name": "mental",
+                                    "alt": "mental",
+                                    "game-obj": "Traits",
+                                    "aonid": 106
+                                }
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
                                 "name": "visual",
-                                "alt": "visual",
-                                "game-obj": "Traits",
-                                "aonid": 163
+                                "link": {
+                                    "type": "link",
+                                    "name": "visual",
+                                    "alt": "visual",
+                                    "game-obj": "Traits",
+                                    "aonid": 163
+                                }
                             }
-                        }
-                    ]
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "dazzled",
+                                "alt": "dazzled",
+                                "game-obj": "Conditions",
+                                "aonid": 7
+                            },
+                            {
+                                "type": "link",
+                                "name": "stunned 3",
+                                "alt": "stunned 3",
+                                "game-obj": "Conditions",
+                                "aonid": 36
+                            }
+                        ],
+                        "critical_success": "The creature is unaffected and is temporarily immune to Radiant Wings for 24 hours. <br/>",
+                        "success": "The creature is dazzled for 1 round. <br/>",
+                        "failure": "The creature is dazzled for 1 minute. <br/>",
+                        "critical_failure": "As failure, but if the creature is evil, it is also stunned 3.",
+                        "text": "The quetz couatl spreads its multicolored wings and radiant plumage. Each enemy within 30 feet must attempt a DC 29 Will save. <br/>"
+                    }
                 },
                 {
                     "name": "Wrap in Coils",
                     "type": "stat_block_section",
-                    "text": "<b>Requirements </b>The quetz couatl has a Medium or smaller creature <a aonid=\"20\" game-obj=\"Conditions\">grabbed</a> or <a aonid=\"33\" game-obj=\"Conditions\">restrained</a> in its jaws; <b>Effect </b>The quetz couatl moves the creature into its coils, freeing its fangs to make attacks, then uses <a aonid=\"19\" game-obj=\"MonsterAbilities\">Greater Constrict</a> against the creature. The quetz couatl can hold as many creatures in its coils as will fit in its space.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Wrap in Coils",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "grabbed",
+                                "alt": "grabbed",
+                                "game-obj": "Conditions",
+                                "aonid": 20
+                            },
+                            {
+                                "type": "link",
+                                "name": "restrained",
+                                "alt": "restrained",
+                                "game-obj": "Conditions",
+                                "aonid": 33
+                            },
+                            {
+                                "type": "link",
+                                "name": "Greater Constrict",
+                                "alt": "Greater Constrict",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 19
+                            }
+                        ],
+                        "requirement": "The quetz couatl has a Medium or smaller creature grabbed or restrained in its jaws; ",
+                        "effect": "The quetz couatl moves the creature into its coils, freeing its fangs to make attacks, then uses Greater Constrict against the creature. The quetz couatl can hold as many creatures in its coils as will fit in its space."
                     }
                 }
             ]

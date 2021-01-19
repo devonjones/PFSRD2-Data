@@ -213,13 +213,15 @@
                     "subtype": "ability",
                     "name": "tongues",
                     "ability_type": "communication",
-                    "link": {
-                        "type": "link",
-                        "name": "tongues",
-                        "alt": "tongues",
-                        "game-obj": "Spells",
-                        "aonid": 340
-                    }
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "tongues",
+                            "alt": "tongues",
+                            "game-obj": "Spells",
+                            "aonid": 340
+                        }
+                    ]
                 }
             ]
         },
@@ -381,13 +383,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Frightful Presence",
-                "link": {
-                    "type": "link",
-                    "name": "Frightful Presence",
-                    "alt": "Frightful Presence",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 17
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Frightful Presence",
+                        "alt": "Frightful Presence",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 17
+                    }
+                ],
                 "traits": [
                     {
                         "type": "stat_block_section",
@@ -810,39 +814,82 @@
                 {
                     "name": "Paralytic Spittle",
                     "type": "stat_block_section",
-                    "text": "A creature that takes damage from a qurashith\u2019s jaws or spittle must succeed at a DC 39 Fortitude save or be <a aonid=\"35\" game-obj=\"Conditions\">slowed 1</a> for 1d4 rounds (slowed 2 on a critical failure). If a creature is already slowed when it fails its save, it becomes <a aonid=\"28\" game-obj=\"Conditions\">paralyzed</a> for 1 round.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Paralytic Spittle",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "slowed 1",
+                                "alt": "slowed 1",
+                                "game-obj": "Conditions",
+                                "aonid": 35
+                            },
+                            {
+                                "type": "link",
+                                "name": "paralyzed",
+                                "alt": "paralyzed",
+                                "game-obj": "Conditions",
+                                "aonid": 28
+                            }
+                        ],
+                        "text": "A creature that takes damage from a qurashith\u2019s jaws or spittle must succeed at a DC 39 Fortitude save or be slowed 1 for 1d4 rounds (slowed 2 on a critical failure). If a creature is already slowed when it fails its save, it becomes paralyzed for 1 round."
+                    }
                 },
                 {
                     "name": "Psychic Howl",
                     "type": "stat_block_section",
-                    "text": "The qurashith unleashes a debilitating psionic scream. Creatures in a 60-foot cone must succeed at a DC 35 Will save or become <a aonid=\"37\" game-obj=\"Conditions\">stupefied</a> 2 (stupefied 4 on a critical failure) for 1 minute. A creature that critically succeeds at its Will save is immune to the qurashith\u2019s Psychic Howl for 24 hours. The qurashith can\u2019t use Psychic Howl again for 1d4 rounds.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Psychic Howl",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
+                            }
+                        },
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "stupefied",
+                                "alt": "stupefied",
+                                "game-obj": "Conditions",
+                                "aonid": 37
+                            }
+                        ],
+                        "text": "The qurashith unleashes a debilitating psionic scream. Creatures in a 60-foot cone must succeed at a DC 35 Will save or become stupefied 2 (stupefied 4 on a critical failure) for 1 minute. A creature that critically succeeds at its Will save is immune to the qurashith\u2019s Psychic Howl for 24 hours. The qurashith can\u2019t use Psychic Howl again for 1d4 rounds."
                     }
                 },
                 {
                     "name": "Rend",
                     "type": "stat_block_section",
-                    "text": "claw",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Single Action",
-                        "image": {
-                            "type": "image",
-                            "name": "OneAction",
-                            "image": "OneAction.png"
-                        }
+                        "subtype": "ability",
+                        "name": "Rend",
+                        "ability_type": "offensive",
+                        "action": {
+                            "type": "stat_block_section",
+                            "subtype": "action",
+                            "name": "Single Action",
+                            "image": {
+                                "type": "image",
+                                "name": "OneAction",
+                                "image": "OneAction.png"
+                            }
+                        },
+                        "text": "claw"
                     }
                 }
             ]

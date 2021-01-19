@@ -280,13 +280,15 @@
                 "subtype": "ability",
                 "ability_type": "automatic",
                 "name": "Attack of Opportunity ",
-                "link": {
-                    "type": "link",
-                    "name": "Attack of Opportunity",
-                    "alt": "Attack of Opportunity",
-                    "game-obj": "MonsterAbilities",
-                    "aonid": 3
-                },
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Attack of Opportunity",
+                        "alt": "Attack of Opportunity",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 3
+                    }
+                ],
                 "text": "A grindylow gains 1 extra reaction at the start of each of its turns that it can use only to make an Attack of Opportunity with a tentacle. It can't use more than one Attack of Opportunity triggered by the same choice."
             }
         ],
@@ -587,38 +589,73 @@
                 {
                     "name": "Clinging Suckers",
                     "type": "stat_block_section",
-                    "text": "When a grindylow <a aonid=\"18\" game-obj=\"MonsterAbilities\">Grabs</a> a creature larger than itself, it attaches to that creature. The <a aonid=\"20\" game-obj=\"Conditions\">grabbed</a> creature is not <a aonid=\"24\" game-obj=\"Conditions\">immobilized</a>, but if it moves, the grindylow moves with it. If the creature is Medium or smaller, it takes a \u20135-foot status penalty to its Speeds while the grindylow is attached. The grindylow is flat-footed while it is attached to a creature.",
-                    "subtype": "offensive_action"
+                    "subtype": "offensive_action",
+                    "ability": {
+                        "type": "stat_block_section",
+                        "subtype": "ability",
+                        "name": "Clinging Suckers",
+                        "ability_type": "offensive",
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Grabs",
+                                "alt": "Grabs",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 18
+                            },
+                            {
+                                "type": "link",
+                                "name": "grabbed",
+                                "alt": "grabbed",
+                                "game-obj": "Conditions",
+                                "aonid": 20
+                            },
+                            {
+                                "type": "link",
+                                "name": "immobilized",
+                                "alt": "immobilized",
+                                "game-obj": "Conditions",
+                                "aonid": 24
+                            }
+                        ],
+                        "text": "When a grindylow Grabs a creature larger than itself, it attaches to that creature. The grabbed creature is not immobilized, but if it moves, the grindylow moves with it. If the creature is Medium or smaller, it takes a \u20135-foot status penalty to its Speeds while the grindylow is attached. The grindylow is flat-footed while it is attached to a creature."
+                    }
                 },
                 {
                     "name": "Jet",
                     "type": "stat_block_section",
-                    "text": "The grindylow moves up to 60 feet in a straight line through the water without triggering reactions.",
                     "subtype": "offensive_action",
-                    "action": {
+                    "ability": {
                         "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Two Actions",
-                        "image": {
-                            "type": "image",
-                            "name": "TwoActions",
-                            "image": "TwoActions.png"
-                        }
-                    },
-                    "traits": [
-                        {
+                        "subtype": "ability",
+                        "name": "Jet",
+                        "ability_type": "offensive",
+                        "action": {
                             "type": "stat_block_section",
-                            "subtype": "trait",
-                            "name": "move",
-                            "link": {
-                                "type": "link",
-                                "name": "move",
-                                "alt": "move",
-                                "game-obj": "Traits",
-                                "aonid": 114
+                            "subtype": "action",
+                            "name": "Two Actions",
+                            "image": {
+                                "type": "image",
+                                "name": "TwoActions",
+                                "image": "TwoActions.png"
                             }
-                        }
-                    ]
+                        },
+                        "traits": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "trait",
+                                "name": "move",
+                                "link": {
+                                    "type": "link",
+                                    "name": "move",
+                                    "alt": "move",
+                                    "game-obj": "Traits",
+                                    "aonid": 114
+                                }
+                            }
+                        ],
+                        "text": "The grindylow moves up to 60 feet in a straight line through the water without triggering reactions."
+                    }
                 }
             ]
         }
