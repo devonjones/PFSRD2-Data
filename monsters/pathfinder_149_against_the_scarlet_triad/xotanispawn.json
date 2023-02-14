@@ -18,7 +18,7 @@
                     "page": 91
                 }
             ],
-            "html": "Xotanispawn are monstrous versions of scavenging beetle larvae that have been corrupted and mutated by feeding on the remains of Xotani the Firebleeder, a slain Spawn of Rovagug buried beneath Pale Mountain in Katapesh. These creatures look vaguely like the minute insects they once were, with a sclerotized head and chitinous body plates, six legs, and numerous dorsal spines lining the joints and edges of each segment. However, by feeding on the unholy remains of Xotani, the spawn have manifested many of the traits of the infamous Firebleeder, most notably a blisteringly hot internal temperature and powerful fire attacks\u2014to say nothing of their monstrous size.<br/><br/> Internal heat radiates from every surface of a Xotanispawn, even from its mouth. Any contact with a Xotanispawn results in burns and the risk of catching on fire. Thankfully, Xotanispawn have also inherited Xotani\u2019s weaknesses to cold and sunlight. They are rarely encountered on the surface during the day, opting to emerge from their subterranean lairs only at night. <br/><br/><b><u><a aonid=\"563\" game-obj=\"Rules\">Recall Knowledge - Animal</a></u> (<u><a aonid=\"10\" game-obj=\"Skills\">Nature</a></u>)</b>: DC 41<br/><b><u><a aonid=\"563\" game-obj=\"Rules\">Unspecific Lore</a></u></b>: DC 39<br/><b><u><a aonid=\"563\" game-obj=\"Rules\">Specific Lore</a></u></b>: DC 36"
+            "html": "Xotanispawn are monstrous versions of scavenging beetle larvae that have been corrupted and mutated by feeding on the remains of Xotani the Firebleeder, a slain Spawn of Rovagug buried beneath Pale Mountain in Katapesh. These creatures look vaguely like the minute insects they once were, with a sclerotized head and chitinous body plates, six legs, and numerous dorsal spines lining the joints and edges of each segment. However, by feeding on the unholy remains of Xotani, the spawn have manifested many of the traits of the infamous Firebleeder, most notably a blisteringly hot internal temperature and powerful fire attacks\u2014to say nothing of their monstrous size.<br/><br/> Internal heat radiates from every surface of a Xotanispawn, even from its mouth. Any contact with a Xotanispawn results in burns and the risk of catching on fire. Thankfully, Xotanispawn have also inherited Xotani\u2019s weaknesses to cold and sunlight. They are rarely encountered on the surface during the day, opting to emerge from their subterranean lairs only at night."
         },
         {
             "name": "The Firebleeder's Mark",
@@ -263,6 +263,61 @@
                     ]
                 }
             ],
+            "knowledge": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "knowledge",
+                    "dc": 41,
+                    "name": "Recall Knowledge - Animal",
+                    "link": {
+                        "type": "link",
+                        "name": "Recall Knowledge - Animal",
+                        "alt": "Recall Knowledge - Animal",
+                        "game-obj": "Rules",
+                        "aonid": 563
+                    },
+                    "skills": [
+                        {
+                            "name": "Nature",
+                            "type": "stat_block_section",
+                            "subtype": "knowledge_skill",
+                            "link": {
+                                "type": "link",
+                                "name": "Nature",
+                                "alt": "Nature",
+                                "game-obj": "Skills",
+                                "aonid": 10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "knowledge",
+                    "dc": 39,
+                    "name": "Unspecific Lore",
+                    "link": {
+                        "type": "link",
+                        "name": "Unspecific Lore",
+                        "alt": "Unspecific Lore",
+                        "game-obj": "Rules",
+                        "aonid": 563
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "knowledge",
+                    "dc": 36,
+                    "name": "Specific Lore",
+                    "link": {
+                        "type": "link",
+                        "name": "Specific Lore",
+                        "alt": "Specific Lore",
+                        "game-obj": "Rules",
+                        "aonid": 563
+                    }
+                }
+            ],
             "rarity": "Rare",
             "alignment": "Chaotic Evil",
             "size": "Large",
@@ -322,6 +377,18 @@
                         }
                     ],
                     "name": "tremorsense"
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "special_sense",
+                    "link": {
+                        "type": "link",
+                        "name": "Light Blindness",
+                        "alt": "Light Blindness",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 22
+                    },
+                    "name": "Light Blindness"
                 }
             ]
         },
@@ -640,15 +707,61 @@
                         }
                     ],
                     "text": "When a Xotanispawn dies, it explodes, dealing 15d8 fire damage to creatures in a 30-foot emanation (DC 39 basic Reflex save)."
-                },
+                }
+            ],
+            "reactive_abilities": [
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
+                    "ability_type": "reactive",
                     "name": "Internal Furnace",
                     "trigger": "A creature adjacent to the Xotanispawn touches it or hits it with a physical attack",
                     "effect": "The triggering creature takes 5d8 <a aonid=\"29\" game-obj=\"Conditions\">persistent</a> fire damage (DC 37 Reflex save to negate).",
-                    "text": "<a aonid=\"22\" game-obj=\"MonsterAbilities\"><b>Light Blindness</b></a><br/><span aria-label=\"Reaction\" class=\"action action-4\" role=\"img\" title=\"Reaction\"> </span>  (<a aonid=\"72\" game-obj=\"Traits\">fire</a>)"
+                    "action": {
+                        "type": "stat_block_section",
+                        "subtype": "action",
+                        "name": "Reaction",
+                        "image": {
+                            "type": "image",
+                            "name": "Reaction",
+                            "image": "reaction.png"
+                        }
+                    },
+                    "traits": [
+                        {
+                            "name": "Fire",
+                            "type": "trait",
+                            "sources": [
+                                {
+                                    "type": "source",
+                                    "name": "Core Rulebook",
+                                    "link": {
+                                        "type": "link",
+                                        "name": "Core Rulebook pg. 632",
+                                        "alt": "Core Rulebook pg. 632",
+                                        "href": "https://paizo.com/products/btq01y0k?Pathfinder-Core-Rulebook"
+                                    },
+                                    "page": 632,
+                                    "errata": {
+                                        "type": "link",
+                                        "name": "4.0",
+                                        "alt": "4.0",
+                                        "game-obj": "Sources",
+                                        "aonid": 1
+                                    }
+                                }
+                            ],
+                            "game-obj": "Traits",
+                            "game-id": "674d7f9613381c956b7ab4ec67f71b4a",
+                            "text": "Effects with the fire trait deal fire damage or either conjure or manipulate fire. Those that manipulate fire have no effect in an area without fire. Creatures with this trait consist primarily of fire or have a magical connection to that element. Planes with this trait are composed of flames that continually burn with no fuel source. Fire planes are extremely hostile to non-fire creatures.",
+                            "classes": [
+                                "elemental",
+                                "energy",
+                                "monster",
+                                "planar"
+                            ]
+                        }
+                    ]
                 }
             ]
         },
