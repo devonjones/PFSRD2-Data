@@ -572,7 +572,16 @@
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "ability_type": "interaction",
-                "text": "Smoke doesn't impair a red dragon's vision; it ignores the <a aonid=\"4\" game-obj=\"Conditions\">concealed</a> condition from smoke."
+                "text": "Smoke doesn't impair a red dragon's vision; it ignores the concealed condition from smoke.",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "concealed",
+                        "alt": "concealed",
+                        "game-obj": "Conditions",
+                        "aonid": 4
+                    }
+                ]
             }
         ],
         "defense": {
@@ -856,22 +865,35 @@
                             ]
                         }
                     ],
-                    "text": "10 feet, 6d6 fire damage (DC 42 basic Reflex save)"
+                    "range": {
+                        "type": "stat_block_section",
+                        "subtype": "range",
+                        "text": "10 feet",
+                        "range": 10,
+                        "unit": "feet"
+                    },
+                    "damage": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "attack_damage",
+                            "formula": "6d6",
+                            "damage_type": "fire"
+                        }
+                    ],
+                    "saving_throw": {
+                        "type": "stat_block_section",
+                        "subtype": "save_dc",
+                        "text": "DC 42 basic Reflex save",
+                        "dc": 42,
+                        "save_type": "Ref",
+                        "result": "basic"
+                    }
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Frightful Presence",
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "Frightful Presence",
-                            "alt": "Frightful Presence",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 17
-                        }
-                    ],
                     "traits": [
                         {
                             "name": "Aura",
@@ -1016,13 +1038,35 @@
                             ]
                         }
                     ],
-                    "text": "90 feet, DC 42"
+                    "range": {
+                        "type": "stat_block_section",
+                        "subtype": "range",
+                        "text": "90 feet",
+                        "range": 90,
+                        "unit": "feet"
+                    },
+                    "saving_throw": {
+                        "type": "stat_block_section",
+                        "subtype": "save_dc",
+                        "text": "DC 42",
+                        "dc": 42
+                    },
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "Frightful Presence",
+                            "alt": "Frightful Presence",
+                            "game-obj": "MonsterAbilities",
+                            "aonid": 17
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Attack of Opportunity   ",
+                    "text": "Jaws only.",
                     "links": [
                         {
                             "type": "link",
@@ -1031,8 +1075,7 @@
                             "game-obj": "MonsterAbilities",
                             "aonid": 3
                         }
-                    ],
-                    "text": "Jaws only."
+                    ]
                 },
                 {
                     "type": "stat_block_section",
