@@ -778,9 +778,18 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Green Caress",
-                    "critical_success": "The creature is unaffected, or if it is <a aonid=\"35\" game-obj=\"Conditions\">slowed</a> by green caress, it reduces its slowed value by 2.",
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "plants",
+                            "alt": "plants",
+                            "game-obj": "Traits",
+                            "aonid": 125
+                        }
+                    ],
+                    "critical_success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 2.",
                     "success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 1.",
-                    "failure": "The creature becomes slowed 1, or if it was already slowed by green caress, increases the slowed value by 1, as their body transforms more and more into a non-creature plant. If the creature ever becomes slowed to the point they have no actions left for their turn, they become an inanimate plant, a condition that can only be reversed by <a aonid=\"231\" game-obj=\"Spells\"><i>primal phenomenon</i></a> or similarly powerful magic.",
+                    "failure": "The creature becomes slowed 1, or if it was already slowed by green caress, increases the slowed value by 1, as their body transforms more and more into a non-creature plant. If the creature ever becomes slowed to the point they have no actions left for their turn, they become an inanimate plant, a condition that can only be reversed by <i>primal phenomenon</i> or similarly powerful magic.",
                     "critical_failure": "As failure, except the creature becomes slowed 2 (or increases the condition value by 2).",
                     "traits": [
                         {
@@ -951,24 +960,31 @@
                         "text": "DC 45 Fortitude",
                         "dc": 45,
                         "save_type": "Fort"
-                    },
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "plants",
-                            "alt": "plants",
-                            "game-obj": "Traits",
-                            "aonid": 125
-                        }
-                    ]
+                    }
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Root In Place    ",
-                    "trigger": "A creature within the green man's reach uses a <a aonid=\"114\" game-obj=\"Traits\">move</a> action or leaves a square during a move action it's using",
-                    "effect": "The green man lashes out to hold the foe in place. The green man makes a vine Strike against the triggering creature. If the attack hits, the green man disrupts the action. If the creature was <a aonid=\"94\" game-obj=\"Actions\">Flying</a> when its action was disrupted, it falls."
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "move",
+                            "alt": "move",
+                            "game-obj": "Traits",
+                            "aonid": 114
+                        },
+                        {
+                            "type": "link",
+                            "name": "Flying",
+                            "alt": "Flying",
+                            "game-obj": "Actions",
+                            "aonid": 94
+                        }
+                    ],
+                    "trigger": "A creature within the green man's reach uses a move action or leaves a square during a move action it's using",
+                    "effect": "The green man lashes out to hold the foe in place. The green man makes a vine Strike against the triggering creature. If the attack hits, the green man disrupts the action. If the creature was Flying when its action was disrupted, it falls."
                 }
             ]
         },
