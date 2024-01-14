@@ -5,6 +5,7 @@
         {
             "name": "Vehanezhad",
             "type": "section",
+            "text": "This creature did not include a description.",
             "sources": [
                 {
                     "type": "source",
@@ -306,6 +307,7 @@
                     "text": "Elementals are creatures directly tied to an element and native to the Elemental Planes. Elementals don\u2019t need to breathe.",
                     "classes": [
                         "creature_type",
+                        "eidolons",
                         "monsters"
                     ]
                 }
@@ -847,6 +849,7 @@
                             "game-id": "fed42ee4e8c8baf344ba3613c090a15f",
                             "text": "An aura is an emanation that continually ebbs out from you, affecting creatures within a certain radius. Aura can also refer to the magical signature of an item or a creature with a strong alignment.",
                             "classes": [
+                                "actions",
                                 "equipment",
                                 "feats",
                                 "focus_spells",
@@ -1106,6 +1109,7 @@
                             "game-id": "fed42ee4e8c8baf344ba3613c090a15f",
                             "text": "An aura is an emanation that continually ebbs out from you, affecting creatures within a certain radius. Aura can also refer to the magical signature of an item or a creature with a strong alignment.",
                             "classes": [
+                                "actions",
                                 "equipment",
                                 "feats",
                                 "focus_spells",
@@ -1224,6 +1228,7 @@
                                 "feats",
                                 "focus_spells",
                                 "hazards",
+                                "rituals",
                                 "spells"
                             ]
                         }
@@ -1266,29 +1271,27 @@
                             "aonid": 32
                         }
                     ]
-                },
+                }
+            ],
+            "reactive_abilities": [
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
-                    "name": "Reflect Spell    Trigger Vehanezhad is targeted by a ranged spell attack roll",
+                    "ability_type": "reactive",
+                    "name": "Reflect Spell",
+                    "trigger": "Vehanezhad is targeted by a ranged spell attack roll",
+                    "effect": "Vehanezhad adjusts a wing and gains a +4 circumstance bonus to AC against the triggering attack. If the attack misses, the spell reflects at the caster, who must roll a second ranged spell attack roll against their own AC to determine if the spell hits them instead.",
                     "action": {
                         "type": "stat_block_section",
                         "subtype": "action",
                         "name": "Reaction"
-                    },
-                    "effect": "Vehanezhad adjusts a wing and gains a +4 circumstance bonus to AC against the triggering attack. If the attack misses, the spell reflects at the caster, who must roll a second ranged spell attack roll against their own AC to determine if the spell hits them instead."
+                    }
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
-                    "name": "Twisting Tail    Trigger A creature within reach of the dragon's tail uses a move action or leaves a square during a move action it's using",
-                    "action": {
-                        "type": "stat_block_section",
-                        "subtype": "action",
-                        "name": "Reaction"
-                    },
+                    "ability_type": "reactive",
+                    "name": "Twisting Tail",
                     "links": [
                         {
                             "type": "link",
@@ -1305,7 +1308,13 @@
                             "aonid": 394
                         }
                     ],
-                    "effect": "The dragon makes a tail Strike at the creature with a \u20132 penalty. If it hits, the dragon disrupts the creature's action."
+                    "trigger": "A creature within reach of the dragon's tail uses a move action or leaves a square during a move action it's using",
+                    "effect": "The dragon makes a tail Strike at the creature with a \u20132 penalty. If it hits, the dragon disrupts the creature's action.",
+                    "action": {
+                        "type": "stat_block_section",
+                        "subtype": "action",
+                        "name": "Reaction"
+                    }
                 }
             ]
         },
@@ -2276,6 +2285,7 @@
                                 "classes": [
                                     "actions",
                                     "curses",
+                                    "diseases",
                                     "equipment",
                                     "feats",
                                     "focus_spells",
@@ -2471,6 +2481,7 @@
                                 "classes": [
                                     "actions",
                                     "curses",
+                                    "diseases",
                                     "equipment",
                                     "feats",
                                     "focus_spells",
@@ -2566,5 +2577,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.1
+    "schema_version": 1.2
 }
