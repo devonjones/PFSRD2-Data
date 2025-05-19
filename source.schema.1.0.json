@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "license": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "enum": ["section"] },
+        "subtype": { "enum": ["license"] },
+        "license": { "enum": [
+          "OPEN GAME LICENSE Version 1.0a",
+          "Open RPG Creative license"
+        ] },
+        "text": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": {},
+          "additionalItems": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "type": { "enum": ["source"] },
+    "game-id": { "type": "string" },
+    "game-obj": { "enum": ["Sources"] },
+    "aonid": { "type": "integer" },
+    "edition": { "enum": ["legacy", "remastered"] },
+    "release_date": { "type": "string", "format": "date" },
+    "errata": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "number" },
+        "errata_date": { "type": "string", "format": "date" }
+      },
+      "required": ["version", "errata_date"],
+      "additionalProperties": false
+    },
+    "product_line": { "type": "string" },
+    "note": { "type": "string" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "enum": ["section"] },
+          "text": { "type": "string" },
+          "sections": { "type": "array" }
+        },
+        "required": ["name", "type", "text"],
+        "additionalProperties": false
+      },
+      "additionalItems": false
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "enum": ["link"] },
+          "alt": { "type": "string" },
+          "href": { "type": "string" },
+          "game-obj": { "type": "string" },
+          "aonid": { "type": "integer" }
+        },
+        "required": ["name", "type", "alt"],
+        "additionalProperties": false
+      },
+      "additionalItems": false
+    },
+    "schema_version": { "enum": [1.0] },
+    "license": { "$ref": "#/definitions/license" }
+  },
+  "required": ["name", "type", "game-id", "game-obj", "aonid", "edition", "release_date", "license", "schema_version"],
+  "additionalProperties": false
+} 
