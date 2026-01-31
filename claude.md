@@ -9,6 +9,23 @@ This is a data repository for the Pathfinder 2nd Edition Reference Document (PFS
 - **Parser**: Located in ../PFSRD2-Parser/ directory
 - **Schema Validation**: All JSON must validate against schema files
 
+## CRITICAL: Git Staging Rules
+
+**NEVER use `git add <directory>` or `git add .` in this repo.** Modified files and new (untracked) files must be staged separately and deliberately. Using `git add` on a directory stages both, which mixes unreviewed modified data into the staging area with no way to separate it back out.
+
+**"New files" means untracked files.** When asked to stage "new" files, use:
+```bash
+git ls-files --others --exclude-standard -- <directory>/ | xargs git add
+```
+NEVER use `git add <directory>/` as a shortcut. That stages modified files too.
+
+**Modified files must be staged selectively.** Use `git_diff_filter` to match specific diff patterns, review the matches, then stage them. The whole point of this workflow is that parser runs produce thousands of changed files and we need to verify changes in batches by pattern before staging. Bulk-staging modified files destroys that process.
+
+**Three categories of files, three different approaches:**
+1. **Untracked (new)**: `git ls-files --others --exclude-standard` to list, then `xargs git add`
+2. **Modified (known patterns)**: `git_diff_filter` to match, then `| xargs git add`
+3. **Modified (complex/unknown)**: Review individually with `git diff -- <file>` before staging
+
 ## Important Patterns
 
 1. **Schema Compliance**: All generated JSON must validate against the corresponding .schema.json file
@@ -23,3 +40,180 @@ This is a data repository for the Pathfinder 2nd Edition Reference Document (PFS
    - Don't just parse whatever is there - fix the source HTML when links are inconsistently present
    - Example: If "object immunities" has a link in one siege weapon but not another, add the link to all files
    - This ensures consistent, complete data across all entries
+
+## Utility Functions
+
+When writing parser code, prefer using these battle-tested utility functions from `universal/universal.py` and `universal/utils.py` instead of writing custom logic:
+
+### Object Creation (universal/universal.py)
+- **`build_object(type, subtype, name)`** - Create a single stat_block_section object
+- **`build_objects(type, subtype, names_list)`** - Create multiple objects from a list of names
+- **`link_modifiers(modifiers)`** - Add links to modifier objects by matching names to trait database
+
+### Text Parsing with Modifiers (universal/universal.py)
+- **`extract_modifiers(text)`** - Extract text and modifiers from "text (modifier1, modifier2)" format. Returns `(text, modifiers_list)`. **Note**: Asserts text ends with `)` if it contains `(`
+- **`string_with_modifiers(text, subtype)`** - Parse text with optional modifiers into an object with name and modifiers fields
+- **`string_with_modifiers_from_string_list(strlist, subtype)`** - Apply `string_with_modifiers` to each item in a list
+- **`modifiers_from_string_list(strlist)`** - Convert list of strings to modifier objects
+
+### Number Parsing (universal/universal.py)
+- **`parse_number(text)`** - Parse integer from text, handling negative signs and em-dashes
+- **`number_with_modifiers(text, subtype)`** - Parse number with optional modifiers
+
+### Splitting (universal/utils.py)
+- **`split_maintain_parens(text, delimiter)`** - Split on delimiter while respecting parentheses. Use for splitting "value1 (mod), value2 (mod)" on comma
+- **`split_comma_and_semicolon(text)`** - Split on both `,` and `;` while respecting parentheses. Use for modifier lists like "alchemical; underwater only"
+
+### Link Extraction (universal/universal.py)
+- **`get_links(bs)`** - Extract link objects from BeautifulSoup element
+- **`link_value(value_obj)`** - Add links to a value object by matching text
+- **`link_values(values_list)`** - Apply `link_value` to each item in a list
+
+### Example Usage
+```python
+# Instead of manual object creation:
+modifier = {'type': 'stat_block_section', 'subtype': 'modifier', 'name': 'magical'}
+
+# Use:
+from universal.universal import build_object
+modifier = build_object('stat_block_section', 'modifier', 'magical')
+
+# Instead of manual list creation:
+modifiers = []
+for name in ['alchemical', 'magical']:
+    modifiers.append({'type': 'stat_block_section', 'subtype': 'modifier', 'name': name})
+
+# Use:
+from universal.universal import build_objects, link_modifiers
+modifiers = link_modifiers(build_objects('stat_block_section', 'modifier', ['alchemical', 'magical']))
+
+# Instead of manual parentheses extraction:
+match = re.match(r'^(.+?)\s*\((.+)\)$', text)
+if match:
+    value = match.group(1)
+    modifier_text = match.group(2)
+
+# Use:
+from universal.universal import extract_modifiers
+value, modifiers = extract_modifiers(text)
+
+# Instead of simple split that breaks inside parentheses:
+parts = text.split(',')  # WRONG: breaks "value (a, b), other"
+
+# Use:
+from universal.utils import split_maintain_parens
+parts = split_maintain_parens(text, ',')  # Correctly handles "(a, b)"
+```
+
+## Development Tools
+
+### json_map - Test Case Finder
+
+Located at `../PFSRD2-Parser/bin/json_map`
+
+Recursively scans JSON files and builds a map of all keys, recording the first file where each key was found. Use this to find a test case file for any JSON path.
+
+**Usage:**
+```bash
+../PFSRD2-Parser/bin/json_map equipment/ > equipment_map.json
+```
+
+**Output:** JSON structure where each key shows:
+- `file`: First file containing this field (use as test case)
+- `type`: Value type (dict, list, str, etc.)
+- `children`: Nested keys if value is dict or list of dicts
+
+**Example:** To find a file with an `activation` field, run json_map and look up that key in the output to get a concrete file to test against.
+
+### json_cardinality - Field Value Analyzer
+
+Located at `../PFSRD2-Parser/bin/json_cardinality`
+
+Analyzes field values to determine cardinality and spot potential issues:
+- **Very low cardinality** (<=5 unique): Effectively an enum
+- **Low cardinality**: Controlled vocabulary
+- **Medium cardinality**: Worth investigating for inconsistencies/bugs
+- **High/Very high cardinality**: Free text or ID fields
+
+**Two modes:**
+
+1. **JSONPath mode** - Analyze values at a specific path:
+   ```bash
+   ../PFSRD2-Parser/bin/json_cardinality --path '$.type' equipment/
+   ../PFSRD2-Parser/bin/json_cardinality --path '$.sources[*].name' monsters/
+   ```
+
+2. **Object type mode** - Find all objects of a type anywhere in the JSON tree and analyze a field:
+   ```bash
+   # By type field (e.g., "link", "source")
+   ../PFSRD2-Parser/bin/json_cardinality --type link --field game-obj equipment/
+
+   # By subtype field (for stat_block_section objects)
+   ../PFSRD2-Parser/bin/json_cardinality --subtype attack_damage --field damage_type monsters/
+   ```
+
+**Output includes:**
+- File/match counts
+- Total occurrences including DNE (field not present)
+- Unique value count
+- Cardinality assessment
+- Value distribution with counts and percentages
+
+**Options:**
+- `--top N` - Show top N values (default 50)
+- `--all` - Show all values
+- `--value "X"` - List files containing specific value X (use `<DNE>` for missing, `<null>` for null)
+
+### git_diff_filter - Selective Staging by Diff Pattern
+
+Located at `../PFSRD2-Parser/bin/git_diff_filter`
+
+Filters unstaged modified files by their diff content. Outputs matching file paths to stdout for piping to `xargs git add`.
+
+**Usage:**
+```bash
+git_diff_filter +N -M [string:count ...]
+```
+
+**Arguments:**
+- `+N` - Exactly N lines added
+- `-M` - Exactly M lines removed
+- `string:count` - String appears exactly `count` times across all changed lines (partial match, case-sensitive)
+
+**Examples:**
+```bash
+# Files with exactly 1 line added, 1 removed, "value" appearing twice
+../PFSRD2-Parser/bin/git_diff_filter +1 -1 value:2
+
+# Files with 3 added, 2 removed, specific pattern
+../PFSRD2-Parser/bin/git_diff_filter +3 -2 value:2 "]:":2 activation_time:1
+
+# Multiple string filters
+../PFSRD2-Parser/bin/git_diff_filter +2 -2 activation:2 type:4
+
+# Stage matching files
+../PFSRD2-Parser/bin/git_diff_filter +1 -1 value:2 | xargs git add
+```
+
+**Hunk mode** - Match per-hunk instead of whole-diff. Every hunk must match at least one `--hunk` pattern:
+```bash
+# All hunks must be -1 +5 with "usage" appearing 3 times
+../PFSRD2-Parser/bin/git_diff_filter --hunk -1 +5 usage:3 --hunk-count 4
+
+# Multiple patterns: each hunk matches either pattern (any-of)
+# e.g., files with one access hunk and several usage hunks
+../PFSRD2-Parser/bin/git_diff_filter --hunk -2 +10 access:5 --hunk -1 +5 usage:3 --hunk-count 5
+
+# Without --hunk-count, just requires all hunks match one of the patterns
+../PFSRD2-Parser/bin/git_diff_filter --hunk -1 +5 usage:3 --hunk -2 +10 access:5
+```
+
+**Hunk mode arguments:**
+- `--hunk` - Start a new hunk pattern (same +N -M string:count syntax)
+- `--hunk-count C` - Require exactly C hunks total
+
+**Workflow:** When parser changes produce many modified JSON files, use this to stage files in batches by their change pattern:
+1. Run `git diff --stat` to see change patterns
+2. Use `git_diff_filter` to isolate files with specific patterns
+3. Review a sample with `git diff -- $(git_diff_filter ... | head -1)`
+4. Stage the batch with `| xargs git add`
