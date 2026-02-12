@@ -217,3 +217,70 @@ git_diff_filter +N -M [string:count ...]
 2. Use `git_diff_filter` to isolate files with specific patterns
 3. Review a sample with `git diff -- $(git_diff_filter ... | head -1)`
 4. Stage the batch with `| xargs git add`
+
+### git_stage_license_only.py - License/Reorder Staging
+
+Located at `../PFSRD2-Parser/bin/git_stage_license_only.py`
+
+For each modified JSON file, builds an intermediate version with old data values re-serialized using the new file's key ordering, plus the new license block. This stages key-reorder noise and license changes while leaving real data changes unstaged.
+
+**Usage:**
+```bash
+python3 ../PFSRD2-Parser/bin/git_stage_license_only.py equipment/
+python3 ../PFSRD2-Parser/bin/git_stage_license_only.py monsters/
+```
+
+### Hunk-Level Staging with awk + git apply
+
+When `git_diff_filter` finds whole-file matches, use `| xargs git add`. For files with mixed changes where only specific hunks should be staged, extract matching hunks and apply them:
+
+```bash
+git diff -- "$file" | awk '
+  /^diff --git/  { header = $0; next }
+  /^index /      { header = header "\n" $0; next }
+  /^--- /        { header = header "\n" $0; next }
+  /^\+\+\+ /     { header = header "\n" $0; next }
+  /^@@/ {
+    if (hunk) {
+      # Check if hunk matches your pattern
+      if (hunk ~ /your_pattern/) matched = matched hunk
+    }
+    hunk = $0 "\n"
+    next
+  }
+  { hunk = hunk $0 "\n" }
+  END {
+    if (hunk && hunk ~ /your_pattern/) matched = matched hunk
+    if (matched) print header "\n" matched
+  }
+' | git apply --cached
+```
+
+**Key rules for hunk-level staging:**
+- Use a single header with all matching hunks concatenated (don't repeat the header per hunk — git can't apply two patches to the same file sequentially)
+- Match on changed lines (`/^[+-]/`) not context lines to avoid false positives
+- Hunks that depend on other hunks' context will fail — these need to be staged together or the dependent hunks staged first
+- After staging other hunks (e.g., no-newline changes), retry failed hunks — they may now apply cleanly
+
+## Staging Order Recommendations
+
+When staging a large parser run, work through changes in this order:
+1. **Untracked files** — `git ls-files --others --exclude-standard -z | xargs -0 git add`
+2. **License/reorder** — `git_stage_license_only.py <dir>`
+3. **No-newline-at-EOF** — hunk-level stage (these unblock other hunk staging)
+4. **Simple whole-file patterns** — `git_diff_filter` for exact-match diffs
+5. **Structural hunks** — alternate_link additions, source removals, image additions, link movements, save_results movements
+6. **Content hunks** — errata version bumps, craft_requirements, text changes
+7. **Remaining complex files** — review and stage individually or in bulk after vetting
+
+## Common Change Categories (Remaster Migration)
+
+These are expected changes when re-parsing after AoN content updates:
+- **Magic school trait removals** — Abjuration/Conjuration/etc. deprecated by Remaster
+- **Spell renames** — acid arrow→acid grip, true strike→sure strike, cone of cold→howling blizzard, etc.
+- **Terminology** — flat-footed→off-guard, negative→void damage, positive→vitality, level→rank
+- **Alignment→Sanctification** — Good→Holy, Evil→Unholy, Celestial→Empyrean
+- **Apostrophe normalization** — straight (') → curly (')
+- **Encoding fixes** — `\u00C2` artifacts cleaned up (e.g., "10Â minutes" → "10 minutes")
+- **Trait source updates** — e.g., Clockwork trait source Grand Bazaar → Monster Core 2
+- **Link aonid updates** — AoN database reorganization changes reference IDs

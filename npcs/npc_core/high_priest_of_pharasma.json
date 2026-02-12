@@ -1058,22 +1058,6 @@
                     "name": "Ref",
                     "value": 17
                 },
-                "modifiers": [
-                    {
-                        "type": "stat_block_section",
-                        "subtype": "modifier",
-                        "name": "Resistances void 5",
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "void",
-                                "alt": "void",
-                                "game-obj": "Traits",
-                                "aonid": 510
-                            }
-                        ]
-                    }
-                ],
                 "will": {
                     "type": "stat_block_section",
                     "subtype": "save",
@@ -1085,7 +1069,22 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "hitpoints",
-                    "hp": 150
+                    "hp": 150,
+                    "resistances": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "resistance",
+                            "name": "void",
+                            "value": 5,
+                            "link": {
+                                "type": "link",
+                                "name": "void",
+                                "alt": "void",
+                                "game-obj": "Traits",
+                                "aonid": 510
+                            }
+                        }
+                    ]
                 }
             ],
             "automatic_abilities": [
@@ -1690,15 +1689,131 @@
                     }
                 },
                 {
-                    "name": "Melee",
+                    "name": "Ranged",
                     "type": "stat_block_section",
                     "subtype": "offensive_action",
                     "offensive_action_type": "attack",
                     "attack": {
                         "type": "stat_block_section",
                         "subtype": "attack",
-                        "attack_type": "melee",
-                        "name": "Melee",
+                        "attack_type": "ranged",
+                        "name": "Ranged",
+                        "action_type": {
+                            "type": "stat_block_section",
+                            "subtype": "action_type",
+                            "name": "One Action"
+                        },
+                        "weapon": "hand crossbow",
+                        "bonus": {
+                            "type": "stat_block_section",
+                            "subtype": "attack_bonus",
+                            "link": {
+                                "type": "link",
+                                "name": "+12/+7",
+                                "alt": "+12/+7",
+                                "game-obj": "Rules",
+                                "aonid": 322
+                            },
+                            "bonuses": [
+                                17,
+                                12,
+                                7
+                            ]
+                        },
+                        "damage": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "attack_damage",
+                                "formula": "1d6+7",
+                                "damage_type": "piercing"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "attack_damage",
+                                "formula": "1d10",
+                                "damage_type": "spirit"
+                            }
+                        ],
+                        "traits": [
+                            {
+                                "name": "Range",
+                                "type": "trait",
+                                "edition": "legacy",
+                                "sources": [
+                                    {
+                                        "type": "source",
+                                        "name": "Bestiary",
+                                        "link": {
+                                            "type": "link",
+                                            "name": "Bestiary pg. 17",
+                                            "alt": "Bestiary pg. 17",
+                                            "game-obj": "Sources",
+                                            "aonid": 2
+                                        },
+                                        "page": 17
+                                    }
+                                ],
+                                "game-obj": "Traits",
+                                "game-id": "104d6fc2d1d7f97108e1e9b4be5089b1",
+                                "text": "These attacks will either list a finite range or a range increment, which follows the normal rules for range increments.",
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "range increments",
+                                        "alt": "range increments",
+                                        "game-obj": "Rules",
+                                        "aonid": 227
+                                    }
+                                ],
+                                "schema_version": 1.1,
+                                "classes": [],
+                                "value": "increment 60 feet"
+                            },
+                            {
+                                "name": "Reload",
+                                "type": "trait",
+                                "edition": "legacy",
+                                "sources": [
+                                    {
+                                        "type": "source",
+                                        "name": "Core Rulebook",
+                                        "link": {
+                                            "type": "link",
+                                            "name": "Core Rulebook pg. 279",
+                                            "alt": "Core Rulebook pg. 279",
+                                            "game-obj": "Sources",
+                                            "aonid": 1
+                                        },
+                                        "page": 279,
+                                        "errata": {
+                                            "type": "link",
+                                            "name": "4.0",
+                                            "alt": "4.0",
+                                            "game-obj": "Sources",
+                                            "aonid": 1
+                                        }
+                                    }
+                                ],
+                                "game-obj": "Traits",
+                                "game-id": "15577d9931e0c744a9e12be2d087a290",
+                                "text": "While all weapons need some amount of time to get into position, many ranged weapons also need to be loaded and reloaded. This entry indicates how many Interact actions it takes to reload such weapons. This can be 0 if drawing ammunition and firing the weapon are part of the same action. If an item takes 2 or more actions to reload, the GM determines whether they must be performed together as an activity, or you can spend some of those actions during one turn and the rest during your next turn.  \n  \nAn item with an entry of \u201c\u2014\u201d must be drawn to be thrown, which usually takes an Interact action just like drawing any other weapon. Reloading a ranged weapon and drawing a thrown weapon both require a free hand. Switching your grip to free a hand and then to place your hands in the grip necessary to wield the weapon are both included in the actions you spend to reload a weapon.",
+                                "schema_version": 1.1,
+                                "classes": [],
+                                "value": "1"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Ranged",
+                    "type": "stat_block_section",
+                    "subtype": "offensive_action",
+                    "offensive_action_type": "attack",
+                    "attack": {
+                        "type": "stat_block_section",
+                        "subtype": "attack",
+                        "attack_type": "ranged",
+                        "name": "Ranged",
                         "action_type": {
                             "type": "stat_block_section",
                             "subtype": "action_type",
@@ -1885,122 +2000,6 @@
                                 "schema_version": 1.1,
                                 "classes": [],
                                 "value": "S"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "Ranged",
-                    "type": "stat_block_section",
-                    "subtype": "offensive_action",
-                    "offensive_action_type": "attack",
-                    "attack": {
-                        "type": "stat_block_section",
-                        "subtype": "attack",
-                        "attack_type": "ranged",
-                        "name": "Ranged",
-                        "action_type": {
-                            "type": "stat_block_section",
-                            "subtype": "action_type",
-                            "name": "One Action"
-                        },
-                        "weapon": "hand crossbow",
-                        "bonus": {
-                            "type": "stat_block_section",
-                            "subtype": "attack_bonus",
-                            "link": {
-                                "type": "link",
-                                "name": "+12/+7",
-                                "alt": "+12/+7",
-                                "game-obj": "Rules",
-                                "aonid": 322
-                            },
-                            "bonuses": [
-                                17,
-                                12,
-                                7
-                            ]
-                        },
-                        "damage": [
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "attack_damage",
-                                "formula": "1d6+7",
-                                "damage_type": "piercing"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "attack_damage",
-                                "formula": "1d10",
-                                "damage_type": "spirit"
-                            }
-                        ],
-                        "traits": [
-                            {
-                                "name": "Range",
-                                "type": "trait",
-                                "edition": "legacy",
-                                "sources": [
-                                    {
-                                        "type": "source",
-                                        "name": "Bestiary",
-                                        "link": {
-                                            "type": "link",
-                                            "name": "Bestiary pg. 17",
-                                            "alt": "Bestiary pg. 17",
-                                            "game-obj": "Sources",
-                                            "aonid": 2
-                                        },
-                                        "page": 17
-                                    }
-                                ],
-                                "game-obj": "Traits",
-                                "game-id": "104d6fc2d1d7f97108e1e9b4be5089b1",
-                                "text": "These attacks will either list a finite range or a range increment, which follows the normal rules for range increments.",
-                                "links": [
-                                    {
-                                        "type": "link",
-                                        "name": "range increments",
-                                        "alt": "range increments",
-                                        "game-obj": "Rules",
-                                        "aonid": 227
-                                    }
-                                ],
-                                "schema_version": 1.1,
-                                "classes": [],
-                                "value": "increment 60 feet"
-                            },
-                            {
-                                "name": "Reload",
-                                "type": "trait",
-                                "edition": "legacy",
-                                "sources": [
-                                    {
-                                        "type": "source",
-                                        "name": "Core Rulebook",
-                                        "link": {
-                                            "type": "link",
-                                            "name": "Core Rulebook pg. 279",
-                                            "alt": "Core Rulebook pg. 279",
-                                            "game-obj": "Sources",
-                                            "aonid": 1
-                                        },
-                                        "page": 279,
-                                        "errata": {
-                                            "type": "link",
-                                            "name": "4.0",
-                                            "alt": "4.0",
-                                            "game-obj": "Sources",
-                                            "aonid": 1
-                                        }
-                                    }
-                                ],
-                                "game-obj": "Traits",
-                                "game-id": "15577d9931e0c744a9e12be2d087a290",
-                                "text": "While all weapons need some amount of time to get into position, many ranged weapons also need to be loaded and reloaded. This entry indicates how many Interact actions it takes to reload such weapons. This can be 0 if drawing ammunition and firing the weapon are part of the same action. If an item takes 2 or more actions to reload, the GM determines whether they must be performed together as an activity, or you can spend some of those actions during one turn and the rest during your next turn.  \n  \nAn item with an entry of \u201c\u2014\u201d must be drawn to be thrown, which usually takes an Interact action just like drawing any other weapon. Reloading a ranged weapon and drawing a thrown weapon both require a free hand. Switching your grip to free a hand and then to place your hands in the grip necessary to wield the weapon are both included in the actions you spend to reload a weapon.",
-                                "schema_version": 1.1,
-                                "classes": [],
-                                "value": "1"
                             }
                         ]
                     }
@@ -2383,8 +2382,8 @@
                             {
                                 "type": "stat_block_section",
                                 "subtype": "spell_list",
-                                "level": 4,
-                                "level_text": "4th",
+                                "level": 5,
+                                "level_text": "5th",
                                 "spells": [
                                     {
                                         "type": "stat_block_section",
