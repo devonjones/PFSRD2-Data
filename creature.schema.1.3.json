@@ -125,7 +125,7 @@
 					"Equipment", "Deities", "Feats", "Actions", "Monsters",
 					"Heritages", "Rules", "Diseases", "Rituals", "Planes",
 					"MonsterFamilies", "Domains", "Classes", "Ancestries",
-					"Archetypes", "SiegeWeapons", "WeaponGroups"
+					"Archetypes", "SiegeWeapons", "WeaponGroups", "NPCs"
 				]},
 				"game-id": {"type": "string"},
 				"alternate_type": {"enum": ["legacy", "remastered"]},
@@ -169,10 +169,12 @@
 				"bonuses": {
 					"type": "array",
 					"items": {"type": "integer"},
+					"minItems": 3,
+					"maxItems": 3,
 					"additionalItems": false
 				}
 			},
-			"required": ["link", "type", "subtype", "bonuses"],
+			"required": ["type", "subtype", "bonuses"],
 			"additionalProperties": false
 		},
 		"attack_damage": {
@@ -184,14 +186,20 @@
 				"damage_type": {"enum": [
 					"slashing", "piercing", "bludgeoning", "nonlethal",
 					"acid", "sonic", "fire", "electricity", "elemental", "cold",
-					"mental", "poison", "force", "cold or fire",
-					"positive", "negative", "positive or negative",
-					"chaotic", "lawful", "good", "evil", "precision",
-					"other", "energy", "bleed", "physical", "split",
+					"astral", "mental", "poison", "force", "varies",
+					"cold or fire", "positive", "negative", "modular",
+					"positive or negative", "chaotic", "lawful", "good", "evil",
+					"precision", "other", "energy", "bleed", "physical",
+					"split", "spirit", "vitality", "void", "holy", "unholy",
 					"bludgeoning or positive", "piercing or slashing",
 					"bludgeoning, piercing, or slashing",
+					"void or vitality",
+					"acid, cold, or fire",
 					"acid, cold, electricity, or fire",
-					"acid, cold, electricity, fire, or sonic"]},
+					"acid, cold, electricity, fire, or sonic",
+					"of the same type",
+					"of the energy the hexmoth is immune to",
+					"shepherd's touch"]},
 				"effect": {"type": "string"},
 				"notes": {"type": "string"},
 				"links": {
@@ -215,42 +223,47 @@
 					"type": "array",
 					"items": {"enum": [
 						"Aasimar", "Aberration", "Acid", "Aeon", "Aesir",
-						"Agathion", "Air", "Alchemical", "Amphibious", "Anadi",
-						"Android", "Angel", "Animal", "Anugobu", "Aphorite",
-						"Aquatic", "Arcane", "Archon", "Ardande", "Astral",
-						"Asura", "Automaton", "Azata", "Azarketi", "Beast",
-						"Beastkin", "Boggard", "Caligni", "Catfolk",
-						"Celestial", "Changeling", "Charau-ka", "Clockwork",
-						"Cold", "Construct", "Couatl", "Daemon", "Darvakka",
-						"Demon", "Dero", "Devil", "Dhampir", "Dinosaur", "Div",
-						"Divine", "Dragon", "Dream", "Drow", "Duergar",
-						"Duskwalker", "Dwarf", "Earth", "Eidolon",
-						"Electricity", "Elemental", "Elf", "Ethereal", "Evil",
-						"Evocation", "Fetchling", "Fey", "Fiend", "Fire",
-						"Force", "Formian", "Fungus", "Ganzi", "Genie",
-						"Ghoran", "Ghost", "Ghoul", "Ghul", "Giant", "Gnoll",
-						"Gnome", "Goblin", "Golem", "Gremlin", "Grioth",
-						"Grippli", "Hag", "Half-Elf", "Half-Orc", "Halfling",
-						"Hantu", "Herald", "Hobgoblin", "Human", "Humanoid",
-						"Ifrit", "Illusion", "Ikeshti", "Incorporeal",
-						"Inevitable", "Kami", "Kashrishi", "Kitsune", "Kobold",
-						"Kovintus", "Leshy", "Light", "Lilu", "Lizardfolk",
-						"Locathah", "Mental", "Merfolk", "Metal", "Mindless",
-						"Minion", "Monitor", "Morlock", "Mortic", "Mummy",
-						"Munavri", "Mutant", "Nagaji", "Necromancy", "Negative",
-						"Nymph", "Oni", "Ooze", "Orc", "Oread", "Paaridar",
-						"Petitioner", "Phantom", "Plant", "Poison", "Positive",
-						"Primal", "Protean", "Psychopomp", "Qlippoth",
-						"Rakshasa", "Ratajin", "Ratfolk", "Sahkil", "Samsaran",
-						"Sea Devil", "Seugathi", "Serpentfolk", "Shabti",
-						"Shadow", "Shapechanger", "Shoony", "Siktempora",
-						"Skeleton", "Skelm", "Skulk", "Soulbound", "Spirit",
-						"Sporeborn", "Spriggan", "Sprite", "Stheno", "Strix",
-						"Suli", "Swarm", "Sylph", "Talos", "Tane", "Tanggal",
-						"Tengu", "Tiefling", "Time", "Titan", "Troll", "Troop",
-						"Undead", "Undine", "Urdefhan", "Vampire", "Vanara",
-						"Velstrac", "Vishkanya", "Water", "Wayang",
-						"Werecreature", "Wight", "Wild Hunt", "Wood", "Wraith",
+						"Agathion", "Air", "Aiuvarin", "Alchemical",
+						"Amphibious", "Anadi", "Android", "Angel", "Animal",
+						"Anugobu", "Aphorite", "Aquatic", "Arcane", "Archon",
+						"Ardande", "Astral", "Asura", "Athamaru", "Automaton",
+						"Azata", "Azarketi", "Beast", "Beastkin", "Blight",
+						"Boggard", "Bugbear", "Caligni", "Catfolk", "Celestial",
+						"Centaur", "Changeling", "Charau-ka", "Clockwork",
+						"Coatl", "Cold", "Construct", "Couatl", "Daemon",
+						"Darvakka", "Demon", "Dero", "Devil", "Dhampir",
+						"Dinosaur", "Div", "Divine", "Dragon", "Dragonblood",
+						"Dream", "Dromaar", "Drow", "Duergar", "Duskwalker", "Dwarf",
+						"Earth", "Eidolon", "Electricity", "Elemental", "Elf",
+						"Ethereal", "Evil", "Evocation", "Fetchling", "Fey",
+						"Fiend", "Fire", "Force", "Formian", "Fungus", "Ganzi",
+						"Genie", "Ghoran", "Ghost", "Ghoul", "Ghul", "Giant", "Gigas", "Girtablilu",
+						"Gnoll", "Gnome", "Goblin", "Golem", "Graveknight",
+						"Gremlin", "Grioth", "Grippli", "Hag", "Half-Elf",
+						"Half-Orc", "Halfling", "Hantu", "Herald", "Hobgoblin",
+						"Holy", "Hryngar", "Human", "Humanoid", "Ifrit",
+						"Illusion", "Ikeshti", "Incorporeal", "Inevitable",
+						"Jotunborn", "Kaiju", "Kami", "Kashrishi", "Kholo", "Kitsune",
+						"Kobold", "Kovintus", "Leshy", "Light", "Lilu",
+						"Lizardfolk", "Locathah", "Maftet", "Mental", "Merfolk", "Metal",
+						"Mindless", "Minion", "Monitor", "Morlock", "Mortic",
+						"Mummy", "Munavri", "Munsahir", "Mutant", "Mythic", "Naari", "Nagaji",
+						"Necromancy", "Nephilim", "Negative", "Nindoru",
+						"Nymph", "Occult", "Oni", "Ooze", "Orc", "Oread",
+						"Paaridar", "Palinthanos", "Petitioner", "Phantom",
+						"Plant", "Poison", "Poppet", "Positive", "Primal", "Protean",
+						"Psychopomp", "Qlippoth", "Rakshasa", "Ratajin",
+						"Ratfolk", "Sahkil", "Samsaran", "Satyr", "Sea Devil",
+						"Sedacthy", "Seugathi", "Serpentfolk", "Shabti",
+						"Shade", "Shadow", "Shapechanger", "Shoony", "Siktempora",
+						"Skeleton", "Skelm", "Skulk", "Soulbound", "Soulrider", "Spirit",
+						"Sporeborn", "Spriggan", "Sprite", "Stheno", "Strigoi", "Strix",
+						"Suli", "Swarm", "Sylph", "Talos", "Tane", "Tanggal", "Tanuki",
+						"Tengu", "Tiefling", "Time", "Titan", "Tripkee",
+						"Troll", "Troop", "Undead", "Undine", "Unholy",
+						"Urdefhan", "Vampire", "Vanara", "Velstrac",
+						"Vishkanya", "Vitality", "Void", "Water", "Wayang", "Werecreature",
+						"Wight", "Wild Hunt", "Wood", "Wraith", "Wraithvine",
 						"Wyrwood", "Xulgath", "Zombie"
 					]},
 					"additionalItems": false
@@ -341,6 +354,7 @@
 				"hp": {"type": "integer"},
 				"hardness": {"type": "integer"},
 				"squares": {"type": "integer"},
+				"segments": {"type": "integer"},
 				"thresholds": {"$ref": "#/definitions/thresholds"},
 				"immunities": {"$ref": "#/definitions/protections"},
 				"resistances": {"$ref": "#/definitions/protections"},
@@ -467,12 +481,12 @@
 					"Conditions", "Curses", "Deities", "DeityCategories",
 					"Diseases", "Doctrines", "Domains", "DruidicOrders",
 					"Equipment", "Familiars", "Feats", "Hazards", "Heritages",
-					"HuntersEdge", "HybridStudies", "Instincts", "Languages",
-					"MonsterAbilities", "MonsterFamilies", "Monsters", "Muses",
-					"Mysteries", "NPCs", "Patrons", "Planes", "Rackets",
-					"Relics", "ResearchFields", "Rituals", "Rules", "Shields",
-					"Skills", "Sources", "Spells", "Traits", "WeaponGroups",
-					"Weapons"
+					"HuntersEdge", "HybridStudies", "Innovations", "Instincts", "Languages",
+					"MonsterAbilities", "MonsterFamilies", "MonsterTemplates",
+					"Monsters", "Muses", "Mysteries", "NPCs", "Patrons",
+					"Planes", "Rackets", "Relics", "ResearchFields", "Rituals",
+					"Rules", "Shields", "Skills", "Sources", "Spells", "Traits",
+					"WeaponGroups", "Weapons", "WeatherHazards"
 				]},
 				"aonid": {"type": "integer"}
 			},
@@ -529,6 +543,43 @@
 			"required": ["type", "subtype", "name"],
 			"additionalProperties": false
 		},
+		"mythic_ability": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["mythic_ability"]},
+				"name": {"type": "string"},
+				"mythic_points": {"type": "integer"},
+				"mythic_activations": {"$ref": "#/definitions/mythic_activations"}
+			},
+			"required": ["name", "type", "subtype", "mythic_points"],
+			"additionalProperties": false
+		},
+		"mythic_activations": {
+			"type": "array",
+			"items": {"$ref": "#/definitions/mythic_activation"},
+			"additionalItems": false
+		},
+		"mythic_activation": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["mythic_activation"]},
+				"action_type": {"$ref": "#/definitions/action_type"},
+				"mythic_type": {"enum": [
+					"Mythic Skill",
+					"Recharge Ability",
+					"Recharge Spell",
+					"Remove A Condition",
+					"Undying Myth"
+				]},
+				"text": {"type": "string"},
+				"cost": {"type": "string"},
+				"effect": {"type": "string"},
+				"trigger": {"type": "string"},
+				"traits": {"$ref": "#/definitions/traits"}
+			}
+		},
 		"number_and_string_with_modifiers": {
 			"type": "object",
 			"properties": {
@@ -564,11 +615,14 @@
 				"subtype": {"enum": ["offensive_action"]},
 				"name": {"type": "string"},
 				"offensive_action_type": {"enum": [
-					"attack", "spells", "affliction", "ability"]},
+					"attack", "spells", "affliction", "ability",
+					"mythic_ability"
+				]},
 				"attack": {"$ref": "#/definitions/attack"},
 				"spells": {"$ref": "#/definitions/spells"},
 				"affliction": {"$ref": "#/definitions/affliction"},
-				"ability": {"$ref": "#/definitions/ability"}
+				"ability": {"$ref": "#/definitions/ability"},
+				"mythic_ability": {"$ref": "#/definitions/mythic_ability"}
 			},
 			"required": ["name", "type", "subtype"],
 			"additionalProperties": false
@@ -719,6 +773,7 @@
 				"name": {"type": "string"},
 				"type": {"enum": ["source"]},
 				"link": {"$ref": "#/definitions/link"},
+				"note": {"$ref": "#/definitions/link"},
 				"page": {"type": "integer"},
 				"errata": {"$ref": "#/definitions/link"}
 			},
@@ -792,17 +847,19 @@
 					"Spontaneous Spells", "Prepared Spells", "Rituals",
 					"Alchemical Formulas",
 					"Bard Composition Spells", "Bard Spontaneous Spells",
-					"Cleric Domain Spells", 
+					"Cleric Domain Spells", "Cleric Prepared Spells",
 					"Champion Devotion Spells", "Champion Focus Spells",
-					"Druid Order Spells", "Druid Prepared Spells",
+					"Druid Animal Order Spells", "Druid Focus Spells", "Druid Order Spells", "Druid Prepared Spells", "Druid Order Focus Spells",
 					"Magus Conflux Spells", "Magus Focus Spells",
 					"Monk Focus Spells", "Monk Ki Spells",
-					"Oracle Revelation Spells", "Revelation Spells",
+					"Oracle Revelation Spells", "Oracle Focus Spells",
+					"Primordial Flame Spells",
+					"Ranger Warden Spells",
+					"Red Mantis Focus Spells", "Red Mantis Prepared Spells",
 					"Sorcerer Bloodline Spells",
 					"Summoner Conduit Spells",
 					"Witch Hexes",
-					"Wizard Spells Prepared", "Wizard School Spells",
-					"Primordial Flame Spells"]},
+					"Wizard Spells Prepared", "Wizard School Spells"]},
 				"saving_throw": {"$ref": "#/definitions/save_dc"},
 				"focus_points": {"type": "integer"},
 				"spell_attack": {"type": "integer"},
@@ -902,9 +959,10 @@
 				"type": {"enum": ["stat_block_section"]},
 				"subtype": {"enum": ["threshold"]},
 				"value": {"type": "integer"},
-				"squares": {"type": "integer"}
+				"squares": {"type": "integer"},
+				"segments": {"type": "integer"}
 			},
-			"required": ["type", "subtype", "value", "squares"],
+			"required": ["type", "subtype", "value"],
 			"additionalProperties": false
 		},
 		"thresholds": {
@@ -927,6 +985,7 @@
 					"additionalItems": false
 				},
 				"sources": {"$ref": "#/definitions/sources"},
+				"sections": {"$ref": "#/definitions/sections"},
 				"links": {
 					"type": "array",
 					"items": {"$ref": "#/definitions/link"},
@@ -990,6 +1049,7 @@
 		"sections": {"$ref": "#/definitions/sections"},
 		"schema_version": {"enum": [1.3]},
 		"edition": {"enum": ["legacy", "remastered"]},
+		"alternate_link": {"$ref": "#/definitions/alternate_link"},
 		"license": {"$ref": "#/definitions/license"}
 	},
 	"required": ["name", "type", "aonid", "game-obj", "sources", "sections", "license", "schema_version"],
