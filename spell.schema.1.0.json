@@ -1,0 +1,315 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+
+	"definitions": {
+		"alternate_link": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["alternate_link"]},
+				"game-obj": {"enum": [
+					"Actions", "Ancestries", "Archetypes", "Armor",
+					"Classes", "Conditions", "Deities", "Diseases",
+					"Domains", "Equipment", "Feats", "Heritages",
+					"Languages", "MonsterAbilities", "MonsterFamilies",
+					"Monsters", "NPCs", "Planes", "Rituals", "Rules",
+					"Shields", "SiegeWeapons", "Skills", "Sources",
+					"Spells", "Traits", "WeaponGroups", "Weapons"
+				]},
+				"game-id": {"type": "string"},
+				"alternate_type": {"enum": ["legacy", "remastered"]},
+				"aonid": {"type": "integer"}
+			},
+			"required": ["game-obj", "aonid"],
+			"additionalProperties": false
+		},
+		"image": {
+			"type": "object",
+			"properties": {
+				"name": {"type": "string"},
+				"type": {"enum": ["image"]},
+				"game-obj": {"type": "string"},
+				"image": {"type": "string"}
+			},
+			"required": ["name", "type", "image"],
+			"additionalProperties": false
+		},
+		"link": {
+			"type": "object",
+			"properties": {
+				"name": {"type": "string"},
+				"type": {"enum": ["link"]},
+				"alt": {"type": "string"},
+				"href": {"type": "string"},
+				"game-obj": {"enum": [
+					"Actions", "Ancestries", "AnimalCompanions", "ArcaneSchools",
+					"Archetypes", "Armor", "Backgrounds", "Bloodlines",
+					"Causes", "Classes", "Conditions", "Curses",
+					"Deities", "DeityCategories", "Diseases", "Doctrines",
+					"Domains", "DruidicOrders", "Elements", "Equipment",
+					"Familiars", "Feats", "Hazards", "Heritages",
+					"HuntersEdge", "HybridStudies", "Instincts", "Languages",
+					"Lessons", "MonsterAbilities", "MonsterFamilies",
+					"MonsterTemplates", "Monsters", "Muses", "Mysteries",
+					"NPCs", "Patrons", "Planes", "Rackets", "Relics",
+					"ResearchFields", "Rituals", "Rules", "Shields",
+					"Skills", "Sources", "SpellLists", "Spells", "Traits",
+					"WeaponGroups", "Weapons"
+				]},
+				"aonid": {"type": "integer"}
+			},
+			"required": ["name", "type", "alt"],
+			"additionalProperties": false
+		},
+		"links": {
+			"type": "array",
+			"items": {"$ref": "#/definitions/link"},
+			"additionalItems": false
+		},
+		"license": {
+			"type": "object",
+			"properties": {
+				"name": {"type": "string"},
+				"type": {"enum": ["section"]},
+				"subtype": {"enum": ["license"]},
+				"license": {"enum": [
+					"OPEN GAME LICENSE Version 1.0a",
+					"Open RPG Creative license"]},
+				"text": {"type": "string"},
+				"sections": {"$ref": "#/definitions/sections"}
+			},
+			"additionalProperties": false
+		},
+		"source": {
+			"type": "object",
+			"properties": {
+				"name": {"type": "string"},
+				"type": {"enum": ["source"]},
+				"link": {"$ref": "#/definitions/link"},
+				"note": {"$ref": "#/definitions/link"},
+				"page": {"type": "integer"},
+				"errata": {"$ref": "#/definitions/link"}
+			},
+			"required": ["name", "type", "link", "page"],
+			"additionalProperties": false
+		},
+		"sources": {
+			"type": "array",
+			"items": {"$ref": "#/definitions/source"},
+			"additionalItems": false
+		},
+		"section": {
+			"type": "object",
+			"properties": {
+				"name": {"type": "string"},
+				"type": {"enum": ["section"]},
+				"text": {"type": "string"},
+				"sections": {"$ref": "#/definitions/sections"},
+				"sources": {"$ref": "#/definitions/sources"},
+				"subtype": {"enum": ["sidebar", "index"]},
+				"sidebar_type": {"enum": [
+					"treasure_and_rewards", "related_creatures", "locations",
+					"additional_lore", "advice_and_rules", "geb"
+				]},
+				"sidebar_heading": {"type": "string"},
+				"image": {"$ref": "#/definitions/image"},
+				"links": {"$ref": "#/definitions/links"}
+			},
+			"additionalProperties": false
+		},
+		"sections": {
+			"type": "array",
+			"items": {"$ref": "#/definitions/section"},
+			"additionalItems": false
+		},
+		"action_type": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["action_type"]},
+				"name": {"enum": [
+					"Reaction", "Free Action", "One Action",
+					"Two Actions", "Three Actions"
+				]}
+			},
+			"required": ["type", "subtype", "name"],
+			"additionalProperties": false
+		},
+		"trait": {
+			"type": "object",
+			"properties": {
+				"name": {"type": "string"},
+				"type": {"enum": ["trait"]},
+				"game-id": {"type": "string"},
+				"game-obj": {"enum": ["Traits"]},
+				"value": {"type": "string"},
+				"text": {"type": "string"},
+				"classes": {
+					"type": "array",
+					"items": {"type": "string"},
+					"additionalItems": false
+				},
+				"sources": {"$ref": "#/definitions/sources"},
+				"sections": {"$ref": "#/definitions/sections"},
+				"links": {"$ref": "#/definitions/links"},
+				"alternate_link": {"$ref": "#/definitions/alternate_link"},
+				"schema_version": {"enum": [1.1]},
+				"edition": {"enum": ["legacy", "remastered"]}
+			},
+			"required": ["name", "type", "game-id", "game-obj", "sources", "schema_version", "edition"],
+			"additionalProperties": false
+		},
+		"heightened": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["heightened"]},
+				"increment": {"type": "integer"},
+				"level": {"type": "integer"},
+				"amp": {"type": "boolean"},
+				"text": {"type": "string"},
+				"links": {"$ref": "#/definitions/links"}
+			},
+			"required": ["type", "subtype", "text"],
+			"additionalProperties": false
+		},
+		"deity_form": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["deity_form"]},
+				"name": {"type": "string"},
+				"link": {"$ref": "#/definitions/link"},
+				"text": {"type": "string"},
+				"links": {"$ref": "#/definitions/links"}
+			},
+			"required": ["type", "subtype", "name", "link", "text"],
+			"additionalProperties": false
+		},
+		"spell_access": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["spell_access"]},
+				"name": {"type": "string"},
+				"access_type": {"enum": [
+					"tradition", "spell_list", "bloodline",
+					"deity", "domain", "mystery",
+					"lesson", "patron_theme"
+				]},
+				"link": {"$ref": "#/definitions/link"}
+			},
+			"required": ["type", "subtype", "name", "access_type"],
+			"additionalProperties": false
+		},
+		"spell_cast_component": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["spell_cast_component"]},
+				"name": {"type": "string"},
+				"link": {"$ref": "#/definitions/link"}
+			},
+			"required": ["type", "subtype", "name"],
+			"additionalProperties": false
+		},
+		"spell_cast": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["spell_cast"]},
+				"action_type": {"$ref": "#/definitions/action_type"},
+				"time": {"type": "string"},
+				"note": {"type": "string"},
+				"components": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/spell_cast_component"},
+					"additionalItems": false
+				}
+			},
+			"required": ["type", "subtype"],
+			"additionalProperties": false
+		},
+		"spell_defense": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["spell_defense"]},
+				"save_type": {"enum": ["Fort", "Ref", "Will"]},
+				"basic": {"type": "boolean"},
+				"text": {"type": "string"},
+				"critical_success": {"type": "string"},
+				"success": {"type": "string"},
+				"failure": {"type": "string"},
+				"critical_failure": {"type": "string"},
+				"links": {"$ref": "#/definitions/links"}
+			},
+			"required": ["type", "subtype"],
+			"additionalProperties": false
+		},
+		"spell": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["spell"]},
+				"name": {"type": "string"},
+				"spell_type": {"enum": ["spell", "cantrip", "focus"]},
+				"rank": {"type": "integer"},
+				"text": {"type": "string"},
+				"traits": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/trait"},
+					"additionalItems": false
+				},
+				"cast": {"$ref": "#/definitions/spell_cast"},
+				"defense": {"$ref": "#/definitions/spell_defense"},
+				"spell_access": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/spell_access"},
+					"additionalItems": false
+				},
+				"range": {"type": "string"},
+				"targets": {"type": "string"},
+				"area": {"type": "string"},
+				"duration": {"type": "string"},
+				"trigger": {"type": "string"},
+				"requirement": {"type": "string"},
+				"access": {"type": "string"},
+				"cost": {"type": "string"},
+				"catalysts": {"type": "string"},
+				"effect": {"type": "string"},
+				"amp": {"type": "string"},
+				"pfs_note": {"type": "string"},
+				"heightened": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/heightened"},
+					"additionalItems": false
+				},
+				"deity_forms": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/deity_form"},
+					"additionalItems": false
+				},
+				"links": {"$ref": "#/definitions/links"}
+			},
+			"required": ["type", "subtype", "name", "spell_type", "rank", "traits"],
+			"additionalProperties": false
+		}
+	},
+	"type": "object",
+	"properties": {
+		"name": {"type": "string"},
+		"type": {"enum": ["spell"]},
+		"aonid": {"type": "integer"},
+		"game-obj": {"enum": ["Spells"]},
+		"game-id": {"type": "string"},
+		"spell": {"$ref": "#/definitions/spell"},
+		"sources": {"$ref": "#/definitions/sources"},
+		"sections": {"$ref": "#/definitions/sections"},
+		"alternate_link": {"$ref": "#/definitions/alternate_link"},
+		"edition": {"enum": ["legacy", "remastered"]},
+		"schema_version": {"enum": [2.0]},
+		"license": {"$ref": "#/definitions/license"}
+	},
+	"required": ["name", "type", "aonid", "game-obj", "game-id", "spell", "sources", "edition", "license"],
+	"additionalProperties": false
+}

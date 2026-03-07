@@ -74,12 +74,29 @@
 		"trait": {
 			"type": "object",
 			"properties": {
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["trait"]},
 				"name": {"type": "string"},
-				"link": {"$ref": "#/definitions/link"}
+				"type": {"enum": ["trait"]},
+				"game-id": {"type": "string"},
+				"game-obj": {"enum": ["Traits"]},
+				"value": {"type": "string"},
+				"text": {"type": "string"},
+				"classes": {
+					"type": "array",
+					"items": {"type": "string"},
+					"additionalItems": false
+				},
+				"sources": {"$ref": "#/definitions/sources"},
+				"sections": {"$ref": "#/definitions/sections"},
+				"links": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/link"},
+					"additionalItems": false
+				},
+				"alternate_link": {"$ref": "#/definitions/alternate_link"},
+				"schema_version": {"enum": [1.1]},
+				"edition": {"enum": ["legacy", "remastered"]}
 			},
-			"required": ["type", "subtype", "name"],
+			"required": ["name", "type", "game-id", "game-obj", "sources", "schema_version", "edition"],
 			"additionalProperties": false
 		},
 		"sample_task": {
@@ -197,6 +214,15 @@
 				"type": {"enum": ["stat_block_section"]},
 				"subtype": {"enum": ["skill"]},
 				"name": {"type": "string"},
+				"skill_type": {"enum": ["character_skill", "kingdom_skill"]},
+				"key_ability": {"enum": ["str", "dex", "con", "int", "wis", "cha"]},
+				"key_kingdom_ability": {"enum": ["culture", "economy", "loyalty", "stability"]},
+				"text": {"type": "string"},
+				"links": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/link"},
+					"additionalItems": false
+				},
 				"actions": {
 					"type": "array",
 					"items": {"$ref": "#/definitions/skill_action"},
@@ -214,18 +240,9 @@
 		"game-id": {"type": "string"},
 		"game-obj": {"enum": ["Skills"]},
 		"aonid": {"type": "integer"},
-		"skill_type": {"enum": ["character_skill", "kingdom_skill"]},
-		"key_ability": {"enum": ["str", "dex", "con", "int", "wis", "cha"]},
-		"key_kingdom_ability": {"enum": ["culture", "economy", "loyalty", "stability"]},
-		"text": {"type": "string"},
 		"sources": {"$ref": "#/definitions/sources"},
 		"skill": {"$ref": "#/definitions/skill"},
 		"sections": {"$ref": "#/definitions/sections"},
-		"links": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/link"},
-			"additionalItems": false
-		},
 		"alternate_link": {"$ref": "#/definitions/alternate_link"},
 		"schema_version": {"enum": [1.0]},
 		"edition": {"enum": ["legacy", "remastered"]},
