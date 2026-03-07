@@ -24,10 +24,9 @@
 					"additionalItems": false
 				},
 				"alternate_link": {"$ref": "#/definitions/alternate_link"},
-				"schema_version": {"enum": [1.1]},
 				"edition": {"enum": ["legacy", "remastered"]}
 			},
-			"required": ["name", "type", "game-id", "game-obj", "sources", "schema_version", "edition"],
+			"required": ["name", "type", "game-id", "game-obj", "sources", "edition"],
 			"additionalProperties": false
 		},
 		"traits": {
@@ -44,7 +43,7 @@
 					"Reaction", "Free Action", "One Action",
 					"Two Actions", "Three Actions", "One to Three Actions",
 					"One or Two Actions", "Two or Three Actions",
-					"Free Action or Single Action", "One or Three Actions",
+					"Free Action or Single Action", "One Action or more",
 					"Two to Three Actions", "Reaction or One Action"
 				]}
 			},
@@ -140,8 +139,7 @@
 					"additionalItems": false
 				},
 				"traits": {"$ref": "#/definitions/traits"},
-				"modifiers": {"$ref": "#/definitions/modifiers"},
-				"destruction": {"type": "string"}
+				"modifiers": {"$ref": "#/definitions/modifiers"}
 			},
 			"required": ["name", "type", "subtype", "ability_type"],
 			"additionalProperties": false
@@ -168,7 +166,6 @@
 				"success": {"type": "string"},
 				"failure": {"type": "string"},
 				"critical_failure": {"type": "string"},
-				"destruction": {"type": "string"},
 				"range": {"$ref": "#/definitions/range"},
 				"saving_throw": {"$ref": "#/definitions/save_dc"},
 				"action_type": {"$ref": "#/definitions/action_type"},
@@ -488,6 +485,7 @@
 								"type": {"enum": ["stat_block_section"]},
 								"subtype": {"enum": ["usage"]},
 								"text": {"type": "string"},
+								"modifiers": {"$ref": "#/definitions/modifiers"},
 								"links": {
 									"type": "array",
 									"items": {"$ref": "#/definitions/link"}
@@ -734,6 +732,7 @@
 				},
 				"special": {"type": "string"},
 				"craft_requirements": {"type": "string"},
+				"destruction": {"type": "string"},
 				"base_material": {"$ref": "#/definitions/base_object"},
 				"affliction": {"$ref": "#/definitions/affliction"},
 				"save_results": {"$ref": "#/definitions/save_results"},

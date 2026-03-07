@@ -128,7 +128,10 @@
 				"subtype": {"enum": ["action_type"]},
 				"name": {"enum": [
 					"Reaction", "Free Action", "One Action",
-					"Two Actions", "Three Actions"
+					"Two Actions", "Three Actions", "One to Three Actions",
+					"One or Two Actions", "Two or Three Actions",
+					"Free Action or Single Action", "One Action or more",
+					"Two to Three Actions", "Reaction or One Action"
 				]}
 			},
 			"required": ["type", "subtype", "name"],
@@ -152,10 +155,9 @@
 				"sections": {"$ref": "#/definitions/sections"},
 				"links": {"$ref": "#/definitions/links"},
 				"alternate_link": {"$ref": "#/definitions/alternate_link"},
-				"schema_version": {"enum": [1.1]},
 				"edition": {"enum": ["legacy", "remastered"]}
 			},
-			"required": ["name", "type", "game-id", "game-obj", "sources", "schema_version", "edition"],
+			"required": ["name", "type", "game-id", "game-obj", "sources", "edition"],
 			"additionalProperties": false
 		},
 		"heightened": {
@@ -305,11 +307,14 @@
 		"spell": {"$ref": "#/definitions/spell"},
 		"sources": {"$ref": "#/definitions/sources"},
 		"sections": {"$ref": "#/definitions/sections"},
-		"alternate_link": {"$ref": "#/definitions/alternate_link"},
+		"alternate_link": {"oneOf": [
+			{"$ref": "#/definitions/alternate_link"},
+			{"type": "array", "items": {"$ref": "#/definitions/alternate_link"}, "additionalItems": false}
+		]},
 		"edition": {"enum": ["legacy", "remastered"]},
-		"schema_version": {"enum": [2.0]},
+		"schema_version": {"enum": [1.0]},
 		"license": {"$ref": "#/definitions/license"}
 	},
-	"required": ["name", "type", "aonid", "game-obj", "game-id", "spell", "sources", "edition", "license"],
+	"required": ["name", "type", "aonid", "game-obj", "game-id", "spell", "sources", "edition", "schema_version", "license"],
 	"additionalProperties": false
 }
