@@ -54,12 +54,10 @@
     "spell": {
         "name": "Medusa's Wrath",
         "type": "stat_block_section",
+        "text": "You make an attack filled with a medusa's petrifying power. Make an unarmed Strike with the following additional effects.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,51 +96,72 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
-        "critical_success": "The target is slowed 2 and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (2 on a critical failure). A successful save reduces the slowed condition by 1. When a creature is unable to act due to the slowed condition from medusa's wrath, it is petrified permanently. The spell ends if the creature is petrified or the slowed condition is removed.",
-        "success": "As critical success, but the target is initially slowed 1."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target is slowed 2 and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (2 on a critical failure). A successful save reduces the slowed condition by 1. When a creature is unable to act due to the slowed condition from medusa's wrath, it is petrified permanently. The spell ends if the creature is petrified or the slowed condition is removed.",
+            "success": "As critical success, but the target is initially slowed 1.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 2",
+                    "alt": "slowed 2",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                },
+                {
+                    "type": "link",
+                    "name": "incapacitation",
+                    "alt": "incapacitation",
+                    "game-obj": "Traits",
+                    "aonid": 93
+                },
+                {
+                    "type": "link",
+                    "name": "petrified",
+                    "alt": "petrified",
+                    "game-obj": "Conditions",
+                    "aonid": 30
+                }
+            ]
+        }
     },
     "game-id": "d7ec008e439c38bdfa4cd4e1fd3f145b",
-    "spell_type": "focus",
-    "rank": 8,
-    "text": "You make an attack filled with a medusa's petrifying power. Make an unarmed Strike with the following additional effects.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 2",
-            "alt": "slowed 2",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "incapacitation",
-            "alt": "incapacitation",
-            "game-obj": "Traits",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "petrified",
-            "alt": "petrified",
-            "game-obj": "Conditions",
-            "aonid": 30
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -158,5 +177,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

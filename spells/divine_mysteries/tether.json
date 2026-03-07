@@ -20,12 +20,10 @@
     "spell": {
         "name": "Tether",
         "type": "stat_block_section",
+        "text": "You use magical chains, vines, or other tethers to bind your target to you. The creature can still try to Escape, and it or others can break the tethers by attacking them (the tethers have AC 15 and 10 Hit Points). You must stay within 30 feet of the target while it\u2019s tethered; moving more than 30 feet away from your target ends the spell. The target must attempt a Reflex save. You can Dismiss the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -52,11 +50,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Dispater, Shivaska",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Reflex",
         "duration": "1 minute",
         "heightened": [
             {
@@ -66,64 +61,103 @@
                 "text": "The tethers\u2019 AC increases by 3, and their Hit Points increase by 10."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes a \u20135-foot circumstance penalty to its Speed as long as it\u2019s within 30 feet of you.",
-        "failure": "The target takes a \u201310-foot circumstance penalty to its Speed and can\u2019t move more than 30 feet away from you until it Escapes or the spell ends.",
-        "critical_failure": "The target is immobilized until it Escapes or the spell ends."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Dispater",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Dispater",
+                    "alt": "Dispater",
+                    "game-obj": "Deities",
+                    "aonid": 66
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Shivaska",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Shivaska",
+                    "alt": "Shivaska",
+                    "game-obj": "Deities",
+                    "aonid": 436
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes a \u20135-foot circumstance penalty to its Speed as long as it\u2019s within 30 feet of you.",
+            "failure": "The target takes a \u201310-foot circumstance penalty to its Speed and can\u2019t move more than 30 feet away from you until it Escapes or the spell ends.",
+            "critical_failure": "The target is immobilized until it Escapes or the spell ends.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "immobilized",
+                    "alt": "immobilized",
+                    "game-obj": "Conditions",
+                    "aonid": 81
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Escape",
+                "alt": "Escape",
+                "game-obj": "Actions",
+                "aonid": 2296
+            },
+            {
+                "type": "link",
+                "name": "Dismiss",
+                "alt": "Dismiss",
+                "game-obj": "Actions",
+                "aonid": 2311
+            }
+        ]
     },
     "game-id": "5b76c9d86a36e732e3276325fa4e87e3",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You use magical chains, vines, or other tethers to bind your target to you. The creature can still try to Escape, and it or others can break the tethers by attacking them (the tethers have AC 15 and 10 Hit Points). You must stay within 30 feet of the target while it\u2019s tethered; moving more than 30 feet away from your target ends the spell. The target must attempt a Reflex save. You can Dismiss the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Escape",
-            "alt": "Escape",
-            "game-obj": "Actions",
-            "aonid": 2296
-        },
-        {
-            "type": "link",
-            "name": "Dismiss",
-            "alt": "Dismiss",
-            "game-obj": "Actions",
-            "aonid": 2311
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 81
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Dispater",
-            "alt": "Dispater",
-            "game-obj": "Deities",
-            "aonid": 66
-        },
-        {
-            "type": "link",
-            "name": "Shivaska",
-            "alt": "Shivaska",
-            "game-obj": "Deities",
-            "aonid": 436
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -168,5 +202,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

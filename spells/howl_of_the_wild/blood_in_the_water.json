@@ -27,12 +27,10 @@
     "spell": {
         "name": "Blood in the Water",
         "type": "stat_block_section",
+        "text": "Predators are drawn to the scent of blood, and blood can disperse shockingly far in the water. You summon the spirits of aquatic predators to appear as a spectral swarm around the target. When you Cast or Sustain this Spell, the target takes 2d6 spirit damage (basic Reflex save). If the target takes any damage from the spell, it treats all water as difficult terrain for 1 round as the predators try to drag them down. The spectral predators don\u2019t take up space, grant flanking, or have any other attributes a creature would.  \n  \nIf you deal slashing damage to the target while the spell is active, you automatically Sustain this Spell. If you cast *blood in the water* while a previous casting of this hex is still in effect, the previous effect ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -119,11 +117,9 @@
                 }
             }
         ],
-        "lesson": "lesson of the shark",
         "requirement": "The target is taking persistent bleed damage or your last action dealt slashing damage to the target.",
         "range": "30 feet",
         "targets": "1 creature that can bleed",
-        "defense": "basic Reflex",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -132,63 +128,85 @@
                 "increment": 2,
                 "text": "The damage dealt increases by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of the shark",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of the shark",
+                    "alt": "lesson of the shark",
+                    "game-obj": "Lessons",
+                    "aonid": 28
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Cast",
+                "alt": "Cast",
+                "game-obj": "Actions",
+                "aonid": 2734
+            },
+            {
+                "type": "link",
+                "name": "Sustain",
+                "alt": "Sustain",
+                "game-obj": "Actions",
+                "aonid": 2317
+            },
+            {
+                "type": "link",
+                "name": "difficult terrain",
+                "alt": "difficult terrain",
+                "game-obj": "Rules",
+                "aonid": 2366
+            },
+            {
+                "type": "link",
+                "name": "flanking",
+                "alt": "flanking",
+                "game-obj": "Rules",
+                "aonid": 2375
+            },
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
         ]
     },
     "game-id": "8916663bb2da22aa10a315c7ec21b12b",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "Predators are drawn to the scent of blood, and blood can disperse shockingly far in the water. You summon the spirits of aquatic predators to appear as a spectral swarm around the target. When you Cast or Sustain this Spell, the target takes 2d6 spirit damage (basic Reflex save). If the target takes any damage from the spell, it treats all water as difficult terrain for 1 round as the predators try to drag them down. The spectral predators don\u2019t take up space, grant flanking, or have any other attributes a creature would.  \n  \nIf you deal slashing damage to the target while the spell is active, you automatically Sustain this Spell. If you cast *blood in the water* while a previous casting of this hex is still in effect, the previous effect ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Cast",
-            "alt": "Cast",
-            "game-obj": "Actions",
-            "aonid": 2734
-        },
-        {
-            "type": "link",
-            "name": "Sustain",
-            "alt": "Sustain",
-            "game-obj": "Actions",
-            "aonid": 2317
-        },
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 2366
-        },
-        {
-            "type": "link",
-            "name": "flanking",
-            "alt": "flanking",
-            "game-obj": "Rules",
-            "aonid": 2375
-        },
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "lesson of the shark",
-            "alt": "lesson of the shark",
-            "game-obj": "Lessons",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -233,5 +251,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

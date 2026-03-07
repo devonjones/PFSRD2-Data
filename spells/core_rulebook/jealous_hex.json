@@ -54,12 +54,10 @@
     "spell": {
         "name": "Jealous Hex",
         "type": "stat_block_section",
+        "text": "You draw forth a hag's innate jealousy to deny a target its greatest attribute. The target is cursed with an adverse condition depending on its highest ability modifier: Strength (enfeebled); Dexterity (clumsy); Constitution (drained); or Intelligence, Wisdom, or Charisma (stupefied). On a tie, the creature decides which of the conditions associated with the tied ability modifiers to take. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,36 +108,57 @@
                 }
             }
         ],
-        "bloodline": "hag",
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "up to 1 minute",
-        "success": "The target is unaffected.",
-        "failure": "The condition's value is 1.",
-        "critical_failure": "The condition's value is 2.  \n  \nAt the start of each of your turns, the target can attempt another Will save, ending the effect on a success."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "hag",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "hag",
+                    "alt": "hag",
+                    "game-obj": "Bloodlines",
+                    "aonid": 8
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The target is unaffected.",
+            "failure": "The condition's value is 1.",
+            "critical_failure": "The condition's value is 2.  \n  \nAt the start of each of your turns, the target can attempt another Will save, ending the effect on a success."
+        }
     },
     "game-id": "1d141043c68f28daa61f0b02be7f303b",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You draw forth a hag's innate jealousy to deny a target its greatest attribute. The target is cursed with an adverse condition depending on its highest ability modifier: Strength (enfeebled); Dexterity (clumsy); Constitution (drained); or Intelligence, Wisdom, or Charisma (stupefied). On a tie, the creature decides which of the conditions associated with the tied ability modifiers to take. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "hag",
-            "alt": "hag",
-            "game-obj": "Bloodlines",
-            "aonid": 8
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -155,5 +174,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

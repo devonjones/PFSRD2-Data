@@ -54,12 +54,10 @@
     "spell": {
         "name": "Seal Fate",
         "type": "stat_block_section",
+        "text": "You utter a curse that a creature will meet a certain end\u2014a death by freezing, stabbing, or another means you devise. Choose one type of damage from the following list: acid, bludgeoning, cold, electricity, fire, negative, piercing, slashing, or sonic. The effect is based on the target's Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,12 +96,9 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
         "catalysts": "Bottled Screams",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 living creature",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -112,56 +107,99 @@
                 "text": "The weakness increases by 1, and the maximum level of creature that can be automatically killed increases by 4."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target gains weakness 2 to the chosen damage type until the end of your next turn.",
-        "failure": "As success, but the duration is 1 minute. If the creature is reduced to 0 HP by the chosen damage and its level is 7 or less, it dies.",
-        "critical_failure": "As failure, but the duration is unlimited."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target gains weakness 2 to the chosen damage type until the end of your next turn.",
+            "failure": "As success, but the duration is 1 minute. If the creature is reduced to 0 HP by the chosen damage and its level is 7 or less, it dies.",
+            "critical_failure": "As failure, but the duration is unlimited."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Bottled Screams",
+                "alt": "Bottled Screams",
+                "game-obj": "Equipment",
+                "aonid": 1792
+            }
+        ]
     },
     "game-id": "df7865cc11b62a2a65ee5433331091a1",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You utter a curse that a creature will meet a certain end\u2014a death by freezing, stabbing, or another means you devise. Choose one type of damage from the following list: acid, bludgeoning, cold, electricity, fire, negative, piercing, slashing, or sonic. The effect is based on the target's Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Bottled Screams",
-            "alt": "Bottled Screams",
-            "game-obj": "Equipment",
-            "aonid": 1792
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -177,5 +215,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

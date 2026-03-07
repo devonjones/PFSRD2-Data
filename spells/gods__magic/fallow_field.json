@@ -54,12 +54,10 @@
     "spell": {
         "name": "Fallow Field",
         "type": "stat_block_section",
+        "text": "A sickly yellow light fills the area as entropic forces prevent healing. When a creature within the area would regain Hit Points, such as from a healing effect or an ability like fast healing or regeneration, it must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,44 +84,70 @@
                 }
             }
         ],
-        "domain": "decay",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "area": "15-foot emanation",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The creature regains the full number of Hit Points that would be restored by the healing effect, and is temporarily immune for 1 minute.",
-        "success": "The creature regains the full number of Hit Points that would be restored.",
-        "failure": "The creature regains only half the number of Hit Points that would be restored.",
-        "critical_failure": "The creature does not regain Hit Points from the healing effect."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "decay",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "decay",
+                    "alt": "decay",
+                    "game-obj": "Domains",
+                    "aonid": 42
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature regains the full number of Hit Points that would be restored by the healing effect, and is temporarily immune for 1 minute.",
+            "success": "The creature regains the full number of Hit Points that would be restored.",
+            "failure": "The creature regains only half the number of Hit Points that would be restored.",
+            "critical_failure": "The creature does not regain Hit Points from the healing effect."
+        }
     },
     "game-id": "af306a3c44c46a6c3681594ab4d1ea48",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "A sickly yellow light fills the area as entropic forces prevent healing. When a creature within the area would regain Hit Points, such as from a healing effect or an ability like fast healing or regeneration, it must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "decay",
-            "alt": "decay",
-            "game-obj": "Domains",
-            "aonid": 42
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -139,5 +163,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

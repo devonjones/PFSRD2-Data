@@ -27,12 +27,10 @@
     "spell": {
         "name": "Personal Blizzard",
         "type": "stat_block_section",
+        "text": "Your patron's breath becomes a blizzard of obscuring, scouring ice that follows your target. The target attempts a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,10 +93,8 @@
                 }
             }
         ],
-        "lesson": "lesson of snow",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -108,38 +104,57 @@
                 "text": "The cold damage and persistent cold damage increase by 1 (2 on a critical failure)."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes 1d6 cold damage, and the spell ends.",
-        "failure": "The target takes 1d6 cold damage and 1d6 persistent cold damage. The persistent damage automatically ends when the spell ends. It is concealed to other creatures, and other creatures are concealed to it.",
-        "critical_failure": "As failure, but both the cold damage and the persistent cold damage are 2d6."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of snow",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of snow",
+                    "alt": "lesson of snow",
+                    "game-obj": "Lessons",
+                    "aonid": 23
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes 1d6 cold damage, and the spell ends.",
+            "failure": "The target takes 1d6 cold damage and 1d6 persistent cold damage. The persistent damage automatically ends when the spell ends. It is concealed to other creatures, and other creatures are concealed to it.",
+            "critical_failure": "As failure, but both the cold damage and the persistent cold damage are 2d6.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "persistent cold damage",
+                    "alt": "persistent cold damage",
+                    "game-obj": "Conditions",
+                    "aonid": 29
+                },
+                {
+                    "type": "link",
+                    "name": "concealed",
+                    "alt": "concealed",
+                    "game-obj": "Conditions",
+                    "aonid": 4
+                }
+            ]
+        }
     },
     "game-id": "3734e8dec98c2f35de559cd191b6629a",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "Your patron's breath becomes a blizzard of obscuring, scouring ice that follows your target. The target attempts a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent cold damage",
-            "alt": "persistent cold damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "lesson of snow",
-            "alt": "lesson of snow",
-            "game-obj": "Lessons",
-            "aonid": 23
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -184,5 +199,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

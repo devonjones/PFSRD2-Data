@@ -54,12 +54,10 @@
     "spell": {
         "name": "Unbreaking Wave Advance",
         "type": "stat_block_section",
+        "text": "You unleash a mighty wave from your hand that buffets back your foes. Each creature in the area must attempt a Fortitude saving throw. If a creature pushed by *unbreaking wave advance* would be pushed into a solid barrier or another creature, it stops at that point and takes 3d6 damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,9 +96,7 @@
                 }
             }
         ],
-        "cast": "verbal",
         "area": "15-foot cone",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -109,23 +105,39 @@
                 "text": "The damage for pushing a creature into a solid barrier increases by 1d6."
             }
         ],
-        "success": "The creature is unaffected.",
-        "failure": "The creature is pushed 10 feet.",
-        "critical_failure": "The creature is pushed 20 feet."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "success": "The creature is unaffected.",
+            "failure": "The creature is pushed 10 feet.",
+            "critical_failure": "The creature is pushed 20 feet."
+        }
     },
     "game-id": "527400bc24954414e06867f90ca038ad",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You unleash a mighty wave from your hand that buffets back your foes. Each creature in the area must attempt a Fortitude saving throw. If a creature pushed by *unbreaking wave advance* would be pushed into a solid barrier or another creature, it stops at that point and takes 3d6 damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -141,5 +153,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

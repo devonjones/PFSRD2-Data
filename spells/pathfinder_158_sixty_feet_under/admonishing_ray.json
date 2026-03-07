@@ -40,12 +40,10 @@
     "spell": {
         "name": "Admonishing Ray",
         "type": "stat_block_section",
+        "text": "A ray of energy bludgeons your target into submission without causing lasting harm. When you cast this spell, you choose whether the ray feels like a strong punch or slap. Make a spell attack roll. The ray deals 2d6 bludgeoning damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,8 +82,6 @@
                 }
             }
         ],
-        "traditions": "arcane, divine",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
         "heightened": [
@@ -96,41 +92,75 @@
                 "text": "The damage increases by 2d6."
             }
         ],
-        "critical_success": "The target takes double damage.",
-        "success": "The target takes full damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target takes double damage.",
+            "success": "The target takes full damage."
+        }
     },
     "game-id": "c10683cb27f9982b18240ca9eb61dd54",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "A ray of energy bludgeons your target into submission without causing lasting harm. When you cast this spell, you choose whether the ray feels like a strong punch or slap. Make a spell attack roll. The ray deals 2d6 bludgeoning damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -146,5 +176,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

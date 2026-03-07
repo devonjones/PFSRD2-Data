@@ -54,12 +54,10 @@
     "spell": {
         "name": "Dim the Light",
         "type": "stat_block_section",
+        "text": "You magnify the darkness from the triggering effect, causing the ambient light level to flicker briefly so you can slip from sight. You can immediately attempt a Stealth check to Hide, and you can become hidden to a creature even if you don't have cover and aren't otherwise concealed from that creature. You cease being hidden at the end of your turn unless you move into cover or become concealed before then.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,72 +108,91 @@
                 }
             }
         ],
-        "bloodline": "shadow",
-        "cast": "somatic",
-        "trigger": "You cast a darkness or shadow spell."
+        "trigger": "You cast a darkness or shadow spell.",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "shadow",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "shadow",
+                    "alt": "shadow",
+                    "game-obj": "Bloodlines",
+                    "aonid": 14
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Stealth",
+                "alt": "Stealth",
+                "game-obj": "Skills",
+                "aonid": 15
+            },
+            {
+                "type": "link",
+                "name": "Hide",
+                "alt": "Hide",
+                "game-obj": "Actions",
+                "aonid": 62
+            },
+            {
+                "type": "link",
+                "name": "hidden",
+                "alt": "hidden",
+                "game-obj": "Conditions",
+                "aonid": 22
+            },
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            },
+            {
+                "type": "link",
+                "name": "darkness",
+                "alt": "darkness",
+                "game-obj": "Traits",
+                "aonid": 39
+            },
+            {
+                "type": "link",
+                "name": "shadow",
+                "alt": "shadow",
+                "game-obj": "Traits",
+                "aonid": 143
+            }
+        ]
     },
     "game-id": "7c388c49218c3abe0cae4f57add2434e",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You magnify the darkness from the triggering effect, causing the ambient light level to flicker briefly so you can slip from sight. You can immediately attempt a Stealth check to Hide, and you can become hidden to a creature even if you don't have cover and aren't otherwise concealed from that creature. You cease being hidden at the end of your turn unless you move into cover or become concealed before then.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Stealth",
-            "alt": "Stealth",
-            "game-obj": "Skills",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "Hide",
-            "alt": "Hide",
-            "game-obj": "Actions",
-            "aonid": 62
-        },
-        {
-            "type": "link",
-            "name": "hidden",
-            "alt": "hidden",
-            "game-obj": "Conditions",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Traits",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "shadow",
-            "alt": "shadow",
-            "game-obj": "Traits",
-            "aonid": 143
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "shadow",
-            "alt": "shadow",
-            "game-obj": "Bloodlines",
-            "aonid": 14
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -191,5 +208,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

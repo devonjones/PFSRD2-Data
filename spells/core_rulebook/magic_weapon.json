@@ -54,12 +54,10 @@
     "spell": {
         "name": "Magic Weapon",
         "type": "stat_block_section",
+        "text": "The weapon glimmers with magic and energy. The target becomes a *+1 striking weapon*, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,72 +72,118 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "spell_list": "elemental",
-        "patron_theme": "rune",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 weapon that is unattended or wielded by you or a willing ally",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "elemental",
+                "access_type": "spell_list",
+                "link": {
+                    "type": "link",
+                    "name": "elemental",
+                    "alt": "elemental",
+                    "href": "Spells.aspx?Tradition=5"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "rune",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "rune",
+                    "alt": "rune",
+                    "game-obj": "Patrons",
+                    "aonid": 6
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "striking",
+                "alt": "striking",
+                "game-obj": "Equipment",
+                "aonid": 280
+            }
+        ]
     },
     "game-id": "3f60dde97ca7394929ec050435f538ff",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "The weapon glimmers with magic and energy. The target becomes a *+1 striking weapon*, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two.",
-    "links": [
-        {
-            "type": "link",
-            "name": "striking",
-            "alt": "striking",
-            "game-obj": "Equipment",
-            "aonid": 280
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "elemental",
-            "alt": "elemental",
-            "href": "Spells.aspx?Tradition=5"
-        },
-        {
-            "type": "link",
-            "name": "rune",
-            "alt": "rune",
-            "game-obj": "Patrons",
-            "aonid": 6
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -155,5 +199,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

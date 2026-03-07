@@ -54,12 +54,10 @@
     "spell": {
         "name": "Time Stop",
         "type": "stat_block_section",
+        "text": "You temporarily stop time for everything but yourself, allowing you to use several actions in what appears to others to be no time at all. Immediately after casting *time stop*, you can use up to 9 actions in 3 sets of up to 3 actions each. After each set of actions, 1 round passes, but only for you, effects specifically targeting or affecting you, and effects you create during the stoppage. All other creatures and objects are invulnerable to your attacks, and you can't target or affect them with anything. Once you have finished your actions, time begins to flow again for the rest of the world. If you created an effect with a duration that extends beyond the *time stop*'s duration, such as *wall of fire*, it immediately affects others again, but it doesn't have any of the effects that happen only when you first cast the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,55 +72,90 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "material, somatic, verbal"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "wall of fire",
+                "alt": "wall of fire",
+                "game-obj": "Spells",
+                "aonid": 362
+            }
+        ]
     },
     "game-id": "8904e5d7979a9e7b374efecfec8ef087",
-    "spell_type": "spell",
-    "rank": 10,
-    "text": "You temporarily stop time for everything but yourself, allowing you to use several actions in what appears to others to be no time at all. Immediately after casting *time stop*, you can use up to 9 actions in 3 sets of up to 3 actions each. After each set of actions, 1 round passes, but only for you, effects specifically targeting or affecting you, and effects you create during the stoppage. All other creatures and objects are invulnerable to your attacks, and you can't target or affect them with anything. Once you have finished your actions, time begins to flow again for the rest of the world. If you created an effect with a duration that extends beyond the *time stop*'s duration, such as *wall of fire*, it immediately affects others again, but it doesn't have any of the effects that happen only when you first cast the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "wall of fire",
-            "alt": "wall of fire",
-            "game-obj": "Spells",
-            "aonid": 362
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -138,5 +171,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

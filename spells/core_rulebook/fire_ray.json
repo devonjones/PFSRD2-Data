@@ -54,12 +54,10 @@
     "spell": {
         "name": "Fire Ray",
         "type": "stat_block_section",
+        "text": "A blazing band of fire arcs through the air. Make a spell attack roll. The ray deals 2d6 fire damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,8 +120,6 @@
                 }
             }
         ],
-        "domain": "fire",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
         "heightened": [
@@ -134,36 +130,64 @@
                 "text": "The ray's initial damage increases by 2d6, and the persistent fire damage on a critical success increases by 1d4."
             }
         ],
-        "critical_success": "The ray deals double damage and 1d4 persistent fire damage.",
-        "success": "The ray deals full damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fire",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "fire",
+                    "alt": "fire",
+                    "game-obj": "Domains",
+                    "aonid": 13
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The ray deals double damage and 1d4 persistent fire damage.",
+            "success": "The ray deals full damage."
+        }
     },
     "game-id": "22e53bb2c29fafe737045cf5c3c8a575",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "A blazing band of fire arcs through the air. Make a spell attack roll. The ray deals 2d6 fire damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "fire",
-            "alt": "fire",
-            "game-obj": "Domains",
-            "aonid": 13
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -179,5 +203,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

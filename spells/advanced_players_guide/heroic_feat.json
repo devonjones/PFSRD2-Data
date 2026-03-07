@@ -54,12 +54,10 @@
     "spell": {
         "name": "Heroic Feat",
         "type": "stat_block_section",
+        "text": "You gain the ability to perform a specialized combat technique from the vast wealth of martial knowledge your mystery provides. When you Cast this Spell, you use the action granted by one common fighter feat from the *Core Rulebook* or the *Advanced Player's Guide* (your GM might add feats to this list). If you Cast this Spell using 2 actions, the granted action must be a single action, and if you Cast this Spell using 3 actions, you can instead choose a feat that grants a 2-action activity. The chosen feat's level can be no higher than *heroic feat's* spell level. The feat can't have a Frequency entry, and you must meet its prerequisites and requirements in order to select it.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,34 +120,51 @@
                 }
             }
         ],
-        "cast": "or   somatic, verbal"
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "fighter feat",
+                "alt": "fighter feat",
+                "href": "Feats.aspx?Traits=71"
+            }
+        ]
     },
     "game-id": "8cc9110b80e07ebe4d4308dedb390dcd",
-    "spell_type": "focus",
-    "rank": 6,
-    "text": "You gain the ability to perform a specialized combat technique from the vast wealth of martial knowledge your mystery provides. When you Cast this Spell, you use the action granted by one common fighter feat from the *Core Rulebook* or the *Advanced Player's Guide* (your GM might add feats to this list). If you Cast this Spell using 2 actions, the granted action must be a single action, and if you Cast this Spell using 3 actions, you can instead choose a feat that grants a 2-action activity. The chosen feat's level can be no higher than *heroic feat's* spell level. The feat can't have a Frequency entry, and you must meet its prerequisites and requirements in order to select it.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fighter feat",
-            "alt": "fighter feat",
-            "href": "Feats.aspx?Traits=71"
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -165,5 +180,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

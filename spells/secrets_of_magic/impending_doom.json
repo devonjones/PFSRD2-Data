@@ -54,12 +54,10 @@
     "spell": {
         "name": "Impending Doom",
         "type": "stat_block_section",
+        "text": "You sift through myriad potential futures, seize upon one potential moment in which the target meets a particularly gruesome and fatal end, and then show it a vision of its impending demise. The intense mental vision grows more and more terrifying to the target as the doom grows closer, and it takes 3 rounds to reach its conclusion. The target must attempt a Will saving throw to determine the effects. At the end of the spell's duration, if the target was affected, the target witnesses its death and takes 6d6 mental damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,11 +132,8 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 living creature",
-        "saving_throw": "Will",
         "duration": "3 rounds",
         "heightened": [
             {
@@ -148,77 +143,120 @@
                 "text": "The damage increases by 2d6."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is unaffected for 1 round. On the second round, it becomes flat-footed. Finally, on the third round, it becomes frightened 1. At the end of the third round, it takes half damage.",
-        "failure": "The creature is immediately flat-footed. On the second round, it becomes frightened 2. Finally, on the third round, it also becomes stunned 1. At the end of the third round, the creature takes full damage.",
-        "critical_failure": "The creature is immediately flat-footed and frightened 3. On the second round, it becomes stunned 1. Finally, on the third round, it also becomes paralyzed. At the end of the third round, the creature takes double damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is unaffected for 1 round. On the second round, it becomes flat-footed. Finally, on the third round, it becomes frightened 1. At the end of the third round, it takes half damage.",
+            "failure": "The creature is immediately flat-footed. On the second round, it becomes frightened 2. Finally, on the third round, it also becomes stunned 1. At the end of the third round, the creature takes full damage.",
+            "critical_failure": "The creature is immediately flat-footed and frightened 3. On the second round, it becomes stunned 1. Finally, on the third round, it also becomes paralyzed. At the end of the third round, the creature takes double damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "flat-footed",
+                    "alt": "flat-footed",
+                    "game-obj": "Conditions",
+                    "aonid": 16
+                },
+                {
+                    "type": "link",
+                    "name": "frightened 1",
+                    "alt": "frightened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 19
+                },
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 36
+                },
+                {
+                    "type": "link",
+                    "name": "paralyzed",
+                    "alt": "paralyzed",
+                    "game-obj": "Conditions",
+                    "aonid": 28
+                }
+            ]
+        }
     },
     "game-id": "64538d7f586ef3a080a31f5c5770e2b2",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You sift through myriad potential futures, seize upon one potential moment in which the target meets a particularly gruesome and fatal end, and then show it a vision of its impending demise. The intense mental vision grows more and more terrifying to the target as the doom grows closer, and it takes 3 rounds to reach its conclusion. The target must attempt a Will saving throw to determine the effects. At the end of the spell's duration, if the target was affected, the target witnesses its death and takes 6d6 mental damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "flat-footed",
-            "alt": "flat-footed",
-            "game-obj": "Conditions",
-            "aonid": 16
-        },
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "paralyzed",
-            "alt": "paralyzed",
-            "game-obj": "Conditions",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -234,5 +272,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

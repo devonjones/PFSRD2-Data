@@ -27,12 +27,10 @@
     "spell": {
         "name": "Beheading Buzz Saw",
         "type": "stat_block_section",
+        "text": "You compress molten scraps pulled from the Plane of Metal into a spinning disc with gruesome blades protruding from its edges. It wheels forward, slicing through anyone in its path. Each creature in the area takes 5d10 slashing damage and 4d6 persistent bleed damage, with a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,9 +69,7 @@
                 }
             }
         ],
-        "traditions": "arcane",
         "area": "60-foot line",
-        "defense": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -82,50 +78,71 @@
                 "text": "The slashing damage increases by 1d10, and the persistent bleed damage increases by 1d6."
             }
         ],
-        "success": "The creature is unaffected.",
-        "failure": "The creature takes full damage.",
-        "critical_failure": "The creature takes double damage. If the creature has a head, it must succeed at a Fortitude save or be decapitated; this kills any creature except ones that don't require a head to live. For creatures with multiple heads, this usually kills the creature only if you sever its last head. This second save has the death and incapacitation traits."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "success": "The creature is unaffected.",
+            "failure": "The creature takes full damage.",
+            "critical_failure": "The creature takes double damage. If the creature has a head, it must succeed at a Fortitude save or be decapitated; this kills any creature except ones that don't require a head to live. For creatures with multiple heads, this usually kills the creature only if you sever its last head. This second save has the death and incapacitation traits.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "death",
+                    "alt": "death",
+                    "game-obj": "Traits",
+                    "aonid": 40
+                },
+                {
+                    "type": "link",
+                    "name": "incapacitation",
+                    "alt": "incapacitation",
+                    "game-obj": "Traits",
+                    "aonid": 93
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Plane of Metal",
+                "alt": "Plane of Metal",
+                "game-obj": "Planes",
+                "aonid": 24
+            },
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "f0955cbe3615af4af1ab19e8e99cb9ed",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "You compress molten scraps pulled from the Plane of Metal into a spinning disc with gruesome blades protruding from its edges. It wheels forward, slicing through anyone in its path. Each creature in the area takes 5d10 slashing damage and 4d6 persistent bleed damage, with a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Plane of Metal",
-            "alt": "Plane of Metal",
-            "game-obj": "Planes",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "death",
-            "alt": "death",
-            "game-obj": "Traits",
-            "aonid": 40
-        },
-        {
-            "type": "link",
-            "name": "incapacitation",
-            "alt": "incapacitation",
-            "game-obj": "Traits",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -170,5 +187,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

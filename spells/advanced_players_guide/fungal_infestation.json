@@ -54,12 +54,10 @@
     "spell": {
         "name": "Fungal Infestation",
         "type": "stat_block_section",
+        "text": "Toxic spores swarm over creatures in the area, causing them to erupt in grotesque fungal growths. These noxious growths deal 2d6 persistent poison damage, and each creature must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,11 +72,8 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "cast": "somatic, verbal",
         "range": "touch",
         "area": "15-foot cone",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -87,44 +82,75 @@
                 "text": "The persistent damage increases by 2d6, and the weakness increases by 1, or by 2 on a critical failure."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The target takes half the persistent poison damage.",
-        "failure": "The target takes the full persistent poison damage. While it is taking this persistent poison damage, it has weakness 1 to fire and weakness 1 to slashing.",
-        "critical_failure": "As failure, but double the persistent poison damage. While it is taking this persistent poison damage, it has weakness 2 to fire and weakness 2 to slashing."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The target takes half the persistent poison damage.",
+            "failure": "The target takes the full persistent poison damage. While it is taking this persistent poison damage, it has weakness 1 to fire and weakness 1 to slashing.",
+            "critical_failure": "As failure, but double the persistent poison damage. While it is taking this persistent poison damage, it has weakness 2 to fire and weakness 2 to slashing."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent poison damage",
+                "alt": "persistent poison damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "79801f8caaa198e37fa5601b2f1330a0",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "Toxic spores swarm over creatures in the area, causing them to erupt in grotesque fungal growths. These noxious growths deal 2d6 persistent poison damage, and each creature must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent poison damage",
-            "alt": "persistent poison damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -140,5 +166,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

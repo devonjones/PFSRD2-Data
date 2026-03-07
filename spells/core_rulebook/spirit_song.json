@@ -54,12 +54,10 @@
     "spell": {
         "name": "Spirit Song",
         "type": "stat_block_section",
+        "text": "Your eldritch song sends pulsing waves of ethereal energy to attack creatures' spirits in the area, dealing 18d6 force damage. Because *spirit song* affects creatures' spirits, it can damage a target projecting its consciousness (such as via *project image*) or possessing another creature even if the target's body is elsewhere. The vibrating waves of spiritual song penetrate into, but not through, solid barriers, damaging incorporeal creatures hiding in solid objects in the area but not passing onward to damage creatures in other rooms. Possessed creatures aren't harmed by the song. The song doesn't harm creatures that have no spirit, such as constructs.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,11 +84,7 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "bloodline": "psychopomp",
-        "cast": "somatic, verbal",
         "area": "60-foot cone",
-        "saving_throw": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -98,55 +92,95 @@
                 "increment": 1,
                 "text": "The damage increases by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "psychopomp",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "psychopomp",
+                    "alt": "psychopomp",
+                    "game-obj": "Bloodlines",
+                    "aonid": 13
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "project image",
+                "alt": "project image",
+                "game-obj": "Spells",
+                "aonid": 237
+            }
         ]
     },
     "game-id": "2d1375b152e4dfa04c76c605010f9ff8",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "Your eldritch song sends pulsing waves of ethereal energy to attack creatures' spirits in the area, dealing 18d6 force damage. Because *spirit song* affects creatures' spirits, it can damage a target projecting its consciousness (such as via *project image*) or possessing another creature even if the target's body is elsewhere. The vibrating waves of spiritual song penetrate into, but not through, solid barriers, damaging incorporeal creatures hiding in solid objects in the area but not passing onward to damage creatures in other rooms. Possessed creatures aren't harmed by the song. The song doesn't harm creatures that have no spirit, such as constructs.",
-    "links": [
-        {
-            "type": "link",
-            "name": "project image",
-            "alt": "project image",
-            "game-obj": "Spells",
-            "aonid": 237
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "psychopomp",
-            "alt": "psychopomp",
-            "game-obj": "Bloodlines",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -162,5 +196,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

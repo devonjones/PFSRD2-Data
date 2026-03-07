@@ -54,12 +54,10 @@
     "spell": {
         "name": "Summon Fiend",
         "type": "stat_block_section",
+        "text": "You conjure a fiend to fight on your behalf. This works like *summon animal*, except you summon a common creature that has the fiend trait and whose level is 5 or lower, such as those below. You can't summon a creature unless its alignment is one of your deity's preferred alignments (or, if you don't have a deity, is within one step of your alignment). At the GM's discretion, some deities might restrict specific types of fiends, even if their alignments match.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,8 +72,6 @@
                 }
             }
         ],
-        "traditions": "divine",
-        "cast": "material, somatic, verbal",
         "range": "30 feet",
         "duration": "sustained up to 1 minute",
         "heightened": [
@@ -109,55 +105,86 @@
                 "level": 10,
                 "text": "Level 15."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "summon animal",
+                "alt": "summon animal",
+                "game-obj": "Spells",
+                "aonid": 316
+            },
+            {
+                "type": "link",
+                "name": "fiend",
+                "alt": "fiend",
+                "game-obj": "Traits",
+                "aonid": 70
+            }
         ]
     },
     "game-id": "bdbd1df51bd1ee6635a9b6bace26624e",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You conjure a fiend to fight on your behalf. This works like *summon animal*, except you summon a common creature that has the fiend trait and whose level is 5 or lower, such as those below. You can't summon a creature unless its alignment is one of your deity's preferred alignments (or, if you don't have a deity, is within one step of your alignment). At the GM's discretion, some deities might restrict specific types of fiends, even if their alignments match.",
-    "links": [
-        {
-            "type": "link",
-            "name": "summon animal",
-            "alt": "summon animal",
-            "game-obj": "Spells",
-            "aonid": 316
-        },
-        {
-            "type": "link",
-            "name": "fiend",
-            "alt": "fiend",
-            "game-obj": "Traits",
-            "aonid": 70
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -173,5 +200,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

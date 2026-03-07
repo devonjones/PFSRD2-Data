@@ -20,12 +20,10 @@
     "spell": {
         "name": "Chastising Retort",
         "type": "stat_block_section",
+        "text": "You unleash some choice words empowered with divine might. The creature takes 2d6 mental damage and must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,11 +86,9 @@
                 }
             }
         ],
-        "domain": "naga",
         "trigger": "A creature within range attempts a Deception checkto Lie or Feint.",
         "range": "30 feet",
         "targets": "the triggering creature",
-        "defense": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -101,45 +97,66 @@
                 "text": "The damage increases by 2d6."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and is stupefied 1 for 1d4 rounds.",
-        "critical_failure": "As failure, but the creature takes double damage and is stupefied 2 for 1d4 rounds.  \n  \nThe creature can immediately choose to reveal the truth about its deception as a free action to immediately recover Hit Points equal to the mental damage it took and lose the stupefied condition from the spell. If it does, it quickly notes that its words and actions were lies, though it might need more time to explain the proper truth. If the creature used Deception to successfully Feint and it reveals the truth in this way, the target of the creature\u2019s Feint is no longer off-guard due to the successful Feint."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "naga",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "naga",
+                    "alt": "naga",
+                    "game-obj": "Domains",
+                    "aonid": 113
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and is stupefied 1 for 1d4 rounds.",
+            "critical_failure": "As failure, but the creature takes double damage and is stupefied 2 for 1d4 rounds.  \n  \nThe creature can immediately choose to reveal the truth about its deception as a free action to immediately recover Hit Points equal to the mental damage it took and lose the stupefied condition from the spell. If it does, it quickly notes that its words and actions were lies, though it might need more time to explain the proper truth. If the creature used Deception to successfully Feint and it reveals the truth in this way, the target of the creature\u2019s Feint is no longer off-guard due to the successful Feint.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stupefied",
+                    "alt": "stupefied",
+                    "game-obj": "Conditions",
+                    "aonid": 94
+                },
+                {
+                    "type": "link",
+                    "name": "off-guard",
+                    "alt": "off-guard",
+                    "game-obj": "Conditions",
+                    "aonid": 58
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "mental",
+                "alt": "mental",
+                "game-obj": "Traits",
+                "aonid": 647
+            }
+        ]
     },
     "game-id": "59b7632ee6e78f875c1188d0caa88ae0",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You unleash some choice words empowered with divine might. The creature takes 2d6 mental damage and must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 647
-        },
-        {
-            "type": "link",
-            "name": "stupefied",
-            "alt": "stupefied",
-            "game-obj": "Conditions",
-            "aonid": 94
-        },
-        {
-            "type": "link",
-            "name": "off-guard",
-            "alt": "off-guard",
-            "game-obj": "Conditions",
-            "aonid": 58
-        },
-        {
-            "type": "link",
-            "name": "naga",
-            "alt": "naga",
-            "game-obj": "Domains",
-            "aonid": 113
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -184,5 +201,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

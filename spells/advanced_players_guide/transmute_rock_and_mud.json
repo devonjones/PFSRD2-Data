@@ -54,12 +54,10 @@
     "spell": {
         "name": "Transmute Rock and Mud",
         "type": "stat_block_section",
+        "text": "You warp the structure of earthen material, turning rock into mud or mud into rock. Choose one of these two options when you Cast the Spell.\n* **Mud to Rock** Mud in the area turns into unworked stone. If creatures are in the mud when it is transformed to stone, they must attempt a Reflex saving throw.\n* **Rock to Mud** You transform non-magical, unworked, and unattended stone in the area into an equal volume of mud. If you Cast this Spell on a stone floor, it becomes difficult terrain; if the resulting mud is at least 3 feet deep, it is greater difficult terrain, or the creature can try to Swim through it (DC 10 Athletics). If the mud is deep enough that a creature can't reach the bottom, the creature must Swim to move through it. If you Cast this Spell on a ceiling, the falling mud deals 8d6 bludgeoning damage (basic Reflex save) and spreads out, creating difficult terrain in an area 10 feet larger in radius than the original spell's area. Once the rock is transformed into mud, the mud is non-magical and remains until natural conditions cause it to dry out or otherwise disperse.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,8 +84,6 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "material, somatic, verbal",
         "range": "60 feet",
         "area": "2 adjacent 10-foot cubes",
         "heightened": [
@@ -98,92 +94,135 @@
                 "text": "Add an additional 10-foot cube to the area, adjacent to at least one of the other cubes."
             }
         ],
-        "critical_success": "The creature escapes the mud and is atop the stone, unaffected.",
-        "success": "The creature climbs out of the mud as it turns to rock and is prone atop the stone.",
-        "failure": "The creature is partially stuck in the mud and is grabbed for 1 round or until it Escapes, whichever comes first.",
-        "critical_failure": "The creature is entirely stuck. It is restrained for 1 round or until it Escapes, whichever comes first."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature escapes the mud and is atop the stone, unaffected.",
+            "success": "The creature climbs out of the mud as it turns to rock and is prone atop the stone.",
+            "failure": "The creature is partially stuck in the mud and is grabbed for 1 round or until it Escapes, whichever comes first.",
+            "critical_failure": "The creature is entirely stuck. It is restrained for 1 round or until it Escapes, whichever comes first.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                },
+                {
+                    "type": "link",
+                    "name": "grabbed",
+                    "alt": "grabbed",
+                    "game-obj": "Conditions",
+                    "aonid": 20
+                },
+                {
+                    "type": "link",
+                    "name": "Escapes",
+                    "alt": "Escapes",
+                    "game-obj": "Actions",
+                    "aonid": 79
+                },
+                {
+                    "type": "link",
+                    "name": "restrained",
+                    "alt": "restrained",
+                    "game-obj": "Conditions",
+                    "aonid": 33
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Swim",
+                "alt": "Swim",
+                "game-obj": "Actions",
+                "aonid": 39
+            },
+            {
+                "type": "link",
+                "name": "Athletics",
+                "alt": "Athletics",
+                "game-obj": "Skills",
+                "aonid": 3
+            }
+        ]
     },
     "game-id": "47828d1047ea82a00fde1248b68254f7",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You warp the structure of earthen material, turning rock into mud or mud into rock. Choose one of these two options when you Cast the Spell.\n* **Mud to Rock** Mud in the area turns into unworked stone. If creatures are in the mud when it is transformed to stone, they must attempt a Reflex saving throw.\n* **Rock to Mud** You transform non-magical, unworked, and unattended stone in the area into an equal volume of mud. If you Cast this Spell on a stone floor, it becomes difficult terrain; if the resulting mud is at least 3 feet deep, it is greater difficult terrain, or the creature can try to Swim through it (DC 10 Athletics). If the mud is deep enough that a creature can't reach the bottom, the creature must Swim to move through it. If you Cast this Spell on a ceiling, the falling mud deals 8d6 bludgeoning damage (basic Reflex save) and spreads out, creating difficult terrain in an area 10 feet larger in radius than the original spell's area. Once the rock is transformed into mud, the mud is non-magical and remains until natural conditions cause it to dry out or otherwise disperse.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Swim",
-            "alt": "Swim",
-            "game-obj": "Actions",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "Athletics",
-            "alt": "Athletics",
-            "game-obj": "Skills",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "grabbed",
-            "alt": "grabbed",
-            "game-obj": "Conditions",
-            "aonid": 20
-        },
-        {
-            "type": "link",
-            "name": "Escapes",
-            "alt": "Escapes",
-            "game-obj": "Actions",
-            "aonid": 79
-        },
-        {
-            "type": "link",
-            "name": "restrained",
-            "alt": "restrained",
-            "game-obj": "Conditions",
-            "aonid": 33
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -199,5 +238,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

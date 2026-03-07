@@ -27,12 +27,10 @@
     "spell": {
         "name": "Touch of Undeath",
         "type": "stat_block_section",
+        "text": "You attack the target's life force with undeath, dealing 1d6 void damage. The target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,10 +93,8 @@
                 }
             }
         ],
-        "domain": "undeath",
         "range": "touch",
         "targets": "1 living creature",
-        "defense": "Fortitude",
         "duration": "varies",
         "heightened": [
             {
@@ -108,31 +104,50 @@
                 "text": "The damage increases by 1d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage.",
-        "failure": "The target takes full damage, and vitality effects heal it only half as much as normal for 1 round.",
-        "critical_failure": "The target takes double damage, and vitality effects heal it only half as much as normal for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "undeath",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "undeath",
+                    "alt": "undeath",
+                    "game-obj": "Domains",
+                    "aonid": 97
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage.",
+            "failure": "The target takes full damage, and vitality effects heal it only half as much as normal for 1 round.",
+            "critical_failure": "The target takes double damage, and vitality effects heal it only half as much as normal for 1 minute.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "vitality",
+                    "alt": "vitality",
+                    "game-obj": "Traits",
+                    "aonid": 509
+                }
+            ]
+        }
     },
     "game-id": "875128750e5751900eb4c1ab1a39a039",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You attack the target's life force with undeath, dealing 1d6 void damage. The target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "vitality",
-            "alt": "vitality",
-            "game-obj": "Traits",
-            "aonid": 509
-        },
-        {
-            "type": "link",
-            "name": "undeath",
-            "alt": "undeath",
-            "game-obj": "Domains",
-            "aonid": 97
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -177,5 +192,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

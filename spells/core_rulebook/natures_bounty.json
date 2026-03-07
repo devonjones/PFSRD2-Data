@@ -54,12 +54,10 @@
     "spell": {
         "name": "Nature's Bounty",
         "type": "stat_block_section",
+        "text": "A palm-sized raw fruit or vegetable appears in your open hand. You choose the specific type of food. A creature can consume the food with an Interact action to regain 3d10+12 Hit Points and be nourished as if it had eaten a meal. If uneaten, the food rots and crumbles to dust after 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,8 +120,6 @@
                 }
             }
         ],
-        "domain": "nature",
-        "cast": "somatic",
         "requirement": "You have a free hand.",
         "heightened": [
             {
@@ -132,28 +128,47 @@
                 "increment": 1,
                 "text": "The Hit Points restored increase by 6."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "nature",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "nature",
+                    "alt": "nature",
+                    "game-obj": "Domains",
+                    "aonid": 22
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "41f33de26b47b47039c981439617e8a5",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "A palm-sized raw fruit or vegetable appears in your open hand. You choose the specific type of food. A creature can consume the food with an Interact action to regain 3d10+12 Hit Points and be nourished as if it had eaten a meal. If uneaten, the food rots and crumbles to dust after 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "nature",
-            "alt": "nature",
-            "game-obj": "Domains",
-            "aonid": 22
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -169,5 +184,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

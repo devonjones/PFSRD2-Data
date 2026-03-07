@@ -27,12 +27,10 @@
     "spell": {
         "name": "Angelic Halo",
         "type": "stat_block_section",
+        "text": "You gain an angelic halo with an aura that increases allies' healing from the *heal* spell. Allies in your halo's emanation who are healed by a *heal* spell gain a status bonus to Hit Points regained equal to double the heal spell's level.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,30 +105,43 @@
                 }
             }
         ],
-        "bloodline": "angelic",
         "area": "15-foot emanation",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "angelic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "angelic",
+                    "alt": "angelic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 20
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "heal",
+                "alt": "heal",
+                "game-obj": "Spells",
+                "aonid": 1554
+            }
+        ]
     },
     "game-id": "805da71978c6a38674a9f5676318f1bf",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You gain an angelic halo with an aura that increases allies' healing from the *heal* spell. Allies in your halo's emanation who are healed by a *heal* spell gain a status bonus to Hit Points regained equal to double the heal spell's level.",
-    "links": [
-        {
-            "type": "link",
-            "name": "heal",
-            "alt": "heal",
-            "game-obj": "Spells",
-            "aonid": 1554
-        },
-        {
-            "type": "link",
-            "name": "angelic",
-            "alt": "angelic",
-            "game-obj": "Bloodlines",
-            "aonid": 20
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -175,5 +186,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

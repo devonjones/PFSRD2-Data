@@ -40,12 +40,10 @@
     "spell": {
         "name": "Tireless Worker",
         "type": "stat_block_section",
+        "text": "You suppress your choice of one of the following conditions that\u2019s affecting the target: clumsy, encumbered, enfeebled, or fatigued. If you don\u2019t remove the effect that caused the condition, the condition returns after the spell\u2019s duration expires.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,59 +70,76 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "duration": "sustained for up to 1 minute"
+        "duration": "sustained for up to 1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "clumsy",
+                "alt": "clumsy",
+                "game-obj": "Conditions",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "encumbered",
+                "alt": "encumbered",
+                "game-obj": "Conditions",
+                "aonid": 12
+            },
+            {
+                "type": "link",
+                "name": "enfeebled",
+                "alt": "enfeebled",
+                "game-obj": "Conditions",
+                "aonid": 13
+            },
+            {
+                "type": "link",
+                "name": "fatigued",
+                "alt": "fatigued",
+                "game-obj": "Conditions",
+                "aonid": 15
+            }
+        ]
     },
     "game-id": "6059a5ee38ab90a00ceaf20671d2044f",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You suppress your choice of one of the following conditions that\u2019s affecting the target: clumsy, encumbered, enfeebled, or fatigued. If you don\u2019t remove the effect that caused the condition, the condition returns after the spell\u2019s duration expires.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy",
-            "alt": "clumsy",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "encumbered",
-            "alt": "encumbered",
-            "game-obj": "Conditions",
-            "aonid": 12
-        },
-        {
-            "type": "link",
-            "name": "enfeebled",
-            "alt": "enfeebled",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "fatigued",
-            "alt": "fatigued",
-            "game-obj": "Conditions",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -140,5 +155,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

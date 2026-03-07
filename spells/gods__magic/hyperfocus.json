@@ -54,12 +54,10 @@
     "spell": {
         "name": "Hyperfocus",
         "type": "stat_block_section",
+        "text": "You sharpen a creature\u2019s senses, though more distant objects become hazy, indistinct, or muted to it. The target gains a +1 status bonus to Perception checks attempted with any of its precise senses. Furthermore, any imprecise senses the target has are sharpened to precise senses (though they do not receive the status bonus). However, the target cannot perceive anything beyond a range of 20 feet with any of its senses. The duration is determined by the target\u2019s Will save. You can allow allies to choose the outcome instead of rolling a saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,11 +72,8 @@
                 }
             }
         ],
-        "domain": "delirium",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -94,38 +89,67 @@
                 "text": "You can target up to 4 creatures."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target is affected for 1 round.",
-        "failure": "The target is affected for 1 minute.",
-        "critical_failure": "As failure, but the target cannot perceive anything beyond a range of 10 feet."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "delirium",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "delirium",
+                    "alt": "delirium",
+                    "game-obj": "Domains",
+                    "aonid": 43
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is affected for 1 round.",
+            "failure": "The target is affected for 1 minute.",
+            "critical_failure": "As failure, but the target cannot perceive anything beyond a range of 10 feet."
+        }
     },
     "game-id": "5cdf1f60a4aa5ed839a008742a92d3cd",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You sharpen a creature\u2019s senses, though more distant objects become hazy, indistinct, or muted to it. The target gains a +1 status bonus to Perception checks attempted with any of its precise senses. Furthermore, any imprecise senses the target has are sharpened to precise senses (though they do not receive the status bonus). However, the target cannot perceive anything beyond a range of 20 feet with any of its senses. The duration is determined by the target\u2019s Will save. You can allow allies to choose the outcome instead of rolling a saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "delirium",
-            "alt": "delirium",
-            "game-obj": "Domains",
-            "aonid": 43
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -141,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

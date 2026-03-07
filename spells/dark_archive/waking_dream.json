@@ -40,12 +40,10 @@
     "spell": {
         "name": "Waking Dream",
         "type": "stat_block_section",
+        "text": "You cloud the target's mind with vivid, dreamlike imagery, so they have difficulty distinguishing real threats from imagined ones.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,50 +70,71 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is distracted by the visions and treats all other creatures as concealed for 1 round, and you can't Sustain the Spell to increase the duration.",
-        "failure": "The target is confused. In addition to the creatures present, the target might also attack wildly at thin air, attempting to fend off the dreams. It can attempt a new save at the end of each of its turns to end the confusion. Even if the confused effect ends early, the target treats all other creatures as concealed for 1 round.",
-        "critical_failure": "As failure, but the target gets no save to end the effect early."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is distracted by the visions and treats all other creatures as concealed for 1 round, and you can't Sustain the Spell to increase the duration.",
+            "failure": "The target is confused. In addition to the creatures present, the target might also attack wildly at thin air, attempting to fend off the dreams. It can attempt a new save at the end of each of its turns to end the confusion. Even if the confused effect ends early, the target treats all other creatures as concealed for 1 round.",
+            "critical_failure": "As failure, but the target gets no save to end the effect early.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "concealed",
+                    "alt": "concealed",
+                    "game-obj": "Conditions",
+                    "aonid": 4
+                },
+                {
+                    "type": "link",
+                    "name": "confused",
+                    "alt": "confused",
+                    "game-obj": "Conditions",
+                    "aonid": 5
+                }
+            ]
+        }
     },
     "game-id": "344d160b10767e45c9520f7d0f6f7659",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You cloud the target's mind with vivid, dreamlike imagery, so they have difficulty distinguishing real threats from imagined ones.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -131,5 +150,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

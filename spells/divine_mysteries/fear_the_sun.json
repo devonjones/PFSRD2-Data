@@ -20,12 +20,10 @@
     "spell": {
         "name": "Fear the Sun",
         "type": "stat_block_section",
+        "text": "You cause the creature\u2019s vision to become particularly sensitive. The creature must attempt a Fortitude save. The creature is then temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -52,10 +50,8 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult, primal",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -64,69 +60,106 @@
                 "text": "You can target up to 10 creatures."
             }
         ],
-        "critical_success": "The creature is unaffected",
-        "success": "The creature is dazzled for 1 round.",
-        "failure": "The creature is dazzled for 1 minute.",
-        "critical_failure": "The creature gains light blindness for 1 minute. If the creature is already exposed to bright light, it immediately becomes blinded until the end of its next turn, as it isn\u2019t acclimated to its newly acquired light blindness."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected",
+            "success": "The creature is dazzled for 1 round.",
+            "failure": "The creature is dazzled for 1 minute.",
+            "critical_failure": "The creature gains light blindness for 1 minute. If the creature is already exposed to bright light, it immediately becomes blinded until the end of its next turn, as it isn\u2019t acclimated to its newly acquired light blindness.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "dazzled",
+                    "alt": "dazzled",
+                    "game-obj": "Conditions",
+                    "aonid": 65
+                },
+                {
+                    "type": "link",
+                    "name": "light blindness",
+                    "alt": "light blindness",
+                    "game-obj": "MonsterAbilities",
+                    "aonid": 68
+                },
+                {
+                    "type": "link",
+                    "name": "bright light",
+                    "alt": "bright light",
+                    "game-obj": "Rules",
+                    "aonid": 2402
+                },
+                {
+                    "type": "link",
+                    "name": "blinded",
+                    "alt": "blinded",
+                    "game-obj": "Conditions",
+                    "aonid": 59
+                }
+            ]
+        }
     },
     "game-id": "cca119182fd435d1313a8598a8548cee",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You cause the creature\u2019s vision to become particularly sensitive. The creature must attempt a Fortitude save. The creature is then temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 65
-        },
-        {
-            "type": "link",
-            "name": "light blindness",
-            "alt": "light blindness",
-            "game-obj": "MonsterAbilities",
-            "aonid": 68
-        },
-        {
-            "type": "link",
-            "name": "bright light",
-            "alt": "bright light",
-            "game-obj": "Rules",
-            "aonid": 2402
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 59
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -171,5 +204,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

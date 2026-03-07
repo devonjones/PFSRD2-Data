@@ -20,12 +20,10 @@
     "spell": {
         "name": "Dutiful Challenge",
         "type": "stat_block_section",
+        "text": "As you challenge an enemy, you take some of its attention away from your allies. The target takes a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than you, and you take a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than the target. Each time a creature other than you uses a hostile action that affects the challenged enemy, the enemy can attempt a Will save. On a success, the enemy no longer takes the penalty against that creature. You can Dismiss the spell, and it ends automatically if you or the target is defeated",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,10 +86,8 @@
                 }
             }
         ],
-        "domain": "duty",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -100,28 +96,47 @@
                 "increment": 3,
                 "text": "The status penalties increase by 1."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "duty",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "duty",
+                    "alt": "duty",
+                    "game-obj": "Domains",
+                    "aonid": 108
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Dismiss",
+                "alt": "Dismiss",
+                "game-obj": "Actions",
+                "aonid": 2311
+            }
         ]
     },
     "game-id": "a855b9e9346284d5f83661abca539baa",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "As you challenge an enemy, you take some of its attention away from your allies. The target takes a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than you, and you take a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than the target. Each time a creature other than you uses a hostile action that affects the challenged enemy, the enemy can attempt a Will save. On a success, the enemy no longer takes the penalty against that creature. You can Dismiss the spell, and it ends automatically if you or the target is defeated",
-    "links": [
-        {
-            "type": "link",
-            "name": "Dismiss",
-            "alt": "Dismiss",
-            "game-obj": "Actions",
-            "aonid": 2311
-        },
-        {
-            "type": "link",
-            "name": "duty",
-            "alt": "duty",
-            "game-obj": "Domains",
-            "aonid": 108
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -166,5 +181,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

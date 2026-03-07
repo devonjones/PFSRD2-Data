@@ -54,12 +54,10 @@
     "spell": {
         "name": "Veil of Confidence",
         "type": "stat_block_section",
+        "text": "You surround yourself in a veil of confidence. You reduce your current frightened condition by 1, and whenever you would become frightened during the duration, reduce the amount by 1. If you critically fail a save against fear, *veil of confidence* ends immediately, and you increase any frightened condition you gain from the critical failure by 1 instead of decreasing it.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,30 +108,47 @@
                 }
             }
         ],
-        "domain": "confidence",
-        "cast": "verbal",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "confidence",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "confidence",
+                    "alt": "confidence",
+                    "game-obj": "Domains",
+                    "aonid": 4
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "2f71a723045e92669207e74f0a5694b5",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You surround yourself in a veil of confidence. You reduce your current frightened condition by 1, and whenever you would become frightened during the duration, reduce the amount by 1. If you critically fail a save against fear, *veil of confidence* ends immediately, and you increase any frightened condition you gain from the critical failure by 1 instead of decreasing it.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "confidence",
-            "alt": "confidence",
-            "game-obj": "Domains",
-            "aonid": 4
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +164,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

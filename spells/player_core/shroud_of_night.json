@@ -27,12 +27,10 @@
     "spell": {
         "name": "Shroud of Night",
         "type": "stat_block_section",
+        "text": "Your patron blankets the target's eyes in darkness. If you cast this hex on a willing ally (for instance, one with light blindness), the ally can choose which result it gets without rolling.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,62 +105,81 @@
                 }
             }
         ],
-        "patron_theme": "starless shadow",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "sustained up to 1 minute",
-        "success": "The target is unaffected.",
-        "failure": "The target is shrouded in murky darkness. It treats bright light as dim light, and unless it has greater darkvision, all creatures are concealed to it."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "starless shadow",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "starless shadow",
+                    "alt": "starless shadow",
+                    "game-obj": "Patrons",
+                    "aonid": 17
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The target is unaffected.",
+            "failure": "The target is shrouded in murky darkness. It treats bright light as dim light, and unless it has greater darkvision, all creatures are concealed to it.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "bright light",
+                    "alt": "bright light",
+                    "game-obj": "Rules",
+                    "aonid": 407
+                },
+                {
+                    "type": "link",
+                    "name": "dim light",
+                    "alt": "dim light",
+                    "game-obj": "Rules",
+                    "aonid": 408
+                },
+                {
+                    "type": "link",
+                    "name": "greater darkvision",
+                    "alt": "greater darkvision",
+                    "game-obj": "MonsterAbilities",
+                    "aonid": 12
+                },
+                {
+                    "type": "link",
+                    "name": "concealed",
+                    "alt": "concealed",
+                    "game-obj": "Conditions",
+                    "aonid": 4
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "light blindness",
+                "alt": "light blindness",
+                "game-obj": "MonsterAbilities",
+                "aonid": 22
+            }
+        ]
     },
     "game-id": "83a387589e2771f3ee1f7bd23edc2809",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Your patron blankets the target's eyes in darkness. If you cast this hex on a willing ally (for instance, one with light blindness), the ally can choose which result it gets without rolling.",
-    "links": [
-        {
-            "type": "link",
-            "name": "light blindness",
-            "alt": "light blindness",
-            "game-obj": "MonsterAbilities",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "bright light",
-            "alt": "bright light",
-            "game-obj": "Rules",
-            "aonid": 407
-        },
-        {
-            "type": "link",
-            "name": "dim light",
-            "alt": "dim light",
-            "game-obj": "Rules",
-            "aonid": 408
-        },
-        {
-            "type": "link",
-            "name": "greater darkvision",
-            "alt": "greater darkvision",
-            "game-obj": "MonsterAbilities",
-            "aonid": 12
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "starless shadow",
-            "alt": "starless shadow",
-            "game-obj": "Patrons",
-            "aonid": 17
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -207,5 +224,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

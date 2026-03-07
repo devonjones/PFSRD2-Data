@@ -27,12 +27,10 @@
     "spell": {
         "name": "Trickster's Twin",
         "type": "stat_block_section",
+        "text": "You rarely settle for being in just one place. Choose a location within 100 feet of the target that the target can see. You create an illusion of yourself there that only it can see and that mimics all your actions. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -119,36 +117,53 @@
                 }
             }
         ],
-        "domain": "trickery",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target believes you're in the designated location and can't see you in your actual location. The target automatically disbelieves the illusion when you use an action that doesn't make sense in the illusion's position, or if the target attacks, touches, Seeks, or otherwise engages with the illusion. If you use a hostile action against the target, the spell ends.",
-        "failure": "As success, but the target must succeed at a Will save to disbelieve the illusion when one of the listed events occurs.",
-        "critical_failure": "As success, but the target must critically succeed at a Will save to disbelieve when one of the listed events occurs."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "trickery",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "trickery",
+                    "alt": "trickery",
+                    "game-obj": "Domains",
+                    "aonid": 94
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target believes you're in the designated location and can't see you in your actual location. The target automatically disbelieves the illusion when you use an action that doesn't make sense in the illusion's position, or if the target attacks, touches, Seeks, or otherwise engages with the illusion. If you use a hostile action against the target, the spell ends.",
+            "failure": "As success, but the target must succeed at a Will save to disbelieve the illusion when one of the listed events occurs.",
+            "critical_failure": "As success, but the target must critically succeed at a Will save to disbelieve when one of the listed events occurs.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "hostile action",
+                    "alt": "hostile action",
+                    "game-obj": "Rules",
+                    "aonid": 300
+                }
+            ]
+        }
     },
     "game-id": "34c5733762d95358ad4a7a8e4ffd6fbe",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You rarely settle for being in just one place. Choose a location within 100 feet of the target that the target can see. You create an illusion of yourself there that only it can see and that mimics all your actions. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "hostile action",
-            "alt": "hostile action",
-            "game-obj": "Rules",
-            "aonid": 300
-        },
-        {
-            "type": "link",
-            "name": "trickery",
-            "alt": "trickery",
-            "game-obj": "Domains",
-            "aonid": 94
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -193,5 +208,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

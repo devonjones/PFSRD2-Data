@@ -54,7 +54,10 @@
     "spell": {
         "name": "Raise Dead",
         "type": "stat_block_section",
+        "text": "You attempt to call forth the dead creature's soul, requiring the creature's body to be present and relatively intact. The creature must have died within the past 3 days. If Pharasma has decided that the creature's time has come (at the GM's discretion), or if the creature doesn't wish to return to life, this spell automatically fails, but the diamonds aren't consumed in the casting.  \n  \n If the spell is successful, the creature returns to life with 1 Hit Point, no spells prepared or spell slots available, no points in any pools or any other daily resources, and still with any long-term debilitations of the old body. The time spent in the Boneyard leaves the target temporarily debilitated, making it clumsy 2, drained 2, and enfeebled 2 for 1 week; these conditions can't be removed or reduced by any means until the week has passed. The creature is also permanently changed by its time in the afterlife, such as a slight personality shift, a streak of white in the hair, or a strange new birthmark.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -93,9 +96,6 @@
                 }
             }
         ],
-        "traditions": "divine",
-        "lesson": "lesson of death",
-        "cast": "10 minutes (material, somatic, verbal)",
         "cost": "diamonds worth a total value of the target's level (minimum 1) x 200 gp",
         "range": "10 feet",
         "targets": "1 dead creature of 13th level or lower",
@@ -124,55 +124,88 @@
                 "level": 10,
                 "text": "The maximum level of the target increases to 21. The cost increases to the target's level (minimum 1) \u00d7 3,200 gp."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of death",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of death",
+                    "alt": "lesson of death",
+                    "game-obj": "Lessons",
+                    "aonid": 9
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "10 minutes",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Pharasma",
+                "alt": "Pharasma",
+                "game-obj": "Deities",
+                "aonid": 14
+            }
         ]
     },
     "game-id": "14b50f27b2289d244518b59ba52029a1",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You attempt to call forth the dead creature's soul, requiring the creature's body to be present and relatively intact. The creature must have died within the past 3 days. If Pharasma has decided that the creature's time has come (at the GM's discretion), or if the creature doesn't wish to return to life, this spell automatically fails, but the diamonds aren't consumed in the casting.  \n  \n If the spell is successful, the creature returns to life with 1 Hit Point, no spells prepared or spell slots available, no points in any pools or any other daily resources, and still with any long-term debilitations of the old body. The time spent in the Boneyard leaves the target temporarily debilitated, making it clumsy 2, drained 2, and enfeebled 2 for 1 week; these conditions can't be removed or reduced by any means until the week has passed. The creature is also permanently changed by its time in the afterlife, such as a slight personality shift, a streak of white in the hair, or a strange new birthmark.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Pharasma",
-            "alt": "Pharasma",
-            "game-obj": "Deities",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "lesson of death",
-            "alt": "lesson of death",
-            "game-obj": "Lessons",
-            "aonid": 9
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -188,5 +221,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Wronged Monk's Wrath",
         "type": "stat_block_section",
+        "text": "You unleash your ki as a powerful storm of force and lightning, dealing 2d6 force damage and 2d12 electricity damage to creatures in the area. If you use 2 actions to cast the spell, increase the size of the emanation to 10 feet and the damage to 3d6 force damage and 3d12 electricity damage. If you use 3 actions to cast the spell, increase the size of the emanation to 20 feet and the damage to 4d6 force and 4d12 electricity damage. Each creature attempts one basic Reflex save that applies to both types of damage. On a failed save, the creature is deafened for 1 round; on a critical failure, the creature also takes 2d12 persistent electricity damage and is deafened for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,9 +106,7 @@
                 }
             }
         ],
-        "cast": "to   somatic, verbal",
         "area": "5-foot emanation or more",
-        "saving_throw": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -118,42 +114,65 @@
                 "increment": 2,
                 "text": "The force damage increases by 1d6 and the electricity damage by 1d12, or 2d6 and 2d12 if you use 2 or 3 actions."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "deafened",
+                "alt": "deafened",
+                "game-obj": "Conditions",
+                "aonid": 8
+            },
+            {
+                "type": "link",
+                "name": "persistent electricity damage",
+                "alt": "persistent electricity damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
         ]
     },
     "game-id": "cb194007e69d258d3117f82bc60d0f56",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You unleash your ki as a powerful storm of force and lightning, dealing 2d6 force damage and 2d12 electricity damage to creatures in the area. If you use 2 actions to cast the spell, increase the size of the emanation to 10 feet and the damage to 3d6 force damage and 3d12 electricity damage. If you use 3 actions to cast the spell, increase the size of the emanation to 20 feet and the damage to 4d6 force and 4d12 electricity damage. Each creature attempts one basic Reflex save that applies to both types of damage. On a failed save, the creature is deafened for 1 round; on a critical failure, the creature also takes 2d12 persistent electricity damage and is deafened for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "deafened",
-            "alt": "deafened",
-            "game-obj": "Conditions",
-            "aonid": 8
-        },
-        {
-            "type": "link",
-            "name": "persistent electricity damage",
-            "alt": "persistent electricity damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -169,5 +188,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Shadow's Web",
         "type": "stat_block_section",
+        "text": "Grasping darkness surges from you, dealing 14d4 negative damage. Each creature in the area must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,9 +96,7 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "area": "30-foot burst",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -109,59 +105,82 @@
                 "text": "The negative damage increases by 2d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and is enfeebled 1 for 1 round.",
-        "failure": "The creature takes full damage and is enfeebled 2 for 1 round.",
-        "critical_failure": "The creature takes double damage and is stunned 1, enfeebled 2 for 1 round, and immobilized for 1 round or until it Escapes, whichever comes first."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and is enfeebled 1 for 1 round.",
+            "failure": "The creature takes full damage and is enfeebled 2 for 1 round.",
+            "critical_failure": "The creature takes double damage and is stunned 1, enfeebled 2 for 1 round, and immobilized for 1 round or until it Escapes, whichever comes first.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "enfeebled 1",
+                    "alt": "enfeebled 1",
+                    "game-obj": "Conditions",
+                    "aonid": 13
+                },
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 36
+                },
+                {
+                    "type": "link",
+                    "name": "immobilized",
+                    "alt": "immobilized",
+                    "game-obj": "Conditions",
+                    "aonid": 24
+                },
+                {
+                    "type": "link",
+                    "name": "Escapes",
+                    "alt": "Escapes",
+                    "game-obj": "Actions",
+                    "aonid": 79
+                }
+            ]
+        }
     },
     "game-id": "775d3153b60b371fa55ddb4b02158884",
-    "spell_type": "focus",
-    "rank": 7,
-    "text": "Grasping darkness surges from you, dealing 14d4 negative damage. Each creature in the area must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "Escapes",
-            "alt": "Escapes",
-            "game-obj": "Actions",
-            "aonid": 79
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -177,5 +196,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

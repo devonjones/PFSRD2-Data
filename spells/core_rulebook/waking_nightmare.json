@@ -54,12 +54,10 @@
     "spell": {
         "name": "Waking Nightmare",
         "type": "stat_block_section",
+        "text": "You fill the creature's mind with a terrifying vision out of its nightmares. The target must attempt a Will save.  \n  \n If the target is unconscious when you Cast this Spell on it, it immediately wakes up before attempting its save, and if it fails its save, it gains the fleeing condition for 1 round in addition to the effects noted below.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,44 +132,70 @@
                 }
             }
         ],
-        "domain": "nightmares",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is frightened 1.",
-        "failure": "The target is frightened 2.",
-        "critical_failure": "The target is frightened 3."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "nightmares",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "nightmares",
+                    "alt": "nightmares",
+                    "game-obj": "Domains",
+                    "aonid": 23
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is frightened 1.",
+            "failure": "The target is frightened 2.",
+            "critical_failure": "The target is frightened 3."
+        }
     },
     "game-id": "3d8aa9c19a19b748fa42c4d33fd93642",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You fill the creature's mind with a terrifying vision out of its nightmares. The target must attempt a Will save.  \n  \n If the target is unconscious when you Cast this Spell on it, it immediately wakes up before attempting its save, and if it fails its save, it gains the fleeing condition for 1 round in addition to the effects noted below.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "nightmares",
-            "alt": "nightmares",
-            "game-obj": "Domains",
-            "aonid": 23
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -187,5 +211,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

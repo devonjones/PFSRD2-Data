@@ -54,12 +54,10 @@
     "spell": {
         "name": "Power Word Blind",
         "type": "stat_block_section",
+        "text": "You utter an arcane word of power that can make the target blinded upon hearing it. Once targeted, the target is then temporarily immune for 10 minutes. The effect of the spell depends on the target's level.   \n  \n**11th or Lower** The target is blinded permanently.   \n**12th\u201313th** The target is blinded for 1d4 minutes.   \n**14th or Higher** The target is dazzled for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,8 +108,6 @@
                 }
             }
         ],
-        "traditions": "arcane",
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 creature",
         "duration": "varies",
@@ -122,27 +118,46 @@
                 "increment": 1,
                 "text": "The levels at which each outcome applies increase by 2."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "197c902d47108cce7e8dfa4d54b24c65",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "You utter an arcane word of power that can make the target blinded upon hearing it. Once targeted, the target is then temporarily immune for 10 minutes. The effect of the spell depends on the target's level.   \n  \n**11th or Lower** The target is blinded permanently.   \n**12th\u201313th** The target is blinded for 1d4 minutes.   \n**14th or Higher** The target is dazzled for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -158,5 +173,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

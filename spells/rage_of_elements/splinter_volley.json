@@ -27,12 +27,10 @@
     "spell": {
         "name": "Splinter Volley",
         "type": "stat_block_section",
+        "text": "You launch a volley of splinters at your foes. Make a spell attack roll against a single creature. On a hit, the splinters deal 4d6 piercing damage. The splinters deal double damage on a critical hit and 1 persistent bleed damage. You can spend a third action while casting this spell to fire splinters at two different targets instead of one. These attacks each increase your multiple attack penalty, but you don't increase your multiple attack penalty until after you make both spell attack rolls for *splinter volley*.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,10 +69,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "60 feet",
         "targets": "1 or 2 creatures",
-        "defense": "AC",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -82,33 +78,58 @@
                 "increment": 2,
                 "text": "Increase the damage dealt to each target by 4d6 and the persistent bleed damage by 1."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "text": "AC"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
         ]
     },
     "game-id": "fa7ff4240368354e69e0573ecf19f98b",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You launch a volley of splinters at your foes. Make a spell attack roll against a single creature. On a hit, the splinters deal 4d6 piercing damage. The splinters deal double damage on a critical hit and 1 persistent bleed damage. You can spend a third action while casting this spell to fire splinters at two different targets instead of one. These attacks each increase your multiple attack penalty, but you don't increase your multiple attack penalty until after you make both spell attack rolls for *splinter volley*.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -153,5 +174,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

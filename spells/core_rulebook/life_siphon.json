@@ -54,12 +54,10 @@
     "spell": {
         "name": "Life Siphon",
         "type": "stat_block_section",
+        "text": "You use some of the spell's magic to heal yourself, regaining 1d8 Hit Points per level of the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,22 +108,32 @@
                 }
             }
         ],
-        "cast": "verbal",
-        "trigger": "You expend one of your wizard spell slots to cast a wizard spell of the necromancy school."
+        "trigger": "You expend one of your wizard spell slots to cast a wizard spell of the necromancy school.",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "2df437bef3bbca4c01496fb654808295",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You use some of the spell's magic to heal yourself, regaining 1d8 Hit Points per level of the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -141,5 +149,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

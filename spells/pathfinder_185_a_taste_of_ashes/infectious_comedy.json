@@ -40,12 +40,10 @@
     "spell": {
         "name": "Infectious Comedy",
         "type": "stat_block_section",
+        "text": "You tell a magical joke and infect a target with laughter that spreads to those nearby. The first time you Sustain the Spell each round, you can target another creature you can see that is within 30 feet of an affected target. The new target need not be able to see or hear the affected target, as the humor spreads magically. You can't target the same creature more than once with this spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,63 +106,97 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "verbal, somatic",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target begins giggling and can't use reactions.",
-        "failure": "The target is slowed 1 and can't use reactions.",
-        "critical_failure": "The target falls prone and can't use actions or reactions for 1 round. It then suffers the failure effect."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target begins giggling and can't use reactions.",
+            "failure": "The target is slowed 1 and can't use reactions.",
+            "critical_failure": "The target falls prone and can't use actions or reactions for 1 round. It then suffers the failure effect.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                },
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                }
+            ]
+        }
     },
     "game-id": "c1bc7a084e2825b043d0e842c2ab0b88",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You tell a magical joke and infect a target with laughter that spreads to those nearby. The first time you Sustain the Spell each round, you can target another creature you can see that is within 30 feet of an affected target. The new target need not be able to see or hear the affected target, as the humor spreads magically. You can't target the same creature more than once with this spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -180,5 +212,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

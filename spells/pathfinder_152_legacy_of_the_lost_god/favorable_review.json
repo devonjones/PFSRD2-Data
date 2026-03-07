@@ -40,12 +40,10 @@
     "spell": {
         "name": "Favorable Review",
         "type": "stat_block_section",
+        "text": "You enchant a creature to ensure they have only good things to say about your show. Identify a single creature, location, or performance, such as \u201cDame Ellendia,\u201d \u201cSavories Meats,\u201d or \u201cthe Theater of the Mind\u2019s latest magic show.\u201d The target must attempt Will save. You can Dismiss the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,11 +94,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -110,64 +105,101 @@
                 "text": "The range increases to 60 feet and you can target up to 10 creatures."
             }
         ],
-        "critical_success": "The target is unaffected and knows you tried to trick it.",
-        "success": "The target is unaffected but thinks your spell was something harmless instead of favorable review, unless it identifies the spell (usually using Identify Magic).",
-        "failure": "The target cannot speak unfavorably about the subject for 1 week. This doesn\u2019t change the target\u2019s opinion about the subject, but the target\u2019s attempts to speak ill of the subject\u2014whether in speech, writing, or other communication\u2014always twist into compliments and praise instead. The target likely becomes aware of this effect quickly and can avoid speaking about the subject entirely if they choose.",
-        "critical_failure": "As failure, except the duration is permanent and the target genuinely holds a favorable opinion about the subject, with their attitude toward the creature (or creatures associated with the subject, such as the owner of a location or artists in a performance) becoming two degrees better (for example, helpful instead of indifferent)."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected and knows you tried to trick it.",
+            "success": "The target is unaffected but thinks your spell was something harmless instead of favorable review, unless it identifies the spell (usually using Identify Magic).",
+            "failure": "The target cannot speak unfavorably about the subject for 1 week. This doesn\u2019t change the target\u2019s opinion about the subject, but the target\u2019s attempts to speak ill of the subject\u2014whether in speech, writing, or other communication\u2014always twist into compliments and praise instead. The target likely becomes aware of this effect quickly and can avoid speaking about the subject entirely if they choose.",
+            "critical_failure": "As failure, except the duration is permanent and the target genuinely holds a favorable opinion about the subject, with their attitude toward the creature (or creatures associated with the subject, such as the owner of a location or artists in a performance) becoming two degrees better (for example, helpful instead of indifferent).",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "Identify Magic",
+                    "alt": "Identify Magic",
+                    "game-obj": "Actions",
+                    "aonid": 24
+                },
+                {
+                    "type": "link",
+                    "name": "helpful",
+                    "alt": "helpful",
+                    "game-obj": "Conditions",
+                    "aonid": 21
+                },
+                {
+                    "type": "link",
+                    "name": "indifferent",
+                    "alt": "indifferent",
+                    "game-obj": "Conditions",
+                    "aonid": 25
+                }
+            ]
+        }
     },
     "game-id": "46fba9eef92de1fdf6bdefe6bb4c88a0",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You enchant a creature to ensure they have only good things to say about your show. Identify a single creature, location, or performance, such as \u201cDame Ellendia,\u201d \u201cSavories Meats,\u201d or \u201cthe Theater of the Mind\u2019s latest magic show.\u201d The target must attempt Will save. You can Dismiss the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Identify Magic",
-            "alt": "Identify Magic",
-            "game-obj": "Actions",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "helpful",
-            "alt": "helpful",
-            "game-obj": "Conditions",
-            "aonid": 21
-        },
-        {
-            "type": "link",
-            "name": "indifferent",
-            "alt": "indifferent",
-            "game-obj": "Conditions",
-            "aonid": 25
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -183,5 +215,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

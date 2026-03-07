@@ -40,12 +40,10 @@
     "spell": {
         "name": "Moonlight Ray",
         "type": "stat_block_section",
+        "text": "You unleash a holy beam of freezing moonlight. Make a ranged spell attack. The ray deals 5d6 cold damage; if the target is a fiend or undead, you deal an extra 5d6 good damage. Moonlight ray's cold damage is silver damage for the purposes of weaknesses, resistances, and the like.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,8 +118,6 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 creature",
         "heightened": [
@@ -132,76 +128,114 @@
                 "text": "The cold damage increases by 2d6, and the good damage against fiends and undead increases by 2d6."
             }
         ],
-        "critical_success": "The target takes double cold damage, as well as double good damage if a fiend or undead.",
-        "success": "The target takes full damage.   \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, moonlight ray attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the spell's target."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target takes double cold damage, as well as double good damage if a fiend or undead.",
+            "success": "The target takes full damage.   \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, moonlight ray attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the spell's target.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "darkness",
+                    "alt": "darkness",
+                    "game-obj": "Traits",
+                    "aonid": 39
+                },
+                {
+                    "type": "link",
+                    "name": "counteract",
+                    "alt": "counteract",
+                    "game-obj": "Rules",
+                    "aonid": 371
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "fiend",
+                "alt": "fiend",
+                "game-obj": "Traits",
+                "aonid": 70
+            },
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            },
+            {
+                "type": "link",
+                "name": "silver",
+                "alt": "silver",
+                "game-obj": "Equipment",
+                "aonid": 379
+            }
+        ]
     },
     "game-id": "f22a70c14ce1ce582b3556feb9b14aff",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You unleash a holy beam of freezing moonlight. Make a ranged spell attack. The ray deals 5d6 cold damage; if the target is a fiend or undead, you deal an extra 5d6 good damage. Moonlight ray's cold damage is silver damage for the purposes of weaknesses, resistances, and the like.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fiend",
-            "alt": "fiend",
-            "game-obj": "Traits",
-            "aonid": 70
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "silver",
-            "alt": "silver",
-            "game-obj": "Equipment",
-            "aonid": 379
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Traits",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -217,5 +251,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

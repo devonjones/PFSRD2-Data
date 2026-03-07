@@ -20,12 +20,10 @@
     "spell": {
         "name": "Indolent Haze",
         "type": "stat_block_section",
+        "text": "The faint scent of poppies and a soothing calm fill the area, urging creatures to lay down and take a rest, to do nothing at all, ever again. Creatures in the area when you Cast the Spell must attempt a Will save. Creatures who end their turn in the area must also attempt the save. You can Dismiss the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -101,10 +99,8 @@
             }
         ],
         "access": "Characters who go to Sihedron Academy or have the runelord class archetype have access to this spell.",
-        "traditions": "arcane, occult",
         "range": "120 feet",
         "area": "20-foot burst",
-        "defense": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -114,64 +110,91 @@
                 "text": "The spirit damage increases by 2d4."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The creature lies down to rest, becoming prone. If they were already prone, they instead drift off to sleep, becoming unconscious.",
-        "failure": "As success, except that the creature is so happy lying down that they cannot attempt to Stand or otherwise maneuver themself off of the ground on their next turn, though they can Crawl (potentially to escape the spell's area).",
-        "critical_failure": "The creature immediately lies down and drifts off to sleep, becoming prone and unconscious.Any creature in the area who is already unconscious when you Cast the Spell (or whose turn ends in the spell\u2019s area while they are unconscious) takes 6d4 spirit damage as their life force is drained away through their dreams. This damage does not automatically wake them."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The creature lies down to rest, becoming prone. If they were already prone, they instead drift off to sleep, becoming unconscious.",
+            "failure": "As success, except that the creature is so happy lying down that they cannot attempt to Stand or otherwise maneuver themself off of the ground on their next turn, though they can Crawl (potentially to escape the spell's area).",
+            "critical_failure": "The creature immediately lies down and drifts off to sleep, becoming prone and unconscious.Any creature in the area who is already unconscious when you Cast the Spell (or whose turn ends in the spell\u2019s area while they are unconscious) takes 6d4 spirit damage as their life force is drained away through their dreams. This damage does not automatically wake them.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 88
+                },
+                {
+                    "type": "link",
+                    "name": "unconscious",
+                    "alt": "unconscious",
+                    "game-obj": "Conditions",
+                    "aonid": 95
+                },
+                {
+                    "type": "link",
+                    "name": "Stand",
+                    "alt": "Stand",
+                    "game-obj": "Actions",
+                    "aonid": 2303
+                },
+                {
+                    "type": "link",
+                    "name": "Crawl",
+                    "alt": "Crawl",
+                    "game-obj": "Actions",
+                    "aonid": 2293
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "runelord",
+                "alt": "runelord",
+                "game-obj": "Archetypes",
+                "aonid": 303
+            }
+        ]
     },
     "game-id": "4d03c0c080123ee954fb2f24e280abd4",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "The faint scent of poppies and a soothing calm fill the area, urging creatures to lay down and take a rest, to do nothing at all, ever again. Creatures in the area when you Cast the Spell must attempt a Will save. Creatures who end their turn in the area must also attempt the save. You can Dismiss the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 88
-        },
-        {
-            "type": "link",
-            "name": "unconscious",
-            "alt": "unconscious",
-            "game-obj": "Conditions",
-            "aonid": 95
-        },
-        {
-            "type": "link",
-            "name": "Stand",
-            "alt": "Stand",
-            "game-obj": "Actions",
-            "aonid": 2303
-        },
-        {
-            "type": "link",
-            "name": "Crawl",
-            "alt": "Crawl",
-            "game-obj": "Actions",
-            "aonid": 2293
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "runelord",
-            "alt": "runelord",
-            "game-obj": "Archetypes",
-            "aonid": 303
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -216,5 +239,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

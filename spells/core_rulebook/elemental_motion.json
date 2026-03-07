@@ -54,12 +54,10 @@
     "spell": {
         "name": "Elemental Motion",
         "type": "stat_block_section",
+        "text": "You call upon your element to propel you, improving your Speed depending on your element. This spell has your element's trait. \n* **Air** You gain a fly Speed equal to your Speed.\n* **Earth** You gain a burrow Speed of 10 feet.\n* **Fire** You gain a fly Speed equal to your Speed.\n* **Water** You gain a swim Speed equal to your Speed and can breathe underwater.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "bloodline": "elemental",
-        "cast": "somatic, verbal",
         "duration": "1 minute",
         "heightened": [
             {
@@ -114,35 +110,59 @@
                 "level": 9,
                 "text": "The status bonus increases to +20 feet."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "elemental",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "elemental",
+                    "alt": "elemental",
+                    "game-obj": "Bloodlines",
+                    "aonid": 6
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "d761619a71fe802223d514f1a93b32db",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You call upon your element to propel you, improving your Speed depending on your element. This spell has your element's trait. \n* **Air** You gain a fly Speed equal to your Speed.\n* **Earth** You gain a burrow Speed of 10 feet.\n* **Fire** You gain a fly Speed equal to your Speed.\n* **Water** You gain a swim Speed equal to your Speed and can breathe underwater.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "elemental",
-            "alt": "elemental",
-            "game-obj": "Bloodlines",
-            "aonid": 6
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -158,5 +178,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

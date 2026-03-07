@@ -54,12 +54,10 @@
     "spell": {
         "name": "Magic's Vessel",
         "type": "stat_block_section",
+        "text": "A creature becomes a receptacle for pure magical energy sent by your deity. The target gains a +1 status bonus to saving throws. Each time you Cast a Spell from your spell slots, you automatically Sustain this Spell and grant its target resistance to damage from spells until the start of your next turn. This resistance is equal to the level of the spell you cast.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,32 +96,49 @@
                 }
             }
         ],
-        "domain": "magic",
-        "cast": "somatic",
         "range": "touch",
         "targets": "1 creature",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "magic",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "magic",
+                    "alt": "magic",
+                    "game-obj": "Domains",
+                    "aonid": 19
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "19999fab1b3dec35e2aead49b2d4c2e9",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "A creature becomes a receptacle for pure magical energy sent by your deity. The target gains a +1 status bonus to saving throws. Each time you Cast a Spell from your spell slots, you automatically Sustain this Spell and grant its target resistance to damage from spells until the start of your next turn. This resistance is equal to the level of the spell you cast.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "magic",
-            "alt": "magic",
-            "game-obj": "Domains",
-            "aonid": 19
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -139,5 +154,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

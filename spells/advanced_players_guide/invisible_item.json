@@ -54,12 +54,10 @@
     "spell": {
         "name": "Invisible Item",
         "type": "stat_block_section",
+        "text": "You make the object invisible. This makes it undetected to all creatures, though the creatures can attempt to find the target, making it hidden to them instead if they succeed. If the item is used as part of a hostile action, the spell ends after that hostile action is completed. Making a weapon invisible typically doesn't give any advantage to the attack, except that an invisible thrown weapon or piece of ammunition can be used for an attack without necessarily giving information about the attacker's hiding place unless the weapon returns to the attacker.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,8 +72,6 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "material, somatic",
         "range": "touch",
         "targets": "1 object",
         "duration": "1 hour",
@@ -92,68 +88,100 @@
                 "level": 7,
                 "text": "The duration is unlimited."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "invisible",
+                "alt": "invisible",
+                "game-obj": "Conditions",
+                "aonid": 26
+            },
+            {
+                "type": "link",
+                "name": "undetected",
+                "alt": "undetected",
+                "game-obj": "Conditions",
+                "aonid": 39
+            },
+            {
+                "type": "link",
+                "name": "hidden",
+                "alt": "hidden",
+                "game-obj": "Conditions",
+                "aonid": 22
+            },
+            {
+                "type": "link",
+                "name": "thrown",
+                "alt": "thrown",
+                "game-obj": "Traits",
+                "aonid": 195
+            }
         ]
     },
     "game-id": "0646f8daf19e846ae2447258463527a6",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You make the object invisible. This makes it undetected to all creatures, though the creatures can attempt to find the target, making it hidden to them instead if they succeed. If the item is used as part of a hostile action, the spell ends after that hostile action is completed. Making a weapon invisible typically doesn't give any advantage to the attack, except that an invisible thrown weapon or piece of ammunition can be used for an attack without necessarily giving information about the attacker's hiding place unless the weapon returns to the attacker.",
-    "links": [
-        {
-            "type": "link",
-            "name": "invisible",
-            "alt": "invisible",
-            "game-obj": "Conditions",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "undetected",
-            "alt": "undetected",
-            "game-obj": "Conditions",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "hidden",
-            "alt": "hidden",
-            "game-obj": "Conditions",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "thrown",
-            "alt": "thrown",
-            "game-obj": "Traits",
-            "aonid": 195
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -169,5 +197,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

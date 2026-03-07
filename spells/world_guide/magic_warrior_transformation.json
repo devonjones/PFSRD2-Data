@@ -54,12 +54,10 @@
     "spell": {
         "name": "Magic Warrior Transformation",
         "type": "stat_block_section",
+        "text": "You transform into the animal from your mask. You gain the effects of *animal form*, heightened to *magic warrior transformation\u2019s* level, and you can transform into only the type of animal your mask represents.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,36 +96,53 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "animal form",
+                "alt": "animal form",
+                "game-obj": "Spells",
+                "aonid": 10
+            }
+        ]
     },
     "game-id": "768e889bbbe1ab3e1a461004d34e7d30",
-    "spell_type": "focus",
-    "rank": 2,
-    "text": "You transform into the animal from your mask. You gain the effects of *animal form*, heightened to *magic warrior transformation\u2019s* level, and you can transform into only the type of animal your mask represents.",
-    "links": [
-        {
-            "type": "link",
-            "name": "animal form",
-            "alt": "animal form",
-            "game-obj": "Spells",
-            "aonid": 10
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -143,5 +158,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

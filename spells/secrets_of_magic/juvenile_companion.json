@@ -54,12 +54,10 @@
     "spell": {
         "name": "Juvenile Companion",
         "type": "stat_block_section",
+        "text": "You transform your companion into its juvenile form, such as a cub, foal, kitten, puppy, or piglet, making the target appear harmless. It becomes Tiny (if it was larger), and its reach is reduced to 0 feet. All of its Speeds are halved (to a minimum Speed of 5 feet), and it gains weakness 5 to physical damage. In all other ways, its abilities and statistics are unchanged.  \n  \n If your companion uses a hostile action, *juvenile companion* ends. This spell has no effect on a companion that doesn't have a juvenile form.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,8 +84,6 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "your companion",
         "duration": "10 minutes",
@@ -98,47 +94,73 @@
                 "level": 2,
                 "text": "The duration increases to 1 hour."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "hostile action",
+                "alt": "hostile action",
+                "game-obj": "Rules",
+                "aonid": 300
+            },
+            {
+                "type": "link",
+                "name": "companion",
+                "alt": "companion",
+                "href": "AnimalCompanions.aspx"
+            }
         ]
     },
     "game-id": "9427c9e3a262735f3818dea5f51cc30f",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You transform your companion into its juvenile form, such as a cub, foal, kitten, puppy, or piglet, making the target appear harmless. It becomes Tiny (if it was larger), and its reach is reduced to 0 feet. All of its Speeds are halved (to a minimum Speed of 5 feet), and it gains weakness 5 to physical damage. In all other ways, its abilities and statistics are unchanged.  \n  \n If your companion uses a hostile action, *juvenile companion* ends. This spell has no effect on a companion that doesn't have a juvenile form.",
-    "links": [
-        {
-            "type": "link",
-            "name": "hostile action",
-            "alt": "hostile action",
-            "game-obj": "Rules",
-            "aonid": 300
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "companion",
-            "alt": "companion",
-            "href": "AnimalCompanions.aspx"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -154,5 +176,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

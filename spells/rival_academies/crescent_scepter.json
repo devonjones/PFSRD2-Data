@@ -20,12 +20,10 @@
     "spell": {
         "name": "Crescent Scepter",
         "type": "stat_block_section",
+        "text": "**Sin:** pride  \n  \nYou hold up any object, which takes on the appearance of glowing regalia in the eyes of those who look on you, representing the political or religious institute most feared by each creature. If a creature attempts to attack you during the spell\u2019s duration, it must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -125,30 +123,42 @@
             }
         ],
         "duration": "until the beginning of your next turn",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature becomes frightened 1, the penalty applying to its attack roll.",
-        "failure": "As success, but frightened 2."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature becomes frightened 1, the penalty applying to its attack roll.",
+            "failure": "As success, but frightened 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Sin:",
+                "alt": "Sin:",
+                "game-obj": "ArcaneSchools",
+                "aonid": 25
+            }
+        ]
     },
     "game-id": "de68955b7b419348966ecbf6fe92ed4c",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "**Sin:** pride  \n  \nYou hold up any object, which takes on the appearance of glowing regalia in the eyes of those who look on you, representing the political or religious institute most feared by each creature. If a creature attempts to attack you during the spell\u2019s duration, it must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Sin:",
-            "alt": "Sin:",
-            "game-obj": "ArcaneSchools",
-            "aonid": 25
-        },
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -193,5 +203,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

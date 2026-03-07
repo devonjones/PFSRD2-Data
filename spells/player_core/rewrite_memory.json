@@ -27,12 +27,10 @@
     "spell": {
         "name": "Rewrite Memory",
         "type": "stat_block_section",
+        "text": "You alter the target's memories by erasing a memory, enhancing a memory's clarity, altering a memory, or adding a false memory. The target can attempt a Will save to resist the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,11 +81,8 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "deity": "Bergelmir, Narakaas, Narakaas, The Lost Prince",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "unlimited",
         "heightened": [
             {
@@ -97,50 +92,91 @@
                 "text": "You can Cast the Spell on a willing target to suppress all memory of a particular topic, detailed in 50 words or fewer. The effect is permanent, and it patches these omissions with an indistinct haze."
             }
         ],
-        "critical_success": "The target is unaffected and realizes you tried to alter its memory.",
-        "success": "The target is unaffected but thinks your spell was something harmless instead of *rewrite memory*, unless it identifies the spell.",
-        "failure": "During the first 5 minutes of the spell's duration, you can Sustain the spell to modify a memory once each round. When you do, you imagine up to 6 seconds of memory to modify, to a maximum of 5 continuous minutes of memory.  \n  \n Any memories you've altered remain changed as long as the spell is active. If the target moves out of range before the 5 minutes is up, you can't alter any further memories."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Bergelmir",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Bergelmir",
+                    "alt": "Bergelmir",
+                    "game-obj": "Deities",
+                    "aonid": 237
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Narakaas",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Narakaas",
+                    "alt": "Narakaas",
+                    "game-obj": "Deities",
+                    "aonid": 143
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Narakaas",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Narakaas",
+                    "alt": "Narakaas",
+                    "game-obj": "Deities",
+                    "aonid": 143
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "The Lost Prince",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "The Lost Prince",
+                    "alt": "The Lost Prince",
+                    "game-obj": "Deities",
+                    "aonid": 96
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected and realizes you tried to alter its memory.",
+            "success": "The target is unaffected but thinks your spell was something harmless instead of *rewrite memory*, unless it identifies the spell.",
+            "failure": "During the first 5 minutes of the spell's duration, you can Sustain the spell to modify a memory once each round. When you do, you imagine up to 6 seconds of memory to modify, to a maximum of 5 continuous minutes of memory.  \n  \n Any memories you've altered remain changed as long as the spell is active. If the target moves out of range before the 5 minutes is up, you can't alter any further memories."
+        }
     },
     "game-id": "fa679a495482da0d324e4bc3c72d6adc",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You alter the target's memories by erasing a memory, enhancing a memory's clarity, altering a memory, or adding a false memory. The target can attempt a Will save to resist the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Bergelmir",
-            "alt": "Bergelmir",
-            "game-obj": "Deities",
-            "aonid": 237
-        },
-        {
-            "type": "link",
-            "name": "Narakaas",
-            "alt": "Narakaas",
-            "game-obj": "Deities",
-            "aonid": 143
-        },
-        {
-            "type": "link",
-            "name": "Narakaas",
-            "alt": "Narakaas",
-            "game-obj": "Deities",
-            "aonid": 143
-        },
-        {
-            "type": "link",
-            "name": "The Lost Prince",
-            "alt": "The Lost Prince",
-            "game-obj": "Deities",
-            "aonid": 96
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -185,5 +221,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

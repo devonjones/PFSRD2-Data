@@ -40,12 +40,10 @@
     "spell": {
         "name": "Kinetic Ram",
         "type": "stat_block_section",
+        "text": "Gathering kinetic energy, you either focus it in a straight line or disperse it as an encircling ripple. Any creature targeted by this spell must succeed at a Fortitude saving throw or be pushed 10 feet away from you (or 20 feet on a critical failure). The spell's area or range and how many creatures it affects is based on how many actions you spend when Casting the Spell. \n* The spell targets one creature within 15 feet.\n* The spell targets one creature within 30 feet. The distance the target is pushed if it fails is doubled, and on a critical failure, the target is also knocked prone and takes 1d6 bludgeoning damage.\n* The spell targets all creatures in a 5-foot emanation.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,44 +70,73 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "to   verbal",
         "range": "varies",
         "targets": "1 or more creatures",
-        "saving_throw": "Fortitude"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "pushed",
+                "alt": "pushed",
+                "game-obj": "Rules",
+                "aonid": 451
+            }
+        ]
     },
     "game-id": "0058303dd846d45ddc29851270396a5a",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "Gathering kinetic energy, you either focus it in a straight line or disperse it as an encircling ripple. Any creature targeted by this spell must succeed at a Fortitude saving throw or be pushed 10 feet away from you (or 20 feet on a critical failure). The spell's area or range and how many creatures it affects is based on how many actions you spend when Casting the Spell. \n* The spell targets one creature within 15 feet.\n* The spell targets one creature within 30 feet. The distance the target is pushed if it fails is doubled, and on a critical failure, the target is also knocked prone and takes 1d6 bludgeoning damage.\n* The spell targets all creatures in a 5-foot emanation.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pushed",
-            "alt": "pushed",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -125,5 +152,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

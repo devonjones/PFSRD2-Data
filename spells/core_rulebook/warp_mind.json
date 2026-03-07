@@ -54,12 +54,10 @@
     "spell": {
         "name": "Warp Mind",
         "type": "stat_block_section",
+        "text": "You scramble a creature's mental faculties and sensory input. The target must attempt a Will saving throw. Regardless of the result of that save, the target is then temporarily immune for 10 minutes. *Warp mind*'s effects happen instantly, so *dispel magic* and other effects that counteract spells can't counteract them. However, *alter reality*, *miracle*, *primal phenomenon*, *restoration*, or *wish* can still counteract the effects.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,127 +108,189 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "bloodline": "aberrant, hag",
-        "deity": "Conqueror Worm, Nethys, Xhamen-Dor",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
-        "critical_success": "The target is unaffected.",
-        "success": "The target spends the first action on its next turn with the confused condition.",
-        "failure": "The target is confused for 1 minute.",
-        "critical_failure": "The target is confused permanently."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "aberrant",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "aberrant",
+                    "alt": "aberrant",
+                    "game-obj": "Bloodlines",
+                    "aonid": 1
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "hag",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "hag",
+                    "alt": "hag",
+                    "game-obj": "Bloodlines",
+                    "aonid": 8
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Conqueror Worm",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Conqueror Worm",
+                    "alt": "Conqueror Worm",
+                    "game-obj": "Deities",
+                    "aonid": 234
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Nethys",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Nethys",
+                    "alt": "Nethys",
+                    "game-obj": "Deities",
+                    "aonid": 12
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Xhamen-Dor",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Xhamen-Dor",
+                    "alt": "Xhamen-Dor",
+                    "game-obj": "Deities",
+                    "aonid": 165
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target spends the first action on its next turn with the confused condition.",
+            "failure": "The target is confused for 1 minute.",
+            "critical_failure": "The target is confused permanently."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dispel magic",
+                "alt": "dispel magic",
+                "game-obj": "Spells",
+                "aonid": 78
+            },
+            {
+                "type": "link",
+                "name": "alter reality",
+                "alt": "alter reality",
+                "game-obj": "Spells",
+                "aonid": 8
+            },
+            {
+                "type": "link",
+                "name": "miracle",
+                "alt": "miracle",
+                "game-obj": "Spells",
+                "aonid": 196
+            },
+            {
+                "type": "link",
+                "name": "primal phenomenon",
+                "alt": "primal phenomenon",
+                "game-obj": "Spells",
+                "aonid": 231
+            },
+            {
+                "type": "link",
+                "name": "restoration",
+                "alt": "restoration",
+                "game-obj": "Spells",
+                "aonid": 258
+            },
+            {
+                "type": "link",
+                "name": "wish",
+                "alt": "wish",
+                "game-obj": "Spells",
+                "aonid": 377
+            }
+        ]
     },
     "game-id": "21ed818060921da394cc6931c92d9ddf",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "You scramble a creature's mental faculties and sensory input. The target must attempt a Will saving throw. Regardless of the result of that save, the target is then temporarily immune for 10 minutes. *Warp mind*'s effects happen instantly, so *dispel magic* and other effects that counteract spells can't counteract them. However, *alter reality*, *miracle*, *primal phenomenon*, *restoration*, or *wish* can still counteract the effects.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dispel magic",
-            "alt": "dispel magic",
-            "game-obj": "Spells",
-            "aonid": 78
-        },
-        {
-            "type": "link",
-            "name": "alter reality",
-            "alt": "alter reality",
-            "game-obj": "Spells",
-            "aonid": 8
-        },
-        {
-            "type": "link",
-            "name": "miracle",
-            "alt": "miracle",
-            "game-obj": "Spells",
-            "aonid": 196
-        },
-        {
-            "type": "link",
-            "name": "primal phenomenon",
-            "alt": "primal phenomenon",
-            "game-obj": "Spells",
-            "aonid": 231
-        },
-        {
-            "type": "link",
-            "name": "restoration",
-            "alt": "restoration",
-            "game-obj": "Spells",
-            "aonid": 258
-        },
-        {
-            "type": "link",
-            "name": "wish",
-            "alt": "wish",
-            "game-obj": "Spells",
-            "aonid": 377
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "aberrant",
-            "alt": "aberrant",
-            "game-obj": "Bloodlines",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "hag",
-            "alt": "hag",
-            "game-obj": "Bloodlines",
-            "aonid": 8
-        },
-        {
-            "type": "link",
-            "name": "Conqueror Worm",
-            "alt": "Conqueror Worm",
-            "game-obj": "Deities",
-            "aonid": 234
-        },
-        {
-            "type": "link",
-            "name": "Nethys",
-            "alt": "Nethys",
-            "game-obj": "Deities",
-            "aonid": 12
-        },
-        {
-            "type": "link",
-            "name": "Xhamen-Dor",
-            "alt": "Xhamen-Dor",
-            "game-obj": "Deities",
-            "aonid": 165
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -246,5 +306,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

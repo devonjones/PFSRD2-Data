@@ -27,12 +27,10 @@
     "spell": {
         "name": "Elemental Counter",
         "type": "stat_block_section",
+        "text": "Each element in the elemental cycle counters another, and you can use your elemental spells to protect against elements they counter. You lose your spell slot as if you had cast the triggering spell. You then attempt to counteract the triggering spell, using the rank of the spell you lost for the counteract rank. You can lose a plant or wood spell to counter earth, an earth spell to counter water, a water spell to counter fire, a fire spell to counter metal, or a metal spell to counter plant or wood.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,77 +69,101 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "spell_list": "elemental",
         "trigger": "You or a creature within 60 feet rolls a saving throw against a spell with the earth, fire, metal, plant, water, or wood trait, or are targeted by a spell attack with such a trait.",
-        "requirement": "You have a spell slot from which you could Cast a Spell of the triggering spell's countering element; see text."
+        "requirement": "You have a spell slot from which you could Cast a Spell of the triggering spell's countering element; see text.",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "elemental",
+                "access_type": "spell_list",
+                "link": {
+                    "type": "link",
+                    "name": "elemental",
+                    "alt": "elemental",
+                    "href": "Spells.aspx?Tradition=5"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "earth",
+                "alt": "earth",
+                "game-obj": "Traits",
+                "aonid": 55
+            },
+            {
+                "type": "link",
+                "name": "fire",
+                "alt": "fire",
+                "game-obj": "Traits",
+                "aonid": 72
+            },
+            {
+                "type": "link",
+                "name": "metal",
+                "alt": "metal",
+                "game-obj": "Traits",
+                "aonid": 505
+            },
+            {
+                "type": "link",
+                "name": "plant",
+                "alt": "plant",
+                "game-obj": "Traits",
+                "aonid": 125
+            },
+            {
+                "type": "link",
+                "name": "water",
+                "alt": "water",
+                "game-obj": "Traits",
+                "aonid": 165
+            },
+            {
+                "type": "link",
+                "name": "wood",
+                "alt": "wood",
+                "game-obj": "Traits",
+                "aonid": 508
+            }
+        ]
     },
     "game-id": "fe8291b3146d712b0eaacb00fa12c1d3",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Each element in the elemental cycle counters another, and you can use your elemental spells to protect against elements they counter. You lose your spell slot as if you had cast the triggering spell. You then attempt to counteract the triggering spell, using the rank of the spell you lost for the counteract rank. You can lose a plant or wood spell to counter earth, an earth spell to counter water, a water spell to counter fire, a fire spell to counter metal, or a metal spell to counter plant or wood.",
-    "links": [
-        {
-            "type": "link",
-            "name": "earth",
-            "alt": "earth",
-            "game-obj": "Traits",
-            "aonid": 55
-        },
-        {
-            "type": "link",
-            "name": "fire",
-            "alt": "fire",
-            "game-obj": "Traits",
-            "aonid": 72
-        },
-        {
-            "type": "link",
-            "name": "metal",
-            "alt": "metal",
-            "game-obj": "Traits",
-            "aonid": 505
-        },
-        {
-            "type": "link",
-            "name": "plant",
-            "alt": "plant",
-            "game-obj": "Traits",
-            "aonid": 125
-        },
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Traits",
-            "aonid": 165
-        },
-        {
-            "type": "link",
-            "name": "wood",
-            "alt": "wood",
-            "game-obj": "Traits",
-            "aonid": 508
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "elemental",
-            "alt": "elemental",
-            "href": "Spells.aspx?Tradition=5"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -186,5 +208,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

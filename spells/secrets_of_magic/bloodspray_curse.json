@@ -54,12 +54,10 @@
     "spell": {
         "name": "Bloodspray Curse",
         "type": "stat_block_section",
+        "text": "You inflict a curse upon the target that causes any wound to gush blood. The target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,11 +84,8 @@
                 }
             }
         ],
-        "traditions": "divine, occult, primal",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
         "duration": "varies",
         "heightened": [
             {
@@ -100,55 +95,98 @@
                 "text": "The additional damage increases by 1d6 and the persistent bleed damage increases by 1d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "For 1 minute, the first time each round that the target takes at least 10 piercing or slashing damage from a single Strike, it takes 2d6 additional damage of the same type.",
-        "failure": "As success, but when it takes the additional damage, it also takes 2d6 persistent bleed damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "For 1 minute, the first time each round that the target takes at least 10 piercing or slashing damage from a single Strike, it takes 2d6 additional damage of the same type.",
+            "failure": "As success, but when it takes the additional damage, it also takes 2d6 persistent bleed damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "persistent bleed damage",
+                    "alt": "persistent bleed damage",
+                    "game-obj": "Conditions",
+                    "aonid": 29
+                }
+            ]
+        }
     },
     "game-id": "3416bd0fc764f2e5c0d6a127f8fb1514",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You inflict a curse upon the target that causes any wound to gush blood. The target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -164,5 +202,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

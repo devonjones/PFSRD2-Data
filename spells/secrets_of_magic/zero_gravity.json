@@ -54,12 +54,10 @@
     "spell": {
         "name": "Zero Gravity",
         "type": "stat_block_section",
+        "text": "You negate gravity's effects in the area. Creatures float in place unless they can Push Off a surface. Pushing Off is a single action which has the move trait, allowing the creature to move half its Speed in a straight line through the area. After Pushing Off a surface, the creature continues to move the same distance at the start of each of its turns until it leaves the area or Pushes Off against something else. A creature pushing against an untethered object of its size or smaller causes both the creature and the object to move at the same speed, but in opposite directions. Creatures who can levitate or fly can use those abilities to move around in the area without having to push off anything. Creatures who can't levitate or fly are usually on the ground, giving them a surface from which to push off.  \n  \n You can Dismiss this spell. When *zero gravity* ends, all creatures and objects in the area fall back down.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,58 +84,93 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "material, somatic, verbal",
         "range": "120 feet",
         "area": "20-foot radius, 40-foot tall cylinder",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "move",
+                "alt": "move",
+                "game-obj": "Traits",
+                "aonid": 114
+            }
+        ]
     },
     "game-id": "96b40f18e48f59de76865f4ed0bb1c47",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You negate gravity's effects in the area. Creatures float in place unless they can Push Off a surface. Pushing Off is a single action which has the move trait, allowing the creature to move half its Speed in a straight line through the area. After Pushing Off a surface, the creature continues to move the same distance at the start of each of its turns until it leaves the area or Pushes Off against something else. A creature pushing against an untethered object of its size or smaller causes both the creature and the object to move at the same speed, but in opposite directions. Creatures who can levitate or fly can use those abilities to move around in the area without having to push off anything. Creatures who can't levitate or fly are usually on the ground, giving them a surface from which to push off.  \n  \n You can Dismiss this spell. When *zero gravity* ends, all creatures and objects in the area fall back down.",
-    "links": [
-        {
-            "type": "link",
-            "name": "move",
-            "alt": "move",
-            "game-obj": "Traits",
-            "aonid": 114
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -153,5 +186,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

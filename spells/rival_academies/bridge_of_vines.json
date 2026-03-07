@@ -20,12 +20,10 @@
     "spell": {
         "name": "Bridge of Vines",
         "type": "stat_block_section",
+        "text": "Vines sprout beneath your feet and extend away from you in a straight line up to 60 feet, forming a 10-foot-wide bridge that can cross over difficult terrain and low obstacles, as well as reach higher ground. The bridge has an AC equal to your spell DC, Hardness 10, and 20 Hit Points. It is immune to critical hits and precision damage. The bridge lasts either for the duration of the spell, until it is destroyed, or until you Dismiss the spell.  \n  \n While the spell is active, you and your allies can use the bridge normally. If any other creatures attempt to use the bridge, the vines attempt to trip and entangle them. They must attempt a Reflex save against your spell DC.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,7 +86,6 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "60 feet",
         "duration": "10 minutes",
         "heightened": [
@@ -99,57 +96,81 @@
                 "text": "The bridge\u2019s Hit Points increase by 10."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target treats the length of the bridge as difficult terrain.",
-        "failure": "As success, and the target is knocked prone.",
-        "critical_failure": "As success, and the target is knocked prone and grabbed until it Escapes (with a DC equal to your spell DC) or the spell ends."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target is unaffected.",
+            "success": "The target treats the length of the bridge as difficult terrain.",
+            "failure": "As success, and the target is knocked prone.",
+            "critical_failure": "As success, and the target is knocked prone and grabbed until it Escapes (with a DC equal to your spell DC) or the spell ends.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "difficult terrain",
+                    "alt": "difficult terrain",
+                    "game-obj": "Rules",
+                    "aonid": 2366
+                },
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 88
+                },
+                {
+                    "type": "link",
+                    "name": "grabbed",
+                    "alt": "grabbed",
+                    "game-obj": "Conditions",
+                    "aonid": 77
+                },
+                {
+                    "type": "link",
+                    "name": "Escapes",
+                    "alt": "Escapes",
+                    "game-obj": "Actions",
+                    "aonid": 2296
+                }
+            ]
+        }
     },
     "game-id": "0745e9feb23029e2fe007b6d873932e6",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "Vines sprout beneath your feet and extend away from you in a straight line up to 60 feet, forming a 10-foot-wide bridge that can cross over difficult terrain and low obstacles, as well as reach higher ground. The bridge has an AC equal to your spell DC, Hardness 10, and 20 Hit Points. It is immune to critical hits and precision damage. The bridge lasts either for the duration of the spell, until it is destroyed, or until you Dismiss the spell.  \n  \n While the spell is active, you and your allies can use the bridge normally. If any other creatures attempt to use the bridge, the vines attempt to trip and entangle them. They must attempt a Reflex save against your spell DC.",
-    "links": [
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 2366
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 88
-        },
-        {
-            "type": "link",
-            "name": "grabbed",
-            "alt": "grabbed",
-            "game-obj": "Conditions",
-            "aonid": 77
-        },
-        {
-            "type": "link",
-            "name": "Escapes",
-            "alt": "Escapes",
-            "game-obj": "Actions",
-            "aonid": 2296
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -194,5 +215,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

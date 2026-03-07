@@ -54,12 +54,10 @@
     "spell": {
         "name": "Winter Bolt",
         "type": "stat_block_section",
+        "text": "You fling a hollow icicle filled with winter\u2019s wrath. Make a spell attack against a target within range. The bolt deals 1d8 piercing damage and lodges in the target. At the end of the target\u2019s next turn, the bolt shatters, releasing a whirl of snow and ice that deals 1d12 cold damage to the target and all adjacent creatures. The bolt can be removed with an Interact action, which causes it to melt harmlessly without detonating.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "domain": "cold",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
         "heightened": [
@@ -110,36 +106,64 @@
                 "text": "The initial damage increases by 1d8 and the secondary damage increases by 1d12."
             }
         ],
-        "critical_success": "The initial bolt deals full damage and is especially well anchored, taking 2 Interact actions to remove. The bolt\u2019s explosion deals double damage.",
-        "success": "The bolt and its explosion deal full damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "cold",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "cold",
+                    "alt": "cold",
+                    "game-obj": "Domains",
+                    "aonid": 41
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The initial bolt deals full damage and is especially well anchored, taking 2 Interact actions to remove. The bolt\u2019s explosion deals double damage.",
+            "success": "The bolt and its explosion deal full damage."
+        }
     },
     "game-id": "9e453b9ff88b8cf6309170067beb4bed",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You fling a hollow icicle filled with winter\u2019s wrath. Make a spell attack against a target within range. The bolt deals 1d8 piercing damage and lodges in the target. At the end of the target\u2019s next turn, the bolt shatters, releasing a whirl of snow and ice that deals 1d12 cold damage to the target and all adjacent creatures. The bolt can be removed with an Interact action, which causes it to melt harmlessly without detonating.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "cold",
-            "alt": "cold",
-            "game-obj": "Domains",
-            "aonid": 41
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -155,5 +179,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Soothing Ballad",
         "type": "stat_block_section",
+        "text": "You draw upon your muse to soothe your allies. Choose one of the following three effects: \n* The spell attempts to counteract fear effects on the targets.\n* The spell attempts to counteract effects imposing paralysis on the targets.\n* The spell restores 7d8 Hit Points to the targets.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -146,7 +144,6 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "you and up to 9 allies",
         "heightened": [
@@ -156,28 +153,44 @@
                 "increment": 1,
                 "text": "When used to heal, *soothing ballad* restores 1d8 more Hit Points."
             }
-        ]
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "68d1c2251a56b948e81a071d554c58b0",
-    "spell_type": "focus",
-    "rank": 7,
-    "text": "You draw upon your muse to soothe your allies. Choose one of the following three effects: \n* The spell attempts to counteract fear effects on the targets.\n* The spell attempts to counteract effects imposing paralysis on the targets.\n* The spell restores 7d8 Hit Points to the targets.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -193,5 +206,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

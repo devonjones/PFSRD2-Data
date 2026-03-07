@@ -20,12 +20,10 @@
     "spell": {
         "name": "Mimic Spell",
         "type": "stat_block_section",
+        "text": "You learn the secrets of a spell just by watching someone else cast it. Attempt to counteract the spell cast by the triggering creature. If the spell would be counteracted, you instead gain the ability to Cast that Spell without expending a slot. On your next turn, you spend the same number of actions to Cast the Spell as the triggering creature, but you choose the targets (if any) and use your spell attack modifier or spell DC as appropriate. The spell is heightened to the same rank as *mimic spell*. The mimicked spell is of the same tradition as the spells you normally cast. If you don\u2019t Cast the mimicked Spell by the end of your next turn, it is lost, unless you Sustain the knowledge of it. You can Sustain this knowledge for up to 1 minute, after which it is lost.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -64,28 +62,45 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
         "trigger": "A creature you\u2019re aware of within range Casts a Spell of the same tradition as *mimic spell* and of the same or lower rank.",
-        "range": "120 feet"
+        "range": "120 feet",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        }
     },
     "game-id": "0608798beaab412aa2b4f828bc9505d2",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "You learn the secrets of a spell just by watching someone else cast it. Attempt to counteract the spell cast by the triggering creature. If the spell would be counteracted, you instead gain the ability to Cast that Spell without expending a slot. On your next turn, you spend the same number of actions to Cast the Spell as the triggering creature, but you choose the targets (if any) and use your spell attack modifier or spell DC as appropriate. The spell is heightened to the same rank as *mimic spell*. The mimicked spell is of the same tradition as the spells you normally cast. If you don\u2019t Cast the mimicked Spell by the end of your next turn, it is lost, unless you Sustain the knowledge of it. You can Sustain this knowledge for up to 1 minute, after which it is lost.",
-    "links": [
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -130,5 +145,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

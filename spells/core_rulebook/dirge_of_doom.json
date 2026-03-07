@@ -54,12 +54,10 @@
     "spell": {
         "name": "Dirge of Doom",
         "type": "stat_block_section",
+        "text": "Foes within the area are frightened 1. They can't reduce their frightened value below 1 while they remain in the area.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -158,30 +156,42 @@
                 }
             }
         ],
-        "cast": "verbal",
         "area": "30-foot emanation",
-        "duration": "1 round"
+        "duration": "1 round",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "frightened 1",
+                "alt": "frightened 1",
+                "game-obj": "Conditions",
+                "aonid": 19
+            }
+        ]
     },
     "game-id": "813e1a6b1e4bb39efc4cf63ced46ec20",
-    "spell_type": "cantrip",
-    "rank": 3,
-    "text": "Foes within the area are frightened 1. They can't reduce their frightened value below 1 while they remain in the area.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -197,5 +207,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

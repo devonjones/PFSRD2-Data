@@ -54,12 +54,10 @@
     "spell": {
         "name": "Fey Glamour",
         "type": "stat_block_section",
+        "text": "You call upon fey glamours to cloak an area or the targets in illusion. This has the effect of either *illusory scene* on the area or *veil* on the creatures, as if heightened to a level 1 level lower than *fey glamour*, using *fey glamour*'s range and duration.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,54 +96,78 @@
                 }
             }
         ],
-        "bloodline": "fey",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "area": "30-foot burst or",
         "targets": "up to 10 creatures",
-        "duration": "10 minutes"
+        "duration": "10 minutes",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fey",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "fey",
+                    "alt": "fey",
+                    "game-obj": "Bloodlines",
+                    "aonid": 7
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "illusory scene",
+                "alt": "illusory scene",
+                "game-obj": "Spells",
+                "aonid": 161
+            },
+            {
+                "type": "link",
+                "name": "veil",
+                "alt": "veil",
+                "game-obj": "Spells",
+                "aonid": 355
+            }
+        ]
     },
     "game-id": "740aa657163bb2092976156687eaad98",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You call upon fey glamours to cloak an area or the targets in illusion. This has the effect of either *illusory scene* on the area or *veil* on the creatures, as if heightened to a level 1 level lower than *fey glamour*, using *fey glamour*'s range and duration.",
-    "links": [
-        {
-            "type": "link",
-            "name": "illusory scene",
-            "alt": "illusory scene",
-            "game-obj": "Spells",
-            "aonid": 161
-        },
-        {
-            "type": "link",
-            "name": "veil",
-            "alt": "veil",
-            "game-obj": "Spells",
-            "aonid": 355
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "fey",
-            "alt": "fey",
-            "game-obj": "Bloodlines",
-            "aonid": 7
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -161,5 +183,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

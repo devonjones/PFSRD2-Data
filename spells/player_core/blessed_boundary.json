@@ -27,12 +27,10 @@
     "spell": {
         "name": "Blessed Boundary",
         "type": "stat_block_section",
+        "text": "Manifestations of divine force appear in the hundreds, swirling in a massive, protective sphere. These typically look like spiky fragments, but often take on an appearance themed to the deity of the caster. The sphere is hollow, with the manifestations forming a shell 2 inches deep on the outer edge. You can choose to make the burst smaller, in 5-foot increments, when you cast it.  \n  \n The shell provides cover and can intersect solid terrain without affecting it. The shell deals 7d8 force damage to each creature who intersects with the shell when the sphere's created, or who attempts to move through the shell. The creature also takes the damage at the end of its turn, but only if it didn't already take damage from the shell that turn. The effects are determined by a creature's Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,11 +81,8 @@
                 }
             }
         ],
-        "traditions": "divine",
-        "bloodline": "angelic",
         "range": "120 feet",
         "area": "up to a 60-foot burst",
-        "defense": "Reflex",
         "duration": "1 minute",
         "heightened": [
             {
@@ -97,44 +92,71 @@
                 "text": "The damage increases by 1d8."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage, is pushed up to 10 feet in the direction of your choice, and ends its movement.",
-        "critical_failure": "The creature takes double damage, is pushed up to 20 feet in the direction of your choice, and ends its movement."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "angelic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "angelic",
+                    "alt": "angelic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 20
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage, is pushed up to 10 feet in the direction of your choice, and ends its movement.",
+            "critical_failure": "The creature takes double damage, is pushed up to 20 feet in the direction of your choice, and ends its movement.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "pushed",
+                    "alt": "pushed",
+                    "game-obj": "Rules",
+                    "aonid": 451
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "cover",
+                "alt": "cover",
+                "game-obj": "Rules",
+                "aonid": 459
+            }
+        ]
     },
     "game-id": "0f40ee3cc2dde7f9a7bcf0d20393eaa4",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "Manifestations of divine force appear in the hundreds, swirling in a massive, protective sphere. These typically look like spiky fragments, but often take on an appearance themed to the deity of the caster. The sphere is hollow, with the manifestations forming a shell 2 inches deep on the outer edge. You can choose to make the burst smaller, in 5-foot increments, when you cast it.  \n  \n The shell provides cover and can intersect solid terrain without affecting it. The shell deals 7d8 force damage to each creature who intersects with the shell when the sphere's created, or who attempts to move through the shell. The creature also takes the damage at the end of its turn, but only if it didn't already take damage from the shell that turn. The effects are determined by a creature's Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "cover",
-            "alt": "cover",
-            "game-obj": "Rules",
-            "aonid": 459
-        },
-        {
-            "type": "link",
-            "name": "pushed",
-            "alt": "pushed",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "angelic",
-            "alt": "angelic",
-            "game-obj": "Bloodlines",
-            "aonid": 20
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -179,5 +201,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

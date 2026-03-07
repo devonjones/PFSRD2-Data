@@ -40,12 +40,10 @@
     "spell": {
         "name": "Rejuvenating Flames",
         "type": "stat_block_section",
+        "text": "You create a gout of flame that both heals and burns. You restore 1d4 HP to all allies in the area, and those allies gain a +1 status bonus to Fortitude saves for 1 minute. Enemies in the area take 1d4 fire damage with a basic Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,10 +106,7 @@
                 }
             }
         ],
-        "bloodline": "phoenix",
-        "cast": "somatic, verbal",
         "area": "15-foot cone",
-        "saving_throw": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -119,42 +114,74 @@
                 "increment": 1,
                 "text": "You restore an additional 1d4 HP to your allies and deal an additional 1d4 fire damage to enemies."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "phoenix",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "phoenix",
+                    "alt": "phoenix",
+                    "game-obj": "Bloodlines",
+                    "aonid": 15
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        }
     },
     "game-id": "6d0921190e2d3ae9f0000d5c9481b8a3",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You create a gout of flame that both heals and burns. You restore 1d4 HP to all allies in the area, and those allies gain a +1 status bonus to Fortitude saves for 1 minute. Enemies in the area take 1d4 fire damage with a basic Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "phoenix",
-            "alt": "phoenix",
-            "game-obj": "Bloodlines",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -170,5 +197,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

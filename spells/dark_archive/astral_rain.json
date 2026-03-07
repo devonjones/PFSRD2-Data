@@ -40,12 +40,10 @@
     "spell": {
         "name": "Astral Rain",
         "type": "stat_block_section",
+        "text": "You fling a mass of furious thoughts into the air, where they expand into numerous blades or other shapes that rain down. Any creature that's in the area or enters the area before the start of your next turn takes 4d4 bludgeoning or piercing damage (your choice), with a basic Reflex saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,10 +106,8 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "area": "one 5-foot cube",
-        "saving_throw": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -119,35 +115,58 @@
                 "increment": 1,
                 "text": "The damage increases by 1d4.\n\n---\n\n**Amp** The area changes to a 5-foot burst, and you can Sustain the Spell up to 1 minute. The first time each round that you Sustain the Spell, you can move the burst up to 20 feet."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 371
+            }
         ]
     },
     "game-id": "442daa518d884937cd58572fc7a478d6",
-    "spell_type": "cantrip",
-    "rank": 3,
-    "text": "You fling a mass of furious thoughts into the air, where they expand into numerous blades or other shapes that rain down. Any creature that's in the area or enters the area before the start of your next turn takes 4d4 bludgeoning or piercing damage (your choice), with a basic Reflex saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -163,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

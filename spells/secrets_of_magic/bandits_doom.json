@@ -54,7 +54,10 @@
     "spell": {
         "name": "Bandit's Doom",
         "type": "stat_block_section",
+        "text": "You ward the target item against those who would steal it. When a creature attempts to take the target into its possession, it takes 8d8 mental damage and is doomed, depending on the result of its Will save. The spell then ends. You can choose up to 10 creatures when you cast this spell; if you do, those creatures can take the target item without triggering the ward. You can only have one *bandit's doom* active at a time. If you cast the spell again, the newer casting supersedes the older.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -81,8 +84,6 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "cast": "30 minutes (material, somatic, verbal)",
         "targets": "1 item of 2 Bulk or less",
         "duration": "1 month",
         "heightened": [
@@ -93,63 +94,106 @@
                 "text": "The damage increases by 2d8."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and is doomed 1.",
-        "failure": "The creature takes full damage and is doomed 2.",
-        "critical_failure": "The creature takes double damage and is doomed 3."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "30 minutes",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and is doomed 1.",
+            "failure": "The creature takes full damage and is doomed 2.",
+            "critical_failure": "The creature takes double damage and is doomed 3."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "doomed",
+                "alt": "doomed",
+                "game-obj": "Conditions",
+                "aonid": 9
+            }
+        ]
     },
     "game-id": "a97974d682043ef7ed8441f1a9f99530",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You ward the target item against those who would steal it. When a creature attempts to take the target into its possession, it takes 8d8 mental damage and is doomed, depending on the result of its Will save. The spell then ends. You can choose up to 10 creatures when you cast this spell; if you do, those creatures can take the target item without triggering the ward. You can only have one *bandit's doom* active at a time. If you cast the spell again, the newer casting supersedes the older.",
-    "links": [
-        {
-            "type": "link",
-            "name": "doomed",
-            "alt": "doomed",
-            "game-obj": "Conditions",
-            "aonid": 9
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -165,5 +209,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Delusional Pride",
         "type": "stat_block_section",
+        "text": "You make the target overconfident, leading it to ascribe failure to external factors. If the target fails at an attack roll or skill check, it takes a \u20131 status penalty to attack rolls and skill checks until the end of its turn (or the end of its next turn, if it attempted the roll outside its turn). If the creature fails a second time while taking this penalty, the penalty increases to \u20132. The duration depends on the target's Will save. After attempting its save, the creature becomes temporarily immune for 24 hours.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,44 +120,70 @@
                 }
             }
         ],
-        "domain": "confidence",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The duration is 1 round.",
-        "failure": "The duration is 10 minutes.",
-        "critical_failure": "The duration is 24 hours."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "confidence",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "confidence",
+                    "alt": "confidence",
+                    "game-obj": "Domains",
+                    "aonid": 4
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The duration is 1 round.",
+            "failure": "The duration is 10 minutes.",
+            "critical_failure": "The duration is 24 hours."
+        }
     },
     "game-id": "90a50cdfedeb3000839653bd2979e6b1",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You make the target overconfident, leading it to ascribe failure to external factors. If the target fails at an attack roll or skill check, it takes a \u20131 status penalty to attack rolls and skill checks until the end of its turn (or the end of its next turn, if it attempted the roll outside its turn). If the creature fails a second time while taking this penalty, the penalty increases to \u20132. The duration depends on the target's Will save. After attempting its save, the creature becomes temporarily immune for 24 hours.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "confidence",
-            "alt": "confidence",
-            "game-obj": "Domains",
-            "aonid": 4
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -175,5 +199,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Stabilize",
         "type": "stat_block_section",
+        "text": "Positive energy shuts death's door. The target loses the dying condition, though it remains unconscious at 0 Hit Points.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,51 +108,81 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
         "catalysts": "Alicorn Hair",
-        "cast": "somatic, verbal",
         "range": "30 feet",
-        "targets": "1 dying creature"
+        "targets": "1 dying creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Alicorn Hair",
+                "alt": "Alicorn Hair",
+                "game-obj": "Equipment",
+                "aonid": 3254
+            }
+        ]
     },
     "game-id": "7950ba8258487d81dec027b4d0bafc8f",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Positive energy shuts death's door. The target loses the dying condition, though it remains unconscious at 0 Hit Points.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Alicorn Hair",
-            "alt": "Alicorn Hair",
-            "game-obj": "Equipment",
-            "aonid": 3254
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -170,5 +198,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

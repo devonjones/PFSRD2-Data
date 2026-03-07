@@ -27,12 +27,10 @@
     "spell": {
         "name": "Pulverizing Wake",
         "type": "stat_block_section",
+        "text": "Imitating raptorial creatures, you attack with such speed it drives a sonic shockwave. Make a melee Strike against a creature in your reach; if you hit, you deal an additional 3d8 sonic damage. Regardless of the result of your Strike, that creature becomes the point of origin of a 15-foot cone, aimed directly away from you. All creatures in that cone take 6d8 sonic damage (basic Fortitude save).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -121,7 +119,6 @@
         ],
         "area": "15-foot cone",
         "targets": "1 creature within reach",
-        "defense": "AC and basic Fortitude (see text)",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -129,28 +126,42 @@
                 "increment": 1,
                 "text": "The damage of the cone increases by 1d8."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "text": "AC and  Fortitude (see text)"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Strike",
+                "alt": "Strike",
+                "game-obj": "Actions",
+                "aonid": 2306
+            }
         ]
     },
     "game-id": "bb195779e3cb2864dce355f54d79053a",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "Imitating raptorial creatures, you attack with such speed it drives a sonic shockwave. Make a melee Strike against a creature in your reach; if you hit, you deal an additional 3d8 sonic damage. Regardless of the result of your Strike, that creature becomes the point of origin of a 15-foot cone, aimed directly away from you. All creatures in that cone take 6d8 sonic damage (basic Fortitude save).",
-    "links": [
-        {
-            "type": "link",
-            "name": "Strike",
-            "alt": "Strike",
-            "game-obj": "Actions",
-            "aonid": 2306
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -195,5 +206,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,12 +27,10 @@
     "spell": {
         "name": "Chthonian Wrath",
         "type": "stat_block_section",
+        "text": "You evoke the energy of a part of the Outer Rifts. The damage types of the spell (one energy and one physical) are based on the result of rolling on the table below.  \n  \nYou deal 4d6 damage of each of the corresponding damage types to each creature in the cone (8d6 total damage). \n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| **1d4** | **Realm** | **Manifestation** | **Damage Type** |\n| 1 | Skies |  Bolts of lightning and flying debris  | Bludgeoning and electricity |\n| 2 | Depths  | Acid and demonic shells | Acid and slashing |\n| 3 | Frozen  | Frigid air and ice  | Bludgeoning and cold |\n| 4 | Volcanic  | Jagged volcanic rocks and magma | Fire and piercing |",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,9 +93,7 @@
                 }
             }
         ],
-        "bloodline": "demonic",
         "area": "60-foot cone",
-        "defense": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -105,28 +101,48 @@
                 "increment": 1,
                 "text": "The damage for each type increases by 1d6."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "demonic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "demonic",
+                    "alt": "demonic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 21
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        }
     },
     "game-id": "2fd447dfa6e03eb30104b21c5757ec25",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You evoke the energy of a part of the Outer Rifts. The damage types of the spell (one energy and one physical) are based on the result of rolling on the table below.  \n  \nYou deal 4d6 damage of each of the corresponding damage types to each creature in the cone (8d6 total damage). \n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| **1d4** | **Realm** | **Manifestation** | **Damage Type** |\n| 1 | Skies |  Bolts of lightning and flying debris  | Bludgeoning and electricity |\n| 2 | Depths  | Acid and demonic shells | Acid and slashing |\n| 3 | Frozen  | Frigid air and ice  | Bludgeoning and cold |\n| 4 | Volcanic  | Jagged volcanic rocks and magma | Fire and piercing |",
-    "links": [
-        {
-            "type": "link",
-            "name": "demonic",
-            "alt": "demonic",
-            "game-obj": "Bloodlines",
-            "aonid": 21
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -171,5 +187,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

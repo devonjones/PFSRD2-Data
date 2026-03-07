@@ -20,12 +20,10 @@
     "spell": {
         "name": "The Queen's Rainbow",
         "type": "stat_block_section",
+        "text": "You tell the story of the Queen of Bees and her retinue trying to pass through a rainbow on their way to visit the King of Spiders. You conjure forth a large, transparent rainbow. Creatures who enter or begin their turn in the rainbow\u2019s space must succeed at a Fortitude saving throw or become dazzled for 1 round (or blinded for 1 round on a critical failure).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -76,49 +74,78 @@
                 }
             }
         ],
-        "traditions": "arcane, occult, primal",
         "area": "60-foot line",
-        "defense": "Fortitude",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dazzled",
+                "alt": "dazzled",
+                "game-obj": "Conditions",
+                "aonid": 65
+            },
+            {
+                "type": "link",
+                "name": "blinded",
+                "alt": "blinded",
+                "game-obj": "Conditions",
+                "aonid": 59
+            }
+        ]
     },
     "game-id": "1d8733da58a761852de6ec15c19ea5e6",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You tell the story of the Queen of Bees and her retinue trying to pass through a rainbow on their way to visit the King of Spiders. You conjure forth a large, transparent rainbow. Creatures who enter or begin their turn in the rainbow\u2019s space must succeed at a Fortitude saving throw or become dazzled for 1 round (or blinded for 1 round on a critical failure).",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 65
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 59
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -163,5 +190,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

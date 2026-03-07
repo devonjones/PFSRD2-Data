@@ -27,12 +27,10 @@
     "spell": {
         "name": "Stabilize",
         "type": "stat_block_section",
+        "text": "Life energy shuts death's door. The target loses the dying condition, though it remains unconscious at 0 Hit Points.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,43 +93,62 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
         "catalysts": "Alicorn Hair",
         "range": "30 feet",
-        "targets": "1 dying creature"
+        "targets": "1 dying creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Alicorn Hair",
+                "alt": "Alicorn Hair",
+                "game-obj": "Equipment",
+                "aonid": 3254
+            },
+            {
+                "type": "link",
+                "name": "dying",
+                "alt": "dying",
+                "game-obj": "Conditions",
+                "aonid": 11
+            }
+        ]
     },
     "game-id": "6ee57c44a7d99eb3094e455d452962fa",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Life energy shuts death's door. The target loses the dying condition, though it remains unconscious at 0 Hit Points.",
-    "links": [
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Alicorn Hair",
-            "alt": "Alicorn Hair",
-            "game-obj": "Equipment",
-            "aonid": 3254
-        },
-        {
-            "type": "link",
-            "name": "dying",
-            "alt": "dying",
-            "game-obj": "Conditions",
-            "aonid": 11
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -176,5 +193,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

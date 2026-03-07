@@ -40,12 +40,10 @@
     "spell": {
         "name": "Unblinking Flame Emblem",
         "type": "stat_block_section",
+        "text": "You emblazon the target with a fiery sigil that projects your sight and your flame onto them, allowing you and your allies to track their movements and making it easier to hit them. Attack rolls against the target gain a +1 status bonus, and successful Strikes against the target deal 1d6 fire damage, and 1d10 persistent fire damage on a critical hit. However, you're flat-footed against other enemies, as the information from the emblem distracts you. The emblem takes your full attention; if you use *unblinking flame emblem* again before the original duration expires, the new casting replaces the previous casting.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,7 +82,6 @@
                 }
             }
         ],
-        "cast": "*(none printed)*",
         "trigger": "Your last action was a successful Strike against an enemy.",
         "duration": "3 rounds",
         "heightened": [
@@ -94,28 +91,41 @@
                 "level": 9,
                 "text": "The fire damage increases to 1d8, and the persistent fire damage on a critical hit increases to 1d12."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "(none printed)"
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent fire damage",
+                "alt": "persistent fire damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            },
+            {
+                "type": "link",
+                "name": "flat-footed",
+                "alt": "flat-footed",
+                "game-obj": "Conditions",
+                "aonid": 16
+            }
         ]
     },
     "game-id": "07662fc63744293d61c3566cfe68a7e9",
-    "spell_type": "focus",
-    "rank": 7,
-    "text": "You emblazon the target with a fiery sigil that projects your sight and your flame onto them, allowing you and your allies to track their movements and making it easier to hit them. Attack rolls against the target gain a +1 status bonus, and successful Strikes against the target deal 1d6 fire damage, and 1d10 persistent fire damage on a critical hit. However, you're flat-footed against other enemies, as the information from the emblem distracts you. The emblem takes your full attention; if you use *unblinking flame emblem* again before the original duration expires, the new casting replaces the previous casting.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent fire damage",
-            "alt": "persistent fire damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "flat-footed",
-            "alt": "flat-footed",
-            "game-obj": "Conditions",
-            "aonid": 16
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -131,5 +141,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

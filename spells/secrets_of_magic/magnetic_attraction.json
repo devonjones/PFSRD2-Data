@@ -54,12 +54,10 @@
     "spell": {
         "name": "Magnetic Attraction",
         "type": "stat_block_section",
+        "text": "You adjust your magnetic polarity, plucking daggers from hands and coins from belts. The targeted objects fly to your location, letting you catch them easily in your hands, or dropping to the ground at your position, at your discretion. Unattended objects fly to you automatically. If you target secured objects or those in another creature's possession (such as sheathed weapons), you must attempt to Disarm the creature of the metal objects, making a spell attack roll instead of an Athletics check to do so.  \n  \n Instead of drawing the objects to yourself, you can polarize a single metal object within range, designating it as a lodestone and causing the metal objects to fly to it instead. The lodestone must be at least three times the total Bulk of the targeted metal objects. Objects will stick to the lodestone for 1 minute, though they can be wrenched away with an Interact action.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,57 +84,87 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "somatic, verbal",
         "range": "60 feet",
-        "targets": "up to 10 metal objects with a total Bulk or 1 or less"
+        "targets": "up to 10 metal objects with a total Bulk or 1 or less",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Disarm",
+                "alt": "Disarm",
+                "game-obj": "Actions",
+                "aonid": 41
+            },
+            {
+                "type": "link",
+                "name": "Athletics",
+                "alt": "Athletics",
+                "game-obj": "Skills",
+                "aonid": 3
+            }
+        ]
     },
     "game-id": "6c1dd701a63ca1c74176d7ee2da92350",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You adjust your magnetic polarity, plucking daggers from hands and coins from belts. The targeted objects fly to your location, letting you catch them easily in your hands, or dropping to the ground at your position, at your discretion. Unattended objects fly to you automatically. If you target secured objects or those in another creature's possession (such as sheathed weapons), you must attempt to Disarm the creature of the metal objects, making a spell attack roll instead of an Athletics check to do so.  \n  \n Instead of drawing the objects to yourself, you can polarize a single metal object within range, designating it as a lodestone and causing the metal objects to fly to it instead. The lodestone must be at least three times the total Bulk of the targeted metal objects. Objects will stick to the lodestone for 1 minute, though they can be wrenched away with an Interact action.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Disarm",
-            "alt": "Disarm",
-            "game-obj": "Actions",
-            "aonid": 41
-        },
-        {
-            "type": "link",
-            "name": "Athletics",
-            "alt": "Athletics",
-            "game-obj": "Skills",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -152,5 +180,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Miracle",
         "type": "stat_block_section",
+        "text": "You request aid directly from your divine source. Your divine source always refuses a request out of line with its nature, and it might grant a different request (potentially more powerful or better fitting its nature) than the one you asked for. A casting of *miracle* can do any of the following things. \n* Duplicate any spell from the divine list of 9th level or lower to which you have access.\n* Duplicate any spell from another spell list of 7th level or lower. It must be common or you must have access.\n* Produce any effect whose power level is in line with the above effects.\n* Reverse certain effects that refer to the *wish* spell.\n The GM might allow you to try using *miracle* to produce greater effects than these, but doing so may be dangerous, or the spell may have only a partial effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,55 +72,84 @@
                 }
             }
         ],
-        "traditions": "divine",
-        "cast": "material, somatic, verbal"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "divine",
+                "alt": "divine",
+                "href": "SpellLists.aspx?Tradition=2"
+            },
+            {
+                "type": "link",
+                "name": "wish",
+                "alt": "wish",
+                "game-obj": "Spells",
+                "aonid": 377
+            }
+        ]
     },
     "game-id": "ebaafa2ff36e00067ddbf1ccb51e5f3b",
-    "spell_type": "spell",
-    "rank": 10,
-    "text": "You request aid directly from your divine source. Your divine source always refuses a request out of line with its nature, and it might grant a different request (potentially more powerful or better fitting its nature) than the one you asked for. A casting of *miracle* can do any of the following things. \n* Duplicate any spell from the divine list of 9th level or lower to which you have access.\n* Duplicate any spell from another spell list of 7th level or lower. It must be common or you must have access.\n* Produce any effect whose power level is in line with the above effects.\n* Reverse certain effects that refer to the *wish* spell.\n The GM might allow you to try using *miracle* to produce greater effects than these, but doing so may be dangerous, or the spell may have only a partial effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "SpellLists.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "wish",
-            "alt": "wish",
-            "game-obj": "Spells",
-            "aonid": 377
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -138,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

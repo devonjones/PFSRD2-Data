@@ -20,12 +20,10 @@
     "spell": {
         "name": "Clouded Focus",
         "type": "stat_block_section",
+        "text": "You sharpen a creature\u2019s senses, though more distant objects become hazy, indistinct, or muted to it. The target gains a +1 status bonus to Perception checks attempted with any of its precise senses. Furthermore, any imprecise senses the target has are sharpened to precise senses (though they don\u2019t receive the status bonus). However, the target can\u2019t perceive anything beyond a range of 20 feet with any of its senses. The duration is determined by the target\u2019s Will save. You can allow allies to choose the outcome instead of attempting a saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,10 +86,8 @@
                 }
             }
         ],
-        "domain": "disorientation",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -107,38 +103,57 @@
                 "text": "You can target up to 4 creatures."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target is affected for 1 round.",
-        "failure": "The target is affected for 1 minute.",
-        "critical_failure": "As failure, but the target can\u2019t perceive anything beyond a range of 10 feet."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "disorientation",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "disorientation",
+                    "alt": "disorientation",
+                    "game-obj": "Domains",
+                    "aonid": 105
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is affected for 1 round.",
+            "failure": "The target is affected for 1 minute.",
+            "critical_failure": "As failure, but the target can\u2019t perceive anything beyond a range of 10 feet."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Perception",
+                "alt": "Perception",
+                "game-obj": "Rules",
+                "aonid": 3303
+            },
+            {
+                "type": "link",
+                "name": "precise senses",
+                "alt": "precise senses",
+                "game-obj": "Rules",
+                "aonid": 2406
+            }
+        ]
     },
     "game-id": "41602e1cf14ab5b07c1080ea9d3c285a",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You sharpen a creature\u2019s senses, though more distant objects become hazy, indistinct, or muted to it. The target gains a +1 status bonus to Perception checks attempted with any of its precise senses. Furthermore, any imprecise senses the target has are sharpened to precise senses (though they don\u2019t receive the status bonus). However, the target can\u2019t perceive anything beyond a range of 20 feet with any of its senses. The duration is determined by the target\u2019s Will save. You can allow allies to choose the outcome instead of attempting a saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Perception",
-            "alt": "Perception",
-            "game-obj": "Rules",
-            "aonid": 3303
-        },
-        {
-            "type": "link",
-            "name": "precise senses",
-            "alt": "precise senses",
-            "game-obj": "Rules",
-            "aonid": 2406
-        },
-        {
-            "type": "link",
-            "name": "disorientation",
-            "alt": "disorientation",
-            "game-obj": "Domains",
-            "aonid": 105
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -183,5 +198,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

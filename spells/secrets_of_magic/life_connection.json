@@ -54,12 +54,10 @@
     "spell": {
         "name": "Life Connection",
         "type": "stat_block_section",
+        "text": "When you cast this spell, you place a failsafe deep within the life force of the target. You can sense when the target takes damage, provided you're within 1 mile of one another. A creature can be part of no more than one life connection simultaneously. When the spell is complete, you gain the Defend Life reaction; once you use the reaction, the spell ends.   \n  \n**Defend Life** (concentrate) **Trigger** The target takes damage; **Requirements** You're within 1 mile of the target; **Effect** After calculating the amount of damage the target would take (applying weaknesses, resistances, and the like), you lose an equal number of Hit Points, and the target doesn't take any of the damage. You can't reduce the amount of Hit Points you lose in this way. The target still takes any effects that would come with the damage, however, such as the venom on a viper's fangs Strike.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,58 +84,94 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
-        "cast": "10 minutes (material, somatic, verbal)",
         "range": "touch",
         "targets": "1 living creature",
-        "duration": "24 hours"
+        "duration": "24 hours",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "time": "10 minutes",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concentrate",
+                "alt": "concentrate",
+                "game-obj": "Traits",
+                "aonid": 32
+            }
+        ]
     },
     "game-id": "59b7169f4b11c4dd4375929577a94d13",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "When you cast this spell, you place a failsafe deep within the life force of the target. You can sense when the target takes damage, provided you're within 1 mile of one another. A creature can be part of no more than one life connection simultaneously. When the spell is complete, you gain the Defend Life reaction; once you use the reaction, the spell ends.   \n  \n**Defend Life** (concentrate) **Trigger** The target takes damage; **Requirements** You're within 1 mile of the target; **Effect** After calculating the amount of damage the target would take (applying weaknesses, resistances, and the like), you lose an equal number of Hit Points, and the target doesn't take any of the damage. You can't reduce the amount of Hit Points you lose in this way. The target still takes any effects that would come with the damage, however, such as the venom on a viper's fangs Strike.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -153,5 +187,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

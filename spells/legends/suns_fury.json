@@ -40,12 +40,10 @@
     "spell": {
         "name": "Sun's Fury",
         "type": "stat_block_section",
+        "text": "The target weapon becomes wreathed in a glowing flame. The weapon deals an additional 1d4 fire and 1 good damage on a successful Strike. In addition, the flame causes the weapon to glow as bright as a torch. You can Dismiss the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,45 +94,62 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 weapon without an *unholy* rune that is unattended or wielded by you or a willing ally",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "torch",
+                "alt": "torch",
+                "game-obj": "Equipment",
+                "aonid": 60
+            },
+            {
+                "type": "link",
+                "name": "unholy",
+                "alt": "unholy",
+                "game-obj": "Equipment",
+                "aonid": 307
+            }
+        ]
     },
     "game-id": "a3cde2734999d0e2945b48cdff1a1940",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "The target weapon becomes wreathed in a glowing flame. The weapon deals an additional 1d4 fire and 1 good damage on a successful Strike. In addition, the flame causes the weapon to glow as bright as a torch. You can Dismiss the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "torch",
-            "alt": "torch",
-            "game-obj": "Equipment",
-            "aonid": 60
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "unholy",
-            "alt": "unholy",
-            "game-obj": "Equipment",
-            "aonid": 307
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -150,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,7 +27,10 @@
     "spell": {
         "name": "Ring of Truth",
         "type": "stat_block_section",
+        "text": "You designate an area in which lies are revealed. Creatures in the area also take a \u20132 status penalty to Deception checks. Each time a creature in the area speaks a true statement, the soft ring of a bell sounds in the area. Creatures are aware of the magic; therefore, they can avoid answering questions to which they would normally respond with a lie, or they can be evasive as long as they remain within the boundaries of the truth. If a creature is in the area when the spell is cast or later enters the area, that creature attempts a Will save. It uses the results of this initial save if it leaves and reenters the area.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -90,49 +93,78 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "lesson": "lesson of vows",
-        "cast": "*Nethys Note: No cast time was printed*",
         "range": "30 feet",
         "area": "20-foot burst",
-        "defense": "Will",
         "duration": "10 minutes",
-        "critical_success": "The target is so convincing that the bell rings even if they lie.",
-        "success": "If the target lies and succeeds at their Deception check against all targets, the bell still rings.",
-        "failure": "The bell accurately sees through their deception and will never ring if they lie."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of vows",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of vows",
+                    "alt": "lesson of vows",
+                    "game-obj": "Lessons",
+                    "aonid": 32
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "Nethys Note: No cast time was printed"
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is so convincing that the bell rings even if they lie.",
+            "success": "If the target lies and succeeds at their Deception check against all targets, the bell still rings.",
+            "failure": "The bell accurately sees through their deception and will never ring if they lie."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Deception",
+                "alt": "Deception",
+                "game-obj": "Skills",
+                "aonid": 5
+            }
+        ]
     },
     "game-id": "436cbf9649d656d6c220dc548ade92f8",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You designate an area in which lies are revealed. Creatures in the area also take a \u20132 status penalty to Deception checks. Each time a creature in the area speaks a true statement, the soft ring of a bell sounds in the area. Creatures are aware of the magic; therefore, they can avoid answering questions to which they would normally respond with a lie, or they can be evasive as long as they remain within the boundaries of the truth. If a creature is in the area when the spell is cast or later enters the area, that creature attempts a Will save. It uses the results of this initial save if it leaves and reenters the area.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Deception",
-            "alt": "Deception",
-            "game-obj": "Skills",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "lesson of vows",
-            "alt": "lesson of vows",
-            "game-obj": "Lessons",
-            "aonid": 32
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -177,5 +209,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

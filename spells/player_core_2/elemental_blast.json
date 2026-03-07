@@ -27,12 +27,10 @@
     "spell": {
         "name": "Elemental Blast",
         "type": "stat_block_section",
+        "text": "You gather elemental energy and blast your foes in one of the various listed shapes of your choosing, dealing 8d6 damage. This spell deals damage according to your elemental influence (for instance, slashing for air or fire for fire) and has your element's trait.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,10 +93,8 @@
                 }
             }
         ],
-        "bloodline": "elemental",
         "range": "30 feet (burst only)",
         "area": "10-foot-radius burst, 30-foot cone, or 60-foot line",
-        "defense": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -106,28 +102,48 @@
                 "increment": 1,
                 "text": "The damage increases by 2d6."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "elemental",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "elemental",
+                    "alt": "elemental",
+                    "game-obj": "Bloodlines",
+                    "aonid": 24
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        }
     },
     "game-id": "9cc5a091a2f6ae7e4e3650847a49857f",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You gather elemental energy and blast your foes in one of the various listed shapes of your choosing, dealing 8d6 damage. This spell deals damage according to your elemental influence (for instance, slashing for air or fire for fire) and has your element's trait.",
-    "links": [
-        {
-            "type": "link",
-            "name": "elemental",
-            "alt": "elemental",
-            "game-obj": "Bloodlines",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -172,5 +188,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

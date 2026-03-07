@@ -54,12 +54,10 @@
     "spell": {
         "name": "Element Embodied",
         "type": "stat_block_section",
+        "text": "Drawing upon the deepest wells of magic in an elemental plane, you transform into a spectacular elemental. You can choose between an air elemental, earth elemental, fire elemental, or water elemental. Your battle form is Gargantuan, and you must have enough space to expand into or the spell is lost. While in this form, you gain the elemental trait and the trait for the element you choose. You can Dismiss the spell.  \n  \n You gain the following statistics and abilities regardless of which battle form you choose: \n* AC = 25 + your level. Ignore your armor's check penalty and Speed reduction.\n* 30 temporary Hit Points.\n* Darkvision.\n* One or more attacks specific to the battle form you choose, which are the only attacks you can Strike with. You're trained with them. Your attack modifier is +34, and you use the listed damage. These attacks are Dexterity based if you choose an air or fire elemental, or Strength based if you choose an earth or water elemental. (This distinction doesn't change the statistics, but matters for the enfeebled and clumsy conditions, for example). If your unarmed attack modifier is higher, you can use it instead.\n* Acrobatics modifier of +36 for air or fire elemental or Athletics modifier of +36 for earth or water elemental, unless your own modifier is higher.\n You also gain specific abilities based on the type of elemental you choose:Secrets of Magic\n* **Air Elemental** fly Speed 80 feet; **High Winds** (air, aura) 30 feet. Air within the emanation is difficult terrain for flying creatures that don't have the air trait; **Swiftness** Your movement doesn't trigger reactions; **Melee** gust (reach 25 feet), **Damage** 3d12+11 bludgeoning plus Push 10 feet; **Ranged** lightning lash (range increment 80 feet), **Damage** 3d12+4 electricity.\n* **Earth Elemental** 30 feet, burrow 20 feet; resistance 5 to physical; **Spike Stones** (aura, earth) 30 feet. The area is difficult terrain and hazardous terrain. A creature without the earth trait that moves on the ground in the area takes 5 piercing damage for every square of that area it moves into; **Rocky Toughness** You gain 40 temporary Hit Points when you choose this form instead of 30; **Melee** fist (reach 25 feet), **Damage** 3d12+15 bludgeoning; **Ranged** rock (range increment 40 feet), **Damage** 4d8+6 bludgeoning.\n* **Fire Elemental** 50 feet; immunity to fire; weakness to cold 10; **Intense Heat** (aura, fire) 30 feet. A creature that enters the aura or starts its turn in the aura takes 5d6 fire damage with a basic Reflex save against your spell DC. A creature can take damage from the aura only once per round; **Melee** tendril (reach 25 feet), **Damage** 3d10+12 fire plus 2d6 persistent fire; **Ranged** fire mote (range increment 60 feet), **Damage** 4d8+6 fire.\n* **Water Elemental** 40 feet, swim 80 feet; resistance 10 to fire; **Vortex** (aura, water) 30 feet. Water within the aura that is part of the same body of water you occupy is difficult terrain for Swimming creatures that don't have the water trait; **Melee** wave (reach 25 feet), **Damage** 3d12+18 bludgeoning plus Push or Pull 10 feet; **Ranged** water spout (range increment 60 feet), **Damage** 4d8+6 bludgeoning.\nRage of Elements\n* **Metal Elemental** 40 feet, fly 40 feet; resistance 10 to electricity; **Arcing Electricity** (aura, electricity, metal) 30 feet. A creature that enters the aura or starts its turn in the aura takes 2d12 electricity damage with a basic Reflex save against your spell DC; a creature made of metal, with the metal trait, or wearing metal armor takes a \u20131 circumstance penalty on this save. A creature can take damage from the aura only once per round; **Melee** blade (reach 25 feet, versatile slashing), **Damage** 3d12+15 piercing; **Ranged** metal shard (range increment 40 feet, versatile slashing), **Damage** 4d8+6 piercing. The metal Strike is Dexterity based.\n* **Wood Elemental** 30 feet, climb 35 feet; resistance 5 to physical; weakness to axes 10; **Lush Growth** (aura, wood) 30 feet. Ground in the area is difficult terrain, and any time a creature in the area regains HP from a healing vitality effect, the aura grants a +5 status bonus to the healing; **Woody Toughness** You gain 40 temporary Hit Points when you choose this form instead of 30; **Melee** branch (reach 25 feet), **Damage** 3d10+18 bludgeoning; **Ranged** seed (range increment 40 feet), **Damage** 4d8+6 bludgeoning. The wood Strike is Strength based.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,386 +84,415 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "spell_list": "elemental",
-        "cast": "somatic, verbal",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "elemental",
+                "access_type": "spell_list",
+                "link": {
+                    "type": "link",
+                    "name": "elemental",
+                    "alt": "elemental",
+                    "href": "Spells.aspx?Tradition=5"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "elemental",
+                "alt": "elemental",
+                "game-obj": "Traits",
+                "aonid": 57
+            },
+            {
+                "type": "link",
+                "name": "Darkvision",
+                "alt": "Darkvision",
+                "game-obj": "Rules",
+                "aonid": 415
+            },
+            {
+                "type": "link",
+                "name": "enfeebled",
+                "alt": "enfeebled",
+                "game-obj": "Conditions",
+                "aonid": 13
+            },
+            {
+                "type": "link",
+                "name": "clumsy",
+                "alt": "clumsy",
+                "game-obj": "Conditions",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "unarmed",
+                "alt": "unarmed",
+                "game-obj": "Traits",
+                "aonid": 199
+            },
+            {
+                "type": "link",
+                "name": "Acrobatics",
+                "alt": "Acrobatics",
+                "game-obj": "Skills",
+                "aonid": 1
+            },
+            {
+                "type": "link",
+                "name": "Athletics",
+                "alt": "Athletics",
+                "game-obj": "Skills",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "air",
+                "alt": "air",
+                "game-obj": "Traits",
+                "aonid": 5
+            },
+            {
+                "type": "link",
+                "name": "aura",
+                "alt": "aura",
+                "game-obj": "Traits",
+                "aonid": 206
+            },
+            {
+                "type": "link",
+                "name": "air",
+                "alt": "air",
+                "game-obj": "Traits",
+                "aonid": 5
+            },
+            {
+                "type": "link",
+                "name": "Push",
+                "alt": "Push",
+                "game-obj": "MonsterAbilities",
+                "aonid": 25
+            },
+            {
+                "type": "link",
+                "name": "range increment 80 feet",
+                "alt": "range increment 80 feet",
+                "game-obj": "Traits",
+                "aonid": 248
+            },
+            {
+                "type": "link",
+                "name": "aura",
+                "alt": "aura",
+                "game-obj": "Traits",
+                "aonid": 206
+            },
+            {
+                "type": "link",
+                "name": "earth",
+                "alt": "earth",
+                "game-obj": "Traits",
+                "aonid": 55
+            },
+            {
+                "type": "link",
+                "name": "earth",
+                "alt": "earth",
+                "game-obj": "Traits",
+                "aonid": 55
+            },
+            {
+                "type": "link",
+                "name": "reach 25 feet",
+                "alt": "reach 25 feet",
+                "game-obj": "Traits",
+                "aonid": 192
+            },
+            {
+                "type": "link",
+                "name": "range increment 40 feet",
+                "alt": "range increment 40 feet",
+                "game-obj": "Traits",
+                "aonid": 248
+            },
+            {
+                "type": "link",
+                "name": "fire",
+                "alt": "fire",
+                "game-obj": "Traits",
+                "aonid": 72
+            },
+            {
+                "type": "link",
+                "name": "cold",
+                "alt": "cold",
+                "game-obj": "Traits",
+                "aonid": 27
+            },
+            {
+                "type": "link",
+                "name": "aura",
+                "alt": "aura",
+                "game-obj": "Traits",
+                "aonid": 206
+            },
+            {
+                "type": "link",
+                "name": "fire",
+                "alt": "fire",
+                "game-obj": "Traits",
+                "aonid": 72
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "reach 25 feet",
+                "alt": "reach 25 feet",
+                "game-obj": "Traits",
+                "aonid": 192
+            },
+            {
+                "type": "link",
+                "name": "persistent fire",
+                "alt": "persistent fire",
+                "game-obj": "Conditions",
+                "aonid": 29
+            },
+            {
+                "type": "link",
+                "name": "range increment 60 feet",
+                "alt": "range increment 60 feet",
+                "game-obj": "Traits",
+                "aonid": 248
+            },
+            {
+                "type": "link",
+                "name": "fire",
+                "alt": "fire",
+                "game-obj": "Traits",
+                "aonid": 72
+            },
+            {
+                "type": "link",
+                "name": "aura",
+                "alt": "aura",
+                "game-obj": "Traits",
+                "aonid": 206
+            },
+            {
+                "type": "link",
+                "name": "water",
+                "alt": "water",
+                "game-obj": "Traits",
+                "aonid": 165
+            },
+            {
+                "type": "link",
+                "name": "Swimming",
+                "alt": "Swimming",
+                "game-obj": "Actions",
+                "aonid": 39
+            },
+            {
+                "type": "link",
+                "name": "water",
+                "alt": "water",
+                "game-obj": "Traits",
+                "aonid": 165
+            },
+            {
+                "type": "link",
+                "name": "reach 25 feet",
+                "alt": "reach 25 feet",
+                "game-obj": "Traits",
+                "aonid": 192
+            },
+            {
+                "type": "link",
+                "name": "Push",
+                "alt": "Push",
+                "game-obj": "MonsterAbilities",
+                "aonid": 25
+            },
+            {
+                "type": "link",
+                "name": "range increment 60 feet",
+                "alt": "range increment 60 feet",
+                "game-obj": "Traits",
+                "aonid": 248
+            },
+            {
+                "type": "link",
+                "name": "aura",
+                "alt": "aura",
+                "game-obj": "Traits",
+                "aonid": 206
+            },
+            {
+                "type": "link",
+                "name": "electricity",
+                "alt": "electricity",
+                "game-obj": "Traits",
+                "aonid": 56
+            },
+            {
+                "type": "link",
+                "name": "metal",
+                "alt": "metal",
+                "game-obj": "Traits",
+                "aonid": 505
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "metal",
+                "alt": "metal",
+                "game-obj": "Traits",
+                "aonid": 505
+            },
+            {
+                "type": "link",
+                "name": "reach 25 feet",
+                "alt": "reach 25 feet",
+                "game-obj": "Traits",
+                "aonid": 192
+            },
+            {
+                "type": "link",
+                "name": "versatile slashing",
+                "alt": "versatile slashing",
+                "game-obj": "Traits",
+                "aonid": 200
+            },
+            {
+                "type": "link",
+                "name": "range increment 40 feet",
+                "alt": "range increment 40 feet",
+                "game-obj": "Traits",
+                "aonid": 248
+            },
+            {
+                "type": "link",
+                "name": "versatile slashing",
+                "alt": "versatile slashing",
+                "game-obj": "Traits",
+                "aonid": 200
+            },
+            {
+                "type": "link",
+                "name": "axes",
+                "alt": "axes",
+                "game-obj": "WeaponGroups",
+                "aonid": 1
+            },
+            {
+                "type": "link",
+                "name": "aura",
+                "alt": "aura",
+                "game-obj": "Traits",
+                "aonid": 206
+            },
+            {
+                "type": "link",
+                "name": "wood",
+                "alt": "wood",
+                "game-obj": "Traits",
+                "aonid": 508
+            },
+            {
+                "type": "link",
+                "name": "healing",
+                "alt": "healing",
+                "game-obj": "Traits",
+                "aonid": 89
+            },
+            {
+                "type": "link",
+                "name": "vitality",
+                "alt": "vitality",
+                "game-obj": "Traits",
+                "aonid": 509
+            },
+            {
+                "type": "link",
+                "name": "reach 25 feet",
+                "alt": "reach 25 feet",
+                "game-obj": "Traits",
+                "aonid": 192
+            },
+            {
+                "type": "link",
+                "name": "range increment 40 feet",
+                "alt": "range increment 40 feet",
+                "game-obj": "Traits",
+                "aonid": 248
+            }
+        ]
     },
     "game-id": "56c29a6b12c9b57a49867fe06df2551b",
-    "spell_type": "spell",
-    "rank": 10,
-    "text": "Drawing upon the deepest wells of magic in an elemental plane, you transform into a spectacular elemental. You can choose between an air elemental, earth elemental, fire elemental, or water elemental. Your battle form is Gargantuan, and you must have enough space to expand into or the spell is lost. While in this form, you gain the elemental trait and the trait for the element you choose. You can Dismiss the spell.  \n  \n You gain the following statistics and abilities regardless of which battle form you choose: \n* AC = 25 + your level. Ignore your armor's check penalty and Speed reduction.\n* 30 temporary Hit Points.\n* Darkvision.\n* One or more attacks specific to the battle form you choose, which are the only attacks you can Strike with. You're trained with them. Your attack modifier is +34, and you use the listed damage. These attacks are Dexterity based if you choose an air or fire elemental, or Strength based if you choose an earth or water elemental. (This distinction doesn't change the statistics, but matters for the enfeebled and clumsy conditions, for example). If your unarmed attack modifier is higher, you can use it instead.\n* Acrobatics modifier of +36 for air or fire elemental or Athletics modifier of +36 for earth or water elemental, unless your own modifier is higher.\n You also gain specific abilities based on the type of elemental you choose:Secrets of Magic\n* **Air Elemental** fly Speed 80 feet; **High Winds** (air, aura) 30 feet. Air within the emanation is difficult terrain for flying creatures that don't have the air trait; **Swiftness** Your movement doesn't trigger reactions; **Melee** gust (reach 25 feet), **Damage** 3d12+11 bludgeoning plus Push 10 feet; **Ranged** lightning lash (range increment 80 feet), **Damage** 3d12+4 electricity.\n* **Earth Elemental** 30 feet, burrow 20 feet; resistance 5 to physical; **Spike Stones** (aura, earth) 30 feet. The area is difficult terrain and hazardous terrain. A creature without the earth trait that moves on the ground in the area takes 5 piercing damage for every square of that area it moves into; **Rocky Toughness** You gain 40 temporary Hit Points when you choose this form instead of 30; **Melee** fist (reach 25 feet), **Damage** 3d12+15 bludgeoning; **Ranged** rock (range increment 40 feet), **Damage** 4d8+6 bludgeoning.\n* **Fire Elemental** 50 feet; immunity to fire; weakness to cold 10; **Intense Heat** (aura, fire) 30 feet. A creature that enters the aura or starts its turn in the aura takes 5d6 fire damage with a basic Reflex save against your spell DC. A creature can take damage from the aura only once per round; **Melee** tendril (reach 25 feet), **Damage** 3d10+12 fire plus 2d6 persistent fire; **Ranged** fire mote (range increment 60 feet), **Damage** 4d8+6 fire.\n* **Water Elemental** 40 feet, swim 80 feet; resistance 10 to fire; **Vortex** (aura, water) 30 feet. Water within the aura that is part of the same body of water you occupy is difficult terrain for Swimming creatures that don't have the water trait; **Melee** wave (reach 25 feet), **Damage** 3d12+18 bludgeoning plus Push or Pull 10 feet; **Ranged** water spout (range increment 60 feet), **Damage** 4d8+6 bludgeoning.\nRage of Elements\n* **Metal Elemental** 40 feet, fly 40 feet; resistance 10 to electricity; **Arcing Electricity** (aura, electricity, metal) 30 feet. A creature that enters the aura or starts its turn in the aura takes 2d12 electricity damage with a basic Reflex save against your spell DC; a creature made of metal, with the metal trait, or wearing metal armor takes a \u20131 circumstance penalty on this save. A creature can take damage from the aura only once per round; **Melee** blade (reach 25 feet, versatile slashing), **Damage** 3d12+15 piercing; **Ranged** metal shard (range increment 40 feet, versatile slashing), **Damage** 4d8+6 piercing. The metal Strike is Dexterity based.\n* **Wood Elemental** 30 feet, climb 35 feet; resistance 5 to physical; weakness to axes 10; **Lush Growth** (aura, wood) 30 feet. Ground in the area is difficult terrain, and any time a creature in the area regains HP from a healing vitality effect, the aura grants a +5 status bonus to the healing; **Woody Toughness** You gain 40 temporary Hit Points when you choose this form instead of 30; **Melee** branch (reach 25 feet), **Damage** 3d10+18 bludgeoning; **Ranged** seed (range increment 40 feet), **Damage** 4d8+6 bludgeoning. The wood Strike is Strength based.",
-    "links": [
-        {
-            "type": "link",
-            "name": "elemental",
-            "alt": "elemental",
-            "game-obj": "Traits",
-            "aonid": 57
-        },
-        {
-            "type": "link",
-            "name": "Darkvision",
-            "alt": "Darkvision",
-            "game-obj": "Rules",
-            "aonid": 415
-        },
-        {
-            "type": "link",
-            "name": "enfeebled",
-            "alt": "enfeebled",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "clumsy",
-            "alt": "clumsy",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "unarmed",
-            "alt": "unarmed",
-            "game-obj": "Traits",
-            "aonid": 199
-        },
-        {
-            "type": "link",
-            "name": "Acrobatics",
-            "alt": "Acrobatics",
-            "game-obj": "Skills",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "Athletics",
-            "alt": "Athletics",
-            "game-obj": "Skills",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "air",
-            "alt": "air",
-            "game-obj": "Traits",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "aura",
-            "alt": "aura",
-            "game-obj": "Traits",
-            "aonid": 206
-        },
-        {
-            "type": "link",
-            "name": "air",
-            "alt": "air",
-            "game-obj": "Traits",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "Push",
-            "alt": "Push",
-            "game-obj": "MonsterAbilities",
-            "aonid": 25
-        },
-        {
-            "type": "link",
-            "name": "range increment 80 feet",
-            "alt": "range increment 80 feet",
-            "game-obj": "Traits",
-            "aonid": 248
-        },
-        {
-            "type": "link",
-            "name": "aura",
-            "alt": "aura",
-            "game-obj": "Traits",
-            "aonid": 206
-        },
-        {
-            "type": "link",
-            "name": "earth",
-            "alt": "earth",
-            "game-obj": "Traits",
-            "aonid": 55
-        },
-        {
-            "type": "link",
-            "name": "earth",
-            "alt": "earth",
-            "game-obj": "Traits",
-            "aonid": 55
-        },
-        {
-            "type": "link",
-            "name": "reach 25 feet",
-            "alt": "reach 25 feet",
-            "game-obj": "Traits",
-            "aonid": 192
-        },
-        {
-            "type": "link",
-            "name": "range increment 40 feet",
-            "alt": "range increment 40 feet",
-            "game-obj": "Traits",
-            "aonid": 248
-        },
-        {
-            "type": "link",
-            "name": "fire",
-            "alt": "fire",
-            "game-obj": "Traits",
-            "aonid": 72
-        },
-        {
-            "type": "link",
-            "name": "cold",
-            "alt": "cold",
-            "game-obj": "Traits",
-            "aonid": 27
-        },
-        {
-            "type": "link",
-            "name": "aura",
-            "alt": "aura",
-            "game-obj": "Traits",
-            "aonid": 206
-        },
-        {
-            "type": "link",
-            "name": "fire",
-            "alt": "fire",
-            "game-obj": "Traits",
-            "aonid": 72
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "reach 25 feet",
-            "alt": "reach 25 feet",
-            "game-obj": "Traits",
-            "aonid": 192
-        },
-        {
-            "type": "link",
-            "name": "persistent fire",
-            "alt": "persistent fire",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "range increment 60 feet",
-            "alt": "range increment 60 feet",
-            "game-obj": "Traits",
-            "aonid": 248
-        },
-        {
-            "type": "link",
-            "name": "fire",
-            "alt": "fire",
-            "game-obj": "Traits",
-            "aonid": 72
-        },
-        {
-            "type": "link",
-            "name": "aura",
-            "alt": "aura",
-            "game-obj": "Traits",
-            "aonid": 206
-        },
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Traits",
-            "aonid": 165
-        },
-        {
-            "type": "link",
-            "name": "Swimming",
-            "alt": "Swimming",
-            "game-obj": "Actions",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Traits",
-            "aonid": 165
-        },
-        {
-            "type": "link",
-            "name": "reach 25 feet",
-            "alt": "reach 25 feet",
-            "game-obj": "Traits",
-            "aonid": 192
-        },
-        {
-            "type": "link",
-            "name": "Push",
-            "alt": "Push",
-            "game-obj": "MonsterAbilities",
-            "aonid": 25
-        },
-        {
-            "type": "link",
-            "name": "range increment 60 feet",
-            "alt": "range increment 60 feet",
-            "game-obj": "Traits",
-            "aonid": 248
-        },
-        {
-            "type": "link",
-            "name": "aura",
-            "alt": "aura",
-            "game-obj": "Traits",
-            "aonid": 206
-        },
-        {
-            "type": "link",
-            "name": "electricity",
-            "alt": "electricity",
-            "game-obj": "Traits",
-            "aonid": 56
-        },
-        {
-            "type": "link",
-            "name": "metal",
-            "alt": "metal",
-            "game-obj": "Traits",
-            "aonid": 505
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "metal",
-            "alt": "metal",
-            "game-obj": "Traits",
-            "aonid": 505
-        },
-        {
-            "type": "link",
-            "name": "reach 25 feet",
-            "alt": "reach 25 feet",
-            "game-obj": "Traits",
-            "aonid": 192
-        },
-        {
-            "type": "link",
-            "name": "versatile slashing",
-            "alt": "versatile slashing",
-            "game-obj": "Traits",
-            "aonid": 200
-        },
-        {
-            "type": "link",
-            "name": "range increment 40 feet",
-            "alt": "range increment 40 feet",
-            "game-obj": "Traits",
-            "aonid": 248
-        },
-        {
-            "type": "link",
-            "name": "versatile slashing",
-            "alt": "versatile slashing",
-            "game-obj": "Traits",
-            "aonid": 200
-        },
-        {
-            "type": "link",
-            "name": "axes",
-            "alt": "axes",
-            "game-obj": "WeaponGroups",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "aura",
-            "alt": "aura",
-            "game-obj": "Traits",
-            "aonid": 206
-        },
-        {
-            "type": "link",
-            "name": "wood",
-            "alt": "wood",
-            "game-obj": "Traits",
-            "aonid": 508
-        },
-        {
-            "type": "link",
-            "name": "healing",
-            "alt": "healing",
-            "game-obj": "Traits",
-            "aonid": 89
-        },
-        {
-            "type": "link",
-            "name": "vitality",
-            "alt": "vitality",
-            "game-obj": "Traits",
-            "aonid": 509
-        },
-        {
-            "type": "link",
-            "name": "reach 25 feet",
-            "alt": "reach 25 feet",
-            "game-obj": "Traits",
-            "aonid": 192
-        },
-        {
-            "type": "link",
-            "name": "range increment 40 feet",
-            "alt": "range increment 40 feet",
-            "game-obj": "Traits",
-            "aonid": 248
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "elemental",
-            "alt": "elemental",
-            "href": "Spells.aspx?Tradition=5"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -481,5 +508,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

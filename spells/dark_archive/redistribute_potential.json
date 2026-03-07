@@ -40,12 +40,10 @@
     "spell": {
         "name": "Redistribute Potential",
         "type": "stat_block_section",
+        "text": "Energy attempts to balance out, but with your magic, you can shunt all the energy in one area to another. Creatures in either area take 4d4 damage with a basic Fortitude save. Choose one of the squares to steal heat, dealing cold damage, and the other to concentrate the stolen heat, dealing fire damage. A creature that fails its save also becomes clumsy 1 from numbness if it's in the area of stolen heat or enfeebled 1 from heat stroke if it's in the area of concentrated heat; these conditions last until the start of your next turn. If a creature is large enough to be in both squares, you choose only one of the areas for it to attempt its save against; it's unaffected by the other area.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,10 +118,8 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "area": "2 adjacent 5-foot squares",
-        "saving_throw": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -138,49 +134,75 @@
                 "increment": 1,
                 "text": "Increase the damage by 2d6 instead of 1d4."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "clumsy 1",
+                "alt": "clumsy 1",
+                "game-obj": "Conditions",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "enfeebled 1",
+                "alt": "enfeebled 1",
+                "game-obj": "Conditions",
+                "aonid": 13
+            }
         ]
     },
     "game-id": "5918f278b6a8fe086e4bfc3a29767156",
-    "spell_type": "cantrip",
-    "rank": 5,
-    "text": "Energy attempts to balance out, but with your magic, you can shunt all the energy in one area to another. Creatures in either area take 4d4 damage with a basic Fortitude save. Choose one of the squares to steal heat, dealing cold damage, and the other to concentrate the stolen heat, dealing fire damage. A creature that fails its save also becomes clumsy 1 from numbness if it's in the area of stolen heat or enfeebled 1 from heat stroke if it's in the area of concentrated heat; these conditions last until the start of your next turn. If a creature is large enough to be in both squares, you choose only one of the areas for it to attempt its save against; it's unaffected by the other area.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -196,5 +218,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

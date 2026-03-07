@@ -40,7 +40,10 @@
     "spell": {
         "name": "Time Pocket",
         "type": "stat_block_section",
+        "text": "You fling the target item forward in time and link it to the future of the creature holding it. The item disappears. When the spell ends, the item reappears with the creature that was holding it when you Cast the Spell. If the creature has enough hands free to hold the item, it appears in their hands. Otherwise, it falls to the ground in the creature's space.   \n  \nYou can Dismiss the spell, and it automatically ends if you're reduced to 0 Hit Points or cast *time pocket* again.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -55,67 +58,106 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Esoteric Order Of The Palatine Eye",
-        "mystery": "time",
-        "cast": "1 minute (material, somatic, verbal)",
         "range": "touch",
         "targets": "one item of 1 Bulk or less that a willing creature is holding",
-        "duration": "until the next time you make your daily preparations"
+        "duration": "until the next time you make your daily preparations",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Esoteric Order Of The Palatine Eye",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Esoteric Order Of The Palatine Eye",
+                    "alt": "Esoteric Order Of The Palatine Eye",
+                    "game-obj": "Deities",
+                    "aonid": 362
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "time",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "time",
+                    "alt": "time",
+                    "game-obj": "Mysteries",
+                    "aonid": 22
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "1 minute",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "e34f49889c1b89bcec3ef1df31551dcd",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You fling the target item forward in time and link it to the future of the creature holding it. The item disappears. When the spell ends, the item reappears with the creature that was holding it when you Cast the Spell. If the creature has enough hands free to hold the item, it appears in their hands. Otherwise, it falls to the ground in the creature's space.   \n  \nYou can Dismiss the spell, and it automatically ends if you're reduced to 0 Hit Points or cast *time pocket* again.",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Esoteric Order Of The Palatine Eye",
-            "alt": "Esoteric Order Of The Palatine Eye",
-            "game-obj": "Deities",
-            "aonid": 362
-        },
-        {
-            "type": "link",
-            "name": "time",
-            "alt": "time",
-            "game-obj": "Mysteries",
-            "aonid": 22
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -131,5 +173,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

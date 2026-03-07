@@ -40,12 +40,10 @@
     "spell": {
         "name": "Radiant Beam",
         "type": "stat_block_section",
+        "text": "You fire a beam of blinding light from your outstretched hands. The beam deals 5d10 good damage. On a failed saving throw, a creature becomes dazzled for 1 round, or dazzled for 4 rounds on a critical failure.  \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, radiant beam attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the target.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -97,10 +95,7 @@
             }
         ],
         "access": "Knights of Lastwall have access to this spell.",
-        "traditions": "divine, primal",
-        "cast": "somatic, verbal",
         "area": "120-foot line",
-        "saving_throw": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -108,68 +103,108 @@
                 "increment": 1,
                 "text": "The damage increases by 1d10."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dazzled",
+                "alt": "dazzled",
+                "game-obj": "Conditions",
+                "aonid": 7
+            },
+            {
+                "type": "link",
+                "name": "darkness",
+                "alt": "darkness",
+                "game-obj": "Traits",
+                "aonid": 39
+            },
+            {
+                "type": "link",
+                "name": "counteract",
+                "alt": "counteract",
+                "game-obj": "Rules",
+                "aonid": 371
+            }
         ]
     },
     "game-id": "52d5d707258991614847dc6546c92651",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You fire a beam of blinding light from your outstretched hands. The beam deals 5d10 good damage. On a failed saving throw, a creature becomes dazzled for 1 round, or dazzled for 4 rounds on a critical failure.  \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, radiant beam attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the target.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 7
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Traits",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -185,5 +220,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

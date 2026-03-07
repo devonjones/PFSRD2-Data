@@ -54,12 +54,10 @@
     "spell": {
         "name": "Lament",
         "type": "stat_block_section",
+        "text": "You let out your negative emotions in a guttural wail that shakes your enemies\u2019 hearts and deals 1d8 mental damage (basic Will save). If you have any harmful conditions imposed by emotion effects, *lament* deals additional mental damage equal to the counteract level of the highest-level effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,11 +108,8 @@
                 }
             }
         ],
-        "domain": "sorrow",
-        "cast": "somatic, verbal",
         "range": "30-foot cone",
         "targets": "1 or more creatures",
-        "saving_throw": "basic Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -122,49 +117,83 @@
                 "increment": 1,
                 "text": "The damage increases by 1d8."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "sorrow",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "sorrow",
+                    "alt": "sorrow",
+                    "game-obj": "Domains",
+                    "aonid": 50
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "emotion",
+                "alt": "emotion",
+                "game-obj": "Traits",
+                "aonid": 60
+            }
         ]
     },
     "game-id": "12edb80e079c81076d62d131bf1432b5",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You let out your negative emotions in a guttural wail that shakes your enemies\u2019 hearts and deals 1d8 mental damage (basic Will save). If you have any harmful conditions imposed by emotion effects, *lament* deals additional mental damage equal to the counteract level of the highest-level effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "emotion",
-            "alt": "emotion",
-            "game-obj": "Traits",
-            "aonid": 60
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "sorrow",
-            "alt": "sorrow",
-            "game-obj": "Domains",
-            "aonid": 50
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -180,5 +209,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

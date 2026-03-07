@@ -54,12 +54,10 @@
     "spell": {
         "name": "Cutting Insult",
         "type": "stat_block_section",
+        "text": "You utter an insult so offensive that it cuts your target to the quick. Your target takes 4d6 mental damage and 1 persistent bleed damage and must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -147,11 +145,8 @@
             }
         ],
         "access": "Second-mark members of the Firebrands have access to this spell.",
-        "traditions": "occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -160,44 +155,75 @@
                 "text": "The mental damage increases by 4d6, and the bleed damage increases by 1."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half mental damage but no persistent bleed damage, and it becomes frightened 1.",
-        "failure": "The creature takes full mental damage and full persistent bleed damage, and it becomes frightened 2.",
-        "critical_failure": "The creature takes double mental damage and double persistent bleed damage, and becomes frightened 3."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half mental damage but no persistent bleed damage, and it becomes frightened 1.",
+            "failure": "The creature takes full mental damage and full persistent bleed damage, and it becomes frightened 2.",
+            "critical_failure": "The creature takes double mental damage and double persistent bleed damage, and becomes frightened 3."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "40c0e3607487d7acd3e0ed135687fdb4",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You utter an insult so offensive that it cuts your target to the quick. Your target takes 4d6 mental damage and 1 persistent bleed damage and must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -213,5 +239,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

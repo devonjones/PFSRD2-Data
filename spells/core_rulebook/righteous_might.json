@@ -54,12 +54,10 @@
     "spell": {
         "name": "Righteous Might",
         "type": "stat_block_section",
+        "text": "You focus all your divine energy and transform yourself into a Medium battle form, similar to your normal form but armed with powerful divine armaments granted by your deity. While in this form, you gain the statistics and abilities listed below. You have hands in this battle form and can use manipulate actions. You can Dismiss the spell.  \n  \n You gain the following statistics and abilities: \n* AC = 20 + your level. Ignore your armor's check penalty and Speed reduction.\n* 10 temporary Hit Points.\n* Speed 40 feet.\n* Resistance 3 against physical damage.\n* Darkvision.\n* A special attack with a righteous armament version of your favored weapon, which is the only attack you can use. Your attack modifier with the special weapon is +21, and your damage bonus is +8 (or +6 for a ranged attack). If your attack modifier with your deity's favored weapon is higher, you can use it instead. You deal three of your weapon's normal damage dice, or three damage dice of one size larger if your weapon is a simple weapon with a d4 or d6 damage die. The weapon has one of the following properties that matches your deity's alignment: *anarchic*, *axiomatic*, *holy*, *unholy*. If your deity is true neutral, you instead deal an extra 1d6 precision damage.\n* Athletics modifier of +23, unless your own modifier is higher.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,8 +84,6 @@
                 }
             }
         ],
-        "traditions": "divine",
-        "cast": "somatic, verbal",
         "requirement": "You have a deity.",
         "duration": "1 minute",
         "heightened": [
@@ -97,34 +93,58 @@
                 "level": 8,
                 "text": "Your battle form is Large, and your attacks have 10-foot reach, or 15-foot reach if your deity's favored weapon has reach. You must have enough space to expand into or the spell is lost. You instead gain AC = 21 + your level, 15 temporary HP, resistance 4 against physical damage, attack modifier +28, damage bonus +15 (+12 for a ranged attack), and Athletics +29."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "b173d26cfe9acba9de2524efbe0e217d",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You focus all your divine energy and transform yourself into a Medium battle form, similar to your normal form but armed with powerful divine armaments granted by your deity. While in this form, you gain the statistics and abilities listed below. You have hands in this battle form and can use manipulate actions. You can Dismiss the spell.  \n  \n You gain the following statistics and abilities: \n* AC = 20 + your level. Ignore your armor's check penalty and Speed reduction.\n* 10 temporary Hit Points.\n* Speed 40 feet.\n* Resistance 3 against physical damage.\n* Darkvision.\n* A special attack with a righteous armament version of your favored weapon, which is the only attack you can use. Your attack modifier with the special weapon is +21, and your damage bonus is +8 (or +6 for a ranged attack). If your attack modifier with your deity's favored weapon is higher, you can use it instead. You deal three of your weapon's normal damage dice, or three damage dice of one size larger if your weapon is a simple weapon with a d4 or d6 damage die. The weapon has one of the following properties that matches your deity's alignment: *anarchic*, *axiomatic*, *holy*, *unholy*. If your deity is true neutral, you instead deal an extra 1d6 precision damage.\n* Athletics modifier of +23, unless your own modifier is higher.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -140,5 +160,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

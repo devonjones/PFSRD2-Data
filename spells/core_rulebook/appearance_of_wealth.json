@@ -54,12 +54,10 @@
     "spell": {
         "name": "Appearance of Wealth",
         "type": "stat_block_section",
+        "text": "You create a brief vision of immense wealth filling the spell's area. Each creature within 20 feet of the area that could be enticed by material wealth must attempt a Will saving throw. A creature that enters the area automatically disbelieves the illusion, and disbelieving the illusion ends any fascinated condition imposed by the spell. As long as you Sustain the Spell, other creatures react to the treasure like they would any other illusion, but they are not at risk of becoming fascinated.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,43 +96,69 @@
                 }
             }
         ],
-        "domain": "wealth",
-        "cast": "material, verbal",
         "range": "30 feet",
         "area": "5-foot burst",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The creature disbelieves the illusion and is unaffected by it.",
-        "success": "The creature is fascinated by the wealth until it has completed its first action on its next turn.",
-        "failure": "The creature is fascinated by the illusion."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "wealth",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "wealth",
+                    "alt": "wealth",
+                    "game-obj": "Domains",
+                    "aonid": 36
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature disbelieves the illusion and is unaffected by it.",
+            "success": "The creature is fascinated by the wealth until it has completed its first action on its next turn.",
+            "failure": "The creature is fascinated by the illusion."
+        }
     },
     "game-id": "91c2a41b18eaaed129e48e2c62d82d8f",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You create a brief vision of immense wealth filling the spell's area. Each creature within 20 feet of the area that could be enticed by material wealth must attempt a Will saving throw. A creature that enters the area automatically disbelieves the illusion, and disbelieving the illusion ends any fascinated condition imposed by the spell. As long as you Sustain the Spell, other creatures react to the treasure like they would any other illusion, but they are not at risk of becoming fascinated.",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "wealth",
-            "alt": "wealth",
-            "game-obj": "Domains",
-            "aonid": 36
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -150,5 +174,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

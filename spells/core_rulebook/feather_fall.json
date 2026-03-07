@@ -54,12 +54,10 @@
     "spell": {
         "name": "Feather Fall",
         "type": "stat_block_section",
+        "text": "You cause the air itself to arrest a fall. The target's fall slows to 60 feet per round, and the portion of the fall during the spell's duration doesn't count when calculating falling damage. If the target reaches the ground while the spell is in effect, it takes no damage from the fall. The spell ends as soon as the target lands.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,60 +72,100 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Adanye, Ma'at, Ylimancha",
-        "cast": "verbal",
         "trigger": "a creature within range is falling",
         "range": "60 feet",
         "targets": "1 falling creature",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Adanye",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Adanye",
+                    "alt": "Adanye",
+                    "game-obj": "Deities",
+                    "aonid": 223
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ma'at",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ma'at",
+                    "alt": "Ma'at",
+                    "game-obj": "Deities",
+                    "aonid": 55
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ylimancha",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ylimancha",
+                    "alt": "Ylimancha",
+                    "game-obj": "Deities",
+                    "aonid": 132
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "d2cd0b3aa550c2415d305c8893ea114c",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You cause the air itself to arrest a fall. The target's fall slows to 60 feet per round, and the portion of the fall during the spell's duration doesn't count when calculating falling damage. If the target reaches the ground while the spell is in effect, it takes no damage from the fall. The spell ends as soon as the target lands.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Adanye",
-            "alt": "Adanye",
-            "game-obj": "Deities",
-            "aonid": 223
-        },
-        {
-            "type": "link",
-            "name": "Ma'at",
-            "alt": "Ma'at",
-            "game-obj": "Deities",
-            "aonid": 55
-        },
-        {
-            "type": "link",
-            "name": "Ylimancha",
-            "alt": "Ylimancha",
-            "game-obj": "Deities",
-            "aonid": 132
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -143,5 +181,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

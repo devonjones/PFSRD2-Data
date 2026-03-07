@@ -27,12 +27,10 @@
     "spell": {
         "name": "Powerful Inhalation",
         "type": "stat_block_section",
+        "text": "You rapidly draw the air from your surroundings, hoarding it for yourself. Creatures in the area when the spell is cast take 5d6 bludgeoning damage with a basic Fortitude save. A creature that fails its save can't speak above a raspy whisper for 1 round. A creature that critically fails can't speak or use abilities that require it to breathe for 1 round. This prevents it from using effects that require speech and from using a breath weapon or similar ability.  \n  \n Creatures made of air (such as air elementals) attempting a save against this spell get a degree of success one worse than they rolled.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,7 +106,6 @@
             }
         ],
         "area": "10-foot emanation",
-        "defense": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -116,35 +113,49 @@
                 "increment": 1,
                 "text": "Increase the damage by 2d6."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "breathe",
+                "alt": "breathe",
+                "game-obj": "Rules",
+                "aonid": 468
+            },
+            {
+                "type": "link",
+                "name": "air elementals",
+                "alt": "air elementals",
+                "game-obj": "MonsterFamilies",
+                "aonid": 41
+            }
         ]
     },
     "game-id": "04083dbbac7556242e31d0a6756b9b4d",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You rapidly draw the air from your surroundings, hoarding it for yourself. Creatures in the area when the spell is cast take 5d6 bludgeoning damage with a basic Fortitude save. A creature that fails its save can't speak above a raspy whisper for 1 round. A creature that critically fails can't speak or use abilities that require it to breathe for 1 round. This prevents it from using effects that require speech and from using a breath weapon or similar ability.  \n  \n Creatures made of air (such as air elementals) attempting a save against this spell get a degree of success one worse than they rolled.",
-    "links": [
-        {
-            "type": "link",
-            "name": "breathe",
-            "alt": "breathe",
-            "game-obj": "Rules",
-            "aonid": 468
-        },
-        {
-            "type": "link",
-            "name": "air elementals",
-            "alt": "air elementals",
-            "game-obj": "MonsterFamilies",
-            "aonid": 41
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -189,5 +200,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

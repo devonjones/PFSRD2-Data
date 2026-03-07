@@ -27,12 +27,10 @@
     "spell": {
         "name": "Moonbeam",
         "type": "stat_block_section",
+        "text": "You shine a ray of moonlight. Make a spell attack roll. The beam of light deals 2d6 fire damage. This is silver damage for the purposes of weaknesses, resistances, and the like.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -131,10 +129,8 @@
                 }
             }
         ],
-        "domain": "moon",
         "range": "120 feet",
         "targets": "1 creature",
-        "defense": "AC",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -143,36 +139,57 @@
                 "text": "The ray's damage increases by 1d6."
             }
         ],
-        "critical_success": "The beam deals double damage, and the target is dazzled for 1 minute.",
-        "success": "The beam deals full damage, and the target is dazzled for 1 round."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "moon",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "moon",
+                    "alt": "moon",
+                    "game-obj": "Domains",
+                    "aonid": 84
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "text": "AC",
+            "critical_success": "The beam deals double damage, and the target is dazzled for 1 minute.",
+            "success": "The beam deals full damage, and the target is dazzled for 1 round.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "dazzled",
+                    "alt": "dazzled",
+                    "game-obj": "Conditions",
+                    "aonid": 7
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "silver",
+                "alt": "silver",
+                "game-obj": "Equipment",
+                "aonid": 379
+            }
+        ]
     },
     "game-id": "e1eed58e877dadf177c4ac3cb7c27d75",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You shine a ray of moonlight. Make a spell attack roll. The beam of light deals 2d6 fire damage. This is silver damage for the purposes of weaknesses, resistances, and the like.",
-    "links": [
-        {
-            "type": "link",
-            "name": "silver",
-            "alt": "silver",
-            "game-obj": "Equipment",
-            "aonid": 379
-        },
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 7
-        },
-        {
-            "type": "link",
-            "name": "moon",
-            "alt": "moon",
-            "game-obj": "Domains",
-            "aonid": 84
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -217,5 +234,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

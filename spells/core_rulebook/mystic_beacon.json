@@ -54,12 +54,10 @@
     "spell": {
         "name": "Mystic Beacon",
         "type": "stat_block_section",
+        "text": "The next damaging or healing spell the target casts before the start of your next turn deals damage or restores Hit Points as if the spell were heightened 1 level higher than its actual level. The spell otherwise functions at its actual level. Once the target casts the spell, *mystic beacon* ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,32 +96,49 @@
                 }
             }
         ],
-        "domain": "magic",
-        "cast": "somatic",
         "range": "30 feet",
         "targets": "1 willing creature",
-        "duration": "until the start of your next turn"
+        "duration": "until the start of your next turn",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "magic",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "magic",
+                    "alt": "magic",
+                    "game-obj": "Domains",
+                    "aonid": 19
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "18630245f3d2906377439b3a6bdae70c",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "The next damaging or healing spell the target casts before the start of your next turn deals damage or restores Hit Points as if the spell were heightened 1 level higher than its actual level. The spell otherwise functions at its actual level. Once the target casts the spell, *mystic beacon* ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "magic",
-            "alt": "magic",
-            "game-obj": "Domains",
-            "aonid": 19
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -139,5 +154,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

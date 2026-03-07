@@ -27,12 +27,10 @@
     "spell": {
         "name": "Whirling Flames",
         "type": "stat_block_section",
+        "text": "You call forth a storm of whirling flames, engulfing all creatures in that area and dealing 5d6 fire damage with a basic Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,10 +93,8 @@
                 }
             }
         ],
-        "mystery": "flames",
         "range": "30 feet",
         "area": "up to two 5-foot bursts that don\u2019t overlap",
-        "defense": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -106,35 +102,57 @@
                 "increment": 2,
                 "text": "The damage increases by 3d6, and you can add another nonoverlapping 5-foot burst to the area."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "flames",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "flames",
+                    "alt": "flames",
+                    "game-obj": "Mysteries",
+                    "aonid": 16
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            }
         ]
     },
     "game-id": "11957e1aaf1eadd1ee2dc4a3bd8f3263",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You call forth a storm of whirling flames, engulfing all creatures in that area and dealing 5d6 fire damage with a basic Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "flames",
-            "alt": "flames",
-            "game-obj": "Mysteries",
-            "aonid": 16
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -179,5 +197,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Forge",
         "type": "stat_block_section",
+        "text": "Developed before the introduction of the Iron Lagoon, this cantrip for superheating metal has also found valuable combat use. You superheat the target, dealing 3d6 fire damage. If the target is a metal object, reduce its Hardness by an amount equal to the damage dealt until the end of your next turn.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,11 +82,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature or unattended metal object",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -97,43 +92,78 @@
                 "text": "The damage increases by 2d6, and the weakness on a critical failure increases by 2."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage.",
-        "failure": "The target takes full damage.",
-        "critical_failure": "The target takes double damage, and if it's a metal creature, it gains weakness 2 to physical damage until the end of your next turn."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage.",
+            "failure": "The target takes full damage.",
+            "critical_failure": "The target takes double damage, and if it's a metal creature, it gains weakness 2 to physical damage until the end of your next turn."
+        }
     },
     "game-id": "df7688ee21caaad813e9120e4c9b12a8",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "Developed before the introduction of the Iron Lagoon, this cantrip for superheating metal has also found valuable combat use. You superheat the target, dealing 3d6 fire damage. If the target is a metal object, reduce its Hardness by an amount equal to the damage dealt until the end of your next turn.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +179,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

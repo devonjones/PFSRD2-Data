@@ -54,12 +54,10 @@
     "spell": {
         "name": "Fatal Aria",
         "type": "stat_block_section",
+        "text": "You perform music so perfect that the target may die of joy or sorrow. Once targeted, the creature becomes temporarily immune for 1 minute. The effect of the spell depends on the target's level and current Hit Points.   \n  \n**16th or Lower** The target dies instantly.   \n**17th** If the target has 50 Hit Points or fewer, it dies instantly; otherwise, it drops to 0 Hit Points and becomes dying 1.   \n**18th or Higher** The target takes 50 damage. If this brings it to 0 Hit Points, it dies instantly.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -146,23 +144,33 @@
                 }
             }
         ],
-        "cast": "verbal",
         "range": "30 feet",
-        "targets": "1 creature"
+        "targets": "1 creature",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "7ddfe970691bcf17dc82fb9c9c38c7b1",
-    "spell_type": "focus",
-    "rank": 10,
-    "text": "You perform music so perfect that the target may die of joy or sorrow. Once targeted, the creature becomes temporarily immune for 1 minute. The effect of the spell depends on the target's level and current Hit Points.   \n  \n**16th or Lower** The target dies instantly.   \n**17th** If the target has 50 Hit Points or fewer, it dies instantly; otherwise, it drops to 0 Hit Points and becomes dying 1.   \n**18th or Higher** The target takes 50 damage. If this brings it to 0 Hit Points, it dies instantly.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -178,5 +186,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

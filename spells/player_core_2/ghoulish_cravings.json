@@ -27,12 +27,10 @@
     "spell": {
         "name": "Ghoulish Cravings",
         "type": "stat_block_section",
+        "text": "You touch the target to afflict it with the overwhelming desire to eat raw meat. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,41 +81,64 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
         "range": "touch",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is sickened 1 by its unbidden hunger.",
-        "failure": "The target is sickened 2 and can't reduce this condition below sickened 1 until it first consumes some raw meat; if the creature doesn't have access to raw meat, it can take a bite out of a corpse within reach as an Interact action.",
-        "critical_failure": "As failure, but the target can't reduce the condition below sickened 2 until it consumes raw meat."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is sickened 1 by its unbidden hunger.",
+            "failure": "The target is sickened 2 and can't reduce this condition below sickened 1 until it first consumes some raw meat; if the creature doesn't have access to raw meat, it can take a bite out of a corpse within reach as an Interact action.",
+            "critical_failure": "As failure, but the target can't reduce the condition below sickened 2 until it consumes raw meat.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened 1",
+                    "alt": "sickened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 91
+                }
+            ]
+        }
     },
     "game-id": "a53bba1020f72a63518d801432ee57b6",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You touch the target to afflict it with the overwhelming desire to eat raw meat. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened 1",
-            "alt": "sickened 1",
-            "game-obj": "Conditions",
-            "aonid": 91
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -162,5 +183,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

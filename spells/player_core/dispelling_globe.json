@@ -27,12 +27,10 @@
     "spell": {
         "name": "Dispelling Globe",
         "type": "stat_block_section",
+        "text": "You create an immobile globe around yourself. It attempts to counteract any spell from outside the globe whose area or targets enter into it, as if the globe were a *dispel magic* spell 1 rank lower than its actual spell rank. If the counteract attempt succeeds, it prevents only the portion of the spell that would have entered the globe (so if the spell also has targets outside the globe, or part of its area is beyond the globe, those targets or that area are affected normally). You must form the sphere in an unbroken open space, so its edges don't pass through any creatures or objects, or the spell is lost (though creatures can enter the globe after the spell is cast).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,48 +69,73 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
         "area": "10-foot burst centered on one corner of your space",
-        "duration": "10 minutes"
+        "duration": "10 minutes",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "counteract",
+                "alt": "counteract",
+                "game-obj": "Rules",
+                "aonid": 371
+            },
+            {
+                "type": "link",
+                "name": "dispel magic",
+                "alt": "dispel magic",
+                "game-obj": "Spells",
+                "aonid": 78
+            }
+        ]
     },
     "game-id": "ab086b8a80741895f11cb5abe793c676",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You create an immobile globe around yourself. It attempts to counteract any spell from outside the globe whose area or targets enter into it, as if the globe were a *dispel magic* spell 1 rank lower than its actual spell rank. If the counteract attempt succeeds, it prevents only the portion of the spell that would have entered the globe (so if the spell also has targets outside the globe, or part of its area is beyond the globe, those targets or that area are affected normally). You must form the sphere in an unbroken open space, so its edges don't pass through any creatures or objects, or the spell is lost (though creatures can enter the globe after the spell is cast).",
-    "links": [
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "dispel magic",
-            "alt": "dispel magic",
-            "game-obj": "Spells",
-            "aonid": 78
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -157,5 +180,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

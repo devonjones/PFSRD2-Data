@@ -54,12 +54,10 @@
     "spell": {
         "name": "Scintillating Pattern",
         "type": "stat_block_section",
+        "text": "A field of cascading, ever-changing colors manifests in the air. Creatures are dazzled while inside the pattern, as are those within 20 feet of the pattern's area. A creature must attempt a Will save if it is inside the pattern when you cast it, enters the pattern, ends its turn within the pattern, or uses a Seek or Interact action on the pattern. A creature currently affected by the pattern doesn't need to attempt new saves.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,56 +96,93 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Nalinivati",
-        "cast": "material, somatic",
         "range": "120 feet",
         "area": "20-foot burst",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "success": "The creature is unaffected.",
-        "failure": "The creature is confused for 1d4 rounds.",
-        "critical_failure": "The creature is stunned for 1d4 rounds. After the stunned condition ends, the creature is confused for the remaining duration of the spell."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Nalinivati",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Nalinivati",
+                    "alt": "Nalinivati",
+                    "game-obj": "Deities",
+                    "aonid": 181
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The creature is unaffected.",
+            "failure": "The creature is confused for 1d4 rounds.",
+            "critical_failure": "The creature is stunned for 1d4 rounds. After the stunned condition ends, the creature is confused for the remaining duration of the spell."
+        }
     },
     "game-id": "32d210cb0c514a8930eadfeb9bb6b20a",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "A field of cascading, ever-changing colors manifests in the air. Creatures are dazzled while inside the pattern, as are those within 20 feet of the pattern's area. A creature must attempt a Will save if it is inside the pattern when you cast it, enters the pattern, ends its turn within the pattern, or uses a Seek or Interact action on the pattern. A creature currently affected by the pattern doesn't need to attempt new saves.",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Nalinivati",
-            "alt": "Nalinivati",
-            "game-obj": "Deities",
-            "aonid": 181
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -163,5 +198,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

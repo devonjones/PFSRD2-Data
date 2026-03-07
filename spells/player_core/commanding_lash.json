@@ -27,12 +27,10 @@
     "spell": {
         "name": "Commanding Lash",
         "type": "stat_block_section",
+        "text": "With the threat of more pain, you compel a creature you've recently harmed. You issue a command to the target, with the effects of the spell *command*. If the target is frightened, stupefied, or taking persistent damage, it takes a \u20132 circumstance penalty to the save. Regardless of the result, the target is then temporarily immune for 1 hour.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -119,54 +117,71 @@
                 }
             }
         ],
-        "domain": "tyranny",
         "requirement": "Your most recent action dealt damage to a target",
         "range": "100 feet",
         "targets": "a creature you dealt damage to on your most recent action",
-        "defense": "Will",
-        "duration": "until the end of the target's next turn"
+        "duration": "until the end of the target's next turn",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "tyranny",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "tyranny",
+                    "alt": "tyranny",
+                    "game-obj": "Domains",
+                    "aonid": 96
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "command",
+                "alt": "command",
+                "game-obj": "Spells",
+                "aonid": 1470
+            },
+            {
+                "type": "link",
+                "name": "frightened",
+                "alt": "frightened",
+                "game-obj": "Conditions",
+                "aonid": 19
+            },
+            {
+                "type": "link",
+                "name": "stupefied",
+                "alt": "stupefied",
+                "game-obj": "Conditions",
+                "aonid": 37
+            },
+            {
+                "type": "link",
+                "name": "persistent damage",
+                "alt": "persistent damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "b0484409b7e2d93aba3b87efa75c3522",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "With the threat of more pain, you compel a creature you've recently harmed. You issue a command to the target, with the effects of the spell *command*. If the target is frightened, stupefied, or taking persistent damage, it takes a \u20132 circumstance penalty to the save. Regardless of the result, the target is then temporarily immune for 1 hour.",
-    "links": [
-        {
-            "type": "link",
-            "name": "command",
-            "alt": "command",
-            "game-obj": "Spells",
-            "aonid": 1470
-        },
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "stupefied",
-            "alt": "stupefied",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "persistent damage",
-            "alt": "persistent damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "tyranny",
-            "alt": "tyranny",
-            "game-obj": "Domains",
-            "aonid": 96
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -211,5 +226,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

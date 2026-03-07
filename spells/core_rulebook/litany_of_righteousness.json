@@ -54,12 +54,10 @@
     "spell": {
         "name": "Litany of Righteousness",
         "type": "stat_block_section",
+        "text": "Your litany denounces an evildoer, rendering it susceptible to the powers of good. The target gains weakness 7 to holy. The target then becomes temporarily immune to all of your litanies for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,7 +120,6 @@
                 }
             }
         ],
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 creature that isn't holy",
         "duration": "1 round",
@@ -133,21 +130,32 @@
                 "increment": 1,
                 "text": "The weakness increases by 1."
             }
-        ]
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "f9d096624cbfcc27341af0f203b0264a",
-    "spell_type": "focus",
-    "rank": 7,
-    "text": "Your litany denounces an evildoer, rendering it susceptible to the powers of good. The target gains weakness 7 to holy. The target then becomes temporarily immune to all of your litanies for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -163,5 +171,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

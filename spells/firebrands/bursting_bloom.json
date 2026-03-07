@@ -54,12 +54,10 @@
     "spell": {
         "name": "Bursting Bloom",
         "type": "stat_block_section",
+        "text": "You cause a rose bush to sprout from the chest of a foe, bursting out of its body and wrapping it in thorned vines. The target takes 6d6 piercing damage and 1d6 persistent bleed damage and must attempt a Fortitude save. When the target is no longer taking persistent bleed damage and is no longer encumbered, the rose bush withers away to nothing.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -99,11 +97,8 @@
             }
         ],
         "access": "Second-mark members of the Firebrands have access to this spell.",
-        "traditions": "occult, primal",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -113,57 +108,94 @@
                 "text": "The initial damage increases by 3d6, and the persistent bleed damage increases by 1d6."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and no persistent damage.",
-        "failure": "The creature takes full damage and persistent damage and is encumbered for 4 rounds.",
-        "critical_failure": "The creature takes double damage and persistent damage and is encumbered for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and no persistent damage.",
+            "failure": "The creature takes full damage and persistent damage and is encumbered for 4 rounds.",
+            "critical_failure": "The creature takes double damage and persistent damage and is encumbered for 1 minute."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            },
+            {
+                "type": "link",
+                "name": "encumbered",
+                "alt": "encumbered",
+                "game-obj": "Conditions",
+                "aonid": 12
+            }
+        ]
     },
     "game-id": "68b639c4748f216f6be2c97a11450056",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You cause a rose bush to sprout from the chest of a foe, bursting out of its body and wrapping it in thorned vines. The target takes 6d6 piercing damage and 1d6 persistent bleed damage and must attempt a Fortitude save. When the target is no longer taking persistent bleed damage and is no longer encumbered, the rose bush withers away to nothing.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "encumbered",
-            "alt": "encumbered",
-            "game-obj": "Conditions",
-            "aonid": 12
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -179,5 +211,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

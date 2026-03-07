@@ -40,12 +40,10 @@
     "spell": {
         "name": "Undertaker",
         "type": "stat_block_section",
+        "text": "You point your finger toward the target and whisper an epitaph that promises to grace their gravestone in the near future. This spell works best when both you and the target are in contact with solid ground. If either is not in contact with the ground, the target gains a +2 circumstance bonus on their saving throw against the spell, and if both you and the target are not in contact with solid ground, the target gains this bonus and treats the result of their save as one degree of success better than the actual result. The target of *undertaker* can resist with a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,62 +94,96 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 living creature",
-        "saving_throw": "Fortitude",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes 40 negative damage. If the target is in contact with solid ground, the ground in the target's space shifts and shakes, and is treated as difficult terrain until the start of your next turn.",
-        "failure": "The target takes 80 negative damage. If the target is in contact with solid ground, the ground in the target's space churns and cracks open into an open but shallow grave. The target is knocked prone, and that space is treated as difficult terrain until the grave is filled in.",
-        "critical_failure": "The target takes 160 negative damage. If the target is in contact with solid ground, a grave opens beneath their feet and they fall prone within. The grave then forms a stone sarcophagus-like shell around the victim. This stone shell cannot be opened and must be broken; it has AC 10, Hardness 14, and 80 Hit Points. At the start of your next turn, the grave fills in with soil. If the victim dies while inside this grave, at the next sundown the victim transforms into an evil ghast as the sarcophagus crumbles, allowing the new undead to dig its way up to the surface."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes 40 negative damage. If the target is in contact with solid ground, the ground in the target's space shifts and shakes, and is treated as difficult terrain until the start of your next turn.",
+            "failure": "The target takes 80 negative damage. If the target is in contact with solid ground, the ground in the target's space churns and cracks open into an open but shallow grave. The target is knocked prone, and that space is treated as difficult terrain until the grave is filled in.",
+            "critical_failure": "The target takes 160 negative damage. If the target is in contact with solid ground, a grave opens beneath their feet and they fall prone within. The grave then forms a stone sarcophagus-like shell around the victim. This stone shell cannot be opened and must be broken; it has AC 10, Hardness 14, and 80 Hit Points. At the start of your next turn, the grave fills in with soil. If the victim dies while inside this grave, at the next sundown the victim transforms into an evil ghast as the sarcophagus crumbles, allowing the new undead to dig its way up to the surface.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                },
+                {
+                    "type": "link",
+                    "name": "ghast",
+                    "alt": "ghast",
+                    "game-obj": "Monsters",
+                    "aonid": 219
+                }
+            ]
+        }
     },
     "game-id": "c152ebe1eee02ab97d86cedaf1d50ad9",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You point your finger toward the target and whisper an epitaph that promises to grace their gravestone in the near future. This spell works best when both you and the target are in contact with solid ground. If either is not in contact with the ground, the target gains a +2 circumstance bonus on their saving throw against the spell, and if both you and the target are not in contact with solid ground, the target gains this bonus and treats the result of their save as one degree of success better than the actual result. The target of *undertaker* can resist with a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "ghast",
-            "alt": "ghast",
-            "game-obj": "Monsters",
-            "aonid": 219
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -167,5 +199,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

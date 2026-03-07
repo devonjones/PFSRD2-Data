@@ -20,12 +20,10 @@
     "spell": {
         "name": "Bramble Bush",
         "type": "stat_block_section",
+        "text": "In a sudden burst of growth, you cause a thorned bush to sprout from the ground, lash around, and wither. Any creature in the area takes 1d4 piercing damage with a basic Reflex saving throw.   \n  \nUntil the start of your next turn, the area is difficult terrain and hazardous terrain. Any creature entering the square takes 1d4 piercing damage with a basic Reflex saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,10 +98,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "30 feet",
         "area": "5-foot cube",
-        "saving_throw": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -111,54 +107,82 @@
                 "increment": 2,
                 "text": "The initial damage increases by 1d4, and the damage dealt by hazardous terrain increases by 1."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 2247
+            },
+            {
+                "type": "link",
+                "name": "difficult terrain",
+                "alt": "difficult terrain",
+                "game-obj": "Rules",
+                "aonid": 2366
+            },
+            {
+                "type": "link",
+                "name": "hazardous terrain",
+                "alt": "hazardous terrain",
+                "game-obj": "Rules",
+                "aonid": 2368
+            }
         ]
     },
     "game-id": "c844ab0a4c0549ce7777c71a21583b9c",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "In a sudden burst of growth, you cause a thorned bush to sprout from the ground, lash around, and wither. Any creature in the area takes 1d4 piercing damage with a basic Reflex saving throw.   \n  \nUntil the start of your next turn, the area is difficult terrain and hazardous terrain. Any creature entering the square takes 1d4 piercing damage with a basic Reflex saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2247
-        },
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 2366
-        },
-        {
-            "type": "link",
-            "name": "hazardous terrain",
-            "alt": "hazardous terrain",
-            "game-obj": "Rules",
-            "aonid": 2368
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -203,5 +227,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

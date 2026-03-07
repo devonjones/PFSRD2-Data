@@ -20,12 +20,10 @@
     "spell": {
         "name": "Pact Broker",
         "type": "stat_block_section",
+        "text": "You offer to broker a pact of peace. If the target accepts and doesn\u2019t take hostile actions against you and your allies during the hex\u2019s duration, you take a \u20131 status penalty to Deception checks to Lie to them. If they refuse and take a hostile action against you or an ally during the hex\u2019s duration, they must first attempt a Will save. If they accepted the offer and then take a hostile action against you or an ally during the hex\u2019s duration, they must first attempt a Will save and treat the result as one category worse. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -124,11 +122,8 @@
                 }
             }
         ],
-        "traditions": "N/A",
-        "patron_theme": "the unseen broker",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -138,51 +133,72 @@
                 "text": "The damage increases by 1d4."
             }
         ],
-        "success": "The target is unaffected.",
-        "failure": "The target takes 2d4 mental damage and a \u20131 status penalty to attack and damage rolls against you and your allies for the hex\u2019s duration.",
-        "critical_failure": "As failure, but the penalty is \u20132."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "the unseen broker",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "the unseen broker",
+                    "alt": "the unseen broker",
+                    "game-obj": "Patrons",
+                    "aonid": 26
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The target is unaffected.",
+            "failure": "The target takes 2d4 mental damage and a \u20131 status penalty to attack and damage rolls against you and your allies for the hex\u2019s duration.",
+            "critical_failure": "As failure, but the penalty is \u20132.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "mental",
+                    "alt": "mental",
+                    "game-obj": "Traits",
+                    "aonid": 647
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Deception",
+                "alt": "Deception",
+                "game-obj": "Skills",
+                "aonid": 38
+            },
+            {
+                "type": "link",
+                "name": "Lie",
+                "alt": "Lie",
+                "game-obj": "Actions",
+                "aonid": 2389
+            },
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Actions",
+                "aonid": 2317
+            }
+        ]
     },
     "game-id": "31be0d661cd45b2b88e47e95f4ae8364",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You offer to broker a pact of peace. If the target accepts and doesn\u2019t take hostile actions against you and your allies during the hex\u2019s duration, you take a \u20131 status penalty to Deception checks to Lie to them. If they refuse and take a hostile action against you or an ally during the hex\u2019s duration, they must first attempt a Will save. If they accepted the offer and then take a hostile action against you or an ally during the hex\u2019s duration, they must first attempt a Will save and treat the result as one category worse. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Deception",
-            "alt": "Deception",
-            "game-obj": "Skills",
-            "aonid": 38
-        },
-        {
-            "type": "link",
-            "name": "Lie",
-            "alt": "Lie",
-            "game-obj": "Actions",
-            "aonid": 2389
-        },
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 647
-        },
-        {
-            "type": "link",
-            "name": "the unseen broker",
-            "alt": "the unseen broker",
-            "game-obj": "Patrons",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Actions",
-            "aonid": 2317
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -227,5 +243,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

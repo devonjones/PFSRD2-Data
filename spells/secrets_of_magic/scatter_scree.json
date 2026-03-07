@@ -54,12 +54,10 @@
     "spell": {
         "name": "Scatter Scree",
         "type": "stat_block_section",
+        "text": "You evoke a jumble of rocks in the area. The scattering rocks deal 2d4 bludgeoning damage to creatures in the area, with a basic Reflex save. The ground in the area becomes difficult terrain for the duration. A creature can Interact to clear a square of this scree.  \n  \n If you cast this spell again, any previous *scatter scree* you have cast ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,11 +96,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "area": "two contiguous 5-foot cubes",
-        "saving_throw": "basic Reflex",
         "duration": "1 minute",
         "heightened": [
             {
@@ -111,54 +106,94 @@
                 "increment": 1,
                 "text": "The damage increases by 1d4."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            }
         ]
     },
     "game-id": "7d1dcecde6c529573ec9f2c82db9b58a",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You evoke a jumble of rocks in the area. The scattering rocks deal 2d4 bludgeoning damage to creatures in the area, with a basic Reflex save. The ground in the area becomes difficult terrain for the duration. A creature can Interact to clear a square of this scree.  \n  \n If you cast this spell again, any previous *scatter scree* you have cast ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -174,5 +209,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,12 +27,10 @@
     "spell": {
         "name": "Distracting Decoy",
         "type": "stat_block_section",
+        "text": "You conjure a colorful, fast-moving shape, such as a small bird or other animal that draws your target\u2019s eye. They must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -97,24 +95,34 @@
         ],
         "range": "10 feet",
         "targets": "1 creature",
-        "defense": "Will",
-        "success": "The creature is unaffected.",
-        "failure": "The creature is off-guard until the start of your next turn.",
-        "critical_failure": "As failure, but the creature also takes a \u20132 circumstance penalty to attacks while it\u2019s off-guard."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The creature is unaffected.",
+            "failure": "The creature is off-guard until the start of your next turn.",
+            "critical_failure": "As failure, but the creature also takes a \u20132 circumstance penalty to attacks while it\u2019s off-guard.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "off-guard",
+                    "alt": "off-guard",
+                    "game-obj": "Conditions",
+                    "aonid": 58
+                }
+            ]
+        }
     },
     "game-id": "31f1198ec82ee437fa1b52098904997e",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You conjure a colorful, fast-moving shape, such as a small bird or other animal that draws your target\u2019s eye. They must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "off-guard",
-            "alt": "off-guard",
-            "game-obj": "Conditions",
-            "aonid": 58
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -159,5 +167,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Clone Companion",
         "type": "stat_block_section",
+        "text": "You create a duplicate of your companion, and the duplicate fights alongside its twin, mirroring the original's actions. The duplicate appears adjacent to your companion and has the same statistics.  \n  \n Each time you Command your companion, both your companion and its duplicate gain 2 actions. The duplicate always acts immediately after your companion and must use identical actions to the ones your companion used, in exactly the same order. However, it can use the actions differently, such as Striding to a different position or selecting a different target for a Strike. If the duplicate is unable to mimic an action, it performs the action without result and the action is wasted. The duplicate can't use any actions that can be used only a limited number of times per day.  \n  \n The duplicate isn't truly alive and can't be healed in any way. If the duplicate ever reaches 0 Hit Points, it is instantly destroyed and *clone companion* immediately ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,58 +72,87 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "cast": "material, somatic, verbal",
         "range": "30 feet",
         "targets": "your companion",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Command",
+                "alt": "Command",
+                "game-obj": "Actions",
+                "aonid": 58
+            },
+            {
+                "type": "link",
+                "name": "companion",
+                "alt": "companion",
+                "href": "AnimalCompanions.aspx"
+            }
+        ]
     },
     "game-id": "8d89b32d50a9c974698705c4bf77da7e",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "You create a duplicate of your companion, and the duplicate fights alongside its twin, mirroring the original's actions. The duplicate appears adjacent to your companion and has the same statistics.  \n  \n Each time you Command your companion, both your companion and its duplicate gain 2 actions. The duplicate always acts immediately after your companion and must use identical actions to the ones your companion used, in exactly the same order. However, it can use the actions differently, such as Striding to a different position or selecting a different target for a Strike. If the duplicate is unable to mimic an action, it performs the action without result and the action is wasted. The duplicate can't use any actions that can be used only a limited number of times per day.  \n  \n The duplicate isn't truly alive and can't be healed in any way. If the duplicate ever reaches 0 Hit Points, it is instantly destroyed and *clone companion* immediately ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Command",
-            "alt": "Command",
-            "game-obj": "Actions",
-            "aonid": 58
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "companion",
-            "alt": "companion",
-            "href": "AnimalCompanions.aspx"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -141,5 +168,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

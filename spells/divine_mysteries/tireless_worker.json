@@ -20,12 +20,10 @@
     "spell": {
         "name": "Tireless Worker",
         "type": "stat_block_section",
+        "text": "You suppress your choice of one of the following conditions that\u2019s affecting the target: clumsy, encumbered, enfeebled, or fatigued. The duration of the condition doesn\u2019t elapse while it is suppressed, so if you don\u2019t remove the effect that caused the condition, the condition returns after the spell\u2019s duration expires.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,59 +98,72 @@
                 }
             }
         ],
-        "domain": "toil",
         "range": "30 feet",
         "targets": "1 creature",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "toil",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "toil",
+                    "alt": "toil",
+                    "game-obj": "Domains",
+                    "aonid": 122
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "clumsy",
+                "alt": "clumsy",
+                "game-obj": "Conditions",
+                "aonid": 61
+            },
+            {
+                "type": "link",
+                "name": "encumbered",
+                "alt": "encumbered",
+                "game-obj": "Conditions",
+                "aonid": 70
+            },
+            {
+                "type": "link",
+                "name": "enfeebled",
+                "alt": "enfeebled",
+                "game-obj": "Conditions",
+                "aonid": 71
+            },
+            {
+                "type": "link",
+                "name": "fatigued",
+                "alt": "fatigued",
+                "game-obj": "Conditions",
+                "aonid": 73
+            },
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Actions",
+                "aonid": 2317
+            }
+        ]
     },
     "game-id": "6703c7428411271b2289ca911749ce57",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You suppress your choice of one of the following conditions that\u2019s affecting the target: clumsy, encumbered, enfeebled, or fatigued. The duration of the condition doesn\u2019t elapse while it is suppressed, so if you don\u2019t remove the effect that caused the condition, the condition returns after the spell\u2019s duration expires.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy",
-            "alt": "clumsy",
-            "game-obj": "Conditions",
-            "aonid": 61
-        },
-        {
-            "type": "link",
-            "name": "encumbered",
-            "alt": "encumbered",
-            "game-obj": "Conditions",
-            "aonid": 70
-        },
-        {
-            "type": "link",
-            "name": "enfeebled",
-            "alt": "enfeebled",
-            "game-obj": "Conditions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "fatigued",
-            "alt": "fatigued",
-            "game-obj": "Conditions",
-            "aonid": 73
-        },
-        {
-            "type": "link",
-            "name": "toil",
-            "alt": "toil",
-            "game-obj": "Domains",
-            "aonid": 122
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Actions",
-            "aonid": 2317
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -197,5 +208,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

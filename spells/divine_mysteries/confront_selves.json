@@ -20,12 +20,10 @@
     "spell": {
         "name": "Confront Selves",
         "type": "stat_block_section",
+        "text": "You show the target the spiraling web of actions and consequences that is their life and the changes wrought by these decisions upon themselves and those around them. These events swirl around the target like shards of broken pottery. When you Cast or Sustain this Spell, you force the target to confront an alternate permutation of themselves, witnessing the events of their life as if they\u2019d chosen another path. They take 4d6 mental damage (basic Will save) and are clumsy 1 until the beginning of your next turn. On a critical success, the spell ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,10 +98,8 @@
                 }
             }
         ],
-        "domain": "introspection",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "basic will",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -112,63 +108,85 @@
                 "increment": 1,
                 "text": "The damage increases by 1d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "introspection",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "introspection",
+                    "alt": "introspection",
+                    "game-obj": "Domains",
+                    "aonid": 110
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Cast",
+                "alt": "Cast",
+                "game-obj": "Actions",
+                "aonid": 2734
+            },
+            {
+                "type": "link",
+                "name": "Sustain",
+                "alt": "Sustain",
+                "game-obj": "Actions",
+                "aonid": 2317
+            },
+            {
+                "type": "link",
+                "name": "mental",
+                "alt": "mental",
+                "game-obj": "Traits",
+                "aonid": 647
+            },
+            {
+                "type": "link",
+                "name": "clumsy",
+                "alt": "clumsy",
+                "game-obj": "Conditions",
+                "aonid": 61
+            },
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Actions",
+                "aonid": 2317
+            }
         ]
     },
     "game-id": "9cc36eb44db7c7742bc037b812634e01",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You show the target the spiraling web of actions and consequences that is their life and the changes wrought by these decisions upon themselves and those around them. These events swirl around the target like shards of broken pottery. When you Cast or Sustain this Spell, you force the target to confront an alternate permutation of themselves, witnessing the events of their life as if they\u2019d chosen another path. They take 4d6 mental damage (basic Will save) and are clumsy 1 until the beginning of your next turn. On a critical success, the spell ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Cast",
-            "alt": "Cast",
-            "game-obj": "Actions",
-            "aonid": 2734
-        },
-        {
-            "type": "link",
-            "name": "Sustain",
-            "alt": "Sustain",
-            "game-obj": "Actions",
-            "aonid": 2317
-        },
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 647
-        },
-        {
-            "type": "link",
-            "name": "clumsy",
-            "alt": "clumsy",
-            "game-obj": "Conditions",
-            "aonid": 61
-        },
-        {
-            "type": "link",
-            "name": "introspection",
-            "alt": "introspection",
-            "game-obj": "Domains",
-            "aonid": 110
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Actions",
-            "aonid": 2317
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -213,5 +231,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

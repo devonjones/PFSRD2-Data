@@ -20,12 +20,10 @@
     "spell": {
         "name": "Stasis",
         "type": "stat_block_section",
+        "text": "The flow of time congeals around an object or creature, holding it in place. The target must attempt a Will save (an unattended object automatically critically fails its save).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,36 +98,53 @@
                 }
             }
         ],
-        "domain": "time",
         "range": "30 feet",
         "targets": "1 creature or up to 1 Bulk of objects",
-        "defense": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is stunned 1 as time thickens around it.",
-        "failure": "Time ceases to pass for the target for 1 round. It is invulnerable to all damage, it can\u2019t be targeted or affected by anything, and no rounds elapse for any timed durations, conditions, afflictions, and other effects it has. While in stasis, the target can\u2019t be moved, and it remains fixed in place, defying gravity if need be.",
-        "critical_failure": "As failure, but the target is held in stasis for 3 rounds. At the end of each of its turns, it can attempt a Will save to reduce the remaining duration by 1 round or end it entirely on a critical success."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "time",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "time",
+                    "alt": "time",
+                    "game-obj": "Domains",
+                    "aonid": 121
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is stunned 1 as time thickens around it.",
+            "failure": "Time ceases to pass for the target for 1 round. It is invulnerable to all damage, it can\u2019t be targeted or affected by anything, and no rounds elapse for any timed durations, conditions, afflictions, and other effects it has. While in stasis, the target can\u2019t be moved, and it remains fixed in place, defying gravity if need be.",
+            "critical_failure": "As failure, but the target is held in stasis for 3 rounds. At the end of each of its turns, it can attempt a Will save to reduce the remaining duration by 1 round or end it entirely on a critical success.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stunned",
+                    "alt": "stunned",
+                    "game-obj": "Conditions",
+                    "aonid": 93
+                }
+            ]
+        }
     },
     "game-id": "749a8c5db3c819c22488bed5e7a02ec3",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "The flow of time congeals around an object or creature, holding it in place. The target must attempt a Will save (an unattended object automatically critically fails its save).",
-    "links": [
-        {
-            "type": "link",
-            "name": "stunned",
-            "alt": "stunned",
-            "game-obj": "Conditions",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "time",
-            "alt": "time",
-            "game-obj": "Domains",
-            "aonid": 121
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -174,5 +189,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

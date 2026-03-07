@@ -54,12 +54,10 @@
     "spell": {
         "name": "Crushing Despair",
         "type": "stat_block_section",
+        "text": "You inflict despair on creatures in the area. The effects for each creature are determined by its Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,12 +96,7 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "bloodline": "diabolic, nymph",
-        "deity": "Ahriman, Charon, Groetus, Naderi, Sifkesh, The Lost Prince",
-        "cast": "somatic, verbal",
         "area": "30-foot cone",
-        "saving_throw": "Will",
         "duration": "1 or more rounds",
         "heightened": [
             {
@@ -113,99 +106,182 @@
                 "text": "The area increases to a 60-foot cone."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "For 1 round, the creature can't use reactions and must attempt another save at the start of its turn; on a failure, it is slowed 1 for that turn as it sobs uncontrollably.",
-        "failure": "As success, but the duration is 1 minute.",
-        "critical_failure": "As failure, and the creature is automatically slowed 1 for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "diabolic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "diabolic",
+                    "alt": "diabolic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 4
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "nymph",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "nymph",
+                    "alt": "nymph",
+                    "game-obj": "Bloodlines",
+                    "aonid": 12
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ahriman",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ahriman",
+                    "alt": "Ahriman",
+                    "game-obj": "Deities",
+                    "aonid": 220
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Charon",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Charon",
+                    "alt": "Charon",
+                    "game-obj": "Deities",
+                    "aonid": 135
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Groetus",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Groetus",
+                    "alt": "Groetus",
+                    "game-obj": "Deities",
+                    "aonid": 38
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Naderi",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Naderi",
+                    "alt": "Naderi",
+                    "game-obj": "Deities",
+                    "aonid": 157
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Sifkesh",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Sifkesh",
+                    "alt": "Sifkesh",
+                    "game-obj": "Deities",
+                    "aonid": 81
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "The Lost Prince",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "The Lost Prince",
+                    "alt": "The Lost Prince",
+                    "game-obj": "Deities",
+                    "aonid": 96
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "For 1 round, the creature can't use reactions and must attempt another save at the start of its turn; on a failure, it is slowed 1 for that turn as it sobs uncontrollably.",
+            "failure": "As success, but the duration is 1 minute.",
+            "critical_failure": "As failure, and the creature is automatically slowed 1 for 1 minute."
+        }
     },
     "game-id": "fe154d276a16f4b09e0d98155de0bb26",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You inflict despair on creatures in the area. The effects for each creature are determined by its Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "diabolic",
-            "alt": "diabolic",
-            "game-obj": "Bloodlines",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "nymph",
-            "alt": "nymph",
-            "game-obj": "Bloodlines",
-            "aonid": 12
-        },
-        {
-            "type": "link",
-            "name": "Ahriman",
-            "alt": "Ahriman",
-            "game-obj": "Deities",
-            "aonid": 220
-        },
-        {
-            "type": "link",
-            "name": "Charon",
-            "alt": "Charon",
-            "game-obj": "Deities",
-            "aonid": 135
-        },
-        {
-            "type": "link",
-            "name": "Groetus",
-            "alt": "Groetus",
-            "game-obj": "Deities",
-            "aonid": 38
-        },
-        {
-            "type": "link",
-            "name": "Naderi",
-            "alt": "Naderi",
-            "game-obj": "Deities",
-            "aonid": 157
-        },
-        {
-            "type": "link",
-            "name": "Sifkesh",
-            "alt": "Sifkesh",
-            "game-obj": "Deities",
-            "aonid": 81
-        },
-        {
-            "type": "link",
-            "name": "The Lost Prince",
-            "alt": "The Lost Prince",
-            "game-obj": "Deities",
-            "aonid": 96
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -221,5 +297,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

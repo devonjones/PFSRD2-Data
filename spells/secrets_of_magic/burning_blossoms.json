@@ -54,12 +54,10 @@
     "spell": {
         "name": "Burning Blossoms",
         "type": "stat_block_section",
+        "text": "An intangible hollow tree sprouts from the ground and grows to towering height, radiating a fiery passion and fascinating viewers. The base of the tree takes up a single square and grows 100 feet upwards, while its branches extend outwards 30 feet, forming the spell's cylindrical area. The tree then blossoms, growing delicate white flowers that burn with white-hot fire. As the tree's branches gently rustle in the wind, flower petals drift to the ground in a shower of flame. Any creature that ends its turn under the tree's branches takes 6d6 fire damage from the burning petals.  \n  \n Any enemy that can see the tree, even if the enemy is outside the spell's area, must attempt a Will save. This is an emotion, mental, and visual effect. Creatures fascinated with the tree must use at least one of their actions on each of their turns to move toward the tree.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,12 +96,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Arundhat, Yuelral",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "area": "30-foot radius, 100-foot tall cylinder",
-        "saving_throw": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -113,92 +107,143 @@
                 "text": "The damage increases by 1d6."
             }
         ],
-        "critical_success": "The creature is unaffected and is temporarily immune for 24 hours.",
-        "success": "The creature is unaffected, but it must attempt a new save at the end of its turn if it can still see the tree.",
-        "failure": "The creature is fascinated with the tree until the end of its next turn. If it can still see the tree then, it must attempt a save again.",
-        "critical_failure": "The creature is fascinated with the tree until the spell ends. The tree's fire damage doesn't end the fascination; other hostile actions end it, as normal. If the fascination ends, the creature must attempt a new save at the end of its turn if it can still see the tree."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Arundhat",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Arundhat",
+                    "alt": "Arundhat",
+                    "game-obj": "Deities",
+                    "aonid": 610
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Yuelral",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Yuelral",
+                    "alt": "Yuelral",
+                    "game-obj": "Deities",
+                    "aonid": 463
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected and is temporarily immune for 24 hours.",
+            "success": "The creature is unaffected, but it must attempt a new save at the end of its turn if it can still see the tree.",
+            "failure": "The creature is fascinated with the tree until the end of its next turn. If it can still see the tree then, it must attempt a save again.",
+            "critical_failure": "The creature is fascinated with the tree until the spell ends. The tree's fire damage doesn't end the fascination; other hostile actions end it, as normal. If the fascination ends, the creature must attempt a new save at the end of its turn if it can still see the tree.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "hostile actions",
+                    "alt": "hostile actions",
+                    "game-obj": "Rules",
+                    "aonid": 300
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "emotion",
+                "alt": "emotion",
+                "game-obj": "Traits",
+                "aonid": 60
+            },
+            {
+                "type": "link",
+                "name": "mental",
+                "alt": "mental",
+                "game-obj": "Traits",
+                "aonid": 106
+            },
+            {
+                "type": "link",
+                "name": "visual",
+                "alt": "visual",
+                "game-obj": "Traits",
+                "aonid": 163
+            },
+            {
+                "type": "link",
+                "name": "fascinated",
+                "alt": "fascinated",
+                "game-obj": "Conditions",
+                "aonid": 14
+            }
+        ]
     },
     "game-id": "c167872a7c708c562670b16b13c65a1f",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "An intangible hollow tree sprouts from the ground and grows to towering height, radiating a fiery passion and fascinating viewers. The base of the tree takes up a single square and grows 100 feet upwards, while its branches extend outwards 30 feet, forming the spell's cylindrical area. The tree then blossoms, growing delicate white flowers that burn with white-hot fire. As the tree's branches gently rustle in the wind, flower petals drift to the ground in a shower of flame. Any creature that ends its turn under the tree's branches takes 6d6 fire damage from the burning petals.  \n  \n Any enemy that can see the tree, even if the enemy is outside the spell's area, must attempt a Will save. This is an emotion, mental, and visual effect. Creatures fascinated with the tree must use at least one of their actions on each of their turns to move toward the tree.",
-    "links": [
-        {
-            "type": "link",
-            "name": "emotion",
-            "alt": "emotion",
-            "game-obj": "Traits",
-            "aonid": 60
-        },
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 106
-        },
-        {
-            "type": "link",
-            "name": "visual",
-            "alt": "visual",
-            "game-obj": "Traits",
-            "aonid": 163
-        },
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "hostile actions",
-            "alt": "hostile actions",
-            "game-obj": "Rules",
-            "aonid": 300
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Arundhat",
-            "alt": "Arundhat",
-            "game-obj": "Deities",
-            "aonid": 610
-        },
-        {
-            "type": "link",
-            "name": "Yuelral",
-            "alt": "Yuelral",
-            "game-obj": "Deities",
-            "aonid": 463
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -214,5 +259,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

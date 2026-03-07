@@ -27,12 +27,10 @@
     "spell": {
         "name": "Coral Scourge",
         "type": "stat_block_section",
+        "text": "Barnacles, coral, and other rough aquatic creatures grow on the target's body, getting in between their joints and stiffening their movement. This impedes the target's movement depending on the result of its saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,56 +81,84 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Ytildos",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Reflex",
         "duration": "1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is clumsy 1. The target can Interact to scrape the coral growths from its body, decreasing the clumsy condition to 0 and ending the spell.",
-        "failure": "The target is clumsy 2. Each round at the beginning of its turn, the target becomes clumsy 1 or increases its clumsy condition by 1, to a maximum of 4. The target can Interact to scrape the coral growths from its body, decreasing the clumsy condition to 0 and ending the spell. If the target's clumsy condition caused by *coral scourge* reaches 4, the growths spread to cover the target's entire body, and the target becomes paralyzed.",
-        "critical_failure": "As failure, but when the target Interacts to scrape the coral growths from its body, it reduces its clumsy condition by 1, instead of decreasing it to 0, and decreasing the clumsy condition to 0 doesn't end the spell."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ytildos",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ytildos",
+                    "alt": "Ytildos",
+                    "game-obj": "Deities",
+                    "aonid": 706
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is clumsy 1. The target can Interact to scrape the coral growths from its body, decreasing the clumsy condition to 0 and ending the spell.",
+            "failure": "The target is clumsy 2. Each round at the beginning of its turn, the target becomes clumsy 1 or increases its clumsy condition by 1, to a maximum of 4. The target can Interact to scrape the coral growths from its body, decreasing the clumsy condition to 0 and ending the spell. If the target's clumsy condition caused by *coral scourge* reaches 4, the growths spread to cover the target's entire body, and the target becomes paralyzed.",
+            "critical_failure": "As failure, but when the target Interacts to scrape the coral growths from its body, it reduces its clumsy condition by 1, instead of decreasing it to 0, and decreasing the clumsy condition to 0 doesn't end the spell.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "clumsy 1",
+                    "alt": "clumsy 1",
+                    "game-obj": "Conditions",
+                    "aonid": 3
+                },
+                {
+                    "type": "link",
+                    "name": "paralyzed",
+                    "alt": "paralyzed",
+                    "game-obj": "Conditions",
+                    "aonid": 28
+                }
+            ]
+        }
     },
     "game-id": "628334c6cd7fae860a5eb02042fbd29a",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "Barnacles, coral, and other rough aquatic creatures grow on the target's body, getting in between their joints and stiffening their movement. This impedes the target's movement depending on the result of its saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "paralyzed",
-            "alt": "paralyzed",
-            "game-obj": "Conditions",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Ytildos",
-            "alt": "Ytildos",
-            "game-obj": "Deities",
-            "aonid": 706
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -177,5 +203,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Biting Words",
         "type": "stat_block_section",
+        "text": "You entwine magic with your voice, causing your taunts and jibes to physically harm your enemies. You can attack with your words once when you finish Casting the Spell, and can repeat the attack once on each of your subsequent turns by taking a single action, which has the attack, concentrate, and linguistic traits. After your third attack total, the spell ends.  \n  \n When you attack with *biting words*, make a ranged spell attack roll against a creature within 30 feet, dealing 2d6 sonic damage if you hit (or double damage on a critical hit).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,8 +120,6 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "cast": "somatic, verbal",
         "duration": "1 minute",
         "heightened": [
             {
@@ -132,55 +128,81 @@
                 "increment": 1,
                 "text": "The damage increases by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "attack",
+                "alt": "attack",
+                "game-obj": "Traits",
+                "aonid": 15
+            },
+            {
+                "type": "link",
+                "name": "concentrate",
+                "alt": "concentrate",
+                "game-obj": "Traits",
+                "aonid": 32
+            },
+            {
+                "type": "link",
+                "name": "linguistic",
+                "alt": "linguistic",
+                "game-obj": "Traits",
+                "aonid": 101
+            }
         ]
     },
     "game-id": "e290cd0491cdf031a26685435a76793e",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You entwine magic with your voice, causing your taunts and jibes to physically harm your enemies. You can attack with your words once when you finish Casting the Spell, and can repeat the attack once on each of your subsequent turns by taking a single action, which has the attack, concentrate, and linguistic traits. After your third attack total, the spell ends.  \n  \n When you attack with *biting words*, make a ranged spell attack roll against a creature within 30 feet, dealing 2d6 sonic damage if you hit (or double damage on a critical hit).",
-    "links": [
-        {
-            "type": "link",
-            "name": "attack",
-            "alt": "attack",
-            "game-obj": "Traits",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "linguistic",
-            "alt": "linguistic",
-            "game-obj": "Traits",
-            "aonid": 101
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -196,5 +218,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

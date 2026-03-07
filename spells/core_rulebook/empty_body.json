@@ -54,12 +54,10 @@
     "spell": {
         "name": "Empty Body",
         "type": "stat_block_section",
+        "text": "You turn ethereal, with the effects of *ethereal jaunt*, but you don't need to concentrate.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,36 +108,53 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "ethereal jaunt",
+                "alt": "ethereal jaunt",
+                "game-obj": "Spells",
+                "aonid": 105
+            }
+        ]
     },
     "game-id": "a1a2110731bef60343083b10463b23d6",
-    "spell_type": "focus",
-    "rank": 9,
-    "text": "You turn ethereal, with the effects of *ethereal jaunt*, but you don't need to concentrate.",
-    "links": [
-        {
-            "type": "link",
-            "name": "ethereal jaunt",
-            "alt": "ethereal jaunt",
-            "game-obj": "Spells",
-            "aonid": 105
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -155,5 +170,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Flesh to Stone",
         "type": "stat_block_section",
+        "text": "You try to turn the target's flesh into stone. The target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,99 +72,156 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Ayrzul, Ayrzul, Dispater, Stag Mother of the Forest of Stones",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 creature made of flesh",
-        "saving_throw": "Fortitude",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is slowed 1 for 1 round.",
-        "failure": "The target is slowed 1 and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (or 2 on a critical failure). A successful save reduces the slowed condition by 1. When a creature is unable to act due to the slowed condition from *flesh to stone*, the creature is permanently non-magically petrified. The spell ends if the creature is petrified or the slowed condition is removed.",
-        "critical_failure": "As failure, but the target is initially slowed 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ayrzul",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ayrzul",
+                    "alt": "Ayrzul",
+                    "game-obj": "Deities",
+                    "aonid": 102
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ayrzul",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ayrzul",
+                    "alt": "Ayrzul",
+                    "game-obj": "Deities",
+                    "aonid": 102
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Dispater",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Dispater",
+                    "alt": "Dispater",
+                    "game-obj": "Deities",
+                    "aonid": 66
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Stag Mother of the Forest of Stones",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Stag Mother of the Forest of Stones",
+                    "alt": "Stag Mother of the Forest of Stones",
+                    "game-obj": "Deities",
+                    "aonid": 172
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is slowed 1 for 1 round.",
+            "failure": "The target is slowed 1 and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (or 2 on a critical failure). A successful save reduces the slowed condition by 1. When a creature is unable to act due to the slowed condition from *flesh to stone*, the creature is permanently non-magically petrified. The spell ends if the creature is petrified or the slowed condition is removed.",
+            "critical_failure": "As failure, but the target is initially slowed 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                },
+                {
+                    "type": "link",
+                    "name": "incapacitation",
+                    "alt": "incapacitation",
+                    "game-obj": "Traits",
+                    "aonid": 93
+                },
+                {
+                    "type": "link",
+                    "name": "petrified",
+                    "alt": "petrified",
+                    "game-obj": "Conditions",
+                    "aonid": 30
+                }
+            ]
+        }
     },
     "game-id": "a3cc091080ffd113957f05dcf83e7cd7",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You try to turn the target's flesh into stone. The target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "incapacitation",
-            "alt": "incapacitation",
-            "game-obj": "Traits",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "petrified",
-            "alt": "petrified",
-            "game-obj": "Conditions",
-            "aonid": 30
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Ayrzul",
-            "alt": "Ayrzul",
-            "game-obj": "Deities",
-            "aonid": 102
-        },
-        {
-            "type": "link",
-            "name": "Ayrzul",
-            "alt": "Ayrzul",
-            "game-obj": "Deities",
-            "aonid": 102
-        },
-        {
-            "type": "link",
-            "name": "Dispater",
-            "alt": "Dispater",
-            "game-obj": "Deities",
-            "aonid": 66
-        },
-        {
-            "type": "link",
-            "name": "Stag Mother of the Forest of Stones",
-            "alt": "Stag Mother of the Forest of Stones",
-            "game-obj": "Deities",
-            "aonid": 172
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -182,5 +237,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,7 +27,10 @@
     "spell": {
         "name": "Engrave Memory",
         "type": "stat_block_section",
+        "text": "You store memories inside a stone. This memory can convey up to 10 minutes of material. When you Cast this Spell, choose a command word. Doing so creates a carved symbol on the stone that hints at the word. Any creature can access the memories stored within the stone by using an action to speak the command word.  \n  \n As it imparts the memories, the stone crumbles to dust, but the memory is infallibly available to the creature that activated the stone for the next 24 hours. After that time, the creature's normal capacity for memory must be relied upon to recall the stone's imparted memory. It's up to the GM what benefit the imparted memory grants, from circumstance bonuses to checks related to the memory or clear information on subjects the memory covers.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -78,30 +81,42 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "1 minute",
         "range": "touch",
         "targets": "1 stone of at least 1 Bulk",
-        "duration": "unlimited"
+        "duration": "unlimited",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "1 minute"
+        }
     },
     "game-id": "68ad2f6cb559e1312b763f7336eb9237",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You store memories inside a stone. This memory can convey up to 10 minutes of material. When you Cast this Spell, choose a command word. Doing so creates a carved symbol on the stone that hints at the word. Any creature can access the memories stored within the stone by using an action to speak the command word.  \n  \n As it imparts the memories, the stone crumbles to dust, but the memory is infallibly available to the creature that activated the stone for the next 24 hours. After that time, the creature's normal capacity for memory must be relied upon to recall the stone's imparted memory. It's up to the GM what benefit the imparted memory grants, from circumstance bonuses to checks related to the memory or clear information on subjects the memory covers.",
-    "links": [
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -146,5 +161,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

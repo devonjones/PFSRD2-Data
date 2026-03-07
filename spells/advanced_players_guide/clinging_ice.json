@@ -54,12 +54,10 @@
     "spell": {
         "name": "Clinging Ice",
         "type": "stat_block_section",
+        "text": "Freezing sleet and heavy snowfall collect on the target's feet and legs, dealing 1d4 cold damage and other effects depending on its Reflex save. Once this spell ends, the target becomes temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,11 +132,8 @@
                 }
             }
         ],
-        "patron_theme": "winter",
-        "cast": "somatic",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Reflex",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -148,31 +143,55 @@
                 "text": "The damage increases by 1d4."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage.",
-        "failure": "The target takes full damage, and takes a \u20135-foot circumstance penalty to its Speeds until the spell ends.",
-        "critical_failure": "The target takes double damage and a \u201310-foot circumstance penalty to its Speeds until the spell ends."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "winter",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "winter",
+                    "alt": "winter",
+                    "game-obj": "Patrons",
+                    "aonid": 8
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage.",
+            "failure": "The target takes full damage, and takes a \u20135-foot circumstance penalty to its Speeds until the spell ends.",
+            "critical_failure": "The target takes double damage and a \u201310-foot circumstance penalty to its Speeds until the spell ends."
+        }
     },
     "game-id": "75824605b53d3b029950ad75adc8a634",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Freezing sleet and heavy snowfall collect on the target's feet and legs, dealing 1d4 cold damage and other effects depending on its Reflex save. Once this spell ends, the target becomes temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "winter",
-            "alt": "winter",
-            "game-obj": "Patrons",
-            "aonid": 8
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -188,5 +207,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

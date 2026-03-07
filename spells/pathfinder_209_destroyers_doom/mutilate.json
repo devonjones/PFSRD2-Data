@@ -20,12 +20,10 @@
     "spell": {
         "name": "Mutilate",
         "type": "stat_block_section",
+        "text": "You cut your own body in a ritualistic manner, causing similar damage to a creature in your line of sight. These cuts are superficial and cause 1d4 slashing damage to you; however, the wounds that open up on our target\u2019s body are far deeper. The targeted creature takes 5d8 slashing damage; a creature that critically fails this saving throw also takes 1d8 persistent bleed damage. If you cast this as a three-action spell, the spell instead affects a 5-foot burst.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -52,10 +50,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult, primal",
         "range": "40 feet",
         "targets": "1 creature in line of sight",
-        "defense": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -63,53 +59,87 @@
                 "increment": 1,
                 "text": "Increase the damage dealt to the target by 1d8, and increase the persistent bleed damage by 1."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 86
+            },
+            {
+                "type": "link",
+                "name": "line of sight",
+                "alt": "line of sight",
+                "game-obj": "Rules",
+                "aonid": 2383
+            }
         ]
     },
     "game-id": "9dc4b3e853d06d00184505592ae636c5",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You cut your own body in a ritualistic manner, causing similar damage to a creature in your line of sight. These cuts are superficial and cause 1d4 slashing damage to you; however, the wounds that open up on our target\u2019s body are far deeper. The targeted creature takes 5d8 slashing damage; a creature that critically fails this saving throw also takes 1d8 persistent bleed damage. If you cast this as a three-action spell, the spell instead affects a 5-foot burst.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 86
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "line of sight",
-            "alt": "line of sight",
-            "game-obj": "Rules",
-            "aonid": 2383
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -154,5 +184,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

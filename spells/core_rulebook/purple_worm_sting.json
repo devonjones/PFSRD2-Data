@@ -54,12 +54,10 @@
     "spell": {
         "name": "Purple Worm Sting",
         "type": "stat_block_section",
+        "text": "You replicate the attack of a deadly purple worm. You deal 3d6 piercing damage to the touched creature and afflict it with purple worm venom. The target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,55 +84,89 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes 3d6 poison damage.",
-        "failure": "The target is afflicted with purple worm venom at stage 1.",
-        "critical_failure": "The target is afflicted with purple worm venom at stage 2.  \n  \n**Purple Worm Venom** (poison); **Level** 11; **Maximum Duration** 6 rounds. **Stage 1** 3d6 poison damage and enfeebled 2 (1 round); **Stage 2** 4d6 poison damage and enfeebled 2 (1 round); **Stage 3** 6d6 poison damage and enfeebled 2 (1 round)."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes 3d6 poison damage.",
+            "failure": "The target is afflicted with purple worm venom at stage 1.",
+            "critical_failure": "The target is afflicted with purple worm venom at stage 2.  \n  \n**Purple Worm Venom** (poison); **Level** 11; **Maximum Duration** 6 rounds. **Stage 1** 3d6 poison damage and enfeebled 2 (1 round); **Stage 2** 4d6 poison damage and enfeebled 2 (1 round); **Stage 3** 6d6 poison damage and enfeebled 2 (1 round).",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "enfeebled 2",
+                    "alt": "enfeebled 2",
+                    "game-obj": "Conditions",
+                    "aonid": 13
+                }
+            ]
+        }
     },
     "game-id": "3b11b24cb2f7f2eb6e3c6b4ad5d40908",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You replicate the attack of a deadly purple worm. You deal 3d6 piercing damage to the touched creature and afflict it with purple worm venom. The target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "enfeebled 2",
-            "alt": "enfeebled 2",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -150,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

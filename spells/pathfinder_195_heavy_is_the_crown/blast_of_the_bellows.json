@@ -40,12 +40,10 @@
     "spell": {
         "name": "Blast of the Bellows",
         "type": "stat_block_section",
+        "text": "You create a churning eddy of warm air that makes it difficult to fly within the area. This area is difficult terrain for flying creatures. Each time a flying creature enters the area or ends its turn there, it must attempt an Acrobatics check to Maneuver in Flight.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,8 +82,6 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, primal",
-        "cast": "somatic, verbal",
         "range": "100 feet",
         "area": "20-foot burst",
         "duration": "1 minute",
@@ -97,62 +93,104 @@
                 "text": "The duration increases to 10 minutes"
             }
         ],
-        "success": "The creature is unaffected.",
-        "failure": "The creature descends 30 feet.",
-        "critical_failure": "The creature descends 60 feet."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "success": "The creature is unaffected.",
+            "failure": "The creature descends 30 feet.",
+            "critical_failure": "The creature descends 60 feet."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Acrobatics",
+                "alt": "Acrobatics",
+                "game-obj": "Skills",
+                "aonid": 1
+            },
+            {
+                "type": "link",
+                "name": "Maneuver in Flight",
+                "alt": "Maneuver in Flight",
+                "game-obj": "Actions",
+                "aonid": 30
+            }
+        ]
     },
     "game-id": "0a0e39c144e175edbfa4fd5769e729d4",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You create a churning eddy of warm air that makes it difficult to fly within the area. This area is difficult terrain for flying creatures. Each time a flying creature enters the area or ends its turn there, it must attempt an Acrobatics check to Maneuver in Flight.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Acrobatics",
-            "alt": "Acrobatics",
-            "game-obj": "Skills",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "Maneuver in Flight",
-            "alt": "Maneuver in Flight",
-            "game-obj": "Actions",
-            "aonid": 30
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -197,5 +235,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

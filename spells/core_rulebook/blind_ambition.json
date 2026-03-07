@@ -54,12 +54,10 @@
     "spell": {
         "name": "Blind Ambition",
         "type": "stat_block_section",
+        "text": "You strengthen a target's ambition, increase its resentment of allies, and make its allegiances more susceptible to change. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,51 +120,79 @@
                 }
             }
         ],
-        "domain": "ambition",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "10 minutes",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes a \u20131 status penalty to its saving throws and other defenses against attempts to Coerce it, Request something of it, or use mental effects to convince it to do something (such as a *suggestion* spell). This penalty applies only if the target is being encouraged to advance its own ambitions.",
-        "failure": "As success, but the penalty is \u20132.",
-        "critical_failure": "The target is overcome with ambition, taking whatever actions would advance its own agenda over those of anyone else, even without attempts to convince it."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "ambition",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "ambition",
+                    "alt": "ambition",
+                    "game-obj": "Domains",
+                    "aonid": 1
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes a \u20131 status penalty to its saving throws and other defenses against attempts to Coerce it, Request something of it, or use mental effects to convince it to do something (such as a *suggestion* spell). This penalty applies only if the target is being encouraged to advance its own ambitions.",
+            "failure": "As success, but the penalty is \u20132.",
+            "critical_failure": "The target is overcome with ambition, taking whatever actions would advance its own agenda over those of anyone else, even without attempts to convince it.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "suggestion",
+                    "alt": "suggestion",
+                    "game-obj": "Spells",
+                    "aonid": 315
+                }
+            ]
+        }
     },
     "game-id": "00223aa371c1829f3d21c16eb35a8e96",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You strengthen a target's ambition, increase its resentment of allies, and make its allegiances more susceptible to change. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "suggestion",
-            "alt": "suggestion",
-            "game-obj": "Spells",
-            "aonid": 315
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "ambition",
-            "alt": "ambition",
-            "game-obj": "Domains",
-            "aonid": 1
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -182,5 +208,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

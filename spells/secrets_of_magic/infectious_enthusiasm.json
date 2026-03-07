@@ -54,12 +54,10 @@
     "spell": {
         "name": "Infectious Enthusiasm",
         "type": "stat_block_section",
+        "text": "With enchanted gusto, you encourage yourself to get things done and share your motivation with your allies. You gain a +1 status bonus to your choice of attack rolls, Will saves, or Charisma-based skill checks. During the spell's duration, an ally who observed you Casting this Spell and was within 30 feet when you did so can take a single action, which has the concentrate trait, to gain the same bonus you chose until the start of its next turn.  \n  \n Using this spell to influence someone in a social situation is typically considered a faux pas, negating the benefit on Charisma-based skills if the subject of the check observed you casting the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,49 +108,79 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
-        "duration": "1 round"
+        "duration": "1 round",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concentrate",
+                "alt": "concentrate",
+                "game-obj": "Traits",
+                "aonid": 32
+            }
+        ]
     },
     "game-id": "db37afd3127264b3fb613b408210993a",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "With enchanted gusto, you encourage yourself to get things done and share your motivation with your allies. You gain a +1 status bonus to your choice of attack rolls, Will saves, or Charisma-based skill checks. During the spell's duration, an ally who observed you Casting this Spell and was within 30 feet when you did so can take a single action, which has the concentrate trait, to gain the same bonus you chose until the start of its next turn.  \n  \n Using this spell to influence someone in a social situation is typically considered a faux pas, negating the benefit on Charisma-based skills if the subject of the check observed you casting the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -168,5 +196,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

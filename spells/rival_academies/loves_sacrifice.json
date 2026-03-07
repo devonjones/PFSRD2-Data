@@ -20,12 +20,10 @@
     "spell": {
         "name": "Love's Sacrifice",
         "type": "stat_block_section",
+        "text": "You cry out for aid, and a creature near you feels compelled tothrow itself in front of the threat as the ultimate expressionof their love. A target that genuinely loves the caster withoutmagical compulsion, at their player\u2019s or the GM\u2019s discretion,fails the save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -89,40 +87,63 @@
             }
         ],
         "access": "Characters who go to Sihedron Academy or have the runelord class archetype have access to this spell.",
-        "traditions": "arcane, divine",
         "trigger": "You take damage that would reduce you to 0 Hit Points.",
         "range": "30 feet",
         "targets": "one creature",
-        "defense": "Will",
-        "critical_success": "The target is unaffected.",
-        "success": "The creature moves adjacent to you, moving further than its Speed if necessary as the magic compels it to exceed its limits. It takes half the damage you would have taken, while you take the rest. If you would be reduced to 0 Hit Points, you\u2019re reduced to 1 instead.",
-        "failure": "As success, except they take the full damage. If the damage reduces them to 0 Hit Points, they immediately die; this is a death effect."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The creature moves adjacent to you, moving further than its Speed if necessary as the magic compels it to exceed its limits. It takes half the damage you would have taken, while you take the rest. If you would be reduced to 0 Hit Points, you\u2019re reduced to 1 instead.",
+            "failure": "As success, except they take the full damage. If the damage reduces them to 0 Hit Points, they immediately die; this is a death effect."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "runelord",
+                "alt": "runelord",
+                "game-obj": "Archetypes",
+                "aonid": 303
+            }
+        ]
     },
     "game-id": "99b76b66566ac0e050123e9c6d6d9e35",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "You cry out for aid, and a creature near you feels compelled tothrow itself in front of the threat as the ultimate expressionof their love. A target that genuinely loves the caster withoutmagical compulsion, at their player\u2019s or the GM\u2019s discretion,fails the save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "runelord",
-            "alt": "runelord",
-            "game-obj": "Archetypes",
-            "aonid": 303
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -167,5 +188,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

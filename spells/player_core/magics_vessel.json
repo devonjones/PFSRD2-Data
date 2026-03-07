@@ -27,12 +27,10 @@
     "spell": {
         "name": "Magic's Vessel",
         "type": "stat_block_section",
+        "text": "A creature becomes a divine receptacle for pure magical energy. The target gains a +1 status bonus to saving throws. Each time you Cast a Spell from your spell slots, you automatically Sustain this spell and grant its target resistance to damage from spells equal to the spell's rank, until the start of your next turn.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,24 +81,35 @@
                 }
             }
         ],
-        "domain": "magic",
         "range": "touch",
         "targets": "1 creature",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "magic",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "magic",
+                    "alt": "magic",
+                    "game-obj": "Domains",
+                    "aonid": 82
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        }
     },
     "game-id": "c9896a24f0454dedf985e121137b2e40",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "A creature becomes a divine receptacle for pure magical energy. The target gains a +1 status bonus to saving throws. Each time you Cast a Spell from your spell slots, you automatically Sustain this spell and grant its target resistance to damage from spells equal to the spell's rank, until the start of your next turn.",
-    "links": [
-        {
-            "type": "link",
-            "name": "magic",
-            "alt": "magic",
-            "game-obj": "Domains",
-            "aonid": 82
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -145,5 +154,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,12 +27,10 @@
     "spell": {
         "name": "Sacred Beasts",
         "type": "stat_block_section",
+        "text": "You call out to the creatures of the wild favored by your deity. You quickly summon your deity\u2019s sacred animal (or a small swarm of them if the animal is usually Tiny). For example, you would call forth a lion if you worship Iomedae or a swarm of spiders if you worship Norgorber. If your deity doesn\u2019t have a known sacred animal, work with the GM to find a thematic one. The animal or swarm assaults all creatures in the area, dealing 2d6 damage. The damage is either bludgeoning, piercing, or slashing based on the animal that was conjured, as determined by the GM. After their attacks, the animals return to your deity\u2019s plane.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -59,11 +57,9 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
         "requirement": "You worship a deity",
         "range": "30 feet",
         "area": "5-foot burst",
-        "defense": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -71,61 +67,89 @@
                 "increment": 1,
                 "text": "The damage increases by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "lion",
+                "alt": "lion",
+                "game-obj": "Monsters",
+                "aonid": 2866
+            },
+            {
+                "type": "link",
+                "name": "Iomedae",
+                "alt": "Iomedae",
+                "game-obj": "Deities",
+                "aonid": 285
+            },
+            {
+                "type": "link",
+                "name": "spiders",
+                "alt": "spiders",
+                "game-obj": "MonsterFamilies",
+                "aonid": 474
+            },
+            {
+                "type": "link",
+                "name": "Norgorber",
+                "alt": "Norgorber",
+                "game-obj": "Deities",
+                "aonid": 289
+            }
         ]
     },
     "game-id": "ed96754ed097b704a59886028e7a10c4",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You call out to the creatures of the wild favored by your deity. You quickly summon your deity\u2019s sacred animal (or a small swarm of them if the animal is usually Tiny). For example, you would call forth a lion if you worship Iomedae or a swarm of spiders if you worship Norgorber. If your deity doesn\u2019t have a known sacred animal, work with the GM to find a thematic one. The animal or swarm assaults all creatures in the area, dealing 2d6 damage. The damage is either bludgeoning, piercing, or slashing based on the animal that was conjured, as determined by the GM. After their attacks, the animals return to your deity\u2019s plane.",
-    "links": [
-        {
-            "type": "link",
-            "name": "lion",
-            "alt": "lion",
-            "game-obj": "Monsters",
-            "aonid": 2866
-        },
-        {
-            "type": "link",
-            "name": "Iomedae",
-            "alt": "Iomedae",
-            "game-obj": "Deities",
-            "aonid": 285
-        },
-        {
-            "type": "link",
-            "name": "spiders",
-            "alt": "spiders",
-            "game-obj": "MonsterFamilies",
-            "aonid": 474
-        },
-        {
-            "type": "link",
-            "name": "Norgorber",
-            "alt": "Norgorber",
-            "game-obj": "Deities",
-            "aonid": 289
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -170,5 +194,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Join Pasts",
         "type": "stat_block_section",
+        "text": "With touches to the targets\u2019 foreheads, you bring them into mental communion. The targets can share thoughts and experiences, but not words. When one target attempts to Recall Knowledge, the other can Aid the first target\u2019s skill check, using any Lore skill (even if that Lore wouldn\u2019t normally apply) without having made any preparations to Aid.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,8 +94,6 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "cast": "somatic",
         "range": "touch",
         "targets": "2 willing creatures",
         "duration": "1 round",
@@ -108,48 +104,69 @@
                 "increment": 1,
                 "text": "You can touch one additional target to include them in the spell\u2019s effects. Multiple targets can attempt checks to Aid the target who is attempting to Recall Knowledge."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Recall Knowledge",
+                "alt": "Recall Knowledge",
+                "game-obj": "Actions",
+                "aonid": 26
+            },
+            {
+                "type": "link",
+                "name": "Aid",
+                "alt": "Aid",
+                "game-obj": "Actions",
+                "aonid": 75
+            },
+            {
+                "type": "link",
+                "name": "Lore",
+                "alt": "Lore",
+                "game-obj": "Skills",
+                "aonid": 8
+            }
         ]
     },
     "game-id": "08508af4c8bacea25b05eb2f29a0cdec",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "With touches to the targets\u2019 foreheads, you bring them into mental communion. The targets can share thoughts and experiences, but not words. When one target attempts to Recall Knowledge, the other can Aid the first target\u2019s skill check, using any Lore skill (even if that Lore wouldn\u2019t normally apply) without having made any preparations to Aid.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Recall Knowledge",
-            "alt": "Recall Knowledge",
-            "game-obj": "Actions",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "Aid",
-            "alt": "Aid",
-            "game-obj": "Actions",
-            "aonid": 75
-        },
-        {
-            "type": "link",
-            "name": "Lore",
-            "alt": "Lore",
-            "game-obj": "Skills",
-            "aonid": 8
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -165,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

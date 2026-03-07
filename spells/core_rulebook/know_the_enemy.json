@@ -54,12 +54,10 @@
     "spell": {
         "name": "Know the Enemy",
         "type": "stat_block_section",
+        "text": "Use a Recall Knowledge action, rolling the appropriate skill check to identify the triggering creature's abilities. You can roll your check twice and use the better result.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,30 +108,47 @@
                 }
             }
         ],
-        "domain": "knowledge",
-        "cast": "somatic",
-        "trigger": "You roll initiative and can see a creature, you succeed at an attack roll against a creature, or a creature fails a saving throw against one of your spells."
+        "trigger": "You roll initiative and can see a creature, you succeed at an attack roll against a creature, or a creature fails a saving throw against one of your spells.",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "knowledge",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "knowledge",
+                    "alt": "knowledge",
+                    "game-obj": "Domains",
+                    "aonid": 17
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "36c4cb64422ee065b7ad59435c18976a",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Use a Recall Knowledge action, rolling the appropriate skill check to identify the triggering creature's abilities. You can roll your check twice and use the better result.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "knowledge",
-            "alt": "knowledge",
-            "game-obj": "Domains",
-            "aonid": 17
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +164,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

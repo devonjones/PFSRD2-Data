@@ -40,12 +40,10 @@
     "spell": {
         "name": "Bound in Death",
         "type": "stat_block_section",
+        "text": "You tether another creature's spirit to your own, shunting part of the damage dealt to you onto one of your foes. You create a life link between yourself and the target. Each time an effect damages you, the target attempts a Will save, which can cause it to take part of the damage, as detailed below. The spell ends if the target is ever more than 120 feet away from you. If either you or the target is reduced to 0 Hit Points, any damage from this spell is resolved, and then the spell ends.  \n  \n Each time you sustain this spell, you can choose to deal 6d8 damage to yourself, which can be reduced with *bound in death* as normal.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,11 +82,8 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 enemy",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -98,49 +93,90 @@
                 "text": "The damage you can choose to deal to yourself each time you sustain the spell increases by 3d8."
             }
         ],
-        "critical_success": "The damage you take is unaffected, and the spell ends.",
-        "success": "The damage you take is unaffected, and the target can't take damage from *bound in death* for 1 round.",
-        "failure": "The target takes half the damage of the effect instead of you, then can't take damage from *bound in death* for 1 round. Apply any immunity, resistances, or weaknesses you have to the damage before halving it, and the target still applies any immunity, resistances, weaknesses, and the like it has.",
-        "critical_failure": "The target takes half the damage of the effect."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The damage you take is unaffected, and the spell ends.",
+            "success": "The damage you take is unaffected, and the target can't take damage from *bound in death* for 1 round.",
+            "failure": "The target takes half the damage of the effect instead of you, then can't take damage from *bound in death* for 1 round. Apply any immunity, resistances, or weaknesses you have to the damage before halving it, and the target still applies any immunity, resistances, weaknesses, and the like it has.",
+            "critical_failure": "The target takes half the damage of the effect."
+        }
     },
     "game-id": "7b15936479d5bde21d96a0e38c06b13d",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You tether another creature's spirit to your own, shunting part of the damage dealt to you onto one of your foes. You create a life link between yourself and the target. Each time an effect damages you, the target attempts a Will save, which can cause it to take part of the damage, as detailed below. The spell ends if the target is ever more than 120 feet away from you. If either you or the target is reduced to 0 Hit Points, any damage from this spell is resolved, and then the spell ends.  \n  \n Each time you sustain this spell, you can choose to deal 6d8 damage to yourself, which can be reduced with *bound in death* as normal.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -156,5 +192,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

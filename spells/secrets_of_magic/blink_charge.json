@@ -54,12 +54,10 @@
     "spell": {
         "name": "Blink Charge",
         "type": "stat_block_section",
+        "text": "You propel yourself through the fabric of space to deal a blow carrying the momentum of your teleportation. You teleport to an empty space adjacent to a creature you can see within range, then make a Strike against the creature with a weapon you're wielding. The Strike deals damage, plus an extra 2d8 force damage, depending on the result of your Strike.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
         "heightened": [
@@ -110,49 +106,89 @@
                 "text": "The spell's range increases by 60 feet, and any force damage the spell deals is increased by 1d8."
             }
         ],
-        "critical_success": "Double damage, plus after the Strike, you can teleport the target into an empty space up to 5 feet away from its current position. The new space must be on the ground if it started on the ground, in the air if it was flying, and so on.",
-        "success": "The Strike deals full damage.",
-        "failure": "The Strike deals no damage, but the target takes 1d8 force damage.",
-        "critical_failure": "The Strike deals no damage, and you take 1d8 force damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "Double damage, plus after the Strike, you can teleport the target into an empty space up to 5 feet away from its current position. The new space must be on the ground if it started on the ground, in the air if it was flying, and so on.",
+            "success": "The Strike deals full damage.",
+            "failure": "The Strike deals no damage, but the target takes 1d8 force damage.",
+            "critical_failure": "The Strike deals no damage, and you take 1d8 force damage."
+        }
     },
     "game-id": "612d62a233d539cab88684b2361a9fe2",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You propel yourself through the fabric of space to deal a blow carrying the momentum of your teleportation. You teleport to an empty space adjacent to a creature you can see within range, then make a Strike against the creature with a weapon you're wielding. The Strike deals damage, plus an extra 2d8 force damage, depending on the result of your Strike.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -168,5 +204,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

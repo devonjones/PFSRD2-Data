@@ -20,12 +20,10 @@
     "spell": {
         "name": "Shock and Awe",
         "type": "stat_block_section",
+        "text": "You create the illusion of cannons exploding, bullets and arrows flying, and magical ballistics firing, as an overwhelming torrent of information, both visual and auditory. Enemies in the area must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -124,55 +122,80 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
         "range": "100 feet",
         "area": "50-foot burst",
-        "defense": "Will",
         "duration": "1 round",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is frightened 1.",
-        "failure": "The enemy is frightened 2 and stunned 1.",
-        "critical_failure": "The enemy is frightened 3 and stunned 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is frightened 1.",
+            "failure": "The enemy is frightened 2 and stunned 1.",
+            "critical_failure": "The enemy is frightened 3 and stunned 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                },
+                {
+                    "type": "link",
+                    "name": "stunned",
+                    "alt": "stunned",
+                    "game-obj": "Conditions",
+                    "aonid": 93
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "burst",
+                "alt": "burst",
+                "game-obj": "Rules",
+                "aonid": 2385
+            }
+        ]
     },
     "game-id": "17b8c89cbe9c43e7d5ff4c3ebd186507",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You create the illusion of cannons exploding, bullets and arrows flying, and magical ballistics firing, as an overwhelming torrent of information, both visual and auditory. Enemies in the area must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "stunned",
-            "alt": "stunned",
-            "game-obj": "Conditions",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "burst",
-            "alt": "burst",
-            "game-obj": "Rules",
-            "aonid": 2385
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -217,5 +240,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

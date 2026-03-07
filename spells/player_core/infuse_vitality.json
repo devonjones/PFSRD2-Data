@@ -27,12 +27,10 @@
     "spell": {
         "name": "Infuse Vitality",
         "type": "stat_block_section",
+        "text": "You empower attacks with vital energy. The number of targets is equal to the number of actions you spent casting this spell. Each target's unarmed and weapon Strikes deal an extra 1d4 vitality damage. (This damage typically damages only undead.) If you have the holy trait, you can add that trait to this spell and to the Strikes affected by the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,7 +69,6 @@
                 }
             }
         ],
-        "traditions": "divine",
         "range": "30 feet",
         "targets": "1 to 3 willing creatures",
         "duration": "1 minute",
@@ -88,41 +85,55 @@
                 "level": 5,
                 "text": "The damage increases to 3d4 damage."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unarmed",
+                "alt": "unarmed",
+                "game-obj": "Traits",
+                "aonid": 199
+            },
+            {
+                "type": "link",
+                "name": "damages only undead",
+                "alt": "damages only undead",
+                "game-obj": "Rules",
+                "aonid": 2308
+            },
+            {
+                "type": "link",
+                "name": "holy",
+                "alt": "holy",
+                "game-obj": "Traits",
+                "aonid": 517
+            }
         ]
     },
     "game-id": "4679e01261b50aee6651063c64e65894",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You empower attacks with vital energy. The number of targets is equal to the number of actions you spent casting this spell. Each target's unarmed and weapon Strikes deal an extra 1d4 vitality damage. (This damage typically damages only undead.) If you have the holy trait, you can add that trait to this spell and to the Strikes affected by the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unarmed",
-            "alt": "unarmed",
-            "game-obj": "Traits",
-            "aonid": 199
-        },
-        {
-            "type": "link",
-            "name": "damages only undead",
-            "alt": "damages only undead",
-            "game-obj": "Rules",
-            "aonid": 2308
-        },
-        {
-            "type": "link",
-            "name": "holy",
-            "alt": "holy",
-            "game-obj": "Traits",
-            "aonid": 517
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -167,5 +178,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

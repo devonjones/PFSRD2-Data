@@ -40,12 +40,10 @@
     "spell": {
         "name": "Split the Tongue",
         "type": "stat_block_section",
+        "text": "The deceiving creature's tongue splits like a serpent's tongue. The creature takes 1d8 slashing damage and must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,10 +70,7 @@
                 }
             }
         ],
-        "domain": "naga",
-        "cast": "somatic",
         "trigger": "A creature within 30 feet fails a Deception or Diplomacy check.",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -84,52 +79,80 @@
                 "text": "The damage increases by 1d8."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and is stupefied 1 for 1d4 rounds.",
-        "critical_failure": "As failure, but the creature takes double damage and is stupefied 2 for 1d4 rounds."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "naga",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "naga",
+                    "alt": "naga",
+                    "game-obj": "Domains",
+                    "aonid": 58
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and is stupefied 1 for 1d4 rounds.",
+            "critical_failure": "As failure, but the creature takes double damage and is stupefied 2 for 1d4 rounds.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stupefied 1",
+                    "alt": "stupefied 1",
+                    "game-obj": "Conditions",
+                    "aonid": 37
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Deception",
+                "alt": "Deception",
+                "game-obj": "Skills",
+                "aonid": 5
+            },
+            {
+                "type": "link",
+                "name": "Diplomacy",
+                "alt": "Diplomacy",
+                "game-obj": "Skills",
+                "aonid": 6
+            }
+        ]
     },
     "game-id": "ebe9a239cf2d71cd3063213d5bf0e476",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "The deceiving creature's tongue splits like a serpent's tongue. The creature takes 1d8 slashing damage and must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Deception",
-            "alt": "Deception",
-            "game-obj": "Skills",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "Diplomacy",
-            "alt": "Diplomacy",
-            "game-obj": "Skills",
-            "aonid": 6
-        },
-        {
-            "type": "link",
-            "name": "stupefied 1",
-            "alt": "stupefied 1",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "naga",
-            "alt": "naga",
-            "game-obj": "Domains",
-            "aonid": 58
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -145,5 +168,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

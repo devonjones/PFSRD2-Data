@@ -40,12 +40,10 @@
     "spell": {
         "name": "Buffeting Winds",
         "type": "stat_block_section",
+        "text": "You release a quick burst of wind that batters your living opponents without causing them lasting harm, while also blowing undead away. The wind deals 2d4 bludgeoning damage, which is nonlethal against living creatures. Against undead, the winds are more vicious, and the spell loses the nonlethal trait against such creatures. Each creature in the area must attempt a basic Reflex save. On a failure, undead creatures are also knocked back 5 feet (or 10 feet on a critical failure).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,10 +82,7 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "cast": "somatic, verbal",
         "area": "15-foot cone",
-        "saving_throw": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -95,62 +90,93 @@
                 "increment": 1,
                 "text": "The damage increases by 2d4."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            },
+            {
+                "type": "link",
+                "name": "nonlethal",
+                "alt": "nonlethal",
+                "game-obj": "Traits",
+                "aonid": 188
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "knocked back",
+                "alt": "knocked back",
+                "game-obj": "Rules",
+                "aonid": 451
+            }
         ]
     },
     "game-id": "ec526f39af6c36b0d1165711896705e2",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You release a quick burst of wind that batters your living opponents without causing them lasting harm, while also blowing undead away. The wind deals 2d4 bludgeoning damage, which is nonlethal against living creatures. Against undead, the winds are more vicious, and the spell loses the nonlethal trait against such creatures. Each creature in the area must attempt a basic Reflex save. On a failure, undead creatures are also knocked back 5 feet (or 10 feet on a critical failure).",
-    "links": [
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "nonlethal",
-            "alt": "nonlethal",
-            "game-obj": "Traits",
-            "aonid": 188
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "knocked back",
-            "alt": "knocked back",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -166,5 +192,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

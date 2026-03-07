@@ -27,12 +27,10 @@
     "spell": {
         "name": "Pressure Zone",
         "type": "stat_block_section",
+        "text": "Air pressure drops precipitously, causing pain and debilitation in creatures' inner ears and joints. Each living creature in the area of the spell when you cast it or that enters the area during the spell's duration must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,48 +69,71 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "500 feet",
         "area": "20-foot burst",
-        "defense": "Fortitude",
         "duration": "1 minute",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is deafened and clumsy 1 until the end of its next turn, after which it's temporarily immune for 1 hour.",
-        "failure": "The creature is deafened and clumsy 2. At the end of each of its turns, it can attempt a new save if it's no longer in the pressure zone. On a success, it ends the effects and is temporarily immune for 1 hour.",
-        "critical_failure": "The creature is deafened and clumsy 2 for the duration of the spell.  \n  \nA creature deafened by this spell can attempt to end the condition by popping its ears. It can use a single action to attempt a new Fortitude save, losing the deafened condition from this spell on a success. Some creatures with anatomies that lack inner ears or joints might be immune to these effects, as determined by the GM."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is deafened and clumsy 1 until the end of its next turn, after which it's temporarily immune for 1 hour.",
+            "failure": "The creature is deafened and clumsy 2. At the end of each of its turns, it can attempt a new save if it's no longer in the pressure zone. On a success, it ends the effects and is temporarily immune for 1 hour.",
+            "critical_failure": "The creature is deafened and clumsy 2 for the duration of the spell.  \n  \nA creature deafened by this spell can attempt to end the condition by popping its ears. It can use a single action to attempt a new Fortitude save, losing the deafened condition from this spell on a success. Some creatures with anatomies that lack inner ears or joints might be immune to these effects, as determined by the GM.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "deafened",
+                    "alt": "deafened",
+                    "game-obj": "Conditions",
+                    "aonid": 8
+                },
+                {
+                    "type": "link",
+                    "name": "clumsy 1",
+                    "alt": "clumsy 1",
+                    "game-obj": "Conditions",
+                    "aonid": 3
+                }
+            ]
+        }
     },
     "game-id": "9ae0f513718c970c7c816a370a32e7a2",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "Air pressure drops precipitously, causing pain and debilitation in creatures' inner ears and joints. Each living creature in the area of the spell when you cast it or that enters the area during the spell's duration must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "deafened",
-            "alt": "deafened",
-            "game-obj": "Conditions",
-            "aonid": 8
-        },
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -157,5 +178,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

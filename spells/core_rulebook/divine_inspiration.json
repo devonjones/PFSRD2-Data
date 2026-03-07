@@ -54,12 +54,10 @@
     "spell": {
         "name": "Divine Inspiration",
         "type": "stat_block_section",
+        "text": "You infuse a target with spiritual energy, refreshing its magic. If it prepares spells, it recovers one 6th-level or lower spell it previously cast today and can cast that spell again. If it spontaneously casts spells, it recovers one of its 6th-level or lower spell slots. If it has a focus pool, it regains its Focus Points, as if it had Refocused.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,52 +84,81 @@
                 }
             }
         ],
-        "traditions": "divine",
-        "bloodline": "wyrmblessed",
-        "cast": "somatic, verbal",
         "range": "touch",
-        "targets": "1 willing creature"
+        "targets": "1 willing creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "wyrmblessed",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "wyrmblessed",
+                    "alt": "wyrmblessed",
+                    "game-obj": "Bloodlines",
+                    "aonid": 17
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Refocused",
+                "alt": "Refocused",
+                "game-obj": "Actions",
+                "aonid": 71
+            }
+        ]
     },
     "game-id": "b1d1123f421c8a6924de51fc07cc8b47",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "You infuse a target with spiritual energy, refreshing its magic. If it prepares spells, it recovers one 6th-level or lower spell it previously cast today and can cast that spell again. If it spontaneously casts spells, it recovers one of its 6th-level or lower spell slots. If it has a focus pool, it regains its Focus Points, as if it had Refocused.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Refocused",
-            "alt": "Refocused",
-            "game-obj": "Actions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "wyrmblessed",
-            "alt": "wyrmblessed",
-            "game-obj": "Bloodlines",
-            "aonid": 17
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -147,5 +174,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

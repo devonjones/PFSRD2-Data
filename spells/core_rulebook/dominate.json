@@ -54,12 +54,10 @@
     "spell": {
         "name": "Dominate",
         "type": "stat_block_section",
+        "text": "You take command of the target, forcing it to obey your orders. If you issue an obviously self-destructive order, the target doesn't act until you issue a new order. The effect depends on its Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,12 +108,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Droskar, Droskar, Lissala, The Godclaw, Zura",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "until the next time you make your daily preparations",
         "heightened": [
             {
@@ -125,92 +119,159 @@
                 "text": "The duration is unlimited."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target is stunned 1 as it fights off your commands.",
-        "failure": "You control the target. It gains the controlled condition, but it can attempt a Will save at the end of each of its turns. On a success, the spell ends.",
-        "critical_failure": "As a failure, but the target receives a new save only if you give it a new order that is against its nature, such as killing its allies."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Droskar",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Droskar",
+                    "alt": "Droskar",
+                    "game-obj": "Deities",
+                    "aonid": 28
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Droskar",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Droskar",
+                    "alt": "Droskar",
+                    "game-obj": "Deities",
+                    "aonid": 28
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Lissala",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Lissala",
+                    "alt": "Lissala",
+                    "game-obj": "Deities",
+                    "aonid": 156
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "The Godclaw",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "The Godclaw",
+                    "alt": "The Godclaw",
+                    "game-obj": "Deities",
+                    "aonid": 198
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Zura",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Zura",
+                    "alt": "Zura",
+                    "game-obj": "Deities",
+                    "aonid": 83
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is stunned 1 as it fights off your commands.",
+            "failure": "You control the target. It gains the controlled condition, but it can attempt a Will save at the end of each of its turns. On a success, the spell ends.",
+            "critical_failure": "As a failure, but the target receives a new save only if you give it a new order that is against its nature, such as killing its allies.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 36
+                },
+                {
+                    "type": "link",
+                    "name": "controlled",
+                    "alt": "controlled",
+                    "game-obj": "Conditions",
+                    "aonid": 6
+                }
+            ]
+        }
     },
     "game-id": "8a02cc1d9841ea15f8d6a4fe8795e690",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You take command of the target, forcing it to obey your orders. If you issue an obviously self-destructive order, the target doesn't act until you issue a new order. The effect depends on its Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "controlled",
-            "alt": "controlled",
-            "game-obj": "Conditions",
-            "aonid": 6
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Droskar",
-            "alt": "Droskar",
-            "game-obj": "Deities",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "Droskar",
-            "alt": "Droskar",
-            "game-obj": "Deities",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "Lissala",
-            "alt": "Lissala",
-            "game-obj": "Deities",
-            "aonid": 156
-        },
-        {
-            "type": "link",
-            "name": "The Godclaw",
-            "alt": "The Godclaw",
-            "game-obj": "Deities",
-            "aonid": 198
-        },
-        {
-            "type": "link",
-            "name": "Zura",
-            "alt": "Zura",
-            "game-obj": "Deities",
-            "aonid": 83
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -226,5 +287,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

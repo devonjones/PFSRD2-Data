@@ -20,12 +20,10 @@
     "spell": {
         "name": "Blood-Feasting Breath",
         "type": "stat_block_section",
+        "text": "Like a vorpal dragon, you absorb life with an inhale and release it with an exhale. All living creatures in the first cone take 5d6 void damage with a basic Fortitude save. You and all living creatures in the second cone regain Hit Points equal to the greatest damage a single creature took from the first cone.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,9 +98,7 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
         "area": "two 30-foot cones",
-        "defense": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -110,40 +106,68 @@
                 "increment": 1,
                 "text": "The damage and healing increase by 1d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "cones",
+                "alt": "cones",
+                "game-obj": "Rules",
+                "aonid": 2386
+            }
         ]
     },
     "game-id": "e587de6c09e999399180d71c3b01fa73",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "Like a vorpal dragon, you absorb life with an inhale and release it with an exhale. All living creatures in the first cone take 5d6 void damage with a basic Fortitude save. You and all living creatures in the second cone regain Hit Points equal to the greatest damage a single creature took from the first cone.",
-    "links": [
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "cones",
-            "alt": "cones",
-            "game-obj": "Rules",
-            "aonid": 2386
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -188,5 +212,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

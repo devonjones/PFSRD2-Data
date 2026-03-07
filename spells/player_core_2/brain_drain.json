@@ -27,12 +27,10 @@
     "spell": {
         "name": "Brain Drain",
         "type": "stat_block_section",
+        "text": "You probe the target's mind to glean knowledge. This deals 1d8 mental damage with a basic Will save. If the target fails the save, you sort through the stolen memories to attempt a single check to Recall Knowledge. Choose a skill that has the Recall Knowledge action, and use the target's skill modifier for the check.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,10 +105,8 @@
                 }
             }
         ],
-        "mystery": "lore",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -118,35 +114,54 @@
                 "increment": 1,
                 "text": "The mental damage increases by 1d8."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lore",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "lore",
+                    "alt": "lore",
+                    "game-obj": "Mysteries",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "Recall Knowledge",
+                "alt": "Recall Knowledge",
+                "game-obj": "Actions",
+                "aonid": 2367
+            }
         ]
     },
     "game-id": "b6e1ee2cfa4a558cba8b9381cf1e85d4",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You probe the target's mind to glean knowledge. This deals 1d8 mental damage with a basic Will save. If the target fails the save, you sort through the stolen memories to attempt a single check to Recall Knowledge. Choose a skill that has the Recall Knowledge action, and use the target's skill modifier for the check.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "Recall Knowledge",
-            "alt": "Recall Knowledge",
-            "game-obj": "Actions",
-            "aonid": 2367
-        },
-        {
-            "type": "link",
-            "name": "lore",
-            "alt": "lore",
-            "game-obj": "Mysteries",
-            "aonid": 18
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -191,5 +206,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

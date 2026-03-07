@@ -27,12 +27,10 @@
     "spell": {
         "name": "Fey Disappearance",
         "type": "stat_block_section",
+        "text": "You become invisible and ignore natural difficult terrain (such as underbrush). Any hostile action you use ends this invisibility, but you still ignore natural difficult terrain.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,7 +81,6 @@
                 }
             }
         ],
-        "bloodline": "fey",
         "duration": "until the end of your next turn",
         "heightened": [
             {
@@ -92,42 +89,56 @@
                 "level": 5,
                 "text": "If you use a hostile action, the invisibility doesn't end."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fey",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "fey",
+                    "alt": "fey",
+                    "game-obj": "Bloodlines",
+                    "aonid": 25
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "invisible",
+                "alt": "invisible",
+                "game-obj": "Conditions",
+                "aonid": 83
+            },
+            {
+                "type": "link",
+                "name": "difficult terrain",
+                "alt": "difficult terrain",
+                "game-obj": "Rules",
+                "aonid": 453
+            },
+            {
+                "type": "link",
+                "name": "hostile action",
+                "alt": "hostile action",
+                "game-obj": "Rules",
+                "aonid": 300
+            }
         ]
     },
     "game-id": "dfe5eda653ffeb0254d484a7be967bc5",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You become invisible and ignore natural difficult terrain (such as underbrush). Any hostile action you use ends this invisibility, but you still ignore natural difficult terrain.",
-    "links": [
-        {
-            "type": "link",
-            "name": "invisible",
-            "alt": "invisible",
-            "game-obj": "Conditions",
-            "aonid": 83
-        },
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 453
-        },
-        {
-            "type": "link",
-            "name": "hostile action",
-            "alt": "hostile action",
-            "game-obj": "Rules",
-            "aonid": 300
-        },
-        {
-            "type": "link",
-            "name": "fey",
-            "alt": "fey",
-            "game-obj": "Bloodlines",
-            "aonid": 25
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -172,5 +183,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

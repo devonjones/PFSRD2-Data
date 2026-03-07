@@ -54,12 +54,10 @@
     "spell": {
         "name": "Debilitating Dichotomy",
         "type": "stat_block_section",
+        "text": "You reveal a glimpse of the impossible conflicts between the divine anathema behind your curse, forcing you to reckon with another's conflicts as well. You and the target each take 9d6 mental damage with a basic Will save, and the target is stunned 1 if it critically fails its save. You get a degree of success one better than you rolled for your saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,10 +120,8 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature other than you",
-        "saving_throw": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -133,35 +129,58 @@
                 "increment": 1,
                 "text": "The damage increases by 3d6."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "stunned 1",
+                "alt": "stunned 1",
+                "game-obj": "Conditions",
+                "aonid": 36
+            }
         ]
     },
     "game-id": "db0789a53bfafa2cb5c5a3c9221bc4d1",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You reveal a glimpse of the impossible conflicts between the divine anathema behind your curse, forcing you to reckon with another's conflicts as well. You and the target each take 9d6 mental damage with a basic Will save, and the target is stunned 1 if it critically fails its save. You get a degree of success one better than you rolled for your saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -177,5 +196,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

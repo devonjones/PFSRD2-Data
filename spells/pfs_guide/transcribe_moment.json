@@ -40,12 +40,10 @@
     "spell": {
         "name": "Transcribe Moment",
         "type": "stat_block_section",
+        "text": "You instantly create a small, permanent scroll that contains a magically precise written description of your current surroundings in every direction. Any creature who spends 1 minute to read the scroll\u2014written in a language of your choice that you know\u2014 immediately sees and experiences your surroundings during the moment that you recorded (including whatever events transpired that round) exactly as you experienced it. This depiction records only what you can sense yourself. For example, if you can't see invisible creatures, the depiction doesn't reveal them even to a reader who could normally see them; a reader can't use their Perception to notice details you missed, but they can attempt a check to Recall Knowledge based on what they just experienced if they have knowledge that you lack. You can have multiple scrolls from *transcribe moment* in existence at the same time, up to a number equal to your Intelligence modifier. If you Cast the Spell again while already at the maximum number of scrolls, choose one of the current scrolls to lose its magic, then create the new one.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,42 +70,59 @@
                 }
             }
         ],
-        "cast": "material, somatic"
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "invisible",
+                "alt": "invisible",
+                "game-obj": "Conditions",
+                "aonid": 26
+            },
+            {
+                "type": "link",
+                "name": "Recall Knowledge",
+                "alt": "Recall Knowledge",
+                "game-obj": "Actions",
+                "aonid": 26
+            }
+        ]
     },
     "game-id": "5d49b637b550c43f7e8102a6eaed1a99",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You instantly create a small, permanent scroll that contains a magically precise written description of your current surroundings in every direction. Any creature who spends 1 minute to read the scroll\u2014written in a language of your choice that you know\u2014 immediately sees and experiences your surroundings during the moment that you recorded (including whatever events transpired that round) exactly as you experienced it. This depiction records only what you can sense yourself. For example, if you can't see invisible creatures, the depiction doesn't reveal them even to a reader who could normally see them; a reader can't use their Perception to notice details you missed, but they can attempt a check to Recall Knowledge based on what they just experienced if they have knowledge that you lack. You can have multiple scrolls from *transcribe moment* in existence at the same time, up to a number equal to your Intelligence modifier. If you Cast the Spell again while already at the maximum number of scrolls, choose one of the current scrolls to lose its magic, then create the new one.",
-    "links": [
-        {
-            "type": "link",
-            "name": "invisible",
-            "alt": "invisible",
-            "game-obj": "Conditions",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "Recall Knowledge",
-            "alt": "Recall Knowledge",
-            "game-obj": "Actions",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -123,5 +138,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

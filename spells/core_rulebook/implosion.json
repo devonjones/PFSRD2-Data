@@ -54,12 +54,10 @@
     "spell": {
         "name": "Implosion",
         "type": "stat_block_section",
+        "text": "You crush the target by causing it to collapse in on itself, dealing 75 damage. The first time each round you Sustain the Spell, you must choose a new target to be subject to the same effect; the same creature can never be targeted more than once with a single casting of this spell. You also can't affect more than one creature per turn with *implosion*. You can't target a creature that's incorporeal, gaseous, or liquid, or otherwise lacking a solid form.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,12 +72,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "bloodline": "demonic",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 corporeal creature",
-        "saving_throw": "basic Fortitude",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -88,61 +82,107 @@
                 "increment": 1,
                 "text": "The damage increases by 10."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "demonic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "demonic",
+                    "alt": "demonic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 3
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "incorporeal",
+                "alt": "incorporeal",
+                "game-obj": "Traits",
+                "aonid": 222
+            }
         ]
     },
     "game-id": "ce795b5e022651466020af9f0c9e4891",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You crush the target by causing it to collapse in on itself, dealing 75 damage. The first time each round you Sustain the Spell, you must choose a new target to be subject to the same effect; the same creature can never be targeted more than once with a single casting of this spell. You also can't affect more than one creature per turn with *implosion*. You can't target a creature that's incorporeal, gaseous, or liquid, or otherwise lacking a solid form.",
-    "links": [
-        {
-            "type": "link",
-            "name": "incorporeal",
-            "alt": "incorporeal",
-            "game-obj": "Traits",
-            "aonid": 222
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "demonic",
-            "alt": "demonic",
-            "game-obj": "Bloodlines",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -158,5 +198,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

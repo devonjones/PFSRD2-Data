@@ -40,12 +40,10 @@
     "spell": {
         "name": "Gray Shadow",
         "type": "stat_block_section",
+        "text": "You pray over a dying creature, drawing its shadow into your service as long as its owner is stooped at death's door. You summon a greater shadow in a space adjacent to the dying creature. The greater shadow has its usual stats, with the following modifications: \n* The greater shadow's shadow hand Strike deals an additional 1d8 poison damage.\n* When you Cast a Spell, you can use the greater shadow's location as the origin point instead of your own location. Upon doing so, the greater shadow immediately disappears.\n If the dying creature targeted by this spell dies or regains consciousness, the greater shadow disappears and this spell ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,52 +82,76 @@
                 }
             }
         ],
-        "traditions": "divine",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 dying creature",
-        "duration": "sustained, up to 1 minute"
+        "duration": "sustained, up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "greater shadow",
+                "alt": "greater shadow",
+                "game-obj": "Monsters",
+                "aonid": 363
+            },
+            {
+                "type": "link",
+                "name": "dying",
+                "alt": "dying",
+                "game-obj": "Conditions",
+                "aonid": 11
+            }
+        ]
     },
     "game-id": "1c25929f40aedbcc56009ceeec157275",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You pray over a dying creature, drawing its shadow into your service as long as its owner is stooped at death's door. You summon a greater shadow in a space adjacent to the dying creature. The greater shadow has its usual stats, with the following modifications: \n* The greater shadow's shadow hand Strike deals an additional 1d8 poison damage.\n* When you Cast a Spell, you can use the greater shadow's location as the origin point instead of your own location. Upon doing so, the greater shadow immediately disappears.\n If the dying creature targeted by this spell dies or regains consciousness, the greater shadow disappears and this spell ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "greater shadow",
-            "alt": "greater shadow",
-            "game-obj": "Monsters",
-            "aonid": 363
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "dying",
-            "alt": "dying",
-            "game-obj": "Conditions",
-            "aonid": 11
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -145,5 +167,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

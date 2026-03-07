@@ -54,12 +54,10 @@
     "spell": {
         "name": "Pummeling Rubble",
         "type": "stat_block_section",
+        "text": "A spray of heavy rocks flies through the air in front of you. The rubble deals 2d4 bludgeoning damage to each creature in the area. Each creature must attempt a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,10 +84,7 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "somatic, verbal",
         "area": "15-foot cone",
-        "saving_throw": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -98,50 +93,87 @@
                 "text": "Increase the damage by 2d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and is pushed 5 feet away from you.",
-        "critical_failure": "The creature takes double damage and is pushed 10 feet away from you."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and is pushed 5 feet away from you.",
+            "critical_failure": "The creature takes double damage and is pushed 10 feet away from you.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "pushed",
+                    "alt": "pushed",
+                    "game-obj": "Rules",
+                    "aonid": 708
+                }
+            ]
+        }
     },
     "game-id": "80edd48bf0e616fc52964f8b9b9e1809",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "A spray of heavy rocks flies through the air in front of you. The rubble deals 2d4 bludgeoning damage to each creature in the area. Each creature must attempt a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pushed",
-            "alt": "pushed",
-            "game-obj": "Rules",
-            "aonid": 708
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -157,5 +189,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

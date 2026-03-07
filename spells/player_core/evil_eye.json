@@ -27,12 +27,10 @@
     "spell": {
         "name": "Evil Eye",
         "type": "stat_block_section",
+        "text": "Your patron's resentment manifests in a baleful, envious gaze. The target becomes sickened 1 if it fails a Will save (or sickened 2 on a critical failure). This condition value can't be reduced below 1 while the spell is active and you can see the target.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,32 +105,49 @@
                 }
             }
         ],
-        "patron_theme": "the resentment",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "the resentment",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "the resentment",
+                    "alt": "the resentment",
+                    "game-obj": "Patrons",
+                    "aonid": 14
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "sickened 1",
+                "alt": "sickened 1",
+                "game-obj": "Conditions",
+                "aonid": 34
+            }
+        ]
     },
     "game-id": "33af155f3673e39684e5a0ce5f12fbfd",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Your patron's resentment manifests in a baleful, envious gaze. The target becomes sickened 1 if it fails a Will save (or sickened 2 on a critical failure). This condition value can't be reduced below 1 while the spell is active and you can see the target.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened 1",
-            "alt": "sickened 1",
-            "game-obj": "Conditions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "the resentment",
-            "alt": "the resentment",
-            "game-obj": "Patrons",
-            "aonid": 14
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -177,5 +192,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

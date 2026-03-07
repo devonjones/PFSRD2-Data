@@ -54,12 +54,10 @@
     "spell": {
         "name": "Magic Stone",
         "type": "stat_block_section",
+        "text": "You pour positive energy into ordinary stones, granting them temporary magical properties. You can target 1 non-magical stone or sling bullet for every action you use Casting this Spell. The stones must be unattended or carried by you or a willing ally. The stones become *+1 striking disrupting sling bullets*. Each stone can be used only once, after which it crumbles to dust.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,65 +84,95 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
-        "cast": "to    (verbal, somatic)",
         "range": "touch",
         "targets": "1 to 3 non-magical stones or sling bullets",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "striking",
+                "alt": "striking",
+                "game-obj": "Equipment",
+                "aonid": 280
+            },
+            {
+                "type": "link",
+                "name": "disrupting",
+                "alt": "disrupting",
+                "game-obj": "Equipment",
+                "aonid": 294
+            },
+            {
+                "type": "link",
+                "name": "sling bullets",
+                "alt": "sling bullets",
+                "game-obj": "Weapons",
+                "aonid": 82
+            }
+        ]
     },
     "game-id": "6b5b650b1924f29aeb220bbbe93bafba",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You pour positive energy into ordinary stones, granting them temporary magical properties. You can target 1 non-magical stone or sling bullet for every action you use Casting this Spell. The stones must be unattended or carried by you or a willing ally. The stones become *+1 striking disrupting sling bullets*. Each stone can be used only once, after which it crumbles to dust.",
-    "links": [
-        {
-            "type": "link",
-            "name": "striking",
-            "alt": "striking",
-            "game-obj": "Equipment",
-            "aonid": 280
-        },
-        {
-            "type": "link",
-            "name": "disrupting",
-            "alt": "disrupting",
-            "game-obj": "Equipment",
-            "aonid": 294
-        },
-        {
-            "type": "link",
-            "name": "sling bullets",
-            "alt": "sling bullets",
-            "game-obj": "Weapons",
-            "aonid": 82
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -160,5 +188,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

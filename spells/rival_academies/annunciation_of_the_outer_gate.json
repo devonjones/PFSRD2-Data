@@ -20,12 +20,10 @@
     "spell": {
         "name": "Annunciation of the Outer Gate",
         "type": "stat_block_section",
+        "text": "You announce yourself in the name of certain grim pacts that predate mortal life. This is not a compulsion, but rather an invitation of sorts. The invitation is understood by creatures in the area with telepathy and any who understand Aklo, Chthonian, Empyrean, Fey, or Utopian. Those who accept the invitation cannot take hostile action against others who agreed until 10 minutes pass and can communicate telepathically with them during that time. This effect ends immediately if any hostile action is taken against a creature that agreed. Those creatures who decline the choice or do not understand it must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -76,68 +74,93 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
         "area": "30-feet emanation",
-        "defense": "Will",
         "duration": "10 minutes (see text)",
-        "critical_success": "Nothing happens.",
-        "success": "The creature is frightened 1. If it understood the invitation, its frightened status doesn\u2019t decrease at the end of any turn in which it damaged a creature that agreed to the invitation.",
-        "failure": "As success, but the creature is frightened 2.",
-        "critical_failure": "As success, but the creature is frightened 3."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "Nothing happens.",
+            "success": "The creature is frightened 1. If it understood the invitation, its frightened status doesn\u2019t decrease at the end of any turn in which it damaged a creature that agreed to the invitation.",
+            "failure": "As success, but the creature is frightened 2.",
+            "critical_failure": "As success, but the creature is frightened 3.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Chthonian",
+                "alt": "Chthonian",
+                "game-obj": "Languages",
+                "aonid": 114
+            },
+            {
+                "type": "link",
+                "name": "Empyrean",
+                "alt": "Empyrean",
+                "game-obj": "Languages",
+                "aonid": 115
+            },
+            {
+                "type": "link",
+                "name": "Fey",
+                "alt": "Fey",
+                "game-obj": "Languages",
+                "aonid": 119
+            },
+            {
+                "type": "link",
+                "name": "Utopian",
+                "alt": "Utopian",
+                "game-obj": "Languages",
+                "aonid": 36
+            }
+        ]
     },
     "game-id": "dcdd229598d9756364bbdce357ac74ed",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You announce yourself in the name of certain grim pacts that predate mortal life. This is not a compulsion, but rather an invitation of sorts. The invitation is understood by creatures in the area with telepathy and any who understand Aklo, Chthonian, Empyrean, Fey, or Utopian. Those who accept the invitation cannot take hostile action against others who agreed until 10 minutes pass and can communicate telepathically with them during that time. This effect ends immediately if any hostile action is taken against a creature that agreed. Those creatures who decline the choice or do not understand it must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Chthonian",
-            "alt": "Chthonian",
-            "game-obj": "Languages",
-            "aonid": 114
-        },
-        {
-            "type": "link",
-            "name": "Empyrean",
-            "alt": "Empyrean",
-            "game-obj": "Languages",
-            "aonid": 115
-        },
-        {
-            "type": "link",
-            "name": "Fey",
-            "alt": "Fey",
-            "game-obj": "Languages",
-            "aonid": 119
-        },
-        {
-            "type": "link",
-            "name": "Utopian",
-            "alt": "Utopian",
-            "game-obj": "Languages",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -182,5 +205,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

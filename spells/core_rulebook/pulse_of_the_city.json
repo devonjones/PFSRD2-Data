@@ -54,12 +54,10 @@
     "spell": {
         "name": "Pulse of the City",
         "type": "stat_block_section",
+        "text": "You tap into the zeitgeist of the nearest settlement in range (if any). You learn the name of the settlement, and you can utter a special word to learn a brief summary of one significant event happening in the settlement. Choose one of the following words, which indicates the type of people involved and type of event you learn about. \n* **Wardens** city guards, barristers, and judges (criminal reports, busts, changes in routines, legal trials)\n* **Titles** nobles and politicians (high society weddings, elite soirees, political rallies)\n* **Masses** common folk and merchants (gathering mobs, major sales)\n When uttering your word, you can exclude events you already know about, whether you know about them from this spell or from other experiences. If you cast *pulse of the city* again within 24 hours, you can say \u201cecho\u201d instead of another word to get an update on the event you learned about the last time you Cast the Spell.  \n  \n *Pulse of the city* reveals only publicly available or observable information. You never learn clandestine movements or other details people are specifically trying to hide. The spell is also notoriously bad at overcoming magic meant to avoid detection; it automatically fails to reveal information about events involving creatures, places, or objects affected by spells that could prevent or counteract pulse of the city (such as *nondetection*).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,8 +108,6 @@
                 }
             }
         ],
-        "domain": "cities",
-        "cast": "material, somatic, verbal",
         "range": "25 miles",
         "heightened": [
             {
@@ -120,49 +116,80 @@
                 "level": 5,
                 "text": "The range increases to 100 miles."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "cities",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "cities",
+                    "alt": "cities",
+                    "game-obj": "Domains",
+                    "aonid": 3
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "nondetection",
+                "alt": "nondetection",
+                "game-obj": "Spells",
+                "aonid": 209
+            }
         ]
     },
     "game-id": "c3999463aa5cd868080509cc74eb47b4",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You tap into the zeitgeist of the nearest settlement in range (if any). You learn the name of the settlement, and you can utter a special word to learn a brief summary of one significant event happening in the settlement. Choose one of the following words, which indicates the type of people involved and type of event you learn about. \n* **Wardens** city guards, barristers, and judges (criminal reports, busts, changes in routines, legal trials)\n* **Titles** nobles and politicians (high society weddings, elite soirees, political rallies)\n* **Masses** common folk and merchants (gathering mobs, major sales)\n When uttering your word, you can exclude events you already know about, whether you know about them from this spell or from other experiences. If you cast *pulse of the city* again within 24 hours, you can say \u201cecho\u201d instead of another word to get an update on the event you learned about the last time you Cast the Spell.  \n  \n *Pulse of the city* reveals only publicly available or observable information. You never learn clandestine movements or other details people are specifically trying to hide. The spell is also notoriously bad at overcoming magic meant to avoid detection; it automatically fails to reveal information about events involving creatures, places, or objects affected by spells that could prevent or counteract pulse of the city (such as *nondetection*).",
-    "links": [
-        {
-            "type": "link",
-            "name": "nondetection",
-            "alt": "nondetection",
-            "game-obj": "Spells",
-            "aonid": 209
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "cities",
-            "alt": "cities",
-            "game-obj": "Domains",
-            "aonid": 3
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -178,5 +205,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

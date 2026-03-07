@@ -20,12 +20,10 @@
     "spell": {
         "name": "Ranage's Circle",
         "type": "stat_block_section",
+        "text": "Many stories tell of a clearing deep in the Mwangi jungle, surrounded by ancient cypress trees. At the center stands an ancient baobab tree growing around a large sphere of black basalt. Legends say that two spirit brothers, Ranage and Golokango, dwelled there long ago until Golokango\u2019s evil ways forced the virtuous Ranage to encase his brother in stone. Ranage then transformed himself into a tree to surround and protect the rock for all time. By telling this tale, you condemn an enemy to a stony fate similar to Golokango\u2019s and summon plants to surround them.  \n  \n When you Cast this Spell, every square adjacent to the target becomes difficult terrain from the sudden eruption of plant life for 1 minute. The target also attempts a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -124,69 +122,94 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is clumsy 1 as their feet are bound within stone. This condition lasts until they move from their current position.",
-        "failure": "The target is clumsy 2 and immobilized as their legs are encased in rock. The clumsy condition lasts until they move from their current position, and they can Escape from being immobilized with a check against your spell DC.",
-        "critical_failure": "The target is clumsy 2 and restrained as nearly their entire body is covered in basalt. The clumsy condition lasts until they move from their current position, and they can Escape from being restrained with a successful check against your spell DC."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is clumsy 1 as their feet are bound within stone. This condition lasts until they move from their current position.",
+            "failure": "The target is clumsy 2 and immobilized as their legs are encased in rock. The clumsy condition lasts until they move from their current position, and they can Escape from being immobilized with a check against your spell DC.",
+            "critical_failure": "The target is clumsy 2 and restrained as nearly their entire body is covered in basalt. The clumsy condition lasts until they move from their current position, and they can Escape from being restrained with a successful check against your spell DC.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "clumsy",
+                    "alt": "clumsy",
+                    "game-obj": "Conditions",
+                    "aonid": 61
+                },
+                {
+                    "type": "link",
+                    "name": "immobilized",
+                    "alt": "immobilized",
+                    "game-obj": "Conditions",
+                    "aonid": 81
+                },
+                {
+                    "type": "link",
+                    "name": "Escape",
+                    "alt": "Escape",
+                    "game-obj": "Actions",
+                    "aonid": 2296
+                },
+                {
+                    "type": "link",
+                    "name": "restrained",
+                    "alt": "restrained",
+                    "game-obj": "Conditions",
+                    "aonid": 90
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "difficult terrain",
+                "alt": "difficult terrain",
+                "game-obj": "Rules",
+                "aonid": 2366
+            }
+        ]
     },
     "game-id": "0122fe1ffeb40581780803df8e90be68",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "Many stories tell of a clearing deep in the Mwangi jungle, surrounded by ancient cypress trees. At the center stands an ancient baobab tree growing around a large sphere of black basalt. Legends say that two spirit brothers, Ranage and Golokango, dwelled there long ago until Golokango\u2019s evil ways forced the virtuous Ranage to encase his brother in stone. Ranage then transformed himself into a tree to surround and protect the rock for all time. By telling this tale, you condemn an enemy to a stony fate similar to Golokango\u2019s and summon plants to surround them.  \n  \n When you Cast this Spell, every square adjacent to the target becomes difficult terrain from the sudden eruption of plant life for 1 minute. The target also attempts a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 2366
-        },
-        {
-            "type": "link",
-            "name": "clumsy",
-            "alt": "clumsy",
-            "game-obj": "Conditions",
-            "aonid": 61
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 81
-        },
-        {
-            "type": "link",
-            "name": "Escape",
-            "alt": "Escape",
-            "game-obj": "Actions",
-            "aonid": 2296
-        },
-        {
-            "type": "link",
-            "name": "restrained",
-            "alt": "restrained",
-            "game-obj": "Conditions",
-            "aonid": 90
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -231,5 +254,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -20,12 +20,10 @@
     "spell": {
         "name": "Bottle the Storm",
         "type": "stat_block_section",
+        "text": "When lightning is turned against you, you store the charge safely within yourself, unleashing it when the time is right. You gain electricity resistance 10 against the triggering effect. If you successfully prevent damage in this way, at any time during the spell\u2019s duration, you can spend a single action, which has the attack trait, to expend the charge and make a spell attack against the AC of a target within 60 feet. This attack deals electricity damage equal to the damage prevented by bottle the storm. If you Cast *bottle the storm* a second time before the original duration elapses, or if you do not make this attack within 1 minute, the stored charge dissipates harmlessly.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,7 +86,6 @@
                 }
             }
         ],
-        "domain": "lightning",
         "trigger": "You would take electricity damage.",
         "heightened": [
             {
@@ -103,49 +100,63 @@
                 "level": 10,
                 "text": "The resistance increases to 20, and you can immediately make the spell attack granted by *bottle the storm* as part of the reaction used to Cast the Spell."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lightning",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "lightning",
+                    "alt": "lightning",
+                    "game-obj": "Domains",
+                    "aonid": 111
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "electricity",
+                "alt": "electricity",
+                "game-obj": "Traits",
+                "aonid": 586
+            },
+            {
+                "type": "link",
+                "name": "resistance",
+                "alt": "resistance",
+                "game-obj": "Rules",
+                "aonid": 2312
+            },
+            {
+                "type": "link",
+                "name": "attack",
+                "alt": "attack",
+                "game-obj": "Traits",
+                "aonid": 540
+            },
+            {
+                "type": "link",
+                "name": "electricity",
+                "alt": "electricity",
+                "game-obj": "Traits",
+                "aonid": 586
+            }
         ]
     },
     "game-id": "a31e594b848556cbb7d6258bdcfe393c",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "When lightning is turned against you, you store the charge safely within yourself, unleashing it when the time is right. You gain electricity resistance 10 against the triggering effect. If you successfully prevent damage in this way, at any time during the spell\u2019s duration, you can spend a single action, which has the attack trait, to expend the charge and make a spell attack against the AC of a target within 60 feet. This attack deals electricity damage equal to the damage prevented by bottle the storm. If you Cast *bottle the storm* a second time before the original duration elapses, or if you do not make this attack within 1 minute, the stored charge dissipates harmlessly.",
-    "links": [
-        {
-            "type": "link",
-            "name": "electricity",
-            "alt": "electricity",
-            "game-obj": "Traits",
-            "aonid": 586
-        },
-        {
-            "type": "link",
-            "name": "resistance",
-            "alt": "resistance",
-            "game-obj": "Rules",
-            "aonid": 2312
-        },
-        {
-            "type": "link",
-            "name": "attack",
-            "alt": "attack",
-            "game-obj": "Traits",
-            "aonid": 540
-        },
-        {
-            "type": "link",
-            "name": "electricity",
-            "alt": "electricity",
-            "game-obj": "Traits",
-            "aonid": 586
-        },
-        {
-            "type": "link",
-            "name": "lightning",
-            "alt": "lightning",
-            "game-obj": "Domains",
-            "aonid": 111
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -190,5 +201,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Claim Curse",
         "type": "stat_block_section",
+        "text": "By burning threads of fate around a target and then retying them to yourself instead, you temporarily draw their curse to you and offer them brief succor from the worst of its effects. Choose a curse affecting the target that you don't already have. For 5 minutes, you are affected by the curse (at the same stage as the target, if applicable), and the target isn't. When the duration ends, the curse's effects return to the target as normal.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,51 +72,81 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature affected by a curse",
-        "duration": "5 minutes"
+        "duration": "5 minutes",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "curse",
+                "alt": "curse",
+                "game-obj": "Traits",
+                "aonid": 38
+            }
+        ]
     },
     "game-id": "da470b2e4c7a3e12c7286a36c8008c34",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "By burning threads of fate around a target and then retying them to yourself instead, you temporarily draw their curse to you and offer them brief succor from the worst of its effects. Choose a curse affecting the target that you don't already have. For 5 minutes, you are affected by the curse (at the same stage as the target, if applicable), and the target isn't. When the duration ends, the curse's effects return to the target as normal.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "curse",
-            "alt": "curse",
-            "game-obj": "Traits",
-            "aonid": 38
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -134,5 +162,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

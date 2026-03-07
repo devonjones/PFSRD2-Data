@@ -54,12 +54,10 @@
     "spell": {
         "name": "Curse of Death",
         "type": "stat_block_section",
+        "text": "You focus your malevolent gaze on a target, causing their heart to seize in dread. The target must attempt a Fortitude saving throw. Regardless of the result, the target is temporarily immune to further castings of *curse of death* for 1 day.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,11 +132,8 @@
                 }
             }
         ],
-        "lesson": "lesson of death",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -148,52 +143,83 @@
                 "text": "Increase the negative damage taken on a success and during the first three stages of the curse by 1d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target is afflicted with the curse of death at stage 1, and the stage of the curse can't increase beyond stage 1.",
-        "failure": "The target is afflicted with the curse of death at stage 1.",
-        "critical_failure": "The target is afflicted with the curse of death at stage 2.  \n  \n**Curse of Death** (curse) This curse ends immediately when the spell ends; **Stage 1** 4d6 negative damage and fatigued (1 round); **Stage 2** 8d6 negative damage and fatigued (1 round); **Stage 3** 12d6 negative damage and fatigued (1 round); **Stage 4** death"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of death",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of death",
+                    "alt": "lesson of death",
+                    "game-obj": "Lessons",
+                    "aonid": 9
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is afflicted with the curse of death at stage 1, and the stage of the curse can't increase beyond stage 1.",
+            "failure": "The target is afflicted with the curse of death at stage 1.",
+            "critical_failure": "The target is afflicted with the curse of death at stage 2.  \n  \n**Curse of Death** (curse) This curse ends immediately when the spell ends; **Stage 1** 4d6 negative damage and fatigued (1 round); **Stage 2** 8d6 negative damage and fatigued (1 round); **Stage 3** 12d6 negative damage and fatigued (1 round); **Stage 4** death",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "curse",
+                    "alt": "curse",
+                    "game-obj": "Traits",
+                    "aonid": 38
+                },
+                {
+                    "type": "link",
+                    "name": "fatigued",
+                    "alt": "fatigued",
+                    "game-obj": "Conditions",
+                    "aonid": 15
+                }
+            ]
+        }
     },
     "game-id": "1d263f3a535f17836b8b7a471cd0a5ce",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You focus your malevolent gaze on a target, causing their heart to seize in dread. The target must attempt a Fortitude saving throw. Regardless of the result, the target is temporarily immune to further castings of *curse of death* for 1 day.",
-    "links": [
-        {
-            "type": "link",
-            "name": "curse",
-            "alt": "curse",
-            "game-obj": "Traits",
-            "aonid": 38
-        },
-        {
-            "type": "link",
-            "name": "fatigued",
-            "alt": "fatigued",
-            "game-obj": "Conditions",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "lesson of death",
-            "alt": "lesson of death",
-            "game-obj": "Lessons",
-            "aonid": 9
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -209,5 +235,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Grasping Grave",
         "type": "stat_block_section",
+        "text": "Hundreds of skeletal arms erupt from the ground in the area, clawing at creatures within and attempting to hold them in place. The skeletal arms deal 6d6 slashing damage. Each creature in the area must attempt a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,11 +96,8 @@
                 }
             }
         ],
-        "bloodline": "undead",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "area": "20-foot radius on the ground",
-        "saving_throw": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -111,38 +106,67 @@
                 "text": "The damage increases by 2d6."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and a \u201310-foot circumstance penalty to its Speeds for 1 round.",
-        "critical_failure": "The creature takes double damage and is immobilized for 1 round or until it Escapes."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "undead",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "undead",
+                    "alt": "undead",
+                    "game-obj": "Bloodlines",
+                    "aonid": 10
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and a \u201310-foot circumstance penalty to its Speeds for 1 round.",
+            "critical_failure": "The creature takes double damage and is immobilized for 1 round or until it Escapes."
+        }
     },
     "game-id": "95f21e303e753111b358a4e79867edf0",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "Hundreds of skeletal arms erupt from the ground in the area, clawing at creatures within and attempting to hold them in place. The skeletal arms deal 6d6 slashing damage. Each creature in the area must attempt a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Bloodlines",
-            "aonid": 10
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -158,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Touch of Obedience",
         "type": "stat_block_section",
+        "text": "Your imperious touch erodes the target's willpower, making it easier to control. The target attempts a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,37 +108,58 @@
                 }
             }
         ],
-        "domain": "tyranny",
-        "cast": "somatic",
         "range": "touch",
         "targets": "1 living creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is stupefied 1 until the end of your current turn.",
-        "failure": "The target is stupefied 1 until the end of your next turn.",
-        "critical_failure": "The target is stupefied 1 for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "tyranny",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "tyranny",
+                    "alt": "tyranny",
+                    "game-obj": "Domains",
+                    "aonid": 33
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is stupefied 1 until the end of your current turn.",
+            "failure": "The target is stupefied 1 until the end of your next turn.",
+            "critical_failure": "The target is stupefied 1 for 1 minute."
+        }
     },
     "game-id": "2414c58f99d4ba44d9978a284d410d60",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your imperious touch erodes the target's willpower, making it easier to control. The target attempts a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "tyranny",
-            "alt": "tyranny",
-            "game-obj": "Domains",
-            "aonid": 33
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -156,5 +175,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

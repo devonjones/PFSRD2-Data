@@ -27,12 +27,10 @@
     "spell": {
         "name": "Schadenfreude",
         "type": "stat_block_section",
+        "text": "You distract your enemy with their feeling of smug pleasure when you fail catastrophically. It must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,47 +69,76 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
         "trigger": "You critically fail a saving throw against a foe\u2019s effect.",
         "range": "30 feet",
         "targets": "the triggering foe",
-        "defense": "Will",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is distracted by its amusement and takes a \u20131 status penalty on Perception checks and Will saves for 1 round.",
-        "failure": "The creature is overcome by its amusement and is stupefied 1 for 1 round.",
-        "critical_failure": "The creature is lost in its amusement and is stupefied 2 for 1 round and stunned 1."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is distracted by its amusement and takes a \u20131 status penalty on Perception checks and Will saves for 1 round.",
+            "failure": "The creature is overcome by its amusement and is stupefied 1 for 1 round.",
+            "critical_failure": "The creature is lost in its amusement and is stupefied 2 for 1 round and stunned 1.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stupefied 1",
+                    "alt": "stupefied 1",
+                    "game-obj": "Conditions",
+                    "aonid": 94
+                }
+            ]
+        }
     },
     "game-id": "95b2dfd0184340cd51bf1ae12e6e5d4d",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You distract your enemy with their feeling of smug pleasure when you fail catastrophically. It must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stupefied 1",
-            "alt": "stupefied 1",
-            "game-obj": "Conditions",
-            "aonid": 94
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -156,5 +183,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

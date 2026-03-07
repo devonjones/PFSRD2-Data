@@ -27,12 +27,10 @@
     "spell": {
         "name": "Dreamer's Call",
         "type": "stat_block_section",
+        "text": "You create a vivid, illusory daydream drawn from the images of the target's dreams. The daydream appears in an unoccupied space in range, and you attempt to draw the target toward it.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -131,43 +129,60 @@
                 }
             }
         ],
-        "domain": "dreams",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "until the end of the target's next turn",
-        "critical_success": "The target is unaffected.",
-        "success": "The target's attention wavers. It becomes fascinated by the daydream.",
-        "failure": "The target is fascinated with the daydream and pursues a course of action you choose as its first action after you Cast the Spell: approach the daydream, run away from it (as the fleeing condition), Release what it's holding as an offering, or Drop Prone in obeisance.",
-        "critical_failure": "As failure, but the target follows the course of action for as many actions as possible for the spell's duration, and does nothing else."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "dreams",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "dreams",
+                    "alt": "dreams",
+                    "game-obj": "Domains",
+                    "aonid": 72
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target's attention wavers. It becomes fascinated by the daydream.",
+            "failure": "The target is fascinated with the daydream and pursues a course of action you choose as its first action after you Cast the Spell: approach the daydream, run away from it (as the fleeing condition), Release what it's holding as an offering, or Drop Prone in obeisance.",
+            "critical_failure": "As failure, but the target follows the course of action for as many actions as possible for the spell's duration, and does nothing else.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "fascinated",
+                    "alt": "fascinated",
+                    "game-obj": "Conditions",
+                    "aonid": 14
+                },
+                {
+                    "type": "link",
+                    "name": "Drop Prone",
+                    "alt": "Drop Prone",
+                    "game-obj": "Actions",
+                    "aonid": 78
+                }
+            ]
+        }
     },
     "game-id": "0904d4d3d5125bdefc123afd9ab5d6d3",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You create a vivid, illusory daydream drawn from the images of the target's dreams. The daydream appears in an unoccupied space in range, and you attempt to draw the target toward it.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "Drop Prone",
-            "alt": "Drop Prone",
-            "game-obj": "Actions",
-            "aonid": 78
-        },
-        {
-            "type": "link",
-            "name": "dreams",
-            "alt": "dreams",
-            "game-obj": "Domains",
-            "aonid": 72
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -212,5 +227,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

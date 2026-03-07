@@ -20,12 +20,10 @@
     "spell": {
         "name": "Temporal Distortion",
         "type": "stat_block_section",
+        "text": "You share some of your own temporal distortions with a foe, altering their mind and body unpredictably as they\u2019re thrown backward or forward in time. Roll 1d4. On a 1, the foe becomes clumsy; on a 2, it becomes enfeebled; on a 3, it becomes stupefied; and on a 4, you choose which condition applies.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -66,39 +64,49 @@
         ],
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is either clumsy 1, enfeebled 1, or stupefied 1 for 1 round, depending on the result of the d4.",
-        "failure": "The target is either clumsy 1, enfeebled 1, or stupefied 1 for 4 rounds, depending on the result of the d4.",
-        "critical_failure": "As failure, but the time warp is stronger, increasing the condition\u2019s effects but making it run its course faster. The condition\u2019s value is 3, and the condition lasts for 2 rounds."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is either clumsy 1, enfeebled 1, or stupefied 1 for 1 round, depending on the result of the d4.",
+            "failure": "The target is either clumsy 1, enfeebled 1, or stupefied 1 for 4 rounds, depending on the result of the d4.",
+            "critical_failure": "As failure, but the time warp is stronger, increasing the condition\u2019s effects but making it run its course faster. The condition\u2019s value is 3, and the condition lasts for 2 rounds."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "clumsy",
+                "alt": "clumsy",
+                "game-obj": "Conditions",
+                "aonid": 61
+            },
+            {
+                "type": "link",
+                "name": "enfeebled",
+                "alt": "enfeebled",
+                "game-obj": "Conditions",
+                "aonid": 71
+            },
+            {
+                "type": "link",
+                "name": "stupefied",
+                "alt": "stupefied",
+                "game-obj": "Conditions",
+                "aonid": 94
+            }
+        ]
     },
     "game-id": "9448c1f9503063cdb86555c5de9d5bf8",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You share some of your own temporal distortions with a foe, altering their mind and body unpredictably as they\u2019re thrown backward or forward in time. Roll 1d4. On a 1, the foe becomes clumsy; on a 2, it becomes enfeebled; on a 3, it becomes stupefied; and on a 4, you choose which condition applies.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy",
-            "alt": "clumsy",
-            "game-obj": "Conditions",
-            "aonid": 61
-        },
-        {
-            "type": "link",
-            "name": "enfeebled",
-            "alt": "enfeebled",
-            "game-obj": "Conditions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "stupefied",
-            "alt": "stupefied",
-            "game-obj": "Conditions",
-            "aonid": 94
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -143,5 +151,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Lose the Path",
         "type": "stat_block_section",
+        "text": "You surround a moving creature with lifelike illusions, shifting their perception of the terrain to subtly lead them off course. The target must attempt a Will save. Regardless of the result, the creature is immune to *lose the path* for 1 hour.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,56 +96,94 @@
                 }
             }
         ],
-        "traditions": "occult, primal",
-        "deity": "Il\u2019Surrish, Uskyeria",
-        "cast": "somatic",
         "trigger": "A creature in range Strides.",
         "range": "60 feet",
         "targets": "the triggering creature",
-        "saving_throw": "Will",
-        "success": "The creature is unaffected.",
-        "failure": "The creature treats all squares as difficult terrain for its Stride.",
-        "critical_failure": "As failure, except that you determine where the target moves during the Stride, though you can't move it into hazardous terrain or to a place it can't stand."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Il\u2019Surrish",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Il\u2019Surrish",
+                    "alt": "Il\u2019Surrish",
+                    "game-obj": "Deities",
+                    "aonid": 538
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Uskyeria",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Uskyeria",
+                    "alt": "Uskyeria",
+                    "game-obj": "Deities",
+                    "aonid": 485
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The creature is unaffected.",
+            "failure": "The creature treats all squares as difficult terrain for its Stride.",
+            "critical_failure": "As failure, except that you determine where the target moves during the Stride, though you can't move it into hazardous terrain or to a place it can't stand."
+        }
     },
     "game-id": "7cb89ac236c526b0ee6ecfd199e15aa5",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You surround a moving creature with lifelike illusions, shifting their perception of the terrain to subtly lead them off course. The target must attempt a Will save. Regardless of the result, the creature is immune to *lose the path* for 1 hour.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Il\u2019Surrish",
-            "alt": "Il\u2019Surrish",
-            "game-obj": "Deities",
-            "aonid": 538
-        },
-        {
-            "type": "link",
-            "name": "Uskyeria",
-            "alt": "Uskyeria",
-            "game-obj": "Deities",
-            "aonid": 485
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -163,5 +199,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

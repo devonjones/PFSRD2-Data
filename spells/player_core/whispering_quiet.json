@@ -27,12 +27,10 @@
     "spell": {
         "name": "Whispering Quiet",
         "type": "stat_block_section",
+        "text": "You suppress sound in an area, preventing anyone from giving away valuable secrets. This doesn't prevent those in the area from talking or Casting a Spell, but no creature more than 5 feet away can hear its voice without succeeding at a Perception check against your spell DC, which might interfere with auditory or linguistic effects as well as communication. Other sounds created in the area are muffled to a similar volume unless that sound is created by an effect with the sonic trait.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,45 +93,58 @@
                 }
             }
         ],
-        "domain": "secrecy",
         "range": "60 feet",
         "area": "15-foot burst",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "secrecy",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "secrecy",
+                    "alt": "secrecy",
+                    "game-obj": "Domains",
+                    "aonid": 91
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "auditory",
+                "alt": "auditory",
+                "game-obj": "Traits",
+                "aonid": 16
+            },
+            {
+                "type": "link",
+                "name": "linguistic",
+                "alt": "linguistic",
+                "game-obj": "Traits",
+                "aonid": 101
+            },
+            {
+                "type": "link",
+                "name": "sonic",
+                "alt": "sonic",
+                "game-obj": "Traits",
+                "aonid": 147
+            }
+        ]
     },
     "game-id": "01f3f5f3cb89da605109f7e5d4225c0e",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You suppress sound in an area, preventing anyone from giving away valuable secrets. This doesn't prevent those in the area from talking or Casting a Spell, but no creature more than 5 feet away can hear its voice without succeeding at a Perception check against your spell DC, which might interfere with auditory or linguistic effects as well as communication. Other sounds created in the area are muffled to a similar volume unless that sound is created by an effect with the sonic trait.",
-    "links": [
-        {
-            "type": "link",
-            "name": "auditory",
-            "alt": "auditory",
-            "game-obj": "Traits",
-            "aonid": 16
-        },
-        {
-            "type": "link",
-            "name": "linguistic",
-            "alt": "linguistic",
-            "game-obj": "Traits",
-            "aonid": 101
-        },
-        {
-            "type": "link",
-            "name": "sonic",
-            "alt": "sonic",
-            "game-obj": "Traits",
-            "aonid": 147
-        },
-        {
-            "type": "link",
-            "name": "secrecy",
-            "alt": "secrecy",
-            "game-obj": "Domains",
-            "aonid": 91
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -178,5 +189,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

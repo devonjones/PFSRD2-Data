@@ -27,12 +27,10 @@
     "spell": {
         "name": "Shape Stone",
         "type": "stat_block_section",
+        "text": "You shape the stone into a rough shape of your choice. The shaping process is too crude to produce intricate parts, fine details, moving pieces, or the like. Any creatures standing atop the stone when you reshape it must each attempt a Reflex save or Acrobatics check.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,67 +69,109 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Ashukharma, Mazludeh, Vudravati",
         "range": "touch",
         "targets": "cube of stone 10 feet across or smaller",
-        "success": "The creature is unaffected.",
-        "failure": "The creature falls prone atop the stone.",
-        "critical_failure": "The creature falls off the stone (if applicable) and lands prone."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ashukharma",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ashukharma",
+                    "alt": "Ashukharma",
+                    "game-obj": "Deities",
+                    "aonid": 611
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Mazludeh",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Mazludeh",
+                    "alt": "Mazludeh",
+                    "game-obj": "Deities",
+                    "aonid": 227
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Vudravati",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Vudravati",
+                    "alt": "Vudravati",
+                    "game-obj": "Deities",
+                    "aonid": 359
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "success": "The creature is unaffected.",
+            "failure": "The creature falls prone atop the stone.",
+            "critical_failure": "The creature falls off the stone (if applicable) and lands prone.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Acrobatics",
+                "alt": "Acrobatics",
+                "game-obj": "Skills",
+                "aonid": 1
+            }
+        ]
     },
     "game-id": "cc840ca4653a7753bcf0b8fa6ca4856f",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You shape the stone into a rough shape of your choice. The shaping process is too crude to produce intricate parts, fine details, moving pieces, or the like. Any creatures standing atop the stone when you reshape it must each attempt a Reflex save or Acrobatics check.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Acrobatics",
-            "alt": "Acrobatics",
-            "game-obj": "Skills",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Ashukharma",
-            "alt": "Ashukharma",
-            "game-obj": "Deities",
-            "aonid": 611
-        },
-        {
-            "type": "link",
-            "name": "Mazludeh",
-            "alt": "Mazludeh",
-            "game-obj": "Deities",
-            "aonid": 227
-        },
-        {
-            "type": "link",
-            "name": "Vudravati",
-            "alt": "Vudravati",
-            "game-obj": "Deities",
-            "aonid": 359
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -176,5 +216,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

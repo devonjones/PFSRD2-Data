@@ -54,12 +54,10 @@
     "spell": {
         "name": "Call of the Grave",
         "type": "stat_block_section",
+        "text": "You fire a ray of sickening energy. Make a spell attack roll.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,33 +120,52 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 living creature",
-        "critical_success": "The target becomes sickened 2 and slowed 1 as long as it's sickened.",
-        "success": "The target becomes sickened 1.",
-        "failure": "The target is unaffected."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target becomes sickened 2 and slowed 1 as long as it's sickened.",
+            "success": "The target becomes sickened 1.",
+            "failure": "The target is unaffected."
+        }
     },
     "game-id": "12fcededfbec0524048831d430551585",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You fire a ray of sickening energy. Make a spell attack roll.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -164,5 +181,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

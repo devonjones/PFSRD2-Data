@@ -54,12 +54,10 @@
     "spell": {
         "name": "Divine Plagues",
         "type": "stat_block_section",
+        "text": "Your deity sends wracking plagues. The target must attempt a Fortitude save. When you Cast the Spell, decide whether the disease inflicts the clumsy, enfeebled, or stupefied condition.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,10 +84,7 @@
                 }
             }
         ],
-        "domain": "plague",
-        "cast": "somatic, verbal",
         "range": "15 feet",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -107,65 +102,98 @@
                 ]
             }
         ],
-        "success": "The target is unaffected.",
-        "failure": "The target is afflicted with divine plague at stage 1.",
-        "critical_failure": "The target is afflicted with divine plague at stage 2.  \n  \n**Divine Plague** (disease) **Level** 1; **Stage 1** clumsy 1, enfeebled 1, or stupefied 1 (1 round); **Stage 2** slowed 1 and clumsy 1, enfeebled 1, or stupefied 1 (1 round); **Stage 3** clumsy 1, enfeebled 1, or stupefied 1 and the target can\u2019t recover from the condition until they are cured (1 day)"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "plague",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "plague",
+                    "alt": "plague",
+                    "game-obj": "Domains",
+                    "aonid": 48
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "success": "The target is unaffected.",
+            "failure": "The target is afflicted with divine plague at stage 1.",
+            "critical_failure": "The target is afflicted with divine plague at stage 2.  \n  \n**Divine Plague** (disease) **Level** 1; **Stage 1** clumsy 1, enfeebled 1, or stupefied 1 (1 round); **Stage 2** slowed 1 and clumsy 1, enfeebled 1, or stupefied 1 (1 round); **Stage 3** clumsy 1, enfeebled 1, or stupefied 1 and the target can\u2019t recover from the condition until they are cured (1 day)",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "clumsy",
+                "alt": "clumsy",
+                "game-obj": "Conditions",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "enfeebled",
+                "alt": "enfeebled",
+                "game-obj": "Conditions",
+                "aonid": 13
+            },
+            {
+                "type": "link",
+                "name": "stupefied",
+                "alt": "stupefied",
+                "game-obj": "Conditions",
+                "aonid": 37
+            }
+        ]
     },
     "game-id": "eb1d467d330718efe9b41df686bf482b",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your deity sends wracking plagues. The target must attempt a Fortitude save. When you Cast the Spell, decide whether the disease inflicts the clumsy, enfeebled, or stupefied condition.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy",
-            "alt": "clumsy",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "enfeebled",
-            "alt": "enfeebled",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "stupefied",
-            "alt": "stupefied",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "plague",
-            "alt": "plague",
-            "game-obj": "Domains",
-            "aonid": 48
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -181,5 +209,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

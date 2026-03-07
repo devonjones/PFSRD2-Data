@@ -54,12 +54,10 @@
     "spell": {
         "name": "Spray of Stars",
         "type": "stat_block_section",
+        "text": "You fling a spray of tiny shooting stars, dealing 1d4 fire damage. Each creature in the area must attempt a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,9 +132,7 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "area": "15-foot cone",
-        "saving_throw": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -145,38 +141,61 @@
                 "text": "Increase the damage by 1d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and is dazzled for 1 round.",
-        "failure": "The creature takes full damage and is dazzled for 3 rounds.",
-        "critical_failure": "The creature takes double damage and is dazzled for 1 minute."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and is dazzled for 1 round.",
+            "failure": "The creature takes full damage and is dazzled for 3 rounds.",
+            "critical_failure": "The creature takes double damage and is dazzled for 1 minute.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "dazzled",
+                    "alt": "dazzled",
+                    "game-obj": "Conditions",
+                    "aonid": 7
+                }
+            ]
+        }
     },
     "game-id": "d7a15e61ca47245308163c7480b2f819",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You fling a spray of tiny shooting stars, dealing 1d4 fire damage. Each creature in the area must attempt a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 7
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -192,5 +211,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

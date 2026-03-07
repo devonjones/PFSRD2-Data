@@ -54,12 +54,10 @@
     "spell": {
         "name": "Blur",
         "type": "stat_block_section",
+        "text": "The target's form appears blurry. It becomes concealed. As the nature of this effect still leaves the target's location obvious, the target can't use this concealment to Hide or Sneak.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,73 +84,108 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Black Butterfly",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Black Butterfly",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Black Butterfly",
+                    "alt": "Black Butterfly",
+                    "game-obj": "Deities",
+                    "aonid": 115
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            },
+            {
+                "type": "link",
+                "name": "Hide",
+                "alt": "Hide",
+                "game-obj": "Actions",
+                "aonid": 62
+            },
+            {
+                "type": "link",
+                "name": "Sneak",
+                "alt": "Sneak",
+                "game-obj": "Actions",
+                "aonid": 63
+            }
+        ]
     },
     "game-id": "58b5c1429e0a3526002a042d890c90cb",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "The target's form appears blurry. It becomes concealed. As the nature of this effect still leaves the target's location obvious, the target can't use this concealment to Hide or Sneak.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "Hide",
-            "alt": "Hide",
-            "game-obj": "Actions",
-            "aonid": 62
-        },
-        {
-            "type": "link",
-            "name": "Sneak",
-            "alt": "Sneak",
-            "game-obj": "Actions",
-            "aonid": 63
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Black Butterfly",
-            "alt": "Black Butterfly",
-            "game-obj": "Deities",
-            "aonid": 115
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -168,5 +201,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

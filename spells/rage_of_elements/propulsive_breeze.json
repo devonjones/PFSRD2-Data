@@ -27,12 +27,10 @@
     "spell": {
         "name": "Propulsive Breeze",
         "type": "stat_block_section",
+        "text": "You create a current of wind at your ally's back, propelling their movement. When your ally's Stride or Leap ends, the current propels them an additional 15 feet in the same direction as the last 5 feet of their Stride or Leap.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,36 +69,55 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "trigger": "An ally in range Strides or Leaps.",
         "range": "60 feet",
-        "targets": "the triggering creature"
+        "targets": "the triggering creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Leaps",
+                "alt": "Leaps",
+                "game-obj": "Actions",
+                "aonid": 81
+            }
+        ]
     },
     "game-id": "b97a79fdf652680f683cc213703d1514",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You create a current of wind at your ally's back, propelling their movement. When your ally's Stride or Leap ends, the current propels them an additional 15 feet in the same direction as the last 5 feet of their Stride or Leap.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Leaps",
-            "alt": "Leaps",
-            "game-obj": "Actions",
-            "aonid": 81
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -145,5 +162,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

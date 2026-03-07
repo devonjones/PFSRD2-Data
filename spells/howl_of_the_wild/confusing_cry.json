@@ -27,12 +27,10 @@
     "spell": {
         "name": "Confusing Cry",
         "type": "stat_block_section",
+        "text": "You give an unsettling, warbling cry that causes nearby creatures to lash out without control. Each creature in the area that can hear must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,47 +105,70 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
         "area": "20-foot emanation",
-        "defense": "Will",
         "duration": "1 minute",
-        "critical_success": "The target is unaffected and immune to this spell for 1 minute.",
-        "success": "The target is stunned 1.",
-        "failure": "The target is confused for 1 minute. It can attempt a new save at the end of each of its turns to end the confusion.",
-        "critical_failure": "As failure, and the creature immediately attacks itself. This Strike doesn\u2019t give the creature a flat check to recover from the confusion."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected and immune to this spell for 1 minute.",
+            "success": "The target is stunned 1.",
+            "failure": "The target is confused for 1 minute. It can attempt a new save at the end of each of its turns to end the confusion.",
+            "critical_failure": "As failure, and the creature immediately attacks itself. This Strike doesn\u2019t give the creature a flat check to recover from the confusion.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stunned",
+                    "alt": "stunned",
+                    "game-obj": "Conditions",
+                    "aonid": 93
+                },
+                {
+                    "type": "link",
+                    "name": "confused",
+                    "alt": "confused",
+                    "game-obj": "Conditions",
+                    "aonid": 63
+                }
+            ]
+        }
     },
     "game-id": "0a211730cb1d49be21061379e0157d34",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You give an unsettling, warbling cry that causes nearby creatures to lash out without control. Each creature in the area that can hear must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stunned",
-            "alt": "stunned",
-            "game-obj": "Conditions",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 63
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -192,5 +213,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

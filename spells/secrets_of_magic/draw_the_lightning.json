@@ -54,12 +54,10 @@
     "spell": {
         "name": "Draw the Lightning",
         "type": "stat_block_section",
+        "text": "Calling out to the skies, you summon a bolt of lightning to strike through a foe above you and down into your weapon or your body, charging it with electrical power. You must hold your weapon or an empty hand aloft as part of this spell's somatic component. When you do, a bolt of lightning descends from a storm cloud in the air above your and through the target, dealing 3d12 electricity damage with a basic Reflex save. For the rest of the spell's duration, your first Strike each round with the weapon you held aloft (or with your unarmed attacks if you held an empty hand aloft) deals an additional 1d12 electricity damage.  \n  \n The spell creates its own storm cloud if necessary, so you can cast *draw the lightning* anywhere, even underground. If *draw the lightning* is cast outside under a cloudy or stormy sky, increase the bolt's damage by 2d12.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,11 +96,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 creature that is either taller than you or higher In the air than you",
-        "saving_throw": "Reflex",
         "duration": "1 minute",
         "heightened": [
             {
@@ -111,47 +106,84 @@
                 "level": 8,
                 "text": "The damage dealt to the initial target increases by 4d12, and the additional damage dealt on the first Strike each turn increases by 1d12."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unarmed",
+                "alt": "unarmed",
+                "game-obj": "Traits",
+                "aonid": 199
+            }
         ]
     },
     "game-id": "72b9f20fd6a033f6c4d9532a33b138f5",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "Calling out to the skies, you summon a bolt of lightning to strike through a foe above you and down into your weapon or your body, charging it with electrical power. You must hold your weapon or an empty hand aloft as part of this spell's somatic component. When you do, a bolt of lightning descends from a storm cloud in the air above your and through the target, dealing 3d12 electricity damage with a basic Reflex save. For the rest of the spell's duration, your first Strike each round with the weapon you held aloft (or with your unarmed attacks if you held an empty hand aloft) deals an additional 1d12 electricity damage.  \n  \n The spell creates its own storm cloud if necessary, so you can cast *draw the lightning* anywhere, even underground. If *draw the lightning* is cast outside under a cloudy or stormy sky, increase the bolt's damage by 2d12.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unarmed",
-            "alt": "unarmed",
-            "game-obj": "Traits",
-            "aonid": 199
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -167,5 +199,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

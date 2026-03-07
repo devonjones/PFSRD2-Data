@@ -27,12 +27,10 @@
     "spell": {
         "name": "Whispers of the Void",
         "type": "stat_block_section",
+        "text": "You whisper baleful secrets that transcend language and carry magically to the ears of your foes. The words take physical form, weakening the life force of the targets, each of which must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,10 +81,8 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
         "range": "60 feet",
         "area": "10-foot burst",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -95,50 +91,75 @@
                 "text": "The persistent void damage increases by 1d8 on a success, or by 2d8 on a failure or critical failure."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes 2d8 persistent void damage.",
-        "failure": "The creature takes 4d8 persistent void damage and becomes drained 1.",
-        "critical_failure": "The creature takes 4d8 persistent void damage and becomes drained 2 and doomed 1."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes 2d8 persistent void damage.",
+            "failure": "The creature takes 4d8 persistent void damage and becomes drained 1.",
+            "critical_failure": "The creature takes 4d8 persistent void damage and becomes drained 2 and doomed 1.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "persistent void damage",
+                    "alt": "persistent void damage",
+                    "game-obj": "Conditions",
+                    "aonid": 29
+                },
+                {
+                    "type": "link",
+                    "name": "drained 1",
+                    "alt": "drained 1",
+                    "game-obj": "Conditions",
+                    "aonid": 68
+                },
+                {
+                    "type": "link",
+                    "name": "doomed 1",
+                    "alt": "doomed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 67
+                }
+            ]
+        }
     },
     "game-id": "dfc8c1261389cc538b930623d5141c23",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You whisper baleful secrets that transcend language and carry magically to the ears of your foes. The words take physical form, weakening the life force of the targets, each of which must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent void damage",
-            "alt": "persistent void damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "drained 1",
-            "alt": "drained 1",
-            "game-obj": "Conditions",
-            "aonid": 68
-        },
-        {
-            "type": "link",
-            "name": "doomed 1",
-            "alt": "doomed 1",
-            "game-obj": "Conditions",
-            "aonid": 67
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -183,5 +204,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

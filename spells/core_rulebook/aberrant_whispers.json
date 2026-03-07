@@ -54,12 +54,10 @@
     "spell": {
         "name": "Aberrant Whispers",
         "type": "stat_block_section",
+        "text": "You utter phrases in an unknown tongue, assaulting the minds of those nearby. Each target must attempt a Will save. Regardless of the result of its save, each target is then temporarily immune for 1 minute. You can increase the number of actions it takes to Cast the Spell (to a maximum of 3 actions total). For each additional action, increase the emanation's radius by 5 feet, to a maximum of 10 extra feet for 3 actions.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,11 +120,8 @@
                 }
             }
         ],
-        "bloodline": "aberrant",
-        "cast": "to   verbal",
         "area": "5-foot emanation or more",
         "targets": "each foe in the area",
-        "saving_throw": "Will",
         "duration": "1 round",
         "heightened": [
             {
@@ -136,30 +131,54 @@
                 "text": "The initial radius increases by 5 feet."
             }
         ],
-        "success": "The target is unaffected.",
-        "failure": "The target is stupefied 2.",
-        "critical_failure": "The target is confused."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "aberrant",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "aberrant",
+                    "alt": "aberrant",
+                    "game-obj": "Bloodlines",
+                    "aonid": 1
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The target is unaffected.",
+            "failure": "The target is stupefied 2.",
+            "critical_failure": "The target is confused."
+        }
     },
     "game-id": "525ddabf5fb1a14956cf82ec38b50557",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You utter phrases in an unknown tongue, assaulting the minds of those nearby. Each target must attempt a Will save. Regardless of the result of its save, each target is then temporarily immune for 1 minute. You can increase the number of actions it takes to Cast the Spell (to a maximum of 3 actions total). For each additional action, increase the emanation's radius by 5 feet, to a maximum of 10 extra feet for 3 actions.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "aberrant",
-            "alt": "aberrant",
-            "game-obj": "Bloodlines",
-            "aonid": 1
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -175,5 +194,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -20,12 +20,10 @@
     "spell": {
         "name": "Eagle's Cry",
         "type": "stat_block_section",
+        "text": "You let out the mighty cry of a majestic eagle that pierces eardrums. This cry deals 4d8 sonic damage. Each creature in the area must attempt a Fortitude saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,9 +86,7 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "area": "30-foot cone",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -99,50 +95,77 @@
                 "text": "The damage increases by 3d8."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and is frightened 1.",
-        "failure": "The creature takes full damage and is frightened 2.",
-        "critical_failure": "The creature takes double damage, is frightened 2, and is fleeing for 1 round."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and is frightened 1.",
+            "failure": "The creature takes full damage and is frightened 2.",
+            "critical_failure": "The creature takes double damage, is frightened 2, and is fleeing for 1 round.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                },
+                {
+                    "type": "link",
+                    "name": "fleeing",
+                    "alt": "fleeing",
+                    "game-obj": "Conditions",
+                    "aonid": 74
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "cone",
+                "alt": "cone",
+                "game-obj": "Rules",
+                "aonid": 2386
+            }
+        ]
     },
     "game-id": "cf437d1ceadcaa616994ec8d3c2370a0",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You let out the mighty cry of a majestic eagle that pierces eardrums. This cry deals 4d8 sonic damage. Each creature in the area must attempt a Fortitude saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "fleeing",
-            "alt": "fleeing",
-            "game-obj": "Conditions",
-            "aonid": 74
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "cone",
-            "alt": "cone",
-            "game-obj": "Rules",
-            "aonid": 2386
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -187,5 +210,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

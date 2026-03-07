@@ -40,7 +40,10 @@
     "spell": {
         "name": "Blind Eye",
         "type": "stat_block_section",
+        "text": "You enchant a single object, preventing it from being used for magical observation. If you cast this spell on a non-magical item used to cast scrying spells, such as a spell component pouch or a spell focus, the item can't be used to cast the spell. If you cast *blind eye* on a magical item that can be activated to scry (such as a *crystal ball* or *hag eye*), the item can't be activated for scrying effects. Magical items that are twice *blind eye's* spell level or more aren't blocked this way.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -67,72 +70,103 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "1 minute (material, somatic, verbal)",
         "range": "touch",
         "targets": "1 object",
-        "duration": "until the next time you make your daily preparations"
+        "duration": "until the next time you make your daily preparations",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "1 minute",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "spell component pouch",
+                "alt": "spell component pouch",
+                "game-obj": "Equipment",
+                "aonid": 33
+            },
+            {
+                "type": "link",
+                "name": "crystal ball",
+                "alt": "crystal ball",
+                "game-obj": "Equipment",
+                "aonid": 253
+            },
+            {
+                "type": "link",
+                "name": "hag eye",
+                "alt": "hag eye",
+                "game-obj": "Equipment",
+                "aonid": 935
+            }
+        ]
     },
     "game-id": "7dcb0730ca073ac9d35e21dd41cba123",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You enchant a single object, preventing it from being used for magical observation. If you cast this spell on a non-magical item used to cast scrying spells, such as a spell component pouch or a spell focus, the item can't be used to cast the spell. If you cast *blind eye* on a magical item that can be activated to scry (such as a *crystal ball* or *hag eye*), the item can't be activated for scrying effects. Magical items that are twice *blind eye's* spell level or more aren't blocked this way.",
-    "links": [
-        {
-            "type": "link",
-            "name": "spell component pouch",
-            "alt": "spell component pouch",
-            "game-obj": "Equipment",
-            "aonid": 33
-        },
-        {
-            "type": "link",
-            "name": "crystal ball",
-            "alt": "crystal ball",
-            "game-obj": "Equipment",
-            "aonid": 253
-        },
-        {
-            "type": "link",
-            "name": "hag eye",
-            "alt": "hag eye",
-            "game-obj": "Equipment",
-            "aonid": 935
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -148,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

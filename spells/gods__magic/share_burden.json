@@ -54,12 +54,10 @@
     "spell": {
         "name": "Share Burden",
         "type": "stat_block_section",
+        "text": "You shoulder some of your ally\u2019s pain. Both you and your ally use the outcome one degree of success better than the result of your ally\u2019s saving throw, even if the triggering effect usually affects only one target.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,38 +84,57 @@
                 }
             }
         ],
-        "domain": "repose",
-        "cast": "somatic",
         "trigger": "An ally within 30 feet is about to attempt a saving throw against a harmful emotion effect, and you would not otherwise have to save against the effect.",
-        "targets": "you and the triggering ally."
+        "targets": "you and the triggering ally.",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "repose",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "repose",
+                    "alt": "repose",
+                    "game-obj": "Domains",
+                    "aonid": 49
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "emotion",
+                "alt": "emotion",
+                "game-obj": "Traits",
+                "aonid": 60
+            }
+        ]
     },
     "game-id": "8f48439680f9ea833a77f5d16e5b4ca8",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You shoulder some of your ally\u2019s pain. Both you and your ally use the outcome one degree of success better than the result of your ally\u2019s saving throw, even if the triggering effect usually affects only one target.",
-    "links": [
-        {
-            "type": "link",
-            "name": "emotion",
-            "alt": "emotion",
-            "game-obj": "Traits",
-            "aonid": 60
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "repose",
-            "alt": "repose",
-            "game-obj": "Domains",
-            "aonid": 49
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -133,5 +150,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

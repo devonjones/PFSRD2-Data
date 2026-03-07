@@ -40,12 +40,10 @@
     "spell": {
         "name": "Familiar Form",
         "type": "stat_block_section",
+        "text": "You transform into a Tiny animal that commonly serves as a spellcaster's familiar. You gain the effects of the spell *pest form*, heightened to the level of *familiar form* you cast. However, you can transform into only a bat, cat, raven, snake, or other Tiny animal of a type that you have seen serve as a spellcaster's familiar.  \n  \n While in this form, despite the restrictions from polymorph battle forms, you retain the ability to cast spells of 1st level or lower but only those without material components. You still can't make any Strikes or other attacks in *pest form*, as normal.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,7 +82,6 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "duration": "1 minute",
         "heightened": [
             {
@@ -99,42 +96,60 @@
                 "level": 8,
                 "text": "You retain the ability to cast spells of 3rd level or lower, rather than 1st, but still only those without material components. Additionally, the duration of *familiar form* increases to 10 minutes."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "pest form",
+                "alt": "pest form",
+                "game-obj": "Spells",
+                "aonid": 217
+            },
+            {
+                "type": "link",
+                "name": "polymorph",
+                "alt": "polymorph",
+                "game-obj": "Traits",
+                "aonid": 127
+            }
         ]
     },
     "game-id": "8888cfea93d14ef9975129e75011c75a",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You transform into a Tiny animal that commonly serves as a spellcaster's familiar. You gain the effects of the spell *pest form*, heightened to the level of *familiar form* you cast. However, you can transform into only a bat, cat, raven, snake, or other Tiny animal of a type that you have seen serve as a spellcaster's familiar.  \n  \n While in this form, despite the restrictions from polymorph battle forms, you retain the ability to cast spells of 1st level or lower but only those without material components. You still can't make any Strikes or other attacks in *pest form*, as normal.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pest form",
-            "alt": "pest form",
-            "game-obj": "Spells",
-            "aonid": 217
-        },
-        {
-            "type": "link",
-            "name": "polymorph",
-            "alt": "polymorph",
-            "game-obj": "Traits",
-            "aonid": 127
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -150,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

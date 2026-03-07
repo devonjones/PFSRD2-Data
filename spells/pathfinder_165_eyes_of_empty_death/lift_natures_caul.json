@@ -40,12 +40,10 @@
     "spell": {
         "name": "Lift Nature's Caul",
         "type": "stat_block_section",
+        "text": "With a wave of the hand, you cause the targets to see the world around them as if a gauzy film had been lifted away to expose the truth that lies below their perceived reality. Natural features they can see grow twisted and horrendous, structures appear distorted and ruined, and objects seem warped and alien. This alternate vision fades quickly, but the glimpse beyond the natural world lingers for the spell's duration.  \n  \n Aberrations or worshippers of Outer Gods or Great Old Ones are bolstered by this vision of warped reality and gain a +1 status bonus to Will saving throws and attack rolls for 1 minute, while all other creatures must attempt a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,11 +94,8 @@
                 }
             }
         ],
-        "domain": "abomination",
-        "cast": "somatic, verbal",
         "range": "5-foot emanation",
         "targets": "creatures in the area",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -110,59 +105,90 @@
                 "text": "You increase the area by 5 feet and the duration of the stupefied condition by 1 minute."
             }
         ],
-        "critical_success": "The creature is unaffected and temporarily immune for 1 hour.",
-        "success": "The creature is sickened 1.",
-        "failure": "The creature is stupefied 1 for 1 minute and frightened 1.",
-        "critical_failure": "The creature is stupefied 1 for 1 minute and frightened 2. It can't reduce the value of its frightened condition below 1 as long as it remains stupefied by this spell."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "abomination",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "abomination",
+                    "alt": "abomination",
+                    "game-obj": "Domains",
+                    "aonid": 59
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected and temporarily immune for 1 hour.",
+            "success": "The creature is sickened 1.",
+            "failure": "The creature is stupefied 1 for 1 minute and frightened 1.",
+            "critical_failure": "The creature is stupefied 1 for 1 minute and frightened 2. It can't reduce the value of its frightened condition below 1 as long as it remains stupefied by this spell.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened 1",
+                    "alt": "sickened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 34
+                },
+                {
+                    "type": "link",
+                    "name": "stupefied 1",
+                    "alt": "stupefied 1",
+                    "game-obj": "Conditions",
+                    "aonid": 37
+                },
+                {
+                    "type": "link",
+                    "name": "frightened 1",
+                    "alt": "frightened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 19
+                }
+            ]
+        }
     },
     "game-id": "8087fd5930f9fd534fa8c3cd6bddf053",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "With a wave of the hand, you cause the targets to see the world around them as if a gauzy film had been lifted away to expose the truth that lies below their perceived reality. Natural features they can see grow twisted and horrendous, structures appear distorted and ruined, and objects seem warped and alien. This alternate vision fades quickly, but the glimpse beyond the natural world lingers for the spell's duration.  \n  \n Aberrations or worshippers of Outer Gods or Great Old Ones are bolstered by this vision of warped reality and gain a +1 status bonus to Will saving throws and attack rolls for 1 minute, while all other creatures must attempt a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened 1",
-            "alt": "sickened 1",
-            "game-obj": "Conditions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "stupefied 1",
-            "alt": "stupefied 1",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "abomination",
-            "alt": "abomination",
-            "game-obj": "Domains",
-            "aonid": 59
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -178,5 +204,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

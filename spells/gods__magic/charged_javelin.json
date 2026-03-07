@@ -54,12 +54,10 @@
     "spell": {
         "name": "Charged Javelin",
         "type": "stat_block_section",
+        "text": "You fire a javelin of electricity that leaves a charged field around its target. Make a spell attack roll. The javelin deals 1d6 electricity damage and 1 persistent electricity damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "domain": "lightning",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 or more creatures",
         "heightened": [
@@ -110,43 +106,73 @@
                 "text": "The initial damage increases by 1d6, and the persistent damage increases by 1."
             }
         ],
-        "critical_success": "The javelin deals double damage, both initial and persistent.",
-        "success": "The javelin deals full damage.   \n  \nAs long as the target is taking persistent damage from this spell, creatures gain a +1 status bonus to attack rolls with metal weapons or electricity effects against the target, and the target takes a \u20131 status penalty to saves against electricity effects."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lightning",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "lightning",
+                    "alt": "lightning",
+                    "game-obj": "Domains",
+                    "aonid": 47
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The javelin deals double damage, both initial and persistent.",
+            "success": "The javelin deals full damage.   \n  \nAs long as the target is taking persistent damage from this spell, creatures gain a +1 status bonus to attack rolls with metal weapons or electricity effects against the target, and the target takes a \u20131 status penalty to saves against electricity effects."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent electricity damage",
+                "alt": "persistent electricity damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "d41b6a7eac87a0ea2a6d8a4e2eb8f101",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You fire a javelin of electricity that leaves a charged field around its target. Make a spell attack roll. The javelin deals 1d6 electricity damage and 1 persistent electricity damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent electricity damage",
-            "alt": "persistent electricity damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "lightning",
-            "alt": "lightning",
-            "game-obj": "Domains",
-            "aonid": 47
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -162,5 +188,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

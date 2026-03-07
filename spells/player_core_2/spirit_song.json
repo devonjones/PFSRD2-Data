@@ -27,12 +27,10 @@
     "spell": {
         "name": "Spirit Song",
         "type": "stat_block_section",
+        "text": "Your eldritch song sends pulsing waves of ethereal energy to attack creatures' spirits in the area, dealing 14d6 spirit damage that causes their bodies to momentarily freeze up from the hypnotic nature of the tune, depending on the result of their Fortitude save. The vibrating waves of spirit song penetrate into, but not through, solid barriers, damaging incorporeal creatures hiding in solid objects in the area but not passing onward to damage creatures in other rooms.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,10 +69,7 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "bloodline": "aesir",
         "area": "60-foot cone",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -83,50 +78,83 @@
                 "text": "The damage increases by 2d6."
             }
         ],
-        "critical_success": "The creature takes no damage.",
-        "success": "The creature takes half damage and can't use reactions until the beginning of its turn.",
-        "failure": "The creature takes full damage, can't use reactions until the beginning of its turn, and is stunned 1.",
-        "critical_failure": "The creature takes double damage, can't use reactions until the beginning of its turn, and is stunned 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "aesir",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "aesir",
+                    "alt": "aesir",
+                    "game-obj": "Bloodlines",
+                    "aonid": 29
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature takes no damage.",
+            "success": "The creature takes half damage and can't use reactions until the beginning of its turn.",
+            "failure": "The creature takes full damage, can't use reactions until the beginning of its turn, and is stunned 1.",
+            "critical_failure": "The creature takes double damage, can't use reactions until the beginning of its turn, and is stunned 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 93
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "incorporeal",
+                "alt": "incorporeal",
+                "game-obj": "Traits",
+                "aonid": 632
+            }
+        ]
     },
     "game-id": "94809d1e63be593c27271d7d63300d2d",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "Your eldritch song sends pulsing waves of ethereal energy to attack creatures' spirits in the area, dealing 14d6 spirit damage that causes their bodies to momentarily freeze up from the hypnotic nature of the tune, depending on the result of their Fortitude save. The vibrating waves of spirit song penetrate into, but not through, solid barriers, damaging incorporeal creatures hiding in solid objects in the area but not passing onward to damage creatures in other rooms.",
-    "links": [
-        {
-            "type": "link",
-            "name": "incorporeal",
-            "alt": "incorporeal",
-            "game-obj": "Traits",
-            "aonid": 632
-        },
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "aesir",
-            "alt": "aesir",
-            "game-obj": "Bloodlines",
-            "aonid": 29
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -171,5 +199,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

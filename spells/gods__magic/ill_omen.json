@@ -54,12 +54,10 @@
     "spell": {
         "name": "Ill Omen",
         "type": "stat_block_section",
+        "text": "The target is struck with misfortune, which throws them off balance. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,41 +96,67 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
         "duration": "1 round",
-        "success": "The target is unaffected.",
-        "failure": "The first time during the duration that target rolls an attack roll or skill check, it must roll twice and take the worse result.",
-        "critical_failure": "Every time during the duration that the target rolls an attack roll or skill check, it must roll twice and take the worse result."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "success": "The target is unaffected.",
+            "failure": "The first time during the duration that target rolls an attack roll or skill check, it must roll twice and take the worse result.",
+            "critical_failure": "Every time during the duration that the target rolls an attack roll or skill check, it must roll twice and take the worse result."
+        }
     },
     "game-id": "812ed930a14199472ea90135ef06a0b5",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "The target is struck with misfortune, which throws them off balance. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -148,5 +172,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Wildfire",
         "type": "stat_block_section",
+        "text": "A thin layer of ash and flame covers the ground in the area. The area becomes hazardous terrain. A creature that moves on the ground through the area takes 1 fire damage for every square of that area it moves into. A creature that ends its turn in the area must succeed at a Reflex save or take 1 persistent fire damage.  \n  \n Each time you sustain this spell, the radius of the burst increases by 5 feet.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,10 +108,8 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "area": "10-foot burst",
-        "saving_throw": "Reflex",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -122,35 +118,58 @@
                 "increment": 2,
                 "text": "Increase the damage and persistent damage by 1."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent fire damage",
+                "alt": "persistent fire damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
         ]
     },
     "game-id": "5ab552f89cdd6ae4f2d359ae644f5afa",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "A thin layer of ash and flame covers the ground in the area. The area becomes hazardous terrain. A creature that moves on the ground through the area takes 1 fire damage for every square of that area it moves into. A creature that ends its turn in the area must succeed at a Reflex save or take 1 persistent fire damage.  \n  \n Each time you sustain this spell, the radius of the burst increases by 5 feet.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent fire damage",
-            "alt": "persistent fire damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -166,5 +185,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

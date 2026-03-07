@@ -27,12 +27,10 @@
     "spell": {
         "name": "Practice Makes Perfect",
         "type": "stat_block_section",
+        "text": "The target gains a +2 status bonus to the triggering check, or a +3 bonus if the target has master or better proficiency in the skill. This bonus can change the outcome of the target's check.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,24 +69,35 @@
                 }
             }
         ],
-        "domain": "toil",
         "trigger": "You or an ally within range fails a skill check for a skill in which you or they are trained.",
         "range": "30 feet",
-        "targets": "the triggering creature"
+        "targets": "the triggering creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "toil",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "toil",
+                    "alt": "toil",
+                    "game-obj": "Domains",
+                    "aonid": 61
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        }
     },
     "game-id": "1da24f9bfc9b3d155871b6c951e27c6d",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "The target gains a +2 status bonus to the triggering check, or a +3 bonus if the target has master or better proficiency in the skill. This bonus can change the outcome of the target's check.",
-    "links": [
-        {
-            "type": "link",
-            "name": "toil",
-            "alt": "toil",
-            "game-obj": "Domains",
-            "aonid": 61
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -133,5 +142,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

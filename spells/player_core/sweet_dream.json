@@ -27,12 +27,10 @@
     "spell": {
         "name": "Sweet Dream",
         "type": "stat_block_section",
+        "text": "With soothing words, you lull the target into an enchanting dream. When you Cast the Spell, the target falls unconscious if it wasn't already. While unconscious, it experiences a dream of your choice, though lucidly enough it can wake when it pleases. If it wakes up before 1 minute of sleep has passed, the spell ends. \n* **Dream of Insight** +1 status bonus to Intelligence-based skill checks\n* **Dream of Glamor** +1 status bonus to Charisma-based skill checks\n* **Dream of Voyaging** +5-foot status bonus to Speed.\n If you Cast this Spell again, any previous sweet dream you cast ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -143,7 +141,6 @@
                 }
             }
         ],
-        "domain": "dreams",
         "range": "30 feet",
         "targets": "1 willing creature",
         "duration": "1 hour",
@@ -160,28 +157,42 @@
                 "level": 7,
                 "text": "The bonus for a dream of insight or glamor is +3."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "dreams",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "dreams",
+                    "alt": "dreams",
+                    "game-obj": "Domains",
+                    "aonid": 72
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unconscious",
+                "alt": "unconscious",
+                "game-obj": "Conditions",
+                "aonid": 38
+            }
         ]
     },
     "game-id": "21a7dca8791f92573580b8b09431f43d",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "With soothing words, you lull the target into an enchanting dream. When you Cast the Spell, the target falls unconscious if it wasn't already. While unconscious, it experiences a dream of your choice, though lucidly enough it can wake when it pleases. If it wakes up before 1 minute of sleep has passed, the spell ends. \n* **Dream of Insight** +1 status bonus to Intelligence-based skill checks\n* **Dream of Glamor** +1 status bonus to Charisma-based skill checks\n* **Dream of Voyaging** +5-foot status bonus to Speed.\n If you Cast this Spell again, any previous sweet dream you cast ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unconscious",
-            "alt": "unconscious",
-            "game-obj": "Conditions",
-            "aonid": 38
-        },
-        {
-            "type": "link",
-            "name": "dreams",
-            "alt": "dreams",
-            "game-obj": "Domains",
-            "aonid": 72
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -226,5 +237,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

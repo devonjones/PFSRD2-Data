@@ -27,12 +27,10 @@
     "spell": {
         "name": "Canticle of Everlasting Grief",
         "type": "stat_block_section",
+        "text": "You create a melody distilled from pure grief, conveying the inevitable loss of everything your target cherishes, audible to only them. The target takes 10d6 mental damage depending on its Will save. A creature cursed by this spell can't benefit from circumstance or status bonuses, for the duration noted in the degree of success.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -119,64 +117,103 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "bloodline": "demonic, undead",
-        "deity": "Otilaz",
         "range": "120 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage, is frightened 1, and is cursed for 1 round.",
-        "failure": "The target takes full damage, is frightened 3, and is cursed for 1 week.",
-        "critical_failure": "The target takes double damage, is frightened 4, and is cursed for an unlimited duration. While the curse remains, the target's allies are also affected by the curse while within 15 feet of the creature."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "demonic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "demonic",
+                    "alt": "demonic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 21
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "undead",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "undead",
+                    "alt": "undead",
+                    "game-obj": "Bloodlines",
+                    "aonid": 28
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Otilaz",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Otilaz",
+                    "alt": "Otilaz",
+                    "game-obj": "Deities",
+                    "aonid": 718
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage, is frightened 1, and is cursed for 1 round.",
+            "failure": "The target takes full damage, is frightened 3, and is cursed for 1 week.",
+            "critical_failure": "The target takes double damage, is frightened 4, and is cursed for an unlimited duration. While the curse remains, the target's allies are also affected by the curse while within 15 feet of the creature.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened 1",
+                    "alt": "frightened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 19
+                }
+            ]
+        }
     },
     "game-id": "f1455b7bddb56e6157e0d11765e3e334",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "You create a melody distilled from pure grief, conveying the inevitable loss of everything your target cherishes, audible to only them. The target takes 10d6 mental damage depending on its Will save. A creature cursed by this spell can't benefit from circumstance or status bonuses, for the duration noted in the degree of success.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "demonic",
-            "alt": "demonic",
-            "game-obj": "Bloodlines",
-            "aonid": 21
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Bloodlines",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "Otilaz",
-            "alt": "Otilaz",
-            "game-obj": "Deities",
-            "aonid": 718
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -221,5 +258,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Evil Eye",
         "type": "stat_block_section",
+        "text": "Your fix your eye on the target, imposing a malevolent hex. The target becomes frightened based on the results of its Will save. This condition value can't be reduced below 1 while the spell is active and you can see the target. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -170,43 +168,66 @@
                 }
             }
         ],
-        "patron_theme": "curse",
-        "cast": "somatic",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "success": "The target is unaffected.",
-        "failure": "The target is frightened 1.",
-        "critical_failure": "The target is frightened 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "curse",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "curse",
+                    "alt": "curse",
+                    "game-obj": "Patrons",
+                    "aonid": 2
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The target is unaffected.",
+            "failure": "The target is frightened 1.",
+            "critical_failure": "The target is frightened 2."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "frightened",
+                "alt": "frightened",
+                "game-obj": "Conditions",
+                "aonid": 19
+            }
+        ]
     },
     "game-id": "afbd586e66c4755a18ba87f7b817b926",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Your fix your eye on the target, imposing a malevolent hex. The target becomes frightened based on the results of its Will save. This condition value can't be reduced below 1 while the spell is active and you can see the target. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "curse",
-            "alt": "curse",
-            "game-obj": "Patrons",
-            "aonid": 2
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -222,5 +243,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

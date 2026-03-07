@@ -27,12 +27,10 @@
     "spell": {
         "name": "Lignify",
         "type": "stat_block_section",
+        "text": "You turn the target's flesh slowly into wood. The target must attempt a Fortitude save. Creatures with the plant trait have a +2 circumstance bonus to saves against this spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,62 +81,87 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "120 feet",
         "targets": "1 creature made of flesh",
-        "defense": "Fortitude",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is slowed 1 for 1 round.",
-        "failure": "The target is slowed 1 and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (or 2 on a critical failure). A successful save reduces the slowed condition by 1. When a creature is unable to act due to the slowed condition from *lignify*, the creature is permanently non-magically petrified, though it's turned to wood instead of stone. The spell ends if the creature is magically petrified or the slowed condition is removed.",
-        "critical_failure": "As failure, but the target is initially slowed 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is slowed 1 for 1 round.",
+            "failure": "The target is slowed 1 and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (or 2 on a critical failure). A successful save reduces the slowed condition by 1. When a creature is unable to act due to the slowed condition from *lignify*, the creature is permanently non-magically petrified, though it's turned to wood instead of stone. The spell ends if the creature is magically petrified or the slowed condition is removed.",
+            "critical_failure": "As failure, but the target is initially slowed 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                },
+                {
+                    "type": "link",
+                    "name": "incapacitation",
+                    "alt": "incapacitation",
+                    "game-obj": "Traits",
+                    "aonid": 93
+                },
+                {
+                    "type": "link",
+                    "name": "petrified",
+                    "alt": "petrified",
+                    "game-obj": "Conditions",
+                    "aonid": 30
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "plant",
+                "alt": "plant",
+                "game-obj": "Traits",
+                "aonid": 125
+            }
+        ]
     },
     "game-id": "cc3341af3045e93142068adc25288531",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You turn the target's flesh slowly into wood. The target must attempt a Fortitude save. Creatures with the plant trait have a +2 circumstance bonus to saves against this spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "plant",
-            "alt": "plant",
-            "game-obj": "Traits",
-            "aonid": 125
-        },
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "incapacitation",
-            "alt": "incapacitation",
-            "game-obj": "Traits",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "petrified",
-            "alt": "petrified",
-            "game-obj": "Conditions",
-            "aonid": 30
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -183,5 +206,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

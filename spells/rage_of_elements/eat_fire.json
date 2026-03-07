@@ -27,12 +27,10 @@
     "spell": {
         "name": "Eat Fire",
         "type": "stat_block_section",
+        "text": "You consume and ingest fire, making it less harmful to you. You gain resistance 5 to fire damage until the end of the current turn. During the remaining duration of the spell, you can use the Belch Smoke action. The spell ends if you fall unconscious, inhale, or exhale (this includes speaking).  \n  \n **Belch Smoke** You exhale what remains of the smoke, ending the spell and creating a smoke cloud in a 5-foot burst within 20 feet. All creatures within the smoke cloud are concealed, and all other creatures are concealed to them. The smoke lasts for 1 minute or until dispersed by a strong wind.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,7 +69,6 @@
                 }
             }
         ],
-        "traditions": "arcane, occult, primal",
         "trigger": "You would take fire damage.",
         "duration": "until the end of your next turn",
         "heightened": [
@@ -81,46 +78,72 @@
                 "increment": 3,
                 "text": "The resistance increases by 5."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unconscious",
+                "alt": "unconscious",
+                "game-obj": "Conditions",
+                "aonid": 38
+            },
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            }
         ]
     },
     "game-id": "9da0ae182f9e98629224a844da7dac76",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You consume and ingest fire, making it less harmful to you. You gain resistance 5 to fire damage until the end of the current turn. During the remaining duration of the spell, you can use the Belch Smoke action. The spell ends if you fall unconscious, inhale, or exhale (this includes speaking).  \n  \n **Belch Smoke** You exhale what remains of the smoke, ending the spell and creating a smoke cloud in a 5-foot burst within 20 feet. All creatures within the smoke cloud are concealed, and all other creatures are concealed to them. The smoke lasts for 1 minute or until dispersed by a strong wind.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unconscious",
-            "alt": "unconscious",
-            "game-obj": "Conditions",
-            "aonid": 38
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -165,5 +188,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

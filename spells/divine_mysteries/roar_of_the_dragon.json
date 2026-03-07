@@ -20,12 +20,10 @@
     "spell": {
         "name": "Roar of the Dragon",
         "type": "stat_block_section",
+        "text": "You channel the might of dragons into your voice, letting out a roar that engenders respect in dragonkind but that instills fear in most other creatures. The impressive roar grants you a +2 circumstance bonus to Diplomacy checks for 10 minutes against dragons that were in the area at the time of casting. *Roar of the dragon* affects non-dragon creatures with deep ties to dragonkind (such as a barbarian with the draconic instinct, a sorcerer with the draconic bloodline, or a member of a culture that reveres dragons) as if they had the dragon trait. The GM decides if a creature is aligned enough with dragonkind to be affected in this way. All enemies within the area other than dragons must attempt a Will save; to these enemies, *roar of the dragon* is a fear effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -124,91 +122,110 @@
                 }
             }
         ],
-        "domain": "dragon",
         "area": "30-foot emanation",
-        "defense": "Will",
         "duration": "varies",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is frightened 1.",
-        "failure": "The creature is frightened 2.",
-        "critical_failure": "The creature is frightened 3 and fleeing for 1 round."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "dragon",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "dragon",
+                    "alt": "dragon",
+                    "game-obj": "Domains",
+                    "aonid": 106
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is frightened 1.",
+            "failure": "The creature is frightened 2.",
+            "critical_failure": "The creature is frightened 3 and fleeing for 1 round.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                },
+                {
+                    "type": "link",
+                    "name": "fleeing",
+                    "alt": "fleeing",
+                    "game-obj": "Conditions",
+                    "aonid": 74
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Diplomacy",
+                "alt": "Diplomacy",
+                "game-obj": "Skills",
+                "aonid": 39
+            },
+            {
+                "type": "link",
+                "name": "barbarian",
+                "alt": "barbarian",
+                "game-obj": "Classes",
+                "aonid": 57
+            },
+            {
+                "type": "link",
+                "name": "draconic instinct",
+                "alt": "draconic instinct",
+                "game-obj": "Instincts",
+                "aonid": 9
+            },
+            {
+                "type": "link",
+                "name": "draconic bloodline",
+                "alt": "draconic bloodline",
+                "game-obj": "Bloodlines",
+                "aonid": 23
+            },
+            {
+                "type": "link",
+                "name": "dragon",
+                "alt": "dragon",
+                "game-obj": "Traits",
+                "aonid": 581
+            },
+            {
+                "type": "link",
+                "name": "fear",
+                "alt": "fear",
+                "game-obj": "Traits",
+                "aonid": 598
+            },
+            {
+                "type": "link",
+                "name": "emanation",
+                "alt": "emanation",
+                "game-obj": "Rules",
+                "aonid": 2387
+            }
+        ]
     },
     "game-id": "74764cf0e4021e21fdefee8c1e70b112",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You channel the might of dragons into your voice, letting out a roar that engenders respect in dragonkind but that instills fear in most other creatures. The impressive roar grants you a +2 circumstance bonus to Diplomacy checks for 10 minutes against dragons that were in the area at the time of casting. *Roar of the dragon* affects non-dragon creatures with deep ties to dragonkind (such as a barbarian with the draconic instinct, a sorcerer with the draconic bloodline, or a member of a culture that reveres dragons) as if they had the dragon trait. The GM decides if a creature is aligned enough with dragonkind to be affected in this way. All enemies within the area other than dragons must attempt a Will save; to these enemies, *roar of the dragon* is a fear effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Diplomacy",
-            "alt": "Diplomacy",
-            "game-obj": "Skills",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "barbarian",
-            "alt": "barbarian",
-            "game-obj": "Classes",
-            "aonid": 57
-        },
-        {
-            "type": "link",
-            "name": "draconic instinct",
-            "alt": "draconic instinct",
-            "game-obj": "Instincts",
-            "aonid": 9
-        },
-        {
-            "type": "link",
-            "name": "draconic bloodline",
-            "alt": "draconic bloodline",
-            "game-obj": "Bloodlines",
-            "aonid": 23
-        },
-        {
-            "type": "link",
-            "name": "dragon",
-            "alt": "dragon",
-            "game-obj": "Traits",
-            "aonid": 581
-        },
-        {
-            "type": "link",
-            "name": "fear",
-            "alt": "fear",
-            "game-obj": "Traits",
-            "aonid": 598
-        },
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "fleeing",
-            "alt": "fleeing",
-            "game-obj": "Conditions",
-            "aonid": 74
-        },
-        {
-            "type": "link",
-            "name": "dragon",
-            "alt": "dragon",
-            "game-obj": "Domains",
-            "aonid": 106
-        },
-        {
-            "type": "link",
-            "name": "emanation",
-            "alt": "emanation",
-            "game-obj": "Rules",
-            "aonid": 2387
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -253,5 +270,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

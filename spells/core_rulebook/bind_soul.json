@@ -54,12 +54,10 @@
     "spell": {
         "name": "Bind Soul",
         "type": "stat_block_section",
+        "text": "You wrench the target's soul away before it can pass on to the afterlife and imprison it in a black sapphire.  \n  \n While the soul is in the gem, the target can't be returned to life through any means, even powerful magic such as *wish*. If the gem is destroyed or *bind soul* is counteracted on the gem, the soul is freed. The gem has AC 16 and Hardness 10. A gem can't hold more than one soul, and any attempt wastes the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,52 +96,82 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "cast": "somatic, verbal",
         "requirement": "black sapphire with a gp value of at least the target's level \u00d7 100",
         "range": "30 feet",
         "targets": "1 creature that died within the last minute",
-        "duration": "unlimited"
+        "duration": "unlimited",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "wish",
+                "alt": "wish",
+                "game-obj": "Spells",
+                "aonid": 377
+            }
+        ]
     },
     "game-id": "deeab5b0f092609bc0e17321ead194c5",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You wrench the target's soul away before it can pass on to the afterlife and imprison it in a black sapphire.  \n  \n While the soul is in the gem, the target can't be returned to life through any means, even powerful magic such as *wish*. If the gem is destroyed or *bind soul* is counteracted on the gem, the soul is freed. The gem has AC 16 and Hardness 10. A gem can't hold more than one soul, and any attempt wastes the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "wish",
-            "alt": "wish",
-            "game-obj": "Spells",
-            "aonid": 377
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -159,5 +187,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

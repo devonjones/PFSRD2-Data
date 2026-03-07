@@ -54,12 +54,10 @@
     "spell": {
         "name": "Inner Radiance Torrent to 2 rounds",
         "type": "stat_block_section",
+        "text": "You gradually manifest your spiritual energy into your cupped hands before firing off a storm of bolts and beams that deal 4d4 force damage to all creatures in a 60-foot line. Creatures in the area must attempt a basic Reflex save. On a critical failure, they're also blinded for 1 round. The number of actions you spend when Casting this Spell determines the area. If the line passes through an area of magical darkness or targets a creature affected by magical darkness, *inner radiance torrent* attempts to counteract the darkness.  \n  \n **(somatic, verbal)** The line is 60 feet long.   \n **(material, somatic, verbal)** The line is 120 feet long.   \n**Two Rounds** The line is 120 feet long. If you spend 3 actions casting the spell, you can avoid finishing the spell and spend another 3 actions on your next turn to empower the spell even further. If you choose to do so, the damage dealt by this spell increases by 4d4, and you enter a shining state for 1 minute, causing you to glow with light and deal 1 force damage to creatures that end their turn adjacent to you.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,9 +96,7 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
         "area": "line 60 feet or longer",
-        "saving_throw": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -108,54 +104,82 @@
                 "increment": 1,
                 "text": "The initial damage, as well as the additional damage for the 2-round casting time, each increase by 2d4, and the damage to adjacent creatures dealt while in your shining state increases by 1."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "blinded",
+                "alt": "blinded",
+                "game-obj": "Conditions",
+                "aonid": 1
+            },
+            {
+                "type": "link",
+                "name": "darkness",
+                "alt": "darkness",
+                "game-obj": "Traits",
+                "aonid": 39
+            },
+            {
+                "type": "link",
+                "name": "counteract",
+                "alt": "counteract",
+                "game-obj": "Rules",
+                "aonid": 371
+            }
         ]
     },
     "game-id": "0c4489a1d204dbab59f8d0add217560e",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You gradually manifest your spiritual energy into your cupped hands before firing off a storm of bolts and beams that deal 4d4 force damage to all creatures in a 60-foot line. Creatures in the area must attempt a basic Reflex save. On a critical failure, they're also blinded for 1 round. The number of actions you spend when Casting this Spell determines the area. If the line passes through an area of magical darkness or targets a creature affected by magical darkness, *inner radiance torrent* attempts to counteract the darkness.  \n  \n **(somatic, verbal)** The line is 60 feet long.   \n **(material, somatic, verbal)** The line is 120 feet long.   \n**Two Rounds** The line is 120 feet long. If you spend 3 actions casting the spell, you can avoid finishing the spell and spend another 3 actions on your next turn to empower the spell even further. If you choose to do so, the damage dealt by this spell increases by 4d4, and you enter a shining state for 1 minute, causing you to glow with light and deal 1 force damage to creatures that end their turn adjacent to you.",
-    "links": [
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Traits",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -171,5 +195,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

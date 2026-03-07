@@ -20,12 +20,10 @@
     "spell": {
         "name": "Pain Of Ages",
         "type": "stat_block_section",
+        "text": "You sense a spiritual resonance of deep anguish in the earth beneath your feet, the walls surrounding you, or the fragments of souls left behind in a place of calamity. You draw on this reservoir of pain and unleash its force against your enemies, dealing 8d8 spirit damage. On a critical failure, the creature is also stunned for 1 round as it reels from the impact of so much anguish.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -77,10 +75,8 @@
             }
         ],
         "access": "Rivethun priests and shamans or those who have a close relationship with such individuals.",
-        "traditions": "divine",
         "range": "120 feet",
         "area": "30-foot burst",
-        "defense": "basic Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -88,48 +84,70 @@
                 "increment": 1,
                 "text": "The damage increases by 2d8."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2247
+                }
+            ],
+            "basic": true,
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "spirit",
+                "alt": "spirit",
+                "game-obj": "Traits",
+                "aonid": 737
+            },
+            {
+                "type": "link",
+                "name": "stunned",
+                "alt": "stunned",
+                "game-obj": "Conditions",
+                "aonid": 93
+            },
+            {
+                "type": "link",
+                "name": "burst",
+                "alt": "burst",
+                "game-obj": "Rules",
+                "aonid": 2385
+            }
         ]
     },
     "game-id": "019691a01082233cdab7ca8e7b9dad33",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You sense a spiritual resonance of deep anguish in the earth beneath your feet, the walls surrounding you, or the fragments of souls left behind in a place of calamity. You draw on this reservoir of pain and unleash its force against your enemies, dealing 8d8 spirit damage. On a critical failure, the creature is also stunned for 1 round as it reels from the impact of so much anguish.",
-    "links": [
-        {
-            "type": "link",
-            "name": "spirit",
-            "alt": "spirit",
-            "game-obj": "Traits",
-            "aonid": 737
-        },
-        {
-            "type": "link",
-            "name": "stunned",
-            "alt": "stunned",
-            "game-obj": "Conditions",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "burst",
-            "alt": "burst",
-            "game-obj": "Rules",
-            "aonid": 2385
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2247
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -174,5 +192,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

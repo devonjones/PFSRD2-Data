@@ -54,12 +54,10 @@
     "spell": {
         "name": "Swarm Form",
         "type": "stat_block_section",
+        "text": "You discorporate into a swarm of Tiny creatures. While in swarm form, you have the swarm trait and you gain resistance 5 to slashing and piercing damage and weakness 5 to area and splash damage. You can fit into spaces only a few inches wide, moving your constituent creatures through the gap. You don\u2019t gain the swarm mind ability, so you are still affected normally by mental effects. As a swarm, you can\u2019t speak, cast spells, use manipulate actions requiring your hands, activate your magic items, or make any of your Strikes with your normal body. You can Dismiss the Spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,8 +84,6 @@
                 }
             }
         ],
-        "domain": "swarm",
-        "cast": "somatic, verbal",
         "duration": "5 minutes",
         "heightened": [
             {
@@ -96,42 +92,68 @@
                 "increment": 2,
                 "text": "Increase your resistances and weaknesses each by 5."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "swarm",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "swarm",
+                    "alt": "swarm",
+                    "game-obj": "Domains",
+                    "aonid": 53
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "swarm",
+                "alt": "swarm",
+                "game-obj": "Traits",
+                "aonid": 239
+            }
         ]
     },
     "game-id": "573c4b5f42ae1f8650dfca9586fd4f2d",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You discorporate into a swarm of Tiny creatures. While in swarm form, you have the swarm trait and you gain resistance 5 to slashing and piercing damage and weakness 5 to area and splash damage. You can fit into spaces only a few inches wide, moving your constituent creatures through the gap. You don\u2019t gain the swarm mind ability, so you are still affected normally by mental effects. As a swarm, you can\u2019t speak, cast spells, use manipulate actions requiring your hands, activate your magic items, or make any of your Strikes with your normal body. You can Dismiss the Spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "swarm",
-            "alt": "swarm",
-            "game-obj": "Traits",
-            "aonid": 239
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "swarm",
-            "alt": "swarm",
-            "game-obj": "Domains",
-            "aonid": 53
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -147,5 +169,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

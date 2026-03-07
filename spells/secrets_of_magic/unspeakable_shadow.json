@@ -54,12 +54,10 @@
     "spell": {
         "name": "Unspeakable Shadow",
         "type": "stat_block_section",
+        "text": "You alter a creature's shadow, transforming it into a terrifying monster out to devour the creature. The creature must attempt a Will save. A creature that has the frightened condition from *unspeakable shadow* must spend at least one of its actions each turn to either attack its shadow (making a Strike ineffectually) or flee from its shadow (using one action to move away as though it had the fleeing condition).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -146,70 +144,106 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is frightened 2.",
-        "failure": "The target is frightened 3. It can't reduce its frightened value below 1 for 1 minute.",
-        "critical_failure": "The target is so afraid, it might instantly die. It must succeed at a Fortitude save or die; this saving throw has the incapacitation trait. If it succeeds at its save, the target is frightened 4 and can't reduce its frightened value below 1 for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is frightened 2.",
+            "failure": "The target is frightened 3. It can't reduce its frightened value below 1 for 1 minute.",
+            "critical_failure": "The target is so afraid, it might instantly die. It must succeed at a Fortitude save or die; this saving throw has the incapacitation trait. If it succeeds at its save, the target is frightened 4 and can't reduce its frightened value below 1 for 1 minute.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "incapacitation",
+                    "alt": "incapacitation",
+                    "game-obj": "Traits",
+                    "aonid": 93
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "frightened",
+                "alt": "frightened",
+                "game-obj": "Conditions",
+                "aonid": 19
+            },
+            {
+                "type": "link",
+                "name": "fleeing",
+                "alt": "fleeing",
+                "game-obj": "Conditions",
+                "aonid": 17
+            }
+        ]
     },
     "game-id": "63950f23d88dcefa7d1f030d7b62fa29",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You alter a creature's shadow, transforming it into a terrifying monster out to devour the creature. The creature must attempt a Will save. A creature that has the frightened condition from *unspeakable shadow* must spend at least one of its actions each turn to either attack its shadow (making a Strike ineffectually) or flee from its shadow (using one action to move away as though it had the fleeing condition).",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "fleeing",
-            "alt": "fleeing",
-            "game-obj": "Conditions",
-            "aonid": 17
-        },
-        {
-            "type": "link",
-            "name": "incapacitation",
-            "alt": "incapacitation",
-            "game-obj": "Traits",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -225,5 +259,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

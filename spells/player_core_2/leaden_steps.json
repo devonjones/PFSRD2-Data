@@ -27,12 +27,10 @@
     "spell": {
         "name": "Leaden Steps",
         "type": "stat_block_section",
+        "text": "You partially transform a foe's feet into unwieldy slabs of metal, slowing their steps. The target attempts a Fortitude saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,11 +81,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Lymnieris, Vineshvakhi",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -97,50 +92,87 @@
                 "text": "The weakness increases by 1."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target is encumbered and has weakness 2 to electricity until the end of your next turn. The spell can't be sustained.",
-        "failure": "The target is encumbered and has weakness 2 to electricity.",
-        "critical_failure": "The target is encumbered and has weakness 3 to electricity."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Lymnieris",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Lymnieris",
+                    "alt": "Lymnieris",
+                    "game-obj": "Deities",
+                    "aonid": 649
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Vineshvakhi",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Vineshvakhi",
+                    "alt": "Vineshvakhi",
+                    "game-obj": "Deities",
+                    "aonid": 622
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is encumbered and has weakness 2 to electricity until the end of your next turn. The spell can't be sustained.",
+            "failure": "The target is encumbered and has weakness 2 to electricity.",
+            "critical_failure": "The target is encumbered and has weakness 3 to electricity.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "encumbered",
+                    "alt": "encumbered",
+                    "game-obj": "Conditions",
+                    "aonid": 70
+                }
+            ]
+        }
     },
     "game-id": "7dad448a0c5785b9b9fee04136541109",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You partially transform a foe's feet into unwieldy slabs of metal, slowing their steps. The target attempts a Fortitude saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "encumbered",
-            "alt": "encumbered",
-            "game-obj": "Conditions",
-            "aonid": 70
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Lymnieris",
-            "alt": "Lymnieris",
-            "game-obj": "Deities",
-            "aonid": 649
-        },
-        {
-            "type": "link",
-            "name": "Vineshvakhi",
-            "alt": "Vineshvakhi",
-            "game-obj": "Deities",
-            "aonid": 622
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -185,5 +217,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

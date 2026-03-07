@@ -40,12 +40,10 @@
     "spell": {
         "name": "Unbreaking Wave Barrier",
         "type": "stat_block_section",
+        "text": "You create a protective circle around yourself that repels your foes. You gain a +1 status bonus to AC. Any creature other than you within the area, or attempting to move into the area, must attempt a Fortitude saving throw; a creature needs to attempt the Fortitude saving throw only once each round. If a creature pushed by *unbreaking wave barrier* would be pushed into a solid barrier or another creature, it stops at that point and takes 2d6 bludgeoning damage for every additional 5 feet it would've been pushed. On subsequent rounds, the first time you Sustain this Spell each round, you can increase the radius of the barrier by 5 feet.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,42 +82,60 @@
                 }
             }
         ],
-        "cast": "verbal",
         "area": "5-foot emanation",
-        "saving_throw": "Fortitude",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature isn't pushed, but the space within the barrier is difficult terrain for it.",
-        "failure": "The creature is pushed 10 feet, and the space within the barrier is difficult terrain for it.",
-        "critical_failure": "The creature is pushed 20 feet and knocked prone, and the space within the barrier is difficult terrain for it."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature isn't pushed, but the space within the barrier is difficult terrain for it.",
+            "failure": "The creature is pushed 10 feet, and the space within the barrier is difficult terrain for it.",
+            "critical_failure": "The creature is pushed 20 feet and knocked prone, and the space within the barrier is difficult terrain for it.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "pushed",
+                "alt": "pushed",
+                "game-obj": "Rules",
+                "aonid": 451
+            }
+        ]
     },
     "game-id": "ecc8b85aff4a3cff5bb35a369c952515",
-    "spell_type": "focus",
-    "rank": 7,
-    "text": "You create a protective circle around yourself that repels your foes. You gain a +1 status bonus to AC. Any creature other than you within the area, or attempting to move into the area, must attempt a Fortitude saving throw; a creature needs to attempt the Fortitude saving throw only once each round. If a creature pushed by *unbreaking wave barrier* would be pushed into a solid barrier or another creature, it stops at that point and takes 2d6 bludgeoning damage for every additional 5 feet it would've been pushed. On subsequent rounds, the first time you Sustain this Spell each round, you can increase the radius of the barrier by 5 feet.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pushed",
-            "alt": "pushed",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -135,5 +151,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

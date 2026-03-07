@@ -27,12 +27,10 @@
     "spell": {
         "name": "Undeath's Blessing",
         "type": "stat_block_section",
+        "text": "You instill within a creature the touch of the grave. For the duration, *harm* and *heal* spells treat the creature as undead. In addition, *harm* spells gain a +2 status bonus to the Hit Points restored to the target. An unwilling target can attempt a Will save to reduce the effects.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,10 +93,8 @@
                 }
             }
         ],
-        "bloodline": "undead",
         "range": "touch",
         "targets": "1 living creature",
-        "defense": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -108,44 +104,63 @@
                 "text": "The status bonus to the Hit Points restored increases by 2."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target heals half as much from *heal* and takes half as much damage from *harm* for 1 round.",
-        "failure": "Effects as described above."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "undead",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "undead",
+                    "alt": "undead",
+                    "game-obj": "Bloodlines",
+                    "aonid": 28
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target heals half as much from *heal* and takes half as much damage from *harm* for 1 round.",
+            "failure": "Effects as described above."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "harm",
+                "alt": "harm",
+                "game-obj": "Spells",
+                "aonid": 1552
+            },
+            {
+                "type": "link",
+                "name": "heal",
+                "alt": "heal",
+                "game-obj": "Spells",
+                "aonid": 1554
+            },
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 722
+            }
+        ]
     },
     "game-id": "7b5a5f6c49e6dd171553263f2c061d5b",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You instill within a creature the touch of the grave. For the duration, *harm* and *heal* spells treat the creature as undead. In addition, *harm* spells gain a +2 status bonus to the Hit Points restored to the target. An unwilling target can attempt a Will save to reduce the effects.",
-    "links": [
-        {
-            "type": "link",
-            "name": "harm",
-            "alt": "harm",
-            "game-obj": "Spells",
-            "aonid": 1552
-        },
-        {
-            "type": "link",
-            "name": "heal",
-            "alt": "heal",
-            "game-obj": "Spells",
-            "aonid": 1554
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 722
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Bloodlines",
-            "aonid": 28
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -190,5 +205,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

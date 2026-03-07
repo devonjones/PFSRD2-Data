@@ -27,12 +27,10 @@
     "spell": {
         "name": "Wilding Word",
         "type": "stat_block_section",
+        "text": "Your patron's majesty\u2014or their displeasure\u2014comes in a growl from your throat, making other creatures reluctant to harm you. The target must attempt a Will save; if the creature is an animal, fungus, or plant, it takes a \u20131 circumstance penalty to its save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,57 +93,76 @@
                 }
             }
         ],
-        "patron_theme": "wilding steward",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "When the target attempts an attack roll or skill check that would harm you, it takes a \u20132 status penalty to its roll.",
-        "failure": "As success, but the target also becomes sickened 1 each time it damages you.",
-        "critical_failure": "As failure, but the sickened value is 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "wilding steward",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "wilding steward",
+                    "alt": "wilding steward",
+                    "game-obj": "Patrons",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "When the target attempts an attack roll or skill check that would harm you, it takes a \u20132 status penalty to its roll.",
+            "failure": "As success, but the target also becomes sickened 1 each time it damages you.",
+            "critical_failure": "As failure, but the sickened value is 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened 1",
+                    "alt": "sickened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 34
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "animal",
+                "alt": "animal",
+                "game-obj": "Traits",
+                "aonid": 9
+            },
+            {
+                "type": "link",
+                "name": "fungus",
+                "alt": "fungus",
+                "game-obj": "Traits",
+                "aonid": 77
+            },
+            {
+                "type": "link",
+                "name": "plant",
+                "alt": "plant",
+                "game-obj": "Traits",
+                "aonid": 125
+            }
+        ]
     },
     "game-id": "8d572189881c6584b8f202bbfd881d9c",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Your patron's majesty\u2014or their displeasure\u2014comes in a growl from your throat, making other creatures reluctant to harm you. The target must attempt a Will save; if the creature is an animal, fungus, or plant, it takes a \u20131 circumstance penalty to its save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "animal",
-            "alt": "animal",
-            "game-obj": "Traits",
-            "aonid": 9
-        },
-        {
-            "type": "link",
-            "name": "fungus",
-            "alt": "fungus",
-            "game-obj": "Traits",
-            "aonid": 77
-        },
-        {
-            "type": "link",
-            "name": "plant",
-            "alt": "plant",
-            "game-obj": "Traits",
-            "aonid": 125
-        },
-        {
-            "type": "link",
-            "name": "sickened 1",
-            "alt": "sickened 1",
-            "game-obj": "Conditions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "wilding steward",
-            "alt": "wilding steward",
-            "game-obj": "Patrons",
-            "aonid": 18
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -190,5 +207,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

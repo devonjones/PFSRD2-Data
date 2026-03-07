@@ -27,12 +27,10 @@
     "spell": {
         "name": "Stifling Stillness",
         "type": "stat_block_section",
+        "text": "You make all air in the target area unnaturally still and unyielding, creating a shimmering haze. The stagnant, heavy air becomes an area of difficult terrain. Creatures in the area that breathe air and aren't holding their breath must spend a single action on their turn straining to breathe the stagnant air; once they do, they still mostly breathe their own exhaled air, taking 3d6 poison damage (basic Fortitude save) and becoming fatigued.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,10 +81,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "120 feet",
         "area": "20-foot burst",
-        "defense": "basic Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -95,54 +91,82 @@
                 "increment": 2,
                 "text": "The damage increases by 3d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "difficult terrain",
+                "alt": "difficult terrain",
+                "game-obj": "Rules",
+                "aonid": 453
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "fatigued",
+                "alt": "fatigued",
+                "game-obj": "Conditions",
+                "aonid": 15
+            }
         ]
     },
     "game-id": "c63c417af02d759359a03047992e3b47",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You make all air in the target area unnaturally still and unyielding, creating a shimmering haze. The stagnant, heavy air becomes an area of difficult terrain. Creatures in the area that breathe air and aren't holding their breath must spend a single action on their turn straining to breathe the stagnant air; once they do, they still mostly breathe their own exhaled air, taking 3d6 poison damage (basic Fortitude save) and becoming fatigued.",
-    "links": [
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 453
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "fatigued",
-            "alt": "fatigued",
-            "game-obj": "Conditions",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -187,5 +211,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

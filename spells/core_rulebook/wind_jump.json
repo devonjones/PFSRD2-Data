@@ -54,12 +54,10 @@
     "spell": {
         "name": "Wind Jump",
         "type": "stat_block_section",
+        "text": "You gain a fly Speed equal to your Speed. You must end your turn on solid ground, or you fall.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,7 +108,6 @@
                 }
             }
         ],
-        "cast": "verbal",
         "duration": "1 minute",
         "heightened": [
             {
@@ -119,21 +116,32 @@
                 "level": 6,
                 "text": "At the end of your turn, you can attempt a DC 30 Acrobatics check to find purchase in midair. If you succeed, you don't fall."
             }
-        ]
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "06b7acb9277706c4638ab9241c96de6d",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You gain a fly Speed equal to your Speed. You must end your turn on solid ground, or you fall.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +157,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

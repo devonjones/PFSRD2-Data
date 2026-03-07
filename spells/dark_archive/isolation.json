@@ -40,12 +40,10 @@
     "spell": {
         "name": "Isolation",
         "type": "stat_block_section",
+        "text": "You summon a tangible manifestation of loneliness to cloak the target from view as surely as if it were wreathed in darkness. The target attempts a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,64 +82,104 @@
                 }
             }
         ],
-        "domain": "darkness, darkness (apocryphal)",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "3 rounds",
-        "critical_success": "The target is unaffected.",
-        "success": "The target becomes invisible, but only to its allies. Any creature not allied with the target can see it normally. Effects such as *see invisibility* enable an ally to see the target. The target's allies still know the target is present and can still see all the effects of the target's actions.",
-        "failure": "As success, except the target also becomes inaudible to its allies and imperceptible to them through any other senses."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "darkness",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "darkness",
+                    "alt": "darkness",
+                    "game-obj": "Domains",
+                    "aonid": 6
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "darkness",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "darkness",
+                    "alt": "darkness",
+                    "game-obj": "Domains",
+                    "aonid": 69
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "(apocryphal)",
+                "access_type": "domain"
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target becomes invisible, but only to its allies. Any creature not allied with the target can see it normally. Effects such as *see invisibility* enable an ally to see the target. The target's allies still know the target is present and can still see all the effects of the target's actions.",
+            "failure": "As success, except the target also becomes inaudible to its allies and imperceptible to them through any other senses.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "invisible",
+                    "alt": "invisible",
+                    "game-obj": "Conditions",
+                    "aonid": 26
+                },
+                {
+                    "type": "link",
+                    "name": "see invisibility",
+                    "alt": "see invisibility",
+                    "game-obj": "Spells",
+                    "aonid": 271
+                }
+            ]
+        }
     },
     "game-id": "e9c6d523948e0bea765f2fbeb2d62fce",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You summon a tangible manifestation of loneliness to cloak the target from view as surely as if it were wreathed in darkness. The target attempts a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "invisible",
-            "alt": "invisible",
-            "game-obj": "Conditions",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "see invisibility",
-            "alt": "see invisibility",
-            "game-obj": "Spells",
-            "aonid": 271
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Domains",
-            "aonid": 6
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Domains",
-            "aonid": 69
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -157,5 +195,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Genie's Veil",
         "type": "stat_block_section",
+        "text": "With a flourish, you fulfill a creature's wish for protection, bending reality to keep them from harm. The target vanishes in a burst of brightly colored smoke and sparkles, reappearing an instant later. They become concealed against the triggering attack and until the end of the current creature's turn.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,39 +96,58 @@
                 }
             }
         ],
-        "bloodline": "genie",
-        "cast": "somatic",
         "trigger": "A creature within range is attacked.",
         "range": "30 feet",
-        "targets": "1 willing creature"
+        "targets": "1 willing creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "genie",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "genie",
+                    "alt": "genie",
+                    "game-obj": "Bloodlines",
+                    "aonid": 11
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            }
+        ]
     },
     "game-id": "014d95fee16bf630e3f40569c82936ea",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "With a flourish, you fulfill a creature's wish for protection, bending reality to keep them from harm. The target vanishes in a burst of brightly colored smoke and sparkles, reappearing an instant later. They become concealed against the triggering attack and until the end of the current creature's turn.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "genie",
-            "alt": "genie",
-            "game-obj": "Bloodlines",
-            "aonid": 11
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -146,5 +163,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

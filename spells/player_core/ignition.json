@@ -27,12 +27,10 @@
     "spell": {
         "name": "Ignition",
         "type": "stat_block_section",
+        "text": "You snap your fingers and point at a target, which begins to smolder. Make a spell attack roll against the target's AC, dealing 2d4 fire damage on a hit. If the target is within your melee reach, you can choose to make a melee spell attack with the flame instead of a ranged spell attack, which increases all the spell's damage dice to d6s.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,12 +93,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "bloodline": "diabolic",
-        "mystery": "flames, ash",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "AC",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -109,55 +103,98 @@
                 "text": "The initial damage increases by 1d4 and the persistent fire damage on a critical hit increases by 1d4."
             }
         ],
-        "critical_success": "The target takes double damage and 1d4 persistent fire damage.",
-        "success": "The target takes full damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "diabolic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "diabolic",
+                    "alt": "diabolic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 22
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "flames",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "flames",
+                    "alt": "flames",
+                    "game-obj": "Mysteries",
+                    "aonid": 16
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "ash",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "ash",
+                    "alt": "ash",
+                    "game-obj": "Mysteries",
+                    "aonid": 20
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "text": "AC",
+            "critical_success": "The target takes double damage and 1d4 persistent fire damage.",
+            "success": "The target takes full damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "persistent fire damage.",
+                    "alt": "persistent fire damage.",
+                    "game-obj": "Conditions",
+                    "aonid": 29
+                }
+            ]
+        }
     },
     "game-id": "d62c7d90b6cd0e973ceb7508db9582a1",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You snap your fingers and point at a target, which begins to smolder. Make a spell attack roll against the target's AC, dealing 2d4 fire damage on a hit. If the target is within your melee reach, you can choose to make a melee spell attack with the flame instead of a ranged spell attack, which increases all the spell's damage dice to d6s.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent fire damage.",
-            "alt": "persistent fire damage.",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "diabolic",
-            "alt": "diabolic",
-            "game-obj": "Bloodlines",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "flames",
-            "alt": "flames",
-            "game-obj": "Mysteries",
-            "aonid": 16
-        },
-        {
-            "type": "link",
-            "name": "ash",
-            "alt": "ash",
-            "game-obj": "Mysteries",
-            "aonid": 20
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -202,5 +239,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

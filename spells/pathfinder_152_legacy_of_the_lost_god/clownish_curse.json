@@ -40,12 +40,10 @@
     "spell": {
         "name": "Clownish Curse",
         "type": "stat_block_section",
+        "text": "You afflict the target with a curse that causes it to emit ridiculous noises as it moves. Furthermore, the target\u2019s hands and feet become awkward and uncoordinated, as though it were wearing oversized gloves and shoes.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,70 +118,104 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "For 1 round, the target must roll twice and use the worse result whenever attempting an Acrobatics, Stealth, or Thievery check. If the target rolls a failure at an Acrobatics, Stealth, or Thievery check, it gets a critical failure instead.",
-        "failure": "As success, but the effect is 1 hour.",
-        "critical_failure": "As success, except the effect is permanent."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "For 1 round, the target must roll twice and use the worse result whenever attempting an Acrobatics, Stealth, or Thievery check. If the target rolls a failure at an Acrobatics, Stealth, or Thievery check, it gets a critical failure instead.",
+            "failure": "As success, but the effect is 1 hour.",
+            "critical_failure": "As success, except the effect is permanent.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "Acrobatics",
+                    "alt": "Acrobatics",
+                    "game-obj": "Skills",
+                    "aonid": 1
+                },
+                {
+                    "type": "link",
+                    "name": "Stealth",
+                    "alt": "Stealth",
+                    "game-obj": "Skills",
+                    "aonid": 15
+                },
+                {
+                    "type": "link",
+                    "name": "Thievery",
+                    "alt": "Thievery",
+                    "game-obj": "Skills",
+                    "aonid": 17
+                }
+            ]
+        }
     },
     "game-id": "70c7c948964a3d92ac947a0fab3f7521",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You afflict the target with a curse that causes it to emit ridiculous noises as it moves. Furthermore, the target\u2019s hands and feet become awkward and uncoordinated, as though it were wearing oversized gloves and shoes.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Acrobatics",
-            "alt": "Acrobatics",
-            "game-obj": "Skills",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "Stealth",
-            "alt": "Stealth",
-            "game-obj": "Skills",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "Thievery",
-            "alt": "Thievery",
-            "game-obj": "Skills",
-            "aonid": 17
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -199,5 +231,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

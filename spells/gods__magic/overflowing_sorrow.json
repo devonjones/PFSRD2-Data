@@ -54,12 +54,10 @@
     "spell": {
         "name": "Overflowing Sorrow",
         "type": "stat_block_section",
+        "text": "Sadness flows out of you into nearby creatures, blotting out any other thoughts they had. The first time a creature begins its turn in the area or enters the area, it must attempt a Will save. If it later leaves and reenters the area, it uses the same effect as before.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,10 +108,7 @@
                 }
             }
         ],
-        "domain": "sorrow",
-        "cast": "somatic, verbal",
         "area": "15-foot emanation, centered on you",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -123,45 +118,76 @@
                 "text": "When you Cast the Spell, you can choose to increase the area by 5 feet."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes a \u20131 status penalty to skill checks and Perception checks as long as it remains in the area.",
-        "failure": "While the creature is in the area, any emotion effects of lower counteract level than *overflowing sorrow* are suppressed, and whenever the creature attempts to use an emotion action or cast an emotion spell, it must succeed at a DC 11 flat check or the action or spell is disrupted.",
-        "critical_failure": "As failure, but the creature cannot use emotion actions or spells."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "sorrow",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "sorrow",
+                    "alt": "sorrow",
+                    "game-obj": "Domains",
+                    "aonid": 50
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes a \u20131 status penalty to skill checks and Perception checks as long as it remains in the area.",
+            "failure": "While the creature is in the area, any emotion effects of lower counteract level than *overflowing sorrow* are suppressed, and whenever the creature attempts to use an emotion action or cast an emotion spell, it must succeed at a DC 11 flat check or the action or spell is disrupted.",
+            "critical_failure": "As failure, but the creature cannot use emotion actions or spells.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "emotion",
+                    "alt": "emotion",
+                    "game-obj": "Traits",
+                    "aonid": 60
+                }
+            ]
+        }
     },
     "game-id": "cf7a081bbb12e30ee58554b4f0f6d44d",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Sadness flows out of you into nearby creatures, blotting out any other thoughts they had. The first time a creature begins its turn in the area or enters the area, it must attempt a Will save. If it later leaves and reenters the area, it uses the same effect as before.",
-    "links": [
-        {
-            "type": "link",
-            "name": "emotion",
-            "alt": "emotion",
-            "game-obj": "Traits",
-            "aonid": 60
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "sorrow",
-            "alt": "sorrow",
-            "game-obj": "Domains",
-            "aonid": 50
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -177,5 +203,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

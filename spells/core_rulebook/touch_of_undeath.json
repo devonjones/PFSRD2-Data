@@ -54,12 +54,10 @@
     "spell": {
         "name": "Touch of Undeath",
         "type": "stat_block_section",
+        "text": "You attack the target's life force with undeath, dealing 1d6 negative damage. The target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,11 +108,8 @@
                 }
             }
         ],
-        "domain": "undeath",
-        "cast": "somatic",
         "range": "touch",
         "targets": "1 living creature",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -123,31 +118,55 @@
                 "text": "The damage increases by 1d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage.",
-        "failure": "The target takes full damage, and positive effects heal it only half as much as normal for 1 round.",
-        "critical_failure": "The target takes double damage, and positive effects heal it only half as much as normal for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "undeath",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "undeath",
+                    "alt": "undeath",
+                    "game-obj": "Domains",
+                    "aonid": 34
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage.",
+            "failure": "The target takes full damage, and positive effects heal it only half as much as normal for 1 round.",
+            "critical_failure": "The target takes double damage, and positive effects heal it only half as much as normal for 1 minute."
+        }
     },
     "game-id": "fbac69f80df311d7ecee3e7fd7507095",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You attack the target's life force with undeath, dealing 1d6 negative damage. The target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "undeath",
-            "alt": "undeath",
-            "game-obj": "Domains",
-            "aonid": 34
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -163,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

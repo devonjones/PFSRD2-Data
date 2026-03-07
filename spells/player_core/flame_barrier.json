@@ -27,12 +27,10 @@
     "spell": {
         "name": "Flame Barrier",
         "type": "stat_block_section",
+        "text": "You swiftly deflect incoming flames. The target gains fire resistance 15 against the triggering effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,7 +81,6 @@
                 }
             }
         ],
-        "domain": "fire",
         "trigger": "An effect would deal fire damage to you or an ally within range",
         "range": "60 feet",
         "targets": "one creature that would take fire damage from the triggering effect",
@@ -94,21 +91,33 @@
                 "increment": 2,
                 "text": "The resistance increases by 5."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fire",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "fire",
+                    "alt": "fire",
+                    "game-obj": "Domains",
+                    "aonid": 76
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        }
     },
     "game-id": "1bff122dc680da02d48435814eebad68",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You swiftly deflect incoming flames. The target gains fire resistance 15 against the triggering effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fire",
-            "alt": "fire",
-            "game-obj": "Domains",
-            "aonid": 76
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -153,5 +162,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

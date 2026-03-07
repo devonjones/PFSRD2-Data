@@ -54,12 +54,10 @@
     "spell": {
         "name": "Bestial Curse",
         "type": "stat_block_section",
+        "text": "You tap into the target's inner being and curse it to become a bestial version of itself. The effect is based on its Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,84 +96,131 @@
                 }
             }
         ],
-        "traditions": "arcane, occult, primal",
-        "deity": "Haagenti",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 living humanoid",
-        "saving_throw": "Fortitude",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target's body gains minor bestial features. Its insides churn as they partially transform, causing it to be clumsy 1 for 1 round. When it recovers from the clumsy condition, its features revert to normal and the spell ends.",
-        "failure": "The target transforms into a bestial form for 1 hour. The target becomes clumsy 1 and gains weakness 1 to silver. It gains a claw, hoof, horn, or jaws Strike (your choice) that uses the target's unarmed Strike statistics except that the damage type changes to bludgeoning, piercing, or slashing, as appropriate. Whenever the target attempts to use any manipulate action, it must succeed at a DC 5 flat check or the action is lost.",
-        "critical_failure": "As failure, but the duration is unlimited."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Haagenti",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Haagenti",
+                    "alt": "Haagenti",
+                    "game-obj": "Deities",
+                    "aonid": 260
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target's body gains minor bestial features. Its insides churn as they partially transform, causing it to be clumsy 1 for 1 round. When it recovers from the clumsy condition, its features revert to normal and the spell ends.",
+            "failure": "The target transforms into a bestial form for 1 hour. The target becomes clumsy 1 and gains weakness 1 to silver. It gains a claw, hoof, horn, or jaws Strike (your choice) that uses the target's unarmed Strike statistics except that the damage type changes to bludgeoning, piercing, or slashing, as appropriate. Whenever the target attempts to use any manipulate action, it must succeed at a DC 5 flat check or the action is lost.",
+            "critical_failure": "As failure, but the duration is unlimited.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "clumsy 1",
+                    "alt": "clumsy 1",
+                    "game-obj": "Conditions",
+                    "aonid": 3
+                },
+                {
+                    "type": "link",
+                    "name": "manipulate",
+                    "alt": "manipulate",
+                    "game-obj": "Traits",
+                    "aonid": 104
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "humanoid",
+                "alt": "humanoid",
+                "game-obj": "Traits",
+                "aonid": 91
+            }
+        ]
     },
     "game-id": "8dcf0fee817f5dac38619a33f32648ad",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You tap into the target's inner being and curse it to become a bestial version of itself. The effect is based on its Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "manipulate",
-            "alt": "manipulate",
-            "game-obj": "Traits",
-            "aonid": 104
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Haagenti",
-            "alt": "Haagenti",
-            "game-obj": "Deities",
-            "aonid": 260
-        },
-        {
-            "type": "link",
-            "name": "humanoid",
-            "alt": "humanoid",
-            "game-obj": "Traits",
-            "aonid": 91
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -191,5 +236,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

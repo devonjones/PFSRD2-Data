@@ -54,12 +54,10 @@
     "spell": {
         "name": "Pied Piping",
         "type": "stat_block_section",
+        "text": "Your performance enraptures those who hear it, compelling them to follow you about in admiration. Each creature within the emanation must attempt a Will save when you Cast the Spell or the first time they enter the area, after which they become temporarily immune for 1 day. Once per turn, you can spend a single action, which has the concentrate trait, to increase the emanation's radius by 5 feet. You can Dismiss the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -146,49 +144,67 @@
                 }
             }
         ],
-        "cast": "verbal",
         "area": "5-foot emanation",
-        "saving_throw": "Will",
         "duration": "1 minute",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is fascinated with you.",
-        "failure": "The creature uses all its actions to move toward you and compliment your performance. This effect ends if a hostile action is used against the affected creature.",
-        "critical_failure": "The target gains the minion trait and is controlled by you. This effect ends if a hostile action is used against the affected creature, or if you direct the creature to use any action that causes it harm."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is fascinated with you.",
+            "failure": "The creature uses all its actions to move toward you and compliment your performance. This effect ends if a hostile action is used against the affected creature.",
+            "critical_failure": "The target gains the minion trait and is controlled by you. This effect ends if a hostile action is used against the affected creature, or if you direct the creature to use any action that causes it harm.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "fascinated",
+                    "alt": "fascinated",
+                    "game-obj": "Conditions",
+                    "aonid": 14
+                },
+                {
+                    "type": "link",
+                    "name": "minion",
+                    "alt": "minion",
+                    "game-obj": "Traits",
+                    "aonid": 109
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concentrate",
+                "alt": "concentrate",
+                "game-obj": "Traits",
+                "aonid": 32
+            }
+        ]
     },
     "game-id": "844309957d2ada4c053b6220706cac27",
-    "spell_type": "focus",
-    "rank": 10,
-    "text": "Your performance enraptures those who hear it, compelling them to follow you about in admiration. Each creature within the emanation must attempt a Will save when you Cast the Spell or the first time they enter the area, after which they become temporarily immune for 1 day. Once per turn, you can spend a single action, which has the concentrate trait, to increase the emanation's radius by 5 feet. You can Dismiss the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "minion",
-            "alt": "minion",
-            "game-obj": "Traits",
-            "aonid": 109
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -204,5 +220,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

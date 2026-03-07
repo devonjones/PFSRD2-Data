@@ -20,12 +20,10 @@
     "spell": {
         "name": "Winter Bolt",
         "type": "stat_block_section",
+        "text": "You fling a hollow icicle filled with winter\u2019s wrath. Make a spell attack against the target\u2019s AC. The bolt deals 1d8 piercing damage and lodges in the target. At the end of the target\u2019s next turn, the bolt shatters, releasing a whirl of snow and ice that deals 1d12 cold damage to the target and all adjacent creatures. The bolt can be removed with an Interact action, which causes it to melt harmlessly without detonating.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -112,10 +110,8 @@
                 }
             }
         ],
-        "domain": "cold",
         "range": "60 feet",
         "targets": "1 creature",
-        "defense": "AC",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -124,43 +120,64 @@
                 "text": "The bolt\u2019s initial damage increases by 1d8 and the explosion damage increases by 1d12."
             }
         ],
-        "critical_success": "The initial bolt deals full damage and is especially well anchored, taking 2 Interact actions to remove. The bolt\u2019s explosion deals double damage.",
-        "success": "The bolt and its explosion deal full damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "cold",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "cold",
+                    "alt": "cold",
+                    "game-obj": "Domains",
+                    "aonid": 103
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "text": "AC",
+            "critical_success": "The initial bolt deals full damage and is especially well anchored, taking 2 Interact actions to remove. The bolt\u2019s explosion deals double damage.",
+            "success": "The bolt and its explosion deal full damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "Interact",
+                    "alt": "Interact",
+                    "game-obj": "Actions",
+                    "aonid": 2297
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "spell attack",
+                "alt": "spell attack",
+                "game-obj": "Rules",
+                "aonid": 2248
+            },
+            {
+                "type": "link",
+                "name": "cold",
+                "alt": "cold",
+                "game-obj": "Traits",
+                "aonid": 555
+            }
+        ]
     },
     "game-id": "36d64b1d490064f892c7aa227206adde",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You fling a hollow icicle filled with winter\u2019s wrath. Make a spell attack against the target\u2019s AC. The bolt deals 1d8 piercing damage and lodges in the target. At the end of the target\u2019s next turn, the bolt shatters, releasing a whirl of snow and ice that deals 1d12 cold damage to the target and all adjacent creatures. The bolt can be removed with an Interact action, which causes it to melt harmlessly without detonating.",
-    "links": [
-        {
-            "type": "link",
-            "name": "spell attack",
-            "alt": "spell attack",
-            "game-obj": "Rules",
-            "aonid": 2248
-        },
-        {
-            "type": "link",
-            "name": "cold",
-            "alt": "cold",
-            "game-obj": "Traits",
-            "aonid": 555
-        },
-        {
-            "type": "link",
-            "name": "Interact",
-            "alt": "Interact",
-            "game-obj": "Actions",
-            "aonid": 2297
-        },
-        {
-            "type": "link",
-            "name": "cold",
-            "alt": "cold",
-            "game-obj": "Domains",
-            "aonid": 103
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -205,5 +222,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

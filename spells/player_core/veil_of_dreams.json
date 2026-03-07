@@ -27,12 +27,10 @@
     "spell": {
         "name": "Veil of Dreams",
         "type": "stat_block_section",
+        "text": "Your patron draws the target into a drowsy state, causing daydreams and sluggishness. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,42 +105,59 @@
                 }
             }
         ],
-        "lesson": "lesson of dreams",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes a \u20131 status penalty to Perception, attack rolls, and Will saves. This penalty increases to \u20132 for Will saves against sleep effects.",
-        "failure": "As success, and any time the target uses a concentrate action, it must succeed at a DC 5 flat check or the action is disrupted."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of dreams",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of dreams",
+                    "alt": "lesson of dreams",
+                    "game-obj": "Lessons",
+                    "aonid": 16
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes a \u20131 status penalty to Perception, attack rolls, and Will saves. This penalty increases to \u20132 for Will saves against sleep effects.",
+            "failure": "As success, and any time the target uses a concentrate action, it must succeed at a DC 5 flat check or the action is disrupted.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sleep",
+                    "alt": "sleep",
+                    "game-obj": "Traits",
+                    "aonid": 145
+                },
+                {
+                    "type": "link",
+                    "name": "concentrate",
+                    "alt": "concentrate",
+                    "game-obj": "Traits",
+                    "aonid": 32
+                }
+            ]
+        }
     },
     "game-id": "a780ef7273022977f48acb70ecc307a0",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your patron draws the target into a drowsy state, causing daydreams and sluggishness. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sleep",
-            "alt": "sleep",
-            "game-obj": "Traits",
-            "aonid": 145
-        },
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "lesson of dreams",
-            "alt": "lesson of dreams",
-            "game-obj": "Lessons",
-            "aonid": 16
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -187,5 +202,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

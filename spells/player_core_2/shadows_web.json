@@ -27,12 +27,10 @@
     "spell": {
         "name": "Shadow's Web",
         "type": "stat_block_section",
+        "text": "Grasping darkness surges from you, dealing 14d4 void damage. Each creature in the area must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -97,7 +95,6 @@
         ],
         "requirement": "You are in *clinging shadows stance*.",
         "range": "30-foot emanation",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -106,52 +103,65 @@
                 "text": "The void damage increases by 2d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and is enfeebled 1 for 1 round.",
-        "failure": "The creature takes full damage and is enfeebled 2 for 1 round.",
-        "critical_failure": "The creature takes double damage, is stunned 1, and enfeebled 2 for 1 round, and immobilized for 1 round or until it Escapes, whichever comes first."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and is enfeebled 1 for 1 round.",
+            "failure": "The creature takes full damage and is enfeebled 2 for 1 round.",
+            "critical_failure": "The creature takes double damage, is stunned 1, and enfeebled 2 for 1 round, and immobilized for 1 round or until it Escapes, whichever comes first.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "enfeebled 1",
+                    "alt": "enfeebled 1",
+                    "game-obj": "Conditions",
+                    "aonid": 71
+                },
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 93
+                },
+                {
+                    "type": "link",
+                    "name": "immobilized",
+                    "alt": "immobilized",
+                    "game-obj": "Conditions",
+                    "aonid": 81
+                },
+                {
+                    "type": "link",
+                    "name": "Escapes",
+                    "alt": "Escapes",
+                    "game-obj": "Actions",
+                    "aonid": 2296
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "clinging shadows stance",
+                "alt": "clinging shadows stance",
+                "game-obj": "Spells",
+                "aonid": 2061
+            }
+        ]
     },
     "game-id": "24f31c19713b56111a7b9b5be547458b",
-    "spell_type": "focus",
-    "rank": 7,
-    "text": "Grasping darkness surges from you, dealing 14d4 void damage. Each creature in the area must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clinging shadows stance",
-            "alt": "clinging shadows stance",
-            "game-obj": "Spells",
-            "aonid": 2061
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 81
-        },
-        {
-            "type": "link",
-            "name": "Escapes",
-            "alt": "Escapes",
-            "game-obj": "Actions",
-            "aonid": 2296
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -196,5 +206,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

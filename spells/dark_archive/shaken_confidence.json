@@ -40,12 +40,10 @@
     "spell": {
         "name": "Shaken Confidence",
         "type": "stat_block_section",
+        "text": "You mock the target for all its failings, twisting its self-confidence into doubt. The enemy attempts a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,48 +118,83 @@
                 }
             }
         ],
-        "domain": "confidence, confidence (apocryphal)",
-        "cast": "verbal",
         "trigger": "An enemy within 30 feet of you critically fails an attack roll, Perception check, or skill check",
-        "saving_throw": "Will",
         "duration": "varies",
-        "success": "The target is unaffected.",
-        "failure": "The target is briefly shaken and unsure of its abilities. It must roll twice and take the worse result on the next roll of the same type as the critical failure that triggered the spell (such as the target's next Acrobatics check if the spell's trigger was a critical failure on an Acrobatics check). If the target doesn't attempt any qualifying checks, the spell ends at the end of the target's next turn."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "confidence",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "confidence",
+                    "alt": "confidence",
+                    "game-obj": "Domains",
+                    "aonid": 4
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "confidence",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "confidence",
+                    "alt": "confidence",
+                    "game-obj": "Domains",
+                    "aonid": 67
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "(apocryphal)",
+                "access_type": "domain"
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The target is unaffected.",
+            "failure": "The target is briefly shaken and unsure of its abilities. It must roll twice and take the worse result on the next roll of the same type as the critical failure that triggered the spell (such as the target's next Acrobatics check if the spell's trigger was a critical failure on an Acrobatics check). If the target doesn't attempt any qualifying checks, the spell ends at the end of the target's next turn.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "Acrobatics",
+                    "alt": "Acrobatics",
+                    "game-obj": "Skills",
+                    "aonid": 1
+                }
+            ]
+        }
     },
     "game-id": "9b747a8c63167b63261c57c32fff006a",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You mock the target for all its failings, twisting its self-confidence into doubt. The enemy attempts a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Acrobatics",
-            "alt": "Acrobatics",
-            "game-obj": "Skills",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "confidence",
-            "alt": "confidence",
-            "game-obj": "Domains",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "confidence",
-            "alt": "confidence",
-            "game-obj": "Domains",
-            "aonid": 67
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -177,5 +210,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Heart's Desire",
         "type": "stat_block_section",
+        "text": "You surround your target with wondrous illusions of their greatest desires, which distract them from reality. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,11 +120,8 @@
                 }
             }
         ],
-        "bloodline": "genie",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -136,45 +131,76 @@
                 "text": "You can target one additional creature."
             }
         ],
-        "critical_success": "The target disbelieves the illusion and is unaffected.",
-        "success": "For 1 round, the target is stupefied 2 and takes a \u20132 status penalty to any checks it makes to determine the effects of reactions.",
-        "failure": "For 1 minute, the target is stupefied 2 and can't use reactions.",
-        "critical_failure": "As failure, and all spaces are difficult terrain for the target."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "genie",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "genie",
+                    "alt": "genie",
+                    "game-obj": "Bloodlines",
+                    "aonid": 11
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target disbelieves the illusion and is unaffected.",
+            "success": "For 1 round, the target is stupefied 2 and takes a \u20132 status penalty to any checks it makes to determine the effects of reactions.",
+            "failure": "For 1 minute, the target is stupefied 2 and can't use reactions.",
+            "critical_failure": "As failure, and all spaces are difficult terrain for the target.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stupefied 2",
+                    "alt": "stupefied 2",
+                    "game-obj": "Conditions",
+                    "aonid": 37
+                }
+            ]
+        }
     },
     "game-id": "484495c0da7b9779c1ffef52f9374541",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You surround your target with wondrous illusions of their greatest desires, which distract them from reality. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stupefied 2",
-            "alt": "stupefied 2",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "genie",
-            "alt": "genie",
-            "game-obj": "Bloodlines",
-            "aonid": 11
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -190,5 +216,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

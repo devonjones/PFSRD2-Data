@@ -54,12 +54,10 @@
     "spell": {
         "name": "Blinding Foam",
         "type": "stat_block_section",
+        "text": "You spray a colorful, caustic foam into the target's eyes, which clings to their face. Make a spell attack roll. If you hit, you deal 5d10 acid damage and 1d6 persistent acid damage, and the target is blinded for the duration. The foam can be removed with 3 Interact actions, which ends the persistent acid damage. These Interact actions don't need to be consecutive. When the target's persistent acid damage ends, the spell automatically ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -111,8 +109,6 @@
             }
         ],
         "access": "Second-mark members of the Firebrands have access to this spell.",
-        "traditions": "arcane, occult, primal",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
         "duration": "1 minute",
@@ -123,60 +119,98 @@
                 "level": 8,
                 "text": "The initial damage increases to 9d10, and the persistent acid damage increases to 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent acid damage",
+                "alt": "persistent acid damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            },
+            {
+                "type": "link",
+                "name": "blinded",
+                "alt": "blinded",
+                "game-obj": "Conditions",
+                "aonid": 1
+            }
         ]
     },
     "game-id": "d1e01af2e91257eca4aa810b766a3ae9",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You spray a colorful, caustic foam into the target's eyes, which clings to their face. Make a spell attack roll. If you hit, you deal 5d10 acid damage and 1d6 persistent acid damage, and the target is blinded for the duration. The foam can be removed with 3 Interact actions, which ends the persistent acid damage. These Interact actions don't need to be consecutive. When the target's persistent acid damage ends, the spell automatically ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent acid damage",
-            "alt": "persistent acid damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -192,5 +226,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Omnidirectional Scan",
         "type": "stat_block_section",
+        "text": "You quickly view your surroundings from a variety of angles, your senses constructing an overall mental picture. You can choose to Seek the entire emanation of the spell.  \n  \n Regardless of whether you Seek, target one ally and one enemy in the area; if a target is concealed or hidden from you, you automatically succeed at the flat check to target it with this spell. You prepare to Aid the target ally on an attack roll against the target enemy. If you take this Aid reaction, you use your spell attack modifier and proficiency rank on your check to Aid. If you critically fail the roll to Aid, you get a failure instead.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,52 +106,64 @@
                 }
             }
         ],
-        "cast": "verbal",
         "area": "30-foot emanation",
         "targets": "1 ally and 1 enemy",
-        "duration": "until the start of your next turn"
+        "duration": "until the start of your next turn",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Seek",
+                "alt": "Seek",
+                "game-obj": "Actions",
+                "aonid": 84
+            },
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            },
+            {
+                "type": "link",
+                "name": "hidden",
+                "alt": "hidden",
+                "game-obj": "Conditions",
+                "aonid": 22
+            },
+            {
+                "type": "link",
+                "name": "Aid",
+                "alt": "Aid",
+                "game-obj": "Actions",
+                "aonid": 75
+            }
+        ]
     },
     "game-id": "37021566e76b9b9094e2c457a108f827",
-    "spell_type": "cantrip",
-    "rank": 3,
-    "text": "You quickly view your surroundings from a variety of angles, your senses constructing an overall mental picture. You can choose to Seek the entire emanation of the spell.  \n  \n Regardless of whether you Seek, target one ally and one enemy in the area; if a target is concealed or hidden from you, you automatically succeed at the flat check to target it with this spell. You prepare to Aid the target ally on an attack roll against the target enemy. If you take this Aid reaction, you use your spell attack modifier and proficiency rank on your check to Aid. If you critically fail the roll to Aid, you get a failure instead.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Seek",
-            "alt": "Seek",
-            "game-obj": "Actions",
-            "aonid": 84
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "hidden",
-            "alt": "hidden",
-            "game-obj": "Conditions",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "Aid",
-            "alt": "Aid",
-            "game-obj": "Actions",
-            "aonid": 75
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -169,5 +179,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

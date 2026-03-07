@@ -40,12 +40,10 @@
     "spell": {
         "name": "Apex Companion",
         "type": "stat_block_section",
+        "text": "You focus on the energies of all members of your animal companion\u2019s species, transforming your animal companion into its apex battle form. Your animal companion gains the following statistics and abilities while in its apex form. \n* Your animal companion becomes Huge and its attacks have 15-foot reach. It must have enough space to expand into or the spell is lost.\n* 30 temporary Hit Points.\n* Darkvision.\n* Your animal companion\u2019s attack\u2019s damage dice increase by one step, and its attack gains the deadly d12 trait.\n* +10-foot status bonus to its Speeds.\n* Ignores difficult terrain and greater difficult terrain.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,45 +94,62 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 animal companion in your service",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Darkvision",
+                "alt": "Darkvision",
+                "game-obj": "Rules",
+                "aonid": 415
+            },
+            {
+                "type": "link",
+                "name": "deadly d12",
+                "alt": "deadly d12",
+                "game-obj": "Traits",
+                "aonid": 174
+            }
+        ]
     },
     "game-id": "e1a846109721958a7c1502850b6c6f87",
-    "spell_type": "focus",
-    "rank": 10,
-    "text": "You focus on the energies of all members of your animal companion\u2019s species, transforming your animal companion into its apex battle form. Your animal companion gains the following statistics and abilities while in its apex form. \n* Your animal companion becomes Huge and its attacks have 15-foot reach. It must have enough space to expand into or the spell is lost.\n* 30 temporary Hit Points.\n* Darkvision.\n* Your animal companion\u2019s attack\u2019s damage dice increase by one step, and its attack gains the deadly d12 trait.\n* +10-foot status bonus to its Speeds.\n* Ignores difficult terrain and greater difficult terrain.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Darkvision",
-            "alt": "Darkvision",
-            "game-obj": "Rules",
-            "aonid": 415
-        },
-        {
-            "type": "link",
-            "name": "deadly d12",
-            "alt": "deadly d12",
-            "game-obj": "Traits",
-            "aonid": 174
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -150,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

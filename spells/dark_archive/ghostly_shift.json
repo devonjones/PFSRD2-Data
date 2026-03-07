@@ -40,12 +40,10 @@
     "spell": {
         "name": "Ghostly Shift",
         "type": "stat_block_section",
+        "text": "Your body becomes insubstantial as you partially phase out. You gain resistance 2 to all damage (except force).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,7 +94,6 @@
                 }
             }
         ],
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 creature",
         "duration": "sustained up to 1 minute",
@@ -151,28 +148,41 @@
                 "increment": 2,
                 "text": "Increase the damage dealt by phasing through a creature by 1d6."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "force",
+                "alt": "force",
+                "game-obj": "Traits",
+                "aonid": 75
+            }
         ]
     },
     "game-id": "e4a5415a93153666fc8c03cf048aeb0f",
-    "spell_type": "cantrip",
-    "rank": 3,
-    "text": "Your body becomes insubstantial as you partially phase out. You gain resistance 2 to all damage (except force).",
-    "links": [
-        {
-            "type": "link",
-            "name": "force",
-            "alt": "force",
-            "game-obj": "Traits",
-            "aonid": 75
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -188,5 +198,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

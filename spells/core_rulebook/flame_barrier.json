@@ -54,12 +54,10 @@
     "spell": {
         "name": "Flame Barrier",
         "type": "stat_block_section",
+        "text": "You swiftly deflect incoming flames. The target gains fire resistance 15 against the triggering effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "domain": "fire",
-        "cast": "verbal",
         "trigger": "An effect would deal fire damage to either you or an ally within range.",
         "range": "60 feet",
         "targets": "the creature that would take fire damage",
@@ -110,28 +106,47 @@
                 "increment": 2,
                 "text": "The resistance increases by 5."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fire",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "fire",
+                    "alt": "fire",
+                    "game-obj": "Domains",
+                    "aonid": 13
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "da7f3c1b532f513adfff73acda8c5154",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You swiftly deflect incoming flames. The target gains fire resistance 15 against the triggering effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "fire",
-            "alt": "fire",
-            "game-obj": "Domains",
-            "aonid": 13
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -147,5 +162,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

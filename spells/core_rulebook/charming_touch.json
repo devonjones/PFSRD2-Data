@@ -54,12 +54,10 @@
     "spell": {
         "name": "Charming Touch",
         "type": "stat_block_section",
+        "text": "You infuse your target with attraction, causing it to act friendlier toward you. The target attempts a Will save. It gains a +4 circumstance bonus to this save if you or your allies recently threatened or were hostile to it.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,44 +132,67 @@
                 }
             }
         ],
-        "domain": "passion",
-        "cast": "somatic",
         "range": "touch",
         "targets": "1 creature that could find you attractive",
-        "saving_throw": "Will",
         "duration": "10 minutes",
-        "critical_success": "The target is unaffected and aware you tried to charm it.",
-        "success": "The target is unaffected but thinks your spell was something harmless instead of *charming touch*, unless it identifies the spell (see Identifying Spells).",
-        "failure": "The target's attitude becomes friendly toward you. If it was friendly, it becomes helpful. It can't use hostile actions against you.",
-        "critical_failure": "The target is helpful and can't use hostile actions against you.  \n  \n You can Dismiss the spell. If you use hostile actions against the target, the spell ends. After the spell ends, the target doesn't necessarily realize it was charmed unless its friendship with you or the actions you convinced it to take clash with its expectations, which could potentially allow you to convince the target to continue being your friend via mundane means."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "passion",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "passion",
+                    "alt": "passion",
+                    "game-obj": "Domains",
+                    "aonid": 25
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected and aware you tried to charm it.",
+            "success": "The target is unaffected but thinks your spell was something harmless instead of *charming touch*, unless it identifies the spell (see Identifying Spells).",
+            "failure": "The target's attitude becomes friendly toward you. If it was friendly, it becomes helpful. It can't use hostile actions against you.",
+            "critical_failure": "The target is helpful and can't use hostile actions against you.  \n  \n You can Dismiss the spell. If you use hostile actions against the target, the spell ends. After the spell ends, the target doesn't necessarily realize it was charmed unless its friendship with you or the actions you convinced it to take clash with its expectations, which could potentially allow you to convince the target to continue being your friend via mundane means.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "Identifying Spells",
+                    "alt": "Identifying Spells",
+                    "game-obj": "Rules",
+                    "aonid": 298
+                }
+            ]
+        }
     },
     "game-id": "e051c7f2f80b17c3e172ecc7ff51da9c",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You infuse your target with attraction, causing it to act friendlier toward you. The target attempts a Will save. It gains a +4 circumstance bonus to this save if you or your allies recently threatened or were hostile to it.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Identifying Spells",
-            "alt": "Identifying Spells",
-            "game-obj": "Rules",
-            "aonid": 298
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "passion",
-            "alt": "passion",
-            "game-obj": "Domains",
-            "aonid": 25
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -187,5 +208,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

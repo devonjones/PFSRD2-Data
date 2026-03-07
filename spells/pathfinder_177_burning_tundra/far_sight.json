@@ -40,12 +40,10 @@
     "spell": {
         "name": "Far Sight",
         "type": "stat_block_section",
+        "text": "You can see distant objects as if they were closer. You can view creatures, objects, and terrain features that are more than 30 feet away and up to 300 feet away as though they were only 30 feet away. You can view creatures, objects, and terrain features that are 300 feet away or more as though they were only one-tenth as far away. This spell only affects your ability to discern visual details; it doesn't let you treat the objects as actually closer for the purposes of spells, ranged attacks, or otherwise. This spell doesn't affect the range of other visual senses you might have, so if you have a visual sense that extends to only 60 feet, you still can't use it to see things beyond that range, even if they would appear closer with this spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,42 +82,70 @@
                 }
             }
         ],
-        "traditions": "occult, primal",
-        "cast": "somatic, verbal",
-        "duration": "10 minutes"
+        "duration": "10 minutes",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "d1428e086df88ff9d94ed725516431e7",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You can see distant objects as if they were closer. You can view creatures, objects, and terrain features that are more than 30 feet away and up to 300 feet away as though they were only 30 feet away. You can view creatures, objects, and terrain features that are 300 feet away or more as though they were only one-tenth as far away. This spell only affects your ability to discern visual details; it doesn't let you treat the objects as actually closer for the purposes of spells, ranged attacks, or otherwise. This spell doesn't affect the range of other visual senses you might have, so if you have a visual sense that extends to only 60 feet, you still can't use it to see things beyond that range, even if they would appear closer with this spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -135,5 +161,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

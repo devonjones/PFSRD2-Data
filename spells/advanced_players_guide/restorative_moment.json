@@ -54,12 +54,10 @@
     "spell": {
         "name": "Restorative Moment",
         "type": "stat_block_section",
+        "text": "You manipulate the threads of time around the target, giving them some of the benefits of a day's passage. The target decreases the values of any doomed and drained conditions it has by 1 and can immediately attempt one saving throw against each affliction it has with a stage length of 1 day or less. The target is then temporarily immune for 1 day.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,52 +108,76 @@
                 }
             }
         ],
-        "lesson": "lesson of renewal",
-        "cast": "somatic, verbal",
         "range": "30 feet",
-        "targets": "1 creature"
+        "targets": "1 creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of renewal",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of renewal",
+                    "alt": "lesson of renewal",
+                    "game-obj": "Lessons",
+                    "aonid": 10
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "doomed",
+                "alt": "doomed",
+                "game-obj": "Conditions",
+                "aonid": 9
+            },
+            {
+                "type": "link",
+                "name": "drained",
+                "alt": "drained",
+                "game-obj": "Conditions",
+                "aonid": 10
+            }
+        ]
     },
     "game-id": "3a68ca97e6eb402025cca6d6c74efd15",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You manipulate the threads of time around the target, giving them some of the benefits of a day's passage. The target decreases the values of any doomed and drained conditions it has by 1 and can immediately attempt one saving throw against each affliction it has with a stage length of 1 day or less. The target is then temporarily immune for 1 day.",
-    "links": [
-        {
-            "type": "link",
-            "name": "doomed",
-            "alt": "doomed",
-            "game-obj": "Conditions",
-            "aonid": 9
-        },
-        {
-            "type": "link",
-            "name": "drained",
-            "alt": "drained",
-            "game-obj": "Conditions",
-            "aonid": 10
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "lesson of renewal",
-            "alt": "lesson of renewal",
-            "game-obj": "Lessons",
-            "aonid": 10
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -171,5 +193,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

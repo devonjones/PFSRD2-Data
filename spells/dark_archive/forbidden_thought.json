@@ -40,12 +40,10 @@
     "spell": {
         "name": "Forbidden Thought",
         "type": "stat_block_section",
+        "text": "You place a psychic lock in a foe's mind that prevents it from a specific action. Choose \u201cStrike,\u201d \u201cStride,\u201d \u201cCast a Spell,\u201d or a specific action you know the creature to have (such as \u201cBreath Weapon\u201d against a dragon). If the creature attempts that action on its next turn, it must surmount your lock to do so, causing it to take 2d6 mental damage (with a basic Will save). The target is then temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,10 +106,8 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -128,42 +124,65 @@
                     }
                 ]
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dragon",
+                "alt": "dragon",
+                "game-obj": "Traits",
+                "aonid": 50
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            }
         ]
     },
     "game-id": "c085068c40dcd251e1d69d262a7fbe5a",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You place a psychic lock in a foe's mind that prevents it from a specific action. Choose \u201cStrike,\u201d \u201cStride,\u201d \u201cCast a Spell,\u201d or a specific action you know the creature to have (such as \u201cBreath Weapon\u201d against a dragon). If the creature attempts that action on its next turn, it must surmount your lock to do so, causing it to take 2d6 mental damage (with a basic Will save). The target is then temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dragon",
-            "alt": "dragon",
-            "game-obj": "Traits",
-            "aonid": 50
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -179,5 +198,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -20,12 +20,10 @@
     "spell": {
         "name": "Object Memory",
         "type": "stat_block_section",
+        "text": "By touching an object, you draw forth the experience of those who created and used it. If you touch a weapon, your proficiency rank with that weapon temporarily increases to trained (if it is not already trained or better). If you touch a tool, your proficiency rank with the next skill check you attempt with that tool (such as a Crafting check with a blacksmith\u2019s hammer) within the spell\u2019s duration temporarily increases to trained (if it is not already trained or better). This spell has no benefit for activities that take longer than a minute to complete.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,7 +86,6 @@
                 }
             }
         ],
-        "domain": "vigil",
         "targets": "1 weapon or tool",
         "duration": "1 minute",
         "heightened": [
@@ -98,35 +95,49 @@
                 "level": 6,
                 "text": "Your proficiency rank increases to expert instead of trained."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "vigil",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "vigil",
+                    "alt": "vigil",
+                    "game-obj": "Domains",
+                    "aonid": 123
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "tool",
+                "alt": "tool",
+                "game-obj": "Equipment",
+                "aonid": 2759
+            },
+            {
+                "type": "link",
+                "name": "Crafting",
+                "alt": "Crafting",
+                "game-obj": "Skills",
+                "aonid": 37
+            }
         ]
     },
     "game-id": "346b228fec228978b4f17722ce0332a4",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "By touching an object, you draw forth the experience of those who created and used it. If you touch a weapon, your proficiency rank with that weapon temporarily increases to trained (if it is not already trained or better). If you touch a tool, your proficiency rank with the next skill check you attempt with that tool (such as a Crafting check with a blacksmith\u2019s hammer) within the spell\u2019s duration temporarily increases to trained (if it is not already trained or better). This spell has no benefit for activities that take longer than a minute to complete.",
-    "links": [
-        {
-            "type": "link",
-            "name": "tool",
-            "alt": "tool",
-            "game-obj": "Equipment",
-            "aonid": 2759
-        },
-        {
-            "type": "link",
-            "name": "Crafting",
-            "alt": "Crafting",
-            "game-obj": "Skills",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "vigil",
-            "alt": "vigil",
-            "game-obj": "Domains",
-            "aonid": 123
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -171,5 +182,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

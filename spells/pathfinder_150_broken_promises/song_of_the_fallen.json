@@ -40,12 +40,10 @@
     "spell": {
         "name": "Song of the Fallen",
         "type": "stat_block_section",
+        "text": "You chant a dirge or an elegy that either rouses the dead to action or reminds undead that they should lay to rest.  \n  \n If you target dead creatures, the bodies animate and can continue acting as if they were alive. A creature animated in this way has 60 temporary Hit Points. The animated creatures are slowed 1 but can otherwise act normally. Creatures animated with this spell die again once the spell ends.  \n  \n If you target undead creatures, each undead must attempt a basic Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,42 +94,63 @@
                 }
             }
         ],
-        "cast": "focus, verbal",
         "range": "30 feet",
         "targets": "up to 4 dead creatures or up to 4 undead creatures",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The undead takes 5d6 positive damage.",
-        "success": "The undead takes 10d6 positive damage and is slowed 1 for 1 round.",
-        "failure": "The undead takes 100 positive damage and is slowed 1 for 1 minute.",
-        "critical_failure": "The undead is destroyed."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "focus",
+                    "link": {
+                        "type": "link",
+                        "name": "focus",
+                        "alt": "focus",
+                        "game-obj": "Rules",
+                        "aonid": 285
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The undead takes 5d6 positive damage.",
+            "success": "The undead takes 10d6 positive damage and is slowed 1 for 1 round.",
+            "failure": "The undead takes 100 positive damage and is slowed 1 for 1 minute.",
+            "critical_failure": "The undead is destroyed."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "slowed 1",
+                "alt": "slowed 1",
+                "game-obj": "Conditions",
+                "aonid": 35
+            }
+        ]
     },
     "game-id": "0e583c15a64119ccceef09fa8cc47673",
-    "spell_type": "focus",
-    "rank": 10,
-    "text": "You chant a dirge or an elegy that either rouses the dead to action or reminds undead that they should lay to rest.  \n  \n If you target dead creatures, the bodies animate and can continue acting as if they were alive. A creature animated in this way has 60 temporary Hit Points. The animated creatures are slowed 1 but can otherwise act normally. Creatures animated with this spell die again once the spell ends.  \n  \n If you target undead creatures, each undead must attempt a basic Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "focus",
-            "alt": "focus",
-            "game-obj": "Rules",
-            "aonid": 285
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -147,5 +166,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

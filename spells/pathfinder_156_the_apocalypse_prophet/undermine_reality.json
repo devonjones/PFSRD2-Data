@@ -40,12 +40,10 @@
     "spell": {
         "name": "Undermine Reality",
         "type": "stat_block_section",
+        "text": "You lash a target with tendrils of shadow that steal some of its substance, making it quasi-real. As long as it is quasi-real, its Strikes deal half damage, it can't critically succeed at any skill check, and creatures attempting saving throws against its spells and effects get a result one degree of success better than they rolled. The target must attempt a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,48 +94,80 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "range": "500 feet",
         "targets": "one creature",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is quasi-real until the end of its next turn.",
-        "failure": "The target is quasi-real for 1 minute. At the end of each of its turns, it can attempt another Will save, ending the spell on a success.",
-        "critical_failure": "The target is quasi-real for an unlimited duration."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is quasi-real until the end of its next turn.",
+            "failure": "The target is quasi-real for 1 minute. At the end of each of its turns, it can attempt another Will save, ending the spell on a success.",
+            "critical_failure": "The target is quasi-real for an unlimited duration."
+        }
     },
     "game-id": "d311c997906b4773207996621137e374",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "You lash a target with tendrils of shadow that steal some of its substance, making it quasi-real. As long as it is quasi-real, its Strikes deal half damage, it can't critically succeed at any skill check, and creatures attempting saving throws against its spells and effects get a result one degree of success better than they rolled. The target must attempt a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -153,5 +183,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

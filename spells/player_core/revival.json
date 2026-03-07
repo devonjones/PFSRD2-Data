@@ -27,12 +27,10 @@
     "spell": {
         "name": "Revival",
         "type": "stat_block_section",
+        "text": "A burst of healing energy soothes living creatures and temporarily rouses those recently slain. All living targets regain 10d8+40 Hit Points. You return any number of dead targets to life temporarily, with the same effects and limitations as *raise dead*. The raised creatures have a number of temporary Hit Points equal to the Hit Points you gave living creatures, but no normal Hit Points. The raised creatures can't regain Hit Points or gain temporary Hit Points in other ways, and once *revival's* duration ends, they lose all temporary Hit Points and die. *Revival* can't resurrect creatures killed by *disintegrate* or a death effect. It has no effect on undead.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,57 +81,76 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
         "range": "30 feet",
         "targets": "dead creatures and living creatures of your choice within range",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "raise dead",
+                "alt": "raise dead",
+                "game-obj": "Spells",
+                "aonid": 243
+            },
+            {
+                "type": "link",
+                "name": "disintegrate",
+                "alt": "disintegrate",
+                "game-obj": "Spells",
+                "aonid": 76
+            },
+            {
+                "type": "link",
+                "name": "death",
+                "alt": "death",
+                "game-obj": "Traits",
+                "aonid": 40
+            },
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            }
+        ]
     },
     "game-id": "f67831fcdea6b977bf442b53b5eee62c",
-    "spell_type": "spell",
-    "rank": 10,
-    "text": "A burst of healing energy soothes living creatures and temporarily rouses those recently slain. All living targets regain 10d8+40 Hit Points. You return any number of dead targets to life temporarily, with the same effects and limitations as *raise dead*. The raised creatures have a number of temporary Hit Points equal to the Hit Points you gave living creatures, but no normal Hit Points. The raised creatures can't regain Hit Points or gain temporary Hit Points in other ways, and once *revival's* duration ends, they lose all temporary Hit Points and die. *Revival* can't resurrect creatures killed by *disintegrate* or a death effect. It has no effect on undead.",
-    "links": [
-        {
-            "type": "link",
-            "name": "raise dead",
-            "alt": "raise dead",
-            "game-obj": "Spells",
-            "aonid": 243
-        },
-        {
-            "type": "link",
-            "name": "disintegrate",
-            "alt": "disintegrate",
-            "game-obj": "Spells",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "death",
-            "alt": "death",
-            "game-obj": "Traits",
-            "aonid": 40
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -178,5 +195,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

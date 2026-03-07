@@ -27,12 +27,10 @@
     "spell": {
         "name": "Swamp of Sloth",
         "type": "stat_block_section",
+        "text": "Ground in the area turns swampy and fetid. The area is difficult terrain. The sludge at the bottom of the morass animates into diminutive sludge beasts that have a demonic appearance. These don't function as normal creatures, but they swarm over creatures in the swamp and exude a noxious stench. The swamp deals 1d6 poison damage to creatures that end their turn in the area (basic Fortitude save). For each additional action you use when Casting the Spell, increase the burst's radius by 5 feet.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,10 +105,8 @@
                 }
             }
         ],
-        "bloodline": "demonic",
         "range": "120 feet",
         "area": "5-foot burst or more",
-        "defense": "basic Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -119,42 +115,64 @@
                 "increment": 2,
                 "text": "The damage increases by 1d6, and the initial radius increases by 5 feet."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "demonic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "demonic",
+                    "alt": "demonic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 21
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "difficult terrain",
+                "alt": "difficult terrain",
+                "game-obj": "Rules",
+                "aonid": 453
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            }
         ]
     },
     "game-id": "66b6f6b7db0427ea3437c1e867678890",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "Ground in the area turns swampy and fetid. The area is difficult terrain. The sludge at the bottom of the morass animates into diminutive sludge beasts that have a demonic appearance. These don't function as normal creatures, but they swarm over creatures in the swamp and exude a noxious stench. The swamp deals 1d6 poison damage to creatures that end their turn in the area (basic Fortitude save). For each additional action you use when Casting the Spell, increase the burst's radius by 5 feet.",
-    "links": [
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 453
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "demonic",
-            "alt": "demonic",
-            "game-obj": "Bloodlines",
-            "aonid": 21
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -199,5 +217,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

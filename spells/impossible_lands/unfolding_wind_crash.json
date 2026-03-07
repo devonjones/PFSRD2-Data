@@ -40,12 +40,10 @@
     "spell": {
         "name": "Unfolding Wind Crash",
         "type": "stat_block_section",
+        "text": "You jump up to 120 feet in any direction and then deal 18d6 bludgeoning damage to creatures within a 20-foot emanation after you land, with a basic Reflex save. Creatures who critically fail are also knocked prone.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,8 +94,6 @@
                 }
             }
         ],
-        "cast": "verbal",
-        "saving_throw": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -105,35 +101,56 @@
                 "level": 10,
                 "text": "The damage increases to 20d6."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "prone",
+                "alt": "prone",
+                "game-obj": "Conditions",
+                "aonid": 31
+            }
         ]
     },
     "game-id": "9aeead5dca95a312123500ffeb91486c",
-    "spell_type": "focus",
-    "rank": 9,
-    "text": "You jump up to 120 feet in any direction and then deal 18d6 bludgeoning damage to creatures within a 20-foot emanation after you land, with a basic Reflex save. Creatures who critically fail are also knocked prone.",
-    "links": [
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +166,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,12 +27,10 @@
     "spell": {
         "name": "Death's Call",
         "type": "stat_block_section",
+        "text": "Seeing another pass from this world invigorates you. You gain temporary Hit Points equal to the triggering creature's level plus your spellcasting attribute modifier. If the triggering creature was undead, double the number of temporary Hit Points you gain. These last for the duration of the spell, and the spell ends if all the temporary Hit Points are depleted earlier.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,30 +81,43 @@
                 }
             }
         ],
-        "domain": "death",
         "trigger": "A living creature within 20 feet of you dies, or an undead creature within 20 feet of you is destroyed",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "death",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "death",
+                    "alt": "death",
+                    "game-obj": "Domains",
+                    "aonid": 70
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            }
+        ]
     },
     "game-id": "195256087a7481be4007b8595182d6ba",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Seeing another pass from this world invigorates you. You gain temporary Hit Points equal to the triggering creature's level plus your spellcasting attribute modifier. If the triggering creature was undead, double the number of temporary Hit Points you gain. These last for the duration of the spell, and the spell ends if all the temporary Hit Points are depleted earlier.",
-    "links": [
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "death",
-            "alt": "death",
-            "game-obj": "Domains",
-            "aonid": 70
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -151,5 +162,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

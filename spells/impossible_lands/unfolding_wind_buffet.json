@@ -40,12 +40,10 @@
     "spell": {
         "name": "Unfolding Wind Buffet",
         "type": "stat_block_section",
+        "text": "You surround your unarmed attacks with the speed and force of air. Make three unarmed Strikes against the same target. If at least one was a successful hit, the target must attempt a Fortitude save or be pushed back 5 feet for each normal hit from the buffet, plus 10 feet for each critical hit.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,46 +82,64 @@
                 }
             }
         ],
-        "cast": "verbal",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is pushed back half the normal distance.",
-        "failure": "The target is pushed back the normal distance.",
-        "critical_failure": "The target is pushed back double the normal distance and then knocked prone."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is pushed back half the normal distance.",
+            "failure": "The target is pushed back the normal distance.",
+            "critical_failure": "The target is pushed back double the normal distance and then knocked prone.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unarmed",
+                "alt": "unarmed",
+                "game-obj": "Traits",
+                "aonid": 199
+            },
+            {
+                "type": "link",
+                "name": "pushed",
+                "alt": "pushed",
+                "game-obj": "Rules",
+                "aonid": 451
+            }
+        ]
     },
     "game-id": "349ef2b09feb670cbfab9ba6221d49aa",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You surround your unarmed attacks with the speed and force of air. Make three unarmed Strikes against the same target. If at least one was a successful hit, the target must attempt a Fortitude save or be pushed back 5 feet for each normal hit from the buffet, plus 10 feet for each critical hit.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unarmed",
-            "alt": "unarmed",
-            "game-obj": "Traits",
-            "aonid": 199
-        },
-        {
-            "type": "link",
-            "name": "pushed",
-            "alt": "pushed",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -139,5 +155,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

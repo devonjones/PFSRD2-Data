@@ -54,12 +54,10 @@
     "spell": {
         "name": "Agitate",
         "type": "stat_block_section",
+        "text": "You send the target's mind and body into overdrive, forcing it to become restless and hyperactive. During the duration, the target must Stride, Fly, or Swim at least once each turn or take 2d8 mental damage that turn; The GM might decide to add additional move actions to the list for creatures who possess only a more unusual form of movement. The duration of this effect depends on the target's Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,12 +96,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Alglenweis",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -113,64 +107,107 @@
                 "text": "The damage increases by 2d8."
             }
         ],
-        "critical_success": "The spell has no effect.",
-        "success": "The duration is 1 round.",
-        "failure": "The duration is 2 rounds.",
-        "critical_failure": "The duration is 4 rounds."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Alglenweis",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Alglenweis",
+                    "alt": "Alglenweis",
+                    "game-obj": "Deities",
+                    "aonid": 171
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The spell has no effect.",
+            "success": "The duration is 1 round.",
+            "failure": "The duration is 2 rounds.",
+            "critical_failure": "The duration is 4 rounds."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Fly",
+                "alt": "Fly",
+                "game-obj": "Actions",
+                "aonid": 94
+            },
+            {
+                "type": "link",
+                "name": "Swim",
+                "alt": "Swim",
+                "game-obj": "Actions",
+                "aonid": 39
+            }
+        ]
     },
     "game-id": "c263b32018e3b89da8aabebd1038532c",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You send the target's mind and body into overdrive, forcing it to become restless and hyperactive. During the duration, the target must Stride, Fly, or Swim at least once each turn or take 2d8 mental damage that turn; The GM might decide to add additional move actions to the list for creatures who possess only a more unusual form of movement. The duration of this effect depends on the target's Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Fly",
-            "alt": "Fly",
-            "game-obj": "Actions",
-            "aonid": 94
-        },
-        {
-            "type": "link",
-            "name": "Swim",
-            "alt": "Swim",
-            "game-obj": "Actions",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Alglenweis",
-            "alt": "Alglenweis",
-            "game-obj": "Deities",
-            "aonid": 171
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -186,5 +223,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

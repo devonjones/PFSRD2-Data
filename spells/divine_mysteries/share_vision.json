@@ -20,12 +20,10 @@
     "spell": {
         "name": "Share Vision",
         "type": "stat_block_section",
+        "text": "Your patron temporarily links your vision with that of another, causing both of you to be able to see through each other\u2019s eyes. For the duration of the hex, the two of you share any vision-based senses (such as darkvision or low-light vision) and gain a +2 status bonus to Perception checks, but if either of you are blinded or dazzled, you both are.  \n  \nIf you cast *share vision* while a previous casting of this hex is still in effect, the previous effect ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,53 +86,65 @@
                 }
             }
         ],
-        "traditions": "N/A",
-        "patron_theme": "choir politic",
         "range": "30 feet",
         "targets": "1 willing creature",
-        "duration": "10 minutes"
+        "duration": "10 minutes",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "choir politic",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "choir politic",
+                    "alt": "choir politic",
+                    "game-obj": "Patrons",
+                    "aonid": 24
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "darkvision",
+                "alt": "darkvision",
+                "game-obj": "Rules",
+                "aonid": 2410
+            },
+            {
+                "type": "link",
+                "name": "low-light vision",
+                "alt": "low-light vision",
+                "game-obj": "Rules",
+                "aonid": 2411
+            },
+            {
+                "type": "link",
+                "name": "blinded",
+                "alt": "blinded",
+                "game-obj": "Conditions",
+                "aonid": 59
+            },
+            {
+                "type": "link",
+                "name": "dazzled",
+                "alt": "dazzled",
+                "game-obj": "Conditions",
+                "aonid": 65
+            }
+        ]
     },
     "game-id": "818550495ddff99c460208ee17725f5b",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Your patron temporarily links your vision with that of another, causing both of you to be able to see through each other\u2019s eyes. For the duration of the hex, the two of you share any vision-based senses (such as darkvision or low-light vision) and gain a +2 status bonus to Perception checks, but if either of you are blinded or dazzled, you both are.  \n  \nIf you cast *share vision* while a previous casting of this hex is still in effect, the previous effect ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "darkvision",
-            "alt": "darkvision",
-            "game-obj": "Rules",
-            "aonid": 2410
-        },
-        {
-            "type": "link",
-            "name": "low-light vision",
-            "alt": "low-light vision",
-            "game-obj": "Rules",
-            "aonid": 2411
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 59
-        },
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 65
-        },
-        {
-            "type": "link",
-            "name": "choir politic",
-            "alt": "choir politic",
-            "game-obj": "Patrons",
-            "aonid": 24
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -179,5 +189,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

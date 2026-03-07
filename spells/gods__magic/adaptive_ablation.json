@@ -54,12 +54,10 @@
     "spell": {
         "name": "Adaptive Ablation",
         "type": "stat_block_section",
+        "text": "You shift yourself to adapt to the mystical wavelengths of the energy damage, protecting yourself from further harm. You gain resistance 5 to the triggering energy type; you gain this resistance after you take the triggering damage, so it applies only to future damage you take during the duration.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,8 +72,6 @@
                 }
             }
         ],
-        "domain": "change",
-        "cast": "somatic",
         "trigger": "You take acid, cold, electricity, fire, or sonic damage.",
         "duration": "1 minute",
         "heightened": [
@@ -85,28 +81,47 @@
                 "increment": 2,
                 "text": "Increase the resistance by 5."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "change",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "change",
+                    "alt": "change",
+                    "game-obj": "Domains",
+                    "aonid": 40
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "caa29d1e1fd6b85f6e6043b6768952f9",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You shift yourself to adapt to the mystical wavelengths of the energy damage, protecting yourself from further harm. You gain resistance 5 to the triggering energy type; you gain this resistance after you take the triggering damage, so it applies only to future damage you take during the duration.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "change",
-            "alt": "change",
-            "game-obj": "Domains",
-            "aonid": 40
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -122,5 +137,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

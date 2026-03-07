@@ -27,12 +27,10 @@
     "spell": {
         "name": "Blastback",
         "type": "stat_block_section",
+        "text": "You hit the ground with a shuddering boom, propelling the force of your fall out in a wave. You take no damage from the fall as the displaced air allows you to land gently, but all other creatures in the spell's area take 6d4 bludgeoning damage. Creatures that fail their save are also pushed back  5 feet.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -59,10 +57,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "trigger": "You fall more than 10 feet.",
         "area": "20-foot emanation",
-        "defense": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -70,47 +66,75 @@
                 "increment": 2,
                 "text": "The emanation increases by 10 feet, and the damage increases by 1d4."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "pushed back",
+                "alt": "pushed back",
+                "game-obj": "Rules",
+                "aonid": 451
+            },
+            {
+                "type": "link",
+                "name": "fall",
+                "alt": "fall",
+                "game-obj": "Rules",
+                "aonid": 402
+            }
         ]
     },
     "game-id": "a78f40f7d5af9ac602ca6c8cd01634e3",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You hit the ground with a shuddering boom, propelling the force of your fall out in a wave. You take no damage from the fall as the displaced air allows you to land gently, but all other creatures in the spell's area take 6d4 bludgeoning damage. Creatures that fail their save are also pushed back  5 feet.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pushed back",
-            "alt": "pushed back",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "fall",
-            "alt": "fall",
-            "game-obj": "Rules",
-            "aonid": 402
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -155,5 +179,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Shadow Siphon",
         "type": "stat_block_section",
+        "text": "Exchanging material energy with that of the Shadow Plane, you transform the triggering spell into a partially illusory version of itself. Attempt to counteract the target spell. If the attempt is successful, any creatures that would be damaged by the spell instead take only half as much damage, but the spell otherwise works as normal. Treat *shadow siphon*'s counteract level as 2 higher for this attempt.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,52 +84,86 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "bloodline": "shadow, harrow",
-        "cast": "verbal",
         "trigger": "A spell or magical effect deals damage",
         "range": "60 feet",
-        "targets": "the triggering spell"
+        "targets": "the triggering spell",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "shadow",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "shadow",
+                    "alt": "shadow",
+                    "game-obj": "Bloodlines",
+                    "aonid": 14
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "harrow",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "harrow",
+                    "alt": "harrow",
+                    "game-obj": "Bloodlines",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "31ac959a72bd9147a3c3474ae450ff36",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "Exchanging material energy with that of the Shadow Plane, you transform the triggering spell into a partially illusory version of itself. Attempt to counteract the target spell. If the attempt is successful, any creatures that would be damaged by the spell instead take only half as much damage, but the spell otherwise works as normal. Treat *shadow siphon*'s counteract level as 2 higher for this attempt.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "shadow",
-            "alt": "shadow",
-            "game-obj": "Bloodlines",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "harrow",
-            "alt": "harrow",
-            "game-obj": "Bloodlines",
-            "aonid": 18
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -147,5 +179,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

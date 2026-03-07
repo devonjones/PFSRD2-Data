@@ -27,12 +27,10 @@
     "spell": {
         "name": "Grasping Earth",
         "type": "stat_block_section",
+        "text": "Handlike protrusions of rock and soil grab and bury creatures. Each creature in the area when you cast the spell, and each creature that ends its turn in the area during the spell's duration, must attempt a Fortitude save. The first time each round you Sustain this spell, each creature still grabbed by the earth takes 1d6 bludgeoning damage, and each creature restrained by the earth takes 2d6 bludgeoning damage. A creature can attempt to Escape, rolling against your spell DC.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,10 +69,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "60  feet",
         "area": "10-foot burst on the ground",
-        "defense": "Fortitude",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -84,49 +80,74 @@
                 "text": "The bludgeoning damage dealt when you Sustain this spell increases by 1d6 for grabbed creatures and 2d6 for restrained creatures."
             }
         ],
-        "success": "The creature is unaffected.",
-        "failure": "The creature is grabbed by the earth.",
-        "critical_failure": "The creature is restrained by the earth."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "success": "The creature is unaffected.",
+            "failure": "The creature is grabbed by the earth.",
+            "critical_failure": "The creature is restrained by the earth."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "grabbed",
+                "alt": "grabbed",
+                "game-obj": "Conditions",
+                "aonid": 20
+            },
+            {
+                "type": "link",
+                "name": "restrained",
+                "alt": "restrained",
+                "game-obj": "Conditions",
+                "aonid": 33
+            },
+            {
+                "type": "link",
+                "name": "Escape",
+                "alt": "Escape",
+                "game-obj": "Actions",
+                "aonid": 79
+            }
+        ]
     },
     "game-id": "07caba1ff1f3a60e8c785e1c98021c48",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "Handlike protrusions of rock and soil grab and bury creatures. Each creature in the area when you cast the spell, and each creature that ends its turn in the area during the spell's duration, must attempt a Fortitude save. The first time each round you Sustain this spell, each creature still grabbed by the earth takes 1d6 bludgeoning damage, and each creature restrained by the earth takes 2d6 bludgeoning damage. A creature can attempt to Escape, rolling against your spell DC.",
-    "links": [
-        {
-            "type": "link",
-            "name": "grabbed",
-            "alt": "grabbed",
-            "game-obj": "Conditions",
-            "aonid": 20
-        },
-        {
-            "type": "link",
-            "name": "restrained",
-            "alt": "restrained",
-            "game-obj": "Conditions",
-            "aonid": 33
-        },
-        {
-            "type": "link",
-            "name": "Escape",
-            "alt": "Escape",
-            "game-obj": "Actions",
-            "aonid": 79
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -171,5 +192,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Dust Storm",
         "type": "stat_block_section",
+        "text": "You call forth a swirling storm of dust. The *dust storm* obscures vision, with the effect of *obscuring mist*. The dust also makes the air unbreathable; creatures in the area must hold their breath, though wearing a scarf or similar clothing over the mouth increases the time the creature can hold its breath to 5 rounds. Creatures entering or starting their turn in the *dust storm* take 1d6 slashing damage. Creatures that have the water trait or that are made primarily of liquid take double damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "domain": "dust",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "area": "20-foot-radius burst",
         "duration": "1 minute",
@@ -110,56 +106,82 @@
                 "increment": 2,
                 "text": "The damage increases by 1d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "dust",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "dust",
+                    "alt": "dust",
+                    "game-obj": "Domains",
+                    "aonid": 44
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "obscuring mist",
+                "alt": "obscuring mist",
+                "game-obj": "Spells",
+                "aonid": 210
+            },
+            {
+                "type": "link",
+                "name": "hold their breath",
+                "alt": "hold their breath",
+                "game-obj": "Rules",
+                "aonid": 468
+            },
+            {
+                "type": "link",
+                "name": "water",
+                "alt": "water",
+                "game-obj": "Traits",
+                "aonid": 165
+            }
         ]
     },
     "game-id": "061dfb056e7a21da06fd0370d0bb9b17",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You call forth a swirling storm of dust. The *dust storm* obscures vision, with the effect of *obscuring mist*. The dust also makes the air unbreathable; creatures in the area must hold their breath, though wearing a scarf or similar clothing over the mouth increases the time the creature can hold its breath to 5 rounds. Creatures entering or starting their turn in the *dust storm* take 1d6 slashing damage. Creatures that have the water trait or that are made primarily of liquid take double damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "obscuring mist",
-            "alt": "obscuring mist",
-            "game-obj": "Spells",
-            "aonid": 210
-        },
-        {
-            "type": "link",
-            "name": "hold their breath",
-            "alt": "hold their breath",
-            "game-obj": "Rules",
-            "aonid": 468
-        },
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Traits",
-            "aonid": 165
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "dust",
-            "alt": "dust",
-            "game-obj": "Domains",
-            "aonid": 44
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -175,5 +197,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

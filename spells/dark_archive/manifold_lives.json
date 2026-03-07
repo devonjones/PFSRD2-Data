@@ -40,12 +40,10 @@
     "spell": {
         "name": "Manifold Lives",
         "type": "stat_block_section",
+        "text": "You cast a creature's mind back through time, forcing them to take other paths and make other choices, experiencing countless alternate lives in an instant. The creature becomes overwhelmed with regret over paths untraveled, lives unlived, and times unrealized. The creature takes 6d6 mental damage and must attempt a Will save. After the effect is resolved, the target is then temporarily immune for 1 day.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,11 +118,8 @@
                 }
             }
         ],
-        "mystery": "time",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -134,52 +129,83 @@
                 "text": "The mental damage increases by 1d6."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and is stupefied 2 for 1 round.",
-        "failure": "The creature takes full damage and is stupefied 2 for 1 minute. While affected, the creature must attempt another save at the start of its turn; on a failure, it's slowed 1 for that turn as it sobs uncontrollably.",
-        "critical_failure": "The creature takes double damage and for 1 minute, it's stupefied 4 and slowed 1 as it sobs uncontrollably."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "time",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "time",
+                    "alt": "time",
+                    "game-obj": "Mysteries",
+                    "aonid": 22
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and is stupefied 2 for 1 round.",
+            "failure": "The creature takes full damage and is stupefied 2 for 1 minute. While affected, the creature must attempt another save at the start of its turn; on a failure, it's slowed 1 for that turn as it sobs uncontrollably.",
+            "critical_failure": "The creature takes double damage and for 1 minute, it's stupefied 4 and slowed 1 as it sobs uncontrollably.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stupefied 2",
+                    "alt": "stupefied 2",
+                    "game-obj": "Conditions",
+                    "aonid": 37
+                },
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                }
+            ]
+        }
     },
     "game-id": "33d8210edba8a57d2b187c9289b5908c",
-    "spell_type": "focus",
-    "rank": 6,
-    "text": "You cast a creature's mind back through time, forcing them to take other paths and make other choices, experiencing countless alternate lives in an instant. The creature becomes overwhelmed with regret over paths untraveled, lives unlived, and times unrealized. The creature takes 6d6 mental damage and must attempt a Will save. After the effect is resolved, the target is then temporarily immune for 1 day.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stupefied 2",
-            "alt": "stupefied 2",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "time",
-            "alt": "time",
-            "game-obj": "Mysteries",
-            "aonid": 22
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -195,5 +221,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

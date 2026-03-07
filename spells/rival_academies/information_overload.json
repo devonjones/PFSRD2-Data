@@ -20,12 +20,10 @@
     "spell": {
         "name": "Information Overload",
         "type": "stat_block_section",
+        "text": "You call on Cobyslarni to open the target\u2019s mind to knowledge\u2014too much knowledge. The target\u2019s thoughts flood with irrelevant and confusing information, causing it to become stupefied 1 if it fails a Will save (or stupefied 2 on a critical failure).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,32 +98,49 @@
                 }
             }
         ],
-        "patron_theme": "cobyslarni",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "cobyslarni",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "cobyslarni",
+                    "alt": "cobyslarni",
+                    "game-obj": "Patrons",
+                    "aonid": 23
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "stupefied",
+                "alt": "stupefied",
+                "game-obj": "Conditions",
+                "aonid": 94
+            }
+        ]
     },
     "game-id": "a2fd4a14bc3aaa55fedbeebf4a334fca",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You call on Cobyslarni to open the target\u2019s mind to knowledge\u2014too much knowledge. The target\u2019s thoughts flood with irrelevant and confusing information, causing it to become stupefied 1 if it fails a Will save (or stupefied 2 on a critical failure).",
-    "links": [
-        {
-            "type": "link",
-            "name": "stupefied",
-            "alt": "stupefied",
-            "game-obj": "Conditions",
-            "aonid": 94
-        },
-        {
-            "type": "link",
-            "name": "cobyslarni",
-            "alt": "cobyslarni",
-            "game-obj": "Patrons",
-            "aonid": 23
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -170,5 +185,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

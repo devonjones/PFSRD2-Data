@@ -54,12 +54,10 @@
     "spell": {
         "name": "Remember the Lost",
         "type": "stat_block_section",
+        "text": "You call upon the lost and forgotten, assailing your foes\u2019 minds with the memories of those who died with a grievance toward them. Enemies in the area take 6d6 mental damage (basic Will save) and are frightened 1 on a critical failure. If you know the names of anyone murdered or grievously wronged by an enemy in the area, you can chant those victims\u2019 names when you cast the spell to improve the clarity of the visions, increasing the damage to the corresponding enemy from 6d6 to 6d10; you can do so for multiple enemies if you know victims of each enemy. The visions are personal to each foe in the area, and you can\u2019t use this spell to discern a murderer by guessing a name. A creature that truly knows no one who died with any sort of grievance to that creature is immune to this effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,10 +84,7 @@
                 }
             }
         ],
-        "domain": "vigil",
-        "cast": "somatic, verbal",
         "area": "30-foot-radius emanation centered on you",
-        "saving_throw": "basic Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -97,49 +92,83 @@
                 "increment": 1,
                 "text": "The damage increases by 2d6 (or 2d10 to an enemy when you name a specific victim)."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "vigil",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "vigil",
+                    "alt": "vigil",
+                    "game-obj": "Domains",
+                    "aonid": 55
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "frightened 1",
+                "alt": "frightened 1",
+                "game-obj": "Conditions",
+                "aonid": 19
+            }
         ]
     },
     "game-id": "1772ce459199697c090d0e16b76c0dc6",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You call upon the lost and forgotten, assailing your foes\u2019 minds with the memories of those who died with a grievance toward them. Enemies in the area take 6d6 mental damage (basic Will save) and are frightened 1 on a critical failure. If you know the names of anyone murdered or grievously wronged by an enemy in the area, you can chant those victims\u2019 names when you cast the spell to improve the clarity of the visions, increasing the damage to the corresponding enemy from 6d6 to 6d10; you can do so for multiple enemies if you know victims of each enemy. The visions are personal to each foe in the area, and you can\u2019t use this spell to discern a murderer by guessing a name. A creature that truly knows no one who died with any sort of grievance to that creature is immune to this effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "vigil",
-            "alt": "vigil",
-            "game-obj": "Domains",
-            "aonid": 55
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -155,5 +184,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

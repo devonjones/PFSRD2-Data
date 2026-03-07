@@ -27,12 +27,10 @@
     "spell": {
         "name": "Cry of Destruction",
         "type": "stat_block_section",
+        "text": "Your voice booms, smashing what's in front of you. Each creature and unattended object in the area takes 1d8 sonic damage. If you already dealt damage to an enemy this turn with a Strike or spell, increase the damage dice from this spell to d12s.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,9 +105,7 @@
                 }
             }
         ],
-        "domain": "destruction",
         "area": "15-foot cone",
-        "defense": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -117,28 +113,48 @@
                 "increment": 1,
                 "text": "The damage increases by 1d8."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "destruction",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "destruction",
+                    "alt": "destruction",
+                    "game-obj": "Domains",
+                    "aonid": 71
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        }
     },
     "game-id": "0feebc2cb6c9433182ea1386593a26b8",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your voice booms, smashing what's in front of you. Each creature and unattended object in the area takes 1d8 sonic damage. If you already dealt damage to an enemy this turn with a Strike or spell, increase the damage dice from this spell to d12s.",
-    "links": [
-        {
-            "type": "link",
-            "name": "destruction",
-            "alt": "destruction",
-            "game-obj": "Domains",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -183,5 +199,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

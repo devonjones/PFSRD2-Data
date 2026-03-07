@@ -27,12 +27,10 @@
     "spell": {
         "name": "Holy Cascade",
         "type": "stat_block_section",
+        "text": "You call upon sacred energy to amplify a vial of holy water, tossing it an incredible distance. It explodes in an enormous burst that deals 3d6 bludgeoning damage to creatures in the area from the cascade of water. The water deals an additional 6d6 spirit damage to creatures with the unholy trait in the area.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,11 +81,9 @@
                 }
             }
         ],
-        "traditions": "divine",
         "cost": "One vial of holy water",
         "range": "500 feet",
         "area": "20-foot burst",
-        "defense": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -95,41 +91,63 @@
                 "increment": 1,
                 "text": "The bludgeoning damage increases by 1d6, and the additional spirit damage increases by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unholy",
+                "alt": "unholy",
+                "game-obj": "Traits",
+                "aonid": 521
+            },
+            {
+                "type": "link",
+                "name": "holy water",
+                "alt": "holy water",
+                "game-obj": "Equipment",
+                "aonid": 3001
+            }
         ]
     },
     "game-id": "bca3e61b505ac1246ac3b0c97af5b2f2",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You call upon sacred energy to amplify a vial of holy water, tossing it an incredible distance. It explodes in an enormous burst that deals 3d6 bludgeoning damage to creatures in the area from the cascade of water. The water deals an additional 6d6 spirit damage to creatures with the unholy trait in the area.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unholy",
-            "alt": "unholy",
-            "game-obj": "Traits",
-            "aonid": 521
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        },
-        {
-            "type": "link",
-            "name": "holy water",
-            "alt": "holy water",
-            "game-obj": "Equipment",
-            "aonid": 3001
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -174,5 +192,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

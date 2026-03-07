@@ -54,12 +54,10 @@
     "spell": {
         "name": "Primal Summons",
         "type": "stat_block_section",
+        "text": "You enhance a summoned creature with the power of the elements. If your next action is to cast either *summon animal* or *summon plant or fungus*, choose air, earth, fire, or water, and the creature you summon gains the corresponding abilities. \n* **Air** The creature gains a fly Speed of 60 feet.\n* **Earth** The creature gains a burrow Speed of 20 feet, reduces its land Speed by 10 feet (minimum 5 feet), and gains resistance 5 to physical damage.\n* **Fire** The creature's attacks deal 1d6 extra fire damage, and it gains resistance 10 to fire and weakness 5 to cold and water.\n* **Water** The creature gains a swim Speed of 60 feet, can spend 1 action after a melee attack to attempt a Shove (ignoring multiple attack penalty), and gains resistance 5 to fire.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Free Action"
-        },
+        "spell_type": "focus",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,35 +96,47 @@
                 }
             }
         ],
-        "cast": "verbal"
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Free Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "summon animal",
+                "alt": "summon animal",
+                "game-obj": "Spells",
+                "aonid": 316
+            },
+            {
+                "type": "link",
+                "name": "summon plant or fungus",
+                "alt": "summon plant or fungus",
+                "game-obj": "Spells",
+                "aonid": 325
+            }
+        ]
     },
     "game-id": "b431266904632062c41cc12744c70115",
-    "spell_type": "focus",
-    "rank": 6,
-    "text": "You enhance a summoned creature with the power of the elements. If your next action is to cast either *summon animal* or *summon plant or fungus*, choose air, earth, fire, or water, and the creature you summon gains the corresponding abilities. \n* **Air** The creature gains a fly Speed of 60 feet.\n* **Earth** The creature gains a burrow Speed of 20 feet, reduces its land Speed by 10 feet (minimum 5 feet), and gains resistance 5 to physical damage.\n* **Fire** The creature's attacks deal 1d6 extra fire damage, and it gains resistance 10 to fire and weakness 5 to cold and water.\n* **Water** The creature gains a swim Speed of 60 feet, can spend 1 action after a melee attack to attempt a Shove (ignoring multiple attack penalty), and gains resistance 5 to fire.",
-    "links": [
-        {
-            "type": "link",
-            "name": "summon animal",
-            "alt": "summon animal",
-            "game-obj": "Spells",
-            "aonid": 316
-        },
-        {
-            "type": "link",
-            "name": "summon plant or fungus",
-            "alt": "summon plant or fungus",
-            "game-obj": "Spells",
-            "aonid": 325
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -142,5 +152,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

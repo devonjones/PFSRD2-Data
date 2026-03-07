@@ -54,12 +54,10 @@
     "spell": {
         "name": "Wilding Word",
         "type": "stat_block_section",
+        "text": "With a few words, you convince a wild creature you are a kindred spirit, making it reluctant to harm you. The target must attempt a Will save. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,65 +120,90 @@
                 }
             }
         ],
-        "patron_theme": "wild",
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 animal, fungus, or plant",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "When the target attempts an attack roll or skill check that would harm you, it takes a \u20132 status penalty to its roll.",
-        "failure": "As success, but the target also becomes sickened 1 each time it damages you.",
-        "critical_failure": "As success, but the target also becomes sickened 2 each time it damages you."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "wild",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "wild",
+                    "alt": "wild",
+                    "game-obj": "Patrons",
+                    "aonid": 7
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "When the target attempts an attack roll or skill check that would harm you, it takes a \u20132 status penalty to its roll.",
+            "failure": "As success, but the target also becomes sickened 1 each time it damages you.",
+            "critical_failure": "As success, but the target also becomes sickened 2 each time it damages you.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened 1",
+                    "alt": "sickened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 34
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "animal",
+                "alt": "animal",
+                "game-obj": "Traits",
+                "aonid": 9
+            },
+            {
+                "type": "link",
+                "name": "fungus",
+                "alt": "fungus",
+                "game-obj": "Traits",
+                "aonid": 77
+            },
+            {
+                "type": "link",
+                "name": "plant",
+                "alt": "plant",
+                "game-obj": "Traits",
+                "aonid": 125
+            }
+        ]
     },
     "game-id": "b8012a2515e7c0ce50a407f57711cce1",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "With a few words, you convince a wild creature you are a kindred spirit, making it reluctant to harm you. The target must attempt a Will save. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened 1",
-            "alt": "sickened 1",
-            "game-obj": "Conditions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "wild",
-            "alt": "wild",
-            "game-obj": "Patrons",
-            "aonid": 7
-        },
-        {
-            "type": "link",
-            "name": "animal",
-            "alt": "animal",
-            "game-obj": "Traits",
-            "aonid": 9
-        },
-        {
-            "type": "link",
-            "name": "fungus",
-            "alt": "fungus",
-            "game-obj": "Traits",
-            "aonid": 77
-        },
-        {
-            "type": "link",
-            "name": "plant",
-            "alt": "plant",
-            "game-obj": "Traits",
-            "aonid": 125
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -196,5 +219,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

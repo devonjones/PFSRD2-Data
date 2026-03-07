@@ -20,12 +20,10 @@
     "spell": {
         "name": "Missed Cue",
         "type": "stat_block_section",
+        "text": "You make the spell\u2019s target believe they had something incredibly important to say but forgot to say it, and now they\u2019ve missed their opportunity. Sensations of overwhelming panic akin to stage fright flood the target\u2019s mind, causing them to suffer excruciating mental anguish and take 12d6 mental damage. The target might even become filled with the conviction that they\u2019ve doomed themselves by missing their cue. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,10 +98,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -112,50 +108,77 @@
                 "text": "The damage increases by 2d6."
             }
         ],
-        "critical_success": "The conviction of a missed cue is only a fleeting notion that passes quickly without any effect on the target.",
-        "success": "The target takes half damage and is frightened 1.",
-        "failure": "The target takes full damage and becomes frightened 2. In addition, the target is slowed 1 for as long as they remain frightened.",
-        "critical_failure": "The target takes double damage and becomes frightened 3. In addition, the target is slowed 1 for as long as they remain frightened."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The conviction of a missed cue is only a fleeting notion that passes quickly without any effect on the target.",
+            "success": "The target takes half damage and is frightened 1.",
+            "failure": "The target takes full damage and becomes frightened 2. In addition, the target is slowed 1 for as long as they remain frightened.",
+            "critical_failure": "The target takes double damage and becomes frightened 3. In addition, the target is slowed 1 for as long as they remain frightened.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                },
+                {
+                    "type": "link",
+                    "name": "slowed",
+                    "alt": "slowed",
+                    "game-obj": "Conditions",
+                    "aonid": 92
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "mental",
+                "alt": "mental",
+                "game-obj": "Traits",
+                "aonid": 647
+            }
+        ]
     },
     "game-id": "976150106465a30d40498c947955e869",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You make the spell\u2019s target believe they had something incredibly important to say but forgot to say it, and now they\u2019ve missed their opportunity. Sensations of overwhelming panic akin to stage fright flood the target\u2019s mind, causing them to suffer excruciating mental anguish and take 12d6 mental damage. The target might even become filled with the conviction that they\u2019ve doomed themselves by missing their cue. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 647
-        },
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "slowed",
-            "alt": "slowed",
-            "game-obj": "Conditions",
-            "aonid": 92
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -200,5 +223,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

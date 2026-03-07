@@ -54,12 +54,10 @@
     "spell": {
         "name": "Captivating Adoration",
         "type": "stat_block_section",
+        "text": "You become intensely entrancing, and creatures are distracted by you as long as they remain within the area. You can exclude any creatures you choose from the effects.  \n  \n When a creature enters the area for the first time, it must attempt a Will saving throw. If a creature leaves and reenters, it uses the results of its original save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,10 +132,7 @@
                 }
             }
         ],
-        "domain": "passion",
-        "cast": "somatic, verbal",
         "area": "15-foot emanation",
-        "saving_throw": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -147,38 +142,67 @@
                 "text": "Increase the size of the emanation by 15 feet."
             }
         ],
-        "critical_success": "The creature is unaffected and temporarily immune for 1 hour.",
-        "success": "The creature is fascinated with you for its next action, then is temporarily immune for 1 hour.",
-        "failure": "The creature is fascinated with you.",
-        "critical_failure": "The creature is fascinated with you, and its attitude toward you improves by one step."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "passion",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "passion",
+                    "alt": "passion",
+                    "game-obj": "Domains",
+                    "aonid": 25
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected and temporarily immune for 1 hour.",
+            "success": "The creature is fascinated with you for its next action, then is temporarily immune for 1 hour.",
+            "failure": "The creature is fascinated with you.",
+            "critical_failure": "The creature is fascinated with you, and its attitude toward you improves by one step."
+        }
     },
     "game-id": "a23a6cdfa1733c300b99bb5b284fd547",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You become intensely entrancing, and creatures are distracted by you as long as they remain within the area. You can exclude any creatures you choose from the effects.  \n  \n When a creature enters the area for the first time, it must attempt a Will saving throw. If a creature leaves and reenters, it uses the results of its original save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "passion",
-            "alt": "passion",
-            "game-obj": "Domains",
-            "aonid": 25
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -194,5 +218,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

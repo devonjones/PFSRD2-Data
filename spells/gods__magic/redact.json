@@ -54,12 +54,10 @@
     "spell": {
         "name": "Redact",
         "type": "stat_block_section",
+        "text": "You strike mention of a specific name from one or more documents. When you cast the spell, give one proper name, be it a creature, location, or object. Any mention of that name within the document becomes blurred, smudged, or otherwise completely illegible. Epithets and unambiguous references to the name are redacted as well; for instance, redacting the name of the goddess Sarenrae from a book would also remove references to her title \u201cthe Dawnflower.\u201d",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,8 +72,6 @@
                 }
             }
         ],
-        "domain": "glyph",
-        "cast": "material, somatic",
         "range": "30 feet",
         "targets": "unattended written materials of up to 1 Bulk or less",
         "duration": "1 day",
@@ -101,42 +97,68 @@
                 "level": 4,
                 "text": "At your choice, the duration is unlimited."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "glyph",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "glyph",
+                    "alt": "glyph",
+                    "game-obj": "Domains",
+                    "aonid": 46
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Sarenrae",
+                "alt": "Sarenrae",
+                "game-obj": "Deities",
+                "aonid": 16
+            }
         ]
     },
     "game-id": "d800fe353ef5efc99adad0a229ad243e",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You strike mention of a specific name from one or more documents. When you cast the spell, give one proper name, be it a creature, location, or object. Any mention of that name within the document becomes blurred, smudged, or otherwise completely illegible. Epithets and unambiguous references to the name are redacted as well; for instance, redacting the name of the goddess Sarenrae from a book would also remove references to her title \u201cthe Dawnflower.\u201d",
-    "links": [
-        {
-            "type": "link",
-            "name": "Sarenrae",
-            "alt": "Sarenrae",
-            "game-obj": "Deities",
-            "aonid": 16
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "glyph",
-            "alt": "glyph",
-            "game-obj": "Domains",
-            "aonid": 46
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -152,5 +174,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

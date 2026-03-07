@@ -27,12 +27,10 @@
     "spell": {
         "name": "Wails of the Damned",
         "type": "stat_block_section",
+        "text": "You howl a lament of damned souls. Each living enemy in the area takes 8d10 void damage depending on its Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,47 +93,75 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "bloodline": "undead",
         "area": "40-foot emanation",
-        "defense": "Fortitude",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes full damage.",
-        "failure": "The creature takes full damage and is drained 1d4.",
-        "critical_failure": "The creature takes double damage and is drained 4."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "undead",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "undead",
+                    "alt": "undead",
+                    "game-obj": "Bloodlines",
+                    "aonid": 28
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes full damage.",
+            "failure": "The creature takes full damage and is drained 1d4.",
+            "critical_failure": "The creature takes double damage and is drained 4.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "drained 1d4",
+                    "alt": "drained 1d4",
+                    "game-obj": "Conditions",
+                    "aonid": 10
+                }
+            ]
+        }
     },
     "game-id": "4ea689b8a89bc5477e8a00ea149e0b1e",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You howl a lament of damned souls. Each living enemy in the area takes 8d10 void damage depending on its Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "drained 1d4",
-            "alt": "drained 1d4",
-            "game-obj": "Conditions",
-            "aonid": 10
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Bloodlines",
-            "aonid": 28
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -180,5 +206,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

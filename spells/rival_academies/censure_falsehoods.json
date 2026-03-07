@@ -20,12 +20,10 @@
     "spell": {
         "name": "Censure Falsehoods",
         "type": "stat_block_section",
+        "text": "You call on your patron to reprimand a creature that has attempted a Deception or Stealth check against you or an ally within the past month. You must be aware they did so. Whenever the target speaks, toads and serpents fall from their lips. The target attempts a Fortitude saving throw. The spell lasts as long as the target remains sickened by it.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -112,42 +110,59 @@
                 }
             }
         ],
-        "lesson": "lesson of vows",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
-        "critical_success": "A few animals fall from their lips, but they\u2019re otherwise unaffected.",
-        "success": "The target is sickened 1.",
-        "failure": "The target is sickened 2 and if they perform an action that has the auditory trait or attempt to Cast a Spell, they must succeed at a DC 5 flat check, or the action is disrupted as they choke on an animal.",
-        "critical_failure": "As failure, and if the target attempts a Deception or Stealth check, their sickened value increases by 1 (to a maximum of sickened 4)."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of vows",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of vows",
+                    "alt": "lesson of vows",
+                    "game-obj": "Lessons",
+                    "aonid": 32
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "A few animals fall from their lips, but they\u2019re otherwise unaffected.",
+            "success": "The target is sickened 1.",
+            "failure": "The target is sickened 2 and if they perform an action that has the auditory trait or attempt to Cast a Spell, they must succeed at a DC 5 flat check, or the action is disrupted as they choke on an animal.",
+            "critical_failure": "As failure, and if the target attempts a Deception or Stealth check, their sickened value increases by 1 (to a maximum of sickened 4).",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened",
+                    "alt": "sickened",
+                    "game-obj": "Conditions",
+                    "aonid": 91
+                },
+                {
+                    "type": "link",
+                    "name": "auditory",
+                    "alt": "auditory",
+                    "game-obj": "Traits",
+                    "aonid": 541
+                }
+            ]
+        }
     },
     "game-id": "3b5f3bb4d09452a96ce612978bbf384f",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You call on your patron to reprimand a creature that has attempted a Deception or Stealth check against you or an ally within the past month. You must be aware they did so. Whenever the target speaks, toads and serpents fall from their lips. The target attempts a Fortitude saving throw. The spell lasts as long as the target remains sickened by it.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened",
-            "alt": "sickened",
-            "game-obj": "Conditions",
-            "aonid": 91
-        },
-        {
-            "type": "link",
-            "name": "auditory",
-            "alt": "auditory",
-            "game-obj": "Traits",
-            "aonid": 541
-        },
-        {
-            "type": "link",
-            "name": "lesson of vows",
-            "alt": "lesson of vows",
-            "game-obj": "Lessons",
-            "aonid": 32
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -192,5 +207,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

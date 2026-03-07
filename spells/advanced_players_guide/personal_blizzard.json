@@ -54,12 +54,10 @@
     "spell": {
         "name": "Personal Blizzard",
         "type": "stat_block_section",
+        "text": "You summon an isolated blizzard of obscuring, scouring ice to follow your target. The target attempts a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,11 +108,8 @@
                 }
             }
         ],
-        "lesson": "lesson of snow",
-        "cast": "somatic",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -124,45 +119,71 @@
                 "text": "The cold damage and persistent cold damage increase by 1 (2 on a critical failure)."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes 1d6 cold damage, and the spell ends.",
-        "failure": "The target takes 1d6 cold damage and 1d6 persistent cold damage. (The persistent damage automatically ends when the spell ends.) It is concealed to other creatures, and other creatures are concealed to it.",
-        "critical_failure": "As failure, but both the cold damage and the persistent cold damage increase to 2d6."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of snow",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of snow",
+                    "alt": "lesson of snow",
+                    "game-obj": "Lessons",
+                    "aonid": 8
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes 1d6 cold damage, and the spell ends.",
+            "failure": "The target takes 1d6 cold damage and 1d6 persistent cold damage. (The persistent damage automatically ends when the spell ends.) It is concealed to other creatures, and other creatures are concealed to it.",
+            "critical_failure": "As failure, but both the cold damage and the persistent cold damage increase to 2d6.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "persistent cold damage",
+                    "alt": "persistent cold damage",
+                    "game-obj": "Conditions",
+                    "aonid": 29
+                },
+                {
+                    "type": "link",
+                    "name": "concealed",
+                    "alt": "concealed",
+                    "game-obj": "Conditions",
+                    "aonid": 4
+                }
+            ]
+        }
     },
     "game-id": "6c4cfb96ac2fe495950134261a3af3e1",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You summon an isolated blizzard of obscuring, scouring ice to follow your target. The target attempts a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent cold damage",
-            "alt": "persistent cold damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "lesson of snow",
-            "alt": "lesson of snow",
-            "game-obj": "Lessons",
-            "aonid": 8
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -178,5 +199,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

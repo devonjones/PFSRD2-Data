@@ -54,12 +54,10 @@
     "spell": {
         "name": "Magic Warrior Aspect",
         "type": "stat_block_section",
+        "text": "You call upon the aspect of the animal from your mask, gaining physical features reminiscent of that animal. You morph slightly into that creature, gaining the Speeds and senses you would gain from using *animal form* to turn into the type of animal your mask represents; these special Speeds can\u2019t be increased by status bonuses or item bonuses.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,36 +96,53 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
-        "duration": "5 minutes"
+        "duration": "5 minutes",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "animal form",
+                "alt": "animal form",
+                "game-obj": "Spells",
+                "aonid": 10
+            }
+        ]
     },
     "game-id": "86d03ba25658f9f509bd890e592dda89",
-    "spell_type": "focus",
-    "rank": 2,
-    "text": "You call upon the aspect of the animal from your mask, gaining physical features reminiscent of that animal. You morph slightly into that creature, gaining the Speeds and senses you would gain from using *animal form* to turn into the type of animal your mask represents; these special Speeds can\u2019t be increased by status bonuses or item bonuses.",
-    "links": [
-        {
-            "type": "link",
-            "name": "animal form",
-            "alt": "animal form",
-            "game-obj": "Spells",
-            "aonid": 10
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -143,5 +158,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

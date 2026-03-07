@@ -27,12 +27,10 @@
     "spell": {
         "name": "Faerie Dust",
         "type": "stat_block_section",
+        "text": "You sprinkle magical dust in the spell's area, making those within easier to trick. Each creature in the area must attempt a Will save. For each additional action you use when Casting the Spell, increase the burst's radius by 5 feet.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,10 +105,8 @@
                 }
             }
         ],
-        "bloodline": "fey",
         "range": "30 feet",
         "area": "5-foot burst or more",
-        "defense": "Will",
         "duration": "1 round",
         "heightened": [
             {
@@ -120,23 +116,40 @@
                 "text": "The initial radius increases by 5 feet."
             }
         ],
-        "success": "The creature is unaffected.",
-        "failure": "The creature can't use reactions and takes a \u20132 status penalty to Perception checks and Will saves.",
-        "critical_failure": "As failure, and the creature also takes a \u20131 status penalty to Perception checks and Will saves for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fey",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "fey",
+                    "alt": "fey",
+                    "game-obj": "Bloodlines",
+                    "aonid": 25
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The creature is unaffected.",
+            "failure": "The creature can't use reactions and takes a \u20132 status penalty to Perception checks and Will saves.",
+            "critical_failure": "As failure, and the creature also takes a \u20131 status penalty to Perception checks and Will saves for 1 minute."
+        }
     },
     "game-id": "39fa00db40185042e20293647f2d2bfb",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You sprinkle magical dust in the spell's area, making those within easier to trick. Each creature in the area must attempt a Will save. For each additional action you use when Casting the Spell, increase the burst's radius by 5 feet.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fey",
-            "alt": "fey",
-            "game-obj": "Bloodlines",
-            "aonid": 25
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -181,5 +194,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

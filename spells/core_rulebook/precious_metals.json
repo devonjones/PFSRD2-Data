@@ -54,12 +54,10 @@
     "spell": {
         "name": "Precious Metals",
         "type": "stat_block_section",
+        "text": "Your deity blesses base metals to transform them into precious materials. The target item transforms from its normal metal into cold iron, copper, gold, iron, silver, or steel. An item transmuted in this way deals damage according to its new material. For example, a steel sword transmuted to cold iron would deal additional damage to a creature with a weakness to cold iron.  \n  \n This change is clearly magical and temporary, so the item's monetary value doesn't change; you couldn't transmute copper coins to gold and use those coins to purchase something or as a cost for a spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "domain": "wealth",
-        "cast": "material",
         "range": "touch",
         "targets": "1 metal weapon, up to 10 pieces of metal or metal-tipped ammunition, 1 suit of metal armor, or up to 1 bulk of metal material (such as coins)",
         "duration": "1 minute",
@@ -126,42 +122,63 @@
                     }
                 ]
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "wealth",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "wealth",
+                    "alt": "wealth",
+                    "game-obj": "Domains",
+                    "aonid": 36
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "cold iron",
+                "alt": "cold iron",
+                "game-obj": "Equipment",
+                "aonid": 272
+            },
+            {
+                "type": "link",
+                "name": "silver",
+                "alt": "silver",
+                "game-obj": "Equipment",
+                "aonid": 277
+            }
         ]
     },
     "game-id": "20ec3d021b280f6f26d52a44e6792e7b",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Your deity blesses base metals to transform them into precious materials. The target item transforms from its normal metal into cold iron, copper, gold, iron, silver, or steel. An item transmuted in this way deals damage according to its new material. For example, a steel sword transmuted to cold iron would deal additional damage to a creature with a weakness to cold iron.  \n  \n This change is clearly magical and temporary, so the item's monetary value doesn't change; you couldn't transmute copper coins to gold and use those coins to purchase something or as a cost for a spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "cold iron",
-            "alt": "cold iron",
-            "game-obj": "Equipment",
-            "aonid": 272
-        },
-        {
-            "type": "link",
-            "name": "silver",
-            "alt": "silver",
-            "game-obj": "Equipment",
-            "aonid": 277
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "wealth",
-            "alt": "wealth",
-            "game-obj": "Domains",
-            "aonid": 36
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -177,5 +194,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

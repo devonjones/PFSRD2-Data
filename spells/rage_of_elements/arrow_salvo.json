@@ -27,12 +27,10 @@
     "spell": {
         "name": "Arrow Salvo",
         "type": "stat_block_section",
+        "text": "You conjure an immense wooden bow that launches a salvo of massive arrows at all nearby enemies. All creatures in the affected area take 8d10 piercing damage, with a basic Reflex save. On a critical failure, the target is knocked prone from the force of the impact.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,11 +69,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Neith",
         "range": "100 feet",
         "area": "30-foot burst",
-        "defense": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -83,47 +78,81 @@
                 "increment": 1,
                 "text": "Increase the damage by 1d10."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Neith",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Neith",
+                    "alt": "Neith",
+                    "game-obj": "Deities",
+                    "aonid": 636
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "prone",
+                "alt": "prone",
+                "game-obj": "Conditions",
+                "aonid": 31
+            }
         ]
     },
     "game-id": "56ef0e2c301b59fb42bf249690ade0c5",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You conjure an immense wooden bow that launches a salvo of massive arrows at all nearby enemies. All creatures in the affected area take 8d10 piercing damage, with a basic Reflex save. On a critical failure, the target is knocked prone from the force of the impact.",
-    "links": [
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Neith",
-            "alt": "Neith",
-            "game-obj": "Deities",
-            "aonid": 636
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -168,5 +197,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

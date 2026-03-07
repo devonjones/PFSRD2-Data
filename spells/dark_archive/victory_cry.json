@@ -40,12 +40,10 @@
     "spell": {
         "name": "Victory Cry",
         "type": "stat_block_section",
+        "text": "Your true might comes from your bonds with your allies, and you glory in their achievements. The weapon used to make the Strike deals an additional 1d6 sonic damage (not doubled due to the critical hit), and the ally can immediately attempt to Shove the creature struck, even if the ally's hands are full. Your ally can use its item bonus to the triggering attack roll on the Athletics check, if any, and it gains a +1 status bonus to the Athletics check if the triggering Strike was with a weapon that has the trip trait or an unarmed attack that has the trip trait.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,8 +94,6 @@
                 }
             }
         ],
-        "domain": "might, might (apocryphal)",
-        "cast": "verbal",
         "trigger": "An ally within range critically succeeds at a melee Strike",
         "range": "30 feet",
         "targets": "the triggering ally",
@@ -108,63 +104,96 @@
                 "increment": 2,
                 "text": "The sonic damage increases by 1d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "might",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "might",
+                    "alt": "might",
+                    "game-obj": "Domains",
+                    "aonid": 20
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "might",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "might",
+                    "alt": "might",
+                    "game-obj": "Domains",
+                    "aonid": 83
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "(apocryphal)",
+                "access_type": "domain"
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Shove",
+                "alt": "Shove",
+                "game-obj": "Actions",
+                "aonid": 38
+            },
+            {
+                "type": "link",
+                "name": "Athletics",
+                "alt": "Athletics",
+                "game-obj": "Skills",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "trip",
+                "alt": "trip",
+                "game-obj": "Actions",
+                "aonid": 40
+            },
+            {
+                "type": "link",
+                "name": "unarmed",
+                "alt": "unarmed",
+                "game-obj": "Traits",
+                "aonid": 199
+            }
         ]
     },
     "game-id": "df0825bc3476678aa591ca7017fca0d2",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your true might comes from your bonds with your allies, and you glory in their achievements. The weapon used to make the Strike deals an additional 1d6 sonic damage (not doubled due to the critical hit), and the ally can immediately attempt to Shove the creature struck, even if the ally's hands are full. Your ally can use its item bonus to the triggering attack roll on the Athletics check, if any, and it gains a +1 status bonus to the Athletics check if the triggering Strike was with a weapon that has the trip trait or an unarmed attack that has the trip trait.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Shove",
-            "alt": "Shove",
-            "game-obj": "Actions",
-            "aonid": 38
-        },
-        {
-            "type": "link",
-            "name": "Athletics",
-            "alt": "Athletics",
-            "game-obj": "Skills",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "trip",
-            "alt": "trip",
-            "game-obj": "Actions",
-            "aonid": 40
-        },
-        {
-            "type": "link",
-            "name": "unarmed",
-            "alt": "unarmed",
-            "game-obj": "Traits",
-            "aonid": 199
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "might",
-            "alt": "might",
-            "game-obj": "Domains",
-            "aonid": 20
-        },
-        {
-            "type": "link",
-            "name": "might",
-            "alt": "might",
-            "game-obj": "Domains",
-            "aonid": 83
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -180,5 +209,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

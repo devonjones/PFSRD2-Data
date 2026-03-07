@@ -40,12 +40,10 @@
     "spell": {
         "name": "Exchange Image",
         "type": "stat_block_section",
+        "text": "To mislead pursuers, the Lacunafex developed the means to swap visages. You trade appearances with the target, with the effects depending on the result of the target\u2019s Will saving throw. Willing and unconscious targets automatically critically fail this saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,71 +82,107 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "requirement": "You have the humanoid trait.",
         "range": "touch",
         "targets": "you and 1 other humanoid",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "No effect.",
-        "success": "You take on the target\u2019s appearance, and they take yours. This has the same effects as a 1st-level *illusory disguise* spell, except that the target can\u2019t Dismiss the disguise. The duration is 1 minute or until Dismissed.",
-        "failure": "As success, but the duration is 1 hour or until Dismissed.",
-        "critical_failure": "As success, but the duration is 24 hours."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "No effect.",
+            "success": "You take on the target\u2019s appearance, and they take yours. This has the same effects as a 1st-level *illusory disguise* spell, except that the target can\u2019t Dismiss the disguise. The duration is 1 minute or until Dismissed.",
+            "failure": "As success, but the duration is 1 hour or until Dismissed.",
+            "critical_failure": "As success, but the duration is 24 hours.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "illusory disguise",
+                    "alt": "illusory disguise",
+                    "game-obj": "Spells",
+                    "aonid": 159
+                },
+                {
+                    "type": "link",
+                    "name": "Dismiss",
+                    "alt": "Dismiss",
+                    "game-obj": "Actions",
+                    "aonid": 74
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "humanoid",
+                "alt": "humanoid",
+                "game-obj": "Traits",
+                "aonid": 91
+            }
+        ]
     },
     "game-id": "23328518b901bad5b017d91145dfaea9",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "To mislead pursuers, the Lacunafex developed the means to swap visages. You trade appearances with the target, with the effects depending on the result of the target\u2019s Will saving throw. Willing and unconscious targets automatically critically fail this saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "humanoid",
-            "alt": "humanoid",
-            "game-obj": "Traits",
-            "aonid": 91
-        },
-        {
-            "type": "link",
-            "name": "illusory disguise",
-            "alt": "illusory disguise",
-            "game-obj": "Spells",
-            "aonid": 159
-        },
-        {
-            "type": "link",
-            "name": "Dismiss",
-            "alt": "Dismiss",
-            "game-obj": "Actions",
-            "aonid": 74
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -164,5 +198,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

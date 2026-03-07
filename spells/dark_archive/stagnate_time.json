@@ -40,12 +40,10 @@
     "spell": {
         "name": "Stagnate Time",
         "type": "stat_block_section",
+        "text": "You examine the time stream in a particular area, then proceed to stick a few metaphorical pins into it, thickening and slowing down the flow of time until it rumbles along like a river of molasses. Any creature that begins its turn in the area must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -60,70 +58,115 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Atropos, Charg",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "area": "20-foot burst",
-        "saving_throw": "Will",
         "duration": "1 minute",
-        "success": "The creature is unaffected.",
-        "failure": "The creature is slowed 1 this turn.",
-        "critical_failure": "The creature is slowed 2 this turn."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Atropos",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Atropos",
+                    "alt": "Atropos",
+                    "game-obj": "Deities",
+                    "aonid": 533
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Charg",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Charg",
+                    "alt": "Charg",
+                    "game-obj": "Deities",
+                    "aonid": 594
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The creature is unaffected.",
+            "failure": "The creature is slowed 1 this turn.",
+            "critical_failure": "The creature is slowed 2 this turn.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                }
+            ]
+        }
     },
     "game-id": "123af388a390b9dc8d4d3a7af87f68d7",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You examine the time stream in a particular area, then proceed to stick a few metaphorical pins into it, thickening and slowing down the flow of time until it rumbles along like a river of molasses. Any creature that begins its turn in the area must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Atropos",
-            "alt": "Atropos",
-            "game-obj": "Deities",
-            "aonid": 533
-        },
-        {
-            "type": "link",
-            "name": "Charg",
-            "alt": "Charg",
-            "game-obj": "Deities",
-            "aonid": 594
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -139,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

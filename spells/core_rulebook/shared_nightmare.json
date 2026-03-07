@@ -54,12 +54,10 @@
     "spell": {
         "name": "Shared Nightmare",
         "type": "stat_block_section",
+        "text": "Merging minds with the target, you swap disorienting visions from one another's nightmares. One of you will become confused, but which it'll be depends on the target's Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,44 +132,70 @@
                 }
             }
         ],
-        "domain": "nightmares",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "You are confused for 1 round.",
-        "success": "At the start of your next turn, you spend your first action with the confused condition, then act normally.",
-        "failure": "As success, but the target is affected instead of you, spending its first action each turn confused. The duration is 1 minute.",
-        "critical_failure": "The target is confused for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "nightmares",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "nightmares",
+                    "alt": "nightmares",
+                    "game-obj": "Domains",
+                    "aonid": 23
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "You are confused for 1 round.",
+            "success": "At the start of your next turn, you spend your first action with the confused condition, then act normally.",
+            "failure": "As success, but the target is affected instead of you, spending its first action each turn confused. The duration is 1 minute.",
+            "critical_failure": "The target is confused for 1 minute."
+        }
     },
     "game-id": "90e196e7f04aa5e067d04c2e5ee39db2",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Merging minds with the target, you swap disorienting visions from one another's nightmares. One of you will become confused, but which it'll be depends on the target's Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "nightmares",
-            "alt": "nightmares",
-            "game-obj": "Domains",
-            "aonid": 23
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -187,5 +211,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

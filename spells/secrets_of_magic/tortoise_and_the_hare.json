@@ -54,12 +54,10 @@
     "spell": {
         "name": "Tortoise and the Hare",
         "type": "stat_block_section",
+        "text": "You prove that slow and steady doesn't always win the race by turning a foe into a proverbial tortoise and yourself or an ally into a hare, siphoning some of the foe's speed and granting it to the other target. The effects depend on the foe's Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,62 +72,96 @@
                 }
             }
         ],
-        "traditions": "occult, primal",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 foe, and either yourself or 1 ally",
-        "saving_throw": "Fortitude",
-        "critical_success": "The targets are unaffected.",
-        "success": "The foe is slowed 1 for 1 round, and the other target is unaffected.",
-        "failure": "The foe is slowed 1 for 3 rounds and the other target is quickened for 1 round. It can use the extra action to Step, Stride, or Strike.",
-        "critical_failure": "The foe is slowed 1 for 3 minutes and the other target is quickened for 1 minute. It can use the extra action to Step, Stride, or Strike."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The targets are unaffected.",
+            "success": "The foe is slowed 1 for 1 round, and the other target is unaffected.",
+            "failure": "The foe is slowed 1 for 3 rounds and the other target is quickened for 1 round. It can use the extra action to Step, Stride, or Strike.",
+            "critical_failure": "The foe is slowed 1 for 3 minutes and the other target is quickened for 1 minute. It can use the extra action to Step, Stride, or Strike.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                },
+                {
+                    "type": "link",
+                    "name": "quickened",
+                    "alt": "quickened",
+                    "game-obj": "Conditions",
+                    "aonid": 32
+                }
+            ]
+        }
     },
     "game-id": "8839de24bea105c65c6dd9295084cbf9",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You prove that slow and steady doesn't always win the race by turning a foe into a proverbial tortoise and yourself or an ally into a hare, siphoning some of the foe's speed and granting it to the other target. The effects depend on the foe's Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "quickened",
-            "alt": "quickened",
-            "game-obj": "Conditions",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -145,5 +177,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

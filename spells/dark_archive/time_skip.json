@@ -40,12 +40,10 @@
     "spell": {
         "name": "Time Skip",
         "type": "stat_block_section",
+        "text": "You manipulate time around your ally, pushing them forward a few moments in time. The target is quickened on its next turn and can use the action only to Step, Stride, or Strike.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,8 +94,6 @@
                 }
             }
         ],
-        "mystery": "time",
-        "cast": "somatic",
         "range": "30 feet",
         "targets": "1 willing creature other than yourself",
         "duration": "1 round",
@@ -108,35 +104,56 @@
                 "increment": 1,
                 "text": "You can one additional willing creature other than yourself within range."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "time",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "time",
+                    "alt": "time",
+                    "game-obj": "Mysteries",
+                    "aonid": 22
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "quickened",
+                "alt": "quickened",
+                "game-obj": "Conditions",
+                "aonid": 32
+            }
         ]
     },
     "game-id": "27a77cce4b7d6ddbbf4795ef22b85644",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You manipulate time around your ally, pushing them forward a few moments in time. The target is quickened on its next turn and can use the action only to Step, Stride, or Strike.",
-    "links": [
-        {
-            "type": "link",
-            "name": "quickened",
-            "alt": "quickened",
-            "game-obj": "Conditions",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "time",
-            "alt": "time",
-            "game-obj": "Mysteries",
-            "aonid": 22
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -152,5 +169,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

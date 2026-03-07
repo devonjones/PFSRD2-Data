@@ -27,12 +27,10 @@
     "spell": {
         "name": "Curse of Lost Time",
         "type": "stat_block_section",
+        "text": "You curse the target with rapid aging or erosion. The effect depends on whether the target is an object, a construct, or a living creature. Artifact, along with objects and constructs made of precious materials (as determined by the GM), are immune.\n* **Construct** The construct takes 4d6 damage (basic Fortitude save). On a failure, for 1 hour, the construct is clumsy 1, is enfeebled 1, and can't be Repaired, and the curse attempts to counteract any spell that would restore the construct's Hit Points. On a critical failure, these effects have an unlimited duration.\n* **Living Creature** The living creature must attempt a Fortitude save. Ageless creatures are immune.\n* **Object** If the object is attended, its bearer can attempt a Fortitude save. If the bearer fails or the object is unattended, the object immediately takes 4d6 damage (applying Hardness normally), and the item is cursed with an unlimited duration. Until the curse ends, the item becomes shoddy and can't be Repaired, and the curse attempts to counteract any spell that would restore the object's Hit Points. *Cleanse affliction* can target an item affected by this spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,11 +81,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult, primal",
-        "deity": "Otilaz, Shawnari",
         "range": "touch",
         "targets": "1 Large or smaller object, construct, or living creature",
-        "defense": "Fortitude",
         "duration": "varies",
         "heightened": [
             {
@@ -97,133 +92,178 @@
                 "text": "The damage increases by 1d6."
             }
         ],
-        "critical_success": "The living creature is unaffected.",
-        "success": "The living creature briefly ages, becoming clumsy 1 and enfeebled 1 for 1 round.",
-        "failure": "As success, with a duration of 1 hour.",
-        "critical_failure": "As success, with an unlimited duration."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Otilaz",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Otilaz",
+                    "alt": "Otilaz",
+                    "game-obj": "Deities",
+                    "aonid": 718
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Shawnari",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Shawnari",
+                    "alt": "Shawnari",
+                    "game-obj": "Deities",
+                    "aonid": 600
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The living creature is unaffected.",
+            "success": "The living creature briefly ages, becoming clumsy 1 and enfeebled 1 for 1 round.",
+            "failure": "As success, with a duration of 1 hour.",
+            "critical_failure": "As success, with an unlimited duration.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "clumsy 1",
+                    "alt": "clumsy 1",
+                    "game-obj": "Conditions",
+                    "aonid": 61
+                },
+                {
+                    "type": "link",
+                    "name": "enfeebled 1",
+                    "alt": "enfeebled 1",
+                    "game-obj": "Conditions",
+                    "aonid": 71
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "construct",
+                "alt": "construct",
+                "game-obj": "Traits",
+                "aonid": 563
+            },
+            {
+                "type": "link",
+                "name": "Artifact",
+                "alt": "Artifact",
+                "game-obj": "Traits",
+                "aonid": 537
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "clumsy 1",
+                "alt": "clumsy 1",
+                "game-obj": "Conditions",
+                "aonid": 61
+            },
+            {
+                "type": "link",
+                "name": "enfeebled 1",
+                "alt": "enfeebled 1",
+                "game-obj": "Conditions",
+                "aonid": 71
+            },
+            {
+                "type": "link",
+                "name": "shoddy",
+                "alt": "shoddy",
+                "game-obj": "Rules",
+                "aonid": 197
+            },
+            {
+                "type": "link",
+                "name": "Repaired",
+                "alt": "Repaired",
+                "game-obj": "Actions",
+                "aonid": 2384
+            },
+            {
+                "type": "link",
+                "name": "counteract",
+                "alt": "counteract",
+                "game-obj": "Rules",
+                "aonid": 371
+            },
+            {
+                "type": "link",
+                "name": "Cleanse affliction",
+                "alt": "Cleanse affliction",
+                "game-obj": "Spells",
+                "aonid": 1467
+            },
+            {
+                "type": "link",
+                "name": "construct",
+                "alt": "construct",
+                "game-obj": "Traits",
+                "aonid": 563
+            }
+        ]
     },
     "game-id": "7dbcd0b2a32785d3bb4a475bbc06dc5b",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You curse the target with rapid aging or erosion. The effect depends on whether the target is an object, a construct, or a living creature. Artifact, along with objects and constructs made of precious materials (as determined by the GM), are immune.\n* **Construct** The construct takes 4d6 damage (basic Fortitude save). On a failure, for 1 hour, the construct is clumsy 1, is enfeebled 1, and can't be Repaired, and the curse attempts to counteract any spell that would restore the construct's Hit Points. On a critical failure, these effects have an unlimited duration.\n* **Living Creature** The living creature must attempt a Fortitude save. Ageless creatures are immune.\n* **Object** If the object is attended, its bearer can attempt a Fortitude save. If the bearer fails or the object is unattended, the object immediately takes 4d6 damage (applying Hardness normally), and the item is cursed with an unlimited duration. Until the curse ends, the item becomes shoddy and can't be Repaired, and the curse attempts to counteract any spell that would restore the object's Hit Points. *Cleanse affliction* can target an item affected by this spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "construct",
-            "alt": "construct",
-            "game-obj": "Traits",
-            "aonid": 563
-        },
-        {
-            "type": "link",
-            "name": "Artifact",
-            "alt": "Artifact",
-            "game-obj": "Traits",
-            "aonid": 537
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 61
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "shoddy",
-            "alt": "shoddy",
-            "game-obj": "Rules",
-            "aonid": 197
-        },
-        {
-            "type": "link",
-            "name": "Repaired",
-            "alt": "Repaired",
-            "game-obj": "Actions",
-            "aonid": 2384
-        },
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "Cleanse affliction",
-            "alt": "Cleanse affliction",
-            "game-obj": "Spells",
-            "aonid": 1467
-        },
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 61
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Otilaz",
-            "alt": "Otilaz",
-            "game-obj": "Deities",
-            "aonid": 718
-        },
-        {
-            "type": "link",
-            "name": "Shawnari",
-            "alt": "Shawnari",
-            "game-obj": "Deities",
-            "aonid": 600
-        },
-        {
-            "type": "link",
-            "name": "construct",
-            "alt": "construct",
-            "game-obj": "Traits",
-            "aonid": 563
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -268,5 +308,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

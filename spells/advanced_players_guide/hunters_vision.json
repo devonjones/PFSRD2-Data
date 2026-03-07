@@ -54,12 +54,10 @@
     "spell": {
         "name": "Hunter's Vision",
         "type": "stat_block_section",
+        "text": "Your target glows with a magical aura visible only to you and those who follow your lead. Your target is visible to you and others sharing your Hunt Prey benefits even if it wouldn't normally be due to lighting or the concealed or invisible conditions, though cover from opaque objects still blocks your sight. You ignore the flat check against the target due to the concealed condition, and the target isn't automatically hidden from you due to darkness or being invisible.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,52 +96,64 @@
                 }
             }
         ],
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 hunted prey",
-        "duration": "10 minutes"
+        "duration": "10 minutes",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Hunt Prey",
+                "alt": "Hunt Prey",
+                "game-obj": "Actions",
+                "aonid": 10
+            },
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            },
+            {
+                "type": "link",
+                "name": "invisible",
+                "alt": "invisible",
+                "game-obj": "Conditions",
+                "aonid": 26
+            },
+            {
+                "type": "link",
+                "name": "hidden",
+                "alt": "hidden",
+                "game-obj": "Conditions",
+                "aonid": 22
+            }
+        ]
     },
     "game-id": "2dd67db1000802f2cbbb8fdfeacedda9",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "Your target glows with a magical aura visible only to you and those who follow your lead. Your target is visible to you and others sharing your Hunt Prey benefits even if it wouldn't normally be due to lighting or the concealed or invisible conditions, though cover from opaque objects still blocks your sight. You ignore the flat check against the target due to the concealed condition, and the target isn't automatically hidden from you due to darkness or being invisible.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Hunt Prey",
-            "alt": "Hunt Prey",
-            "game-obj": "Actions",
-            "aonid": 10
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "invisible",
-            "alt": "invisible",
-            "game-obj": "Conditions",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "hidden",
-            "alt": "hidden",
-            "game-obj": "Conditions",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -159,5 +169,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

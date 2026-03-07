@@ -54,12 +54,10 @@
     "spell": {
         "name": "Bit of Luck",
         "type": "stat_block_section",
+        "text": "You tilt the scales of luck slightly to protect a creature from disaster. When the target would attempt a saving throw, it can roll twice and use the better result. Once it does this, the spell ends.  \n  \n If you cast *bit of luck* again, any previous *bit of luck* you cast that's still in effect ends. After a creature has been targeted with *bit of luck*, it becomes temporarily immune for 24 hours.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,39 +108,61 @@
                 }
             }
         ],
-        "domain": "luck",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 willing creature",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "luck",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "luck",
+                    "alt": "luck",
+                    "game-obj": "Domains",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "687cb03da2d1351ba290db37d28d43c9",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You tilt the scales of luck slightly to protect a creature from disaster. When the target would attempt a saving throw, it can roll twice and use the better result. Once it does this, the spell ends.  \n  \n If you cast *bit of luck* again, any previous *bit of luck* you cast that's still in effect ends. After a creature has been targeted with *bit of luck*, it becomes temporarily immune for 24 hours.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "luck",
-            "alt": "luck",
-            "game-obj": "Domains",
-            "aonid": 18
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -158,5 +178,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

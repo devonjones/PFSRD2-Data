@@ -54,12 +54,10 @@
     "spell": {
         "name": "Ki Blast",
         "type": "stat_block_section",
+        "text": "You unleash your ki as a powerful blast of force that deals 2d6 force damage. If you use 2 actions to cast ki blast, increase the size of the cone to 30 feet and the damage to 3d6. If you use 3 actions to cast ki blast, increase the size of the cone to 60 feet and the damage to 4d6. Each creature in the area must attempt a Fortitude saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,9 +108,7 @@
                 }
             }
         ],
-        "cast": "to   somatic, verbal",
         "area": "15-foot cone or more",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -121,31 +117,52 @@
                 "text": "The damage increases by 1d6, or by 2d6 if you use 2 or 3 actions."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and is pushed 5 feet.",
-        "critical_failure": "The creature takes double damage and is pushed 10 feet."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and is pushed 5 feet.",
+            "critical_failure": "The creature takes double damage and is pushed 10 feet."
+        }
     },
     "game-id": "f50d09a22eac406c4dddbf7903d2312b",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You unleash your ki as a powerful blast of force that deals 2d6 force damage. If you use 2 actions to cast ki blast, increase the size of the cone to 30 feet and the damage to 3d6. If you use 3 actions to cast ki blast, increase the size of the cone to 60 feet and the damage to 4d6. Each creature in the area must attempt a Fortitude saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -161,5 +178,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Tempt Fate",
         "type": "stat_block_section",
+        "text": "You twist the forces of fate to make a moment dire or uneventful, with no in-between. The target gains a +1 status bonus to the triggering saving throw. If the saving throw's result is a success, it becomes a critical success. If it's a failure, it becomes a critical failure, and the critical failure can't be reduced by abilities that usually reduce critical failure, such as improved evasion.  \n  \n If the triggering ability did not have both a critical success and critical failure condition, *tempt fate* fails, but you don't expend the Focus Point for Casting this Spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,8 +108,6 @@
                 }
             }
         ],
-        "domain": "fate",
-        "cast": "somatic",
         "trigger": "You or an ally within range attempts a saving throw",
         "range": "120 feet",
         "targets": "the triggering creature",
@@ -122,28 +118,47 @@
                 "level": 8,
                 "text": "The bonus on the saving throw is +2."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fate",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "fate",
+                    "alt": "fate",
+                    "game-obj": "Domains",
+                    "aonid": 12
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "79e129eb21a27f168feaf3bbcb47a024",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You twist the forces of fate to make a moment dire or uneventful, with no in-between. The target gains a +1 status bonus to the triggering saving throw. If the saving throw's result is a success, it becomes a critical success. If it's a failure, it becomes a critical failure, and the critical failure can't be reduced by abilities that usually reduce critical failure, such as improved evasion.  \n  \n If the triggering ability did not have both a critical success and critical failure condition, *tempt fate* fails, but you don't expend the Focus Point for Casting this Spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "fate",
-            "alt": "fate",
-            "game-obj": "Domains",
-            "aonid": 12
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -159,5 +174,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

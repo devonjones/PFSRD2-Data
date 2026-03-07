@@ -40,7 +40,10 @@
     "spell": {
         "name": "Life Pact",
         "type": "stat_block_section",
+        "text": "Using your life force or spirit as a conduit, you bind the targets in a mystical pact. If one of the targets is about to take damage that would reduce it to 0 Hit Points, all other targets immediately lose 3 Hit Points and the triggering target regains a number of Hit Points equal to the Hit Points lost this way, just before taking the damage. If this healing is enough that the triggering target is no longer reduced to 0 Hit Points, they remain conscious. Once the triggering target has regained Hit Points from the other targets, the spell ends.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -80,8 +83,6 @@
             }
         ],
         "access": "Knights of Lastwall have access to this spell.",
-        "traditions": "divine, occult, primal",
-        "cast": "1 minute (material, somatic, verbal)",
         "range": "touch",
         "targets": "up to 6 willing creatures",
         "duration": "10 minutes",
@@ -92,53 +93,90 @@
                 "increment": 1,
                 "text": "Increase the number of Hit Points lost by 1 for each target other than the one reduced to 0 Hit Points. The target reduced to 0 Hit Points regains that many additional Hit Points."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "1 minute",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "b5b2a88af0e8a65d81f65eff951ef6ae",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "Using your life force or spirit as a conduit, you bind the targets in a mystical pact. If one of the targets is about to take damage that would reduce it to 0 Hit Points, all other targets immediately lose 3 Hit Points and the triggering target regains a number of Hit Points equal to the Hit Points lost this way, just before taking the damage. If this healing is enough that the triggering target is no longer reduced to 0 Hit Points, they remain conscious. Once the triggering target has regained Hit Points from the other targets, the spell ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -154,5 +192,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

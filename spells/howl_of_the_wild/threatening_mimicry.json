@@ -27,12 +27,10 @@
     "spell": {
         "name": "Threatening Mimicry",
         "type": "stat_block_section",
+        "text": "You appear larger and stronger to nearby creatures, appearing to possess threatening features like antlers, claws, or poison to their senses. Each non-allied creature in the area must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -144,25 +142,35 @@
             }
         ],
         "area": "10-foot emanation",
-        "defense": "Will",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is frightened 1. This condition doesn\u2019t decrease at the end of its turn if it damaged you during that turn.",
-        "failure": "As success, but frightened 2.",
-        "critical_failure": "As success, but frightened 3."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is frightened 1. This condition doesn\u2019t decrease at the end of its turn if it damaged you during that turn.",
+            "failure": "As success, but frightened 2.",
+            "critical_failure": "As success, but frightened 3.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                }
+            ]
+        }
     },
     "game-id": "8a61ee961f02e2c0520b47f5376f9292",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You appear larger and stronger to nearby creatures, appearing to possess threatening features like antlers, claws, or poison to their senses. Each non-allied creature in the area must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -207,5 +215,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Diamond Dust",
         "type": "stat_block_section",
+        "text": "You supercool the nearby air, forming a cloud of dancing ice crystals in an emanation around you. A creature other than you that enters the area or ends its turn within the area takes 2d6 cold damage. A creature can take this damage only once per turn. The crystals scatter and refract light; if a light effect enters diamond dust\u2019s area, any creatures that effect goes on to affect gain a +2 status bonus to AC and saves against it. While the spell persists, you can activate or deactivate this aura by using a single action, which has the concentrate trait. You can Dismiss this spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,10 +84,7 @@
                 }
             }
         ],
-        "domain": "cold",
-        "cast": "somatic, verbal",
         "area": "15-foot emanation centered on you",
-        "saving_throw": "basic Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -98,49 +93,83 @@
                 "increment": 2,
                 "text": "The damage increases by 1d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "cold",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "cold",
+                    "alt": "cold",
+                    "game-obj": "Domains",
+                    "aonid": 41
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concentrate",
+                "alt": "concentrate",
+                "game-obj": "Traits",
+                "aonid": 32
+            }
         ]
     },
     "game-id": "9e577592dfd7afe0af3e5282a1af38ec",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You supercool the nearby air, forming a cloud of dancing ice crystals in an emanation around you. A creature other than you that enters the area or ends its turn within the area takes 2d6 cold damage. A creature can take this damage only once per turn. The crystals scatter and refract light; if a light effect enters diamond dust\u2019s area, any creatures that effect goes on to affect gain a +2 status bonus to AC and saves against it. While the spell persists, you can activate or deactivate this aura by using a single action, which has the concentrate trait. You can Dismiss this spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "cold",
-            "alt": "cold",
-            "game-obj": "Domains",
-            "aonid": 41
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -156,5 +185,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

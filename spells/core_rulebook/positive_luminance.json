@@ -54,12 +54,10 @@
     "spell": {
         "name": "Positive Luminance",
         "type": "stat_block_section",
+        "text": "Drawing life force into yourself, you become a beacon of positive energy. You glow with bright light in a 10-foot emanation, and you gain an internal pool of light called a luminance reservoir, which begins with a value of 4. At the start of each of your turns, you can use a free action to increase the luminance reservoir by 4. If you do, the radius of your light increases by 10 feet.  \n  \n If an undead creature damages you with an attack or spell while it's within the area of your light, that creature takes positive damage equal to half your luminance reservoir value. It takes this damage only the first time it damages you in a round.  \n  \n You can Dismiss this Spell. When you do, you can target a creature within your light and direct the positive energy into it. The target must be a willing living creature or an undead creature. This heals a living target or damages an undead target by an amount equal to your luminance reservoir's value.  \n  \nWhen you cast *positive luminance*, any other *positive luminance* spell you already had in effect ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,8 +120,6 @@
                 }
             }
         ],
-        "domain": "sun",
-        "cast": "somatic",
         "duration": "1 minute",
         "heightened": [
             {
@@ -132,28 +128,47 @@
                 "increment": 1,
                 "text": "Both the initial value of your luminance reservoir and the amount you gain each turn increase by 1."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "sun",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "sun",
+                    "alt": "sun",
+                    "game-obj": "Domains",
+                    "aonid": 29
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "4bffca37e2ae3f8056ae438273fa035c",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Drawing life force into yourself, you become a beacon of positive energy. You glow with bright light in a 10-foot emanation, and you gain an internal pool of light called a luminance reservoir, which begins with a value of 4. At the start of each of your turns, you can use a free action to increase the luminance reservoir by 4. If you do, the radius of your light increases by 10 feet.  \n  \n If an undead creature damages you with an attack or spell while it's within the area of your light, that creature takes positive damage equal to half your luminance reservoir value. It takes this damage only the first time it damages you in a round.  \n  \n You can Dismiss this Spell. When you do, you can target a creature within your light and direct the positive energy into it. The target must be a willing living creature or an undead creature. This heals a living target or damages an undead target by an amount equal to your luminance reservoir's value.  \n  \nWhen you cast *positive luminance*, any other *positive luminance* spell you already had in effect ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "sun",
-            "alt": "sun",
-            "game-obj": "Domains",
-            "aonid": 29
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -169,5 +184,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

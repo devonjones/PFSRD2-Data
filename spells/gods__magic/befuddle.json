@@ -54,12 +54,10 @@
     "spell": {
         "name": "Befuddle",
         "type": "stat_block_section",
+        "text": "You sow seeds of confusion in your target\u2019s mind, causing their actions and thoughts to become clumsy.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,64 +96,92 @@
                 }
             }
         ],
-        "traditions": "arcane",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "1 round",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is clumsy 1 and stupefied 1.",
-        "failure": "The target is clumsy 2 and stupefied 2.",
-        "critical_failure": "The target is clumsy 3, stupefied 3, and confused."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is clumsy 1 and stupefied 1.",
+            "failure": "The target is clumsy 2 and stupefied 2.",
+            "critical_failure": "The target is clumsy 3, stupefied 3, and confused.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "clumsy 1",
+                    "alt": "clumsy 1",
+                    "game-obj": "Conditions",
+                    "aonid": 3
+                },
+                {
+                    "type": "link",
+                    "name": "stupefied 1",
+                    "alt": "stupefied 1",
+                    "game-obj": "Conditions",
+                    "aonid": 37
+                },
+                {
+                    "type": "link",
+                    "name": "confused",
+                    "alt": "confused",
+                    "game-obj": "Conditions",
+                    "aonid": 5
+                }
+            ]
+        }
     },
     "game-id": "67f6aa9b09b440539f7edc992a81363c",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You sow seeds of confusion in your target\u2019s mind, causing their actions and thoughts to become clumsy.",
-    "links": [
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "stupefied 1",
-            "alt": "stupefied 1",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -171,5 +197,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

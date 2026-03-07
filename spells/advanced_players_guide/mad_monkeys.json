@@ -54,12 +54,10 @@
     "spell": {
         "name": "Mad Monkeys",
         "type": "stat_block_section",
+        "text": "Magical monkey spirits fill the area as they pile and climb on top of one another. Because the monkeys are magical spirits, they can't be attacked or hurt. Casting *calm emotions* or a similar effect over the monkeys makes them docile, causing them to cease making mischief for the duration of *mad monkeys*.  \n  \n Choose the kind of mischief your monkeys make when you Cast the Spell. They produce the effect listed for that mischief when you Cast the Spell and the first time each round when you Sustain the Spell. The first time each round when you Sustain the Spell, you can move the area of the monkeys by 5 feet.\n* **Flagrant Burglary** The monkeys try to Steal any one item from one creature in the area. Use your spell DC \u2013 10 as the monkeys' Thievery modifier. Their attempt relies more on distraction than subtlety, so the victim knows what item the monkeys were trying to take and whether it was taken. Getting a stolen item from the monkeys\u2014 even for the caster\u2014requires Stealing it from them or Disarming them, using your spell DC. When the spell ends, any stolen items fall to the ground in any square of the spell's area you choose.\n* **Raucous Din** The monkeys screech loudly, potentially deafening creatures in the spell's area. Each creature in the spell's area must attempt a Fortitude save.\n* **Tumultuous Gymnastics** The monkeys jump and climb all over creatures in the spell's area, interfering with complex movements. Each creature in the spell's area must attempt a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,107 +72,159 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "deity": "Lahkgya, Ragdya, Sun Wukong",
-        "lesson": "lesson of mischief",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "area": "5-foot burst",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The creature is unaffected and is temporarily immune for 10 minutes.",
-        "success": "The creature is unaffected.",
-        "failure": "For 1 round, the creature must succeed at a DC 5 flat check whenever it attempts a manipulate action. If it fails this check, the creature loses that action.",
-        "critical_failure": "As failure, but the monkeys cling to the creature tenaciously, and the effect lasts until the spell ends, even if the creature leaves the spell's area."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Lahkgya",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Lahkgya",
+                    "alt": "Lahkgya",
+                    "game-obj": "Deities",
+                    "aonid": 191
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ragdya",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ragdya",
+                    "alt": "Ragdya",
+                    "game-obj": "Deities",
+                    "aonid": 194
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Sun Wukong",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Sun Wukong",
+                    "alt": "Sun Wukong",
+                    "game-obj": "Deities",
+                    "aonid": 183
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of mischief",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of mischief",
+                    "alt": "lesson of mischief",
+                    "game-obj": "Lessons",
+                    "aonid": 6
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected and is temporarily immune for 10 minutes.",
+            "success": "The creature is unaffected.",
+            "failure": "For 1 round, the creature must succeed at a DC 5 flat check whenever it attempts a manipulate action. If it fails this check, the creature loses that action.",
+            "critical_failure": "As failure, but the monkeys cling to the creature tenaciously, and the effect lasts until the spell ends, even if the creature leaves the spell's area.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "manipulate",
+                    "alt": "manipulate",
+                    "game-obj": "Traits",
+                    "aonid": 104
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "calm emotions",
+                "alt": "calm emotions",
+                "game-obj": "Spells",
+                "aonid": 31
+            },
+            {
+                "type": "link",
+                "name": "Steal",
+                "alt": "Steal",
+                "game-obj": "Actions",
+                "aonid": 68
+            },
+            {
+                "type": "link",
+                "name": "Thievery",
+                "alt": "Thievery",
+                "game-obj": "Skills",
+                "aonid": 17
+            },
+            {
+                "type": "link",
+                "name": "Disarming",
+                "alt": "Disarming",
+                "game-obj": "Actions",
+                "aonid": 41
+            }
+        ]
     },
     "game-id": "6aaa6a5dadaa4e7c2ab8011098db84b0",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "Magical monkey spirits fill the area as they pile and climb on top of one another. Because the monkeys are magical spirits, they can't be attacked or hurt. Casting *calm emotions* or a similar effect over the monkeys makes them docile, causing them to cease making mischief for the duration of *mad monkeys*.  \n  \n Choose the kind of mischief your monkeys make when you Cast the Spell. They produce the effect listed for that mischief when you Cast the Spell and the first time each round when you Sustain the Spell. The first time each round when you Sustain the Spell, you can move the area of the monkeys by 5 feet.\n* **Flagrant Burglary** The monkeys try to Steal any one item from one creature in the area. Use your spell DC \u2013 10 as the monkeys' Thievery modifier. Their attempt relies more on distraction than subtlety, so the victim knows what item the monkeys were trying to take and whether it was taken. Getting a stolen item from the monkeys\u2014 even for the caster\u2014requires Stealing it from them or Disarming them, using your spell DC. When the spell ends, any stolen items fall to the ground in any square of the spell's area you choose.\n* **Raucous Din** The monkeys screech loudly, potentially deafening creatures in the spell's area. Each creature in the spell's area must attempt a Fortitude save.\n* **Tumultuous Gymnastics** The monkeys jump and climb all over creatures in the spell's area, interfering with complex movements. Each creature in the spell's area must attempt a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "calm emotions",
-            "alt": "calm emotions",
-            "game-obj": "Spells",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "Steal",
-            "alt": "Steal",
-            "game-obj": "Actions",
-            "aonid": 68
-        },
-        {
-            "type": "link",
-            "name": "Thievery",
-            "alt": "Thievery",
-            "game-obj": "Skills",
-            "aonid": 17
-        },
-        {
-            "type": "link",
-            "name": "Disarming",
-            "alt": "Disarming",
-            "game-obj": "Actions",
-            "aonid": 41
-        },
-        {
-            "type": "link",
-            "name": "manipulate",
-            "alt": "manipulate",
-            "game-obj": "Traits",
-            "aonid": 104
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Lahkgya",
-            "alt": "Lahkgya",
-            "game-obj": "Deities",
-            "aonid": 191
-        },
-        {
-            "type": "link",
-            "name": "Ragdya",
-            "alt": "Ragdya",
-            "game-obj": "Deities",
-            "aonid": 194
-        },
-        {
-            "type": "link",
-            "name": "Sun Wukong",
-            "alt": "Sun Wukong",
-            "game-obj": "Deities",
-            "aonid": 183
-        },
-        {
-            "type": "link",
-            "name": "lesson of mischief",
-            "alt": "lesson of mischief",
-            "game-obj": "Lessons",
-            "aonid": 6
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -190,5 +240,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

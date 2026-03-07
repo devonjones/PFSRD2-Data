@@ -40,12 +40,10 @@
     "spell": {
         "name": "Phase Bolt",
         "type": "stat_block_section",
+        "text": "You point your finger and project a bolt of magical energy that stutters in and out of phase until it reaches the target. Make a ranged spell attack roll against your target's AC; if the target has any circumstance bonuses to AC (such as from a shield or cover), reduce that bonus by 2 for this attack. On a success, you deal 3d4 piercing damage. On a critical success, the target takes double damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,8 +82,6 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
         "heightened": [
@@ -95,47 +91,79 @@
                 "increment": 1,
                 "text": "The bolt's damage increases by 1d4."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "cover",
+                "alt": "cover",
+                "game-obj": "Rules",
+                "aonid": 459
+            }
         ]
     },
     "game-id": "7723b561e46437d6d9b1fe55b8394101",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You point your finger and project a bolt of magical energy that stutters in and out of phase until it reaches the target. Make a ranged spell attack roll against your target's AC; if the target has any circumstance bonuses to AC (such as from a shield or cover), reduce that bonus by 2 for this attack. On a success, you deal 3d4 piercing damage. On a critical success, the target takes double damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "cover",
-            "alt": "cover",
-            "game-obj": "Rules",
-            "aonid": 459
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -151,5 +179,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

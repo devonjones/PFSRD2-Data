@@ -27,12 +27,10 @@
     "spell": {
         "name": "Mycological Malady",
         "type": "stat_block_section",
+        "text": "You infect your target with fungal spores to hasten the cycle of decay. The target must attempt a Fortitude saving throw. Undead that aren\u2019t incorporeal, such as skeletons and zombies, don\u2019t have their normal immunity to this disease, as the spores can still colonize their remaining flesh and bone. This might also apply to other non-living creatures made of organic material at the GM\u2019s discretion.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -119,92 +117,111 @@
                 }
             }
         ],
-        "lesson": "lesson of decay",
         "range": "touch",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target sprouts mushrooms and is enfeebled 2 for 1 round.",
-        "failure": "The target is afflicted with voidcap spores at stage 1.",
-        "critical_failure": "The target is afflicted with voidcap spores at stage 2.  \n  \n**Voidcap Spores** (disease) This disease ends when the spell ends  \n**Stage 1** enfeebled 2 (1 round)  \n**Stage 2** enfeebled 2 and slowed 1 (1 round)  \n**Stage 3** enfeebled 2, slowed 1, and stupefied 2 (1 round)"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of decay",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of decay",
+                    "alt": "lesson of decay",
+                    "game-obj": "Lessons",
+                    "aonid": 26
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target sprouts mushrooms and is enfeebled 2 for 1 round.",
+            "failure": "The target is afflicted with voidcap spores at stage 1.",
+            "critical_failure": "The target is afflicted with voidcap spores at stage 2.  \n  \n**Voidcap Spores** (disease) This disease ends when the spell ends  \n**Stage 1** enfeebled 2 (1 round)  \n**Stage 2** enfeebled 2 and slowed 1 (1 round)  \n**Stage 3** enfeebled 2, slowed 1, and stupefied 2 (1 round)",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "enfeebled",
+                    "alt": "enfeebled",
+                    "game-obj": "Conditions",
+                    "aonid": 71
+                },
+                {
+                    "type": "link",
+                    "name": "disease",
+                    "alt": "disease",
+                    "game-obj": "Traits",
+                    "aonid": 578
+                },
+                {
+                    "type": "link",
+                    "name": "enfeebled",
+                    "alt": "enfeebled",
+                    "game-obj": "Conditions",
+                    "aonid": 71
+                },
+                {
+                    "type": "link",
+                    "name": "slowed",
+                    "alt": "slowed",
+                    "game-obj": "Conditions",
+                    "aonid": 92
+                },
+                {
+                    "type": "link",
+                    "name": "stupefied",
+                    "alt": "stupefied",
+                    "game-obj": "Conditions",
+                    "aonid": 94
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Undead",
+                "alt": "Undead",
+                "game-obj": "Traits",
+                "aonid": 722
+            },
+            {
+                "type": "link",
+                "name": "incorporeal",
+                "alt": "incorporeal",
+                "game-obj": "Traits",
+                "aonid": 632
+            },
+            {
+                "type": "link",
+                "name": "skeletons",
+                "alt": "skeletons",
+                "game-obj": "MonsterFamilies",
+                "aonid": 472
+            },
+            {
+                "type": "link",
+                "name": "zombies",
+                "alt": "zombies",
+                "game-obj": "MonsterFamilies",
+                "aonid": 487
+            }
+        ]
     },
     "game-id": "188df16e1e3f59b73265c56fefd09805",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You infect your target with fungal spores to hasten the cycle of decay. The target must attempt a Fortitude saving throw. Undead that aren\u2019t incorporeal, such as skeletons and zombies, don\u2019t have their normal immunity to this disease, as the spores can still colonize their remaining flesh and bone. This might also apply to other non-living creatures made of organic material at the GM\u2019s discretion.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Undead",
-            "alt": "Undead",
-            "game-obj": "Traits",
-            "aonid": 722
-        },
-        {
-            "type": "link",
-            "name": "incorporeal",
-            "alt": "incorporeal",
-            "game-obj": "Traits",
-            "aonid": 632
-        },
-        {
-            "type": "link",
-            "name": "skeletons",
-            "alt": "skeletons",
-            "game-obj": "MonsterFamilies",
-            "aonid": 472
-        },
-        {
-            "type": "link",
-            "name": "zombies",
-            "alt": "zombies",
-            "game-obj": "MonsterFamilies",
-            "aonid": 487
-        },
-        {
-            "type": "link",
-            "name": "enfeebled",
-            "alt": "enfeebled",
-            "game-obj": "Conditions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "disease",
-            "alt": "disease",
-            "game-obj": "Traits",
-            "aonid": 578
-        },
-        {
-            "type": "link",
-            "name": "enfeebled",
-            "alt": "enfeebled",
-            "game-obj": "Conditions",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "slowed",
-            "alt": "slowed",
-            "game-obj": "Conditions",
-            "aonid": 92
-        },
-        {
-            "type": "link",
-            "name": "stupefied",
-            "alt": "stupefied",
-            "game-obj": "Conditions",
-            "aonid": 94
-        },
-        {
-            "type": "link",
-            "name": "lesson of decay",
-            "alt": "lesson of decay",
-            "game-obj": "Lessons",
-            "aonid": 26
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -249,5 +266,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,12 +27,10 @@
     "spell": {
         "name": "Appearance of Wealth",
         "type": "stat_block_section",
+        "text": "You create a brief vision of immense wealth filling the spell's area. Each creature within 20 feet of the area that could be enticed by material wealth must attempt a Will saving throw. A creature that enters the area automatically disbelieves the illusion, and disbelieving the illusion ends any fascinated condition imposed by the spell. As long as you Sustain the spell, other creatures react to the treasure like they would any other illusion, but they are not at risk of becoming fascinated.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,35 +105,52 @@
                 }
             }
         ],
-        "domain": "wealth",
         "range": "30 feet",
         "area": "5-foot burst",
-        "defense": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The creature disbelieves the illusion and is unaffected by it.",
-        "success": "The creature is fascinated by the wealth until it has completed its first action on its next turn.",
-        "failure": "The creature is fascinated by the illusion."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "wealth",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "wealth",
+                    "alt": "wealth",
+                    "game-obj": "Domains",
+                    "aonid": 99
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature disbelieves the illusion and is unaffected by it.",
+            "success": "The creature is fascinated by the wealth until it has completed its first action on its next turn.",
+            "failure": "The creature is fascinated by the illusion."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "fascinated",
+                "alt": "fascinated",
+                "game-obj": "Conditions",
+                "aonid": 14
+            }
+        ]
     },
     "game-id": "b8647605551bffbc95a195d2e9a64f55",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You create a brief vision of immense wealth filling the spell's area. Each creature within 20 feet of the area that could be enticed by material wealth must attempt a Will saving throw. A creature that enters the area automatically disbelieves the illusion, and disbelieving the illusion ends any fascinated condition imposed by the spell. As long as you Sustain the spell, other creatures react to the treasure like they would any other illusion, but they are not at risk of becoming fascinated.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "wealth",
-            "alt": "wealth",
-            "game-obj": "Domains",
-            "aonid": 99
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -180,5 +195,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

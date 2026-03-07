@@ -54,12 +54,10 @@
     "spell": {
         "name": "Foul Miasma",
         "type": "stat_block_section",
+        "text": "You multiply the disease within a creature, drawing it into an infectious mist outside their body where it can spread to other creatures. The target must attempt a Will save. If the target is willing, it can choose to take the effects of critical failure.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,44 +84,70 @@
                 }
             }
         ],
-        "domain": "plague",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature affected by a disease",
-        "saving_throw": "Will",
         "duration": "1 minute",
-        "critical_success": "The target receives the benefit of a successful save against the lowest-level disease affecting it.",
-        "success": "The target is unaffected.",
-        "failure": "One randomly chosen disease affecting the target fills the air in a 15-foot emanation centered on the target. For the spell\u2019s duration, any creature that enters or ends its turn within the area is exposed to that disease.",
-        "critical_failure": "As failure, except the miasma contains all the diseases affecting the target."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "plague",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "plague",
+                    "alt": "plague",
+                    "game-obj": "Domains",
+                    "aonid": 48
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target receives the benefit of a successful save against the lowest-level disease affecting it.",
+            "success": "The target is unaffected.",
+            "failure": "One randomly chosen disease affecting the target fills the air in a 15-foot emanation centered on the target. For the spell\u2019s duration, any creature that enters or ends its turn within the area is exposed to that disease.",
+            "critical_failure": "As failure, except the miasma contains all the diseases affecting the target."
+        }
     },
     "game-id": "cd50ed0917ef03c6a4da16ed87b7cda5",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You multiply the disease within a creature, drawing it into an infectious mist outside their body where it can spread to other creatures. The target must attempt a Will save. If the target is willing, it can choose to take the effects of critical failure.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "plague",
-            "alt": "plague",
-            "game-obj": "Domains",
-            "aonid": 48
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -139,5 +163,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

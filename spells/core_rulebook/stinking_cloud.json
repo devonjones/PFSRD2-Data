@@ -54,12 +54,10 @@
     "spell": {
         "name": "Stinking Cloud",
         "type": "stat_block_section",
+        "text": "You create a cloud of putrid mist in the area. The cloud functions as *obscuring mist* except it sickens creatures that end their turns within the cloud. (The concealed condition is not a poison effect.)",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,56 +84,90 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "area": "20-foot burst",
-        "saving_throw": "Fortitude",
         "duration": "1 minute",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is sickened 1.",
-        "failure": "The creature is sickened 1 and slowed 1 while in the cloud.",
-        "critical_failure": "The creature is sickened 2 and slowed 1 until it leaves the cloud."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is sickened 1.",
+            "failure": "The creature is sickened 1 and slowed 1 while in the cloud.",
+            "critical_failure": "The creature is sickened 2 and slowed 1 until it leaves the cloud."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "obscuring mist",
+                "alt": "obscuring mist",
+                "game-obj": "Spells",
+                "aonid": 210
+            }
+        ]
     },
     "game-id": "9b36573a3ca1e54bc3c2d929ead99e9b",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You create a cloud of putrid mist in the area. The cloud functions as *obscuring mist* except it sickens creatures that end their turns within the cloud. (The concealed condition is not a poison effect.)",
-    "links": [
-        {
-            "type": "link",
-            "name": "obscuring mist",
-            "alt": "obscuring mist",
-            "game-obj": "Spells",
-            "aonid": 210
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -151,5 +183,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Searing Light",
         "type": "stat_block_section",
+        "text": "You shoot a blazing ray of light tinged with holy energy. Make a ranged spell attack. The ray deals 5d6 fire damage. If the target is a fiend or undead, you deal an extra 5d6 good damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,9 +120,6 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
-        "bloodline": "angelic, psychopomp",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 creature",
         "heightened": [
@@ -135,55 +130,101 @@
                 "text": "The fire damage increases by 2d6, and the good damage against fiends and undead increases by 2d6."
             }
         ],
-        "critical_success": "The target takes double fire damage, as well as double good damage if a fiend or undead.",
-        "success": "The target takes full damage.  \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, *searing light* attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the spell's target."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "angelic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "angelic",
+                    "alt": "angelic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 2
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "psychopomp",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "psychopomp",
+                    "alt": "psychopomp",
+                    "game-obj": "Bloodlines",
+                    "aonid": 13
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target takes double fire damage, as well as double good damage if a fiend or undead.",
+            "success": "The target takes full damage.  \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, *searing light* attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the spell's target."
+        }
     },
     "game-id": "ea1cadf48fcf0217de353e27c8b331f4",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You shoot a blazing ray of light tinged with holy energy. Make a ranged spell attack. The ray deals 5d6 fire damage. If the target is a fiend or undead, you deal an extra 5d6 good damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "angelic",
-            "alt": "angelic",
-            "game-obj": "Bloodlines",
-            "aonid": 2
-        },
-        {
-            "type": "link",
-            "name": "psychopomp",
-            "alt": "psychopomp",
-            "game-obj": "Bloodlines",
-            "aonid": 13
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -199,5 +240,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

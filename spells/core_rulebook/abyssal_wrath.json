@@ -54,12 +54,10 @@
     "spell": {
         "name": "Abyssal Wrath",
         "type": "stat_block_section",
+        "text": "You evoke the energy of an Abyssal realm. The damage types of the spell (one energy and one physical) are based on the result of rolling on the table below. Abyssal Wrath\n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| **1d4** | **Realm** | **Manifestation** | **Damage Type** |\n| 1 | Skies | Bolts and lightning and flying debris | Bludgeoning and electricity |\n| 2 | Depths | Acid and demonic shells | Acid and slashing |\n| 3 | Frozen | Frigid air and ice | Bludgeoning and cold |\n| 4 | Volcanic | Jagged volcanic rocks and magma | Fire and piercing |\n\n  \nYou deal 4d6 damage of each of the corresponding damage types to each creature in the cone (8d6 total damage).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,10 +96,7 @@
                 }
             }
         ],
-        "bloodline": "demonic",
-        "cast": "somatic, verbal",
         "area": "60-foot cone",
-        "saving_throw": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -109,42 +104,74 @@
                 "increment": 1,
                 "text": "The damage for each type increases by 1d6."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "demonic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "demonic",
+                    "alt": "demonic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 3
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        }
     },
     "game-id": "bd4135298049dcf54b888f00b239a144",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You evoke the energy of an Abyssal realm. The damage types of the spell (one energy and one physical) are based on the result of rolling on the table below. Abyssal Wrath\n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| **1d4** | **Realm** | **Manifestation** | **Damage Type** |\n| 1 | Skies | Bolts and lightning and flying debris | Bludgeoning and electricity |\n| 2 | Depths | Acid and demonic shells | Acid and slashing |\n| 3 | Frozen | Frigid air and ice | Bludgeoning and cold |\n| 4 | Volcanic | Jagged volcanic rocks and magma | Fire and piercing |\n\n  \nYou deal 4d6 damage of each of the corresponding damage types to each creature in the cone (8d6 total damage).",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "demonic",
-            "alt": "demonic",
-            "game-obj": "Bloodlines",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -160,5 +187,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

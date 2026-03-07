@@ -27,12 +27,10 @@
     "spell": {
         "name": "Confusing Colors",
         "type": "stat_block_section",
+        "text": "A cloud of cascading, ever-changing colors manifests in the air. Creatures are dazzled while inside the cloud, as are those within 20 feet of the cloud's area. A creature must attempt a Will save if it is inside the cloud when you cast it, enters the cloud, ends its turn within the cloud, or uses a Seek or Interact action on the cloud. A creature currently affected by the cloud doesn't need to attempt new saves.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,69 +93,99 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Nalinivati",
         "range": "120 feet",
         "area": "20-foot burst",
-        "defense": "Will",
         "duration": "sustained up to 1 minute",
-        "success": "The creature is unaffected.",
-        "failure": "The creature is confused for 1d4 rounds.",
-        "critical_failure": "The creature is stunned for 1d4 rounds. After the stunned condition ends, the creature is confused for the remaining duration of the spell."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Nalinivati",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Nalinivati",
+                    "alt": "Nalinivati",
+                    "game-obj": "Deities",
+                    "aonid": 313
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The creature is unaffected.",
+            "failure": "The creature is confused for 1d4 rounds.",
+            "critical_failure": "The creature is stunned for 1d4 rounds. After the stunned condition ends, the creature is confused for the remaining duration of the spell.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "confused",
+                    "alt": "confused",
+                    "game-obj": "Conditions",
+                    "aonid": 63
+                },
+                {
+                    "type": "link",
+                    "name": "stunned",
+                    "alt": "stunned",
+                    "game-obj": "Conditions",
+                    "aonid": 93
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dazzled",
+                "alt": "dazzled",
+                "game-obj": "Conditions",
+                "aonid": 65
+            },
+            {
+                "type": "link",
+                "name": "Seek",
+                "alt": "Seek",
+                "game-obj": "Actions",
+                "aonid": 2301
+            }
+        ]
     },
     "game-id": "ee0f092eb0587a735856d4c1db49dd18",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "A cloud of cascading, ever-changing colors manifests in the air. Creatures are dazzled while inside the cloud, as are those within 20 feet of the cloud's area. A creature must attempt a Will save if it is inside the cloud when you cast it, enters the cloud, ends its turn within the cloud, or uses a Seek or Interact action on the cloud. A creature currently affected by the cloud doesn't need to attempt new saves.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 65
-        },
-        {
-            "type": "link",
-            "name": "Seek",
-            "alt": "Seek",
-            "game-obj": "Actions",
-            "aonid": 2301
-        },
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 63
-        },
-        {
-            "type": "link",
-            "name": "stunned",
-            "alt": "stunned",
-            "game-obj": "Conditions",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Nalinivati",
-            "alt": "Nalinivati",
-            "game-obj": "Deities",
-            "aonid": 313
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -202,5 +230,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

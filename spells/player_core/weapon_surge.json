@@ -27,12 +27,10 @@
     "spell": {
         "name": "Weapon Surge",
         "type": "stat_block_section",
+        "text": "Holding your weapon aloft, you fill it with divine energy. On your next Strike with that weapon before the start of your next turn, you gain a +1 status bonus to the attack roll, the weapon deals an additional 1d6 spirit damage, and the Strike gains the sanctified trait. Weapon surge ends once you complete this Strike or the weapon leaves your possession.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,7 +93,6 @@
                 }
             }
         ],
-        "domain": "zeal",
         "range": "touch",
         "targets": "1 weapon you're wielding",
         "duration": "until the start of your next turn",
@@ -112,28 +109,42 @@
                 "level": 9,
                 "text": "The attack deals 3d6 additional spirit damage."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "zeal",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "zeal",
+                    "alt": "zeal",
+                    "game-obj": "Domains",
+                    "aonid": 100
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "sanctified",
+                "alt": "sanctified",
+                "game-obj": "Traits",
+                "aonid": 519
+            }
         ]
     },
     "game-id": "acf198b06289ef5847137a56a002f203",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Holding your weapon aloft, you fill it with divine energy. On your next Strike with that weapon before the start of your next turn, you gain a +1 status bonus to the attack roll, the weapon deals an additional 1d6 spirit damage, and the Strike gains the sanctified trait. Weapon surge ends once you complete this Strike or the weapon leaves your possession.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sanctified",
-            "alt": "sanctified",
-            "game-obj": "Traits",
-            "aonid": 519
-        },
-        {
-            "type": "link",
-            "name": "zeal",
-            "alt": "zeal",
-            "game-obj": "Domains",
-            "aonid": 100
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -178,5 +189,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

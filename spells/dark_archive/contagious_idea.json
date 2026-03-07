@@ -40,12 +40,10 @@
     "spell": {
         "name": "Contagious Idea",
         "type": "stat_block_section",
+        "text": "Nothing is so contagious as a thought. You place either a pleasant thought or a terrifying one in a creature's mind. You can then plant the same thought in a second creature's mind. You can't choose a creature that's already been a target of this casting of *contagious idea*, nor can you choose yourself. The second target can be beyond the range of the spell, but it must be within 30 feet of the first target. \n* **Pleasant Thought** The target is soothed, gaining 5 temporary Hit Points that last for 1 minute.\n* **Terrifying Thought** The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,7 +118,6 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "30 feet (see text)",
         "targets": "1 or 2 creatures other than yourself (see text)",
         "heightened": [
@@ -131,38 +128,60 @@
                 "text": "The temporary Hit Points for a pleasant thought increase by 1.\n\n---\n\n**Amp** You can choose to spread the thought from the second target to a third target, in the same manner as spreading it from the first target to the second. A pleasant thought grants twice as many temporary Hit Points (10, plus an additional 2 for each level heightened)."
             }
         ],
-        "critical_success": "The target is unaffected and is temporarily immune for 1 minute.",
-        "success": "The target is frightened 1 and is then temporarily immune for 1 minute.",
-        "failure": "The target becomes frightened 2.",
-        "critical_failure": "The target becomes frightened 3."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target is unaffected and is temporarily immune for 1 minute.",
+            "success": "The target is frightened 1 and is then temporarily immune for 1 minute.",
+            "failure": "The target becomes frightened 2.",
+            "critical_failure": "The target becomes frightened 3.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened 1",
+                    "alt": "frightened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 19
+                }
+            ]
+        }
     },
     "game-id": "0bf7c6f0ac067560111efdc71efe4dfc",
-    "spell_type": "cantrip",
-    "rank": 5,
-    "text": "Nothing is so contagious as a thought. You place either a pleasant thought or a terrifying one in a creature's mind. You can then plant the same thought in a second creature's mind. You can't choose a creature that's already been a target of this casting of *contagious idea*, nor can you choose yourself. The second target can be beyond the range of the spell, but it must be within 30 feet of the first target. \n* **Pleasant Thought** The target is soothed, gaining 5 temporary Hit Points that last for 1 minute.\n* **Terrifying Thought** The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -178,5 +197,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

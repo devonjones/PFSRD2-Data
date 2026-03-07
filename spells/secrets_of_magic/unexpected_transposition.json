@@ -54,12 +54,10 @@
     "spell": {
         "name": "Unexpected Transposition",
         "type": "stat_block_section",
+        "text": "When attacked, you attempt to quickly swap your own position with that of another creature. A creature that is unwilling to swap places with you must attempt a Will save. Willing creatures automatically fail. If you successfully switch places with the target, the triggering attack is resolved against that creature as if it had been the original target of the attack. After the swap, you and the target are both temporarily immune to *unexpected transposition* spells for 1 minute. You automatically switch places if the target is willing. If it's unwilling, it can attempt a Will save. Neither of you teleports if the target succeeds at its save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,38 +84,65 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "verbal",
         "trigger": "You are targeted with an enemy's Strike.",
         "range": "30 feet",
         "targets": "1 creature other than the triggering enemy",
-        "saving_throw": "Will"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        }
     },
     "game-id": "48be3569717df232b9c9942a43c55be8",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "When attacked, you attempt to quickly swap your own position with that of another creature. A creature that is unwilling to swap places with you must attempt a Will save. Willing creatures automatically fail. If you successfully switch places with the target, the triggering attack is resolved against that creature as if it had been the original target of the attack. After the swap, you and the target are both temporarily immune to *unexpected transposition* spells for 1 minute. You automatically switch places if the target is willing. If it's unwilling, it can attempt a Will save. Neither of you teleports if the target succeeds at its save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -133,5 +158,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Compel True Name",
         "type": "stat_block_section",
+        "text": "You instruct the target to do something, compelling obedience by calling it by its true name. Your instructions can't be self-destructive. Though this spell has the linguistic trait, this applies only to the instructions; the creature doesn't need to know its own true name to be affected. The target must attempt a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -146,61 +144,102 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult, primal",
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 creature whose true name you know",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected, is temporarily immune to further castings of this spell by you for 1 week, and learns your true name.",
-        "success": "The target is unaffected, is temporarily immune to further castings of this spell by you for 1 day, and learns a fragment of your true name (see the Fragmentary Names sidebar).",
-        "failure": "The target does as you command. The spell has a duration of 10 minutes, or until the target has completed a finite instruction or the instructions become self-destructive. The creature is temporarily immune to further castings of this spell by you for 1 hour.",
-        "critical_failure": "As failure, but the spell's duration is 8 hours, and the creature is not temporarily immune."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected, is temporarily immune to further castings of this spell by you for 1 week, and learns your true name.",
+            "success": "The target is unaffected, is temporarily immune to further castings of this spell by you for 1 day, and learns a fragment of your true name (see the Fragmentary Names sidebar).",
+            "failure": "The target does as you command. The spell has a duration of 10 minutes, or until the target has completed a finite instruction or the instructions become self-destructive. The creature is temporarily immune to further castings of this spell by you for 1 hour.",
+            "critical_failure": "As failure, but the spell's duration is 8 hours, and the creature is not temporarily immune."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "linguistic",
+                "alt": "linguistic",
+                "game-obj": "Traits",
+                "aonid": 101
+            }
+        ]
     },
     "game-id": "9682d262484af0ef999bc06a9a17bbf5",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You instruct the target to do something, compelling obedience by calling it by its true name. Your instructions can't be self-destructive. Though this spell has the linguistic trait, this applies only to the instructions; the creature doesn't need to know its own true name to be affected. The target must attempt a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "linguistic",
-            "alt": "linguistic",
-            "game-obj": "Traits",
-            "aonid": 101
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -216,5 +255,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

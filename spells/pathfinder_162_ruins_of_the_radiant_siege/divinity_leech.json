@@ -40,12 +40,10 @@
     "spell": {
         "name": "Divinity Leech",
         "type": "stat_block_section",
+        "text": "You disrupt the connection between a divine caster or deific servitor and their deity, blocking their use of divine power. If the target fails its save, it is fatigued. For the spell's duration, whenever the target casts a divine spell, you regain 6d6 HP and the target must attempt another Will save with the following effects.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,70 +70,106 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "Each target of the divine spell has an outcome one degree of success better than the result it rolled.",
-        "failure": "The divine spell is lost and target is stunned 1.",
-        "critical_failure": "As failure, but the target is stunned for 1 round."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "Each target of the divine spell has an outcome one degree of success better than the result it rolled.",
+            "failure": "The divine spell is lost and target is stunned 1.",
+            "critical_failure": "As failure, but the target is stunned for 1 round.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 36
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "fatigued",
+                "alt": "fatigued",
+                "game-obj": "Conditions",
+                "aonid": 15
+            },
+            {
+                "type": "link",
+                "name": "divine",
+                "alt": "divine",
+                "game-obj": "Traits",
+                "aonid": 48
+            }
+        ]
     },
     "game-id": "0bbf905fd012ad62c813412d6261f98a",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You disrupt the connection between a divine caster or deific servitor and their deity, blocking their use of divine power. If the target fails its save, it is fatigued. For the spell's duration, whenever the target casts a divine spell, you regain 6d6 HP and the target must attempt another Will save with the following effects.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fatigued",
-            "alt": "fatigued",
-            "game-obj": "Conditions",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "game-obj": "Traits",
-            "aonid": 48
-        },
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -151,5 +185,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

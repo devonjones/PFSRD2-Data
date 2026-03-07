@@ -27,12 +27,10 @@
     "spell": {
         "name": "Perfected Mind",
         "type": "stat_block_section",
+        "text": "You meditate upon perfection to remove all distractions from your mind. Attempt a new Will save against one mental effect currently affecting you that required a Will save. Use the result of this new save to determine the outcome of the mental effect, unless the new save would have a worse result than the original save, in which case nothing happens. You can use *perfected mind* against a given effect only once.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,28 +81,41 @@
                 }
             }
         ],
-        "domain": "perfection"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "perfection",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "perfection",
+                    "alt": "perfection",
+                    "game-obj": "Domains",
+                    "aonid": 89
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "mental",
+                "alt": "mental",
+                "game-obj": "Traits",
+                "aonid": 106
+            }
+        ]
     },
     "game-id": "e9dbe98a9014253aa20cc745dd4f708f",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You meditate upon perfection to remove all distractions from your mind. Attempt a new Will save against one mental effect currently affecting you that required a Will save. Use the result of this new save to determine the outcome of the mental effect, unless the new save would have a worse result than the original save, in which case nothing happens. You can use *perfected mind* against a given effect only once.",
-    "links": [
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 106
-        },
-        {
-            "type": "link",
-            "name": "perfection",
-            "alt": "perfection",
-            "game-obj": "Domains",
-            "aonid": 89
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -149,5 +160,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

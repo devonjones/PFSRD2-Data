@@ -54,12 +54,10 @@
     "spell": {
         "name": "Litany of Self-Interest",
         "type": "stat_block_section",
+        "text": "You give a speech that fills your target with a drive to improve themself to the exclusion of assisting others. A creature that wants to gain the benefit of this spell and doesn't care about its limitations can voluntarily fail the save. The target then becomes temporarily immune to all your litanies for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,10 +132,8 @@
                 }
             }
         ],
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "1 round",
         "heightened": [
             {
@@ -147,29 +143,47 @@
                 "text": "The status bonus increases to +3."
             }
         ],
-        "success": "The target is unaffected.",
-        "failure": "The target gains a +2 status bonus to attack rolls, Perception checks, saving throws, and skill checks. The target can't Aid other creatures, consider any creature an ally, or use spells or abilities that directly benefit another creature (as determined by the GM), even if they also benefit the target. Other creatures allied with the spell's target can still consider the target an ally and affect it accordingly."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The target is unaffected.",
+            "failure": "The target gains a +2 status bonus to attack rolls, Perception checks, saving throws, and skill checks. The target can't Aid other creatures, consider any creature an ally, or use spells or abilities that directly benefit another creature (as determined by the GM), even if they also benefit the target. Other creatures allied with the spell's target can still consider the target an ally and affect it accordingly.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "Aid",
+                    "alt": "Aid",
+                    "game-obj": "Actions",
+                    "aonid": 75
+                }
+            ]
+        }
     },
     "game-id": "9a4bf3d96675533e4491162f8d5ef63f",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You give a speech that fills your target with a drive to improve themself to the exclusion of assisting others. A creature that wants to gain the benefit of this spell and doesn't care about its limitations can voluntarily fail the save. The target then becomes temporarily immune to all your litanies for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Aid",
-            "alt": "Aid",
-            "game-obj": "Actions",
-            "aonid": 75
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -185,5 +199,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

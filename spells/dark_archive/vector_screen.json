@@ -40,12 +40,10 @@
     "spell": {
         "name": "Vector Screen",
         "type": "stat_block_section",
+        "text": "You set up a transparent, rippling screen of telekinetic energy that seizes small, fast-moving projectiles. Creatures can pass through the screen, but ammunition from physical ranged attacks\u2014such as arrows, bolts, sling bullets, and other objects of similar size\u2014is automatically trapped in the screen, clattering to the ground once the spell ends. Attacks with bigger ranged weapons, such as javelins, take a \u20132 circumstance penalty to their attack rolls if their paths pass through the screen. Massive ranged weapons and spell effects that don't create physical objects pass through the screen with no penalty.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,7 +94,6 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "area": "one 5-foot square",
         "duration": "until the start of your next turn",
@@ -129,35 +126,53 @@
                     }
                 ]
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "javelins",
+                "alt": "javelins",
+                "game-obj": "Weapons",
+                "aonid": 71
+            }
         ]
     },
     "game-id": "3509776ed6226094656fbb1e0340a797",
-    "spell_type": "cantrip",
-    "rank": 3,
-    "text": "You set up a transparent, rippling screen of telekinetic energy that seizes small, fast-moving projectiles. Creatures can pass through the screen, but ammunition from physical ranged attacks\u2014such as arrows, bolts, sling bullets, and other objects of similar size\u2014is automatically trapped in the screen, clattering to the ground once the spell ends. Attacks with bigger ranged weapons, such as javelins, take a \u20132 circumstance penalty to their attack rolls if their paths pass through the screen. Massive ranged weapons and spell effects that don't create physical objects pass through the screen with no penalty.",
-    "links": [
-        {
-            "type": "link",
-            "name": "javelins",
-            "alt": "javelins",
-            "game-obj": "Weapons",
-            "aonid": 71
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -173,5 +188,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

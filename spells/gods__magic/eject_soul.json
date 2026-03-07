@@ -54,12 +54,10 @@
     "spell": {
         "name": "Eject Soul",
         "type": "stat_block_section",
+        "text": "Your touch disrupts the connection between body and soul, possibly forcing the soul out of the body altogether. The target must attempt a Fortitude save. You can allow allies to choose the degree of success instead of rolling a saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,8 +84,6 @@
                 }
             }
         ],
-        "domain": "soul",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 living creature that has a soul",
         "heightened": [
@@ -98,58 +94,88 @@
                 "text": "If a willing ally chooses to critically fail, it can stay in soul form for 1 additional round."
             }
         ],
-        "success": "The target is unaffected.",
-        "failure": "The target is stunned 1 as its soul briefly loses its connection to its body.",
-        "critical_failure": "The target\u2019s soul exits its body for 1 round. The target\u2019s body becomes stunned. While its body is stunned in this way, the target remains fully aware in soul form; it simply can\u2019t consciously move its body (though the body makes basic instinctual defensive movements). The target\u2019s soul has the incorporeal trait, is invisible, and has a fly Speed of 60 feet. It can\u2019t attack, cast spells, or attempt any skill checks that require a physical body, and it must always maintain line of effect to its body. When the target\u2019s body ceases being stunned, the target\u2019s soul instantly returns to its body as the target wakes."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "soul",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "soul",
+                    "alt": "soul",
+                    "game-obj": "Domains",
+                    "aonid": 51
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "success": "The target is unaffected.",
+            "failure": "The target is stunned 1 as its soul briefly loses its connection to its body.",
+            "critical_failure": "The target\u2019s soul exits its body for 1 round. The target\u2019s body becomes stunned. While its body is stunned in this way, the target remains fully aware in soul form; it simply can\u2019t consciously move its body (though the body makes basic instinctual defensive movements). The target\u2019s soul has the incorporeal trait, is invisible, and has a fly Speed of 60 feet. It can\u2019t attack, cast spells, or attempt any skill checks that require a physical body, and it must always maintain line of effect to its body. When the target\u2019s body ceases being stunned, the target\u2019s soul instantly returns to its body as the target wakes.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 36
+                },
+                {
+                    "type": "link",
+                    "name": "incorporeal",
+                    "alt": "incorporeal",
+                    "game-obj": "Traits",
+                    "aonid": 222
+                },
+                {
+                    "type": "link",
+                    "name": "invisible",
+                    "alt": "invisible",
+                    "game-obj": "Conditions",
+                    "aonid": 26
+                }
+            ]
+        }
     },
     "game-id": "15f374f08a4145ffe6aeccfbee6a9197",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your touch disrupts the connection between body and soul, possibly forcing the soul out of the body altogether. The target must attempt a Fortitude save. You can allow allies to choose the degree of success instead of rolling a saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "incorporeal",
-            "alt": "incorporeal",
-            "game-obj": "Traits",
-            "aonid": 222
-        },
-        {
-            "type": "link",
-            "name": "invisible",
-            "alt": "invisible",
-            "game-obj": "Conditions",
-            "aonid": 26
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "soul",
-            "alt": "soul",
-            "game-obj": "Domains",
-            "aonid": 51
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -165,5 +191,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -20,12 +20,10 @@
     "spell": {
         "name": "Radiant Globe",
         "type": "stat_block_section",
+        "text": "You create a dome of brilliant light that destroys projectiles attempting to pass through it. Ammunition from physical ranged attacks\u2014such as arrows, bolts, sling bullets, and other objects of similar size\u2014is destroyed in a flash of light when it passes into or out of the globe\u2019s area. Attackers targeting creatures or objects through the globe\u2019s surface with physical ranged attacks must succeed at a Fortitude save or become dazzled for 1 round (blinded for 1 round on a critical failure).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -76,65 +74,88 @@
                 }
             }
         ],
-        "traditions": "arcane, divine",
         "range": "120 feet",
         "area": "10-foot burst",
-        "defense": "Fortitude",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "arrows",
+                "alt": "arrows",
+                "game-obj": "Weapons",
+                "aonid": 443
+            },
+            {
+                "type": "link",
+                "name": "bolts",
+                "alt": "bolts",
+                "game-obj": "Weapons",
+                "aonid": 441
+            },
+            {
+                "type": "link",
+                "name": "sling bullets",
+                "alt": "sling bullets",
+                "game-obj": "Weapons",
+                "aonid": 442
+            },
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Rules",
+                "aonid": 2243
+            },
+            {
+                "type": "link",
+                "name": "burst",
+                "alt": "burst",
+                "game-obj": "Rules",
+                "aonid": 2385
+            }
+        ]
     },
     "game-id": "7232dfa78037a86047af82ad8c6bbbf4",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You create a dome of brilliant light that destroys projectiles attempting to pass through it. Ammunition from physical ranged attacks\u2014such as arrows, bolts, sling bullets, and other objects of similar size\u2014is destroyed in a flash of light when it passes into or out of the globe\u2019s area. Attackers targeting creatures or objects through the globe\u2019s surface with physical ranged attacks must succeed at a Fortitude save or become dazzled for 1 round (blinded for 1 round on a critical failure).",
-    "links": [
-        {
-            "type": "link",
-            "name": "arrows",
-            "alt": "arrows",
-            "game-obj": "Weapons",
-            "aonid": 443
-        },
-        {
-            "type": "link",
-            "name": "bolts",
-            "alt": "bolts",
-            "game-obj": "Weapons",
-            "aonid": 441
-        },
-        {
-            "type": "link",
-            "name": "sling bullets",
-            "alt": "sling bullets",
-            "game-obj": "Weapons",
-            "aonid": 442
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Rules",
-            "aonid": 2243
-        },
-        {
-            "type": "link",
-            "name": "burst",
-            "alt": "burst",
-            "game-obj": "Rules",
-            "aonid": 2385
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -179,5 +200,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

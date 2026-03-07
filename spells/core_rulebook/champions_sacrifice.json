@@ -54,12 +54,10 @@
     "spell": {
         "name": "Champion's Sacrifice",
         "type": "stat_block_section",
+        "text": "You form a link with an ally, allowing you to take harm in their stead. All the effects of the hit or failed save are applied to you instead of the ally. For example, if the target critically fails a saving throw against a *fireball*, you would take double damage. These effects ignore any resistances, immunities, or other abilities you have that might mitigate them in any way, although those of the target apply before you take the effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,31 +96,43 @@
                 }
             }
         ],
-        "cast": "somatic",
         "trigger": "An ally is hit by a Strike, or an ally fails a saving throw against an effect that doesn't affect you.",
         "range": "30 feet",
-        "targets": "1 ally"
+        "targets": "1 ally",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "fireball",
+                "alt": "fireball",
+                "game-obj": "Spells",
+                "aonid": 119
+            }
+        ]
     },
     "game-id": "b2fce435f60caa88e055e08ff849b980",
-    "spell_type": "focus",
-    "rank": 6,
-    "text": "You form a link with an ally, allowing you to take harm in their stead. All the effects of the hit or failed save are applied to you instead of the ally. For example, if the target critically fails a saving throw against a *fireball*, you would take double damage. These effects ignore any resistances, immunities, or other abilities you have that might mitigate them in any way, although those of the target apply before you take the effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fireball",
-            "alt": "fireball",
-            "game-obj": "Spells",
-            "aonid": 119
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -138,5 +148,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

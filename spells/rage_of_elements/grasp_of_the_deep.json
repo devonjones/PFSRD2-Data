@@ -27,12 +27,10 @@
     "spell": {
         "name": "Grasp of the Deep",
         "type": "stat_block_section",
+        "text": "You grip one target with the phantasmal pressure of the deep sea, disorienting and crushing its lungs and joints. The target takes 6d6 bludgeoning damage and other effects, depending on its Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,10 +81,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "60 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -96,43 +92,68 @@
                 "text": "You can target up to 5 creatures."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The target takes half damage.",
-        "failure": "The target takes full damage, and feels as though it's being crushed. The target becomes grabbed but it can attempt to Escape with an Escape DC equal to your spell DC.",
-        "critical_failure": "As failure, but the target takes double damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The target takes half damage.",
+            "failure": "The target takes full damage, and feels as though it's being crushed. The target becomes grabbed but it can attempt to Escape with an Escape DC equal to your spell DC.",
+            "critical_failure": "As failure, but the target takes double damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "grabbed",
+                    "alt": "grabbed",
+                    "game-obj": "Conditions",
+                    "aonid": 20
+                },
+                {
+                    "type": "link",
+                    "name": "Escape",
+                    "alt": "Escape",
+                    "game-obj": "Actions",
+                    "aonid": 79
+                }
+            ]
+        }
     },
     "game-id": "eebf7c5bf95ed57f2003343d768388d9",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You grip one target with the phantasmal pressure of the deep sea, disorienting and crushing its lungs and joints. The target takes 6d6 bludgeoning damage and other effects, depending on its Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "grabbed",
-            "alt": "grabbed",
-            "game-obj": "Conditions",
-            "aonid": 20
-        },
-        {
-            "type": "link",
-            "name": "Escape",
-            "alt": "Escape",
-            "game-obj": "Actions",
-            "aonid": 79
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -177,5 +198,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

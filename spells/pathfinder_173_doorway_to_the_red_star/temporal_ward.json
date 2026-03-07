@@ -40,12 +40,10 @@
     "spell": {
         "name": "Temporal Ward",
         "type": "stat_block_section",
+        "text": "You ward a target doorway or container with a temporal trap that rewinds the personal timeline of creatures trying to open it. A creature attempting to open a warded doorway or container must attempt a Will save with the below results. You can set a password for the ward. Any creature that attempts to open the target container, or to open or pass through the target doorway without speaking the password must attempt a save as normal. The ward vanishes automatically once the spell's duration ends, but can be removed before then as if it were a magical trap, using your spell DC for both the Perception check to notice it and Thievery check to disable it. Both checks require the creature attempting them to have expert proficiency in order to succeed.  \n  \n You can Dismiss *temporal ward*. The maximum number of *temporal wards* you can have active at a time is equal to your spellcasting ability modifier.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,11 +70,8 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "cast": "material, somatic, verbal",
         "range": "touch",
         "targets": "1 container or doorway",
-        "saving_throw": "Will",
         "duration": "10 minutes",
         "heightened": [
             {
@@ -95,70 +90,120 @@
                 ]
             }
         ],
-        "critical_success": "The creature is unaffected and opens the doorway or the container as normal.",
-        "success": "The creature experiences a brief moment of d\u00e9 j\u00e0-vu in which they're convinced they already opened the door. They must use an additional action to open the door. If they can't or don't want to do so, the action or activity they used to open the door or container is wasted, and the door or container remains closed.",
-        "failure": "The creature is thrown briefly backwards in time. The action or activity they used to open the door or container is wasted and they're returned to the position they were located at during the start of their turn. Their turn then ends.",
-        "critical_failure": "As failure, but the temporal displacement also causes the creature to lose their bearings, making them confused for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected and opens the doorway or the container as normal.",
+            "success": "The creature experiences a brief moment of d\u00e9 j\u00e0-vu in which they're convinced they already opened the door. They must use an additional action to open the door. If they can't or don't want to do so, the action or activity they used to open the door or container is wasted, and the door or container remains closed.",
+            "failure": "The creature is thrown briefly backwards in time. The action or activity they used to open the door or container is wasted and they're returned to the position they were located at during the start of their turn. Their turn then ends.",
+            "critical_failure": "As failure, but the temporal displacement also causes the creature to lose their bearings, making them confused for 1 minute.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "confused",
+                    "alt": "confused",
+                    "game-obj": "Conditions",
+                    "aonid": 5
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Thievery",
+                "alt": "Thievery",
+                "game-obj": "Skills",
+                "aonid": 17
+            }
+        ]
     },
     "game-id": "edefff507aafac582afe69965925e2c1",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You ward a target doorway or container with a temporal trap that rewinds the personal timeline of creatures trying to open it. A creature attempting to open a warded doorway or container must attempt a Will save with the below results. You can set a password for the ward. Any creature that attempts to open the target container, or to open or pass through the target doorway without speaking the password must attempt a save as normal. The ward vanishes automatically once the spell's duration ends, but can be removed before then as if it were a magical trap, using your spell DC for both the Perception check to notice it and Thievery check to disable it. Both checks require the creature attempting them to have expert proficiency in order to succeed.  \n  \n You can Dismiss *temporal ward*. The maximum number of *temporal wards* you can have active at a time is equal to your spellcasting ability modifier.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Thievery",
-            "alt": "Thievery",
-            "game-obj": "Skills",
-            "aonid": 17
-        },
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -174,5 +219,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

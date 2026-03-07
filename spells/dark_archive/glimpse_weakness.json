@@ -40,12 +40,10 @@
     "spell": {
         "name": "Glimpse Weakness",
         "type": "stat_block_section",
+        "text": "You glimpse a loose scale, a seam in a foe's armor, or a similar weakness, aiding your allies in landing a precise hit. The first ally that hits the target with a successful Strike deals additional precision damage equal to 1 + this spell's level, and then the spell ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,7 +94,6 @@
                 }
             }
         ],
-        "cast": "verbal",
         "range": "60 feet",
         "targets": "1 creature",
         "duration": "1 minute",
@@ -108,21 +105,32 @@
                 "increment": 2,
                 "text": "The additional precision damage increases by 1d4+1."
             }
-        ]
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "a2bde75347177f3e9f2103ff951b4cd6",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You glimpse a loose scale, a seam in a foe's armor, or a similar weakness, aiding your allies in landing a precise hit. The first ally that hits the target with a successful Strike deals additional precision damage equal to 1 + this spell's level, and then the spell ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -138,5 +146,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

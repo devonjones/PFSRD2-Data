@@ -27,12 +27,10 @@
     "spell": {
         "name": "Shared Nightmare",
         "type": "stat_block_section",
+        "text": "Merging minds with the target, you swap distressing visions. One of you will become confused, based on the target's Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -131,36 +129,53 @@
                 }
             }
         ],
-        "domain": "nightmares",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "varies",
-        "critical_success": "You are confused for 1 round.",
-        "success": "At the start of your next turn, you spend your first action with the confused condition, then act normally.",
-        "failure": "The target spends the first action of each of its turns confused. The duration is 1 minute.",
-        "critical_failure": "The target is confused. The duration is 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "nightmares",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "nightmares",
+                    "alt": "nightmares",
+                    "game-obj": "Domains",
+                    "aonid": 86
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "You are confused for 1 round.",
+            "success": "At the start of your next turn, you spend your first action with the confused condition, then act normally.",
+            "failure": "The target spends the first action of each of its turns confused. The duration is 1 minute.",
+            "critical_failure": "The target is confused. The duration is 1 minute."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "confused",
+                "alt": "confused",
+                "game-obj": "Conditions",
+                "aonid": 5
+            }
+        ]
     },
     "game-id": "682f9545bb0f99b2277a1c1da1c1cb03",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Merging minds with the target, you swap distressing visions. One of you will become confused, based on the target's Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "nightmares",
-            "alt": "nightmares",
-            "game-obj": "Domains",
-            "aonid": 86
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -205,5 +220,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

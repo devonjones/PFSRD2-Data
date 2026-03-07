@@ -27,12 +27,10 @@
     "spell": {
         "name": "Croak Voice",
         "type": "stat_block_section",
+        "text": "You cause the target creature\u2019s vocal chords to swell like those of a frog. The target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,10 +81,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -105,43 +101,68 @@
                 ]
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target's voice becomes hoarse, and speaking becomes painful. Whenever it uses an action that has the auditory trait or attempts to Cast a Spell that doesn't have the subtle trait, it must succeed at a DC 5 flat check or the action is lost. Once per round, the target can spend an Interact action to massage its throat, attempting a Fortitude save against your spell DC. On a success, the spell ends.",
-        "failure": "As success, but using an action with the auditory trait also deals 2d10 mental damage to the target as the sound of its distorted voice grates on its ears.",
-        "critical_failure": "As failure, but the damage for using an action with the auditory trait is doubled, and the target can't use an Interact action to attempt a Fortitude save to end the effect early."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target's voice becomes hoarse, and speaking becomes painful. Whenever it uses an action that has the auditory trait or attempts to Cast a Spell that doesn't have the subtle trait, it must succeed at a DC 5 flat check or the action is lost. Once per round, the target can spend an Interact action to massage its throat, attempting a Fortitude save against your spell DC. On a success, the spell ends.",
+            "failure": "As success, but using an action with the auditory trait also deals 2d10 mental damage to the target as the sound of its distorted voice grates on its ears.",
+            "critical_failure": "As failure, but the damage for using an action with the auditory trait is doubled, and the target can't use an Interact action to attempt a Fortitude save to end the effect early.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "auditory",
+                    "alt": "auditory",
+                    "game-obj": "Traits",
+                    "aonid": 541
+                },
+                {
+                    "type": "link",
+                    "name": "subtle",
+                    "alt": "subtle",
+                    "game-obj": "Traits",
+                    "aonid": 522
+                }
+            ]
+        }
     },
     "game-id": "cac823f23ced3ec977497d88e90fbbf8",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You cause the target creature\u2019s vocal chords to swell like those of a frog. The target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "auditory",
-            "alt": "auditory",
-            "game-obj": "Traits",
-            "aonid": 541
-        },
-        {
-            "type": "link",
-            "name": "subtle",
-            "alt": "subtle",
-            "game-obj": "Traits",
-            "aonid": 522
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -186,5 +207,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

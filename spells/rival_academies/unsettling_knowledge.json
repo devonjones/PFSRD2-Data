@@ -20,12 +20,10 @@
     "spell": {
         "name": "Unsettling Knowledge",
         "type": "stat_block_section",
+        "text": "You share a piece of hidden knowledge with a creature that is both upsetting and intriguing. When you Cast this Spell, choose Arcana, Nature, Occultism, Religion, or Society as the focus of this knowledge. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -102,75 +100,87 @@
         ],
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is fascinated by the knowledge you shared for 1 round.",
-        "failure": "The target is fascinated by the knowledge for 1 minute. The target can end this fascination early by attempting a skill check to Recall Knowledge to understand the knowledge using the chosen skill (using your spell DC as the DC); regardless of the result, the target becomes frightened 2, but if they failed the check, they can\u2019t reduce their frightened condition below 1 for the remainder of the spell\u2019s duration.",
-        "critical_failure": "As failure, but the target becomes frightened 3 if they attempt to Recall Knowledge."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is fascinated by the knowledge you shared for 1 round.",
+            "failure": "The target is fascinated by the knowledge for 1 minute. The target can end this fascination early by attempting a skill check to Recall Knowledge to understand the knowledge using the chosen skill (using your spell DC as the DC); regardless of the result, the target becomes frightened 2, but if they failed the check, they can\u2019t reduce their frightened condition below 1 for the remainder of the spell\u2019s duration.",
+            "critical_failure": "As failure, but the target becomes frightened 3 if they attempt to Recall Knowledge.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "fascinated",
+                    "alt": "fascinated",
+                    "game-obj": "Conditions",
+                    "aonid": 72
+                },
+                {
+                    "type": "link",
+                    "name": "Recall Knowledge",
+                    "alt": "Recall Knowledge",
+                    "game-obj": "Actions",
+                    "aonid": 2367
+                },
+                {
+                    "type": "link",
+                    "name": "frightened",
+                    "alt": "frightened",
+                    "game-obj": "Conditions",
+                    "aonid": 76
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Arcana",
+                "alt": "Arcana",
+                "game-obj": "Skills",
+                "aonid": 35
+            },
+            {
+                "type": "link",
+                "name": "Nature",
+                "alt": "Nature",
+                "game-obj": "Skills",
+                "aonid": 43
+            },
+            {
+                "type": "link",
+                "name": "Occultism",
+                "alt": "Occultism",
+                "game-obj": "Skills",
+                "aonid": 44
+            },
+            {
+                "type": "link",
+                "name": "Religion",
+                "alt": "Religion",
+                "game-obj": "Skills",
+                "aonid": 46
+            },
+            {
+                "type": "link",
+                "name": "Society",
+                "alt": "Society",
+                "game-obj": "Skills",
+                "aonid": 47
+            }
+        ]
     },
     "game-id": "bb4f74562fd455fc130d72d12de8a71e",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You share a piece of hidden knowledge with a creature that is both upsetting and intriguing. When you Cast this Spell, choose Arcana, Nature, Occultism, Religion, or Society as the focus of this knowledge. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Arcana",
-            "alt": "Arcana",
-            "game-obj": "Skills",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "Nature",
-            "alt": "Nature",
-            "game-obj": "Skills",
-            "aonid": 43
-        },
-        {
-            "type": "link",
-            "name": "Occultism",
-            "alt": "Occultism",
-            "game-obj": "Skills",
-            "aonid": 44
-        },
-        {
-            "type": "link",
-            "name": "Religion",
-            "alt": "Religion",
-            "game-obj": "Skills",
-            "aonid": 46
-        },
-        {
-            "type": "link",
-            "name": "Society",
-            "alt": "Society",
-            "game-obj": "Skills",
-            "aonid": 47
-        },
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 72
-        },
-        {
-            "type": "link",
-            "name": "Recall Knowledge",
-            "alt": "Recall Knowledge",
-            "game-obj": "Actions",
-            "aonid": 2367
-        },
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -215,5 +225,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

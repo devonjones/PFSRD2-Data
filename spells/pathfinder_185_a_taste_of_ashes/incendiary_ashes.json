@@ -40,12 +40,10 @@
     "spell": {
         "name": "Incendiary Ashes",
         "type": "stat_block_section",
+        "text": "A cloud of magical ashes descends upon creatures in the area. The ashes scour flesh and linger in the wounds, igniting upon the slightest flicker of flame. Creatures in the area take 4d6 slashing damage and must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,11 +106,8 @@
                 }
             }
         ],
-        "mystery": "ash",
-        "cast": "verbal, somatic",
         "range": "120 feet",
         "area": "20-foot burst",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -121,38 +116,67 @@
                 "text": "The slashing damage increases by 2d6 and weakness to fire increases by 1."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and has weakness to fire 3 until the start of its next turn.",
-        "failure": "The creature takes full damage and has weakness to fire 3 for 1 minute. If the creature is killed by fire during this time it's reduced to ashes, though its gear remains.",
-        "critical_failure": "As failure, except the creature takes double damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "ash",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "ash",
+                    "alt": "ash",
+                    "game-obj": "Mysteries",
+                    "aonid": 20
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and has weakness to fire 3 until the start of its next turn.",
+            "failure": "The creature takes full damage and has weakness to fire 3 for 1 minute. If the creature is killed by fire during this time it's reduced to ashes, though its gear remains.",
+            "critical_failure": "As failure, except the creature takes double damage."
+        }
     },
     "game-id": "7a80f739536437f8bf17b83b5565aca0",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "A cloud of magical ashes descends upon creatures in the area. The ashes scour flesh and linger in the wounds, igniting upon the slightest flicker of flame. Creatures in the area take 4d6 slashing damage and must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "ash",
-            "alt": "ash",
-            "game-obj": "Mysteries",
-            "aonid": 20
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -168,5 +192,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

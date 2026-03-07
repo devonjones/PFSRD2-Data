@@ -20,12 +20,10 @@
     "spell": {
         "name": "Unexpected Windfall",
         "type": "stat_block_section",
+        "text": "Coins, trinkets carved from heavy stone, and other cumbersome treasures rain down upon a foe. The target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -102,40 +100,52 @@
         ],
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is encumbered for 1 round.",
-        "failure": "The target is encumbered for the duration of the spell.",
-        "critical_failure": "As failure, but the extra weight also knocks the target prone."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is encumbered for 1 round.",
+            "failure": "The target is encumbered for the duration of the spell.",
+            "critical_failure": "As failure, but the extra weight also knocks the target prone.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "encumbered",
+                    "alt": "encumbered",
+                    "game-obj": "Conditions",
+                    "aonid": 70
+                },
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 88
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Rules",
+                "aonid": 2243
+            }
+        ]
     },
     "game-id": "4c7e33e7267d291ed09ea7b24942244f",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Coins, trinkets carved from heavy stone, and other cumbersome treasures rain down upon a foe. The target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "encumbered",
-            "alt": "encumbered",
-            "game-obj": "Conditions",
-            "aonid": 70
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 88
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Rules",
-            "aonid": 2243
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -180,5 +190,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

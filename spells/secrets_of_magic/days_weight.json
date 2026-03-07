@@ -54,12 +54,10 @@
     "spell": {
         "name": "Day's Weight",
         "type": "stat_block_section",
+        "text": "You fast-forward time for a single creature, burdening it with the aches and pain of an entire day and making it temporarily tired and weak. The creature must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,11 +72,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult, primal",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 living creature",
-        "saving_throw": "Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -88,63 +83,106 @@
                 "text": "You can target up to 10 creatures."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target is fatigued and enfeebled 1 for 1 round.",
-        "failure": "The target is fatigued and enfeebled 1 for the duration.",
-        "critical_failure": "The target is fatigued and enfeebled 2 for the duration. The fatigued condition doesn't end when the spell's duration does (but can still be removed with a night's rest or by similar means)."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is fatigued and enfeebled 1 for 1 round.",
+            "failure": "The target is fatigued and enfeebled 1 for the duration.",
+            "critical_failure": "The target is fatigued and enfeebled 2 for the duration. The fatigued condition doesn't end when the spell's duration does (but can still be removed with a night's rest or by similar means).",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "fatigued",
+                    "alt": "fatigued",
+                    "game-obj": "Conditions",
+                    "aonid": 15
+                },
+                {
+                    "type": "link",
+                    "name": "enfeebled 1",
+                    "alt": "enfeebled 1",
+                    "game-obj": "Conditions",
+                    "aonid": 13
+                }
+            ]
+        }
     },
     "game-id": "38af60d3030ffda1fd90c41e02f774e8",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You fast-forward time for a single creature, burdening it with the aches and pain of an entire day and making it temporarily tired and weak. The creature must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fatigued",
-            "alt": "fatigued",
-            "game-obj": "Conditions",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -160,5 +198,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

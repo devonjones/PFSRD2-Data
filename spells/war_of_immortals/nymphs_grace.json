@@ -20,12 +20,10 @@
     "spell": {
         "name": "Nymph's Grace",
         "type": "stat_block_section",
+        "text": "Your apparition manifests as a mask of unearthly beauty that bewilders your enemies. The first time an enemy enters the aura each round, or if they start their turn within the aura, they must succeed at a Will saving throw or become confused for 1 round. While confused by this effect, the creature's confused actions never include harming you.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -125,36 +123,46 @@
             }
         ],
         "area": "10-foot emanation",
-        "saving_throw": "Will",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "confused",
+                "alt": "confused",
+                "game-obj": "Conditions",
+                "aonid": 63
+            },
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Actions",
+                "aonid": 2317
+            },
+            {
+                "type": "link",
+                "name": "emanation",
+                "alt": "emanation",
+                "game-obj": "Rules",
+                "aonid": 2387
+            }
+        ]
     },
     "game-id": "ff9d6138401702daac1f0c4a7c49f823",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your apparition manifests as a mask of unearthly beauty that bewilders your enemies. The first time an enemy enters the aura each round, or if they start their turn within the aura, they must succeed at a Will saving throw or become confused for 1 round. While confused by this effect, the creature's confused actions never include harming you.",
-    "links": [
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 63
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Actions",
-            "aonid": 2317
-        },
-        {
-            "type": "link",
-            "name": "emanation",
-            "alt": "emanation",
-            "game-obj": "Rules",
-            "aonid": 2387
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -199,5 +207,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

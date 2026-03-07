@@ -54,12 +54,10 @@
     "spell": {
         "name": "Wild Shape",
         "type": "stat_block_section",
+        "text": "You infuse yourself with primal essence and transform yourself into another form. You can polymorph into any form listed in *pest form*, which lasts 10 minutes. All other *wild shape* forms last 1 minute. You can add more forms to your *wild shape* list with druid feats; your feat might grant you some or all of the forms from a given polymorph spell. When you transform into a form granted by a spell, you gain all the effects of the form you chose from a version of the spell heightened to *wild shape*'s level. *Wild shape* allows you to use your own shapeshifting training more easily than most polymorph spells. When you choose to use your own attack modifier while polymorphed instead of the form's default attack modifier, you gain a +2 status bonus to your attack rolls.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,7 +108,6 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "duration": "1 minute (or longer)",
         "heightened": [
             {
@@ -128,35 +125,53 @@
                     }
                 ]
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "pest form",
+                "alt": "pest form",
+                "game-obj": "Spells",
+                "aonid": 217
+            }
         ]
     },
     "game-id": "d8f50190424762ebd5db46023f6cc65c",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You infuse yourself with primal essence and transform yourself into another form. You can polymorph into any form listed in *pest form*, which lasts 10 minutes. All other *wild shape* forms last 1 minute. You can add more forms to your *wild shape* list with druid feats; your feat might grant you some or all of the forms from a given polymorph spell. When you transform into a form granted by a spell, you gain all the effects of the form you chose from a version of the spell heightened to *wild shape*'s level. *Wild shape* allows you to use your own shapeshifting training more easily than most polymorph spells. When you choose to use your own attack modifier while polymorphed instead of the form's default attack modifier, you gain a +2 status bonus to your attack rolls.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pest form",
-            "alt": "pest form",
-            "game-obj": "Spells",
-            "aonid": 217
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -172,5 +187,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

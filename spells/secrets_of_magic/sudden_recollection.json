@@ -54,12 +54,10 @@
     "spell": {
         "name": "Sudden Recollection",
         "type": "stat_block_section",
+        "text": "You place a bit of knowledge deep in a creature's subconscious or make a willing creature forget some information until a specific trigger occurs. The target gets a Will saving throw to resist the effect. A willing creature can choose to fail its save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,42 +96,68 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "unlimited",
-        "critical_success": "The target is unaffected and realizes you tried to alter its memory.",
-        "success": "The target is unaffected but thinks your spell was something harmless instead of *sudden recollection*, unless it identifies the spell.",
-        "failure": "You choose a piece of information the target didn't already know and create a trigger, such as seeing an object, hearing a key phrase, or witnessing an event. As soon as the target experiences the trigger, it receives the information and the spell ends. If the target was willing, you can instead choose a piece of information the target already knew and suppress its memory of that information until it experiences the trigger, after which it recovers the information and the spell ends."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected and realizes you tried to alter its memory.",
+            "success": "The target is unaffected but thinks your spell was something harmless instead of *sudden recollection*, unless it identifies the spell.",
+            "failure": "You choose a piece of information the target didn't already know and create a trigger, such as seeing an object, hearing a key phrase, or witnessing an event. As soon as the target experiences the trigger, it receives the information and the spell ends. If the target was willing, you can instead choose a piece of information the target already knew and suppress its memory of that information until it experiences the trigger, after which it recovers the information and the spell ends."
+        }
     },
     "game-id": "2469127d3b89ad37bffa437921052c14",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You place a bit of knowledge deep in a creature's subconscious or make a willing creature forget some information until a specific trigger occurs. The target gets a Will saving throw to resist the effect. A willing creature can choose to fail its save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +173,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

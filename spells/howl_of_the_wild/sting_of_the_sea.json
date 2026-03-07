@@ -27,12 +27,10 @@
     "spell": {
         "name": "Sting of the Sea",
         "type": "stat_block_section",
+        "text": "A long tentacle like that belonging to an octopus, anemone, or man-of-war, dripping with briny water, appears from a glowing blue portal to wrap around the target\u2019s face, blocking its vision. For the duration of the spell, the target must attempt a Fortitude save at the beginning of its turn. The portal follows the target around, and the tentacle can\u2019t be targeted or harmed.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,44 +93,60 @@
                 }
             }
         ],
-        "traditions": "N/A",
-        "patron_theme": "ripple in the deep",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes a \u20132 penalty to Perception checks involving vision until the end of its turn.",
-        "failure": "The target is dazzled until the end of its turn.",
-        "critical_failure": "The target is blinded until the end of its turn."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "ripple in the deep",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "ripple in the deep",
+                    "alt": "ripple in the deep",
+                    "game-obj": "Patrons",
+                    "aonid": 20
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes a \u20132 penalty to Perception checks involving vision until the end of its turn.",
+            "failure": "The target is dazzled until the end of its turn.",
+            "critical_failure": "The target is blinded until the end of its turn.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "dazzled",
+                    "alt": "dazzled",
+                    "game-obj": "Conditions",
+                    "aonid": 65
+                },
+                {
+                    "type": "link",
+                    "name": "blinded",
+                    "alt": "blinded",
+                    "game-obj": "Conditions",
+                    "aonid": 59
+                }
+            ]
+        }
     },
     "game-id": "6c72b0c710379ef784715b91b778343a",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "A long tentacle like that belonging to an octopus, anemone, or man-of-war, dripping with briny water, appears from a glowing blue portal to wrap around the target\u2019s face, blocking its vision. For the duration of the spell, the target must attempt a Fortitude save at the beginning of its turn. The portal follows the target around, and the tentacle can\u2019t be targeted or harmed.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 65
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 59
-        },
-        {
-            "type": "link",
-            "name": "ripple in the deep",
-            "alt": "ripple in the deep",
-            "game-obj": "Patrons",
-            "aonid": 20
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -177,5 +191,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

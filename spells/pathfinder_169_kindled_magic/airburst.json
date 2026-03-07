@@ -40,12 +40,10 @@
     "spell": {
         "name": "Airburst",
         "type": "stat_block_section",
+        "text": "A blast of wind wildly pushes everything nearby. Unattended objects of 1 Bulk or less are pushed 5 feet away from you. Large or smaller creatures must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,8 +82,6 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "cast": "verbal",
         "area": "5-foot emanation",
         "targets": "all creatures and unattended objects in the area",
         "heightened": [
@@ -96,43 +92,74 @@
                 "text": "Increase the area to a 10-foot emanation and increase the distance objects and creatures are pushed to 10 feet."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes a \u20132 status penalty to checks made during its reactions until the end of your turn.",
-        "failure": "As success, and the creature is pushed 5 feet away from you.",
-        "critical_failure": "The creature is pushed 5 feet away from you and can't use reactions until the end of your turn."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes a \u20132 status penalty to checks made during its reactions until the end of your turn.",
+            "failure": "As success, and the creature is pushed 5 feet away from you.",
+            "critical_failure": "The creature is pushed 5 feet away from you and can't use reactions until the end of your turn.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "pushed",
+                    "alt": "pushed",
+                    "game-obj": "Rules",
+                    "aonid": 451
+                }
+            ]
+        }
     },
     "game-id": "b9fef97df7047966ab24c4e84f72fdd9",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "A blast of wind wildly pushes everything nearby. Unattended objects of 1 Bulk or less are pushed 5 feet away from you. Large or smaller creatures must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pushed",
-            "alt": "pushed",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -148,5 +175,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

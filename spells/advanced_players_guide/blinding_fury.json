@@ -54,12 +54,10 @@
     "spell": {
         "name": "Blinding Fury",
         "type": "stat_block_section",
+        "text": "You curse the target with your outrage at being attacked. The effect is determined by the target's Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,63 +120,98 @@
                 }
             }
         ],
-        "traditions": "divine, occult, primal",
-        "cast": "verbal",
         "trigger": "A creature damages you.",
         "range": "60 feet",
         "targets": "the triggering creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target can't observe you until the end of its turn, and if you're currently observed by it, you become hidden to it.",
-        "failure": "As success, and for 1 minute, every time the target damages you, it can't observe you until the end of its turn.",
-        "critical_failure": "As success, and for an unlimited duration, the first time each round the target damages a creature, it can't observe that creature until the end of its turn. If it damages several creatures at once, the creature it can't perceive is chosen randomly among those creatures."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target can't observe you until the end of its turn, and if you're currently observed by it, you become hidden to it.",
+            "failure": "As success, and for 1 minute, every time the target damages you, it can't observe you until the end of its turn.",
+            "critical_failure": "As success, and for an unlimited duration, the first time each round the target damages a creature, it can't observe that creature until the end of its turn. If it damages several creatures at once, the creature it can't perceive is chosen randomly among those creatures.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "observed",
+                    "alt": "observed",
+                    "game-obj": "Conditions",
+                    "aonid": 27
+                },
+                {
+                    "type": "link",
+                    "name": "hidden",
+                    "alt": "hidden",
+                    "game-obj": "Conditions",
+                    "aonid": 22
+                }
+            ]
+        }
     },
     "game-id": "bee825e669480e52f894f7ce829c1961",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You curse the target with your outrage at being attacked. The effect is determined by the target's Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "observed",
-            "alt": "observed",
-            "game-obj": "Conditions",
-            "aonid": 27
-        },
-        {
-            "type": "link",
-            "name": "hidden",
-            "alt": "hidden",
-            "game-obj": "Conditions",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -194,5 +227,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

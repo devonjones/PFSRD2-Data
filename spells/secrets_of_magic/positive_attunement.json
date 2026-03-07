@@ -54,12 +54,10 @@
     "spell": {
         "name": "Positive Attunement",
         "type": "stat_block_section",
+        "text": "You attune a creature to the Positive Energy Plane, connecting its life force without fully transporting it. The creature's appearance becomes more brightly colored. If the creature is living, it heals 1d8 Hit Points immediately and at the end of each of your turns. Effects that increase healing only increase the initial healing.  \n  \n If the creature is undead or has negative healing, it instead takes 1d8 positive damage, depending on the result of its Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,11 +96,8 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 living or undead creature",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -112,71 +107,108 @@
                 "text": "The damage and healing each increase by 1d8."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is damaged once and the spell ends.",
-        "failure": "The creature is damaged immediately and at the end of each of your turns (so twice in the round you Cast the Spell).",
-        "critical_failure": "As failure, and the damage is doubled."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is damaged once and the spell ends.",
+            "failure": "The creature is damaged immediately and at the end of each of your turns (so twice in the round you Cast the Spell).",
+            "critical_failure": "As failure, and the damage is doubled."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Positive Energy Plane",
+                "alt": "Positive Energy Plane",
+                "game-obj": "Planes",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            },
+            {
+                "type": "link",
+                "name": "negative healing",
+                "alt": "negative healing",
+                "game-obj": "MonsterAbilities",
+                "aonid": 42
+            },
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            }
+        ]
     },
     "game-id": "98b66441c926aea22aab82bb7f4dea35",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You attune a creature to the Positive Energy Plane, connecting its life force without fully transporting it. The creature's appearance becomes more brightly colored. If the creature is living, it heals 1d8 Hit Points immediately and at the end of each of your turns. Effects that increase healing only increase the initial healing.  \n  \n If the creature is undead or has negative healing, it instead takes 1d8 positive damage, depending on the result of its Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Positive Energy Plane",
-            "alt": "Positive Energy Plane",
-            "game-obj": "Planes",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "negative healing",
-            "alt": "negative healing",
-            "game-obj": "MonsterAbilities",
-            "aonid": 42
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -192,5 +224,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

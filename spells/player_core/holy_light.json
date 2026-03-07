@@ -27,12 +27,10 @@
     "spell": {
         "name": "Holy Light",
         "type": "stat_block_section",
+        "text": "You shine a blazing ray of light tinged with holy energy. Make a ranged spell attack. The ray deals 5d6 fire damage. If the target has the unholy trait, you deal an extra 5d6 spirit damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,11 +105,8 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
-        "bloodline": "angelic",
         "range": "120 feet",
         "targets": "1 creature",
-        "defense": "AC",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -120,48 +115,79 @@
                 "text": "The fire damage increases by 2d6, and the spirit damage against unholy creatures increases by 2d6."
             }
         ],
-        "critical_success": "The target takes double damage.",
-        "success": "The target takes full damage.  \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, *holy light* attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the spell's target."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "angelic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "angelic",
+                    "alt": "angelic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 20
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "text": "AC",
+            "critical_success": "The target takes double damage.",
+            "success": "The target takes full damage.  \n  \n If the light passes through an area of magical darkness or targets a creature affected by magical darkness, *holy light* attempts to counteract the darkness. If you need to determine whether the light passes through an area of darkness, draw a line between yourself and the spell's target.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "darkness",
+                    "alt": "darkness",
+                    "game-obj": "Traits",
+                    "aonid": 39
+                },
+                {
+                    "type": "link",
+                    "name": "counteract",
+                    "alt": "counteract",
+                    "game-obj": "Rules",
+                    "aonid": 371
+                }
+            ]
+        }
     },
     "game-id": "83c6031578b02372e269893a248e4d36",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You shine a blazing ray of light tinged with holy energy. Make a ranged spell attack. The ray deals 5d6 fire damage. If the target has the unholy trait, you deal an extra 5d6 spirit damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Traits",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "angelic",
-            "alt": "angelic",
-            "game-obj": "Bloodlines",
-            "aonid": 20
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -206,5 +232,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

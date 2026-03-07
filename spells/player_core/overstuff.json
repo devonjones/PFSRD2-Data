@@ -27,12 +27,10 @@
     "spell": {
         "name": "Overstuff",
         "type": "stat_block_section",
+        "text": "Huge amounts of food and drink fill the target. It receives a full meal's worth of nourishment and must attempt a Fortitude save. A target sickened by this spell takes a \u201310-foot status penalty to its Speed until it's no longer sickened.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,35 +93,52 @@
                 }
             }
         ],
-        "domain": "indulgence",
         "range": "30 feet",
         "targets": "1 living creature",
-        "defense": "Fortitude",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is sickened 1, but if it spends an action to end the condition, it succeeds automatically.",
-        "failure": "The target is sickened 1.",
-        "critical_failure": "The target is sickened 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "indulgence",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "indulgence",
+                    "alt": "indulgence",
+                    "game-obj": "Domains",
+                    "aonid": 79
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is sickened 1, but if it spends an action to end the condition, it succeeds automatically.",
+            "failure": "The target is sickened 1.",
+            "critical_failure": "The target is sickened 2."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "sickened",
+                "alt": "sickened",
+                "game-obj": "Conditions",
+                "aonid": 34
+            }
+        ]
     },
     "game-id": "e580a7b740d21e547ec3d605d253d8cd",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Huge amounts of food and drink fill the target. It receives a full meal's worth of nourishment and must attempt a Fortitude save. A target sickened by this spell takes a \u201310-foot status penalty to its Speed until it's no longer sickened.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened",
-            "alt": "sickened",
-            "game-obj": "Conditions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "indulgence",
-            "alt": "indulgence",
-            "game-obj": "Domains",
-            "aonid": 79
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -168,5 +183,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Arcane Countermeasure",
         "type": "stat_block_section",
+        "text": "You undermine the target spell, making it easier to defend against. You reduce the spell's level by 1, and targets of the spell gain a +2 status bonus to any saving throws, skill checks, AC, or DC against it.  \n  \n You can't reduce the spell's level below its minimum. For example, a 5th-level *cone of cold* would remain 5th-level, but a 5th-level *fireball* would become 4th-level. Targets still gain all the other benefits, even if you don't reduce the spell's level.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,46 +96,65 @@
                 }
             }
         ],
-        "bloodline": "imperial",
-        "cast": "somatic",
         "trigger": "A creature within range that you can see Casts a Spell.",
         "range": "120 feet",
-        "targets": "the spell cast by the triggering creature"
+        "targets": "the spell cast by the triggering creature",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "imperial",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "imperial",
+                    "alt": "imperial",
+                    "game-obj": "Bloodlines",
+                    "aonid": 9
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "cone of cold",
+                "alt": "cone of cold",
+                "game-obj": "Spells",
+                "aonid": 47
+            },
+            {
+                "type": "link",
+                "name": "fireball",
+                "alt": "fireball",
+                "game-obj": "Spells",
+                "aonid": 119
+            }
+        ]
     },
     "game-id": "e324668bf4fe1b0512ff7179580cd21e",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You undermine the target spell, making it easier to defend against. You reduce the spell's level by 1, and targets of the spell gain a +2 status bonus to any saving throws, skill checks, AC, or DC against it.  \n  \n You can't reduce the spell's level below its minimum. For example, a 5th-level *cone of cold* would remain 5th-level, but a 5th-level *fireball* would become 4th-level. Targets still gain all the other benefits, even if you don't reduce the spell's level.",
-    "links": [
-        {
-            "type": "link",
-            "name": "cone of cold",
-            "alt": "cone of cold",
-            "game-obj": "Spells",
-            "aonid": 47
-        },
-        {
-            "type": "link",
-            "name": "fireball",
-            "alt": "fireball",
-            "game-obj": "Spells",
-            "aonid": 119
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "imperial",
-            "alt": "imperial",
-            "game-obj": "Bloodlines",
-            "aonid": 9
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -153,5 +170,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

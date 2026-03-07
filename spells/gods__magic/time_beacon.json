@@ -54,12 +54,10 @@
     "spell": {
         "name": "Time Beacon",
         "type": "stat_block_section",
+        "text": "You create a beacon in time, intending to return to it if things go wrong. You can cast *time beacon* on only your turn. Keep careful track of everything that happens this turn after you cast *time beacon*. At the end of your turn, you can choose to rewind time back to just after you cast *time beacon*, removing all effects of your turn since then. Curses, traps, and other harmful effects that happen during your turn might prevent you from returning to the beacon if they are powerful enough. If you suffered any harmful effects during your turn after casting *time beacon*, to return to your beacon, *time beacon* attempts a counteract check against each such effect. If it fails at any of these checks, you can't return. After returning to the time beacon, the spell ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,50 +72,84 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Shyka, Yog-Sothoth",
-        "cast": "material",
-        "duration": "until the end of your turn"
+        "duration": "until the end of your turn",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Shyka",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Shyka",
+                    "alt": "Shyka",
+                    "game-obj": "Deities",
+                    "aonid": 100
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Yog-Sothoth",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Yog-Sothoth",
+                    "alt": "Yog-Sothoth",
+                    "game-obj": "Deities",
+                    "aonid": 166
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                }
+            ]
+        }
     },
     "game-id": "5b8c845c41d0395748d5b821919a0e00",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "You create a beacon in time, intending to return to it if things go wrong. You can cast *time beacon* on only your turn. Keep careful track of everything that happens this turn after you cast *time beacon*. At the end of your turn, you can choose to rewind time back to just after you cast *time beacon*, removing all effects of your turn since then. Curses, traps, and other harmful effects that happen during your turn might prevent you from returning to the beacon if they are powerful enough. If you suffered any harmful effects during your turn after casting *time beacon*, to return to your beacon, *time beacon* attempts a counteract check against each such effect. If it fails at any of these checks, you can't return. After returning to the time beacon, the spell ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Shyka",
-            "alt": "Shyka",
-            "game-obj": "Deities",
-            "aonid": 100
-        },
-        {
-            "type": "link",
-            "name": "Yog-Sothoth",
-            "alt": "Yog-Sothoth",
-            "game-obj": "Deities",
-            "aonid": 166
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -133,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

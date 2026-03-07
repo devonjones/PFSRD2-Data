@@ -27,12 +27,10 @@
     "spell": {
         "name": "Vitrifying Blast",
         "type": "stat_block_section",
+        "text": "You launch a cone of glass shards, which embed in creatures to turn them partially to glass. The shards deal 8d6 piercing damage to creatures in the area, based on each creature's saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,10 +69,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "60 feet",
         "area": "15-foot cone",
-        "defense": "Reflex",
         "duration": "varies",
         "heightened": [
             {
@@ -84,43 +80,68 @@
                 "text": "The damage increases by 1d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage and gains weakness 3 to sonic and bludgeoning damage for 1 round.",
-        "failure": "The target takes full damage, is slowed 1, and gains weakness to sonic and bludgeoning damage. The weakness is equal to 3 \u00d7 the slowed value it has from this spell. The target must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the creature's slowed value increases by 1 (or by 2 on a critical failure), to a maximum of slowed 3. A successful save reduces the creature's slowed value by 1 (or by 2 on a critical success). If the creature ends its turn with a slowed value of 0, the effect ends.",
-        "critical_failure": "As failure, but the target is initially slowed 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage and gains weakness 3 to sonic and bludgeoning damage for 1 round.",
+            "failure": "The target takes full damage, is slowed 1, and gains weakness to sonic and bludgeoning damage. The weakness is equal to 3 \u00d7 the slowed value it has from this spell. The target must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the creature's slowed value increases by 1 (or by 2 on a critical failure), to a maximum of slowed 3. A successful save reduces the creature's slowed value by 1 (or by 2 on a critical success). If the creature ends its turn with a slowed value of 0, the effect ends.",
+            "critical_failure": "As failure, but the target is initially slowed 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                },
+                {
+                    "type": "link",
+                    "name": "incapacitation",
+                    "alt": "incapacitation",
+                    "game-obj": "Traits",
+                    "aonid": 93
+                }
+            ]
+        }
     },
     "game-id": "85a63db3d5b5621c915fb39e8ba706b6",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You launch a cone of glass shards, which embed in creatures to turn them partially to glass. The shards deal 8d6 piercing damage to creatures in the area, based on each creature's saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "incapacitation",
-            "alt": "incapacitation",
-            "game-obj": "Traits",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -165,5 +186,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

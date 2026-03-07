@@ -40,12 +40,10 @@
     "spell": {
         "name": "Verminous Lure",
         "type": "stat_block_section",
+        "text": "Upon casting, the target emits a musk that's captivating to certain animals. Tiny animals and animal swarms of any size within range must attempt a Will save. On a failure, non-hostile animals or animal swarms try to touch the target. If hostile, such creatures choose to attack the target instead of other foes, if able to do so without spending additional actions or exposing themselves to additional danger.  \n  \n *Verminous lure* doesn't change animals' attitudes towards the target and is easily overridden by more direct control, such as the Command an Animal action. Animals with imprecise sense can use their scent as a precise sense against the target.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,80 +82,104 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature or object",
-        "duration": "10 minutes"
+        "duration": "10 minutes",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "hostile",
+                "alt": "hostile",
+                "game-obj": "Conditions",
+                "aonid": 23
+            },
+            {
+                "type": "link",
+                "name": "animals",
+                "alt": "animals",
+                "game-obj": "Traits",
+                "aonid": 9
+            },
+            {
+                "type": "link",
+                "name": "swarms",
+                "alt": "swarms",
+                "game-obj": "Domains",
+                "aonid": 53
+            },
+            {
+                "type": "link",
+                "name": "Command an Animal",
+                "alt": "Command an Animal",
+                "game-obj": "Actions",
+                "aonid": 58
+            },
+            {
+                "type": "link",
+                "name": "scent",
+                "alt": "scent",
+                "game-obj": "MonsterAbilities",
+                "aonid": 33
+            },
+            {
+                "type": "link",
+                "name": "precise sense",
+                "alt": "precise sense",
+                "game-obj": "Rules",
+                "aonid": 411
+            }
+        ]
     },
     "game-id": "e23b6d25533115c9faaab3fb731eb4d5",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "Upon casting, the target emits a musk that's captivating to certain animals. Tiny animals and animal swarms of any size within range must attempt a Will save. On a failure, non-hostile animals or animal swarms try to touch the target. If hostile, such creatures choose to attack the target instead of other foes, if able to do so without spending additional actions or exposing themselves to additional danger.  \n  \n *Verminous lure* doesn't change animals' attitudes towards the target and is easily overridden by more direct control, such as the Command an Animal action. Animals with imprecise sense can use their scent as a precise sense against the target.",
-    "links": [
-        {
-            "type": "link",
-            "name": "hostile",
-            "alt": "hostile",
-            "game-obj": "Conditions",
-            "aonid": 23
-        },
-        {
-            "type": "link",
-            "name": "animals",
-            "alt": "animals",
-            "game-obj": "Traits",
-            "aonid": 9
-        },
-        {
-            "type": "link",
-            "name": "swarms",
-            "alt": "swarms",
-            "game-obj": "Domains",
-            "aonid": 53
-        },
-        {
-            "type": "link",
-            "name": "Command an Animal",
-            "alt": "Command an Animal",
-            "game-obj": "Actions",
-            "aonid": 58
-        },
-        {
-            "type": "link",
-            "name": "scent",
-            "alt": "scent",
-            "game-obj": "MonsterAbilities",
-            "aonid": 33
-        },
-        {
-            "type": "link",
-            "name": "precise sense",
-            "alt": "precise sense",
-            "game-obj": "Rules",
-            "aonid": 411
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -173,5 +195,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

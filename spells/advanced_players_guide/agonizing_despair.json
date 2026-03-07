@@ -54,12 +54,10 @@
     "spell": {
         "name": "Agonizing Despair",
         "type": "stat_block_section",
+        "text": "Your target's mind tumbles down a deep well of dread, dwelling so intently on deep-seated fears that it's painful. The target takes 4d6 mental damage with a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,11 +108,8 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "cast": "verbal, somatic",
         "range": "60 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -123,56 +118,99 @@
                 "text": "Increase the damage by 2d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage and becomes frightened 1.",
-        "failure": "The target takes full damage and becomes frightened 2.",
-        "critical_failure": "The target takes double damage and becomes frightened 3."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage and becomes frightened 1.",
+            "failure": "The target takes full damage and becomes frightened 2.",
+            "critical_failure": "The target takes double damage and becomes frightened 3.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened 1",
+                    "alt": "frightened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 19
+                }
+            ]
+        }
     },
     "game-id": "3b3fac4c84adc5dc96f869882ac99da6",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "Your target's mind tumbles down a deep well of dread, dwelling so intently on deep-seated fears that it's painful. The target takes 4d6 mental damage with a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -188,5 +226,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

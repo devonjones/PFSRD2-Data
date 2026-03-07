@@ -54,12 +54,10 @@
     "spell": {
         "name": "Delay Consequence",
         "type": "stat_block_section",
+        "text": "You transpose the moment that the target would be injured to later in its timestream. Roll damage normally, but do not reduce Hit Points or apply any other effects of the attack until the spell\u2019s duration has elapsed. When the spell ends, the target is immediately affected by the attack, taking damage and being affected by any additional effects. You can Dismiss this spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,33 +72,50 @@
                 }
             }
         ],
-        "domain": "time",
-        "cast": "somatic",
         "trigger": "A creature or object within range is hit by an attack.",
         "range": "30 feet",
         "targets": "the triggering creature",
-        "duration": "1 round"
+        "duration": "1 round",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "time",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "time",
+                    "alt": "time",
+                    "game-obj": "Domains",
+                    "aonid": 54
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "fd791df8c0577f91b1c86298cebaec0f",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You transpose the moment that the target would be injured to later in its timestream. Roll damage normally, but do not reduce Hit Points or apply any other effects of the attack until the spell\u2019s duration has elapsed. When the spell ends, the target is immediately affected by the attack, taking damage and being affected by any additional effects. You can Dismiss this spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "time",
-            "alt": "time",
-            "game-obj": "Domains",
-            "aonid": 54
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -116,5 +131,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

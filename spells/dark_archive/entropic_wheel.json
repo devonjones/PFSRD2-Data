@@ -40,12 +40,10 @@
     "spell": {
         "name": "Entropic Wheel",
         "type": "stat_block_section",
+        "text": "You stockpile thermal energy in a magical wheel-like construct that lets you burn opponents with cold or freeze their bodies with heat. When you Cast the Spell, the wheel has one mote of thermal energy, and when you use a cold or fire effect or deal cold or fire damage, the wheel spins, siphoning off a bit of energy and gaining another mote. The wheel can't gain motes more than once on a given turn, and the maximum number of motes is equal to entropic wheel's level.  \n  \n When you Cast a Spell that deals fire damage, the target also takes cold damage equal to the number of motes in the entropic wheel. When you Cast a Spell that deals cold damage, the target also takes fire damage equal to the number of motes in the *entropic wheel*. This applies only to the initial damage of the spell, not to any persistent damage or ongoing effects.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "cantrip",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,30 +118,42 @@
                 }
             }
         ],
-        "cast": "verbal",
         "trigger": "You deal cold or fire damage to an enemy",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent damage",
+                "alt": "persistent damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "a40793f088b808d1b7571533aa1f1b0f",
-    "spell_type": "cantrip",
-    "rank": 3,
-    "text": "You stockpile thermal energy in a magical wheel-like construct that lets you burn opponents with cold or freeze their bodies with heat. When you Cast the Spell, the wheel has one mote of thermal energy, and when you use a cold or fire effect or deal cold or fire damage, the wheel spins, siphoning off a bit of energy and gaining another mote. The wheel can't gain motes more than once on a given turn, and the maximum number of motes is equal to entropic wheel's level.  \n  \n When you Cast a Spell that deals fire damage, the target also takes cold damage equal to the number of motes in the entropic wheel. When you Cast a Spell that deals cold damage, the target also takes fire damage equal to the number of motes in the *entropic wheel*. This applies only to the initial damage of the spell, not to any persistent damage or ongoing effects.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent damage",
-            "alt": "persistent damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -159,5 +169,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Possession",
         "type": "stat_block_section",
+        "text": "You send your mind and soul into the target's body, attempting to take control. The target must attempt a Will save. You can choose to use the effects of a degree of success more favorable to the target if you prefer.  \n  \n While you're possessing a target, your own body is unconscious and can't wake up normally. You can sense everything the possessed target does. You can Dismiss this spell. If the possessed body dies, the spell ends and you must succeed at a Fortitude save against your spell DC or be paralyzed for 1 hour, or 24 hours on a critical failure. If the spell ends during an encounter, you act just before the possessed creature's initiative count.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,12 +120,8 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "deity": "Fumeiyoshi",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 living creature",
-        "saving_throw": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -137,44 +131,79 @@
                 "text": "The duration is 10 minutes, and you can physically enter the creature's body, protecting your physical body while the spell lasts."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "You possess the target but can't control it. You ride along in the body while the spell lasts.",
-        "failure": "You possess the target and take partial control of it. You no longer have a separate turn; instead, you might control the target. At the start of each of the target's turns, it attempts another Will save. If it fails, it's controlled by you on that turn; if it succeeds, it chooses its own actions; and if it critically succeeds, it forces you out and the spell ends.",
-        "critical_failure": "You possess the target fully, and it can only watch as you manipulate it like a puppet. The target is controlled by you."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Fumeiyoshi",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Fumeiyoshi",
+                    "alt": "Fumeiyoshi",
+                    "game-obj": "Deities",
+                    "aonid": 175
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "You possess the target but can't control it. You ride along in the body while the spell lasts.",
+            "failure": "You possess the target and take partial control of it. You no longer have a separate turn; instead, you might control the target. At the start of each of the target's turns, it attempts another Will save. If it fails, it's controlled by you on that turn; if it succeeds, it chooses its own actions; and if it critically succeeds, it forces you out and the spell ends.",
+            "critical_failure": "You possess the target fully, and it can only watch as you manipulate it like a puppet. The target is controlled by you."
+        }
     },
     "game-id": "4dd73b0a20cd13e8445474516ba57b5c",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "You send your mind and soul into the target's body, attempting to take control. The target must attempt a Will save. You can choose to use the effects of a degree of success more favorable to the target if you prefer.  \n  \n While you're possessing a target, your own body is unconscious and can't wake up normally. You can sense everything the possessed target does. You can Dismiss this spell. If the possessed body dies, the spell ends and you must succeed at a Fortitude save against your spell DC or be paralyzed for 1 hour, or 24 hours on a critical failure. If the spell ends during an encounter, you act just before the possessed creature's initiative count.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Fumeiyoshi",
-            "alt": "Fumeiyoshi",
-            "game-obj": "Deities",
-            "aonid": 175
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -190,5 +219,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

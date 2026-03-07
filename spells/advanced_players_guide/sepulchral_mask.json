@@ -54,12 +54,10 @@
     "spell": {
         "name": "Sepulchral Mask",
         "type": "stat_block_section",
+        "text": "You manifest a supernatural funerary mask, granting you a +1 status bonus to Will saving throws against emotion effects for 1 minute. Its somber countenance forces your foes to confront their regrets and sins. Each enemy in the area when you Cast the Spell or that starts its turn in the area takes 1d4 mental damage and must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,11 +132,8 @@
                 }
             }
         ],
-        "bloodline": "psychopomp",
-        "cast": "somatic, verbal",
         "area": "5-foot emanation",
         "targets": "enemies in the area",
-        "saving_throw": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -148,45 +143,76 @@
                 "text": "Increase the mental damage by 2d4 and the emanation's radius by 5 feet."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and takes a \u20131 status penalty to Will saves against emotion effects for 1 round.",
-        "critical_failure": "The creature takes double damage and a \u20131 status penalty to Will saves against emotion effects for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "psychopomp",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "psychopomp",
+                    "alt": "psychopomp",
+                    "game-obj": "Bloodlines",
+                    "aonid": 13
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and takes a \u20131 status penalty to Will saves against emotion effects for 1 round.",
+            "critical_failure": "The creature takes double damage and a \u20131 status penalty to Will saves against emotion effects for 1 minute."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "emotion",
+                "alt": "emotion",
+                "game-obj": "Traits",
+                "aonid": 60
+            }
+        ]
     },
     "game-id": "dab64d22c065fe1c66b193b099769bb2",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You manifest a supernatural funerary mask, granting you a +1 status bonus to Will saving throws against emotion effects for 1 minute. Its somber countenance forces your foes to confront their regrets and sins. Each enemy in the area when you Cast the Spell or that starts its turn in the area takes 1d4 mental damage and must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "emotion",
-            "alt": "emotion",
-            "game-obj": "Traits",
-            "aonid": 60
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "psychopomp",
-            "alt": "psychopomp",
-            "game-obj": "Bloodlines",
-            "aonid": 13
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -202,5 +228,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

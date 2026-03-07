@@ -40,12 +40,10 @@
     "spell": {
         "name": "Confront Selves",
         "type": "stat_block_section",
+        "text": "You show the target the spiraling web of actions and consequences that is their life and the changes wrought by these decisions upon themselves and those around them. These events swirl around the target like shards of broken pottery. The creature must attempt a Will save to resist these visions.  \n  \n Each time you sustain this spell, you force the target to confront an alternate permutation of themselves, witnessing the events of their life as if they'd chosen another path. They take 2d6 mental damage (basic Will save) and are encumbered. On a critical success, the spell ends and can no longer be sustained.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,11 +82,8 @@
                 }
             }
         ],
-        "domain": "introspection",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -97,49 +92,80 @@
                 "increment": 1,
                 "text": "The mental damage increases by 1d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "introspection",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "introspection",
+                    "alt": "introspection",
+                    "game-obj": "Domains",
+                    "aonid": 60
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "encumbered",
+                "alt": "encumbered",
+                "game-obj": "Conditions",
+                "aonid": 12
+            }
         ]
     },
     "game-id": "735d7257e9b9db919c3aed256225a3f2",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You show the target the spiraling web of actions and consequences that is their life and the changes wrought by these decisions upon themselves and those around them. These events swirl around the target like shards of broken pottery. The creature must attempt a Will save to resist these visions.  \n  \n Each time you sustain this spell, you force the target to confront an alternate permutation of themselves, witnessing the events of their life as if they'd chosen another path. They take 2d6 mental damage (basic Will save) and are encumbered. On a critical success, the spell ends and can no longer be sustained.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "encumbered",
-            "alt": "encumbered",
-            "game-obj": "Conditions",
-            "aonid": 12
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "introspection",
-            "alt": "introspection",
-            "game-obj": "Domains",
-            "aonid": 60
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -155,5 +181,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

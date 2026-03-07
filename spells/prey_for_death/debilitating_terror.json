@@ -20,12 +20,10 @@
     "spell": {
         "name": "Debilitating Terror",
         "type": "stat_block_section",
+        "text": "You fill the target\u2019s mind with terrifying images to disrupt their combat focus. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -114,26 +112,36 @@
         ],
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "until the start of your next turn",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes a \u20131 circumstance penalty to attack and damage rolls against you.",
-        "failure": "The target can't use hostile actions against you.",
-        "critical_failure": "The target is stunned 1 and can't use hostile actions against you."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes a \u20131 circumstance penalty to attack and damage rolls against you.",
+            "failure": "The target can't use hostile actions against you.",
+            "critical_failure": "The target is stunned 1 and can't use hostile actions against you.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stunned",
+                    "alt": "stunned",
+                    "game-obj": "Conditions",
+                    "aonid": 93
+                }
+            ]
+        }
     },
     "game-id": "8f402719afb10175de2955ee85f82f69",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You fill the target\u2019s mind with terrifying images to disrupt their combat focus. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "stunned",
-            "alt": "stunned",
-            "game-obj": "Conditions",
-            "aonid": 93
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -178,5 +186,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

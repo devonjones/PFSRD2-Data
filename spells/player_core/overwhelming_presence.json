@@ -27,12 +27,10 @@
     "spell": {
         "name": "Overwhelming Presence",
         "type": "stat_block_section",
+        "text": "You surround yourself with supernatural splendor, appearing to be a god or similarly majestic being, with an appearance, regalia, and iconography of your choice. Targets must attempt a Will save. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,70 +105,98 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "bloodline": "draconic",
         "area": "40-foot burst",
         "targets": "any number of creatures",
-        "defense": "Will",
         "duration": "until full tribute is paid",
-        "critical_success": "The target is unaffected.",
-        "success": "The target must pay tribute to you two times. Paying tribute requires that the target spend a single action, which has either the move trait (as they bow) or manipulate trait (as they offer up a token in their hands). They must pay tribute at least once on each of their turns, if possible. While affected, the target is fascinated by you and can't use hostile actions against you.",
-        "failure": "As success, but the target must pay tribute a total of six times.",
-        "critical_failure": "As failure, but the target must spend all its actions paying tribute, and they cannot take other actions until the tribute is fully paid."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "draconic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "draconic",
+                    "alt": "draconic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 23
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target must pay tribute to you two times. Paying tribute requires that the target spend a single action, which has either the move trait (as they bow) or manipulate trait (as they offer up a token in their hands). They must pay tribute at least once on each of their turns, if possible. While affected, the target is fascinated by you and can't use hostile actions against you.",
+            "failure": "As success, but the target must pay tribute a total of six times.",
+            "critical_failure": "As failure, but the target must spend all its actions paying tribute, and they cannot take other actions until the tribute is fully paid.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "move",
+                    "alt": "move",
+                    "game-obj": "Traits",
+                    "aonid": 114
+                },
+                {
+                    "type": "link",
+                    "name": "manipulate",
+                    "alt": "manipulate",
+                    "game-obj": "Traits",
+                    "aonid": 104
+                },
+                {
+                    "type": "link",
+                    "name": "fascinated",
+                    "alt": "fascinated",
+                    "game-obj": "Conditions",
+                    "aonid": 14
+                },
+                {
+                    "type": "link",
+                    "name": "hostile actions",
+                    "alt": "hostile actions",
+                    "game-obj": "Rules",
+                    "aonid": 300
+                }
+            ]
+        }
     },
     "game-id": "f7b0663583470957345a25a596ddaaf6",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You surround yourself with supernatural splendor, appearing to be a god or similarly majestic being, with an appearance, regalia, and iconography of your choice. Targets must attempt a Will save. Regardless of the outcome, the target is then temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "move",
-            "alt": "move",
-            "game-obj": "Traits",
-            "aonid": 114
-        },
-        {
-            "type": "link",
-            "name": "manipulate",
-            "alt": "manipulate",
-            "game-obj": "Traits",
-            "aonid": 104
-        },
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "hostile actions",
-            "alt": "hostile actions",
-            "game-obj": "Rules",
-            "aonid": 300
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "draconic",
-            "alt": "draconic",
-            "game-obj": "Bloodlines",
-            "aonid": 23
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -215,5 +241,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

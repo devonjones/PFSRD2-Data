@@ -54,12 +54,10 @@
     "spell": {
         "name": "Thunderburst",
         "type": "stat_block_section",
+        "text": "You create a powerful blast of air and a loud peal of thunder, dealing 2d6 bludgeoning damage and 2d6 sonic damage. Each creature in the area must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,10 +132,8 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "100 feet",
         "area": "20-foot burst",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -146,38 +142,61 @@
                 "text": "Increase each type of damage by 2d6 and the area by 5 feet."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and is deafened for 1 minute.",
-        "critical_failure": "The creature takes double damage and is deafened for 1 hour."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and is deafened for 1 minute.",
+            "critical_failure": "The creature takes double damage and is deafened for 1 hour.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "deafened",
+                    "alt": "deafened",
+                    "game-obj": "Conditions",
+                    "aonid": 8
+                }
+            ]
+        }
     },
     "game-id": "df0fd229f9d6c7d4de278417b65c00b9",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You create a powerful blast of air and a loud peal of thunder, dealing 2d6 bludgeoning damage and 2d6 sonic damage. Each creature in the area must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "deafened",
-            "alt": "deafened",
-            "game-obj": "Conditions",
-            "aonid": 8
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -193,5 +212,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

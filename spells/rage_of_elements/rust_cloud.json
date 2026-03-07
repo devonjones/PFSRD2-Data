@@ -27,12 +27,10 @@
     "spell": {
         "name": "Rust Cloud",
         "type": "stat_block_section",
+        "text": "Red-blown flecks of rust jitter in the air, forming a cloud of agitated particles. All creatures within the cloud become concealed, and all creatures outside the cloud become concealed to creatures within it. The cloud deals 5d10 slashing damage to any creature that starts its turn in the area, with a basic Fortitude save.  \n  \n Metal that rusts off of a creature adds to the cloud. When a metal creature takes damage from the cloud, the cloud's area increases by 5 feet (to a maximum of a 40-foot burst), and the creature starts to rust, taking 1d4 persistent slashing damage. You can Dismiss the cloud.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,11 +69,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Ferrumnestra",
         "range": "120 feet",
         "area": "20-foot burst",
-        "defense": "basic Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -84,61 +79,95 @@
                 "increment": 2,
                 "text": "The cloud's slashing damage increases by 1d10 and the persistent damage increases by 1d4."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ferrumnestra",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ferrumnestra",
+                    "alt": "Ferrumnestra",
+                    "game-obj": "Deities",
+                    "aonid": 688
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            },
+            {
+                "type": "link",
+                "name": "metal",
+                "alt": "metal",
+                "game-obj": "Traits",
+                "aonid": 505
+            },
+            {
+                "type": "link",
+                "name": "persistent slashing",
+                "alt": "persistent slashing",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
         ]
     },
     "game-id": "7978fd279242d9ac63121148eaf04f5c",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "Red-blown flecks of rust jitter in the air, forming a cloud of agitated particles. All creatures within the cloud become concealed, and all creatures outside the cloud become concealed to creatures within it. The cloud deals 5d10 slashing damage to any creature that starts its turn in the area, with a basic Fortitude save.  \n  \n Metal that rusts off of a creature adds to the cloud. When a metal creature takes damage from the cloud, the cloud's area increases by 5 feet (to a maximum of a 40-foot burst), and the creature starts to rust, taking 1d4 persistent slashing damage. You can Dismiss the cloud.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "metal",
-            "alt": "metal",
-            "game-obj": "Traits",
-            "aonid": 505
-        },
-        {
-            "type": "link",
-            "name": "persistent slashing",
-            "alt": "persistent slashing",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Ferrumnestra",
-            "alt": "Ferrumnestra",
-            "game-obj": "Deities",
-            "aonid": 688
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -183,5 +212,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Whirlwind",
         "type": "stat_block_section",
+        "text": "Powerful winds coalesce into a devastating tornado. You can Cast this Spell only if you are outside or the ceiling is 80 feet or higher. All squares in the whirlwind are difficult terrain.  \n  \n All creatures in the area take 5d10 bludgeoning damage as powerful winds and debris buffet them, with a Reflex save. Each time you Sustain the Spell, you can move the whirlwind up to 30 feet in a straight line. Each creature the whirlwind moves through takes the damage, also with a Reflex save. A creature can be affected by a *whirlwind* only once per round.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,11 +84,8 @@
                 }
             }
         ],
-        "traditions": "primal",
-        "cast": "material, somatic, verbal",
         "range": "500 feet",
         "area": "15-foot radius, 80-foot tall cylinder",
-        "saving_throw": "Reflex",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -100,44 +95,78 @@
                 "text": "Increase the bludgeoning damage by 1d10."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage and rises 10 feet into the air. If it doesn't have a fly Speed, the creature gains one equal to its Speed until it either reaches the ground or ceases to be in the whirlwind's area, potentially falling when the spell ends or when it leaves the area.",
-        "critical_failure": "As failure, except the creature takes double damage and rises 20 feet into the air."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage and rises 10 feet into the air. If it doesn't have a fly Speed, the creature gains one equal to its Speed until it either reaches the ground or ceases to be in the whirlwind's area, potentially falling when the spell ends or when it leaves the area.",
+            "critical_failure": "As failure, except the creature takes double damage and rises 20 feet into the air."
+        }
     },
     "game-id": "417941de4cb7236e9d47f939a52667fe",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "Powerful winds coalesce into a devastating tornado. You can Cast this Spell only if you are outside or the ceiling is 80 feet or higher. All squares in the whirlwind are difficult terrain.  \n  \n All creatures in the area take 5d10 bludgeoning damage as powerful winds and debris buffet them, with a Reflex save. Each time you Sustain the Spell, you can move the whirlwind up to 30 feet in a straight line. Each creature the whirlwind moves through takes the damage, also with a Reflex save. A creature can be affected by a *whirlwind* only once per round.",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -153,5 +182,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

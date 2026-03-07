@@ -54,12 +54,10 @@
     "spell": {
         "name": "Quivering Palm",
         "type": "stat_block_section",
+        "text": "Make a melee unarmed Strike. If you hit and the target is alive, anytime during the duration, you can spend a single action, which has the auditory and concentrate traits, to speak a word of death that could instantly slay it. The target must attempt a Fortitude save.  \n  \nIf you cast *quivering palm* again, the effects of any *quivering palm* you had previously cast end.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,8 +108,6 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
-        "saving_throw": "Fortitude",
         "duration": "1 month",
         "heightened": [
             {
@@ -121,31 +117,52 @@
                 "text": "The damage increases by 10 on a failure, or 5 on a success."
             }
         ],
-        "critical_success": "The target survives, the spell ends, and the target is then temporarily immune for 24 hours.",
-        "success": "The target is stunned 1 and takes 40 damage, the spell ends, and the target is then temporarily immune for 24 hours.",
-        "failure": "The target is stunned 3 and takes 80 damage. The spell's duration continues, but the target is then temporarily immune for 24 hours against being killed by *quivering palm*.",
-        "critical_failure": "The target dies."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target survives, the spell ends, and the target is then temporarily immune for 24 hours.",
+            "success": "The target is stunned 1 and takes 40 damage, the spell ends, and the target is then temporarily immune for 24 hours.",
+            "failure": "The target is stunned 3 and takes 80 damage. The spell's duration continues, but the target is then temporarily immune for 24 hours against being killed by *quivering palm*.",
+            "critical_failure": "The target dies."
+        }
     },
     "game-id": "92c26bf539cdd7945f449da89ef427ef",
-    "spell_type": "focus",
-    "rank": 8,
-    "text": "Make a melee unarmed Strike. If you hit and the target is alive, anytime during the duration, you can spend a single action, which has the auditory and concentrate traits, to speak a word of death that could instantly slay it. The target must attempt a Fortitude save.  \n  \nIf you cast *quivering palm* again, the effects of any *quivering palm* you had previously cast end.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -161,5 +178,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

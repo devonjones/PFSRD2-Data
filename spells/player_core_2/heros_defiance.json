@@ -27,12 +27,10 @@
     "spell": {
         "name": "Hero's Defiance",
         "type": "stat_block_section",
+        "text": "You shout in defiance and are filled with a burst of healing. Just before applying the attack's damage, you recover 6d8+20 Hit Points. If this is enough to prevent the attack from bringing you to 0 Hit Points, you don't become unconscious or dying. Either way, cheating death is difficult, and you can't use *hero's defiance* again until you Refocus or make your daily preparations. *Hero's defiance* can't be used against effects with the death trait or that would leave no remains, such as *disintegrate*.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Free Action"
-        },
+        "spell_type": "focus",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,42 +105,48 @@
                 }
             }
         ],
-        "trigger": "An attack would bring you to 0 Hit Points."
+        "trigger": "An attack would bring you to 0 Hit Points.",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Free Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unconscious",
+                "alt": "unconscious",
+                "game-obj": "Conditions",
+                "aonid": 95
+            },
+            {
+                "type": "link",
+                "name": "Refocus",
+                "alt": "Refocus",
+                "game-obj": "Actions",
+                "aonid": 2621
+            },
+            {
+                "type": "link",
+                "name": "death",
+                "alt": "death",
+                "game-obj": "Traits",
+                "aonid": 571
+            },
+            {
+                "type": "link",
+                "name": "disintegrate",
+                "alt": "disintegrate",
+                "game-obj": "Spells",
+                "aonid": 1492
+            }
+        ]
     },
     "game-id": "aa2282409497bd5306774f6d2c0aaa42",
-    "spell_type": "focus",
-    "rank": 10,
-    "text": "You shout in defiance and are filled with a burst of healing. Just before applying the attack's damage, you recover 6d8+20 Hit Points. If this is enough to prevent the attack from bringing you to 0 Hit Points, you don't become unconscious or dying. Either way, cheating death is difficult, and you can't use *hero's defiance* again until you Refocus or make your daily preparations. *Hero's defiance* can't be used against effects with the death trait or that would leave no remains, such as *disintegrate*.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unconscious",
-            "alt": "unconscious",
-            "game-obj": "Conditions",
-            "aonid": 95
-        },
-        {
-            "type": "link",
-            "name": "Refocus",
-            "alt": "Refocus",
-            "game-obj": "Actions",
-            "aonid": 2621
-        },
-        {
-            "type": "link",
-            "name": "death",
-            "alt": "death",
-            "game-obj": "Traits",
-            "aonid": 571
-        },
-        {
-            "type": "link",
-            "name": "disintegrate",
-            "alt": "disintegrate",
-            "game-obj": "Spells",
-            "aonid": 1492
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -187,5 +191,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

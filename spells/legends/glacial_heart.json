@@ -40,12 +40,10 @@
     "spell": {
         "name": "Glacial Heart",
         "type": "stat_block_section",
+        "text": "Ice and bone-deep cold assail the target, freezing it from the inside out. The frosty assault deals 10d6 cold damage, subject to the target's Fortitude save. After the effects are resolved, the target is temporarily immune for 1 day.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,11 +94,8 @@
                 }
             }
         ],
-        "lesson": "lesson of the frozen queen",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -110,66 +105,97 @@
                 "text": "Increase the cold damage by 2d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage and is slowed 1 for 1 round. The spell ends.",
-        "failure": "The target takes full damage, is slowed 1, and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (or 2 on a critical failure), to a maximum of slowed 4. On a success, the slowed condition decreases by 1. If at any point the slowed condition is reduced to 0, the spell ends.  \n Once a creature's actions are reduced to 0 by this slowed condition, the creature is completely encased in ice. It continues making saves against *glacial heart*, possibly allowing it to reduce its slowed condition enough that it can act. This ice has Hardness 4 and 8 Hit Points, and its DC to Force Open is your spell DC. Breaking the ice frees the creature and ends the spell. If someone other than the target breaks the ice from outside, the target is stunned 1 and takes any damage dealt by the breaking effect in excess of the ice's Hit Points.",
-        "critical_failure": "As failure, but the target takes double damage and is initially slowed 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "lesson of the frozen queen",
+                "access_type": "lesson",
+                "link": {
+                    "type": "link",
+                    "name": "lesson of the frozen queen",
+                    "alt": "lesson of the frozen queen",
+                    "game-obj": "Lessons",
+                    "aonid": 11
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage and is slowed 1 for 1 round. The spell ends.",
+            "failure": "The target takes full damage, is slowed 1, and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (or 2 on a critical failure), to a maximum of slowed 4. On a success, the slowed condition decreases by 1. If at any point the slowed condition is reduced to 0, the spell ends.  \n Once a creature's actions are reduced to 0 by this slowed condition, the creature is completely encased in ice. It continues making saves against *glacial heart*, possibly allowing it to reduce its slowed condition enough that it can act. This ice has Hardness 4 and 8 Hit Points, and its DC to Force Open is your spell DC. Breaking the ice frees the creature and ends the spell. If someone other than the target breaks the ice from outside, the target is stunned 1 and takes any damage dealt by the breaking effect in excess of the ice's Hit Points.",
+            "critical_failure": "As failure, but the target takes double damage and is initially slowed 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed 1",
+                    "alt": "slowed 1",
+                    "game-obj": "Conditions",
+                    "aonid": 35
+                },
+                {
+                    "type": "link",
+                    "name": "incapacitation",
+                    "alt": "incapacitation",
+                    "game-obj": "Traits",
+                    "aonid": 93
+                },
+                {
+                    "type": "link",
+                    "name": "Force Open",
+                    "alt": "Force Open",
+                    "game-obj": "Actions",
+                    "aonid": 34
+                },
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 36
+                }
+            ]
+        }
     },
     "game-id": "39ff53a2cc68e1f9be69ce660351b305",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "Ice and bone-deep cold assail the target, freezing it from the inside out. The frosty assault deals 10d6 cold damage, subject to the target's Fortitude save. After the effects are resolved, the target is temporarily immune for 1 day.",
-    "links": [
-        {
-            "type": "link",
-            "name": "slowed 1",
-            "alt": "slowed 1",
-            "game-obj": "Conditions",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "incapacitation",
-            "alt": "incapacitation",
-            "game-obj": "Traits",
-            "aonid": 93
-        },
-        {
-            "type": "link",
-            "name": "Force Open",
-            "alt": "Force Open",
-            "game-obj": "Actions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "lesson of the frozen queen",
-            "alt": "lesson of the frozen queen",
-            "game-obj": "Lessons",
-            "aonid": 11
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -185,5 +211,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

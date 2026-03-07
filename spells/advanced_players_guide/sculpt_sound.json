@@ -54,12 +54,10 @@
     "spell": {
         "name": "Sculpt Sound",
         "type": "stat_block_section",
+        "text": "You change the sounds made by a creature or object. Choose how you're altering the sounds when you Cast the Spell; you can't alter it later. You can cause something that didn't create a sound to make sound, alter the voice of a creature, amplify or deaden a sound, or transform one sound into another. A creature who succeeds at a Perception check against your spell DC can determine that the sound was altered by an illusion, including hearing faint sounds if you deadened the sound, but they can't determine the true sound unless they critically succeed at the Perception check. You can Dismiss the spell.  \n  \n Because this spell obscures sound instead of preventing it, using the spell to quiet a creature doesn't prevent that creature from using verbal spell components, though it does prevent most auditory effects that rely on another creature hearing them accurately. An unwilling target can attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,8 +72,6 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "cast": "somatic, material",
         "range": "touch",
         "targets": "1 creature or object",
         "duration": "10 minutes",
@@ -87,50 +83,82 @@
                 "text": "You can target up to 6 creatures or 6 objects, altering the sounds of all affected creatures or objects in the same way."
             }
         ],
-        "success": "The affected sound from the creature isn't altered.",
-        "failure": "The affected sound from the creature is altered in the way you determine.",
-        "critical_failure": "The affected sound from the creature is altered and the target becomes stupefied 2 for 1 minute as it struggles with the disorienting effects of its altered sound."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "success": "The affected sound from the creature isn't altered.",
+            "failure": "The affected sound from the creature is altered in the way you determine.",
+            "critical_failure": "The affected sound from the creature is altered and the target becomes stupefied 2 for 1 minute as it struggles with the disorienting effects of its altered sound.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "stupefied 2",
+                    "alt": "stupefied 2",
+                    "game-obj": "Conditions",
+                    "aonid": 37
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "auditory",
+                "alt": "auditory",
+                "game-obj": "Traits",
+                "aonid": 16
+            }
+        ]
     },
     "game-id": "64e854732d4c270796fff4cd8a687d62",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You change the sounds made by a creature or object. Choose how you're altering the sounds when you Cast the Spell; you can't alter it later. You can cause something that didn't create a sound to make sound, alter the voice of a creature, amplify or deaden a sound, or transform one sound into another. A creature who succeeds at a Perception check against your spell DC can determine that the sound was altered by an illusion, including hearing faint sounds if you deadened the sound, but they can't determine the true sound unless they critically succeed at the Perception check. You can Dismiss the spell.  \n  \n Because this spell obscures sound instead of preventing it, using the spell to quiet a creature doesn't prevent that creature from using verbal spell components, though it does prevent most auditory effects that rely on another creature hearing them accurately. An unwilling target can attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "auditory",
-            "alt": "auditory",
-            "game-obj": "Traits",
-            "aonid": 16
-        },
-        {
-            "type": "link",
-            "name": "stupefied 2",
-            "alt": "stupefied 2",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -146,5 +174,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

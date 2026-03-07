@@ -54,12 +54,10 @@
     "spell": {
         "name": "Gravitational Pull",
         "type": "stat_block_section",
+        "text": "By suddenly altering gravity, you pull the target toward you. The target is pulled 10 feet closer to you unless it succeeds at a Fortitude save. On a critical failure, it's also knocked prone. The effects of this spell change depending on the number of actions you spend when you Cast this Spell.   \n  \n **(somatic)** The spell targets one creature.   \n **(somatic, verbal)** The spell targets one creature and pulls the target 20 feet instead of 10.   \n **(material, somatic, verbal)** The spell targets up to 5 creatures.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,58 +72,92 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "deity": "Liisglan, Telastmar",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Fortitude"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Liisglan",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Liisglan",
+                    "alt": "Liisglan",
+                    "game-obj": "Deities",
+                    "aonid": 540
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Telastmar",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Telastmar",
+                    "alt": "Telastmar",
+                    "game-obj": "Deities",
+                    "aonid": 549
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "pulled",
+                "alt": "pulled",
+                "game-obj": "Rules",
+                "aonid": 451
+            },
+            {
+                "type": "link",
+                "name": "prone",
+                "alt": "prone",
+                "game-obj": "Conditions",
+                "aonid": 31
+            }
+        ]
     },
     "game-id": "5c97bf43d6a0f3a76c57ac4614e89c1d",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "By suddenly altering gravity, you pull the target toward you. The target is pulled 10 feet closer to you unless it succeeds at a Fortitude save. On a critical failure, it's also knocked prone. The effects of this spell change depending on the number of actions you spend when you Cast this Spell.   \n  \n **(somatic)** The spell targets one creature.   \n **(somatic, verbal)** The spell targets one creature and pulls the target 20 feet instead of 10.   \n **(material, somatic, verbal)** The spell targets up to 5 creatures.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pulled",
-            "alt": "pulled",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "Liisglan",
-            "alt": "Liisglan",
-            "game-obj": "Deities",
-            "aonid": 540
-        },
-        {
-            "type": "link",
-            "name": "Telastmar",
-            "alt": "Telastmar",
-            "game-obj": "Deities",
-            "aonid": 549
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -141,5 +173,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

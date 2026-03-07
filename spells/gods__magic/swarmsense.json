@@ -54,7 +54,10 @@
     "spell": {
         "name": "Swarmsense",
         "type": "stat_block_section",
+        "text": "You extend your senses through a multitude of crawling and flying creatures. You create a crawling swarm in your square. You can hear through the swarm as if using your normal auditory senses. The first time you Sustain the Spell each round, you can move the swarm 10 feet along the ground in any direction. The swarm has AC 15 and a +0 bonus to its saves. Any damage dealt to the swarm destroys it and ends the spell.",
         "subtype": "spell",
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -69,8 +72,6 @@
                 }
             }
         ],
-        "domain": "swarm",
-        "cast": "1 minute (somatic, verbal)",
         "duration": "sustained",
         "heightened": [
             {
@@ -100,35 +101,55 @@
                 "level": 7,
                 "text": "The swarm gains a 10-foot status bonus to its Speeds."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "swarm",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "swarm",
+                    "alt": "swarm",
+                    "game-obj": "Domains",
+                    "aonid": 53
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "1 minute",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "f2dc7c1b32bff814a358b8549d90d7dc",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You extend your senses through a multitude of crawling and flying creatures. You create a crawling swarm in your square. You can hear through the swarm as if using your normal auditory senses. The first time you Sustain the Spell each round, you can move the swarm 10 feet along the ground in any direction. The swarm has AC 15 and a +0 bonus to its saves. Any damage dealt to the swarm destroys it and ends the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "swarm",
-            "alt": "swarm",
-            "game-obj": "Domains",
-            "aonid": 53
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -144,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

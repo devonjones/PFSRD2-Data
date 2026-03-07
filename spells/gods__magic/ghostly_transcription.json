@@ -54,12 +54,10 @@
     "spell": {
         "name": "Ghostly Transcription",
         "type": "stat_block_section",
+        "text": "Glowing letters assemble in the air, providing a transcription of the target\u2019s speech in all languages you speak. For the spell\u2019s duration, any words spoken aloud by the target are spelled out in letters in front of them. When you Cast the Spell, you can choose whether these letters are visible to all creatures or only certain creatures you specify. Any words the target mouths silently are similarly spelled out, allowing the target to communicate silently or in areas where sound doesn\u2019t carry. This even allows the target to provide verbal casting components in such areas, but only if you choose to make the letters visible to all creatures. Furthermore, any of the target\u2019s auditory abilities can affect creatures even in areas where sound does not carry as long as you have made the glyphs visible to them and they have line of sight to the target; in this case, they gain the visual trait. You can Dismiss the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,46 +84,70 @@
                 }
             }
         ],
-        "domain": "glyph",
-        "cast": "material, somatic",
         "range": "30 feet",
         "targets": "1 creature",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "glyph",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "glyph",
+                    "alt": "glyph",
+                    "game-obj": "Domains",
+                    "aonid": 46
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "visual",
+                "alt": "visual",
+                "game-obj": "Traits",
+                "aonid": 163
+            }
+        ]
     },
     "game-id": "744a2e90a5b9aae7783de24a78139705",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Glowing letters assemble in the air, providing a transcription of the target\u2019s speech in all languages you speak. For the spell\u2019s duration, any words spoken aloud by the target are spelled out in letters in front of them. When you Cast the Spell, you can choose whether these letters are visible to all creatures or only certain creatures you specify. Any words the target mouths silently are similarly spelled out, allowing the target to communicate silently or in areas where sound doesn\u2019t carry. This even allows the target to provide verbal casting components in such areas, but only if you choose to make the letters visible to all creatures. Furthermore, any of the target\u2019s auditory abilities can affect creatures even in areas where sound does not carry as long as you have made the glyphs visible to them and they have line of sight to the target; in this case, they gain the visual trait. You can Dismiss the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "visual",
-            "alt": "visual",
-            "game-obj": "Traits",
-            "aonid": 163
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "glyph",
-            "alt": "glyph",
-            "game-obj": "Domains",
-            "aonid": 46
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -141,5 +163,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

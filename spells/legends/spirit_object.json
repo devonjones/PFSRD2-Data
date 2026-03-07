@@ -40,12 +40,10 @@
     "spell": {
         "name": "Spirit Object",
         "type": "stat_block_section",
+        "text": "Using a sliver of Baba Yaga's power, you briefly bring an object to life. The object gains a means of locomotion, such as sprouting chicken legs, and Strides up to 25 feet to a space you decide within range. If you spent 2 actions Casting the Spell, the object then attacks one creature of your choice adjacent to its new space. Make a melee spell attack roll against the creature. On a success, the creature takes 3d4 bludgeoning, piercing, or slashing damage (as appropriate for the object), and on a critical success, it takes double damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,8 +106,6 @@
                 }
             }
         ],
-        "patron_theme": "baba yaga",
-        "cast": "or   somatic, verbal",
         "range": "30 feet",
         "targets": "1 unattended object up to 1 Bulk",
         "heightened": [
@@ -119,35 +115,59 @@
                 "increment": 1,
                 "text": "Increase the maximum Bulk of the target by 1 and the damage by 1d4."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "baba yaga",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "baba yaga",
+                    "alt": "baba yaga",
+                    "game-obj": "Patrons",
+                    "aonid": 9
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "160f3572f5319071b3808af01c7d2e5e",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "Using a sliver of Baba Yaga's power, you briefly bring an object to life. The object gains a means of locomotion, such as sprouting chicken legs, and Strides up to 25 feet to a space you decide within range. If you spent 2 actions Casting the Spell, the object then attacks one creature of your choice adjacent to its new space. Make a melee spell attack roll against the creature. On a success, the creature takes 3d4 bludgeoning, piercing, or slashing damage (as appropriate for the object), and on a critical success, it takes double damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "baba yaga",
-            "alt": "baba yaga",
-            "game-obj": "Patrons",
-            "aonid": 9
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -163,5 +183,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

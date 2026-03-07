@@ -54,12 +54,10 @@
     "spell": {
         "name": "Crushing Ground",
         "type": "stat_block_section",
+        "text": "You tear open the ground then slam it shut. The target creature takes 2d6 bludgeoning damage with a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,10 +108,8 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
-        "saving_throw": "Reflex",
         "duration": "1 round",
         "heightened": [
             {
@@ -123,52 +119,75 @@
                 "text": "Increase the initial damage and additional damage by 2d6."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage.",
-        "failure": "The target takes full damage, is off-guard, and takes a \u201310-foot circumstance penalty to Speed.",
-        "critical_failure": "The target takes double damage and is off-guard and immobilized. It can attempt to Escape against your spell DC. If it doesn't Escape, the target takes an additional 2d6 bludgeoning damage when the spell ends."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage.",
+            "failure": "The target takes full damage, is off-guard, and takes a \u201310-foot circumstance penalty to Speed.",
+            "critical_failure": "The target takes double damage and is off-guard and immobilized. It can attempt to Escape against your spell DC. If it doesn't Escape, the target takes an additional 2d6 bludgeoning damage when the spell ends.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "off-guard",
+                    "alt": "off-guard",
+                    "game-obj": "Conditions",
+                    "aonid": 58
+                },
+                {
+                    "type": "link",
+                    "name": "immobilized",
+                    "alt": "immobilized",
+                    "game-obj": "Conditions",
+                    "aonid": 24
+                },
+                {
+                    "type": "link",
+                    "name": "Escape",
+                    "alt": "Escape",
+                    "game-obj": "Actions",
+                    "aonid": 79
+                }
+            ]
+        }
     },
     "game-id": "203af6d6dace622b1c5b59743ad83b1e",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You tear open the ground then slam it shut. The target creature takes 2d6 bludgeoning damage with a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "off-guard",
-            "alt": "off-guard",
-            "game-obj": "Conditions",
-            "aonid": 58
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "Escape",
-            "alt": "Escape",
-            "game-obj": "Actions",
-            "aonid": 79
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -184,5 +203,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,12 +27,10 @@
     "spell": {
         "name": "Cloud Dragon's Cloak",
         "type": "stat_block_section",
+        "text": "A cloud of mist enshrouds the target, appearing much like the deflecting clouds created by cloud dragons. The target is treated as hidden for the purposes of resolving the triggering attack (so normally the attacker must succeed at a DC 11 flat check to target it) and all ranged attacks against it for the duration.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -59,37 +57,56 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "trigger": "You or an ally in range is targeted by a ranged attack.",
         "range": "60 feet",
         "targets": "the creature targeted by the attack",
-        "duration": "1 round"
+        "duration": "1 round",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "hidden",
+                "alt": "hidden",
+                "game-obj": "Conditions",
+                "aonid": 22
+            }
+        ]
     },
     "game-id": "7e9d5833db63b923a56b2a422e67ebf2",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "A cloud of mist enshrouds the target, appearing much like the deflecting clouds created by cloud dragons. The target is treated as hidden for the purposes of resolving the triggering attack (so normally the attacker must succeed at a DC 11 flat check to target it) and all ranged attacks against it for the duration.",
-    "links": [
-        {
-            "type": "link",
-            "name": "hidden",
-            "alt": "hidden",
-            "game-obj": "Conditions",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -134,5 +151,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

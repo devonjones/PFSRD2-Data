@@ -27,12 +27,10 @@
     "spell": {
         "name": "Breath of Life",
         "type": "stat_block_section",
+        "text": "Your blessing revives a creature at the moment of its death. You prevent the target from dying and restore 5d8 Hit Points to the target. You can't use breath of life if the triggering effect was a death effect or an effect that leaves no remains, such as *disintegrate*.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,7 +69,6 @@
                 }
             }
         ],
-        "traditions": "divine",
         "trigger": "A living creature within range would die",
         "range": "60 feet",
         "targets": "the triggering creature",
@@ -82,34 +79,48 @@
                 "increment": 2,
                 "text": "The healing increases by 1d8."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "death",
+                "alt": "death",
+                "game-obj": "Traits",
+                "aonid": 40
+            },
+            {
+                "type": "link",
+                "name": "disintegrate",
+                "alt": "disintegrate",
+                "game-obj": "Spells",
+                "aonid": 76
+            }
         ]
     },
     "game-id": "2475125a3f3a7f4d279abef94e16fad5",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "Your blessing revives a creature at the moment of its death. You prevent the target from dying and restore 5d8 Hit Points to the target. You can't use breath of life if the triggering effect was a death effect or an effect that leaves no remains, such as *disintegrate*.",
-    "links": [
-        {
-            "type": "link",
-            "name": "death",
-            "alt": "death",
-            "game-obj": "Traits",
-            "aonid": 40
-        },
-        {
-            "type": "link",
-            "name": "disintegrate",
-            "alt": "disintegrate",
-            "game-obj": "Spells",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -154,5 +165,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

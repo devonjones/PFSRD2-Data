@@ -54,7 +54,10 @@
     "spell": {
         "name": "Persistent Servant",
         "type": "stat_block_section",
+        "text": "You call forth an unseen servant and task it to perform a specific chore repeatedly. Choose a basic instruction, such as sweeping the floor, or picking up all objects from the floor and putting them in a designated bin. The servant performs the task over and over again throughout the duration, though it can't ever leave the spell's area.  \n  \n The servant isn't a minion, and you don't need to Sustain the Spell in order for it to continue to act. However, it acts on its own time, and thus can't accomplish anything useful during an encounter, even if an encounter happens within the spell's range.  \n  \n Tasks that rely on timing, discretion, or significant manual dexterity are doomed to failure. For instance, a servant tasked to pick objects off the floor won't discriminate between trash, misplaced treasure, or objects that are supposed to be on the floor, like a mousetrap.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -69,65 +72,96 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "1 minute (material, somatic, verbal)",
         "range": "120 feet",
         "area": "60-foot burst",
-        "duration": "until your next daily preparations"
+        "duration": "until your next daily preparations",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "1 minute",
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unseen servant",
+                "alt": "unseen servant",
+                "game-obj": "Monsters",
+                "aonid": 1
+            },
+            {
+                "type": "link",
+                "name": "minion",
+                "alt": "minion",
+                "game-obj": "Traits",
+                "aonid": 109
+            }
+        ]
     },
     "game-id": "62f552557096bda39842291de9a78581",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You call forth an unseen servant and task it to perform a specific chore repeatedly. Choose a basic instruction, such as sweeping the floor, or picking up all objects from the floor and putting them in a designated bin. The servant performs the task over and over again throughout the duration, though it can't ever leave the spell's area.  \n  \n The servant isn't a minion, and you don't need to Sustain the Spell in order for it to continue to act. However, it acts on its own time, and thus can't accomplish anything useful during an encounter, even if an encounter happens within the spell's range.  \n  \n Tasks that rely on timing, discretion, or significant manual dexterity are doomed to failure. For instance, a servant tasked to pick objects off the floor won't discriminate between trash, misplaced treasure, or objects that are supposed to be on the floor, like a mousetrap.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unseen servant",
-            "alt": "unseen servant",
-            "game-obj": "Monsters",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "minion",
-            "alt": "minion",
-            "game-obj": "Traits",
-            "aonid": 109
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -143,5 +177,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

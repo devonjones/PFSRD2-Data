@@ -54,12 +54,10 @@
     "spell": {
         "name": "Shifting Sand",
         "type": "stat_block_section",
+        "text": "You cause the surface to heave. The area becomes difficult terrain and any tracks in the area are destroyed by the churning ground. Creatures standing in the area take a \u20131 status penalty to Acrobatics checks to Balance and Tumble Through and Athletics checks to High Jump and Long Jump. The first time each round you Sustain the Spell, you can move the churning area up to 10 feet in any direction. Creatures immobilized by the spell are carried along with the shifting sand in the same direction, if possible; this movement is forced movement. Creatures that enter or begin their turn standing in the shifting sand must attempt a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,9 +84,6 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Anubis, Yamatsumi",
-        "cast": "material, somatic, verbal",
         "range": "30 feet",
         "area": "a horizontal earthen or sandy surface within a 20-foot burst",
         "duration": "sustained up to 1 minute",
@@ -112,134 +107,189 @@
                 "text": "The status penalty increases to \u20134, the spell\u2019s range increases to 60 feet, and the spell\u2019s area increases to a 40-foot burst."
             }
         ],
-        "critical_success": "The creature is unaffected and ignores the area\u2019s difficult terrain and penalty to skill checks until the end of its turn.",
-        "success": "The creature ignores the area\u2019s penalty to skill checks until the end of its turn.",
-        "failure": "The creature is affected normally by the spell this turn.",
-        "critical_failure": "The creature becomes immobilized within the spell\u2019s area until it Escapes. If the creature was already immobilized by shifting sands, it also falls prone."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Anubis",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Anubis",
+                    "alt": "Anubis",
+                    "game-obj": "Deities",
+                    "aonid": 49
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Yamatsumi",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Yamatsumi",
+                    "alt": "Yamatsumi",
+                    "game-obj": "Deities",
+                    "aonid": 185
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected and ignores the area\u2019s difficult terrain and penalty to skill checks until the end of its turn.",
+            "success": "The creature ignores the area\u2019s penalty to skill checks until the end of its turn.",
+            "failure": "The creature is affected normally by the spell this turn.",
+            "critical_failure": "The creature becomes immobilized within the spell\u2019s area until it Escapes. If the creature was already immobilized by shifting sands, it also falls prone.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "immobilized",
+                    "alt": "immobilized",
+                    "game-obj": "Conditions",
+                    "aonid": 24
+                },
+                {
+                    "type": "link",
+                    "name": "Escapes",
+                    "alt": "Escapes",
+                    "game-obj": "Actions",
+                    "aonid": 79
+                },
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Acrobatics",
+                "alt": "Acrobatics",
+                "game-obj": "Skills",
+                "aonid": 1
+            },
+            {
+                "type": "link",
+                "name": "Balance",
+                "alt": "Balance",
+                "game-obj": "Actions",
+                "aonid": 28
+            },
+            {
+                "type": "link",
+                "name": "Tumble Through",
+                "alt": "Tumble Through",
+                "game-obj": "Actions",
+                "aonid": 29
+            },
+            {
+                "type": "link",
+                "name": "High Jump",
+                "alt": "High Jump",
+                "game-obj": "Actions",
+                "aonid": 36
+            },
+            {
+                "type": "link",
+                "name": "Long Jump",
+                "alt": "Long Jump",
+                "game-obj": "Actions",
+                "aonid": 37
+            },
+            {
+                "type": "link",
+                "name": "immobilized",
+                "alt": "immobilized",
+                "game-obj": "Conditions",
+                "aonid": 24
+            },
+            {
+                "type": "link",
+                "name": "forced movement",
+                "alt": "forced movement",
+                "game-obj": "Rules",
+                "aonid": 451
+            }
+        ]
     },
     "game-id": "7b9596cd84553f1ba6d122f32e33bd0e",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You cause the surface to heave. The area becomes difficult terrain and any tracks in the area are destroyed by the churning ground. Creatures standing in the area take a \u20131 status penalty to Acrobatics checks to Balance and Tumble Through and Athletics checks to High Jump and Long Jump. The first time each round you Sustain the Spell, you can move the churning area up to 10 feet in any direction. Creatures immobilized by the spell are carried along with the shifting sand in the same direction, if possible; this movement is forced movement. Creatures that enter or begin their turn standing in the shifting sand must attempt a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Acrobatics",
-            "alt": "Acrobatics",
-            "game-obj": "Skills",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "Balance",
-            "alt": "Balance",
-            "game-obj": "Actions",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "Tumble Through",
-            "alt": "Tumble Through",
-            "game-obj": "Actions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "High Jump",
-            "alt": "High Jump",
-            "game-obj": "Actions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "Long Jump",
-            "alt": "Long Jump",
-            "game-obj": "Actions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "forced movement",
-            "alt": "forced movement",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "Escapes",
-            "alt": "Escapes",
-            "game-obj": "Actions",
-            "aonid": 79
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Anubis",
-            "alt": "Anubis",
-            "game-obj": "Deities",
-            "aonid": 49
-        },
-        {
-            "type": "link",
-            "name": "Yamatsumi",
-            "alt": "Yamatsumi",
-            "game-obj": "Deities",
-            "aonid": 185
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -255,5 +305,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

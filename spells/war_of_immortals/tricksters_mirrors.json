@@ -20,12 +20,10 @@
     "spell": {
         "name": "Trickster's Mirrors",
         "type": "stat_block_section",
+        "text": "You are surrounded by up to 3 mirrors that reflect twisted and distorted images of you, making it hard to tell where you actually are within your space and potentially causing those who attack you to hit one of the mirrors instead. You start with 1 mirror and gain an additional mirror each time you Sustain this spell, up to a maximum of 3 mirrors. Any attack that would hit you has a random chance of hitting one of your mirrors instead of you. With one mirror, the chances are 1 in 2 (1\u20133 on 1d6). With two mirrors, there is a 1 in 3 chance of hitting you (1\u20132 on 1d6). With three mirrors, there is a 1 in 4 chance of hitting you (1 on 1d4).  \n  \nOnce an image is hit, it is destroyed. If an attack roll fails to hit your AC but doesn't critically fail, it destroys a mirror. If the attacker was within 5 feet, they must succeed at a basic Will save or take 1d4 mental damage as they believe themselves cut by a shower of glass shards from the breaking mirror. A damaging effect that affects all targets within your space (such as *caustic blast*) destroys all of the mirrors.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,7 +98,6 @@
                 }
             }
         ],
-        "saving_throw": "basic Will",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -109,42 +106,56 @@
                 "increment": 1,
                 "text": "The mental damage dealt by a broken mirror increases by 1d4."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "mental",
+                "alt": "mental",
+                "game-obj": "Traits",
+                "aonid": 647
+            },
+            {
+                "type": "link",
+                "name": "caustic blast",
+                "alt": "caustic blast",
+                "game-obj": "Spells",
+                "aonid": 1461
+            },
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Actions",
+                "aonid": 2317
+            }
         ]
     },
     "game-id": "79b5492b33d521f28270dffeecf84074",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You are surrounded by up to 3 mirrors that reflect twisted and distorted images of you, making it hard to tell where you actually are within your space and potentially causing those who attack you to hit one of the mirrors instead. You start with 1 mirror and gain an additional mirror each time you Sustain this spell, up to a maximum of 3 mirrors. Any attack that would hit you has a random chance of hitting one of your mirrors instead of you. With one mirror, the chances are 1 in 2 (1\u20133 on 1d6). With two mirrors, there is a 1 in 3 chance of hitting you (1\u20132 on 1d6). With three mirrors, there is a 1 in 4 chance of hitting you (1 on 1d4).  \n  \nOnce an image is hit, it is destroyed. If an attack roll fails to hit your AC but doesn't critically fail, it destroys a mirror. If the attacker was within 5 feet, they must succeed at a basic Will save or take 1d4 mental damage as they believe themselves cut by a shower of glass shards from the breaking mirror. A damaging effect that affects all targets within your space (such as *caustic blast*) destroys all of the mirrors.",
-    "links": [
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 647
-        },
-        {
-            "type": "link",
-            "name": "caustic blast",
-            "alt": "caustic blast",
-            "game-obj": "Spells",
-            "aonid": 1461
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Actions",
-            "aonid": 2317
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -189,5 +200,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

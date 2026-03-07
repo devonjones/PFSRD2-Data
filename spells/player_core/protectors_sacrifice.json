@@ -27,12 +27,10 @@
     "spell": {
         "name": "Protector's Sacrifice",
         "type": "stat_block_section",
+        "text": "You protect your ally by suffering in their stead. Reduce the damage the ally would take by 3. You redirect this damage to yourself, but your immunities, weaknesses, resistances and so on do not apply  \n  \n You aren't subject to any conditions or other effects of whatever damaged your ally (such as poison from a venomous bite). Your ally is still subject to those effects even if you redirect all of the triggering damage to yourself.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,7 +81,6 @@
                 }
             }
         ],
-        "domain": "protection",
         "trigger": "An ally within 30 feet takes damage",
         "range": "30 feet",
         "heightened": [
@@ -93,28 +90,42 @@
                 "increment": 1,
                 "text": "The damage you redirect increases by 3."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "protection",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "protection",
+                    "alt": "protection",
+                    "game-obj": "Domains",
+                    "aonid": 90
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "poison",
+                "alt": "poison",
+                "game-obj": "MonsterAbilities",
+                "aonid": 24
+            }
         ]
     },
     "game-id": "8ca1004d92cfc0a923a179cc8211c2a8",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You protect your ally by suffering in their stead. Reduce the damage the ally would take by 3. You redirect this damage to yourself, but your immunities, weaknesses, resistances and so on do not apply  \n  \n You aren't subject to any conditions or other effects of whatever damaged your ally (such as poison from a venomous bite). Your ally is still subject to those effects even if you redirect all of the triggering damage to yourself.",
-    "links": [
-        {
-            "type": "link",
-            "name": "poison",
-            "alt": "poison",
-            "game-obj": "MonsterAbilities",
-            "aonid": 24
-        },
-        {
-            "type": "link",
-            "name": "protection",
-            "alt": "protection",
-            "game-obj": "Domains",
-            "aonid": 90
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -159,5 +170,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

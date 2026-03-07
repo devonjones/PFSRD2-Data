@@ -54,12 +54,10 @@
     "spell": {
         "name": "Spirit Veil",
         "type": "stat_block_section",
+        "text": "You draw an occluding veil of spirits around yourself, blocking yourself especially well from undead eyes. You become concealed to all creatures, and you are hidden from undead creatures regardless of what precise senses they have; this grants the effects of *invisibility*, but against all the undead creature's precise senses. If you physically interact with an undead creature or use a hostile action, the spell ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "bloodline": "psychopomp",
-        "cast": "somatic, verbal",
         "duration": "1 minute",
         "heightened": [
             {
@@ -108,63 +104,89 @@
                 "increment": 1,
                 "text": "You can target one additional willing creature within 30 feet. The spell ends if any target physically interacts with an undead creature or uses a hostile action"
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "psychopomp",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "psychopomp",
+                    "alt": "psychopomp",
+                    "game-obj": "Bloodlines",
+                    "aonid": 13
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            },
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            },
+            {
+                "type": "link",
+                "name": "hidden",
+                "alt": "hidden",
+                "game-obj": "Conditions",
+                "aonid": 22
+            },
+            {
+                "type": "link",
+                "name": "invisibility",
+                "alt": "invisibility",
+                "game-obj": "Spells",
+                "aonid": 164
+            }
         ]
     },
     "game-id": "c357287c45b697f835230ef6833ad80c",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You draw an occluding veil of spirits around yourself, blocking yourself especially well from undead eyes. You become concealed to all creatures, and you are hidden from undead creatures regardless of what precise senses they have; this grants the effects of *invisibility*, but against all the undead creature's precise senses. If you physically interact with an undead creature or use a hostile action, the spell ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "hidden",
-            "alt": "hidden",
-            "game-obj": "Conditions",
-            "aonid": 22
-        },
-        {
-            "type": "link",
-            "name": "invisibility",
-            "alt": "invisibility",
-            "game-obj": "Spells",
-            "aonid": 164
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "psychopomp",
-            "alt": "psychopomp",
-            "game-obj": "Bloodlines",
-            "aonid": 13
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -180,5 +202,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

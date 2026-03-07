@@ -27,12 +27,10 @@
     "spell": {
         "name": "Dehydrate",
         "type": "stat_block_section",
+        "text": "You stir the inner fire of all things within the area, driving out moisture. All creatures in the area take 1d6 persistent fire damage with a basic Fortitude save; creatures with the water or plant traits get a result one degree of success worse than they rolled. The spell ends for a creature when its persistent damage ends.  \n  \n A creature affected by *dehydrate* attempts an additional Fortitude save at the end of each of its turns, before rolling to recover from the persistent damage. It can forgo this additional save if it consumed water or a similar hydrating liquid within the last round (drinking typically requires a single action).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,10 +69,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "30 feet",
         "area": "5-foot burst",
-        "defense": "Fortitude (see text)",
         "duration": "1 minute",
         "heightened": [
             {
@@ -84,56 +80,83 @@
                 "text": "The range increases by 10 feet, the burst increases by 5 feet, and the persistent fire damage increases by 3d6."
             }
         ],
-        "success": "The creature takes no additional effect.",
-        "failure": "The creature is enfeebled 1 until the end of its next turn.",
-        "critical_failure": "The creature is enfeebled 2 until the end of its next turn."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "text": "Fortitude (see text)",
+            "success": "The creature takes no additional effect.",
+            "failure": "The creature is enfeebled 1 until the end of its next turn.",
+            "critical_failure": "The creature is enfeebled 2 until the end of its next turn.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "enfeebled 1",
+                    "alt": "enfeebled 1",
+                    "game-obj": "Conditions",
+                    "aonid": 13
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent fire damage",
+                "alt": "persistent fire damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            },
+            {
+                "type": "link",
+                "name": "water",
+                "alt": "water",
+                "game-obj": "Traits",
+                "aonid": 165
+            },
+            {
+                "type": "link",
+                "name": "plant",
+                "alt": "plant",
+                "game-obj": "Traits",
+                "aonid": 125
+            }
+        ]
     },
     "game-id": "9bc6ddbcea75a8ae975cd110c2010ae6",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You stir the inner fire of all things within the area, driving out moisture. All creatures in the area take 1d6 persistent fire damage with a basic Fortitude save; creatures with the water or plant traits get a result one degree of success worse than they rolled. The spell ends for a creature when its persistent damage ends.  \n  \n A creature affected by *dehydrate* attempts an additional Fortitude save at the end of each of its turns, before rolling to recover from the persistent damage. It can forgo this additional save if it consumed water or a similar hydrating liquid within the last round (drinking typically requires a single action).",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent fire damage",
-            "alt": "persistent fire damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Traits",
-            "aonid": 165
-        },
-        {
-            "type": "link",
-            "name": "plant",
-            "alt": "plant",
-            "game-obj": "Traits",
-            "aonid": 125
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -178,5 +201,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

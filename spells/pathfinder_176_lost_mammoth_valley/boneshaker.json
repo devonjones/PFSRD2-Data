@@ -40,12 +40,10 @@
     "spell": {
         "name": "Boneshaker",
         "type": "stat_block_section",
+        "text": "You reach out a hand and seize a creature's skeleton from afar, harming their body and potentially wrenching them by the bones to move them against their will. The number of actions you spend when Casting this Spell determines the spell's effects. Regardless of the number of actions spent to Cast this Spell, the target must attempt a Fortitude save.  \n  \n **(somatic, verbal)** You clench your fist, painfully compressing the target's bones and dealing 3d8 bludgeoning damage.  \n  **(material, somatic, verbal)** As the 2-action version, plus you pull the target's body by their bones, moving them around like an awkward marionette. This movement follows the rules for forced movement.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,10 +70,8 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, primal",
         "range": "100 feet",
         "targets": "1 creature with a skeleton",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -84,56 +80,89 @@
                 "text": "The damage increases by 3d8."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage. If you cast the 3-action version, you can move the target up to 5 feet; it can choose to fall prone to avoid moving.",
-        "failure": "The target takes full damage and is enfeebled 1. If you cast the 3-action version, you can move the target up to 15 feet; it can fall prone to avoid moving.",
-        "critical_failure": "The target takes double damage and is enfeebled 2. If you cast the 3-action version, you can move the target up to 25 feet, then knock the target prone; if you attempt to move the target to a hazardous location, such as into a pool of acid or off a cliff, it can fall prone to avoid moving."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage. If you cast the 3-action version, you can move the target up to 5 feet; it can choose to fall prone to avoid moving.",
+            "failure": "The target takes full damage and is enfeebled 1. If you cast the 3-action version, you can move the target up to 15 feet; it can fall prone to avoid moving.",
+            "critical_failure": "The target takes double damage and is enfeebled 2. If you cast the 3-action version, you can move the target up to 25 feet, then knock the target prone; if you attempt to move the target to a hazardous location, such as into a pool of acid or off a cliff, it can fall prone to avoid moving.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                },
+                {
+                    "type": "link",
+                    "name": "enfeebled 1",
+                    "alt": "enfeebled 1",
+                    "game-obj": "Conditions",
+                    "aonid": 13
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "forced movement",
+                "alt": "forced movement",
+                "game-obj": "Rules",
+                "aonid": 451
+            }
+        ]
     },
     "game-id": "69dd10f5f506a5c390b12fdf6cfb01f6",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You reach out a hand and seize a creature's skeleton from afar, harming their body and potentially wrenching them by the bones to move them against their will. The number of actions you spend when Casting this Spell determines the spell's effects. Regardless of the number of actions spent to Cast this Spell, the target must attempt a Fortitude save.  \n  \n **(somatic, verbal)** You clench your fist, painfully compressing the target's bones and dealing 3d8 bludgeoning damage.  \n  **(material, somatic, verbal)** As the 2-action version, plus you pull the target's body by their bones, moving them around like an awkward marionette. This movement follows the rules for forced movement.",
-    "links": [
-        {
-            "type": "link",
-            "name": "forced movement",
-            "alt": "forced movement",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +178,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

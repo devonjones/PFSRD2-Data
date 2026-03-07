@@ -54,12 +54,10 @@
     "spell": {
         "name": "Withering Grasp",
         "type": "stat_block_section",
+        "text": "Your touch rots organic material and decays objects. Make a melee spell attack roll. Your touch deals 1d12 negative damage plus 1d4 persistent negative damage. If a creature uses an item to block *withering grasp*, such as with the Shield Block reaction, the item is automatically affected, but the creature does not take damage (even if there is damage left over after the shield\u2019s Hardness). Unlike normal negative damage, the negative damage from *withering grasp* damages objects, constructs, and the like by eroding them away.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,8 +84,6 @@
                 }
             }
         ],
-        "domain": "decay",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature or object",
         "heightened": [
@@ -98,50 +94,80 @@
                 "text": "The damage increases by 1d12 and the persistent damage increases by 1. If you target an object, lower its Hardness by an additional 1 point on both a success and a critical success."
             }
         ],
-        "critical_success": "Your touch deals double damage (both initial and persistent). If you target an object, lower its Hardness by 4 for 1 minute.",
-        "success": "Your touch deals full damage. If you target an object, lower its Hardness by 2 for 1 minute."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "decay",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "decay",
+                    "alt": "decay",
+                    "game-obj": "Domains",
+                    "aonid": 42
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "Your touch deals double damage (both initial and persistent). If you target an object, lower its Hardness by 4 for 1 minute.",
+            "success": "Your touch deals full damage. If you target an object, lower its Hardness by 2 for 1 minute."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent negative damage",
+                "alt": "persistent negative damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            },
+            {
+                "type": "link",
+                "name": "Shield Block",
+                "alt": "Shield Block",
+                "game-obj": "Feats",
+                "aonid": 839
+            }
+        ]
     },
     "game-id": "5fef50cbfc0be96e7e1c06dc7c7d5f2a",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your touch rots organic material and decays objects. Make a melee spell attack roll. Your touch deals 1d12 negative damage plus 1d4 persistent negative damage. If a creature uses an item to block *withering grasp*, such as with the Shield Block reaction, the item is automatically affected, but the creature does not take damage (even if there is damage left over after the shield\u2019s Hardness). Unlike normal negative damage, the negative damage from *withering grasp* damages objects, constructs, and the like by eroding them away.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent negative damage",
-            "alt": "persistent negative damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "Shield Block",
-            "alt": "Shield Block",
-            "game-obj": "Feats",
-            "aonid": 839
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "decay",
-            "alt": "decay",
-            "game-obj": "Domains",
-            "aonid": 42
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -157,5 +183,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

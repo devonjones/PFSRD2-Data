@@ -54,12 +54,10 @@
     "spell": {
         "name": "Litany of Depravity",
         "type": "stat_block_section",
+        "text": "Your litany calls into question the morals your foe claims to hold dear. The target gains weakness 7 to unholy, then becomes temporarily immune to all your litanies for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,7 +120,6 @@
                 }
             }
         ],
-        "cast": "verbal",
         "range": "30 feet",
         "targets": "1 creature that isn't unholy",
         "duration": "1 round",
@@ -133,21 +130,32 @@
                 "increment": 1,
                 "text": "The weakness increases by 1."
             }
-        ]
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "32c52a55a6239084c99ee331f14cf41e",
-    "spell_type": "focus",
-    "rank": 7,
-    "text": "Your litany calls into question the morals your foe claims to hold dear. The target gains weakness 7 to unholy, then becomes temporarily immune to all your litanies for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -163,5 +171,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

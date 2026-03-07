@@ -40,12 +40,10 @@
     "spell": {
         "name": "Silver's Refrain",
         "type": "stat_block_section",
+        "text": "The \u201cSong of Silver\u201d was an enchanted song used by the Silver Ravens to battle diabolic forces. You pull from select verses to temporarily replicate some of the legendary song\u2019s benefits, albeit on a much smaller scale.  \n  \n Weapon and unarmed attacks by allies in the area are treated as silver. In addition, this spell automatically attempts to counteract any *dimension door* cast by a devil within the area or cast by a devil attempting to enter the area using *dimension door*. If a devil attempts to enter the area using *dimension door* and the spell is counteracted, the devil remains where it started.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,37 +106,49 @@
                 }
             }
         ],
-        "cast": "verbal",
         "area": "60-foot emanation",
-        "duration": "1 round"
+        "duration": "1 round",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dimension door",
+                "alt": "dimension door",
+                "game-obj": "Spells",
+                "aonid": 69
+            },
+            {
+                "type": "link",
+                "name": "devil",
+                "alt": "devil",
+                "game-obj": "MonsterFamilies",
+                "aonid": 30
+            }
+        ]
     },
     "game-id": "c7066f16b76ea10650883291c10a75fb",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "The \u201cSong of Silver\u201d was an enchanted song used by the Silver Ravens to battle diabolic forces. You pull from select verses to temporarily replicate some of the legendary song\u2019s benefits, albeit on a much smaller scale.  \n  \n Weapon and unarmed attacks by allies in the area are treated as silver. In addition, this spell automatically attempts to counteract any *dimension door* cast by a devil within the area or cast by a devil attempting to enter the area using *dimension door*. If a devil attempts to enter the area using *dimension door* and the spell is counteracted, the devil remains where it started.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dimension door",
-            "alt": "dimension door",
-            "game-obj": "Spells",
-            "aonid": 69
-        },
-        {
-            "type": "link",
-            "name": "devil",
-            "alt": "devil",
-            "game-obj": "MonsterFamilies",
-            "aonid": 30
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -154,5 +164,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

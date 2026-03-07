@@ -40,12 +40,10 @@
     "spell": {
         "name": "Rewrite Possibility",
         "type": "stat_block_section",
+        "text": "You continually glimpse into the target's future and nudge fate to guide them toward the best possible outcome. Due to the amount of information this spell requires you to process, you can't have more than one *rewrite possibility* spell in effect at a time. Casting it again ends the previous casting. While *rewrite possibility* is in effect, the target gains a +1 status bonus to initiative rolls. In addition, you gain the following reaction.  \n  \n **Rewrite Possibility** **Trigger** The target fails a check; **Effect** The target rolls again with a +2 status bonus and uses the higher result.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,39 +118,61 @@
                 }
             }
         ],
-        "bloodline": "harrow",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "harrow",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "harrow",
+                    "alt": "harrow",
+                    "game-obj": "Bloodlines",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "6bdf771b84844139f5c86bf0cd9b9f51",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You continually glimpse into the target's future and nudge fate to guide them toward the best possible outcome. Due to the amount of information this spell requires you to process, you can't have more than one *rewrite possibility* spell in effect at a time. Casting it again ends the previous casting. While *rewrite possibility* is in effect, the target gains a +1 status bonus to initiative rolls. In addition, you gain the following reaction.  \n  \n **Rewrite Possibility** **Trigger** The target fails a check; **Effect** The target rolls again with a +2 status bonus and uses the higher result.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "harrow",
-            "alt": "harrow",
-            "game-obj": "Bloodlines",
-            "aonid": 18
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -168,5 +188,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Ashen Wind",
         "type": "stat_block_section",
+        "text": "You conjure a swirling wind of ashes that blows through the area. Each creature in the area must attempt a Fortitude save or get the cloying ash in its lungs.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,49 +94,77 @@
                 }
             }
         ],
-        "mystery": "ash",
-        "cast": "verbal, somatic",
         "range": "120 feet",
         "area": "10-foot burst",
-        "saving_throw": "Fortitude",
-        "success": "The creature is unaffected.",
-        "failure": "The creature is sickened 1.",
-        "critical_failure": "The creature is sickened 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "ash",
+                "access_type": "mystery",
+                "link": {
+                    "type": "link",
+                    "name": "ash",
+                    "alt": "ash",
+                    "game-obj": "Mysteries",
+                    "aonid": 20
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "success": "The creature is unaffected.",
+            "failure": "The creature is sickened 1.",
+            "critical_failure": "The creature is sickened 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened 1",
+                    "alt": "sickened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 34
+                }
+            ]
+        }
     },
     "game-id": "4055424385070f26690ccce7078e1ba8",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You conjure a swirling wind of ashes that blows through the area. Each creature in the area must attempt a Fortitude save or get the cloying ash in its lungs.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened 1",
-            "alt": "sickened 1",
-            "game-obj": "Conditions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "ash",
-            "alt": "ash",
-            "game-obj": "Mysteries",
-            "aonid": 20
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -154,5 +180,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -27,12 +27,10 @@
     "spell": {
         "name": "Aqueous Orb",
         "type": "stat_block_section",
+        "text": "A sphere of water 10 feet in diameter forms in an unoccupied space in range, either on the ground or on the surface of a liquid. When you Cast this Spell and each time you Sustain it, you can roll the orb, moving it up to 10 feet along the ground or the surface of a liquid. The orb can move through the spaces of any creatures or obstacles that wouldn't stop the flow of water. It extinguishes non-magical fires it moves through of its size or smaller, and it attempts to counteract any magical fires it moves through. If it fails to counteract a given fire, it can't counteract that fire for the duration of the spell.  \n  \n The orb can engulf Large or smaller creatures it moves through, and it can contain as many creatures as fit in its space. The orb can try to engulf the same creature only once per turn, even if you roll it onto a creature's space more than once. Any Large or smaller creature whose space the orb tries to move through can attempt a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,131 +69,197 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Aegirran, Hanspur, Hataam, Lysianassa, Obari, Ristrentho, Waves of the Boundless Sea",
         "range": "60 feet",
-        "defense": "Reflex",
         "duration": "sustained up to 1 minute",
-        "success": "The creature can either let the orb pass (remaining in its space or moving out of the orb's path into a space of the creature's choice) or allow itself to be pushed in front of the orb to the end of the orb's movement.",
-        "failure": "The creature is engulfed in the orb. It moves along with the orb and must hold its breath or begin suffocating (unless it can breathe in water). An engulfed Medium or smaller creature and anyone trying to affect that creature follow the normal rules for aquatic battles. An engulfed Large creature is usually big enough that parts of it stick out from the water, and it can reach out of the water.  \n The creature can get free either by Swimming with a successful DC 10 Athletics check or by Escaping against your spell DC. A freed creature exits the orb's space and can immediately breathe.",
-        "critical_failure": "As failure, but the creature can't Swim to get free."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Aegirran",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Aegirran",
+                    "alt": "Aegirran",
+                    "game-obj": "Deities",
+                    "aonid": 490
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Hanspur",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Hanspur",
+                    "alt": "Hanspur",
+                    "game-obj": "Deities",
+                    "aonid": 154
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Hataam",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Hataam",
+                    "alt": "Hataam",
+                    "game-obj": "Deities",
+                    "aonid": 596
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Lysianassa",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Lysianassa",
+                    "alt": "Lysianassa",
+                    "game-obj": "Deities",
+                    "aonid": 692
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Obari",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Obari",
+                    "alt": "Obari",
+                    "game-obj": "Deities",
+                    "aonid": 356
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ristrentho",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ristrentho",
+                    "alt": "Ristrentho",
+                    "game-obj": "Deities",
+                    "aonid": 608
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Waves of the Boundless Sea",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Waves of the Boundless Sea",
+                    "alt": "Waves of the Boundless Sea",
+                    "game-obj": "Deities",
+                    "aonid": 375
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "success": "The creature can either let the orb pass (remaining in its space or moving out of the orb's path into a space of the creature's choice) or allow itself to be pushed in front of the orb to the end of the orb's movement.",
+            "failure": "The creature is engulfed in the orb. It moves along with the orb and must hold its breath or begin suffocating (unless it can breathe in water). An engulfed Medium or smaller creature and anyone trying to affect that creature follow the normal rules for aquatic battles. An engulfed Large creature is usually big enough that parts of it stick out from the water, and it can reach out of the water.  \n The creature can get free either by Swimming with a successful DC 10 Athletics check or by Escaping against your spell DC. A freed creature exits the orb's space and can immediately breathe.",
+            "critical_failure": "As failure, but the creature can't Swim to get free.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "pushed",
+                    "alt": "pushed",
+                    "game-obj": "Rules",
+                    "aonid": 451
+                },
+                {
+                    "type": "link",
+                    "name": "suffocating",
+                    "alt": "suffocating",
+                    "game-obj": "Rules",
+                    "aonid": 468
+                },
+                {
+                    "type": "link",
+                    "name": "aquatic battles",
+                    "alt": "aquatic battles",
+                    "game-obj": "Rules",
+                    "aonid": 467
+                },
+                {
+                    "type": "link",
+                    "name": "Swimming",
+                    "alt": "Swimming",
+                    "game-obj": "Actions",
+                    "aonid": 39
+                },
+                {
+                    "type": "link",
+                    "name": "Athletics",
+                    "alt": "Athletics",
+                    "game-obj": "Skills",
+                    "aonid": 3
+                },
+                {
+                    "type": "link",
+                    "name": "Escaping",
+                    "alt": "Escaping",
+                    "game-obj": "Actions",
+                    "aonid": 79
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "counteract",
+                "alt": "counteract",
+                "game-obj": "Rules",
+                "aonid": 371
+            }
+        ]
     },
     "game-id": "9b67b22045db0d38166ef5f4c9bc4d78",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "A sphere of water 10 feet in diameter forms in an unoccupied space in range, either on the ground or on the surface of a liquid. When you Cast this Spell and each time you Sustain it, you can roll the orb, moving it up to 10 feet along the ground or the surface of a liquid. The orb can move through the spaces of any creatures or obstacles that wouldn't stop the flow of water. It extinguishes non-magical fires it moves through of its size or smaller, and it attempts to counteract any magical fires it moves through. If it fails to counteract a given fire, it can't counteract that fire for the duration of the spell.  \n  \n The orb can engulf Large or smaller creatures it moves through, and it can contain as many creatures as fit in its space. The orb can try to engulf the same creature only once per turn, even if you roll it onto a creature's space more than once. Any Large or smaller creature whose space the orb tries to move through can attempt a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "pushed",
-            "alt": "pushed",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "suffocating",
-            "alt": "suffocating",
-            "game-obj": "Rules",
-            "aonid": 468
-        },
-        {
-            "type": "link",
-            "name": "aquatic battles",
-            "alt": "aquatic battles",
-            "game-obj": "Rules",
-            "aonid": 467
-        },
-        {
-            "type": "link",
-            "name": "Swimming",
-            "alt": "Swimming",
-            "game-obj": "Actions",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "Athletics",
-            "alt": "Athletics",
-            "game-obj": "Skills",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "Escaping",
-            "alt": "Escaping",
-            "game-obj": "Actions",
-            "aonid": 79
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Aegirran",
-            "alt": "Aegirran",
-            "game-obj": "Deities",
-            "aonid": 490
-        },
-        {
-            "type": "link",
-            "name": "Hanspur",
-            "alt": "Hanspur",
-            "game-obj": "Deities",
-            "aonid": 154
-        },
-        {
-            "type": "link",
-            "name": "Hataam",
-            "alt": "Hataam",
-            "game-obj": "Deities",
-            "aonid": 596
-        },
-        {
-            "type": "link",
-            "name": "Lysianassa",
-            "alt": "Lysianassa",
-            "game-obj": "Deities",
-            "aonid": 692
-        },
-        {
-            "type": "link",
-            "name": "Obari",
-            "alt": "Obari",
-            "game-obj": "Deities",
-            "aonid": 356
-        },
-        {
-            "type": "link",
-            "name": "Ristrentho",
-            "alt": "Ristrentho",
-            "game-obj": "Deities",
-            "aonid": 608
-        },
-        {
-            "type": "link",
-            "name": "Waves of the Boundless Sea",
-            "alt": "Waves of the Boundless Sea",
-            "game-obj": "Deities",
-            "aonid": 375
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -240,5 +304,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

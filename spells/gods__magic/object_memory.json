@@ -54,12 +54,10 @@
     "spell": {
         "name": "Object Memory",
         "type": "stat_block_section",
+        "text": "By touching an object, you draw forth the experience of those who created and used it. If you touch a weapon, your proficiency rank with that weapon temporarily increases to trained (if it is not already higher). If you touch a tool, your proficiency rank with the next skill check you attempt with that tool (such as a Crafting check with a blacksmith\u2019s hammer) within the spell\u2019s duration temporarily increases to trained (if it is not already higher). This spell has no benefit for activities that take longer than a minute to complete.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,8 +72,6 @@
                 }
             }
         ],
-        "domain": "vigil",
-        "cast": "somatic, verbal",
         "targets": "1 weapon or tool",
         "duration": "1 minute",
         "heightened": [
@@ -85,42 +81,68 @@
                 "level": 6,
                 "text": "Your proficiency rank increases to expert instead of trained."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "vigil",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "vigil",
+                    "alt": "vigil",
+                    "game-obj": "Domains",
+                    "aonid": 55
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Crafting",
+                "alt": "Crafting",
+                "game-obj": "Skills",
+                "aonid": 4
+            }
         ]
     },
     "game-id": "f7096703ce363ebb9683fa7e912e87df",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "By touching an object, you draw forth the experience of those who created and used it. If you touch a weapon, your proficiency rank with that weapon temporarily increases to trained (if it is not already higher). If you touch a tool, your proficiency rank with the next skill check you attempt with that tool (such as a Crafting check with a blacksmith\u2019s hammer) within the spell\u2019s duration temporarily increases to trained (if it is not already higher). This spell has no benefit for activities that take longer than a minute to complete.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Crafting",
-            "alt": "Crafting",
-            "game-obj": "Skills",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "vigil",
-            "alt": "vigil",
-            "game-obj": "Domains",
-            "aonid": 55
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -136,5 +158,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Purifying Veil",
         "type": "stat_block_section",
+        "text": "Drawing on the purifying powers of water, you call forth a veil of fine water droplets suffused with holy energy. The veil surrounds the target. Everything on each side of the veil is concealed from creatures on the opposite side, but the water doesn't impede attacks or movement across the veil. If the target moves through the veil, it takes 4d6 good damage with a basic Will save. If the target leaves the veil, the spell ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,8 +106,6 @@
                 }
             }
         ],
-        "domain": "water, water (apocryphal)",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 Large or smaller creature",
         "duration": "1 minute",
@@ -120,56 +116,94 @@
                 "increment": 1,
                 "text": "The good damage increases by 1d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "water",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "water",
+                    "alt": "water",
+                    "game-obj": "Domains",
+                    "aonid": 35
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "water",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "water",
+                    "alt": "water",
+                    "game-obj": "Domains",
+                    "aonid": 98
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "(apocryphal)",
+                "access_type": "domain"
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            }
         ]
     },
     "game-id": "56f617a3fbfbbcff8c144cd85a778bb7",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Drawing on the purifying powers of water, you call forth a veil of fine water droplets suffused with holy energy. The veil surrounds the target. Everything on each side of the veil is concealed from creatures on the opposite side, but the water doesn't impede attacks or movement across the veil. If the target moves through the veil, it takes 4d6 good damage with a basic Will save. If the target leaves the veil, the spell ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Domains",
-            "aonid": 35
-        },
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Domains",
-            "aonid": 98
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -185,5 +219,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

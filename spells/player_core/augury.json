@@ -27,7 +27,10 @@
     "spell": {
         "name": "Augury",
         "type": "stat_block_section",
+        "text": "You gain a vague glimpse of the future. During the casting of this spell, ask about the results of a particular course of action. The spell can predict results up to 30 minutes into the future and reveal the GM's best guess among the following outcomes: good, bad, mixed (the results will be a mix of good and bad), and nothing (there won't be particularly good or bad results).  \n  \n The GM rolls a secret DC 6 flat check. On a failure, the result is always \u201cnothing.\u201d This makes it impossible to tell whether a \u201cnothing\u201d result is accurate. If anyone asks about the same topic as the first casting of augury during an additional casting, the GM uses the secret roll result from the first casting. If circumstances change, though, it's possible to get a different result.",
         "subtype": "spell",
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -66,34 +69,48 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "cast": "10 minutes"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "time": "10 minutes"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "secret",
+                "alt": "secret",
+                "game-obj": "Traits",
+                "aonid": 142
+            }
+        ]
     },
     "game-id": "4797eb73fc3547246643790d631448a2",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You gain a vague glimpse of the future. During the casting of this spell, ask about the results of a particular course of action. The spell can predict results up to 30 minutes into the future and reveal the GM's best guess among the following outcomes: good, bad, mixed (the results will be a mix of good and bad), and nothing (there won't be particularly good or bad results).  \n  \n The GM rolls a secret DC 6 flat check. On a failure, the result is always \u201cnothing.\u201d This makes it impossible to tell whether a \u201cnothing\u201d result is accurate. If anyone asks about the same topic as the first casting of augury during an additional casting, the GM uses the secret roll result from the first casting. If circumstances change, though, it's possible to get a different result.",
-    "links": [
-        {
-            "type": "link",
-            "name": "secret",
-            "alt": "secret",
-            "game-obj": "Traits",
-            "aonid": 142
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -138,5 +155,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

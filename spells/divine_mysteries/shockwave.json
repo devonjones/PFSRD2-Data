@@ -20,12 +20,10 @@
     "spell": {
         "name": "Shockwave",
         "type": "stat_block_section",
+        "text": "You create a wave of energy that ripples through the earth. Terrestrial creatures in the affected area must attempt a Reflex save to avoid stumbling as the shockwave shakes the ground.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -64,10 +62,7 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Ayrzul, Mhar, Mugura and Nrithu, Orgesh, Ragdya, Yamatsumi, Zipacna",
         "area": "15-foot cone",
-        "defense": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -76,99 +71,168 @@
                 "text": "The area increases by 5 feet (to a 20-foot cone at 2nd rank, and so on)."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is off-guard until the start of its next turn.",
-        "failure": "The creature falls prone.",
-        "critical_failure": "As failure, plus the creature takes 1d6 bludgeoning damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ayrzul",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ayrzul",
+                    "alt": "Ayrzul",
+                    "game-obj": "Deities",
+                    "aonid": 687
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Mhar",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Mhar",
+                    "alt": "Mhar",
+                    "game-obj": "Deities",
+                    "aonid": 571
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Mugura and Nrithu",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Mugura and Nrithu",
+                    "alt": "Mugura and Nrithu",
+                    "game-obj": "Deities",
+                    "aonid": 300
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Orgesh",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Orgesh",
+                    "alt": "Orgesh",
+                    "game-obj": "Deities",
+                    "aonid": 576
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ragdya",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ragdya",
+                    "alt": "Ragdya",
+                    "game-obj": "Deities",
+                    "aonid": 618
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Yamatsumi",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Yamatsumi",
+                    "alt": "Yamatsumi",
+                    "game-obj": "Deities",
+                    "aonid": 319
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Zipacna",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Zipacna",
+                    "alt": "Zipacna",
+                    "game-obj": "Deities",
+                    "aonid": 604
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is off-guard until the start of its next turn.",
+            "failure": "The creature falls prone.",
+            "critical_failure": "As failure, plus the creature takes 1d6 bludgeoning damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "off-guard",
+                    "alt": "off-guard",
+                    "game-obj": "Conditions",
+                    "aonid": 58
+                },
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 88
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "cone",
+                "alt": "cone",
+                "game-obj": "Rules",
+                "aonid": 2386
+            }
+        ]
     },
     "game-id": "9d7e9e91150d7b9c573670c949d56f54",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "You create a wave of energy that ripples through the earth. Terrestrial creatures in the affected area must attempt a Reflex save to avoid stumbling as the shockwave shakes the ground.",
-    "links": [
-        {
-            "type": "link",
-            "name": "off-guard",
-            "alt": "off-guard",
-            "game-obj": "Conditions",
-            "aonid": 58
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 88
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Ayrzul",
-            "alt": "Ayrzul",
-            "game-obj": "Deities",
-            "aonid": 687
-        },
-        {
-            "type": "link",
-            "name": "Mhar",
-            "alt": "Mhar",
-            "game-obj": "Deities",
-            "aonid": 571
-        },
-        {
-            "type": "link",
-            "name": "Mugura and Nrithu",
-            "alt": "Mugura and Nrithu",
-            "game-obj": "Deities",
-            "aonid": 300
-        },
-        {
-            "type": "link",
-            "name": "Orgesh",
-            "alt": "Orgesh",
-            "game-obj": "Deities",
-            "aonid": 576
-        },
-        {
-            "type": "link",
-            "name": "Ragdya",
-            "alt": "Ragdya",
-            "game-obj": "Deities",
-            "aonid": 618
-        },
-        {
-            "type": "link",
-            "name": "Yamatsumi",
-            "alt": "Yamatsumi",
-            "game-obj": "Deities",
-            "aonid": 319
-        },
-        {
-            "type": "link",
-            "name": "Zipacna",
-            "alt": "Zipacna",
-            "game-obj": "Deities",
-            "aonid": 604
-        },
-        {
-            "type": "link",
-            "name": "cone",
-            "alt": "cone",
-            "game-obj": "Rules",
-            "aonid": 2386
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -213,5 +277,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

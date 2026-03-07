@@ -54,12 +54,10 @@
     "spell": {
         "name": "Dutiful Challenge",
         "type": "stat_block_section",
+        "text": "As you challenge an enemy, you take some of its attention away from your allies. The target takes a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than you, and you take a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than the target. Each time a creature other than you uses a hostile action that affects the challenged enemy, the enemy can attempt a Will save. On a success, the enemy no longer takes the penalty against that creature. You can Dismiss the spell, and it ends automatically if you or the target is defeated.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -74,8 +72,6 @@
                 }
             }
         ],
-        "domain": "duty",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
         "duration": "1 minute",
@@ -86,35 +82,59 @@
                 "increment": 3,
                 "text": "The status penalties increase by 1."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "duty",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "duty",
+                    "alt": "duty",
+                    "game-obj": "Domains",
+                    "aonid": 45
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "8634a711adb39687f9654d6bcd50451e",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "As you challenge an enemy, you take some of its attention away from your allies. The target takes a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than you, and you take a \u20131 status penalty to attack rolls, damage rolls, and skill checks against creatures other than the target. Each time a creature other than you uses a hostile action that affects the challenged enemy, the enemy can attempt a Will save. On a success, the enemy no longer takes the penalty against that creature. You can Dismiss the spell, and it ends automatically if you or the target is defeated.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "duty",
-            "alt": "duty",
-            "game-obj": "Domains",
-            "aonid": 45
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -130,5 +150,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

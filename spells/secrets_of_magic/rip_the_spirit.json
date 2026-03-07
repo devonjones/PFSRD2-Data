@@ -54,12 +54,10 @@
     "spell": {
         "name": "Rip the Spirit",
         "type": "stat_block_section",
+        "text": "You supernaturally rip the spirit from a living creature's body, dooming the target to pain and death. The target takes 5d6 negative damage, depending on its basic Fortitude save, and is drained 1 if it fails its save. The spell's effect is based on how many actions you spend when Casting the Spell.  \n  \n **(somatic)** The spell targets one living creature in range.   \n **(somatic, verbal)** The spell targets one living creature in range and the damage is 10d6 negative instead of 5d6.   \n **(material, somatic, verbal)** The spell targets all living creatures in a 30-foot emanation.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,10 +96,8 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
         "range": "30 feet",
         "targets": "1 living creature",
-        "saving_throw": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -109,33 +105,59 @@
                 "increment": 1,
                 "text": "The amount of damage increases by 1d6, or by 2d6 for the 2-action version."
             }
-        ]
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        }
     },
     "game-id": "5b1e2b6fa81d20556f95645d27da5961",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You supernaturally rip the spirit from a living creature's body, dooming the target to pain and death. The target takes 5d6 negative damage, depending on its basic Fortitude save, and is drained 1 if it fails its save. The spell's effect is based on how many actions you spend when Casting the Spell.  \n  \n **(somatic)** The spell targets one living creature in range.   \n **(somatic, verbal)** The spell targets one living creature in range and the damage is 10d6 negative instead of 5d6.   \n **(material, somatic, verbal)** The spell targets all living creatures in a 30-foot emanation.",
-    "links": [
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -151,5 +173,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Hollow Heart",
         "type": "stat_block_section",
+        "text": "You stoke the target's ambition beyond reason, until it believes no one is capable of helping it, or that others aren't to be trusted. The target attempts a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,58 +118,98 @@
                 }
             }
         ],
-        "domain": "ambition, ambition (apocryphal)",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target treats no other creature as an ally for 1 round.",
-        "failure": "The target treats no other creature as an ally for 3 rounds.",
-        "critical_failure": "As failure, and the target is frightened 1 as it realizes it can't rely on anyone but itself."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "ambition",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "ambition",
+                    "alt": "ambition",
+                    "game-obj": "Domains",
+                    "aonid": 1
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "ambition",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "ambition",
+                    "alt": "ambition",
+                    "game-obj": "Domains",
+                    "aonid": 64
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "(apocryphal)",
+                "access_type": "domain"
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target treats no other creature as an ally for 1 round.",
+            "failure": "The target treats no other creature as an ally for 3 rounds.",
+            "critical_failure": "As failure, and the target is frightened 1 as it realizes it can't rely on anyone but itself.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened 1",
+                    "alt": "frightened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 19
+                }
+            ]
+        }
     },
     "game-id": "e39dff9d09240860157985ac0fef0e80",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You stoke the target's ambition beyond reason, until it believes no one is capable of helping it, or that others aren't to be trusted. The target attempts a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened 1",
-            "alt": "frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "ambition",
-            "alt": "ambition",
-            "game-obj": "Domains",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "ambition",
-            "alt": "ambition",
-            "game-obj": "Domains",
-            "aonid": 64
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -187,5 +225,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

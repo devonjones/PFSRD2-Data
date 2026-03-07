@@ -54,12 +54,10 @@
     "spell": {
         "name": "Ephemeral Hazards",
         "type": "stat_block_section",
+        "text": "You create illusory hazards, such as spinning blades or a puddle of acid, in four 10-foot-by-10-foot spaces within range. The hazards are merely a mental projection, and a creature receives a Will save each time it touches a hazard or is occupying one\u2019s space at the start of its turn. Depending on the result, the creature takes 4d6 mental damage and might have difficulty moving through the area. A creature can take this damage only once per turn, even if it moves through several hazards. Choose bludgeoning, slashing, piercing, acid, cold, electricity, fire, or sonic damage when you cast *ephemeral hazards*; resistances and weaknesses to those damage types apply if the target thinks they do, as judged by the GM. You can freely choose the appearance and damage type of each hazard as long as its appearance reflects the type of damage it deals (for instance, a hazard that deals piercing damage might take the form of sharpened spikes).",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "domain": "delirium",
-        "cast": "material, somatic, verbal",
         "range": "60 feet",
         "duration": "1 minute",
         "heightened": [
@@ -110,45 +106,78 @@
                 "text": "The damage increases by 1d6."
             }
         ],
-        "critical_success": "The creature is unaffected by the hazards and no longer needs to attempt Will saves against them.",
-        "success": "The creature realizes the hazards aren\u2019t real but still takes half damage from them; on future Will saves against the hazards, the creature continues to use this result unless it rolls a critical success.",
-        "failure": "The target takes full damage and treats the square as difficult terrain.",
-        "critical_failure": "The target takes double damage and cannot pass through a square containing a hazard."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "delirium",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "delirium",
+                    "alt": "delirium",
+                    "game-obj": "Domains",
+                    "aonid": 43
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected by the hazards and no longer needs to attempt Will saves against them.",
+            "success": "The creature realizes the hazards aren\u2019t real but still takes half damage from them; on future Will saves against the hazards, the creature continues to use this result unless it rolls a critical success.",
+            "failure": "The target takes full damage and treats the square as difficult terrain.",
+            "critical_failure": "The target takes double damage and cannot pass through a square containing a hazard."
+        }
     },
     "game-id": "261a090c9c74428cb8783574520bc0e9",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You create illusory hazards, such as spinning blades or a puddle of acid, in four 10-foot-by-10-foot spaces within range. The hazards are merely a mental projection, and a creature receives a Will save each time it touches a hazard or is occupying one\u2019s space at the start of its turn. Depending on the result, the creature takes 4d6 mental damage and might have difficulty moving through the area. A creature can take this damage only once per turn, even if it moves through several hazards. Choose bludgeoning, slashing, piercing, acid, cold, electricity, fire, or sonic damage when you cast *ephemeral hazards*; resistances and weaknesses to those damage types apply if the target thinks they do, as judged by the GM. You can freely choose the appearance and damage type of each hazard as long as its appearance reflects the type of damage it deals (for instance, a hazard that deals piercing damage might take the form of sharpened spikes).",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "delirium",
-            "alt": "delirium",
-            "game-obj": "Domains",
-            "aonid": 43
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -164,5 +193,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

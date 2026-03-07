@@ -54,12 +54,10 @@
     "spell": {
         "name": "Horrific Visage",
         "type": "stat_block_section",
+        "text": "You briefly transform your features into the horrific visage of a hag, striking fear into your enemies. Foes in the area must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -146,10 +144,7 @@
                 }
             }
         ],
-        "bloodline": "hag",
-        "cast": "somatic, verbal",
         "area": "30-foot-radius emanation centered on you",
-        "saving_throw": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -158,37 +153,66 @@
                 "text": "Foes in the area are frightened 1 on a success, frightened 2 on a failure, and frightened 3 and fleeing for 1 round on a critical failure. They are still unaffected on a critical success."
             }
         ],
-        "success": "The foe is unaffected.",
-        "failure": "The foe is frightened 1.",
-        "critical_failure": "The foe is frightened 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "hag",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "hag",
+                    "alt": "hag",
+                    "game-obj": "Bloodlines",
+                    "aonid": 8
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "success": "The foe is unaffected.",
+            "failure": "The foe is frightened 1.",
+            "critical_failure": "The foe is frightened 2."
+        }
     },
     "game-id": "1481eae7d430f9851ef590dc73c133c5",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You briefly transform your features into the horrific visage of a hag, striking fear into your enemies. Foes in the area must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "hag",
-            "alt": "hag",
-            "game-obj": "Bloodlines",
-            "aonid": 8
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -204,5 +228,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

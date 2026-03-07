@@ -40,12 +40,10 @@
     "spell": {
         "name": "Moonburst",
         "type": "stat_block_section",
+        "text": "A powerful globe of chilling moonlight explodes in the area, dealing 8d10 cold damage to creatures and objects in the area, plus 8d10 additional positive damage to undead creatures. Moonburst's cold damage is silver damage for the purposes of weaknesses, resistances, and the like. Each creature and object in the area must attempt a Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -108,11 +106,8 @@
                 }
             }
         ],
-        "traditions": "divine, primal",
-        "cast": "somatic, verbal",
         "range": "500 feet",
         "area": "60-foot burst",
-        "saving_throw": "Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -121,78 +116,117 @@
                 "text": "The cold damage increases by 1d10, and the positive damage against undead increases by 1d10."
             }
         ],
-        "critical_success": "The creature or object is unaffected.",
-        "success": "The creature or object takes half damage.",
-        "failure": "The creature or object takes full damage.",
-        "critical_failure": "The creature or object takes full damage. If it's a creature, it's blinded for an unlimited duration.   \n  \nIf the globe overlaps with an area of magical darkness, moonburst attempts to counteract the darkness effect."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature or object is unaffected.",
+            "success": "The creature or object takes half damage.",
+            "failure": "The creature or object takes full damage.",
+            "critical_failure": "The creature or object takes full damage. If it's a creature, it's blinded for an unlimited duration.   \n  \nIf the globe overlaps with an area of magical darkness, moonburst attempts to counteract the darkness effect.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "blinded",
+                    "alt": "blinded",
+                    "game-obj": "Conditions",
+                    "aonid": 1
+                },
+                {
+                    "type": "link",
+                    "name": "darkness",
+                    "alt": "darkness",
+                    "game-obj": "Traits",
+                    "aonid": 39
+                },
+                {
+                    "type": "link",
+                    "name": "counteract",
+                    "alt": "counteract",
+                    "game-obj": "Rules",
+                    "aonid": 371
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            },
+            {
+                "type": "link",
+                "name": "silver",
+                "alt": "silver",
+                "game-obj": "Equipment",
+                "aonid": 379
+            }
+        ]
     },
     "game-id": "c9d4c14666ebdacc40a92bafc64ce1ff",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "A powerful globe of chilling moonlight explodes in the area, dealing 8d10 cold damage to creatures and objects in the area, plus 8d10 additional positive damage to undead creatures. Moonburst's cold damage is silver damage for the purposes of weaknesses, resistances, and the like. Each creature and object in the area must attempt a Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "silver",
-            "alt": "silver",
-            "game-obj": "Equipment",
-            "aonid": 379
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Traits",
-            "aonid": 39
-        },
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -208,5 +242,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

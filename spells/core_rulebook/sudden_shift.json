@@ -54,12 +54,10 @@
     "spell": {
         "name": "Sudden Shift",
         "type": "stat_block_section",
+        "text": "You swiftly move from a dangerous spot and veil yourself. You Step and become concealed.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,31 +108,48 @@
                 }
             }
         ],
-        "domain": "trickery",
-        "cast": "somatic",
         "trigger": "An enemy misses you with a melee attack.",
-        "duration": "until the end of your next turn"
+        "duration": "until the end of your next turn",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "trickery",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "trickery",
+                    "alt": "trickery",
+                    "game-obj": "Domains",
+                    "aonid": 31
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "5896172f10cbec670c514a4f4768e2d1",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You swiftly move from a dangerous spot and veil yourself. You Step and become concealed.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "trickery",
-            "alt": "trickery",
-            "game-obj": "Domains",
-            "aonid": 31
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -150,5 +165,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

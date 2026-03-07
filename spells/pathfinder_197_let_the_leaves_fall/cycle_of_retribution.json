@@ -40,12 +40,10 @@
     "spell": {
         "name": "Cycle of Retribution",
         "type": "stat_block_section",
+        "text": "An understanding of how violence begets more violence fills your target, causing it mental anguish when it attempts to take violent actions. The target must attempt a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,8 +82,6 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
         "duration": "sustained up to 1 minute",
@@ -97,43 +93,77 @@
                 "text": "The mental damage increases by 1d4."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The next time the target takes a hostile action, the target takes 1d4 mental damage; the spell's duration then ends.",
-        "failure": "The first time in a round when the target takes a hostile action, the target takes 1d4 mental damage.",
-        "critical_failure": "Each time the target takes a hostile action, the target takes 1d4 mental damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The target is unaffected.",
+            "success": "The next time the target takes a hostile action, the target takes 1d4 mental damage; the spell's duration then ends.",
+            "failure": "The first time in a round when the target takes a hostile action, the target takes 1d4 mental damage.",
+            "critical_failure": "Each time the target takes a hostile action, the target takes 1d4 mental damage."
+        }
     },
     "game-id": "5425ffc0f2d346f0b8ef8a14f849ee00",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "An understanding of how violence begets more violence fills your target, causing it mental anguish when it attempts to take violent actions. The target must attempt a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -178,5 +208,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

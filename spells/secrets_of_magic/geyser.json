@@ -54,12 +54,10 @@
     "spell": {
         "name": "Geyser",
         "type": "stat_block_section",
+        "text": "A powerful geyser blasts up from the ground, potentially pushing creatures on top of it into the air. The bottom of this spell's area must be on solid ground. Each creature in the area takes 3d6 bludgeoning damage and 4d6 fire damage, with a Reflex save. A creature pushed into the air by the geyser can't be pushed beyond the top of the geyser. After being pushed into the air, a creature falls unless it's flying or has some other means of staying aloft, taking falling damage (normally equal to half the distance it fell). After the geyser erupts, its area is filled with a cloud of steam for 1 round. All creatures in the steam are concealed, and all creatures outside the steam are concealed to creatures within it.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,12 +96,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Izuyaku",
-        "cast": "somatic, verbal",
         "range": "500 feet",
         "area": "10-foot radius, 50-foot-tall cylinder",
-        "saving_throw": "Reflex",
         "duration": "1 round",
         "heightened": [
             {
@@ -113,71 +107,114 @@
                 "text": "The damage increases by 1d6 bludgeoning and 1d6 fire."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and isn't pushed into the air.",
-        "failure": "The creature takes full damage and is pushed 20 feet into the air.",
-        "critical_failure": "The creature takes double damage and is pushed 40 feet into the air."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Izuyaku",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Izuyaku",
+                    "alt": "Izuyaku",
+                    "game-obj": "Deities",
+                    "aonid": 348
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Ref",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and isn't pushed into the air.",
+            "failure": "The creature takes full damage and is pushed 20 feet into the air.",
+            "critical_failure": "The creature takes double damage and is pushed 40 feet into the air."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "pushing",
+                "alt": "pushing",
+                "game-obj": "Rules",
+                "aonid": 451
+            },
+            {
+                "type": "link",
+                "name": "falls",
+                "alt": "falls",
+                "game-obj": "Rules",
+                "aonid": 402
+            },
+            {
+                "type": "link",
+                "name": "concealed",
+                "alt": "concealed",
+                "game-obj": "Conditions",
+                "aonid": 4
+            }
+        ]
     },
     "game-id": "66db3fceba6768d3228c62486f8bcf20",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "A powerful geyser blasts up from the ground, potentially pushing creatures on top of it into the air. The bottom of this spell's area must be on solid ground. Each creature in the area takes 3d6 bludgeoning damage and 4d6 fire damage, with a Reflex save. A creature pushed into the air by the geyser can't be pushed beyond the top of the geyser. After being pushed into the air, a creature falls unless it's flying or has some other means of staying aloft, taking falling damage (normally equal to half the distance it fell). After the geyser erupts, its area is filled with a cloud of steam for 1 round. All creatures in the steam are concealed, and all creatures outside the steam are concealed to creatures within it.",
-    "links": [
-        {
-            "type": "link",
-            "name": "pushing",
-            "alt": "pushing",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "falls",
-            "alt": "falls",
-            "game-obj": "Rules",
-            "aonid": 402
-        },
-        {
-            "type": "link",
-            "name": "concealed",
-            "alt": "concealed",
-            "game-obj": "Conditions",
-            "aonid": 4
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Izuyaku",
-            "alt": "Izuyaku",
-            "game-obj": "Deities",
-            "aonid": 348
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -193,5 +230,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Ode to Ouroboros",
         "type": "stat_block_section",
+        "text": "Your ode temporarily staves off death. The target's dying condition remains 1 below the value at which it dies. This doesn't help prevent death from effects that kill the target without increasing its dying condition, such as *disintegrate* and death effects.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,45 +108,57 @@
                 }
             }
         ],
-        "cast": "verbal",
         "trigger": "a creature's dying value would reach the value at which they would die.",
         "range": "60 feet",
-        "targets": "the triggering creature"
+        "targets": "the triggering creature",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "disintegrate",
+                "alt": "disintegrate",
+                "game-obj": "Spells",
+                "aonid": 76
+            },
+            {
+                "type": "link",
+                "name": "death",
+                "alt": "death",
+                "game-obj": "Traits",
+                "aonid": 40
+            },
+            {
+                "type": "link",
+                "name": "dying",
+                "alt": "dying",
+                "game-obj": "Conditions",
+                "aonid": 11
+            }
+        ]
     },
     "game-id": "696addd68cef711203a01bcce71457ce",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "Your ode temporarily staves off death. The target's dying condition remains 1 below the value at which it dies. This doesn't help prevent death from effects that kill the target without increasing its dying condition, such as *disintegrate* and death effects.",
-    "links": [
-        {
-            "type": "link",
-            "name": "disintegrate",
-            "alt": "disintegrate",
-            "game-obj": "Spells",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "death",
-            "alt": "death",
-            "game-obj": "Traits",
-            "aonid": 40
-        },
-        {
-            "type": "link",
-            "name": "dying",
-            "alt": "dying",
-            "game-obj": "Conditions",
-            "aonid": 11
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -164,5 +174,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

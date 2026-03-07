@@ -27,12 +27,10 @@
     "spell": {
         "name": "Combustion",
         "type": "stat_block_section",
+        "text": "You ignite a creature in lasting flames. The fire deals 4d8 fire damage and 2d6 persistent fire damage to the creature, which must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -109,7 +107,6 @@
         ],
         "range": "120 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -118,24 +115,35 @@
                 "text": "Increase the initial damage by 1d8 and the persistent damage by 1d6."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and takes no persistent damage.",
-        "failure": "The creature takes full damage, as well as full persistent damage.",
-        "critical_failure": "The creature takes double damage, as well as double persistent damage."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and takes no persistent damage.",
+            "failure": "The creature takes full damage, as well as full persistent damage.",
+            "critical_failure": "The creature takes double damage, as well as double persistent damage."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent fire damage",
+                "alt": "persistent fire damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "a02c7a69670fca77668984761758157d",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You ignite a creature in lasting flames. The fire deals 4d8 fire damage and 2d6 persistent fire damage to the creature, which must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent fire damage",
-            "alt": "persistent fire damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -180,5 +188,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

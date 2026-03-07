@@ -54,12 +54,10 @@
     "spell": {
         "name": "Commanding Lash",
         "type": "stat_block_section",
+        "text": "With the threat of more pain, you compel a creature you've recently harmed. You issue a command to the target, with the effects of the spell *command*.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,41 +120,64 @@
                 }
             }
         ],
-        "domain": "tyranny",
-        "cast": "verbal",
         "requirement": "Your most recent action dealt damage to a target",
         "range": "100 feet",
         "targets": "A creature you dealt damage to on your most recent action.",
-        "saving_throw": "Will",
-        "duration": "until the end of your target's next turn"
+        "duration": "until the end of your target's next turn",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "tyranny",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "tyranny",
+                    "alt": "tyranny",
+                    "game-obj": "Domains",
+                    "aonid": 33
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "command",
+                "alt": "command",
+                "game-obj": "Spells",
+                "aonid": 45
+            }
+        ]
     },
     "game-id": "7f857543413f5a531aee71894e533846",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "With the threat of more pain, you compel a creature you've recently harmed. You issue a command to the target, with the effects of the spell *command*.",
-    "links": [
-        {
-            "type": "link",
-            "name": "command",
-            "alt": "command",
-            "game-obj": "Spells",
-            "aonid": 45
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "tyranny",
-            "alt": "tyranny",
-            "game-obj": "Domains",
-            "aonid": 33
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -172,5 +193,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

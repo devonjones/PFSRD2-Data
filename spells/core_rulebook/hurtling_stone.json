@@ -54,12 +54,10 @@
     "spell": {
         "name": "Hurtling Stone",
         "type": "stat_block_section",
+        "text": "You evoke a magical stone and throw it, with your god's presence guiding your aim. Make a spell attack roll against the target. The stone deals bludgeoning damage equal to 1d6 plus your Strength modifier.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,8 +120,6 @@
                 }
             }
         ],
-        "domain": "earth",
-        "cast": "somatic",
         "range": "60 feet",
         "targets": "1 creature",
         "heightened": [
@@ -134,29 +130,52 @@
                 "text": "The stone's damage increases by 1d6."
             }
         ],
-        "critical_success": "The stone deals double damage.",
-        "success": "The stone deals full damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "earth",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "earth",
+                    "alt": "earth",
+                    "game-obj": "Domains",
+                    "aonid": 10
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The stone deals double damage.",
+            "success": "The stone deals full damage."
+        }
     },
     "game-id": "6238466441b12228805b5317d7827c76",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You evoke a magical stone and throw it, with your god's presence guiding your aim. Make a spell attack roll against the target. The stone deals bludgeoning damage equal to 1d6 plus your Strength modifier.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "earth",
-            "alt": "earth",
-            "game-obj": "Domains",
-            "aonid": 10
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -172,5 +191,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

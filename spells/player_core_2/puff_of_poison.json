@@ -27,12 +27,10 @@
     "spell": {
         "name": "Puff of Poison",
         "type": "stat_block_section",
+        "text": "You exhale a shimmering cloud of toxic breath at an enemy's face. The target takes 1d4 poison damage and 1d4 persistent poison damage, depending on its Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,10 +81,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
         "range": "10 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -95,36 +91,61 @@
                 "text": "The initial poison damage increases by 1d4, and the persistent poison damage increases by 1d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The target takes half initial damage and no persistent damage.",
-        "failure": "The target takes full initial and persistent damage.",
-        "critical_failure": "The target takes double initial and persistent damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The target takes half initial damage and no persistent damage.",
+            "failure": "The target takes full initial and persistent damage.",
+            "critical_failure": "The target takes double initial and persistent damage."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent poison damage",
+                "alt": "persistent poison damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "72984f5d769dea9bf284b3c5a00b69b2",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You exhale a shimmering cloud of toxic breath at an enemy's face. The target takes 1d4 poison damage and 1d4 persistent poison damage, depending on its Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent poison damage",
-            "alt": "persistent poison damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -169,5 +190,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

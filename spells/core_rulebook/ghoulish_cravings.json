@@ -54,12 +54,10 @@
     "spell": {
         "name": "Ghoulish Cravings",
         "type": "stat_block_section",
+        "text": "You touch the target to afflict it with ghoul fever, infesting it with hunger and a steadily decreasing connection to positive energy; the target must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,48 +96,80 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is afflicted with ghoul fever at stage 1.",
-        "failure": "The target is afflicted with ghoul fever at stage 2.",
-        "critical_failure": "The target is afflicted with ghoul fever at stage 3.  \n  \n**Ghoul Fever** (disease); **Level** 3; **Stage 1** carrier with no ill effects (1 day); **Stage 2** 3d8 negative damage and the creature regains half as many Hit Points from all healing (1 day); **Stage 3** as stage 2 (1 day); **Stage 4** 3d8 negative damage and the creature gains no benefit from healing (1 day); **Stage 5** as stage 4 (1 day); **Stage 6** the creature dies and rises as a ghoul at the next midnight"
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is afflicted with ghoul fever at stage 1.",
+            "failure": "The target is afflicted with ghoul fever at stage 2.",
+            "critical_failure": "The target is afflicted with ghoul fever at stage 3.  \n  \n**Ghoul Fever** (disease); **Level** 3; **Stage 1** carrier with no ill effects (1 day); **Stage 2** 3d8 negative damage and the creature regains half as many Hit Points from all healing (1 day); **Stage 3** as stage 2 (1 day); **Stage 4** 3d8 negative damage and the creature gains no benefit from healing (1 day); **Stage 5** as stage 4 (1 day); **Stage 6** the creature dies and rises as a ghoul at the next midnight"
+        }
     },
     "game-id": "f497a7b1d0795745f1eb126d16982bfb",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You touch the target to afflict it with ghoul fever, infesting it with hunger and a steadily decreasing connection to positive energy; the target must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -155,5 +185,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

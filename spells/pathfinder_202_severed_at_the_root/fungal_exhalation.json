@@ -20,12 +20,10 @@
     "spell": {
         "name": "Fungal Exhalation",
         "type": "stat_block_section",
+        "text": "You exhale toxic mold spores that fill the area. You deal 6d4 poison damage to creatures in the area. On a failure, a creature is also sickened 1, or sickened 2 on a critical failure. A creature that doesn\u2019t breathe is immune to this effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -76,9 +74,7 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "area": "15-foot cone",
-        "saving_throw": "basic Reflex",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -86,56 +82,82 @@
                 "increment": 1,
                 "text": "The damage increases by 2d4."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 2297
+                }
+            ],
+            "basic": true,
+            "save_type": "Ref"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "poison",
+                "alt": "poison",
+                "game-obj": "Traits",
+                "aonid": 669
+            },
+            {
+                "type": "link",
+                "name": "sickened",
+                "alt": "sickened",
+                "game-obj": "Conditions",
+                "aonid": 91
+            },
+            {
+                "type": "link",
+                "name": "cone",
+                "alt": "cone",
+                "game-obj": "Rules",
+                "aonid": 2386
+            }
         ]
     },
     "game-id": "4e75ab8529d1f0ddf45f212c1e68e513",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You exhale toxic mold spores that fill the area. You deal 6d4 poison damage to creatures in the area. On a failure, a creature is also sickened 1, or sickened 2 on a critical failure. A creature that doesn\u2019t breathe is immune to this effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "poison",
-            "alt": "poison",
-            "game-obj": "Traits",
-            "aonid": 669
-        },
-        {
-            "type": "link",
-            "name": "sickened",
-            "alt": "sickened",
-            "game-obj": "Conditions",
-            "aonid": 91
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "cone",
-            "alt": "cone",
-            "game-obj": "Rules",
-            "aonid": 2386
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 2297
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -180,5 +202,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

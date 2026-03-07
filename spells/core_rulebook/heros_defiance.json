@@ -54,12 +54,10 @@
     "spell": {
         "name": "Hero's Defiance",
         "type": "stat_block_section",
+        "text": "You shout in defiance, filling you with a sudden burst of healing. Just before applying the attack's damage, you recover 10d4+20 Hit Points. If this is enough to prevent the attack from bringing you to 0 Hit Points, you don't become unconscious or dying. Either way, cheating death is difficult, and you can't use *hero's defiance* again until you Refocus or the next time you prepare. *Hero's defiance* cannot be used against effects with the death trait or that would leave no remains, such as *disintegrate*.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Free Action"
-        },
+        "spell_type": "focus",
+        "rank": 10,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,29 +120,41 @@
                 }
             }
         ],
-        "cast": "verbal",
-        "trigger": "An attack would bring you to 0 Hit Points."
+        "trigger": "An attack would bring you to 0 Hit Points.",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Free Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "disintegrate",
+                "alt": "disintegrate",
+                "game-obj": "Spells",
+                "aonid": 76
+            }
+        ]
     },
     "game-id": "93649ebc4b05209f849aaf0482428db6",
-    "spell_type": "focus",
-    "rank": 10,
-    "text": "You shout in defiance, filling you with a sudden burst of healing. Just before applying the attack's damage, you recover 10d4+20 Hit Points. If this is enough to prevent the attack from bringing you to 0 Hit Points, you don't become unconscious or dying. Either way, cheating death is difficult, and you can't use *hero's defiance* again until you Refocus or the next time you prepare. *Hero's defiance* cannot be used against effects with the death trait or that would leave no remains, such as *disintegrate*.",
-    "links": [
-        {
-            "type": "link",
-            "name": "disintegrate",
-            "alt": "disintegrate",
-            "game-obj": "Spells",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -160,5 +170,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

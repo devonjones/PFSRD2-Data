@@ -40,12 +40,10 @@
     "spell": {
         "name": "Excise Lexicon",
         "type": "stat_block_section",
+        "text": "You reach into a creature's mind and extract its knowledge of a word. Choose a word to excise when you Cast the Spell. The word must be a mundane word, not a proper noun, and not a word of power such as those used as verbal components for spells. The target must attempt a Will save. The target forgets any words you remove with this spell. While the spell lasts, the target doesn't register or understand the excised words in any form, signed, spoken, written, or otherwise, and can't comprehend them by any means, even by a *tongues* spell or similar magic. The spell fails if you don't share at least one language with the target. However, the target forgets the words from each language they know, not just your shared languages.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,11 +94,8 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -110,50 +105,87 @@
                 "text": "You excise one additional word."
             }
         ],
-        "critical_success": "The target is unaffected and knows which words you attempted to excise.",
-        "success": "The spell's duration is 1 minute.",
-        "failure": "The spell's duration is 1 day.",
-        "critical_failure": "The spell's duration is unlimited."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected and knows which words you attempted to excise.",
+            "success": "The spell's duration is 1 minute.",
+            "failure": "The spell's duration is 1 day.",
+            "critical_failure": "The spell's duration is unlimited."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "tongues",
+                "alt": "tongues",
+                "game-obj": "Spells",
+                "aonid": 340
+            }
+        ]
     },
     "game-id": "5fcc6cb1122292d35c32a1888a5eabc7",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "You reach into a creature's mind and extract its knowledge of a word. Choose a word to excise when you Cast the Spell. The word must be a mundane word, not a proper noun, and not a word of power such as those used as verbal components for spells. The target must attempt a Will save. The target forgets any words you remove with this spell. While the spell lasts, the target doesn't register or understand the excised words in any form, signed, spoken, written, or otherwise, and can't comprehend them by any means, even by a *tongues* spell or similar magic. The spell fails if you don't share at least one language with the target. However, the target forgets the words from each language they know, not just your shared languages.",
-    "links": [
-        {
-            "type": "link",
-            "name": "tongues",
-            "alt": "tongues",
-            "game-obj": "Spells",
-            "aonid": 340
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -169,5 +201,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

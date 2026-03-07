@@ -40,12 +40,10 @@
     "spell": {
         "name": "Consecrate Flesh",
         "type": "stat_block_section",
+        "text": "Through the strength of your faith, your body becomes infused with holy energy. You have weakness 5 to evil. Any creature that touches or damages you with an unarmed attack or non-reach melee weapon takes 1d6 good damage. Your unarmed attacks deal an additional 1 good damage. Your healing spells that restore Hit Points restore an additional 1d4 Hit Points when you initially cast them; as normal, if your healing spell restores Hit Points more than once, grants fast healing, or the like, the additional Hit Points still only apply once.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -85,8 +83,6 @@
             }
         ],
         "access": "Knights of Lastwall have access to this spell.",
-        "traditions": "divine",
-        "cast": "somatic, verbal",
         "duration": "1 minute",
         "heightened": [
             {
@@ -95,55 +91,81 @@
                 "increment": 3,
                 "text": "Creatures touching you take 1d6 additional good damage, your unarmed Strikes deal 1 additional good damage, your healing spells restore 1d4 more additional Hit Points, and your weakness to evil increases by 5."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unarmed",
+                "alt": "unarmed",
+                "game-obj": "Traits",
+                "aonid": 199
+            },
+            {
+                "type": "link",
+                "name": "reach",
+                "alt": "reach",
+                "game-obj": "Traits",
+                "aonid": 192
+            },
+            {
+                "type": "link",
+                "name": "healing",
+                "alt": "healing",
+                "game-obj": "Domains",
+                "aonid": 15
+            }
         ]
     },
     "game-id": "b340ee72636b9da26f8057c90b17922c",
-    "spell_type": "spell",
-    "rank": 3,
-    "text": "Through the strength of your faith, your body becomes infused with holy energy. You have weakness 5 to evil. Any creature that touches or damages you with an unarmed attack or non-reach melee weapon takes 1d6 good damage. Your unarmed attacks deal an additional 1 good damage. Your healing spells that restore Hit Points restore an additional 1d4 Hit Points when you initially cast them; as normal, if your healing spell restores Hit Points more than once, grants fast healing, or the like, the additional Hit Points still only apply once.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unarmed",
-            "alt": "unarmed",
-            "game-obj": "Traits",
-            "aonid": 199
-        },
-        {
-            "type": "link",
-            "name": "reach",
-            "alt": "reach",
-            "game-obj": "Traits",
-            "aonid": 192
-        },
-        {
-            "type": "link",
-            "name": "healing",
-            "alt": "healing",
-            "game-obj": "Domains",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -159,5 +181,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

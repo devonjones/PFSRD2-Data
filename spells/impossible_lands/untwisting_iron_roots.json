@@ -40,12 +40,10 @@
     "spell": {
         "name": "Untwisting Iron Roots",
         "type": "stat_block_section",
+        "text": "You manipulate the earth beneath your feet to throw your enemies off balance, leaving chunks of rock and rubble behind. Creatures within range take 2d6 bludgeoning damage, with a basic Reflex save; on a failed save, they also fall prone. The affected area becomes difficult terrain, but you can move through the difficult terrain normally.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,7 +82,6 @@
                 }
             }
         ],
-        "cast": "verbal",
         "area": "10-foot emanation",
         "heightened": [
             {
@@ -93,35 +90,48 @@
                 "increment": 1,
                 "text": "The damage increases by 1d6."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "prone",
+                "alt": "prone",
+                "game-obj": "Conditions",
+                "aonid": 31
+            }
         ]
     },
     "game-id": "e0468a525705af4fc43aaf6e16146dea",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You manipulate the earth beneath your feet to throw your enemies off balance, leaving chunks of rock and rubble behind. Creatures within range take 2d6 bludgeoning damage, with a basic Reflex save; on a failed save, they also fall prone. The affected area becomes difficult terrain, but you can move through the difficult terrain normally.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -137,5 +147,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

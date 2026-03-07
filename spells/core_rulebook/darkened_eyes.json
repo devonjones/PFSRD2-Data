@@ -54,12 +54,10 @@
     "spell": {
         "name": "Darkened Eyes",
         "type": "stat_block_section",
+        "text": "You infuse a creature's vision with darkness. After attempting its save, the target becomes temporarily immune for 24 hours.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,65 +108,93 @@
                 }
             }
         ],
-        "domain": "darkness",
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "targets": "1 creature",
-        "saving_throw": "Fortitude",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target's darkvision or low-light vision is suppressed for 1 round.",
-        "failure": "As success, but the duration is 1 minute.",
-        "critical_failure": "As success, but the duration is 1 minute, and the target is also blinded for the duration. It can attempt a new save at the end of each of its turns. If it succeeds, it's no longer blinded, but its darkvision or low-light vision remains suppressed."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "darkness",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "darkness",
+                    "alt": "darkness",
+                    "game-obj": "Domains",
+                    "aonid": 6
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target's darkvision or low-light vision is suppressed for 1 round.",
+            "failure": "As success, but the duration is 1 minute.",
+            "critical_failure": "As success, but the duration is 1 minute, and the target is also blinded for the duration. It can attempt a new save at the end of each of its turns. If it succeeds, it's no longer blinded, but its darkvision or low-light vision remains suppressed.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "darkvision",
+                    "alt": "darkvision",
+                    "game-obj": "Rules",
+                    "aonid": 415
+                },
+                {
+                    "type": "link",
+                    "name": "low-light vision",
+                    "alt": "low-light vision",
+                    "game-obj": "Rules",
+                    "aonid": 416
+                },
+                {
+                    "type": "link",
+                    "name": "blinded",
+                    "alt": "blinded",
+                    "game-obj": "Conditions",
+                    "aonid": 1
+                }
+            ]
+        }
     },
     "game-id": "2243db59ef4953a61e2a3e00d70d5638",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You infuse a creature's vision with darkness. After attempting its save, the target becomes temporarily immune for 24 hours.",
-    "links": [
-        {
-            "type": "link",
-            "name": "darkvision",
-            "alt": "darkvision",
-            "game-obj": "Rules",
-            "aonid": 415
-        },
-        {
-            "type": "link",
-            "name": "low-light vision",
-            "alt": "low-light vision",
-            "game-obj": "Rules",
-            "aonid": 416
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "darkness",
-            "alt": "darkness",
-            "game-obj": "Domains",
-            "aonid": 6
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -184,5 +210,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

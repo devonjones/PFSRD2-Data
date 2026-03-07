@@ -20,12 +20,10 @@
     "spell": {
         "name": "Parch",
         "type": "stat_block_section",
+        "text": "Dry winds dehydrate a creature. The target must attempt a Fortitude save; if used on a creature that has the water trait or a creature made primarily of liquid (such as many oozes), the creature uses the outcome for one degree of success worse than the result. Creatures whose bodies contain no significant moisture (such as earth elementals) are immune to parch. If a creature affected by *parch* drinks a liquid, such as a swig of water or a potion, the spell ends. Affected creatures that have the water trait or are made primarily of liquid, as well as affected creatures that can\u2019t drink, can end the effect as a two-action activity, which has the concentrate trait.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,10 +98,8 @@
                 }
             }
         ],
-        "domain": "dust",
         "range": "60 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "varies",
         "heightened": [
             {
@@ -113,59 +109,80 @@
                 "text": "You can target up to 4 creatures."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes a \u20131 status penalty to its checks and DCs for 1 round.",
-        "failure": "The target takes a \u20131 status penalty to its checks and DCs for 1 minute.",
-        "critical_failure": "The target takes a \u20132 status penalty to its checks and DCs for 1 minute and is dazzled as long as it has this penalty."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "dust",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "dust",
+                    "alt": "dust",
+                    "game-obj": "Domains",
+                    "aonid": 107
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes a \u20131 status penalty to its checks and DCs for 1 round.",
+            "failure": "The target takes a \u20131 status penalty to its checks and DCs for 1 minute.",
+            "critical_failure": "The target takes a \u20132 status penalty to its checks and DCs for 1 minute and is dazzled as long as it has this penalty.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "dazzled",
+                    "alt": "dazzled",
+                    "game-obj": "Conditions",
+                    "aonid": 65
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "water",
+                "alt": "water",
+                "game-obj": "Traits",
+                "aonid": 732
+            },
+            {
+                "type": "link",
+                "name": "oozes",
+                "alt": "oozes",
+                "game-obj": "MonsterFamilies",
+                "aonid": 453
+            },
+            {
+                "type": "link",
+                "name": "earth elementals",
+                "alt": "earth elementals",
+                "game-obj": "MonsterFamilies",
+                "aonid": 409
+            },
+            {
+                "type": "link",
+                "name": "concentrate",
+                "alt": "concentrate",
+                "game-obj": "Traits",
+                "aonid": 561
+            }
+        ]
     },
     "game-id": "d4b5c1aed8fee3474dcd137f1837f45c",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Dry winds dehydrate a creature. The target must attempt a Fortitude save; if used on a creature that has the water trait or a creature made primarily of liquid (such as many oozes), the creature uses the outcome for one degree of success worse than the result. Creatures whose bodies contain no significant moisture (such as earth elementals) are immune to parch. If a creature affected by *parch* drinks a liquid, such as a swig of water or a potion, the spell ends. Affected creatures that have the water trait or are made primarily of liquid, as well as affected creatures that can\u2019t drink, can end the effect as a two-action activity, which has the concentrate trait.",
-    "links": [
-        {
-            "type": "link",
-            "name": "water",
-            "alt": "water",
-            "game-obj": "Traits",
-            "aonid": 732
-        },
-        {
-            "type": "link",
-            "name": "oozes",
-            "alt": "oozes",
-            "game-obj": "MonsterFamilies",
-            "aonid": 453
-        },
-        {
-            "type": "link",
-            "name": "earth elementals",
-            "alt": "earth elementals",
-            "game-obj": "MonsterFamilies",
-            "aonid": 409
-        },
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 561
-        },
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 65
-        },
-        {
-            "type": "link",
-            "name": "dust",
-            "alt": "dust",
-            "game-obj": "Domains",
-            "aonid": 107
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -210,5 +227,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

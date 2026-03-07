@@ -54,12 +54,10 @@
     "spell": {
         "name": "Dragon Breath",
         "type": "stat_block_section",
+        "text": "You spew energy from your mouth, dealing 5d6 damage. The area, damage type, and save depend on the dragon type in your bloodline.Dragon Breath\n\n|  |  |  |\n| --- | --- | --- |\n| **Dragon Type** | **Area and Damage Type** | **Saving Throw** |\n| Black, brine\\*, or copper | 60-foot line of acid | Reflex |\n| Blue or bronze | 60-foot line of electricity | Reflex |\n| Brass | 60-foot line of fire | Reflex |\n| Cloud\\* | 30-foot cone of electricity | Reflex |\n| Crystal\\* or forest\\* | 30-foot cone of piercing | Reflex |\n| Green | 30-foot cone of poison | Fortitude |\n| Gold, magma\\*, or red | 30-foot cone of fire | Reflex |\n| Sea\\* | 10-foot burst within 30 feet of bludgeoning | Reflex |\n| Silver or white | 30-foot cone of cold | Reflex |\n| Sky\\* | 10-foot burst within 30 feet of electricity | Reflex |\n| Sovereign\\* | 30-foot cone of mental | Will |\n| Umbral\\* | 30-foot cone of negative | Reflex |\n| Underworld\\* | 10-foot burst within 30 feet of fire | Reflex |\n\n \\***Source** *Mwangi Expanse pg. 76*",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,10 +96,7 @@
                 }
             }
         ],
-        "bloodline": "draconic, wyrmblessed",
-        "cast": "somatic, verbal",
         "area": "30-foot cone or 60-foot line originating from you or 10 ft. burst within 30 ft.",
-        "saving_throw": "basic Reflex or Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -109,195 +104,235 @@
                 "increment": 1,
                 "text": "The damage increases by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "draconic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "draconic",
+                    "alt": "draconic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 5
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "wyrmblessed",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "wyrmblessed",
+                    "alt": "wyrmblessed",
+                    "game-obj": "Bloodlines",
+                    "aonid": 17
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "text": "Reflex or Fortitude"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Black",
+                "alt": "Black",
+                "game-obj": "MonsterFamilies",
+                "aonid": 165
+            },
+            {
+                "type": "link",
+                "name": "brine",
+                "alt": "brine",
+                "game-obj": "MonsterFamilies",
+                "aonid": 175
+            },
+            {
+                "type": "link",
+                "name": "copper",
+                "alt": "copper",
+                "game-obj": "MonsterFamilies",
+                "aonid": 172
+            },
+            {
+                "type": "link",
+                "name": "Blue",
+                "alt": "Blue",
+                "game-obj": "MonsterFamilies",
+                "aonid": 166
+            },
+            {
+                "type": "link",
+                "name": "bronze",
+                "alt": "bronze",
+                "game-obj": "MonsterFamilies",
+                "aonid": 171
+            },
+            {
+                "type": "link",
+                "name": "Brass",
+                "alt": "Brass",
+                "game-obj": "MonsterFamilies",
+                "aonid": 170
+            },
+            {
+                "type": "link",
+                "name": "Cloud",
+                "alt": "Cloud",
+                "game-obj": "MonsterFamilies",
+                "aonid": 176
+            },
+            {
+                "type": "link",
+                "name": "Crystal",
+                "alt": "Crystal",
+                "game-obj": "MonsterFamilies",
+                "aonid": 177
+            },
+            {
+                "type": "link",
+                "name": "forest",
+                "alt": "forest",
+                "game-obj": "MonsterFamilies",
+                "aonid": 227
+            },
+            {
+                "type": "link",
+                "name": "Green",
+                "alt": "Green",
+                "game-obj": "MonsterFamilies",
+                "aonid": 167
+            },
+            {
+                "type": "link",
+                "name": "Gold",
+                "alt": "Gold",
+                "game-obj": "MonsterFamilies",
+                "aonid": 173
+            },
+            {
+                "type": "link",
+                "name": "magma",
+                "alt": "magma",
+                "game-obj": "MonsterFamilies",
+                "aonid": 178
+            },
+            {
+                "type": "link",
+                "name": "red",
+                "alt": "red",
+                "game-obj": "MonsterFamilies",
+                "aonid": 168
+            },
+            {
+                "type": "link",
+                "name": "Sea",
+                "alt": "Sea",
+                "game-obj": "MonsterFamilies",
+                "aonid": 228
+            },
+            {
+                "type": "link",
+                "name": "Silver",
+                "alt": "Silver",
+                "game-obj": "MonsterFamilies",
+                "aonid": 174
+            },
+            {
+                "type": "link",
+                "name": "white",
+                "alt": "white",
+                "game-obj": "MonsterFamilies",
+                "aonid": 169
+            },
+            {
+                "type": "link",
+                "name": "Sky",
+                "alt": "Sky",
+                "game-obj": "MonsterFamilies",
+                "aonid": 229
+            },
+            {
+                "type": "link",
+                "name": "Sovereign",
+                "alt": "Sovereign",
+                "game-obj": "MonsterFamilies",
+                "aonid": 230
+            },
+            {
+                "type": "link",
+                "name": "Umbral",
+                "alt": "Umbral",
+                "game-obj": "MonsterFamilies",
+                "aonid": 179
+            },
+            {
+                "type": "link",
+                "name": "Underworld",
+                "alt": "Underworld",
+                "game-obj": "MonsterFamilies",
+                "aonid": 231
+            },
+            {
+                "type": "link",
+                "name": "Mwangi Expanse pg. 76",
+                "alt": "Mwangi Expanse pg. 76",
+                "href": "https://paizo.com/products/btq027ot"
+            }
         ]
     },
     "game-id": "81cbd6b61b610a99737e9dc43e891f53",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You spew energy from your mouth, dealing 5d6 damage. The area, damage type, and save depend on the dragon type in your bloodline.Dragon Breath\n\n|  |  |  |\n| --- | --- | --- |\n| **Dragon Type** | **Area and Damage Type** | **Saving Throw** |\n| Black, brine\\*, or copper | 60-foot line of acid | Reflex |\n| Blue or bronze | 60-foot line of electricity | Reflex |\n| Brass | 60-foot line of fire | Reflex |\n| Cloud\\* | 30-foot cone of electricity | Reflex |\n| Crystal\\* or forest\\* | 30-foot cone of piercing | Reflex |\n| Green | 30-foot cone of poison | Fortitude |\n| Gold, magma\\*, or red | 30-foot cone of fire | Reflex |\n| Sea\\* | 10-foot burst within 30 feet of bludgeoning | Reflex |\n| Silver or white | 30-foot cone of cold | Reflex |\n| Sky\\* | 10-foot burst within 30 feet of electricity | Reflex |\n| Sovereign\\* | 30-foot cone of mental | Will |\n| Umbral\\* | 30-foot cone of negative | Reflex |\n| Underworld\\* | 10-foot burst within 30 feet of fire | Reflex |\n\n \\***Source** *Mwangi Expanse pg. 76*",
-    "links": [
-        {
-            "type": "link",
-            "name": "Black",
-            "alt": "Black",
-            "game-obj": "MonsterFamilies",
-            "aonid": 165
-        },
-        {
-            "type": "link",
-            "name": "brine",
-            "alt": "brine",
-            "game-obj": "MonsterFamilies",
-            "aonid": 175
-        },
-        {
-            "type": "link",
-            "name": "copper",
-            "alt": "copper",
-            "game-obj": "MonsterFamilies",
-            "aonid": 172
-        },
-        {
-            "type": "link",
-            "name": "Blue",
-            "alt": "Blue",
-            "game-obj": "MonsterFamilies",
-            "aonid": 166
-        },
-        {
-            "type": "link",
-            "name": "bronze",
-            "alt": "bronze",
-            "game-obj": "MonsterFamilies",
-            "aonid": 171
-        },
-        {
-            "type": "link",
-            "name": "Brass",
-            "alt": "Brass",
-            "game-obj": "MonsterFamilies",
-            "aonid": 170
-        },
-        {
-            "type": "link",
-            "name": "Cloud",
-            "alt": "Cloud",
-            "game-obj": "MonsterFamilies",
-            "aonid": 176
-        },
-        {
-            "type": "link",
-            "name": "Crystal",
-            "alt": "Crystal",
-            "game-obj": "MonsterFamilies",
-            "aonid": 177
-        },
-        {
-            "type": "link",
-            "name": "forest",
-            "alt": "forest",
-            "game-obj": "MonsterFamilies",
-            "aonid": 227
-        },
-        {
-            "type": "link",
-            "name": "Green",
-            "alt": "Green",
-            "game-obj": "MonsterFamilies",
-            "aonid": 167
-        },
-        {
-            "type": "link",
-            "name": "Gold",
-            "alt": "Gold",
-            "game-obj": "MonsterFamilies",
-            "aonid": 173
-        },
-        {
-            "type": "link",
-            "name": "magma",
-            "alt": "magma",
-            "game-obj": "MonsterFamilies",
-            "aonid": 178
-        },
-        {
-            "type": "link",
-            "name": "red",
-            "alt": "red",
-            "game-obj": "MonsterFamilies",
-            "aonid": 168
-        },
-        {
-            "type": "link",
-            "name": "Sea",
-            "alt": "Sea",
-            "game-obj": "MonsterFamilies",
-            "aonid": 228
-        },
-        {
-            "type": "link",
-            "name": "Silver",
-            "alt": "Silver",
-            "game-obj": "MonsterFamilies",
-            "aonid": 174
-        },
-        {
-            "type": "link",
-            "name": "white",
-            "alt": "white",
-            "game-obj": "MonsterFamilies",
-            "aonid": 169
-        },
-        {
-            "type": "link",
-            "name": "Sky",
-            "alt": "Sky",
-            "game-obj": "MonsterFamilies",
-            "aonid": 229
-        },
-        {
-            "type": "link",
-            "name": "Sovereign",
-            "alt": "Sovereign",
-            "game-obj": "MonsterFamilies",
-            "aonid": 230
-        },
-        {
-            "type": "link",
-            "name": "Umbral",
-            "alt": "Umbral",
-            "game-obj": "MonsterFamilies",
-            "aonid": 179
-        },
-        {
-            "type": "link",
-            "name": "Underworld",
-            "alt": "Underworld",
-            "game-obj": "MonsterFamilies",
-            "aonid": 231
-        },
-        {
-            "type": "link",
-            "name": "Mwangi Expanse pg. 76",
-            "alt": "Mwangi Expanse pg. 76",
-            "href": "https://paizo.com/products/btq027ot"
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "draconic",
-            "alt": "draconic",
-            "game-obj": "Bloodlines",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "wyrmblessed",
-            "alt": "wyrmblessed",
-            "game-obj": "Bloodlines",
-            "aonid": 17
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -313,5 +348,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

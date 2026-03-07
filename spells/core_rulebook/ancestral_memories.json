@@ -54,12 +54,10 @@
     "spell": {
         "name": "Ancestral Memories",
         "type": "stat_block_section",
+        "text": "The memories of long-dead spellcasters grant you knowledge in a specific skill. Choose any non-Lore skill, or a Lore skill related to the ancient empire from which your bloodline sprang. You temporarily become trained in that skill and might gain other memories associated with an ancestor who was trained in that skill. If you attempt a task or activity that lasts beyond this spell's duration, use the lower proficiency modifier.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,8 +96,6 @@
                 }
             }
         ],
-        "bloodline": "imperial",
-        "cast": "verbal",
         "duration": "1 minute",
         "heightened": [
             {
@@ -108,35 +104,56 @@
                 "level": 6,
                 "text": "You temporarily become an expert in the skill you choose."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "imperial",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "imperial",
+                    "alt": "imperial",
+                    "game-obj": "Bloodlines",
+                    "aonid": 9
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Lore",
+                "alt": "Lore",
+                "game-obj": "Skills",
+                "aonid": 8
+            }
         ]
     },
     "game-id": "5b91079db96b372a53bc198cf82cc431",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "The memories of long-dead spellcasters grant you knowledge in a specific skill. Choose any non-Lore skill, or a Lore skill related to the ancient empire from which your bloodline sprang. You temporarily become trained in that skill and might gain other memories associated with an ancestor who was trained in that skill. If you attempt a task or activity that lasts beyond this spell's duration, use the lower proficiency modifier.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Lore",
-            "alt": "Lore",
-            "game-obj": "Skills",
-            "aonid": 8
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "imperial",
-            "alt": "imperial",
-            "game-obj": "Bloodlines",
-            "aonid": 9
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -152,5 +169,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

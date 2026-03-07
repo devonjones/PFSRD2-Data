@@ -40,12 +40,10 @@
     "spell": {
         "name": "String of Fate",
         "type": "stat_block_section",
+        "text": "You bond yourself to a cherished friend, vowing to share their fate for good or for ill. Whenever an effect would require both you and the target to attempt a saving throw, if one of you succeeds at your saving throw and the other critically fails, you can choose to both fail instead. You and the ally must agree to fail; otherwise, use your normal save results instead.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,39 +94,68 @@
                 }
             }
         ],
-        "domain": "fate, fate (apocryphal)",
-        "cast": "somatic",
         "range": "60 feet",
         "targets": "you and 1 ally",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fate",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "fate",
+                    "alt": "fate",
+                    "game-obj": "Domains",
+                    "aonid": 12
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "fate",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "fate",
+                    "alt": "fate",
+                    "game-obj": "Domains",
+                    "aonid": 75
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "(apocryphal)",
+                "access_type": "domain"
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        }
     },
     "game-id": "7fc43190e5e51da2427846186b4589a1",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You bond yourself to a cherished friend, vowing to share their fate for good or for ill. Whenever an effect would require both you and the target to attempt a saving throw, if one of you succeeds at your saving throw and the other critically fails, you can choose to both fail instead. You and the ally must agree to fail; otherwise, use your normal save results instead.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "fate",
-            "alt": "fate",
-            "game-obj": "Domains",
-            "aonid": 12
-        },
-        {
-            "type": "link",
-            "name": "fate",
-            "alt": "fate",
-            "game-obj": "Domains",
-            "aonid": 75
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -144,5 +171,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Tomorrow's Dawn",
         "type": "stat_block_section",
+        "text": "The golden light of a new dawn and the promise of life beyond death radiates from your body. You cast bright light in a 20-foot radius (and dim light for the next 20 feet) and gain mental resistance 5. Any nindoru fiend or undead that begins its turn adjacent to you must attempt a Will save with the following results.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,8 +82,6 @@
                 }
             }
         ],
-        "traditions": "occult, primal",
-        "cast": "somatic, verbal",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -101,57 +97,93 @@
                 "text": "You gain mental resistance 15"
             }
         ],
-        "critical_success": "The creature is unaffected and immune to this spell's effects for the remainder of the spell's duration.",
-        "success": "The creature is sickened 1 until the end of its turn.",
-        "failure": "The creature is sickened 1. In addition, it becomes slowed 1 until the end of its next turn.",
-        "critical_failure": "As failure, but sickened 2 and the creature remains slowed 1 for the rest of the spell's duration."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected and immune to this spell's effects for the remainder of the spell's duration.",
+            "success": "The creature is sickened 1 until the end of its turn.",
+            "failure": "The creature is sickened 1. In addition, it becomes slowed 1 until the end of its next turn.",
+            "critical_failure": "As failure, but sickened 2 and the creature remains slowed 1 for the rest of the spell's duration.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened",
+                    "alt": "sickened",
+                    "game-obj": "Conditions",
+                    "aonid": 91
+                },
+                {
+                    "type": "link",
+                    "name": "slowed",
+                    "alt": "slowed",
+                    "game-obj": "Conditions",
+                    "aonid": 92
+                }
+            ]
+        }
     },
     "game-id": "c9a8791464f88bebbcd53988da7ec4d9",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "The golden light of a new dawn and the promise of life beyond death radiates from your body. You cast bright light in a 20-foot radius (and dim light for the next 20 feet) and gain mental resistance 5. Any nindoru fiend or undead that begins its turn adjacent to you must attempt a Will save with the following results.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened",
-            "alt": "sickened",
-            "game-obj": "Conditions",
-            "aonid": 91
-        },
-        {
-            "type": "link",
-            "name": "slowed",
-            "alt": "slowed",
-            "game-obj": "Conditions",
-            "aonid": 92
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -196,5 +228,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

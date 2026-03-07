@@ -40,12 +40,10 @@
     "spell": {
         "name": "Fearful Feast",
         "type": "stat_block_section",
+        "text": "You open your mouth wide and inhale sharply; you draw in the bravery, self-confidence, and hope to which the frightened target clings and then strip away the target's false assumption that these fragile emotions can save them from the oblivion of terror.  \n  \n You deal 6d4 mental damage to the creature, which must attempt a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,11 +94,9 @@
                 }
             }
         ],
-        "cast": "somatic",
         "trigger": "A creature within range becomes frightened.",
         "range": "30 feet",
         "targets": "the triggering creature",
-        "saving_throw": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -110,31 +106,49 @@
                 "text": "The damage increases by 2d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage; you regain Hit Points equal to half the damage the target takes.",
-        "critical_failure": "The creature\u2019s frightened condition increases by 1 (to a maximum of frightened 4) and it takes double damage; you regain Hit Points equal to half the damage the target takes."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage; you regain Hit Points equal to half the damage the target takes.",
+            "critical_failure": "The creature\u2019s frightened condition increases by 1 (to a maximum of frightened 4) and it takes double damage; you regain Hit Points equal to half the damage the target takes."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "frightened",
+                "alt": "frightened",
+                "game-obj": "Conditions",
+                "aonid": 19
+            }
+        ]
     },
     "game-id": "a2a062f7cf2ff878b175fc104e14958e",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You open your mouth wide and inhale sharply; you draw in the bravery, self-confidence, and hope to which the frightened target clings and then strip away the target's false assumption that these fragile emotions can save them from the oblivion of terror.  \n  \n You deal 6d4 mental damage to the creature, which must attempt a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -150,5 +164,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

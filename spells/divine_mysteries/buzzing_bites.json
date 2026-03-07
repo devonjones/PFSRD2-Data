@@ -20,12 +20,10 @@
     "spell": {
         "name": "Buzzing Bites",
         "type": "stat_block_section",
+        "text": "You evoke buzzing and crawling insects to climb onto a foe\u2019s body and bite, dealing 1d4 piercing damage and potentially sickening the foe, depending on its Fortitude save. Once this spell ends, the target becomes temporarily immune for 1 minute.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "cantrip",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -88,11 +86,8 @@
                 }
             }
         ],
-        "traditions": "N/A",
-        "patron_theme": "mosquito witch",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Fortitude",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -102,38 +97,59 @@
                 "text": "The damage increases by 1d4."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes half damage.",
-        "failure": "The target takes full damage.",
-        "critical_failure": "The target takes double damage and is sickened 1 by the crawling insects. The sickened value can\u2019t be reduced below 1 while the spell is active."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "mosquito witch",
+                "access_type": "patron_theme",
+                "link": {
+                    "type": "link",
+                    "name": "mosquito witch",
+                    "alt": "mosquito witch",
+                    "game-obj": "Patrons",
+                    "aonid": 28
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes half damage.",
+            "failure": "The target takes full damage.",
+            "critical_failure": "The target takes double damage and is sickened 1 by the crawling insects. The sickened value can\u2019t be reduced below 1 while the spell is active.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened",
+                    "alt": "sickened",
+                    "game-obj": "Conditions",
+                    "aonid": 91
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "sustained",
+                "alt": "sustained",
+                "game-obj": "Actions",
+                "aonid": 2317
+            }
+        ]
     },
     "game-id": "ed926e365a409ca7d8aad9671ed0e0b0",
-    "spell_type": "cantrip",
-    "rank": 1,
-    "text": "You evoke buzzing and crawling insects to climb onto a foe\u2019s body and bite, dealing 1d4 piercing damage and potentially sickening the foe, depending on its Fortitude save. Once this spell ends, the target becomes temporarily immune for 1 minute.",
-    "links": [
-        {
-            "type": "link",
-            "name": "sickened",
-            "alt": "sickened",
-            "game-obj": "Conditions",
-            "aonid": 91
-        },
-        {
-            "type": "link",
-            "name": "mosquito witch",
-            "alt": "mosquito witch",
-            "game-obj": "Patrons",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "sustained",
-            "alt": "sustained",
-            "game-obj": "Actions",
-            "aonid": 2317
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -178,5 +194,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

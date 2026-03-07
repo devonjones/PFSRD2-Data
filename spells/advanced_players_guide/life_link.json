@@ -54,12 +54,10 @@
     "spell": {
         "name": "Life Link",
         "type": "stat_block_section",
+        "text": "You forge a connection of life energy between you and your target, distributing harm between both of you. When you first Cast the Spell, the target recovers 1d4 Hit Points. The first time each round that the target takes damage, reduce the damage it takes by 3 (to a minimum of 0 damage). You lose 3 Hit Points each time, or the total damage dealt, if less than 3; this damage ignores any immunities or resistances you have and can't otherwise be mitigated in any way.  \n  \nThe spell ends immediately if you fall unconscious. You can Dismiss the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,7 +132,6 @@
                 }
             }
         ],
-        "cast": "somatic",
         "range": "30 feet",
         "targets": "1 creature other than you",
         "duration": "1 minute",
@@ -157,28 +154,41 @@
                 "level": 9,
                 "text": "You can target 4 creatures other than you. Increase the initial healing to 9d4 and the maximum damage reduced and Hit Points lost to 15."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "unconscious",
+                "alt": "unconscious",
+                "game-obj": "Conditions",
+                "aonid": 38
+            }
         ]
     },
     "game-id": "b6177939b18b07e0c9c8e3f6ede00797",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You forge a connection of life energy between you and your target, distributing harm between both of you. When you first Cast the Spell, the target recovers 1d4 Hit Points. The first time each round that the target takes damage, reduce the damage it takes by 3 (to a minimum of 0 damage). You lose 3 Hit Points each time, or the total damage dealt, if less than 3; this damage ignores any immunities or resistances you have and can't otherwise be mitigated in any way.  \n  \nThe spell ends immediately if you fall unconscious. You can Dismiss the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "unconscious",
-            "alt": "unconscious",
-            "game-obj": "Conditions",
-            "aonid": 38
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -194,5 +204,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

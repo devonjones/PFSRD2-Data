@@ -27,12 +27,10 @@
     "spell": {
         "name": "Touch of the Moon",
         "type": "stat_block_section",
+        "text": "When you touch the target, a symbol of the moon appears on its forehead, glowing with soft moonlight. The target glows with dim light in a 20-foot radius. It also gets a benefit based on a phase of the moon, starting with the new moon and changing to the next phase at the end of each of its turns. \n* **New Moon** The target receives no benefit.\n* **Waxing Moon** The target gains a +1 status bonus to attack rolls and a +4 status bonus to damage rolls.\n* **Full Moon** The target gains a +1 status bonus to attack rolls, AC, and saves, and a +4 status bonus to damage.\n* **Waning Moon** The target gains a +1 status bonus to AC and saving throws. After this phase, return to the new moon.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,31 +93,44 @@
                 }
             }
         ],
-        "domain": "moon",
         "range": "touch",
         "targets": "1 creature",
-        "duration": "1 minute"
+        "duration": "1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "moon",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "moon",
+                    "alt": "moon",
+                    "game-obj": "Domains",
+                    "aonid": 84
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dim light",
+                "alt": "dim light",
+                "game-obj": "Rules",
+                "aonid": 408
+            }
+        ]
     },
     "game-id": "3155fb72777bbacda813a3e57bfffdc8",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "When you touch the target, a symbol of the moon appears on its forehead, glowing with soft moonlight. The target glows with dim light in a 20-foot radius. It also gets a benefit based on a phase of the moon, starting with the new moon and changing to the next phase at the end of each of its turns. \n* **New Moon** The target receives no benefit.\n* **Waxing Moon** The target gains a +1 status bonus to attack rolls and a +4 status bonus to damage rolls.\n* **Full Moon** The target gains a +1 status bonus to attack rolls, AC, and saves, and a +4 status bonus to damage.\n* **Waning Moon** The target gains a +1 status bonus to AC and saving throws. After this phase, return to the new moon.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dim light",
-            "alt": "dim light",
-            "game-obj": "Rules",
-            "aonid": 408
-        },
-        {
-            "type": "link",
-            "name": "moon",
-            "alt": "moon",
-            "game-obj": "Domains",
-            "aonid": 84
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -164,5 +175,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

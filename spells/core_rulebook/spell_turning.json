@@ -54,12 +54,10 @@
     "spell": {
         "name": "Spell Turning",
         "type": "stat_block_section",
+        "text": "This abjuration reflects spells cast at you back at their caster. When a spell targets you, you can spend a reaction to attempt to reflect it. This uses the rules for counteracting the spell, but if the spell is successfully counteracted, the effect is turned back on the caster. Whether or not the counteract attempt is successful, *spell turning* then ends. *Spell turning* can't affect spells that aren't targeted (such as area spells).  \n  \n If *spell turning* reflects a spell back at a caster who is also under the effect of *spell turning*, their spell turning can attempt to reflect their own spell back at you again; if they do so, their counteract attempt automatically succeeds.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 7,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,44 +84,71 @@
                 }
             }
         ],
-        "traditions": "arcane",
-        "deity": "Abraxas",
-        "cast": "somatic, verbal",
-        "duration": "1 hour"
+        "duration": "1 hour",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Abraxas",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Abraxas",
+                    "alt": "Abraxas",
+                    "game-obj": "Deities",
+                    "aonid": 71
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "d1f73f7317372735480dac1736b3caff",
-    "spell_type": "spell",
-    "rank": 7,
-    "text": "This abjuration reflects spells cast at you back at their caster. When a spell targets you, you can spend a reaction to attempt to reflect it. This uses the rules for counteracting the spell, but if the spell is successfully counteracted, the effect is turned back on the caster. Whether or not the counteract attempt is successful, *spell turning* then ends. *Spell turning* can't affect spells that aren't targeted (such as area spells).  \n  \n If *spell turning* reflects a spell back at a caster who is also under the effect of *spell turning*, their spell turning can attempt to reflect their own spell back at you again; if they do so, their counteract attempt automatically succeeds.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "Abraxas",
-            "alt": "Abraxas",
-            "game-obj": "Deities",
-            "aonid": 71
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -139,5 +164,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

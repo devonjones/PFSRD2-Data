@@ -40,12 +40,10 @@
     "spell": {
         "name": "Bilocation",
         "type": "stat_block_section",
+        "text": "You exist in two places at once. When you Cast the Spell, another copy of yourself appears in an adjacent square. During *bilocation's* duration, whenever you act, you can choose which of your selves does so, and whenever one of you uses a move action, you can both move. Your two selves share Hit Points, and any condition or effect on one affects both. If both of your selves are in the area of the same effect, or targeted by the same multitarget effect, you are only affected once. Even if you are reduced to 0 Hit Points or killed, both selves remain until the duration expires. Your link continues at any distance, even across planar boundaries. You can Dismiss the Spell, and if you do so, you choose which of the selves vanishes and which becomes you, allowing you to extricate one of your selves from a dangerous situation.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -60,49 +58,79 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "cast": "somatic, verbal",
-        "duration": "10 minutes"
+        "duration": "10 minutes",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "move",
+                "alt": "move",
+                "game-obj": "Traits",
+                "aonid": 114
+            }
+        ]
     },
     "game-id": "fec049c86fc3dd3a62e9b5105a485f9b",
-    "spell_type": "spell",
-    "rank": 9,
-    "text": "You exist in two places at once. When you Cast the Spell, another copy of yourself appears in an adjacent square. During *bilocation's* duration, whenever you act, you can choose which of your selves does so, and whenever one of you uses a move action, you can both move. Your two selves share Hit Points, and any condition or effect on one affects both. If both of your selves are in the area of the same effect, or targeted by the same multitarget effect, you are only affected once. Even if you are reduced to 0 Hit Points or killed, both selves remain until the duration expires. Your link continues at any distance, even across planar boundaries. You can Dismiss the Spell, and if you do so, you choose which of the selves vanishes and which becomes you, allowing you to extricate one of your selves from a dangerous situation.",
-    "links": [
-        {
-            "type": "link",
-            "name": "move",
-            "alt": "move",
-            "game-obj": "Traits",
-            "aonid": 114
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -118,5 +146,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

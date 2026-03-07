@@ -20,12 +20,10 @@
     "spell": {
         "name": "Coiling Dance",
         "type": "stat_block_section",
+        "text": "You perform a dance that seeks to pass on the knowledge and wisdom of a naga. Your allies in the area are filled with sacred energy, making their spells and attacks holy. Creatures or effects that would be unholy don\u2019t gain this benefit.  \n  \n When you cast or Sustain this spell, you can choose an ally in the area that\u2019s grabbed, immobilized, or restrained. They can immediately use a reaction to Escape; they can use your Occultism or Religion modifier for the check instead of their unarmed attack, Acrobatics, or Athletics modifier if that would be better.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -76,49 +74,68 @@
                 }
             }
         ],
-        "traditions": "divine, occult",
         "area": "30-foot emanation",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "grabbed",
+                "alt": "grabbed",
+                "game-obj": "Conditions",
+                "aonid": 77
+            },
+            {
+                "type": "link",
+                "name": "immobilized",
+                "alt": "immobilized",
+                "game-obj": "Conditions",
+                "aonid": 81
+            },
+            {
+                "type": "link",
+                "name": "restrained",
+                "alt": "restrained",
+                "game-obj": "Conditions",
+                "aonid": 90
+            }
+        ]
     },
     "game-id": "d741a5da9f27c948ea2a517bbde8013e",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You perform a dance that seeks to pass on the knowledge and wisdom of a naga. Your allies in the area are filled with sacred energy, making their spells and attacks holy. Creatures or effects that would be unholy don\u2019t gain this benefit.  \n  \n When you cast or Sustain this spell, you can choose an ally in the area that\u2019s grabbed, immobilized, or restrained. They can immediately use a reaction to Escape; they can use your Occultism or Religion modifier for the check instead of their unarmed attack, Acrobatics, or Athletics modifier if that would be better.",
-    "links": [
-        {
-            "type": "link",
-            "name": "grabbed",
-            "alt": "grabbed",
-            "game-obj": "Conditions",
-            "aonid": 77
-        },
-        {
-            "type": "link",
-            "name": "immobilized",
-            "alt": "immobilized",
-            "game-obj": "Conditions",
-            "aonid": 81
-        },
-        {
-            "type": "link",
-            "name": "restrained",
-            "alt": "restrained",
-            "game-obj": "Conditions",
-            "aonid": 90
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -163,5 +180,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

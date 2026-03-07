@@ -54,12 +54,10 @@
     "spell": {
         "name": "You're Mine",
         "type": "stat_block_section",
+        "text": "You manipulate the target's emotions, potentially allowing you to control it for a brief instant. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -134,11 +132,8 @@
                 }
             }
         ],
-        "bloodline": "hag",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "1 round",
         "heightened": [
             {
@@ -148,38 +143,67 @@
                 "text": "On a failure, the target is controlled for 1 round. On a critical failure, the target is controlled for up to 1 minute; it receives a new Will save at the end of each of its turns, and on a success, the spell ends."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target is stunned 1.",
-        "failure": "On the target's next turn, it's stunned 1 and you partially control it, causing it to take a single action of your choice. If it has actions left, it can act normally.",
-        "critical_failure": "The target is controlled for 1 round."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "hag",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "hag",
+                    "alt": "hag",
+                    "game-obj": "Bloodlines",
+                    "aonid": 8
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is stunned 1.",
+            "failure": "On the target's next turn, it's stunned 1 and you partially control it, causing it to take a single action of your choice. If it has actions left, it can act normally.",
+            "critical_failure": "The target is controlled for 1 round."
+        }
     },
     "game-id": "2d0b8edbfc1d860b783e78994153b829",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You manipulate the target's emotions, potentially allowing you to control it for a brief instant. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "hag",
-            "alt": "hag",
-            "game-obj": "Bloodlines",
-            "aonid": 8
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -195,5 +219,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

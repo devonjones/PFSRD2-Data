@@ -54,12 +54,10 @@
     "spell": {
         "name": "Shielding Strike",
         "type": "stat_block_section",
+        "text": "As you attack a foe, warding magic transforms your momentum into action and lifts your shield. Make a melee Strike. You can then either Raise your Shield if you're wielding one or cast *shield* if you have the spell.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -98,35 +96,47 @@
                 }
             }
         ],
-        "cast": "verbal"
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Raise your Shield",
+                "alt": "Raise your Shield",
+                "game-obj": "Actions",
+                "aonid": 98
+            },
+            {
+                "type": "link",
+                "name": "shield",
+                "alt": "shield",
+                "game-obj": "Spells",
+                "aonid": 280
+            }
+        ]
     },
     "game-id": "3e34eeb7b00b073fe5d5ed33cf68d08f",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "As you attack a foe, warding magic transforms your momentum into action and lifts your shield. Make a melee Strike. You can then either Raise your Shield if you're wielding one or cast *shield* if you have the spell.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Raise your Shield",
-            "alt": "Raise your Shield",
-            "game-obj": "Actions",
-            "aonid": 98
-        },
-        {
-            "type": "link",
-            "name": "shield",
-            "alt": "shield",
-            "game-obj": "Spells",
-            "aonid": 280
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -142,5 +152,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

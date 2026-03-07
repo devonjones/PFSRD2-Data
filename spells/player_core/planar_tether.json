@@ -27,12 +27,10 @@
     "spell": {
         "name": "Planar Tether",
         "type": "stat_block_section",
+        "text": "You stitch the target to its current plane. While the target is affected by *planar tether*, the spell attempts to counteract any teleportation effect that would move the target, or any effect that would transport it to a different plane. *Planar tether's* duration is determined by the target's Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -59,54 +57,83 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
         "range": "30 feet",
         "targets": "1 creature",
-        "defense": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The duration is 1 minute.",
-        "failure": "The duration is 10 minutes.",
-        "critical_failure": "The duration is 1 hour."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The duration is 1 minute.",
+            "failure": "The duration is 10 minutes.",
+            "critical_failure": "The duration is 1 hour."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "counteract",
+                "alt": "counteract",
+                "game-obj": "Rules",
+                "aonid": 371
+            },
+            {
+                "type": "link",
+                "name": "teleportation",
+                "alt": "teleportation",
+                "game-obj": "Traits",
+                "aonid": 156
+            }
+        ]
     },
     "game-id": "b8c6598e4b604a7fa31d7855a2c4a3fe",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You stitch the target to its current plane. While the target is affected by *planar tether*, the spell attempts to counteract any teleportation effect that would move the target, or any effect that would transport it to a different plane. *Planar tether's* duration is determined by the target's Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "teleportation",
-            "alt": "teleportation",
-            "game-obj": "Traits",
-            "aonid": 156
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -151,5 +178,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

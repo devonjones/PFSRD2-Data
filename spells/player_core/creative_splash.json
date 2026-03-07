@@ -27,12 +27,10 @@
     "spell": {
         "name": "Creative Splash",
         "type": "stat_block_section",
+        "text": "A deluge of paint or colorful illusions descend on the area, reflecting your personal creative specialty. Roll 1d4 to determine the color of the illusion. Each creature in the area must succeed at a Will save or take the effect listed on the table for the color.Creative Splash\n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| **1d4** | **Color** |  |  |\n| 1 | White | Dazzled 1 round | Dazzled 1 minute |\n| 2 | Red | Enfeebled 1 for 1 round | Enfeebled 2 for 1 round |\n| 3 | Yellow | Frightened 1 | Frightened 2 |\n| 4 | Blue | Clumsy 1 for 1 round | Clumsy 2 for 1 round |",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -119,53 +117,70 @@
                 }
             }
         ],
-        "domain": "creation",
         "range": "30 feet",
         "area": "5-foot burst",
-        "defense": "Will",
-        "duration": "varies"
+        "duration": "varies",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "creation",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "creation",
+                    "alt": "creation",
+                    "game-obj": "Domains",
+                    "aonid": 68
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Dazzled",
+                "alt": "Dazzled",
+                "game-obj": "Conditions",
+                "aonid": 7
+            },
+            {
+                "type": "link",
+                "name": "Enfeebled 1",
+                "alt": "Enfeebled 1",
+                "game-obj": "Conditions",
+                "aonid": 13
+            },
+            {
+                "type": "link",
+                "name": "Frightened 1",
+                "alt": "Frightened 1",
+                "game-obj": "Conditions",
+                "aonid": 19
+            },
+            {
+                "type": "link",
+                "name": "Clumsy 1",
+                "alt": "Clumsy 1",
+                "game-obj": "Conditions",
+                "aonid": 3
+            }
+        ]
     },
     "game-id": "b790d03fdb6cb377e0e744fa5e6813e7",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "A deluge of paint or colorful illusions descend on the area, reflecting your personal creative specialty. Roll 1d4 to determine the color of the illusion. Each creature in the area must succeed at a Will save or take the effect listed on the table for the color.Creative Splash\n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| **1d4** | **Color** |  |  |\n| 1 | White | Dazzled 1 round | Dazzled 1 minute |\n| 2 | Red | Enfeebled 1 for 1 round | Enfeebled 2 for 1 round |\n| 3 | Yellow | Frightened 1 | Frightened 2 |\n| 4 | Blue | Clumsy 1 for 1 round | Clumsy 2 for 1 round |",
-    "links": [
-        {
-            "type": "link",
-            "name": "Dazzled",
-            "alt": "Dazzled",
-            "game-obj": "Conditions",
-            "aonid": 7
-        },
-        {
-            "type": "link",
-            "name": "Enfeebled 1",
-            "alt": "Enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "Frightened 1",
-            "alt": "Frightened 1",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "Clumsy 1",
-            "alt": "Clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "creation",
-            "alt": "creation",
-            "game-obj": "Domains",
-            "aonid": 68
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -210,5 +225,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

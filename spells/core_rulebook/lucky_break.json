@@ -54,12 +54,10 @@
     "spell": {
         "name": "Lucky Break",
         "type": "stat_block_section",
+        "text": "Reroll the saving throw and use the better result. You then become temporarily immune for 10 minutes.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,30 +108,47 @@
                 }
             }
         ],
-        "domain": "luck",
-        "cast": "verbal",
-        "trigger": "You fail (but don't critically fail) a saving throw."
+        "trigger": "You fail (but don't critically fail) a saving throw.",
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "luck",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "luck",
+                    "alt": "luck",
+                    "game-obj": "Domains",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "8e77127c6de4cd53925bce0d0e92edd7",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "Reroll the saving throw and use the better result. You then become temporarily immune for 10 minutes.",
-    "links": [
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "luck",
-            "alt": "luck",
-            "game-obj": "Domains",
-            "aonid": 18
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -149,5 +164,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

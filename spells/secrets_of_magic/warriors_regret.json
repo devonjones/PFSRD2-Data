@@ -54,12 +54,10 @@
     "spell": {
         "name": "Warrior's Regret",
         "type": "stat_block_section",
+        "text": "Regret eats away at the target's mind, punishing it for its violence until it ceases its hostility. The target must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -110,11 +108,8 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, occult",
-        "cast": "somatic, verbal",
         "range": "touch",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -123,49 +118,90 @@
                 "text": "The amount of mental damage the target takes for each creature it damaged that turn increases by 1d8, and the maximum damage the target can take per turn increases by 4d8."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "At the end of its next turn, the target takes 1d8 damage per different creature it intentionally damaged on that turn (1d8 if it damaged one creature, 2d8 if it damaged two different creatures, and so on). The maximum is 4d8 if it damaged 4 different creatures.",
-        "failure": "As success, except the curse damages the target at the end of each of its turns and lasts until the target spends a complete round without intentionally damaging another creature.",
-        "critical_failure": "As success, except the curse damages the target at the end of each of its turns and lasts until the target spends 24 hours atoning for its perceived sins."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "At the end of its next turn, the target takes 1d8 damage per different creature it intentionally damaged on that turn (1d8 if it damaged one creature, 2d8 if it damaged two different creatures, and so on). The maximum is 4d8 if it damaged 4 different creatures.",
+            "failure": "As success, except the curse damages the target at the end of each of its turns and lasts until the target spends a complete round without intentionally damaging another creature.",
+            "critical_failure": "As success, except the curse damages the target at the end of each of its turns and lasts until the target spends 24 hours atoning for its perceived sins."
+        }
     },
     "game-id": "74ae549871254664fdd8e8c51b6c9233",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "Regret eats away at the target's mind, punishing it for its violence until it ceases its hostility. The target must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -181,5 +217,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -40,12 +40,10 @@
     "spell": {
         "name": "Inkshot",
         "type": "stat_block_section",
+        "text": "A spray of viscous, toxic ink jets from your fingertip to strike a target creature in the face. Make a spell attack roll against the target. On a hit, you deal 2d6 poison damage, plus you blast the target's eyes, making them dazzled for 1 round as the stinging ink blurs and distorts the creature's vision. On a critical hit, double the poison damage, and the target becomes dazzled for 1 minute by the foul ink.   \n  \nThe ink stain remains for 1 hour before fading, although vigorous cleansing (or magic such as a *prestidigitation* cantrip) can remove the ink before then.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,8 +82,6 @@
                 }
             }
         ],
-        "traditions": "occult, primal",
-        "cast": "verbal, somatic",
         "range": "30 feet",
         "heightened": [
             {
@@ -94,54 +90,86 @@
                 "increment": 1,
                 "text": "Increase the base poison damage by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "dazzled",
+                "alt": "dazzled",
+                "game-obj": "Conditions",
+                "aonid": 7
+            },
+            {
+                "type": "link",
+                "name": "prestidigitation",
+                "alt": "prestidigitation",
+                "game-obj": "Spells",
+                "aonid": 229
+            }
         ]
     },
     "game-id": "73770de8192f1365cb1927f3d4ddcda4",
-    "spell_type": "spell",
-    "rank": 1,
-    "text": "A spray of viscous, toxic ink jets from your fingertip to strike a target creature in the face. Make a spell attack roll against the target. On a hit, you deal 2d6 poison damage, plus you blast the target's eyes, making them dazzled for 1 round as the stinging ink blurs and distorts the creature's vision. On a critical hit, double the poison damage, and the target becomes dazzled for 1 minute by the foul ink.   \n  \nThe ink stain remains for 1 hour before fading, although vigorous cleansing (or magic such as a *prestidigitation* cantrip) can remove the ink before then.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 7
-        },
-        {
-            "type": "link",
-            "name": "prestidigitation",
-            "alt": "prestidigitation",
-            "game-obj": "Spells",
-            "aonid": 229
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -157,5 +185,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

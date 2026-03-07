@@ -40,12 +40,10 @@
     "spell": {
         "name": "Invoke the Harrow",
         "type": "stat_block_section",
+        "text": "You draw a card from the harrow, either one from a deck you have in hand or magically produce one as part of the spell. You use the power of the card's suit to influence a creature around you. When you draw a card, you can choose to impart a boon or bane associated with the card's suit. The target must attempt a Will save. On a failure, they receive the effects of the chosen boon or bane. If you target an ally with this spell, they can choose to willingly accept the effects without attempting a saving throw. The target can attempt to remove the card's influence by using an action, which has the concentrate trait, to attempt the saving throw again; on a success, the effect ends.  \n  \n To determine the card, draw a card from a harrow deck. If you don't have a harrow deck available, you can roll 1d6 to randomly determine the suit you draw. \n1. **Hammers (Str)** Boon: The target gains a +2 status bonus to damage rolls; Bane: The target is enfeebled 1.\n2. **Keys (Dex)** Boon: The target gains a +1 status bonus to AC; Bane: The target is clumsy 1.\n3. **Shields (Con)** Boon: The target gains temporary Hit Points equal to twice the spell's level; Bane: The target is drained 1.\n4. **Books (Int)** Boon: The target gains a +1 status bonus to skill checks; Bane: The target is stupefied 1.\n5. **Stars (Wis)** Boon: The target gains a +1 status bonus to saving throws; Bane: The target is confused.\n6. **Crowns (Cha)** Boon: The target can roll twice and take the higher result on a single check during the duration. This is a fortune effect; Bane: The target must roll twice and take the lower result on a single check of your choosing during the duration. This is a misfortune effect.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 3,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,11 +82,8 @@
                 }
             }
         ],
-        "bloodline": "harrow",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "duration": "1 round",
         "heightened": [
             {
@@ -97,98 +92,129 @@
                 "level": 6,
                 "text": "The duration is 1 minute. The target must succeed a total of two saving throws to end the effect. The value of boons and banes doubles. The Crowns suit affects a total of three checks during the duration."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "harrow",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "harrow",
+                    "alt": "harrow",
+                    "game-obj": "Bloodlines",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "concentrate",
+                "alt": "concentrate",
+                "game-obj": "Traits",
+                "aonid": 32
+            },
+            {
+                "type": "link",
+                "name": "harrow deck",
+                "alt": "harrow deck",
+                "game-obj": "Equipment",
+                "aonid": 824
+            },
+            {
+                "type": "link",
+                "name": "enfeebled 1",
+                "alt": "enfeebled 1",
+                "game-obj": "Conditions",
+                "aonid": 13
+            },
+            {
+                "type": "link",
+                "name": "clumsy 1",
+                "alt": "clumsy 1",
+                "game-obj": "Conditions",
+                "aonid": 3
+            },
+            {
+                "type": "link",
+                "name": "drained 1",
+                "alt": "drained 1",
+                "game-obj": "Conditions",
+                "aonid": 10
+            },
+            {
+                "type": "link",
+                "name": "stupefied 1",
+                "alt": "stupefied 1",
+                "game-obj": "Conditions",
+                "aonid": 37
+            },
+            {
+                "type": "link",
+                "name": "confused",
+                "alt": "confused",
+                "game-obj": "Conditions",
+                "aonid": 5
+            },
+            {
+                "type": "link",
+                "name": "fortune",
+                "alt": "fortune",
+                "game-obj": "Traits",
+                "aonid": 76
+            },
+            {
+                "type": "link",
+                "name": "misfortune",
+                "alt": "misfortune",
+                "game-obj": "Traits",
+                "aonid": 110
+            }
         ]
     },
     "game-id": "d1b427c18ef5d54fede59e9db45a7a7b",
-    "spell_type": "focus",
-    "rank": 3,
-    "text": "You draw a card from the harrow, either one from a deck you have in hand or magically produce one as part of the spell. You use the power of the card's suit to influence a creature around you. When you draw a card, you can choose to impart a boon or bane associated with the card's suit. The target must attempt a Will save. On a failure, they receive the effects of the chosen boon or bane. If you target an ally with this spell, they can choose to willingly accept the effects without attempting a saving throw. The target can attempt to remove the card's influence by using an action, which has the concentrate trait, to attempt the saving throw again; on a success, the effect ends.  \n  \n To determine the card, draw a card from a harrow deck. If you don't have a harrow deck available, you can roll 1d6 to randomly determine the suit you draw. \n1. **Hammers (Str)** Boon: The target gains a +2 status bonus to damage rolls; Bane: The target is enfeebled 1.\n2. **Keys (Dex)** Boon: The target gains a +1 status bonus to AC; Bane: The target is clumsy 1.\n3. **Shields (Con)** Boon: The target gains temporary Hit Points equal to twice the spell's level; Bane: The target is drained 1.\n4. **Books (Int)** Boon: The target gains a +1 status bonus to skill checks; Bane: The target is stupefied 1.\n5. **Stars (Wis)** Boon: The target gains a +1 status bonus to saving throws; Bane: The target is confused.\n6. **Crowns (Cha)** Boon: The target can roll twice and take the higher result on a single check during the duration. This is a fortune effect; Bane: The target must roll twice and take the lower result on a single check of your choosing during the duration. This is a misfortune effect.",
-    "links": [
-        {
-            "type": "link",
-            "name": "concentrate",
-            "alt": "concentrate",
-            "game-obj": "Traits",
-            "aonid": 32
-        },
-        {
-            "type": "link",
-            "name": "harrow deck",
-            "alt": "harrow deck",
-            "game-obj": "Equipment",
-            "aonid": 824
-        },
-        {
-            "type": "link",
-            "name": "enfeebled 1",
-            "alt": "enfeebled 1",
-            "game-obj": "Conditions",
-            "aonid": 13
-        },
-        {
-            "type": "link",
-            "name": "clumsy 1",
-            "alt": "clumsy 1",
-            "game-obj": "Conditions",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "drained 1",
-            "alt": "drained 1",
-            "game-obj": "Conditions",
-            "aonid": 10
-        },
-        {
-            "type": "link",
-            "name": "stupefied 1",
-            "alt": "stupefied 1",
-            "game-obj": "Conditions",
-            "aonid": 37
-        },
-        {
-            "type": "link",
-            "name": "confused",
-            "alt": "confused",
-            "game-obj": "Conditions",
-            "aonid": 5
-        },
-        {
-            "type": "link",
-            "name": "fortune",
-            "alt": "fortune",
-            "game-obj": "Traits",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "misfortune",
-            "alt": "misfortune",
-            "game-obj": "Traits",
-            "aonid": 110
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "harrow",
-            "alt": "harrow",
-            "game-obj": "Bloodlines",
-            "aonid": 18
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -204,5 +230,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

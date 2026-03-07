@@ -54,12 +54,10 @@
     "spell": {
         "name": "Disintegrate",
         "type": "stat_block_section",
+        "text": "You fire a green ray at your target. Make a spell attack. On a hit, you deal 12d10 damage, and the target must attempt a basic Fortitude save. On a critical hit, treat the save result as one degree worse. A creature reduced to 0 HP is reduced to fine powder; its gear remains.  \n  \n An object you hit is destroyed (no save), regardless of Hardness, unless it's an artifact or similarly hard to destroy. A single casting can destroy no more than a 10-foot cube of matter. This automatically destroys any force construct, such as a *wall of force*.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -86,13 +84,8 @@
                 }
             }
         ],
-        "traditions": "arcane",
-        "bloodline": "demonic, imperial, phoenix",
-        "deity": "Kerkamoth, Rovagug, Set, Sorrow's Sword",
-        "cast": "somatic, verbal",
         "range": "120 feet",
         "targets": "1 creature or unattended object",
-        "saving_throw": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -100,111 +93,184 @@
                 "increment": 1,
                 "text": "The damage increases by 2d10."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "demonic",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "demonic",
+                    "alt": "demonic",
+                    "game-obj": "Bloodlines",
+                    "aonid": 3
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "imperial",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "imperial",
+                    "alt": "imperial",
+                    "game-obj": "Bloodlines",
+                    "aonid": 9
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "phoenix",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "phoenix",
+                    "alt": "phoenix",
+                    "game-obj": "Bloodlines",
+                    "aonid": 15
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Kerkamoth",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Kerkamoth",
+                    "alt": "Kerkamoth",
+                    "game-obj": "Deities",
+                    "aonid": 140
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Rovagug",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Rovagug",
+                    "alt": "Rovagug",
+                    "game-obj": "Deities",
+                    "aonid": 15
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Set",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Set",
+                    "alt": "Set",
+                    "game-obj": "Deities",
+                    "aonid": 242
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Sorrow's Sword",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Sorrow's Sword",
+                    "alt": "Sorrow's Sword",
+                    "game-obj": "Deities",
+                    "aonid": 249
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "artifact",
+                "alt": "artifact",
+                "game-obj": "Traits",
+                "aonid": 253
+            },
+            {
+                "type": "link",
+                "name": "force",
+                "alt": "force",
+                "game-obj": "Traits",
+                "aonid": 75
+            },
+            {
+                "type": "link",
+                "name": "wall of force",
+                "alt": "wall of force",
+                "game-obj": "Spells",
+                "aonid": 363
+            }
         ]
     },
     "game-id": "bdf01c8d31e5798cc838fa8cf574ceb7",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You fire a green ray at your target. Make a spell attack. On a hit, you deal 12d10 damage, and the target must attempt a basic Fortitude save. On a critical hit, treat the save result as one degree worse. A creature reduced to 0 HP is reduced to fine powder; its gear remains.  \n  \n An object you hit is destroyed (no save), regardless of Hardness, unless it's an artifact or similarly hard to destroy. A single casting can destroy no more than a 10-foot cube of matter. This automatically destroys any force construct, such as a *wall of force*.",
-    "links": [
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "artifact",
-            "alt": "artifact",
-            "game-obj": "Traits",
-            "aonid": 253
-        },
-        {
-            "type": "link",
-            "name": "force",
-            "alt": "force",
-            "game-obj": "Traits",
-            "aonid": 75
-        },
-        {
-            "type": "link",
-            "name": "wall of force",
-            "alt": "wall of force",
-            "game-obj": "Spells",
-            "aonid": 363
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "demonic",
-            "alt": "demonic",
-            "game-obj": "Bloodlines",
-            "aonid": 3
-        },
-        {
-            "type": "link",
-            "name": "imperial",
-            "alt": "imperial",
-            "game-obj": "Bloodlines",
-            "aonid": 9
-        },
-        {
-            "type": "link",
-            "name": "phoenix",
-            "alt": "phoenix",
-            "game-obj": "Bloodlines",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "Kerkamoth",
-            "alt": "Kerkamoth",
-            "game-obj": "Deities",
-            "aonid": 140
-        },
-        {
-            "type": "link",
-            "name": "Rovagug",
-            "alt": "Rovagug",
-            "game-obj": "Deities",
-            "aonid": 15
-        },
-        {
-            "type": "link",
-            "name": "Set",
-            "alt": "Set",
-            "game-obj": "Deities",
-            "aonid": 242
-        },
-        {
-            "type": "link",
-            "name": "Sorrow's Sword",
-            "alt": "Sorrow's Sword",
-            "game-obj": "Deities",
-            "aonid": 249
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -220,5 +286,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

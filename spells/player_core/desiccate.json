@@ -27,12 +27,10 @@
     "spell": {
         "name": "Desiccate",
         "type": "stat_block_section",
+        "text": "You pull the moisture from the targets' bodies, dealing 10d10 void damage. Creatures made of water (such as water elementals) and plant creatures use the outcome for one degree of success worse than the result of their saving throw. Creatures whose bodies contain no significant moisture (such as earth elementals) are immune to *desiccate*.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,11 +69,8 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Tresmalvos",
         "range": "500 feet",
         "targets": "any number of living creatures",
-        "defense": "basic Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -83,61 +78,95 @@
                 "increment": 1,
                 "text": "The damage increases by 1d10."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Tresmalvos",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Tresmalvos",
+                    "alt": "Tresmalvos",
+                    "game-obj": "Deities",
+                    "aonid": 421
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "basic",
+                    "alt": "basic",
+                    "game-obj": "Rules",
+                    "aonid": 329
+                }
+            ],
+            "basic": true,
+            "save_type": "Fort"
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "water elementals",
+                "alt": "water elementals",
+                "game-obj": "MonsterFamilies",
+                "aonid": 45
+            },
+            {
+                "type": "link",
+                "name": "plant",
+                "alt": "plant",
+                "game-obj": "Traits",
+                "aonid": 125
+            },
+            {
+                "type": "link",
+                "name": "earth elementals",
+                "alt": "earth elementals",
+                "game-obj": "MonsterFamilies",
+                "aonid": 42
+            }
         ]
     },
     "game-id": "f10d619e9a4277a7b1763d6b00580f8b",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "You pull the moisture from the targets' bodies, dealing 10d10 void damage. Creatures made of water (such as water elementals) and plant creatures use the outcome for one degree of success worse than the result of their saving throw. Creatures whose bodies contain no significant moisture (such as earth elementals) are immune to *desiccate*.",
-    "links": [
-        {
-            "type": "link",
-            "name": "water elementals",
-            "alt": "water elementals",
-            "game-obj": "MonsterFamilies",
-            "aonid": 45
-        },
-        {
-            "type": "link",
-            "name": "plant",
-            "alt": "plant",
-            "game-obj": "Traits",
-            "aonid": 125
-        },
-        {
-            "type": "link",
-            "name": "earth elementals",
-            "alt": "earth elementals",
-            "game-obj": "MonsterFamilies",
-            "aonid": 42
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Tresmalvos",
-            "alt": "Tresmalvos",
-            "game-obj": "Deities",
-            "aonid": 421
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -182,5 +211,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

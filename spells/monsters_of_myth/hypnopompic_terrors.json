@@ -40,12 +40,10 @@
     "spell": {
         "name": "Hypnopompic Terrors",
         "type": "stat_block_section",
+        "text": "You send a wave of nightmarish visions crashing over your targets, leaving them paralyzed by fear. These visions inflict real wounds on vulnerable targets, dealing 6d12 mental damage. If you target a sleeping creature, it wakes up as it attempts the save but takes one degree of success worse than the result it rolled on its save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 8,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -120,56 +118,84 @@
                 }
             }
         ],
-        "traditions": "occult",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "up to 10 creatures",
-        "saving_throw": "Will",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is frightened 2 and takes half the mental damage.",
-        "failure": "The target is frightened 2, is paralyzed for 1 round, and takes the full mental damage.",
-        "critical_failure": "The target is frightened 2, is paralyzed for 2 rounds, and takes double the mental damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is frightened 2 and takes half the mental damage.",
+            "failure": "The target is frightened 2, is paralyzed for 1 round, and takes the full mental damage.",
+            "critical_failure": "The target is frightened 2, is paralyzed for 2 rounds, and takes double the mental damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "frightened 2",
+                    "alt": "frightened 2",
+                    "game-obj": "Conditions",
+                    "aonid": 19
+                },
+                {
+                    "type": "link",
+                    "name": "paralyzed",
+                    "alt": "paralyzed",
+                    "game-obj": "Conditions",
+                    "aonid": 28
+                }
+            ]
+        }
     },
     "game-id": "1237edc8af4abc065e30993b0a8807f9",
-    "spell_type": "spell",
-    "rank": 8,
-    "text": "You send a wave of nightmarish visions crashing over your targets, leaving them paralyzed by fear. These visions inflict real wounds on vulnerable targets, dealing 6d12 mental damage. If you target a sleeping creature, it wakes up as it attempts the save but takes one degree of success worse than the result it rolled on its save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened 2",
-            "alt": "frightened 2",
-            "game-obj": "Conditions",
-            "aonid": 19
-        },
-        {
-            "type": "link",
-            "name": "paralyzed",
-            "alt": "paralyzed",
-            "game-obj": "Conditions",
-            "aonid": 28
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -185,5 +211,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

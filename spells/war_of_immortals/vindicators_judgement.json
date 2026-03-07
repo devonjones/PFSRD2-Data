@@ -20,12 +20,10 @@
     "spell": {
         "name": "Vindicator's Judgement",
         "type": "stat_block_section",
+        "text": "You pronounce a terrible judgment upon your quarry that causes all of your attacks and divine spells to strike with deadly efficacy. The target takes extra damage from your attacks, depending on the result of its Fortitude save. The spell ends immediately if the target is no longer your hunted prey.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -54,7 +52,6 @@
         ],
         "range": "60 feet",
         "targets": "your hunted prey",
-        "saving_throw": "Fortitude",
         "duration": "1 minute",
         "heightened": [
             {
@@ -70,45 +67,58 @@
                 "text": "The weakness is 15."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target has weakness 5 to the next Strike you make against it or damaging divine spell you cast that includes it as a target before the end of your next turn.",
-        "failure": "The target has weakness 5 to all Strikes you make against it or damaging divine spells you cast that includes it as a target for the duration of the spell.",
-        "critical_failure": "As failure, but the target is off-guard against the first Strike or divine spell attack you make against it each round for the duration of the spell."
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target has weakness 5 to the next Strike you make against it or damaging divine spell you cast that includes it as a target before the end of your next turn.",
+            "failure": "The target has weakness 5 to all Strikes you make against it or damaging divine spells you cast that includes it as a target for the duration of the spell.",
+            "critical_failure": "As failure, but the target is off-guard against the first Strike or divine spell attack you make against it each round for the duration of the spell.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "weakness",
+                    "alt": "weakness",
+                    "game-obj": "Rules",
+                    "aonid": 2317
+                },
+                {
+                    "type": "link",
+                    "name": "off-guard",
+                    "alt": "off-guard",
+                    "game-obj": "Conditions",
+                    "aonid": 58
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "divine",
+                "alt": "divine",
+                "game-obj": "Traits",
+                "aonid": 579
+            },
+            {
+                "type": "link",
+                "name": "hunted prey",
+                "alt": "hunted prey",
+                "game-obj": "Actions",
+                "aonid": 2257
+            }
+        ]
     },
     "game-id": "8be3fad90037e8504f7bb63c5a24bb32",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You pronounce a terrible judgment upon your quarry that causes all of your attacks and divine spells to strike with deadly efficacy. The target takes extra damage from your attacks, depending on the result of its Fortitude save. The spell ends immediately if the target is no longer your hunted prey.",
-    "links": [
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "game-obj": "Traits",
-            "aonid": 579
-        },
-        {
-            "type": "link",
-            "name": "weakness",
-            "alt": "weakness",
-            "game-obj": "Rules",
-            "aonid": 2317
-        },
-        {
-            "type": "link",
-            "name": "off-guard",
-            "alt": "off-guard",
-            "game-obj": "Conditions",
-            "aonid": 58
-        },
-        {
-            "type": "link",
-            "name": "hunted prey",
-            "alt": "hunted prey",
-            "game-obj": "Actions",
-            "aonid": 2257
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -153,5 +163,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

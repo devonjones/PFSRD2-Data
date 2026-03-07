@@ -27,12 +27,10 @@
     "spell": {
         "name": "Brine Dragon Bile",
         "type": "stat_block_section",
+        "text": "You spit a glob of caustic saltwater that stings the wounds of the creature. Make a ranged spell attack against the triggering creature's AC. On a hit, salt scours its open wound, dealing 2d6 persistent acid damage.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "spell",
+        "rank": 2,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -71,8 +69,6 @@
                 }
             }
         ],
-        "traditions": "arcane, primal",
-        "deity": "Ragadahn",
         "trigger": "A creature within range takes damage from a slashing or piercing attack, or one that inflicts persistent bleed damage.",
         "range": "30 feet",
         "targets": "the creature that took damage",
@@ -83,40 +79,66 @@
                 "increment": 2,
                 "text": "The persistent damage increases by 2d6."
             }
+        ],
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "Ragadahn",
+                "access_type": "deity",
+                "link": {
+                    "type": "link",
+                    "name": "Ragadahn",
+                    "alt": "Ragadahn",
+                    "game-obj": "Deities",
+                    "aonid": 459
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
         ]
     },
     "game-id": "750075cfb33a212df7c80a02124a34f2",
-    "spell_type": "spell",
-    "rank": 2,
-    "text": "You spit a glob of caustic saltwater that stings the wounds of the creature. Make a ranged spell attack against the triggering creature's AC. On a hit, salt scours its open wound, dealing 2d6 persistent acid damage.",
-    "links": [
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        },
-        {
-            "type": "link",
-            "name": "Ragadahn",
-            "alt": "Ragadahn",
-            "game-obj": "Deities",
-            "aonid": 459
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -161,5 +183,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

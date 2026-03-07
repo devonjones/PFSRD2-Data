@@ -27,12 +27,10 @@
     "spell": {
         "name": "Hurtling Stone",
         "type": "stat_block_section",
+        "text": "You evoke a magical stone and throw it, with divine guide to your aim. The stone deals 2d6 bludgeoning damage depending on your spell attack roll against the target's AC.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -107,10 +105,8 @@
                 }
             }
         ],
-        "domain": "earth",
         "range": "60 feet",
         "targets": "1 creature",
-        "defense": "AC",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -119,29 +115,48 @@
                 "text": "The stone's damage increases by 1d6."
             }
         ],
-        "critical_success": "The target takes double damage and you can push it up to 10 feet.",
-        "success": "The target takes full damage and you can push it up to 5 feet."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "earth",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "earth",
+                    "alt": "earth",
+                    "game-obj": "Domains",
+                    "aonid": 73
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "text": "AC",
+            "critical_success": "The target takes double damage and you can push it up to 10 feet.",
+            "success": "The target takes full damage and you can push it up to 5 feet.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "push",
+                    "alt": "push",
+                    "game-obj": "Rules",
+                    "aonid": 451
+                }
+            ]
+        }
     },
     "game-id": "df1e0ee91dc28f54872fcacfe41519a3",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You evoke a magical stone and throw it, with divine guide to your aim. The stone deals 2d6 bludgeoning damage depending on your spell attack roll against the target's AC.",
-    "links": [
-        {
-            "type": "link",
-            "name": "push",
-            "alt": "push",
-            "game-obj": "Rules",
-            "aonid": 451
-        },
-        {
-            "type": "link",
-            "name": "earth",
-            "alt": "earth",
-            "game-obj": "Domains",
-            "aonid": 73
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -186,5 +201,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

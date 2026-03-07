@@ -40,12 +40,10 @@
     "spell": {
         "name": "Spellmaster's Ward",
         "type": "stat_block_section",
+        "text": "You create one or more glowing protective runes that revolve around you. For each additional action you use when Casting the Spell, increase the number of runes you create by one, to a maximum of three runes for 3 actions. When you next take damage from a spell, a rune is expended to prevent 2d6 of that spell's damage. If damage from the triggering spell remains, additional runes are expended until the damage is completely negated, or until all runes have been spent, whichever comes first.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -72,7 +70,6 @@
                 }
             }
         ],
-        "cast": "to   material, somatic, verbal",
         "duration": "sustained up to 1 minute",
         "heightened": [
             {
@@ -81,35 +78,56 @@
                 "increment": 1,
                 "text": "Each rune prevents an additional 1 damage."
             }
-        ]
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "material",
+                    "link": {
+                        "type": "link",
+                        "name": "material",
+                        "alt": "material",
+                        "game-obj": "Rules",
+                        "aonid": 282
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        }
     },
     "game-id": "db2eacc3c4fd4e6f3fd54fdc9d43a3cb",
-    "spell_type": "focus",
-    "rank": 5,
-    "text": "You create one or more glowing protective runes that revolve around you. For each additional action you use when Casting the Spell, increase the number of runes you create by one, to a maximum of three runes for 3 actions. When you next take damage from a spell, a rune is expended to prevent 2d6 of that spell's damage. If damage from the triggering spell remains, additional runes are expended until the damage is completely negated, or until all runes have been spent, whichever comes first.",
-    "links": [
-        {
-            "type": "link",
-            "name": "material",
-            "alt": "material",
-            "game-obj": "Rules",
-            "aonid": 282
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -125,5 +143,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

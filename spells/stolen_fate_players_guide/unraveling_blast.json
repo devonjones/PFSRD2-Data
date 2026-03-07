@@ -40,12 +40,10 @@
     "spell": {
         "name": "Unraveling Blast",
         "type": "stat_block_section",
+        "text": "You unleash a small blast of potential that destroys one of a creature's possible futures, leaving them reeling. You deal 2d4 mental damage to the creature, and it must attempt a Will save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -84,11 +82,8 @@
                 }
             }
         ],
-        "bloodline": "harrow",
-        "cast": "somatic, verbal",
         "range": "30 feet",
         "targets": "1 creature",
-        "saving_throw": "Will",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -97,52 +92,83 @@
                 "text": "The damage increases by 3d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half the mental damage.",
-        "failure": "The creature takes full damage and is flat-footed until the start of its turn.",
-        "critical_failure": "The creature takes double damage, becomes stunned 1, and is flat-footed until the start of your next turn."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "harrow",
+                "access_type": "bloodline",
+                "link": {
+                    "type": "link",
+                    "name": "harrow",
+                    "alt": "harrow",
+                    "game-obj": "Bloodlines",
+                    "aonid": 18
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half the mental damage.",
+            "failure": "The creature takes full damage and is flat-footed until the start of its turn.",
+            "critical_failure": "The creature takes double damage, becomes stunned 1, and is flat-footed until the start of your next turn.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "flat-footed",
+                    "alt": "flat-footed",
+                    "game-obj": "Conditions",
+                    "aonid": 16
+                },
+                {
+                    "type": "link",
+                    "name": "stunned 1",
+                    "alt": "stunned 1",
+                    "game-obj": "Conditions",
+                    "aonid": 36
+                }
+            ]
+        }
     },
     "game-id": "424a2f83f6ba7ad5f4800940232198ca",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You unleash a small blast of potential that destroys one of a creature's possible futures, leaving them reeling. You deal 2d4 mental damage to the creature, and it must attempt a Will save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "flat-footed",
-            "alt": "flat-footed",
-            "game-obj": "Conditions",
-            "aonid": 16
-        },
-        {
-            "type": "link",
-            "name": "stunned 1",
-            "alt": "stunned 1",
-            "game-obj": "Conditions",
-            "aonid": 36
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        },
-        {
-            "type": "link",
-            "name": "harrow",
-            "alt": "harrow",
-            "game-obj": "Bloodlines",
-            "aonid": 18
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -158,5 +184,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

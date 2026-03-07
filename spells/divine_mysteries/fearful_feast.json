@@ -20,12 +20,10 @@
     "spell": {
         "name": "Fearful Feast",
         "type": "stat_block_section",
+        "text": "You open your mouth wide and inhale sharply; you draw in the bravery, self-confidence, and hope to which the frightened target clings and then strip away the target\u2019s false assumption that these fragile emotions can save them from the oblivion of terror. You deal 6d4 mental damage to the creature, which must attempt a Will saving throw.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Reaction"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -100,11 +98,9 @@
                 }
             }
         ],
-        "domain": "abomination",
         "trigger": "A creature within range becomes frightened.",
         "range": "30 feet",
         "targets": "the triggering creature",
-        "defense": "Will",
         "duration": "varies",
         "heightened": [
             {
@@ -114,45 +110,64 @@
                 "text": "The damage increases by 1d4."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage.",
-        "failure": "The creature takes full damage; you regain Hit Points equal to half the damage the target takes.",
-        "critical_failure": "The creature\u2019s frightened condition increases by 1 (to a maximum of frightened 4) and it takes double damage; you regain Hit Points equal to half the damage the target takes."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "abomination",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "abomination",
+                    "alt": "abomination",
+                    "game-obj": "Domains",
+                    "aonid": 101
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Reaction"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage.",
+            "failure": "The creature takes full damage; you regain Hit Points equal to half the damage the target takes.",
+            "critical_failure": "The creature\u2019s frightened condition increases by 1 (to a maximum of frightened 4) and it takes double damage; you regain Hit Points equal to half the damage the target takes."
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "frightened",
+                "alt": "frightened",
+                "game-obj": "Conditions",
+                "aonid": 76
+            },
+            {
+                "type": "link",
+                "name": "mental",
+                "alt": "mental",
+                "game-obj": "Traits",
+                "aonid": 647
+            },
+            {
+                "type": "link",
+                "name": "frightened",
+                "alt": "frightened",
+                "game-obj": "Conditions",
+                "aonid": 76
+            }
+        ]
     },
     "game-id": "ca96c60147ecb5eeeab300f2cde66b2c",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You open your mouth wide and inhale sharply; you draw in the bravery, self-confidence, and hope to which the frightened target clings and then strip away the target\u2019s false assumption that these fragile emotions can save them from the oblivion of terror. You deal 6d4 mental damage to the creature, which must attempt a Will saving throw.",
-    "links": [
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "mental",
-            "alt": "mental",
-            "game-obj": "Traits",
-            "aonid": 647
-        },
-        {
-            "type": "link",
-            "name": "frightened",
-            "alt": "frightened",
-            "game-obj": "Conditions",
-            "aonid": 76
-        },
-        {
-            "type": "link",
-            "name": "abomination",
-            "alt": "abomination",
-            "game-obj": "Domains",
-            "aonid": 101
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -197,5 +212,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

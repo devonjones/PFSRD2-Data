@@ -27,12 +27,10 @@
     "spell": {
         "name": "Touch of Obedience",
         "type": "stat_block_section",
+        "text": "Your imperious touch erodes the target's willpower, making it easier to control. The target attempts a Will save. Regardless of the result, it's then temporarily immune for 1 hour.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "One Action"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,36 +93,53 @@
                 }
             }
         ],
-        "domain": "tyranny",
         "range": "touch",
         "targets": "1 living creature",
-        "defense": "Will",
         "duration": "varies",
-        "critical_success": "The target is unaffected.",
-        "success": "The target is stupefied 1 until the end of your next turn.",
-        "failure": "The target is stupefied 2 until the end of your next turn.",
-        "critical_failure": "The target is stupefied 2 for 1 minute and is forced to its knees, becoming prone."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "tyranny",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "tyranny",
+                    "alt": "tyranny",
+                    "game-obj": "Domains",
+                    "aonid": 96
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "One Action"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The target is unaffected.",
+            "success": "The target is stupefied 1 until the end of your next turn.",
+            "failure": "The target is stupefied 2 until the end of your next turn.",
+            "critical_failure": "The target is stupefied 2 for 1 minute and is forced to its knees, becoming prone.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "prone",
+                    "alt": "prone",
+                    "game-obj": "Conditions",
+                    "aonid": 31
+                }
+            ]
+        }
     },
     "game-id": "65f8532acb0754d0177042885216b2ca",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "Your imperious touch erodes the target's willpower, making it easier to control. The target attempts a Will save. Regardless of the result, it's then temporarily immune for 1 hour.",
-    "links": [
-        {
-            "type": "link",
-            "name": "prone",
-            "alt": "prone",
-            "game-obj": "Conditions",
-            "aonid": 31
-        },
-        {
-            "type": "link",
-            "name": "tyranny",
-            "alt": "tyranny",
-            "game-obj": "Domains",
-            "aonid": 96
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -169,5 +184,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

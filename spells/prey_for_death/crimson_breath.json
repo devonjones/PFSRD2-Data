@@ -20,12 +20,10 @@
     "spell": {
         "name": "Crimson Breath",
         "type": "stat_block_section",
+        "text": "You turn a creature toward you and exhale a blast of crimson mist from your mouth, exposing the target to a toxic miasma. The effects are determined by the creature\u2019s Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 6,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -64,46 +62,75 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, primal",
         "range": "touch",
         "targets": "1 creature",
-        "defense": "Fortitude",
-        "critical_success": "The target is unaffected.",
-        "success": "The target takes 8d6 poison damage.",
-        "failure": "The target is afflicted with breath of the mantis god poison at stage 1.",
-        "critical_failure": "The target is afflicted with breath of the mantis god poison at stage 2."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target takes 8d6 poison damage.",
+            "failure": "The target is afflicted with breath of the mantis god poison at stage 1.",
+            "critical_failure": "The target is afflicted with breath of the mantis god poison at stage 2.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "breath of the mantis god",
+                    "alt": "breath of the mantis god",
+                    "game-obj": "Equipment",
+                    "aonid": 3491
+                }
+            ]
+        }
     },
     "game-id": "e7f45b8a388ddc759b5954c20ca977a7",
-    "spell_type": "spell",
-    "rank": 6,
-    "text": "You turn a creature toward you and exhale a blast of crimson mist from your mouth, exposing the target to a toxic miasma. The effects are determined by the creature\u2019s Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "breath of the mantis god",
-            "alt": "breath of the mantis god",
-            "game-obj": "Equipment",
-            "aonid": 3491
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -148,5 +175,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

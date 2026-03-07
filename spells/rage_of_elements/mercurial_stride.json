@@ -27,12 +27,10 @@
     "spell": {
         "name": "Mercurial Stride",
         "type": "stat_block_section",
+        "text": "Your form ripples as you take on the fluidity and toxicity of quicksilver. You partially shift into a liquid metal form and Stride up to twice your speed. During this movement, you can pass through one creature's space\u2014without needing to attempt a check to Tumble Through\u2014by splitting into droplets of mercury and reforming on the other side, though you can't end your turn in such a space. Passing through a creature's space in this way exposes it to mercury poisoning, with a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -83,8 +81,6 @@
                 }
             }
         ],
-        "traditions": "arcane, occult",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -93,43 +89,70 @@
                 "text": "The damage increases by 1d6 on a failure and 2d6 on a critical failure."
             }
         ],
-        "critical_success": "The target is unaffected.",
-        "success": "The target becomes sickened 1.",
-        "failure": "The target becomes sickened 2 and takes 6d6 poison damage.",
-        "critical_failure": "The target becomes sickened 2 and takes 12d6 poison damage."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The target is unaffected.",
+            "success": "The target becomes sickened 1.",
+            "failure": "The target becomes sickened 2 and takes 6d6 poison damage.",
+            "critical_failure": "The target becomes sickened 2 and takes 12d6 poison damage.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "sickened 1",
+                    "alt": "sickened 1",
+                    "game-obj": "Conditions",
+                    "aonid": 34
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "Tumble Through",
+                "alt": "Tumble Through",
+                "game-obj": "Actions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "173fe6e5e8932d9d3b00cfa674c3d435",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "Your form ripples as you take on the fluidity and toxicity of quicksilver. You partially shift into a liquid metal form and Stride up to twice your speed. During this movement, you can pass through one creature's space\u2014without needing to attempt a check to Tumble Through\u2014by splitting into droplets of mercury and reforming on the other side, though you can't end your turn in such a space. Passing through a creature's space in this way exposes it to mercury poisoning, with a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "Tumble Through",
-            "alt": "Tumble Through",
-            "game-obj": "Actions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "sickened 1",
-            "alt": "sickened 1",
-            "game-obj": "Conditions",
-            "aonid": 34
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -174,5 +197,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

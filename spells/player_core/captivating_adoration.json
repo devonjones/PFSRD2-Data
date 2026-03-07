@@ -27,12 +27,10 @@
     "spell": {
         "name": "Captivating Adoration",
         "type": "stat_block_section",
+        "text": "You become intensely entrancing, and creatures are distracted by you as long as they remain within the area. You can exclude any creatures you choose from the effects. If a creature is in the aura when you Cast the Spell or when it enters the aura for the first time, it must attempt a Will saving throw. If a creature leaves and reenters, it uses the results of its original save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -143,9 +141,7 @@
                 }
             }
         ],
-        "domain": "passion",
         "area": "15-foot emanation",
-        "defense": "Will",
         "duration": "1 minute",
         "heightened": [
             {
@@ -155,31 +151,50 @@
                 "text": "Increase the size of the emanation by 15 feet."
             }
         ],
-        "critical_success": "The creature is unaffected and temporarily immune for 1 hour.",
-        "success": "The creature is fascinated with you for its next action, then is temporarily immune for 1 hour.",
-        "failure": "The creature is fascinated with you.",
-        "critical_failure": "The creature is fascinated with you, and its attitude toward you improves by one step."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "passion",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "passion",
+                    "alt": "passion",
+                    "game-obj": "Domains",
+                    "aonid": 88
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected and temporarily immune for 1 hour.",
+            "success": "The creature is fascinated with you for its next action, then is temporarily immune for 1 hour.",
+            "failure": "The creature is fascinated with you.",
+            "critical_failure": "The creature is fascinated with you, and its attitude toward you improves by one step.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "fascinated",
+                    "alt": "fascinated",
+                    "game-obj": "Conditions",
+                    "aonid": 14
+                }
+            ]
+        }
     },
     "game-id": "3e577de2d0c32ebb45bff337e40ced98",
-    "spell_type": "focus",
-    "rank": 4,
-    "text": "You become intensely entrancing, and creatures are distracted by you as long as they remain within the area. You can exclude any creatures you choose from the effects. If a creature is in the aura when you Cast the Spell or when it enters the aura for the first time, it must attempt a Will saving throw. If a creature leaves and reenters, it uses the results of its original save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 14
-        },
-        {
-            "type": "link",
-            "name": "passion",
-            "alt": "passion",
-            "game-obj": "Domains",
-            "aonid": 88
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -224,5 +239,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

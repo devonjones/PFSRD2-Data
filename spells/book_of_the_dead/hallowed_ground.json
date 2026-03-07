@@ -40,12 +40,10 @@
     "spell": {
         "name": "Hallowed Ground",
         "type": "stat_block_section",
+        "text": "One small space becomes inhospitable to undead as you fill it with life-infused benevolent magic. Each undead creature in the area takes 1d6 positive damage and 1d4 good damage when you Cast the Spell, with a basic Fortitude save. After that, undead creatures have weakness 1 to positive damage and your necromancy spells while in the area.  \n  \n This spell also automatically attempts to counteract any attempt to raise undead in the area (if either the undead would appear in the area or the effect's caster or creator is in it).   \n  \nIf you Cast this Spell again, any previous *hallowed ground* you had cast ends.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -96,7 +94,6 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "range": "60 feet",
         "area": "10-foot burst",
         "duration": "1 minute",
@@ -107,63 +104,81 @@
                 "increment": 2,
                 "text": "The positive damage increases by 1d6, good damage increases by 1d4, and weakness increases by 1."
             }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "undead",
+                "alt": "undead",
+                "game-obj": "Traits",
+                "aonid": 160
+            },
+            {
+                "type": "link",
+                "name": "basic",
+                "alt": "basic",
+                "game-obj": "Rules",
+                "aonid": 329
+            },
+            {
+                "type": "link",
+                "name": "positive",
+                "alt": "positive",
+                "game-obj": "Traits",
+                "aonid": 128
+            },
+            {
+                "type": "link",
+                "name": "necromancy",
+                "alt": "necromancy",
+                "game-obj": "Traits",
+                "aonid": 117
+            },
+            {
+                "type": "link",
+                "name": "counteract",
+                "alt": "counteract",
+                "game-obj": "Rules",
+                "aonid": 371
+            }
         ]
     },
     "game-id": "7f04d6466b35461c6897b04f9070d0c5",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "One small space becomes inhospitable to undead as you fill it with life-infused benevolent magic. Each undead creature in the area takes 1d6 positive damage and 1d4 good damage when you Cast the Spell, with a basic Fortitude save. After that, undead creatures have weakness 1 to positive damage and your necromancy spells while in the area.  \n  \n This spell also automatically attempts to counteract any attempt to raise undead in the area (if either the undead would appear in the area or the effect's caster or creator is in it).   \n  \nIf you Cast this Spell again, any previous *hallowed ground* you had cast ends.",
-    "links": [
-        {
-            "type": "link",
-            "name": "undead",
-            "alt": "undead",
-            "game-obj": "Traits",
-            "aonid": 160
-        },
-        {
-            "type": "link",
-            "name": "basic",
-            "alt": "basic",
-            "game-obj": "Rules",
-            "aonid": 329
-        },
-        {
-            "type": "link",
-            "name": "positive",
-            "alt": "positive",
-            "game-obj": "Traits",
-            "aonid": 128
-        },
-        {
-            "type": "link",
-            "name": "necromancy",
-            "alt": "necromancy",
-            "game-obj": "Traits",
-            "aonid": 117
-        },
-        {
-            "type": "link",
-            "name": "counteract",
-            "alt": "counteract",
-            "game-obj": "Rules",
-            "aonid": 371
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -179,5 +194,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

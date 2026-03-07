@@ -27,12 +27,10 @@
     "spell": {
         "name": "Dazzling Flash",
         "type": "stat_block_section",
+        "text": "You raise your religious symbol and create a blinding flash of light. Each creature in the area must attempt a Fortitude save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 1,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -119,9 +117,7 @@
                 }
             }
         ],
-        "domain": "sun",
         "area": "15-foot cone",
-        "defense": "Fortitude",
         "heightened": [
             {
                 "type": "stat_block_section",
@@ -130,38 +126,57 @@
                 "text": "The area increases to a 30-foot cone."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is dazzled for 1 round.",
-        "failure": "The creature is blinded for 1 round and dazzled for 1 minute. The creature can spend an Interact action rubbing its eyes to end the blinded condition.",
-        "critical_failure": "The creature is blinded for 1 round and dazzled for 1 hour."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "sun",
+                "access_type": "domain",
+                "link": {
+                    "type": "link",
+                    "name": "sun",
+                    "alt": "sun",
+                    "game-obj": "Domains",
+                    "aonid": 92
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Fort",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is dazzled for 1 round.",
+            "failure": "The creature is blinded for 1 round and dazzled for 1 minute. The creature can spend an Interact action rubbing its eyes to end the blinded condition.",
+            "critical_failure": "The creature is blinded for 1 round and dazzled for 1 hour.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "dazzled",
+                    "alt": "dazzled",
+                    "game-obj": "Conditions",
+                    "aonid": 7
+                },
+                {
+                    "type": "link",
+                    "name": "blinded",
+                    "alt": "blinded",
+                    "game-obj": "Conditions",
+                    "aonid": 1
+                }
+            ]
+        }
     },
     "game-id": "bd7b0a243d15ed59cd70abd29596175b",
-    "spell_type": "focus",
-    "rank": 1,
-    "text": "You raise your religious symbol and create a blinding flash of light. Each creature in the area must attempt a Fortitude save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "dazzled",
-            "alt": "dazzled",
-            "game-obj": "Conditions",
-            "aonid": 7
-        },
-        {
-            "type": "link",
-            "name": "blinded",
-            "alt": "blinded",
-            "game-obj": "Conditions",
-            "aonid": 1
-        },
-        {
-            "type": "link",
-            "name": "sun",
-            "alt": "sun",
-            "game-obj": "Domains",
-            "aonid": 92
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -206,5 +221,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

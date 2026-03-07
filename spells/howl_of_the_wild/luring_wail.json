@@ -27,12 +27,10 @@
     "spell": {
         "name": "Luring Wail",
         "type": "stat_block_section",
+        "text": "You emit a plaintive cry to lure your enemies closer. Each creature in the emanation that can hear you must attempt a Will save. If you speak a creature's name as part of the casting of the spell, that creature takes a \u20132 circumstance penalty to its saving throw. Each creature that enters the area on its turn must attempt a save. If you attack or take a hostile action, the fascinated condition ends only for the creature that's attacked.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "spell",
+        "rank": 4,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -95,61 +93,86 @@
                 }
             }
         ],
-        "traditions": "occult, primal",
         "area": "60-foot emanation",
-        "defense": "Will",
         "duration": "sustained up to 1 minute",
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature is slowed 1 for 1 round.",
-        "failure": "The creature becomes fascinated and compelled to move toward the sound of your cry on its turn. As long as it is in the emanation and can hear, it must spend at least one of its actions on each of its turns to move closer to you.",
-        "critical_failure": "As failure, but the creature must spend all its actions moving toward the sound. Additionally, the creature is off-guard."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "occult",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "occult",
+                    "alt": "occult",
+                    "href": "Spells.aspx?Tradition=3"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "save_type": "Will",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature is slowed 1 for 1 round.",
+            "failure": "The creature becomes fascinated and compelled to move toward the sound of your cry on its turn. As long as it is in the emanation and can hear, it must spend at least one of its actions on each of its turns to move closer to you.",
+            "critical_failure": "As failure, but the creature must spend all its actions moving toward the sound. Additionally, the creature is off-guard.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "slowed",
+                    "alt": "slowed",
+                    "game-obj": "Conditions",
+                    "aonid": 92
+                },
+                {
+                    "type": "link",
+                    "name": "off-guard",
+                    "alt": "off-guard",
+                    "game-obj": "Conditions",
+                    "aonid": 58
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "hostile action",
+                "alt": "hostile action",
+                "game-obj": "Rules",
+                "aonid": 300
+            },
+            {
+                "type": "link",
+                "name": "fascinated",
+                "alt": "fascinated",
+                "game-obj": "Conditions",
+                "aonid": 72
+            }
+        ]
     },
     "game-id": "082b6129f146c84e0a881af899f3a569",
-    "spell_type": "spell",
-    "rank": 4,
-    "text": "You emit a plaintive cry to lure your enemies closer. Each creature in the emanation that can hear you must attempt a Will save. If you speak a creature's name as part of the casting of the spell, that creature takes a \u20132 circumstance penalty to its saving throw. Each creature that enters the area on its turn must attempt a save. If you attack or take a hostile action, the fascinated condition ends only for the creature that's attacked.",
-    "links": [
-        {
-            "type": "link",
-            "name": "hostile action",
-            "alt": "hostile action",
-            "game-obj": "Rules",
-            "aonid": 300
-        },
-        {
-            "type": "link",
-            "name": "fascinated",
-            "alt": "fascinated",
-            "game-obj": "Conditions",
-            "aonid": 72
-        },
-        {
-            "type": "link",
-            "name": "slowed",
-            "alt": "slowed",
-            "game-obj": "Conditions",
-            "aonid": 92
-        },
-        {
-            "type": "link",
-            "name": "off-guard",
-            "alt": "off-guard",
-            "game-obj": "Conditions",
-            "aonid": 58
-        },
-        {
-            "type": "link",
-            "name": "occult",
-            "alt": "occult",
-            "href": "Spells.aspx?Tradition=3"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -194,5 +217,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

@@ -54,12 +54,10 @@
     "spell": {
         "name": "Storm Lord",
         "type": "stat_block_section",
+        "text": "The sky above you darkens in a matter of moments, swirling with ominous clouds punctuated by flashes of lighting. The first time each round you Sustain the Spell, you can select one of the following effects to occur in the area.\n* **Calm** No additional effect.\n* **Fog** Heavy fog rolls in, concealing the area with the effects of *obscuring mist*.\n* **Rain** Torrential rain falls from the sky, dousing ordinary flames. Creatures in the area take a \u20132 circumstance penalty to Acrobatics and Perception checks.\n* **Wind** Powerful winds buffet the area in all directions. Ranged attacks take a \u20134 circumstance penalty, and all flying is against the wind and counts as moving through difficult terrain.\n In addition, once per round you can use a single action, which has the concentrate and manipulate traits, to call down a bolt of lightning, striking any target in range that you can see. You deal 10d6 electricity damage to the target; it must attempt a basic Reflex save. On a failure, it is also deafened for 1 round.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Two Actions"
-        },
+        "spell_type": "focus",
+        "rank": 9,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -122,38 +120,55 @@
                 }
             }
         ],
-        "cast": "somatic, verbal",
         "requirement": "You are outdoors and aboveground.",
         "area": "100-foot emanation, which affects you",
-        "duration": "sustained up to 1 minute"
+        "duration": "sustained up to 1 minute",
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Two Actions"
+            },
+            "components": [
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "somatic",
+                    "link": {
+                        "type": "link",
+                        "name": "somatic",
+                        "alt": "somatic",
+                        "game-obj": "Rules",
+                        "aonid": 283
+                    }
+                },
+                {
+                    "type": "stat_block_section",
+                    "subtype": "spell_cast_component",
+                    "name": "verbal",
+                    "link": {
+                        "type": "link",
+                        "name": "verbal",
+                        "alt": "verbal",
+                        "game-obj": "Rules",
+                        "aonid": 284
+                    }
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "obscuring mist",
+                "alt": "obscuring mist",
+                "game-obj": "Spells",
+                "aonid": 210
+            }
+        ]
     },
     "game-id": "de891de66c365aeabefd28c0cfe64feb",
-    "spell_type": "focus",
-    "rank": 9,
-    "text": "The sky above you darkens in a matter of moments, swirling with ominous clouds punctuated by flashes of lighting. The first time each round you Sustain the Spell, you can select one of the following effects to occur in the area.\n* **Calm** No additional effect.\n* **Fog** Heavy fog rolls in, concealing the area with the effects of *obscuring mist*.\n* **Rain** Torrential rain falls from the sky, dousing ordinary flames. Creatures in the area take a \u20132 circumstance penalty to Acrobatics and Perception checks.\n* **Wind** Powerful winds buffet the area in all directions. Ranged attacks take a \u20134 circumstance penalty, and all flying is against the wind and counts as moving through difficult terrain.\n In addition, once per round you can use a single action, which has the concentrate and manipulate traits, to call down a bolt of lightning, striking any target in range that you can see. You deal 10d6 electricity damage to the target; it must attempt a basic Reflex save. On a failure, it is also deafened for 1 round.",
-    "links": [
-        {
-            "type": "link",
-            "name": "obscuring mist",
-            "alt": "obscuring mist",
-            "game-obj": "Spells",
-            "aonid": 210
-        },
-        {
-            "type": "link",
-            "name": "somatic",
-            "alt": "somatic",
-            "game-obj": "Rules",
-            "aonid": 283
-        },
-        {
-            "type": "link",
-            "name": "verbal",
-            "alt": "verbal",
-            "game-obj": "Rules",
-            "aonid": 284
-        }
-    ],
     "edition": "legacy",
     "license": {
         "name": "OPEN GAME LICENSE Version 1.0a",
@@ -169,5 +184,5 @@
         "subtype": "license",
         "license": "OPEN GAME LICENSE Version 1.0a"
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }

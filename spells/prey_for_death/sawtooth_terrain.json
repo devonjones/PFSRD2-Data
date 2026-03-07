@@ -20,12 +20,10 @@
     "spell": {
         "name": "Sawtooth Terrain",
         "type": "stat_block_section",
+        "text": "You cause long, serrated mantis limbs to appear, swiping at and obstructing creatures in the area. The area is difficult terrain. Each creature in the area when the spell is cast and who end their turn within the area take 3d6 slashing damage and 2d6 persistent bleed damage, as determined by its Reflex save.",
         "subtype": "spell",
-        "action_type": {
-            "type": "stat_block_section",
-            "subtype": "action_type",
-            "name": "Three Actions"
-        },
+        "spell_type": "spell",
+        "rank": 5,
         "traits": [
             {
                 "type": "stat_block_section",
@@ -76,7 +74,6 @@
                 }
             }
         ],
-        "traditions": "arcane, divine, primal",
         "range": "30 feet",
         "area": "20-foot burst",
         "duration": "1 minute",
@@ -88,56 +85,88 @@
                 "text": "the damage increases by 3d6, and the persistent bleed damage increases by 1d6."
             }
         ],
-        "critical_success": "The creature is unaffected.",
-        "success": "The creature takes half damage and no persistent damage.",
-        "failure": "The creature takes full damage and a \u201310-foot circumstance penalty to their Speed until they receive magical healing or benefit from a successful Medicine check against your spell DC to administer First Aid.",
-        "critical_failure": "The creature takes double damage and a \u201315-foot circumstance penalty to their Speed until they receive magical healing or benefit from a successful Medicine check against your spell DC to administer First Aid."
+        "spell_access": [
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "arcane",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "arcane",
+                    "alt": "arcane",
+                    "href": "Spells.aspx?Tradition=1"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "divine",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "divine",
+                    "alt": "divine",
+                    "href": "Spells.aspx?Tradition=2"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "spell_access",
+                "name": "primal",
+                "access_type": "tradition",
+                "link": {
+                    "type": "link",
+                    "name": "primal",
+                    "alt": "primal",
+                    "href": "Spells.aspx?Tradition=4"
+                }
+            }
+        ],
+        "cast": {
+            "type": "stat_block_section",
+            "subtype": "spell_cast",
+            "action_type": {
+                "type": "stat_block_section",
+                "subtype": "action_type",
+                "name": "Three Actions"
+            }
+        },
+        "defense": {
+            "type": "stat_block_section",
+            "subtype": "spell_defense",
+            "critical_success": "The creature is unaffected.",
+            "success": "The creature takes half damage and no persistent damage.",
+            "failure": "The creature takes full damage and a \u201310-foot circumstance penalty to their Speed until they receive magical healing or benefit from a successful Medicine check against your spell DC to administer First Aid.",
+            "critical_failure": "The creature takes double damage and a \u201315-foot circumstance penalty to their Speed until they receive magical healing or benefit from a successful Medicine check against your spell DC to administer First Aid.",
+            "links": [
+                {
+                    "type": "link",
+                    "name": "administer First Aid",
+                    "alt": "administer First Aid",
+                    "game-obj": "Actions",
+                    "aonid": 2396
+                }
+            ]
+        },
+        "links": [
+            {
+                "type": "link",
+                "name": "difficult terrain",
+                "alt": "difficult terrain",
+                "game-obj": "Rules",
+                "aonid": 2366
+            },
+            {
+                "type": "link",
+                "name": "persistent bleed damage",
+                "alt": "persistent bleed damage",
+                "game-obj": "Conditions",
+                "aonid": 29
+            }
+        ]
     },
     "game-id": "8270a497fb581a1072a398cf4dc4665a",
-    "spell_type": "spell",
-    "rank": 5,
-    "text": "You cause long, serrated mantis limbs to appear, swiping at and obstructing creatures in the area. The area is difficult terrain. Each creature in the area when the spell is cast and who end their turn within the area take 3d6 slashing damage and 2d6 persistent bleed damage, as determined by its Reflex save.",
-    "links": [
-        {
-            "type": "link",
-            "name": "difficult terrain",
-            "alt": "difficult terrain",
-            "game-obj": "Rules",
-            "aonid": 2366
-        },
-        {
-            "type": "link",
-            "name": "persistent bleed damage",
-            "alt": "persistent bleed damage",
-            "game-obj": "Conditions",
-            "aonid": 29
-        },
-        {
-            "type": "link",
-            "name": "administer First Aid",
-            "alt": "administer First Aid",
-            "game-obj": "Actions",
-            "aonid": 2396
-        },
-        {
-            "type": "link",
-            "name": "arcane",
-            "alt": "arcane",
-            "href": "Spells.aspx?Tradition=1"
-        },
-        {
-            "type": "link",
-            "name": "divine",
-            "alt": "divine",
-            "href": "Spells.aspx?Tradition=2"
-        },
-        {
-            "type": "link",
-            "name": "primal",
-            "alt": "primal",
-            "href": "Spells.aspx?Tradition=4"
-        }
-    ],
     "edition": "remastered",
     "license": {
         "name": "ORC Notice",
@@ -182,5 +211,5 @@
         "license": "Open RPG Creative license",
         "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
     },
-    "schema_version": 1.0
+    "schema_version": 2.0
 }
