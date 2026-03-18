@@ -108,12 +108,14 @@
                 "change_category": "strikes",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='fist')]",
+                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='fist')].attack.weapon",
                         "operation": "replace",
-                        "value": {
-                            "weapon": "claw",
-                            "name": "Claw"
-                        }
+                        "value": "claw"
+                    },
+                    {
+                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='fist')].attack.name",
+                        "operation": "replace",
+                        "value": "Claw"
                     },
                     {
                         "target": "$.offense.offensive_actions[?(@.attack.weapon=='claw')].attack.damage[*].damage_type",
