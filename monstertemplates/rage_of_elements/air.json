@@ -1,0 +1,239 @@
+{
+    "name": "Air",
+    "type": "monster_template",
+    "sources": [
+        {
+            "type": "source",
+            "name": "Rage of Elements",
+            "link": {
+                "type": "link",
+                "name": "Rage of Elements pg. 67",
+                "alt": "Rage of Elements pg. 67",
+                "game-obj": "Sources",
+                "aonid": 205
+            },
+            "page": 67,
+            "errata": {
+                "type": "link",
+                "name": "2.0",
+                "alt": "2.0",
+                "game-obj": "Sources",
+                "aonid": 205
+            }
+        }
+    ],
+    "aonid": 16,
+    "game-obj": "MonsterTemplates",
+    "monster_template": {
+        "name": "Air",
+        "type": "stat_block_section",
+        "subtype": "monster_template",
+        "changes": [
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "air",
+                        "alt": "air",
+                        "game-obj": "Traits",
+                        "aonid": 5
+                    }
+                ],
+                "text": "- Add the air trait.",
+                "change_category": "traits",
+                "effects": [
+                    {
+                        "target": "$.creature_type.creature_types",
+                        "operation": "add_item",
+                        "name": "Air"
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Sussuran",
+                        "alt": "Sussuran",
+                        "game-obj": "Languages",
+                        "aonid": 111
+                    }
+                ],
+                "text": "- If it has any languages, add Sussuran.",
+                "change_category": "languages",
+                "effects": [
+                    {
+                        "target": "$.languages.languages",
+                        "operation": "add_item",
+                        "item": {
+                            "type": "stat_block_section",
+                            "subtype": "language",
+                            "name": "Sussuran"
+                        },
+                        "conditional": "$.languages.languages != null"
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- If the creature is 8th level or higher, give it a fly Speed of 25 feet. If its level is lower than that, you can give it this fly Speed if it either doesn't have ranged attacks or you remove its ranged attacks; use discretion.",
+                "change_category": "speed",
+                "effects": [
+                    {
+                        "conditional": "$.creature_type.level >= 8",
+                        "target": "$.offense.speed.movement",
+                        "operation": "add_item",
+                        "item": {
+                            "type": "stat_block_section",
+                            "subtype": "speed",
+                            "name": "fly 25 feet",
+                            "movement_type": "fly",
+                            "value": 25
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "gale blast",
+                        "alt": "gale blast",
+                        "game-obj": "Spells",
+                        "aonid": 917
+                    },
+                    {
+                        "type": "link",
+                        "name": "gust of wind",
+                        "alt": "gust of wind",
+                        "game-obj": "Spells",
+                        "aonid": 143
+                    },
+                    {
+                        "type": "link",
+                        "name": "cleanse air",
+                        "alt": "cleanse air",
+                        "game-obj": "Spells",
+                        "aonid": 1313
+                    },
+                    {
+                        "type": "link",
+                        "name": "wall of wind",
+                        "alt": "wall of wind",
+                        "game-obj": "Spells",
+                        "aonid": 367
+                    },
+                    {
+                        "type": "link",
+                        "name": "fly",
+                        "alt": "fly",
+                        "game-obj": "Spells",
+                        "aonid": 125
+                    },
+                    {
+                        "type": "link",
+                        "name": "pressure zone",
+                        "alt": "pressure zone",
+                        "game-obj": "Spells",
+                        "aonid": 1318
+                    },
+                    {
+                        "type": "link",
+                        "name": "phantom orchestra",
+                        "alt": "phantom orchestra",
+                        "game-obj": "Spells",
+                        "aonid": 1317
+                    },
+                    {
+                        "type": "link",
+                        "name": "fly",
+                        "alt": "fly",
+                        "game-obj": "Spells",
+                        "aonid": 125
+                    },
+                    {
+                        "type": "link",
+                        "name": "whirlwind",
+                        "alt": "whirlwind",
+                        "game-obj": "Spells",
+                        "aonid": 1033
+                    },
+                    {
+                        "type": "link",
+                        "name": "wrathful storm",
+                        "alt": "wrathful storm",
+                        "game-obj": "Spells",
+                        "aonid": 313
+                    }
+                ],
+                "text": "- If the creature can cast spells, you can replace spells with air spells of the same rank, such as: **Cantrip** *gale blast*, **1st** *gust of wind*, **2nd** *cleanse air*, **3rd** *wall of wind*, **4th** *fly*, **5th** *pressure zone*, **6th** *phantom orchestra*, **7th** *fly*, **8th** *whirlwind*, **9th** *wrathful storm*.",
+                "change_category": "spells",
+                "effects": [
+                    {
+                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells",
+                        "operation": "select",
+                        "selection": {
+                            "type": "replace_n",
+                            "constraint": "air",
+                            "description": "- If the creature can cast spells, you can replace spells with air spells of the same rank, such as: **Cantrip** *gale blast*, **1st** *gust of wind*, **2nd** *cleanse air*, **3rd** *wall of wind*, **4th** *fly*, **5th** *pressure zone*, **6th** *phantom orchestra*, **7th** *fly*, **8th** *whirlwind*, **9th** *wrathful storm*."
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "game-id": "752d3c4e34a72612d99289124c4b095a",
+    "text": "To quickly give a creature a magical connection to the element of air, you can use the following adjustments.",
+    "edition": "remastered",
+    "license": {
+        "name": "ORC Notice",
+        "type": "section",
+        "sections": [
+            {
+                "name": "Attribution",
+                "type": "section",
+                "text": "This product is based on the following Licensed Material:",
+                "sections": [
+                    {
+                        "name": "Rage of Elements",
+                        "type": "section",
+                        "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Rage of Elements*** \u00a9 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, James Case, Jessica Catalan, Andrew D. Geels, Sen H.H.S., Patrick Hurley, Jason Keeley, Luis Loza, Mark Moreland, Jonathan Morgantini, AJ Neuro, Jessica Redekop, Solomon St. John, Michael Sayre, Mark Seifter, Shahreena Shahrani, Shay Snow, Levi Steadman, Mari Tokuda, Ruvaid Virk, Andrew White, and Linda Zayas-Palmer."
+                    }
+                ]
+            },
+            {
+                "name": "Attributing us",
+                "type": "section",
+                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+                "sections": [
+                    {
+                        "name": "Pathfinder Open Reference",
+                        "type": "section",
+                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
+                    }
+                ]
+            },
+            {
+                "name": "Reserved Material",
+                "type": "section",
+                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
+            },
+            {
+                "name": "Expressly Designated Licensed Material",
+                "type": "section",
+                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
+            }
+        ],
+        "subtype": "license",
+        "license": "Open RPG Creative license",
+        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
+    },
+    "schema_version": 1.0
+}

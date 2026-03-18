@@ -1,0 +1,405 @@
+{
+    "name": "Primeval Cryptid",
+    "type": "monster_template",
+    "sections": [
+        {
+            "name": "Primeval Cryptid Adjustments",
+            "type": "section",
+            "text": "You can turn an existing, living creature into a primeval cryptid by completing the following steps. Increase the creature's level by 1 and change its statistics as follows.",
+            "sources": [
+                {
+                    "type": "source",
+                    "name": "Dark Archive",
+                    "link": {
+                        "type": "link",
+                        "name": "Dark Archive pg. 60",
+                        "alt": "Dark Archive pg. 60",
+                        "game-obj": "Sources",
+                        "aonid": 129
+                    },
+                    "page": 60
+                }
+            ]
+        }
+    ],
+    "sources": [
+        {
+            "type": "source",
+            "name": "Dark Archive",
+            "link": {
+                "type": "link",
+                "name": "Dark Archive pg. 60",
+                "alt": "Dark Archive pg. 60",
+                "game-obj": "Sources",
+                "aonid": 129
+            },
+            "page": 60
+        }
+    ],
+    "aonid": 14,
+    "game-obj": "MonsterTemplates",
+    "monster_template": {
+        "name": "Primeval Cryptid",
+        "type": "stat_block_section",
+        "subtype": "monster_template",
+        "changes": [
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "uncommon",
+                        "alt": "uncommon",
+                        "game-obj": "Traits",
+                        "aonid": 159
+                    },
+                    {
+                        "type": "link",
+                        "name": "rare",
+                        "alt": "rare",
+                        "game-obj": "Traits",
+                        "aonid": 137
+                    },
+                    {
+                        "type": "link",
+                        "name": "animal",
+                        "alt": "animal",
+                        "game-obj": "Traits",
+                        "aonid": 9
+                    },
+                    {
+                        "type": "link",
+                        "name": "beast",
+                        "alt": "beast",
+                        "game-obj": "Traits",
+                        "aonid": 20
+                    }
+                ],
+                "text": "- Increase the creature's rarity to uncommon if it was common or rare if it was uncommon. If the creature was an animal, it loses the animal trait and gains the beast trait.",
+                "change_category": "traits",
+                "effects": [
+                    {
+                        "conditional": "$.creature_type.rarity == 'Common'",
+                        "target": "$.creature_type.rarity",
+                        "operation": "replace",
+                        "value": "Uncommon"
+                    },
+                    {
+                        "conditional": "$.creature_type.rarity == 'Uncommon'",
+                        "target": "$.creature_type.rarity",
+                        "operation": "replace",
+                        "value": "Rare"
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Increase the creature's size by one size. If this makes the creature Huge or Gargantuan, increase the reach of all its Strikes by 5 feet.",
+                "change_category": "combat_stats",
+                "effects": [
+                    {
+                        "target": "$.defense.ac.value",
+                        "operation": "adjustment",
+                        "value": 5
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- If the creature's Intelligence modifier is \u20134 or lower, increase it to \u20133.",
+                "change_category": "attributes",
+                "effects": [
+                    {
+                        "conditional": "$.creature_type.intelligence_modifier <= -4",
+                        "target": "$.creature_type.intelligence_modifier",
+                        "operation": "replace",
+                        "value": -3
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Increase the creature's AC, attack bonuses, DCs, Perception modifier, saving throws, and skill modifiers by 1.",
+                "change_category": "combat_stats",
+                "effects": [
+                    {
+                        "target": "$.defense.ac.value",
+                        "operation": "adjustment",
+                        "value": 1
+                    },
+                    {
+                        "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
+                        "operation": "adjustment",
+                        "value": 1
+                    },
+                    {
+                        "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
+                        "operation": "adjustment",
+                        "value": 1
+                    },
+                    {
+                        "target": "$.defense.saves.fort.value",
+                        "operation": "adjustment",
+                        "value": 1
+                    },
+                    {
+                        "target": "$.defense.saves.ref.value",
+                        "operation": "adjustment",
+                        "value": 1
+                    },
+                    {
+                        "target": "$.defense.saves.will.value",
+                        "operation": "adjustment",
+                        "value": 1
+                    },
+                    {
+                        "target": "$.senses.perception.value",
+                        "operation": "adjustment",
+                        "value": 1
+                    },
+                    {
+                        "target": "$.skills[*].value",
+                        "operation": "adjustment",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Increase the damage of the creature's Strikes and other offensive abilities by 1. If an ability can be used only a small number of times (such as a dragon's Breath Weapon), increase the damage by 2 instead.",
+                "change_category": "damage",
+                "effects": [
+                    {
+                        "conditional": "default",
+                        "target": "$.offense.offensive_actions[*].attack.damage",
+                        "operation": "add_modifier",
+                        "modifier": {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "+1 damage"
+                        }
+                    },
+                    {
+                        "conditional": "$.offense.offensive_actions[*].ability.frequency != null",
+                        "target": "$.offense.offensive_actions[*].ability.damage",
+                        "operation": "add_modifier",
+                        "modifier": {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "+2 damage (limited use)"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Increase the creature's HP by the amount listed on the table.",
+                "change_category": "hit_points",
+                "effects": [
+                    {
+                        "conditional": "$.creature_type.level <= 1",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": 10
+                    },
+                    {
+                        "conditional": "$.creature_type.level == 2",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": 15
+                    },
+                    {
+                        "conditional": "$.creature_type.level == 5",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": 20
+                    },
+                    {
+                        "conditional": "$.creature_type.level >= 20",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": 30
+                    }
+                ]
+            }
+        ],
+        "abilities": [
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Stench",
+                "text": "( aura , olfactory ) 30 feet. A creature entering the emanation or starting its turn in the emanation must succeed at a Fortitude save against the standard DC for the creature's level or become sickened 1 (plus slowed 1 as long as it's sickened on a critical failure). While within the emanation, affected creatures take a \u20132 circumstance penalty to saves against diseases and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute.",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "aura",
+                        "alt": "aura",
+                        "game-obj": "MonsterAbilities",
+                        "aonid": 5
+                    },
+                    {
+                        "type": "link",
+                        "name": "olfactory",
+                        "alt": "olfactory",
+                        "game-obj": "Traits",
+                        "aonid": 246
+                    },
+                    {
+                        "type": "link",
+                        "name": "standard DC for the creature's level",
+                        "alt": "standard DC for the creature's level",
+                        "game-obj": "Rules",
+                        "aonid": 552
+                    },
+                    {
+                        "type": "link",
+                        "name": "sickened 1",
+                        "alt": "sickened 1",
+                        "game-obj": "Conditions",
+                        "aonid": 34
+                    },
+                    {
+                        "type": "link",
+                        "name": "slowed 1",
+                        "alt": "slowed 1",
+                        "game-obj": "Conditions",
+                        "aonid": 35
+                    },
+                    {
+                        "type": "link",
+                        "name": "diseases",
+                        "alt": "diseases",
+                        "game-obj": "Traits",
+                        "aonid": 46
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Broken Arsenal",
+                "text": "Fragments of broken blades and spears, the remnants of countless failed attempts to fell the primeval cryptid, remain lodged in its flesh. When an adjacent creature hits the primeval cryptid with a melee attack or otherwise touches it, that creature takes piercing damage equal to half the primeval cryptid's level (minimum 1 damage)."
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Grasp for Life",
+                "action_type": {
+                    "type": "stat_block_section",
+                    "subtype": "action_type",
+                    "name": "Free Action"
+                },
+                "text": "( healing )",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "healing",
+                        "alt": "healing",
+                        "game-obj": "Traits",
+                        "aonid": 89
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Frequency",
+                "text": "once per week;"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Trigger",
+                "text": "The primeval cryptid would be reduced to 0 Hit Points;"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Effect",
+                "text": "The cryptid's will to live is second nature, and its second wind has allowed it to survive when others of its kind went extinct. The creature shrugs off death. Instead of being reduced to 0 Hit Points, its Hit Points become equal to four times its level (or 4 Hit Points for a level 0 creature)."
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Shockwave",
+                "action_type": {
+                    "type": "stat_block_section",
+                    "subtype": "action_type",
+                    "name": "Two Actions"
+                }
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Effect",
+                "text": "The primeval cryptid creates a shockwave by stomping on the ground, beating its tail on the ground, or making another similarly violent, percussive slam. Creatures on the ground within 30 feet of the primeval cryptid take 1d6 bludgeoning damage per level of the primeval cryptid (minimum 2d6 damage), with a basic Reflex save. On a critical failure, a creature is also knocked prone .",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "basic",
+                        "alt": "basic",
+                        "game-obj": "Rules",
+                        "aonid": 329
+                    },
+                    {
+                        "type": "link",
+                        "name": "prone",
+                        "alt": "prone",
+                        "game-obj": "Conditions",
+                        "aonid": 31
+                    }
+                ]
+            }
+        ],
+        "adjustments": [
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "1 or lower",
+                "hp_increase": "10"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "2\u20134",
+                "hp_increase": "15"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "5\u201319",
+                "hp_increase": "20"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "20+",
+                "hp_increase": "30"
+            }
+        ]
+    },
+    "game-id": "76a5cecc806a5f9d1bed8e0f05a973ca",
+    "text": "Scholars dream of discovering primeval creatures: remnants of an older age, long thought extinct. Primeval cryptids are resilient survivors of their kind or particularly clever individuals.",
+    "edition": "legacy",
+    "license": {
+        "name": "OPEN GAME LICENSE Version 1.0a",
+        "type": "section",
+        "text": "The following text is the property of Wizards of the Coast, Inc. and is Copyright 2000 Wizards of the Coast, Inc (\"Wizards\"). All Rights Reserved. **1. Definitions**: (a)\"Contributors\" means the copyright and/or trademark owners who have contributed Open Game Content; (b)\"Derivative Material\" means copyrighted material including derivative works and translations (including into other computer languages), potation, modification, correction, addition, extension, upgrade, improvement, compilation, abridgment or other form in which an existing work may be recast, transformed or adapted; (c) \"Distribute\" means to reproduce, license, rent, lease, sell, broadcast, publicly display, transmit or otherwise distribute; (d)\"Open Game Content\" means the game mechanic and includes the methods, procedures, processes and routines to the extent such content does not embody the Product Identity and is an enhancement over the prior art and any additional content clearly identified as Open Game Content by the Contributor, and means any work covered by this License, including translations and derivative works under copyright law, but specifically excludes Product Identity. (e) \"Product Identity\" means product and product line names, logos and identifying marks including trade dress; artifacts; creatures characters; stories, storylines, plots, thematic elements, dialogue, incidents, language, artwork, symbols, designs, depictions, likenesses, formats, poses, concepts, themes and graphic, photographic and other visual or audio representations; names and descriptions of characters, spells, enchantments, personalities, teams, personas, likenesses and special abilities; places, locations, environments, creatures, equipment, magical or supernatural abilities or effects, logos, symbols, or graphic designs; and any other trademark or registered trademark clearly identified as Product identity by the owner of the Product Identity, and which specifically excludes the Open Game Content; (f) \"Trademark\" means the logos, names, mark, sign, motto, designs that are used by a Contributor to identify itself or its products or the associated products contributed to the Open Game License by the Contributor (g) \"Use\", \"Used\" or \"Using\" means to use, Distribute, copy, edit, format, modify, translate and otherwise create Derivative Material of Open Game Content. (h) \"You\" or \"Your\" means the licensee in terms of this agreement. **2. The License**: This License applies to any Open Game Content that contains a notice indicating that the Open Game Content may only be Used under and in terms of this License. You must affix such a notice to any Open Game Content that you Use. No terms may be added to or subtracted from this License except as described by the License itself. No other terms or conditions may be applied to any Open Game Content distributed using this License. **3. Offer and Acceptance**: By Using the Open Game Content You indicate Your acceptance of the terms of this License. **4. Grant and Consideration**: In consideration for agreeing to use this License, the Contributors grant You a perpetual, worldwide, royalty-free, non-exclusive license with the exact terms of this License to Use, the Open Game Content. **5. Representation of Authority to Contribute**: If You are contributing original material as Open Game Content, You represent that Your Contributions are Your original creation and/or You have sufficient rights to grant the rights conveyed by this License. **6. Notice of License Copyright**: You must update the COPYRIGHT NOTICE portion of this License to include the exact text of the COPYRIGHT NOTICE of any Open Game Content You are copying, modifying or distributing, and You must add the title, the copyright date, and the copyright holder's name to the COPYRIGHT NOTICE of any original Open Game Content you Distribute. **7. Use of Product Identity**: You agree not to Use any Product Identity, including as an indication as to compatibility, except as expressly licensed in another, independent Agreement with the owner of each element of that Product Identity. You agree not to indicate compatibility or co-adaptability with any Trademark or Registered Trademark in conjunction with a work containing Open Game Content except as expressly licensed in another, independent Agreement with the owner of such Trademark or Registered Trademark. The use of any Product Identity in Open Game Content does not constitute a challenge to the ownership of that Product Identity. The owner of any Product Identity used in Open Game Content shall retain all rights, title and interest in and to that Product Identity. **8. Identification**: If you distribute Open Game Content You must clearly indicate which portions of the work that you are distributing are Open Game Content. **9. Updating the License**: Wizards or its designated Agents may publish updated versions of this License. You may use any authorized version of this License to copy, modify and distribute any Open Game Content originally distributed under any version of this License. **10. Copy of this License**: You MUST include a copy of this License with every copy of the Open Game Content You Distribute. **11. Use of Contributor Credits**: You may not market or advertise the Open Game Content using the name of any Contributor unless You have written permission from the Contributor to do so. **12. Inability to Comply**: If it is impossible for You to comply with any of the terms of this License with respect to some or all of the Open Game Content due to statute, judicial order, or governmental regulation then You may not Use any Open Game Material so affected. **13. Termination**: This License will terminate automatically if You fail to comply with all terms herein and fail to cure such breach within 30 days of becoming aware of the breach. All sublicenses shall survive the termination of this License. **14. Reformation**: If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable. **15. COPYRIGHT NOTICE**  \n **Open Game License v 1.0** Copyright 2000, Wizards of the Coast, Inc.  \n **System Reference Document**. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.  \n **The Archives of Nethys**. Copyright 2010, Blake Davis. **Pathfinder Open Reference**. \u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+        "sections": [
+            {
+                "name": "Dark Archive",
+                "type": "section",
+                "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Dark Archive*** \u00a9 2022, Paizo Inc.; Authors: Rigby Bendele, Logan Bonner, James Case, Dan Cascone, Jessica Catalan, Banana Chan, Kay Hashimoto, Sen H.H.S., Patrick Hurley, Joshua Kim, Avi Kool, Daniel Kwan, Kendra Leigh Speedling, Luis Loza, Ron Lundeen, Liane Merciel, Jacob W. Michaels, Andrew Mullen, Quinn Murphy, K. Tessa Newton, Mikhail Rekun, Patrick Renie, Solomon St. John, Michael Sayre, Mark Seifter, Shay Snow, Alex Speidel, Geoffrey Suthers, Ruvaid Virk, Jabari Weathers, and Isis Wozniakowska."
+            }
+        ],
+        "subtype": "license",
+        "license": "OPEN GAME LICENSE Version 1.0a"
+    },
+    "schema_version": 1.0
+}
