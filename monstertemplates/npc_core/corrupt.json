@@ -1,0 +1,186 @@
+{
+    "name": "Corrupt",
+    "type": "monster_template",
+    "sources": [
+        {
+            "type": "source",
+            "name": "NPC Core",
+            "link": {
+                "type": "link",
+                "name": "NPC Core pg. 122",
+                "alt": "NPC Core pg. 122",
+                "game-obj": "Sources",
+                "aonid": 236
+            },
+            "page": 122
+        }
+    ],
+    "aonid": 38,
+    "game-obj": "MonsterTemplates",
+    "monster_template": {
+        "name": "Corrupt",
+        "type": "stat_block_section",
+        "subtype": "monster_template",
+        "changes": [
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Deception",
+                        "alt": "Deception",
+                        "game-obj": "Skills",
+                        "aonid": 38
+                    },
+                    {
+                        "type": "link",
+                        "name": "Underworld Lore",
+                        "alt": "Underworld Lore",
+                        "game-obj": "Skills",
+                        "aonid": 41
+                    },
+                    {
+                        "type": "link",
+                        "name": "high skill value for its level",
+                        "alt": "high skill value for its level",
+                        "game-obj": "Rules",
+                        "aonid": 2885
+                    }
+                ],
+                "text": "- Give the creature a Deception and Underworld Lore modifier, each equal to the high skill value for its level (GM Core 116). If you're in a hurry, use the creature's highest skill modifier.",
+                "change_category": "skills",
+                "effects": [
+                    {
+                        "target": "$.skills",
+                        "operation": "add_item",
+                        "item": {
+                            "type": "stat_block_section",
+                            "subtype": "skill",
+                            "name": "Deception"
+                        },
+                        "value_from": "$.skills | high_for_level"
+                    },
+                    {
+                        "target": "$.skills",
+                        "operation": "add_item",
+                        "item": {
+                            "type": "stat_block_section",
+                            "subtype": "skill",
+                            "name": "Underworld Lore"
+                        },
+                        "value_from": "$.skills | high_for_level"
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Decrease the creature's Will by 1.",
+                "change_category": "combat_stats",
+                "effects": [
+                    {
+                        "target": "$.defense.saves.will.value",
+                        "operation": "adjustment",
+                        "value": -1
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Choose an Intelligence-, Wisdom-, or Charisma-based skill that's thematically important to the creature's office, such as Legal Lore for a judge. The creature gains the official bully ability for that skill.",
+                "change_category": "skills",
+                "effects": [
+                    {
+                        "target": "$.skills",
+                        "operation": "add_item",
+                        "item": {
+                            "type": "stat_block_section",
+                            "subtype": "skill",
+                            "name": "Official Bully Ability For That"
+                        }
+                    }
+                ]
+            }
+        ],
+        "abilities": [
+            {
+                "type": "stat_block_section",
+                "subtype": "ability",
+                "name": "Official Bully",
+                "text": "The creature can use the chosen skill to Coerce or Demoralize in place of Intimidation .",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "Coerce",
+                        "alt": "Coerce",
+                        "game-obj": "Actions",
+                        "aonid": 2394
+                    },
+                    {
+                        "type": "link",
+                        "name": "Demoralize",
+                        "alt": "Demoralize",
+                        "game-obj": "Actions",
+                        "aonid": 2395
+                    },
+                    {
+                        "type": "link",
+                        "name": "Intimidation",
+                        "alt": "Intimidation",
+                        "game-obj": "Skills",
+                        "aonid": 40
+                    }
+                ]
+            }
+        ]
+    },
+    "game-id": "d35798f87c63243cfd4caad5b94f7a65",
+    "text": "It's easy to be above the law when you define it, and sometimes powerful people want it defined in specific ways. A fancy meal here, a pay-off there, and soon the officials operate by rules only they know. You can apply the corrupt adjustments to an official's statistics to make them more adept at underhanded behavior.",
+    "edition": "remastered",
+    "license": {
+        "name": "ORC Notice",
+        "type": "section",
+        "sections": [
+            {
+                "name": "Attribution",
+                "type": "section",
+                "text": "This product is based on the following Licensed Material:",
+                "sections": [
+                    {
+                        "name": "NPC Core",
+                        "type": "section",
+                        "text": "**Pathfinder NPC Core** \u00a9 2025, Paizo Inc. Authors: Raychael Allor, Alexander Augunas, Rigby Bendele, Jesse Benner, John Bennett, Joshua Birdsong, Chris Bissette, Jeremy Blum, Logan Bonner, Clinton J. Boomer, Dan Cascone, Jessica Catalan, Paris Crenshaw, Katina Davis, Rue Dickey, Robert N. Emerson, Chris Eng, Eleanor Ferron, Josh Foster, Matthew Fu, Andrew D. Geels, T.H. Gulliver, Sen H.H.S., Kev Hamilton, Sasha Laranoa Harving, Katrina Hennessy, BJ Hensley, Vanessa Hoskins, Patrick Hurley, Sara Jeffers, Michelle Jones, Erik Keith, Michelle Y. Kim, Jason LeMaitre, Christiana Lewis, Luis Loza, Colm Lundberg, Maryssa Mari, Jacob W. Michaels, Zac Moran, Matt Morris, Patchen Mortimer, K. Tessa Newton, Stephen Radney-MacFarland, Jessica Redekop, Mikhail Rekun, Alistair Rigg, David N. Pathfinder NPC Core \u00a9 2025, Paizo Inc. Paizo, the Paizo golem, Pathfinder, Starfinder, and other trademarks owned by Paizo are property of Paizo Inc. All rights reserved.Produced using ecologically sourced FSC\u00ae certified paper and soy ink. Printed in China.Ross, Tony Saunders, Shay Snow, Joel Southall, Kendra Leigh Speedling, Levi Steadman, Christina Stiles, Kyle Tam, Jamie Trollope, Ruvaid Virk, Grady Wang, Andrew White, Jackson Wood, Isis Wozniakowska, and Basil Wright."
+                    }
+                ]
+            },
+            {
+                "name": "Attributing us",
+                "type": "section",
+                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+                "sections": [
+                    {
+                        "name": "Pathfinder Open Reference",
+                        "type": "section",
+                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
+                    }
+                ]
+            },
+            {
+                "name": "Reserved Material",
+                "type": "section",
+                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
+            },
+            {
+                "name": "Expressly Designated Licensed Material",
+                "type": "section",
+                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
+            }
+        ],
+        "subtype": "license",
+        "license": "Open RPG Creative license",
+        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
+    },
+    "schema_version": 1.0
+}

@@ -1,0 +1,235 @@
+{
+    "name": "Weak",
+    "type": "monster_template",
+    "sources": [
+        {
+            "type": "source",
+            "name": "Monster Core",
+            "link": {
+                "type": "link",
+                "name": "Monster Core pg. 7",
+                "alt": "Monster Core pg. 7",
+                "game-obj": "Sources",
+                "aonid": 221
+            },
+            "page": 7,
+            "errata": {
+                "type": "link",
+                "name": "1.1",
+                "alt": "1.1",
+                "game-obj": "Sources",
+                "aonid": 221
+            }
+        }
+    ],
+    "aonid": 23,
+    "game-obj": "MonsterTemplates",
+    "monster_template": {
+        "name": "Weak",
+        "type": "stat_block_section",
+        "subtype": "monster_template",
+        "changes": [
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Decrease the creature\u2019s level by 1; if the creature is level 1, instead decrease its level by 2.",
+                "change_category": "level",
+                "effects": [
+                    {
+                        "conditional": "$.creature_type.level == 1",
+                        "target": "$.creature_type.level",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "conditional": "default",
+                        "target": "$.creature_type.level",
+                        "operation": "adjustment",
+                        "value": -1
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Decrease the creature\u2019s AC, attack modifiers, DCs, saving throws, Perception, and skill modifiers by 2.",
+                "change_category": "combat_stats",
+                "effects": [
+                    {
+                        "target": "$.defense.ac.value",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "target": "$.defense.saves.fort.value",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "target": "$.defense.saves.ref.value",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "target": "$.defense.saves.will.value",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "target": "$.senses.perception.value",
+                        "operation": "adjustment",
+                        "value": -2
+                    },
+                    {
+                        "target": "$.skills[*].value",
+                        "operation": "adjustment",
+                        "value": -2
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Decrease the damage of its Strikes and other offensive abilities by 2. If the creature has limits on how many times or how often it can use an ability (such as a spellcaster\u2019s spells or a dragon\u2019s breath), decrease the damage by 4 instead.",
+                "change_category": "damage",
+                "effects": [
+                    {
+                        "conditional": "default",
+                        "target": "$.offense.offensive_actions[*].attack.damage",
+                        "operation": "add_modifier",
+                        "modifier": {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "-2 damage (weak)"
+                        }
+                    },
+                    {
+                        "conditional": "$.offense.offensive_actions[*].ability.frequency != null",
+                        "target": "$.offense.offensive_actions[*].ability.damage",
+                        "operation": "add_modifier",
+                        "modifier": {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "-4 damage (weak, limited use)"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "change",
+                "text": "- Decrease the creature\u2019s HP based on its starting level.",
+                "change_category": "hit_points",
+                "effects": [
+                    {
+                        "conditional": "$.creature_type.level >= 1 && $.creature_type.level <= 2",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": -10
+                    },
+                    {
+                        "conditional": "$.creature_type.level >= 3 && $.creature_type.level <= 5",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": -15
+                    },
+                    {
+                        "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 20",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": -20
+                    },
+                    {
+                        "conditional": "$.creature_type.level >= 21",
+                        "target": "$.defense.hitpoints[*].hp",
+                        "operation": "adjustment",
+                        "value": -30
+                    }
+                ]
+            }
+        ],
+        "adjustments": [
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "1-2",
+                "hp_decrease": "-10"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "3-5",
+                "hp_decrease": "-15"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "6-20",
+                "hp_decrease": "-20"
+            },
+            {
+                "type": "stat_block_section",
+                "subtype": "adjustment",
+                "starting_level": "21+",
+                "hp_decrease": "-30"
+            }
+        ]
+    },
+    "game-id": "1ac203c8b12b284e3082679d2a086dd0",
+    "text": "Sometimes you\u2019ll want a creature that\u2019s weaker than normal so you can use a creature that would otherwise be too challenging or show that one enemy is weaker than its kin. To do this quickly and easily, apply the weak adjustments to its statistics as follows:",
+    "edition": "remastered",
+    "license": {
+        "name": "ORC Notice",
+        "type": "section",
+        "sections": [
+            {
+                "name": "Attribution",
+                "type": "section",
+                "text": "This product is based on the following Licensed Material:",
+                "sections": [
+                    {
+                        "name": "Monster Core",
+                        "type": "section",
+                        "text": "***Pathfinder Monster Core*** \u00a9 2024 Paizo Inc., Authors: Alexander Augunas, Dennis Baker, Kate Baker, Joshua Birdsong, Joseph Blomquist, Logan Bonner, Jason Bulmahn, James Case, John Compton, Paris Crenshaw, Adam Daigle, Darrin Drader, Brian Duckwitz, Robert N. Emerson, Scott Fernandez, Eleanor Ferron, Leo Glass, Matthew Goodall, BJ Hensley, Thurston Hillman, Vanessa Hoskins, James Jacobs, Jenny Jarzabski, Miko Kallio, Jason Keeley, Jeff Lee, Lyz Liddell, Luis Loza, Ron Lundeen, Robert G. McCreary, Philippe-Antoine Menard, Jacob W. Michaels, Dave Nelson, Jason Nelson, Tim Nightengale, Stephen Radney-MacFarland, Mikhail Rekun, Patrick Renie, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Amber Stewart, Jeffrey Swank, William Thompson, Jason Tondro, Clark Valentine, Landon Winkler, Tonya Woldridge, and Linda Zayas-Palmer"
+                    }
+                ]
+            },
+            {
+                "name": "Attributing us",
+                "type": "section",
+                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+                "sections": [
+                    {
+                        "name": "Pathfinder Open Reference",
+                        "type": "section",
+                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
+                    }
+                ]
+            },
+            {
+                "name": "Reserved Material",
+                "type": "section",
+                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
+            },
+            {
+                "name": "Expressly Designated Licensed Material",
+                "type": "section",
+                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
+            }
+        ],
+        "subtype": "license",
+        "license": "Open RPG Creative license",
+        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
+    },
+    "schema_version": 1.0
+}
