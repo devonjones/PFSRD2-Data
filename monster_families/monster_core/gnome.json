@@ -29,49 +29,6 @@
             ]
         },
         {
-            "name": "Bleachlings",
-            "type": "section",
-            "text": "Surviving the worst affliction known to gnomekind is no small feat, and those who do suffer through the bleaching are changed by their experience. You can add the following ability to any gnome stat block to represent a bleachling gnome.",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "Monster Core",
-                    "link": {
-                        "type": "link",
-                        "name": "Monster Core pg. 172",
-                        "alt": "Monster Core pg. 172",
-                        "game-obj": "Sources",
-                        "aonid": 221
-                    },
-                    "page": 172,
-                    "errata": {
-                        "type": "link",
-                        "name": "1.1",
-                        "alt": "1.1",
-                        "game-obj": "Sources",
-                        "aonid": 221
-                    }
-                }
-            ],
-            "links": [
-                {
-                    "type": "link",
-                    "name": "emotion",
-                    "alt": "emotion",
-                    "game-obj": "Traits",
-                    "aonid": 590
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Unflappable",
-                    "text": "When the bleachling gnome rolls a critical failure on a check with the emotion trait, they get a failure instead."
-                }
-            ]
-        },
-        {
             "name": "Few Friends Below",
             "type": "section",
             "text": "Most creatures who dwell in the Darklands are sinister and ruthless. While umbral gnomes are not, those who seek their aid should remember that they don't welcome strangers with open arms. In the brutal Darklands, such traits are seized upon by its denizens and treated as much as weaknesses as they are strengths.",
@@ -206,7 +163,38 @@
     "monster_family": {
         "name": "Gnome",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Bleachlings",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "Surviving the worst affliction known to gnomekind is no small feat, and those who do suffer through the bleaching are changed by their experience. You can add the following ability to any gnome stat block to represent a bleachling gnome.",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Bleachlings",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Unflappable",
+                                "text": "When the bleachling gnome rolls a critical failure on a check with the emotion trait, they get a failure instead."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "04ffe2af933033530203a465477130fb",
     "text": "Gnomes are known for being creative and curious. They stand at around 3 feet tall, and their vivid personalities match their naturally vivid hair and eye color. Gnomes possess a natural connection to their ancestral home, the First World. They crave adventure and new experiences to fight off an ancestry-wide affliction known as the Bleaching. Gnomes who fail to dream and innovate begin to slowly lose their color and fall into a deep depression.  \n  \n A notable subgroup of gnomes called umbral gnomes typically have gray or brown skin with a stony texture, and thin, pale hair or bald pates. Umbral gnomes are most numerous in the Darklands, where they go by the name drathnelar. Umbral gnomes often attribute these physical changes to the gnome deity regarded as the first of their kind, Nivi Rhombodazzle. Nivi was a surface gnome who traveled deep into the Darklands and was ultimately rewarded with demigodhood when she exchanged a particular gemstone with the dwarven deity, Torag. Nivi is immune to the Bleaching, and umbral gnomes are often immune or resistant to it as well.",

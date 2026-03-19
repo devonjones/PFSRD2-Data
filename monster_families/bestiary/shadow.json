@@ -201,7 +201,107 @@
     "monster_family": {
         "name": "Shadow",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Darting Shadows Some shadows have taken their ability to hide in shadows to a greater level, shifting from one shadow to another with supernatural ease. Darting shadows gain the following ability.",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Darting Shadows Some shadows have taken their ability to hide in shadows to a greater level, shifting from one shadow to another with supernatural ease. Darting shadows gain the following ability.",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Shadow Hop",
+                                "text": "[two-actions]  (magical, teleportation)"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Requirements",
+                                "text": "The shadow is in an area of dim light;"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Effect",
+                                "text": "The shadow teleports from its space to a clear space it can see that is in dim light or darkness within 60 feet. A shadow using this ability is slowed 1 for 1 round after arriving at its destination."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Possessing Shadows",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "Some greater shadows develop the coveted ability to possess a body. Only greater shadows can become possessing shadows, and they can't use Slink in Shadows or Steal Shadow while using Inhabit.",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Possessing Shadows",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Inhabit",
+                                "text": "[two-actions] The shadow attempts to possess an adjacent undead corporeal creature. This has the same effect as the *possession* spell, except the shadow doesn't have a physical body, so it's unaffected by the spell's restriction."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Shadow Thief",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "Some shadows gain the ability to handle objects. A shadow thief can't use Slink in Shadows or Steal Shadow while using Shadow Touch.",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Shadow Thief",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Shadow Touch",
+                                "text": "[two-actions]  The shadow Interacts with a simple physical object, such as picking up a book or opening a door (it can't manipulate a complicated object, like a lock). It can't carry more than a single physical object of up to 2 Bulk. It must use Shadow Touch to keep its hold on the item each turn, or it drops the item at the end of its turn."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "2647d29994d470a78def34f5a19ecf4a",
     "text": "The mysterious undead known as shadows lurk in dark places and feed on those who stray too far from the light. Those who parley with shadows, typically by keeping them at bay with a glowing weapon, may learn great secrets, for they are ideal spies.",

@@ -50,33 +50,6 @@
             ]
         },
         {
-            "name": "Know Your Social Events",
-            "type": "section",
-            "text": "* \n* **Banquet**: an elaborate formal meal for a large number of people\n* **Debutante Ball**: a ball where upper-class youths formally enter society as adults\n* **Gala**: a social occasion with special entertainment or performances\n* **Hunt**: a formal hunting competition among the nobility and royals of court\n* **Masque**: a dramatic performance with singing, dancing, pantomime, and dialogue",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "NPC Core",
-                    "link": {
-                        "type": "link",
-                        "name": "NPC Core pg. 12",
-                        "alt": "NPC Core pg. 12",
-                        "game-obj": "Sources",
-                        "aonid": 236
-                    },
-                    "page": 12
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Ball",
-                    "text": ": a formal dance party that often includes a banquet"
-                }
-            ]
-        },
-        {
             "name": "Social Warfare",
             "type": "section",
             "text": "Though courtiers might have guards and servants at their command, their most potent forces are their connections outside of court and the will of the common people. A noble might have financial control of the entertainment district, but a popular courtesan moving their patronage will take their admirers with them. An envoy who endears themselves to commoners by having their spies expose corrupt officials can provoke public outrage when a rival attempts to have them replaced.",
@@ -121,7 +94,38 @@
     "monster_family": {
         "name": "Courtier",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Know Your Social Events",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "* \n* **Banquet**: an elaborate formal meal for a large number of people\n* **Debutante Ball**: a ball where upper-class youths formally enter society as adults\n* **Gala**: a social occasion with special entertainment or performances\n* **Hunt**: a formal hunting competition among the nobility and royals of court\n* **Masque**: a dramatic performance with singing, dancing, pantomime, and dialogue",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Know Your Social Events",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Ball",
+                                "text": ": a formal dance party that often includes a banquet"
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "4a92719c4db848c192e99a301580a968",
     "text": "The denizens of a noble court are the most powerful people in a civilization, primed with wealth, station, and authority above the common people.",

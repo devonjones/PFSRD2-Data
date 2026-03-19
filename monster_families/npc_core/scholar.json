@@ -22,56 +22,6 @@
             ]
         },
         {
-            "name": "Centers Of Learning",
-            "type": "section",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "NPC Core",
-                    "link": {
-                        "type": "link",
-                        "name": "NPC Core pg. 138",
-                        "alt": "NPC Core pg. 138",
-                        "game-obj": "Sources",
-                        "aonid": 236
-                    },
-                    "page": 138
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "The Acadaemae (Varisia)",
-                    "text": ": Premiere wizard's college specializing in the summoning of otherworldly creatures."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Almas University (Andoran)",
-                    "text": ": School primarily focusing on law, politics, modern philosophy, and zoology."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Kitharodian Academy (Taldor)",
-                    "text": ": Famed bardic college teaching students of all social classes."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Magaambya (Nantambu)",
-                    "text": ": Ancient school with some of the world's greatest stores of arcane knowledge."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "University of Lepidstadt (Ustalav)",
-                    "text": ": School primarily focusing on alchemy, medicine, and scientific study."
-                }
-            ]
-        },
-        {
             "name": "Crossover Ancestry NPCs",
             "type": "section",
             "text": "Several of the NPCs elsewhere in NPC Core can fit well in this group: Catfolk name collector (level 6), dromaar lorekeeper (level 5), gnome philomath (level \u20131)",
@@ -215,7 +165,61 @@
     "monster_family": {
         "name": "Scholar",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Centers Of Learning",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Centers Of Learning",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "The Acadaemae (Varisia)",
+                                "text": ": Premiere wizard's college specializing in the summoning of otherworldly creatures."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Almas University (Andoran)",
+                                "text": ": School primarily focusing on law, politics, modern philosophy, and zoology."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Kitharodian Academy (Taldor)",
+                                "text": ": Famed bardic college teaching students of all social classes."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Magaambya (Nantambu)",
+                                "text": ": Ancient school with some of the world's greatest stores of arcane knowledge."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "University of Lepidstadt (Ustalav)",
+                                "text": ": School primarily focusing on alchemy, medicine, and scientific study."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "12cfbcb871e76dc804fd76a28fe6112e",
     "text": "True power comes from knowledge\u2014the power to shape the growth of kingdoms by mere whispers, stay three steps ahead of adversaries, or even know which flora is best for creating untraceable poisons.",

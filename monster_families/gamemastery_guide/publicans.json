@@ -36,50 +36,6 @@
                     "aonid": 622
                 }
             ]
-        },
-        {
-            "name": "Tap List",
-            "type": "section",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "Gamemastery Guide",
-                    "link": {
-                        "type": "link",
-                        "name": "Gamemastery Guide pg. 238",
-                        "alt": "Gamemastery Guide pg. 238",
-                        "game-obj": "Sources",
-                        "aonid": 22
-                    },
-                    "page": 238
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Ale",
-                    "text": ": Andoren beer, Boulderhead bock, Cheerful Delver stout, Liquid Ghosts, Luglurch ale, Thileu lager."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Cider and Mead",
-                    "text": ": Hardroot cider, Qadiran cider, Two Knight Brewery mead, Wineberry mead."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Wine",
-                    "text": ": Irrisen icewine, sarain, syrinelle, Whiterose Abbey wine"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Spirits",
-                    "text": ": Daggermark drip, dragon punch whiskey, Old Erebus, vjarik."
-                }
-            ]
         }
     ],
     "sources": [
@@ -101,7 +57,55 @@
     "monster_family": {
         "name": "Publicans",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Tap List",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Tap List",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Ale",
+                                "text": ": Andoren beer, Boulderhead bock, Cheerful Delver stout, Liquid Ghosts, Luglurch ale, Thileu lager."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Cider and Mead",
+                                "text": ": Hardroot cider, Qadiran cider, Two Knight Brewery mead, Wineberry mead."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Wine",
+                                "text": ": Irrisen icewine, sarain, syrinelle, Whiterose Abbey wine"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Spirits",
+                                "text": ": Daggermark drip, dragon punch whiskey, Old Erebus, vjarik."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "6aacf48962872354817c52d6544d184b",
     "text": "Countless adventures begin in a tavern or a pub. Maybe it's because such places attract the risk-prone, or maybe it's because everyone needs a little liquid courage before they decide to take on a group of rampaging ogres.",

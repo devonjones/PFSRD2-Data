@@ -58,48 +58,6 @@
                     "page": 250
                 }
             ]
-        },
-        {
-            "name": "Planar Scion",
-            "type": "section",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "Monster Core 2",
-                    "link": {
-                        "type": "link",
-                        "name": "Monster Core 2 pg. 250",
-                        "alt": "Monster Core 2 pg. 250",
-                        "game-obj": "Sources",
-                        "aonid": 276
-                    },
-                    "page": 250
-                }
-            ],
-            "links": [
-                {
-                    "type": "link",
-                    "name": "Geniekin",
-                    "alt": "Geniekin",
-                    "game-obj": "MonsterFamilies",
-                    "aonid": 145
-                },
-                {
-                    "type": "link",
-                    "name": "Nephilim",
-                    "alt": "Nephilim",
-                    "game-obj": "MonsterFamilies",
-                    "aonid": 569
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Related Groups",
-                    "text": "*Geniekin* , *Nephilim*"
-                }
-            ]
         }
     ],
     "alternate_link": {
@@ -127,7 +85,37 @@
     "monster_family": {
         "name": "Geniekin",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Planar Scion",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Planar Scion",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Related Groups",
+                                "text": "*Geniekin* , *Nephilim*"
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "beba040d153d2faa7d80d467b3e26193",
     "text": "Geniekin are mortals whose ancestry has become entangled with the blood of genies or other elemental creatures, causing them to exhibit elemental powers drawn from the Elemental Planes. Though the geniekin found here are all of human descent, geniekin and other planar scions can descend from other ancestries.",

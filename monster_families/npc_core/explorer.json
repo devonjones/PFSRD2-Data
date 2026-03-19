@@ -59,51 +59,6 @@
             ]
         },
         {
-            "name": "Famed Forests",
-            "type": "section",
-            "text": "The",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "NPC Core",
-                    "link": {
-                        "type": "link",
-                        "name": "NPC Core pg. 52",
-                        "alt": "NPC Core pg. 52",
-                        "game-obj": "Sources",
-                        "aonid": 236
-                    },
-                    "page": 52
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Verduran Forest",
-                    "text": "is the largest woodland on the continent of Avistan; the druids and rangers of the Wildwood Lodge earned the forest great autonomy through a thousand-year treaty. The"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Forest of Spirits",
-                    "text": "stretches over a thousand miles of Tian Xia and is the primeval birthplace of the nature spirits known as kami. The"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Fangwood",
-                    "text": "in Nirmathas and the Gravelands is home to Crystalhurst, a village of druids who fought the terrible Darkblight that devastated the 7,000-year-old fey court who once guarded the wood. The"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Fierani Forest",
-                    "text": "covers the majority of the elven nation Kyonin."
-                }
-            ]
-        },
-        {
             "name": "Foraging for Fun and Fortune",
             "type": "section",
             "text": "For some, variety is the spice of life, as long as you're certain of the plant you've just plucked. In lieu of finding manufactured treasure in a natural setting, a GM might allow for certain herbs, flowers, and vegetables discovered in the wild to act as level 1 alchemical elixirs. For instance, the white flowers known as fairycups have a spicy flavor when nibbled on, granting the benefits of a lesser cheetah's elixir. A nutritious knotted longbean restores health like a minor elixir of life. Such foraged items last only 24 hours after being plucked and can't be sold.",
@@ -234,7 +189,56 @@
     "monster_family": {
         "name": "Explorer",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Famed Forests",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "The",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Famed Forests",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Verduran Forest",
+                                "text": "is the largest woodland on the continent of Avistan; the druids and rangers of the Wildwood Lodge earned the forest great autonomy through a thousand-year treaty. The"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Forest of Spirits",
+                                "text": "stretches over a thousand miles of Tian Xia and is the primeval birthplace of the nature spirits known as kami. The"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Fangwood",
+                                "text": "in Nirmathas and the Gravelands is home to Crystalhurst, a village of druids who fought the terrible Darkblight that devastated the 7,000-year-old fey court who once guarded the wood. The"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Fierani Forest",
+                                "text": "covers the majority of the elven nation Kyonin."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "9b5b119a60b72b809edd1e352e5a8413",
     "text": "Explorers are often well-equipped and well-trained for any type of hazard and are eager to lead others into the wild.",

@@ -29,41 +29,6 @@
                     "aonid": 548
                 }
             ]
-        },
-        {
-            "name": "Werecreature",
-            "type": "section",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "Pathfinder #174: Shadows of the Ancients",
-                    "link": {
-                        "type": "link",
-                        "name": "Pathfinder #174: Shadows of the Ancients pg. 86",
-                        "alt": "Pathfinder #174: Shadows of the Ancients pg. 86",
-                        "game-obj": "Sources",
-                        "aonid": 115
-                    },
-                    "page": 86
-                }
-            ],
-            "links": [
-                {
-                    "type": "link",
-                    "name": "Werecreature",
-                    "alt": "Werecreature",
-                    "game-obj": "MonsterFamilies",
-                    "aonid": 100
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Related Groups",
-                    "text": "*Werecreature*"
-                }
-            ]
         }
     ],
     "sources": [
@@ -85,7 +50,37 @@
     "monster_family": {
         "name": "Werecreature, Wereant",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Werecreature",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Werecreature",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Related Groups",
+                                "text": "*Werecreature*"
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "e9e82f0d4661915c4118dbc0b7f08541",
     "text": "Insectile werecreatures, such as wereants, only come about in unusual circumstances, such as powerful curses from inhuman gods or transformative magic run amok. Wereants work together with a natural cohesion that's rare in other types of werecreatures. The wereants presented here are more powerful than most wereants, as they've been warped by the forces contained within the *Vesicant Egg*.",

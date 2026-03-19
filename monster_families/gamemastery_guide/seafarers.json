@@ -20,137 +20,6 @@
                     "page": 242
                 }
             ]
-        },
-        {
-            "name": "Shipboard Spells",
-            "type": "section",
-            "text": "The captain can gain all these spells in place of Dual Disarm. The bosun can exchange Pike and Strike to gain the cantrips and 1st-level spells.",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "Gamemastery Guide",
-                    "link": {
-                        "type": "link",
-                        "name": "Gamemastery Guide pg. 242",
-                        "alt": "Gamemastery Guide pg. 242",
-                        "game-obj": "Sources",
-                        "aonid": 22
-                    },
-                    "page": 242
-                }
-            ],
-            "links": [
-                {
-                    "type": "link",
-                    "name": "captain",
-                    "alt": "captain",
-                    "game-obj": "NPCs",
-                    "aonid": 954
-                },
-                {
-                    "type": "link",
-                    "name": "bosun",
-                    "alt": "bosun",
-                    "game-obj": "NPCs",
-                    "aonid": 953
-                },
-                {
-                    "type": "link",
-                    "name": "summon elemental",
-                    "alt": "summon elemental",
-                    "game-obj": "Spells",
-                    "aonid": 320
-                },
-                {
-                    "type": "link",
-                    "name": "water breathing",
-                    "alt": "water breathing",
-                    "game-obj": "Spells",
-                    "aonid": 370
-                },
-                {
-                    "type": "link",
-                    "name": "water walk",
-                    "alt": "water walk",
-                    "game-obj": "Spells",
-                    "aonid": 371
-                },
-                {
-                    "type": "link",
-                    "name": "feather fall",
-                    "alt": "feather fall",
-                    "game-obj": "Spells",
-                    "aonid": 111
-                },
-                {
-                    "type": "link",
-                    "name": "gust of wind",
-                    "alt": "gust of wind",
-                    "game-obj": "Spells",
-                    "aonid": 143
-                },
-                {
-                    "type": "link",
-                    "name": "electric arc",
-                    "alt": "electric arc",
-                    "game-obj": "Spells",
-                    "aonid": 97
-                },
-                {
-                    "type": "link",
-                    "name": "guidance",
-                    "alt": "guidance",
-                    "game-obj": "Spells",
-                    "aonid": 142
-                },
-                {
-                    "type": "link",
-                    "name": "know direction",
-                    "alt": "know direction",
-                    "game-obj": "Spells",
-                    "aonid": 169
-                },
-                {
-                    "type": "link",
-                    "name": "light",
-                    "alt": "light",
-                    "game-obj": "Spells",
-                    "aonid": 171
-                },
-                {
-                    "type": "link",
-                    "name": "tanglefoot",
-                    "alt": "tanglefoot",
-                    "game-obj": "Spells",
-                    "aonid": 330
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Primal Prepared Spells",
-                    "text": "DC 24 (DC 18 bosun), attack +16 (+10 bosun);"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "2nd",
-                    "text": "*summon elemental* , *water breathing* , *water walk* ;"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "1st",
-                    "text": "*feather fall* , *gust of wind* (\u00d72);"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Cantrips",
-                    "text": "(2nd, 1st for bosun) *electric arc* , *guidance* , *know direction* , *light* , *tanglefoot*"
-                }
-            ]
         }
     ],
     "alternate_link": {
@@ -178,7 +47,56 @@
     "monster_family": {
         "name": "Seafarers",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Shipboard Spells",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "The captain can gain all these spells in place of Dual Disarm. The bosun can exchange Pike and Strike to gain the cantrips and 1st-level spells.",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Shipboard Spells",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Primal Prepared Spells",
+                                "text": "DC 24 (DC 18 bosun), attack +16 (+10 bosun);"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "2nd",
+                                "text": "*summon elemental* , *water breathing* , *water walk* ;"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "1st",
+                                "text": "*feather fall* , *gust of wind* (\u00d72);"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Cantrips",
+                                "text": "(2nd, 1st for bosun) *electric arc* , *guidance* , *know direction* , *light* , *tanglefoot*"
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "478fda0be704581b14acff6834beef8c",
     "text": "Adventurers may need passage on a swift vessel, or they might face danger from raiders at sea or in coastal settlements.",

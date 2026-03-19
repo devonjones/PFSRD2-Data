@@ -29,81 +29,6 @@
                     "aonid": 581
                 }
             ]
-        },
-        {
-            "name": "Mercenary Banter",
-            "type": "section",
-            "text": "Here's some parlance commonly used by mercenaries.",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "Gamemastery Guide",
-                    "link": {
-                        "type": "link",
-                        "name": "Gamemastery Guide pg. 226",
-                        "alt": "Gamemastery Guide pg. 226",
-                        "game-obj": "Sources",
-                        "aonid": 22
-                    },
-                    "page": 226
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Crackster",
-                    "text": ": Someone adept at breaking locks or safes."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Diving",
-                    "text": ": Theft or smuggling below ground, often through tunnels."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Foxing",
-                    "text": ": To play at being asleep, usually for an ambush."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Medic",
-                    "text": ": A healer."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Ram",
-                    "text": ": A hard-hitting warrior."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Slinger",
-                    "text": ": A spellcaster."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Sway of Coin",
-                    "text": ": Swearing allegiance to whoever pays the most."
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Waterline",
-                    "text": ": A mercenary troupe's money: \u201cTake time in town while the waterline's high, everyone.\u201d"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Whisperstep",
-                    "text": ": Anyone who can move stealthily."
-                }
-            ]
         }
     ],
     "alternate_link": {
@@ -131,7 +56,86 @@
     "monster_family": {
         "name": "Mercenaries",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Mercenary Banter",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "Here's some parlance commonly used by mercenaries.",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Mercenary Banter",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Crackster",
+                                "text": ": Someone adept at breaking locks or safes."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Diving",
+                                "text": ": Theft or smuggling below ground, often through tunnels."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Foxing",
+                                "text": ": To play at being asleep, usually for an ambush."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Medic",
+                                "text": ": A healer."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Ram",
+                                "text": ": A hard-hitting warrior."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Slinger",
+                                "text": ": A spellcaster."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Sway of Coin",
+                                "text": ": Swearing allegiance to whoever pays the most."
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Waterline",
+                                "text": ": A mercenary troupe's money: \u201cTake time in town while the waterline's high, everyone.\u201d"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Whisperstep",
+                                "text": ": Anyone who can move stealthily."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "87c09aba8e098ba263d53f5217f657ff",
     "text": "A broad category that includes those wielding arms, spells, or even guile and cunning, mercenaries hire themselves and their expertise to those with the gold to pay for it.",

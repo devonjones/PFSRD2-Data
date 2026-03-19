@@ -66,87 +66,6 @@
             ]
         },
         {
-            "name": "Darkening Poison",
-            "type": "section",
-            "text": "Many calignis keep several doses of darkening poison, an uncommon injury poison made from Darklands spider venom, on hand to incapacitate foes. A dose of darkening poison costs 5 gp, is of light Bulk, is held in 2 hands, and has the following statistics.",
-            "sources": [
-                {
-                    "type": "source",
-                    "name": "Monster Core",
-                    "link": {
-                        "type": "link",
-                        "name": "Monster Core pg. 48",
-                        "alt": "Monster Core pg. 48",
-                        "game-obj": "Sources",
-                        "aonid": 221
-                    },
-                    "page": 48,
-                    "errata": {
-                        "type": "link",
-                        "name": "1.1",
-                        "alt": "1.1",
-                        "game-obj": "Sources",
-                        "aonid": 221
-                    }
-                }
-            ],
-            "links": [
-                {
-                    "type": "link",
-                    "name": "darkvision",
-                    "alt": "darkvision",
-                    "game-obj": "Rules",
-                    "aonid": 415
-                },
-                {
-                    "type": "link",
-                    "name": "concealed",
-                    "alt": "concealed",
-                    "game-obj": "Conditions",
-                    "aonid": 62
-                },
-                {
-                    "type": "link",
-                    "name": "hidden",
-                    "alt": "hidden",
-                    "game-obj": "Conditions",
-                    "aonid": 79
-                }
-            ],
-            "abilities": [
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Saving Throw",
-                    "text": "DC 16 Fortitude;"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Maximum Duration",
-                    "text": "6 rounds;"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Stage 1",
-                    "text": "1d6 poison (1 round);"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Stage 2",
-                    "text": "1d6 poison and creatures you can see only with darkvision are concealed from you (1 round);"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "name": "Stage 3",
-                    "text": "1d6 poison and creatures you can see only with darkvision are hidden from you (1 round)"
-                }
-            ]
-        },
-        {
             "name": "The Caligni Legacy",
             "type": "section",
             "text": "The calignis are descendants of humans who, millennia ago, fled underground to escape a devastating cataclysm and begged for salvation from malevolent, shadowy demigods known only as the Forsaken. The Forsaken warped the refugees into tough survivors, but at a price: every caligni that dies transforms into energy as a scrap of their soul feeds the Forsaken. The Forsaken themselves later vanished despite these offerings, leaving shadowy proxies to shape calignis and their culture.",
@@ -214,7 +133,62 @@
     "monster_family": {
         "name": "Caligni",
         "type": "stat_block_section",
-        "subtype": "monster_family"
+        "subtype": "monster_family",
+        "subtypes": [
+            {
+                "name": "Darkening Poison",
+                "type": "stat_block_section",
+                "subtype": "monster_family",
+                "text": "Many calignis keep several doses of darkening poison, an uncommon injury poison made from Darklands spider venom, on hand to incapacitate foes. A dose of darkening poison costs 5 gp, is of light Bulk, is held in 2 hands, and has the following statistics.",
+                "changes": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "change",
+                        "text": "Darkening Poison",
+                        "change_category": "abilities",
+                        "abilities": [
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Saving Throw",
+                                "text": "DC 16 Fortitude;"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Maximum Duration",
+                                "text": "6 rounds;"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Stage 1",
+                                "text": "1d6 poison (1 round);"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Stage 2",
+                                "text": "1d6 poison and creatures you can see only with darkvision are concealed from you (1 round);"
+                            },
+                            {
+                                "type": "stat_block_section",
+                                "subtype": "ability",
+                                "name": "Stage 3",
+                                "text": "1d6 poison and creatures you can see only with darkvision are hidden from you (1 round)"
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "game-id": "606d4263b6ad84067dcb472759d48021",
     "text": "Calignis lurk in subterranean cities, with each caligni growing into a specific role and form determined by supernatural influences in caligni society. Regardless of their size or role, all calignis are gaunt, with pale flesh and white eyes. Many relish the chance to creep above ground at night to steal",
