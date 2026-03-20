@@ -116,6 +116,17 @@
 			"required": ["name", "type", "subtype", "text"],
 			"additionalProperties": false
 		},
+		"pfs": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["pfs"]},
+				"availability": {"enum": ["Standard", "Limited", "Restricted"]},
+				"note": {"type": "string"}
+			},
+			"required": ["type", "subtype", "availability"],
+			"additionalProperties": false
+		},
 		"alternate_link": {
 			"type": "object",
 			"properties": {
@@ -291,7 +302,6 @@
 					"Chaotic Good", "Chaotic Neutral", "Chaotic Evil",
 					"No Alignment", "Any"]},
 				"rarity": {"enum": ["Common", "Uncommon", "Rare", "Unique"]},
-				"pfs": {"enum": ["Standard", "Limited", "Restricted"]},
 				"traits": {"$ref": "#/definitions/traits"},
 				"knowledge": {"$ref": "#/definitions/knowledges"}
 			},
@@ -1112,6 +1122,7 @@
 		"sections": {"$ref": "#/definitions/sections"},
 		"schema_version": {"enum": [1.4]},
 		"edition": {"enum": ["legacy", "remastered"]},
+		"pfs": {"$ref": "#/definitions/pfs"},
 		"alternate_link": {"$ref": "#/definitions/alternate_link"},
 		"license": {"$ref": "#/definitions/license"}
 	},

@@ -2,6 +2,17 @@
 	"$schema": "http://json-schema.org/draft-07/schema#",
 
 	"definitions": {
+		"pfs": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["pfs"]},
+				"availability": {"enum": ["Standard", "Limited", "Restricted"]},
+				"note": {"type": "string"}
+			},
+			"required": ["type", "subtype", "availability"],
+			"additionalProperties": false
+		},
 		"alternate_link": {
 			"type": "object",
 			"properties": {
@@ -280,7 +291,6 @@
 				"catalysts": {"type": "string"},
 				"effect": {"type": "string"},
 				"amp": {"type": "string"},
-				"pfs_note": {"type": "string"},
 				"heightened": {
 					"type": "array",
 					"items": {"$ref": "#/definitions/heightened"},
@@ -312,9 +322,10 @@
 			{"type": "array", "items": {"$ref": "#/definitions/alternate_link"}, "additionalItems": false}
 		]},
 		"edition": {"enum": ["legacy", "remastered"]},
+		"pfs": {"$ref": "#/definitions/pfs"},
 		"schema_version": {"enum": [1.0]},
 		"license": {"$ref": "#/definitions/license"}
 	},
-	"required": ["name", "type", "aonid", "game-obj", "game-id", "spell", "sources", "edition", "schema_version", "license"],
+	"required": ["name", "type", "aonid", "game-obj", "game-id", "spell", "sources", "edition", "pfs", "schema_version", "license"],
 	"additionalProperties": false
 }
