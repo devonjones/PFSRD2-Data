@@ -414,7 +414,7 @@
 				"movement_type": {"type": "string"},
 				"modifiers": {
 					"type": "array",
-					"items": {"type": "object"},
+					"items": {"$ref": "#/definitions/modifier"},
 					"additionalItems": false
 				}
 			},
@@ -433,7 +433,7 @@
 				},
 				"modifiers": {
 					"type": "array",
-					"items": {"type": "object"},
+					"items": {"$ref": "#/definitions/modifier"},
 					"additionalItems": false
 				}
 			},
@@ -740,17 +740,7 @@
 				"defense": {"$ref": "#/definitions/defense"},
 				"offense": {"$ref": "#/definitions/offense"},
 				"intelligent_item": {"$ref": "#/definitions/intelligent_item"},
-				"pfs": {
-					"type": "object",
-					"properties": {
-						"type": {"enum": ["stat_block_section"]},
-						"subtype": {"enum": ["pfs"]},
-						"availability": {"enum": ["Standard", "Limited", "Restricted"]},
-						"note": {"type": "string"}
-					},
-					"required": ["type", "subtype", "availability"],
-					"additionalProperties": false
-				},
+				"pfs": {"$ref": "#/definitions/pfs"},
 				"sources": {"$ref": "#/definitions/sources"},
 				"sections": {"$ref": "#/definitions/sections"},
 				"image": {"$ref": "#/definitions/image"},
@@ -761,6 +751,17 @@
 				}
 			},
 			"required": ["type", "subtype", "level"],
+			"additionalProperties": false
+		},
+		"pfs": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["pfs"]},
+				"availability": {"enum": ["Standard", "Limited", "Restricted"]},
+				"note": {"type": "string"}
+			},
+			"required": ["type", "subtype", "availability"],
 			"additionalProperties": false
 		},
 		"alternate_link": {
@@ -774,7 +775,7 @@
 					"Languages", "MonsterAbilities", "MonsterFamilies",
 					"Monsters", "NPCs", "Planes", "Rituals", "Rules",
 					"Shields", "SiegeWeapons", "Skills", "Sources",
-					"Spells", "Traits", "WeaponGroups", "WeatherHazards", "Weapons"
+					"Spells", "Traits", "Vehicles", "WeaponGroups", "WeatherHazards", "Weapons"
 				]},
 				"game-id": {"type": "string"},
 				"alternate_type": {"enum": ["legacy", "remastered"]},
@@ -899,17 +900,7 @@
 		"sections": {"$ref": "#/definitions/sections"},
 		"alternate_link": {"$ref": "#/definitions/alternate_link"},
 		"edition": {"enum": ["legacy", "remastered"]},
-		"pfs": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["pfs"]},
-				"availability": {"enum": ["Standard", "Limited", "Restricted"]},
-				"note": {"type": "string"}
-			},
-			"required": ["type", "subtype", "availability"],
-			"additionalProperties": false
-		},
+		"pfs": {"$ref": "#/definitions/pfs"},
 		"schema_version": {"enum": [1.0]},
 		"license": {"$ref": "#/definitions/license"}
 	},
