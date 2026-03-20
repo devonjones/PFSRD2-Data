@@ -740,6 +740,17 @@
 				"defense": {"$ref": "#/definitions/defense"},
 				"offense": {"$ref": "#/definitions/offense"},
 				"intelligent_item": {"$ref": "#/definitions/intelligent_item"},
+				"pfs": {
+					"type": "object",
+					"properties": {
+						"type": {"enum": ["stat_block_section"]},
+						"subtype": {"enum": ["pfs"]},
+						"availability": {"enum": ["Standard", "Limited", "Restricted"]},
+						"note": {"type": "string"}
+					},
+					"required": ["type", "subtype", "availability"],
+					"additionalProperties": false
+				},
 				"sources": {"$ref": "#/definitions/sources"},
 				"sections": {"$ref": "#/definitions/sections"},
 				"image": {"$ref": "#/definitions/image"},
@@ -888,7 +899,17 @@
 		"sections": {"$ref": "#/definitions/sections"},
 		"alternate_link": {"$ref": "#/definitions/alternate_link"},
 		"edition": {"enum": ["legacy", "remastered"]},
-		"pfs": {"enum": ["Standard", "Limited", "Restricted"]},
+		"pfs": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["pfs"]},
+				"availability": {"enum": ["Standard", "Limited", "Restricted"]},
+				"note": {"type": "string"}
+			},
+			"required": ["type", "subtype", "availability"],
+			"additionalProperties": false
+		},
 		"schema_version": {"enum": [1.0]},
 		"license": {"$ref": "#/definitions/license"}
 	},
