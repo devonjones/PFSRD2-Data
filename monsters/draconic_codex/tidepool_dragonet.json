@@ -1301,7 +1301,15 @@
                         }
                     ],
                     "trigger": "A creature grabbed by the dragonet's jaws fails a check to Escape",
-                    "effect": "The dragonet's jaws deals 1d12+3 bludgeoning damage to the triggering creature."
+                    "effect": "The dragonet's jaws deals 1d12+3 bludgeoning damage to the triggering creature.",
+                    "damage": [
+                        {
+                            "damage_type": "bludgeoning",
+                            "formula": "1d12+3",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1925,7 +1933,43 @@
                                 "aonid": 2386
                             }
                         ],
-                        "text": "The dragonet breathes a 15-foot line of superheated gas. The dragonet can use this ability underwater even though it has the fire trait. If it does, the activity gains the water trait and emerges as a 20-foot cone of boiling water. Each creature in the area must succeed at a DC 20 Reflex save or take 4d6 fire damage. The dragonet can't use Boiling Breath again for 1d4 rounds."
+                        "text": "The dragonet breathes a 15-foot line of superheated gas. The dragonet can use this ability underwater even though it has the fire trait. If it does, the activity gains the water trait and emerges as a 20-foot cone of boiling water. Each creature in the area must succeed at a DC 20 Reflex save or take 4d6 fire damage. The dragonet can't use Boiling Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "dc": 20,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 20 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "cone",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

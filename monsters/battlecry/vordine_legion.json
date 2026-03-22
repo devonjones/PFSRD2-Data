@@ -1161,7 +1161,25 @@
                         }
                     ],
                     "trigger": "A creature within the vordine legion's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using",
-                    "effect": "The creature takes 2d8+11 piercing damage (DC 26 basic Reflex save); this damage has the magical and unholy traits. If the creature critically fails its saving throw and the trigger was a manipulate action, the legion disrupts that action."
+                    "effect": "The creature takes 2d8+11 piercing damage (DC 26 basic Reflex save); this damage has the magical and unholy traits. If the creature critically fails its saving throw and the trigger was a manipulate action, the legion disrupts that action.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 26,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 26 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "piercing",
+                            "formula": "2d8+11",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1408,7 +1426,15 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The vordine legion Strides, leaving an orderly pattern of burning hoofprints in each square they enter. The hoofprints continue to burn for 1 minute. Any creature on the ground that begins its turn in, or enters a square with, burning hoofprints takes 2d8 fire damage."
+                        "text": "The vordine legion Strides, leaving an orderly pattern of burning hoofprints in each square they enter. The hoofprints continue to burn for 1 minute. Any creature on the ground that begins its turn in, or enters a square with, burning hoofprints takes 2d8 fire damage.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1526,7 +1552,50 @@
                                 "aonid": 61
                             }
                         ],
-                        "text": "The vordine legion releases a hail of tridents. This hail is a 10-foot burst within 40 feet that deals 4d8 piercing damage (DC 26 basic Reflex save). Creatures that fail the saving throw are clumsy 1 until the start of the vordine legion's next turn (clumsy 2 on a critical failure). When the vordines are reduced to 2 segments, this area decreases to a 5-foot burst."
+                        "text": "The vordine legion releases a hail of tridents. This hail is a 10-foot burst within 40 feet that deals 4d8 piercing damage (DC 26 basic Reflex save). Creatures that fail the saving throw are clumsy 1 until the start of the vordine legion's next turn (clumsy 2 on a critical failure). When the vordines are reduced to 2 segments, this area decreases to a 5-foot burst.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 26,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 26 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "burst",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "4d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 40,
+                            "subtype": "range",
+                            "text": "within 40 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1638,7 +1707,47 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The vordines of the legion make coordinated melee attacks with their tridents. Each enemy within a 5-foot emanation must attempt a DC 26 basic Reflex save. The damage depends on the number of actions.   \n [#] 1d8+2 piercing damage   \n [##] 2d8+11 piercing damage   \n [###] 3d8+14 piercing damage"
+                        "effect": "The vordines of the legion make coordinated melee attacks with their tridents. Each enemy within a 5-foot emanation must attempt a DC 26 basic Reflex save. The damage depends on the number of actions.   \n [#] 1d8+2 piercing damage   \n [##] 2d8+11 piercing damage   \n [###] 3d8+14 piercing damage",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 26,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 26 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "1d8+2",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "2d8+11",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "3d8+14",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

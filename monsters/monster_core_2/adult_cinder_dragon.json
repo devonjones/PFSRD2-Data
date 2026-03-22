@@ -1798,14 +1798,16 @@
                         "range": 5,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 30 basic Reflex",
-                        "dc": 30,
-                        "save_type": "Ref",
-                        "result": "basic"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 30 basic Reflex",
+                            "dc": 30,
+                            "save_type": "Ref",
+                            "result": "basic"
+                        }
+                    ],
                     "damage": [
                         {
                             "type": "stat_block_section",
@@ -1982,12 +1984,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 32",
-                        "dc": 32
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 32",
+                            "dc": 32
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2244,6 +2248,24 @@
                             "game-id": "974c2ceb862b6781b4ebac590bd83913",
                             "text": "Effects with the fire trait deal fire damage or either conjure or manipulate fire. Those that manipulate fire have no effect in an area without fire. Creatures with this trait consist primarily of fire or have a connection to magical fire.  \n  \nPlanes with this trait are composed of flames that continually burn with no fuel source. Fire planes are extremely hostile to non-fire creatures. Unprotected wood, paper, cloth, and other flammable materials catch fire almost immediately, and creatures wearing unprotected flammable clothing catch fire, typically taking 1d6 persistent fire damage. Extraplanar creatures take moderate environmental fire damage at the end of each round (sometimes minor environmental damage in safer areas, or major or massive damage in even more fiery areas). Ice creatures are extremely uncomfortable on a fire plane, assuming they don\u2019t outright melt in the heat.",
                             "classes": []
+                        }
+                    ],
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 34,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 34 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "fire",
+                            "formula": "8d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
                         }
                     ]
                 },
@@ -3198,7 +3220,43 @@
                                 "aonid": 86
                             }
                         ],
-                        "text": "The dragon breathes a blast of flame that deals 13d6 fire damage in a 50-foot cone (DC 34 basic Reflex save). Creatures that critically fail their save catch fire, taking 2d6 persistent fire damage. The area then fills with black smoke for 1 minute. This has the effects of mist, except it fills the cone's area. The dragon can't use Pyre Breath again for 1d4 rounds."
+                        "text": "The dragon breathes a blast of flame that deals 13d6 fire damage in a 50-foot cone (DC 34 basic Reflex save). Creatures that critically fail their save catch fire, taking 2d6 persistent fire damage. The area then fills with black smoke for 1 minute. This has the effects of mist, except it fills the cone's area. The dragon can't use Pyre Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 50,
+                                "subtype": "area",
+                                "text": "50-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "13d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -3299,7 +3357,22 @@
                                 "aonid": 86
                             }
                         ],
-                        "text": "The dragon intensifies nearby fires. Every foe within 60 feet that is taking persistent fire damage takes 4d6 fire damage."
+                        "text": "The dragon intensifies nearby fires. Every foe within 60 feet that is taking persistent fire damage takes 4d6 fire damage.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

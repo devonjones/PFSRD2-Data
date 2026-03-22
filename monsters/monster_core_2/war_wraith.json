@@ -861,13 +861,15 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 26 Fortitude",
-                        "dc": 26,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 26 Fortitude",
+                            "dc": 26,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1170,7 +1172,39 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The war wraith extends their hand toward another wraith creature within 100 feet. The target wraith dissolves and streaks toward the war wraith in a straight line, dealing 3d10 void damage to each creature along the line with a DC 28 basic Fortitude save. The war wraith absorbs the essence of the target wraith, becoming quickened for 1 minute. They can use their extra action only to Fly or Strike. An unwilling target can resist being absorbed if it succeeds at a DC 28 Will save."
+                        "effect": "The war wraith extends their hand toward another wraith creature within 100 feet. The target wraith dissolves and streaks toward the war wraith in a straight line, dealing 3d10 void damage to each creature along the line with a DC 28 basic Fortitude save. The war wraith absorbs the essence of the target wraith, becoming quickened for 1 minute. They can use their extra action only to Fly or Strike. An unwilling target can resist being absorbed if it succeeds at a DC 28 Will save.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 28,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 28 basic Fortitude save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 28,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 28 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "3d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 100,
+                            "subtype": "range",
+                            "text": "within 100 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1359,7 +1393,25 @@
                                 "aonid": 85
                             }
                         ],
-                        "text": "The wraith reaches into an adjacent creature's chest, gripping its heart. The target takes 9d6 mental damage with a DC 28 basic Will save. On a critical failure, the creature is also paralyzed until the start of the wraith's next turn."
+                        "text": "The wraith reaches into an adjacent creature's chest, gripping its heart. The target takes 9d6 mental damage with a DC 28 basic Will save. On a critical failure, the creature is also paralyzed until the start of the wraith's next turn.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 28,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 28 basic Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "mental",
+                                "formula": "9d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

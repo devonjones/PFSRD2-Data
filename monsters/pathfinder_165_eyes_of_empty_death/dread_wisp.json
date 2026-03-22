@@ -673,13 +673,15 @@
                         "range": 20,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 25 Will",
-                        "dc": 25,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 25 Will",
+                            "dc": 25,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1132,7 +1134,25 @@
                         ],
                         "frequency": "once per round",
                         "requirement": "An enemy within 15 feet of the dread wisp is under a fear effect, drained, or dying",
-                        "effect": "The dread wisp feeds on the creature's despair. The dread wisp regains 2d8 Hit Points and deals 3d8 negative damage to the creature (DC 25 basic Fortitude save), and if the dread wisp has Gone Dark, their Dread Flickering reignites."
+                        "effect": "The dread wisp feeds on the creature's despair. The dread wisp regains 2d8 Hit Points and deals 3d8 negative damage to the creature (DC 25 basic Fortitude save), and if the dread wisp has Gone Dark, their Dread Flickering reignites.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 25,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 25 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "negative",
+                                "formula": "3d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1344,7 +1364,15 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The dread wisp teleports to a square they can see within 30 feet that isn't in an area of bright light. The dread wisp can't use Shadow Flitter again for 1d4 rounds."
+                        "text": "The dread wisp teleports to a square they can see within 30 feet that isn't in an area of bright light. The dread wisp can't use Shadow Flitter again for 1d4 rounds.",
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        },
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

@@ -886,12 +886,14 @@
                         "range": 300,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 39",
-                        "dc": 39
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 39",
+                            "dc": 39
+                        }
+                    ],
                     "universal_monster_ability": {
                         "name": "Frightful Presence",
                         "type": "ability",
@@ -1256,6 +1258,41 @@
                             "text": "Effects with the fire trait deal fire damage or either conjure or manipulate fire. Those that manipulate fire have no effect in an area without fire. Creatures with this trait consist primarily of fire or have a magical connection to that element. Planes with this trait are composed of flames that continually burn with no fuel source. Fire planes are extremely hostile to non-fire creatures.",
                             "classes": []
                         }
+                    ],
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 42,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 42 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "area": [
+                        {
+                            "shape": "cone",
+                            "size": 30,
+                            "subtype": "area",
+                            "text": "30-foot cone",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "fire",
+                            "formula": "6d8",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        {
+                            "damage_type": "fire",
+                            "formula": "6d8",
+                            "persistent": true,
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
                     ]
                 }
             ]
@@ -1602,7 +1639,14 @@
                             "subtype": "action_type",
                             "name": "Two Actions"
                         },
-                        "text": "Xotani makes three lava bomb Strikes. These Strikes can be made against the same creature or different creatures, as long as all targets are within 40 feet of each other."
+                        "text": "Xotani makes three lava bomb Strikes. These Strikes can be made against the same creature or different creatures, as long as all targets are within 40 feet of each other.",
+                        "range": {
+                            "range": 40,
+                            "subtype": "range",
+                            "text": "within 40 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1733,7 +1777,43 @@
                                 "classes": []
                             }
                         ],
-                        "text": "Xotani breathes a blast of flame that deals 18d6 fire damage plus 4d6 persistent fire damage to all creatures in a 70-foot cone (DC 42 basic Reflex save). It can\u2019t use Breath Weapon again for 1d4 rounds."
+                        "text": "Xotani breathes a blast of flame that deals 18d6 fire damage plus 4d6 persistent fire damage to all creatures in a 70-foot cone (DC 42 basic Reflex save). It can\u2019t use Breath Weapon again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 42,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 42 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 70,
+                                "subtype": "area",
+                                "text": "70-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "18d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -1942,7 +2022,15 @@
                                 }
                             ],
                             "game-id": "835aea1efadf2fa4f9b9bb63b8ec0b98"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 42,
+                                "subtype": "save_dc",
+                                "text": "DC 42",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -794,13 +794,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 27 Fortitude",
-                        "dc": 27,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 27 Fortitude",
+                            "dc": 27,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1368,7 +1370,25 @@
                         ],
                         "frequency": "once per round",
                         "requirement": "The corpseroot has a creature grabbed or restrained",
-                        "effect": "The corpseroot buries its roots into the creature, dealing 1d6+11 piercing damage and draining the target's life force (DC 30 basic Fortitude save). On a failure, the creature is drained 1 (or increases the value by 1 if already drained), and the corpseroot regains 10 HP. If this would make a creature drained 5, the creature dies."
+                        "effect": "The corpseroot buries its roots into the creature, dealing 1d6+11 piercing damage and draining the target's life force (DC 30 basic Fortitude save). On a failure, the creature is drained 1 (or increases the value by 1 if already drained), and the corpseroot regains 10 HP. If this would make a creature drained 5, the creature dies.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "1d6+11",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

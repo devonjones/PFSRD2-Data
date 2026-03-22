@@ -674,14 +674,16 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 29 basic Reflex",
-                        "dc": 29,
-                        "save_type": "Ref",
-                        "result": "basic"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 29 basic Reflex",
+                            "dc": 29,
+                            "save_type": "Ref",
+                            "result": "basic"
+                        }
+                    ],
                     "damage": [
                         {
                             "type": "stat_block_section",
@@ -734,7 +736,35 @@
                             "classes": []
                         }
                     ],
-                    "text": "Whenever the dalos takes damage from a melee Strike, magma splashes from its open wound and sticks to nearby creatures. Each creature in a 10-foot emanation must attempt a DC 31 Reflex save. On a failure, the creature takes 3d6 persistent fire damage as the superheated rock sticks to them and cools. The DC to end this persistent damage decreases by 5 each turn after the first as the magma cools."
+                    "text": "Whenever the dalos takes damage from a melee Strike, magma splashes from its open wound and sticks to nearby creatures. Each creature in a 10-foot emanation must attempt a DC 31 Reflex save. On a failure, the creature takes 3d6 persistent fire damage as the superheated rock sticks to them and cools. The DC to end this persistent damage decreases by 5 each turn after the first as the magma cools.",
+                    "saving_throw": [
+                        {
+                            "dc": 31,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 31 Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "area": [
+                        {
+                            "shape": "emanation",
+                            "size": 10,
+                            "subtype": "area",
+                            "text": "10-foot emanation",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "fire",
+                            "formula": "3d6",
+                            "persistent": true,
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1032,7 +1062,14 @@
                                 "aonid": 210
                             }
                         ],
-                        "text": "The dalos blasts smoke from its head, creating a 20-foot-radius cloud of smoke that drifts to a location within 120 feet. This has the effects of *obscuring mist*."
+                        "text": "The dalos blasts smoke from its head, creating a 20-foot-radius cloud of smoke that drifts to a location within 120 feet. This has the effects of *obscuring mist*.",
+                        "range": {
+                            "range": 120,
+                            "subtype": "range",
+                            "text": "within 120 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1088,7 +1125,15 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The dalos uses an Interact action to pluck a rock from its body or the nearby environment, then uses its internal fires to heat a rock it\u2019s holding until the rock is red hot. A heated rock that hits a target on a ranged Strike deals an additional 4d6 fire damage. Once the dalos heats a rock, that rock retains its heat for 2 rounds before cooling."
+                        "text": "The dalos uses an Interact action to pluck a rock from its body or the nearby environment, then uses its internal fires to heat a rock it\u2019s holding until the rock is red hot. A heated rock that hits a target on a ranged Strike deals an additional 4d6 fire damage. Once the dalos heats a rock, that rock retains its heat for 2 rounds before cooling.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1180,7 +1225,42 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The dalos causes a volcanic explosion to erupt from its head, lobbing a mass of molten rock up to 100 feet. This lava bomb deals 6d8 fire damage and 6d8 bludgeoning damage to each creature in a 20-foot radius of its impact point, with a DC 33 basic Reflex save. The dalos can\u2019t use Lava Bomb again for 1d4 rounds."
+                        "text": "The dalos causes a volcanic explosion to erupt from its head, lobbing a mass of molten rock up to 100 feet. This lava bomb deals 6d8 fire damage and 6d8 bludgeoning damage to each creature in a 20-foot radius of its impact point, with a DC 33 basic Reflex save. The dalos can\u2019t use Lava Bomb again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot radius",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "6d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "6d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

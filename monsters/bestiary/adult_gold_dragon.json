@@ -1351,12 +1351,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 33",
-                        "dc": 33
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 33",
+                            "dc": 33
+                        }
+                    ],
                     "universal_monster_ability": {
                         "name": "Frightful Presence",
                         "type": "ability",
@@ -1631,7 +1633,8 @@
                         "type": "stat_block_section",
                         "subtype": "action_type",
                         "name": "Reaction"
-                    }
+                    },
+                    "frequency": "1d4 rounds"
                 }
             ]
         },
@@ -2517,7 +2520,43 @@
                                 "aonid": 13
                             }
                         ],
-                        "text": "The gold dragon breathes in one of two ways. The dragon can\u2019t use Breath Weapon again for 1d4 rounds.\n* **Flame** (arcane, evocation,fire); The dragon breathes a blast of flame in a 40-foot cone that deals 15d6 fire damage (DC 37 basic Reflex save).\n* **Weakening Gas** (arcane, necromancy); The dragon breathes a blast of weakening gas. Each creature within a 40-foot cone must succeed at a DC 37 Fortitude save or become enfeebled 2 for 1 minute (or enfeebled 3 on a critical failure)."
+                        "text": "The gold dragon breathes in one of two ways. The dragon can\u2019t use Breath Weapon again for 1d4 rounds.\n* **Flame** (arcane, evocation,fire); The dragon breathes a blast of flame in a 40-foot cone that deals 15d6 fire damage (DC 37 basic Reflex save).\n* **Weakening Gas** (arcane, necromancy); The dragon breathes a blast of weakening gas. Each creature within a 40-foot cone must succeed at a DC 37 Fortitude save or become enfeebled 2 for 1 minute (or enfeebled 3 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 37,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 37 basic Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 37,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 37 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 40,
+                                "subtype": "area",
+                                "text": "40-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "15d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

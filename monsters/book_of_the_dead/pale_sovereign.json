@@ -1127,13 +1127,15 @@
                         "range": 80,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 39 Will save",
-                        "dc": 39,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 39 Will save",
+                            "dc": 39,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2015,7 +2017,16 @@
                         "success": "The target becomes drowsy and is slowed 1 for 1 minute.",
                         "failure": "The target falls unconscious, though it doesn't fall prone or release what it's holding. It can't awaken with a successful Perception check, though dealing any amount of damage to the creature breaks the slumber. If it's still unconscious after 1 hour, it awakens.",
                         "critical_failure": "The target falls unconscious permanently, falling prone, and can't be awoken as long as the curse remains.",
-                        "text": "The pale sovereign touches an adjacent living creature to send it into an endless slumber. The target must attempt a DC 39 Will save."
+                        "text": "The pale sovereign touches an adjacent living creature to send it into an endless slumber. The target must attempt a DC 39 Will save.",
+                        "saving_throw": [
+                            {
+                                "dc": 39,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 39 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2171,7 +2182,35 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The pale sovereign siphons the life force from creatures around them. All living creatures in a 30-foot emanation take 6d8 negative damage (DC 39 basic Fortitude save). The pale sovereign regains HP equal to the highest damage a single creature took from this effect."
+                        "text": "The pale sovereign siphons the life force from creatures around them. All living creatures in a 30-foot emanation take 6d8 negative damage (DC 39 basic Fortitude save). The pale sovereign regains HP equal to the highest damage a single creature took from this effect.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 39,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 39 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "negative",
+                                "formula": "6d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

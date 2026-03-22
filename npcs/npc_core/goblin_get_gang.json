@@ -764,13 +764,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 19 Will",
-                        "dc": 19,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 19 Will",
+                            "dc": 19,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -909,7 +911,50 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The troop's members throw a barrage of burning torches. Each creature in a 10-foot burst within 30 feet of the troop takes 2d8 fire damage with a DC 20 basic Reflex save. When the troop is reduced to 2 or fewer segments, this area decreases to a 5-foot burst."
+                        "text": "The troop's members throw a barrage of burning torches. Each creature in a 10-foot burst within 30 feet of the troop takes 2d8 fire damage with a DC 20 basic Reflex save. When the troop is reduced to 2 or fewer segments, this area decreases to a 5-foot burst.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 20,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 20 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "burst",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -936,7 +981,54 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "Frequency once per round; Effect The goblin get gang uses dogslicers, horsechoppers, and burning torches to attack each enemy in a 5-foot emanation, with a DC 20 basic Reflex save. The damage depends on the number of actions.  \n [#] 1d6 slashing damage and 1d6 fire damage  \n [##] 1d6+6 slashing damage and 1d6 fire damage  \n [###] 1d6+9 slashing damage and 1d6 fire damage."
+                        "text": "Frequency once per round; Effect The goblin get gang uses dogslicers, horsechoppers, and burning torches to attack each enemy in a 5-foot emanation, with a DC 20 basic Reflex save. The damage depends on the number of actions.  \n [#] 1d6 slashing damage and 1d6 fire damage  \n [##] 1d6+6 slashing damage and 1d6 fire damage  \n [###] 1d6+9 slashing damage and 1d6 fire damage.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 20,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 20 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "1d6+6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "1d6+9",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "once per round"
                     }
                 }
             ]

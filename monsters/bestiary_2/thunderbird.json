@@ -810,12 +810,14 @@
                         "range": 100,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 27",
-                        "dc": 27
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 27",
+                            "dc": 27
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -867,7 +869,25 @@
                         }
                     ],
                     "trigger": "A creature enters the thunderbird's reach or uses a move action within their reach",
-                    "effect": "A lightning bolt dancing on the thunderbird's body leaps onto the creature, dealing 8d6 electricity damage (DC 30 basic Reflex save)."
+                    "effect": "A lightning bolt dancing on the thunderbird's body leaps onto the creature, dealing 8d6 electricity damage (DC 30 basic Reflex save).",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 30,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 30 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "electricity",
+                            "formula": "8d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1246,7 +1266,41 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The thunderbird spreads their wings and blasts their foe with thunderous bolts of lightning. Each creature in a 30-foot emanation takes 6d6 electricity damage and 6d6 sonic damage (DC 30 basic Reflex save). The thunderbird can't use Lightning Blast for 1d4 rounds."
+                        "text": "The thunderbird spreads their wings and blasts their foe with thunderous bolts of lightning. Each creature in a 30-foot emanation takes 6d6 electricity damage and 6d6 sonic damage (DC 30 basic Reflex save). The thunderbird can't use Lightning Blast for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "sonic",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1297,7 +1351,16 @@
                                 "aonid": 8
                             }
                         ],
-                        "text": "A creature that takes damage from a thunderbird's thunderbolt Strike must succeed at a DC 28 Fortitude save or be knocked prone and deafened for 1 round."
+                        "text": "A creature that takes damage from a thunderbird's thunderbolt Strike must succeed at a DC 28 Fortitude save or be knocked prone and deafened for 1 round.",
+                        "saving_throw": [
+                            {
+                                "dc": 28,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 28 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -1084,7 +1084,16 @@
                         "critical_success": "The creature takes no damage and its armor takes no damage.",
                         "success": "The golem halts its movement and cannot enter the creature's square.",
                         "failure": "The resisting creature is damaged and its armor takes damage as if hit by the golem's staff.",
-                        "text": "The golem Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can try to bar the way by attempting a DC 43 Fortitude save."
+                        "text": "The golem Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can try to bar the way by attempting a DC 43 Fortitude save.",
+                        "saving_throw": [
+                            {
+                                "dc": 43,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 43 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1287,7 +1296,50 @@
                                 "aonid": 29
                             }
                         ],
-                        "text": "The golem vents a 30-foot cone of fiery splinters from its internal forge. This deals 13d6 piercing damage to all creatures in the cone (DC 38 basic Reflex save). Creatures who fail the save also take 2d6 persistent fire damage (4d6 persistent fire damage on a critical failure). The golem can't use Vent Splinters again for 1d4 rounds."
+                        "text": "The golem vents a 30-foot cone of fiery splinters from its internal forge. This deals 13d6 piercing damage to all creatures in the cone (DC 38 basic Reflex save). Creatures who fail the save also take 2d6 persistent fire damage (4d6 persistent fire damage on a critical failure). The golem can't use Vent Splinters again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 38,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 38 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "13d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

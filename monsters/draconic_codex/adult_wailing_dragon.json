@@ -1643,13 +1643,15 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 26 Fortitude",
-                        "dc": 26,
-                        "save_type": "Fort"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 26 Fortitude",
+                            "dc": 26,
+                            "save_type": "Fort"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -2672,7 +2674,16 @@
                             }
                         ],
                         "requirement": "The dragon is hidden or undetected",
-                        "effect": "The dragon's wail draws in unsuspecting opponents. Anyone that can hear the Eerie Call must attempt a DC 29 Will save or become fascinated by the sound. A fascinated creature must spend at least 1 action Seeking the dragon each turn, and the dragon can Sustain this affect for up to 1 minute."
+                        "effect": "The dragon's wail draws in unsuspecting opponents. Anyone that can hear the Eerie Call must attempt a DC 29 Will save or become fascinated by the sound. A fascinated creature must spend at least 1 action Seeking the dragon each turn, and the dragon can Sustain this affect for up to 1 minute.",
+                        "saving_throw": [
+                            {
+                                "dc": 29,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 29 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2694,7 +2705,15 @@
                                 "aonid": 1740
                             }
                         ],
-                        "text": "The dragon can imitate any sound or voice that it has heard. This has the effect of 2nd-rank *ventriloquism* (DC 29) but is a nonmagical effect."
+                        "text": "The dragon can imitate any sound or voice that it has heard. This has the effect of 2nd-rank *ventriloquism* (DC 29) but is a nonmagical effect.",
+                        "saving_throw": [
+                            {
+                                "dc": 29,
+                                "subtype": "save_dc",
+                                "text": "DC 29",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2823,7 +2842,36 @@
                                 "aonid": 1674
                             }
                         ],
-                        "text": "The dragon unleashes a thunderous call that deals 11d6 sonic damage in a 60-foot cone (DC 29 basic Fortitude save). On a critical failure, a creature is also deafened for 1 minute. The dragon can't use Resounding Roar again for 1d4 rounds.In addition, if the area overlaps with an area of magical silence or includes a creature affected by magical silence, the roar attempts to counteract the *silence* effect (counteract rank 5, counteract modifier +21)."
+                        "text": "The dragon unleashes a thunderous call that deals 11d6 sonic damage in a 60-foot cone (DC 29 basic Fortitude save). On a critical failure, a creature is also deafened for 1 minute. The dragon can't use Resounding Roar again for 1d4 rounds.In addition, if the area overlaps with an area of magical silence or includes a creature affected by magical silence, the roar attempts to counteract the *silence* effect (counteract rank 5, counteract modifier +21).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 29,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 29 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "sonic",
+                                "formula": "11d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

@@ -647,7 +647,14 @@
                             "game-obj": "Conditions",
                             "aonid": 29
                         }
-                    ]
+                    ],
+                    "range": {
+                        "range": 120,
+                        "subtype": "range",
+                        "text": "within 120 feet",
+                        "type": "stat_block_section",
+                        "unit": "feet"
+                    }
                 }
             ]
         },
@@ -919,7 +926,22 @@
                             }
                         ],
                         "requirement": "The Bloodstorm is in Demon Shape and has a creature grabbed",
-                        "effect": "The writing mass of the Bloodstorm's pincer bites the grabbed creature, dealing 3d8+8 piercing damage (basic Fortitude save). On a failure, the creature also takes 1d8 persistent bleed damage."
+                        "effect": "The writing mass of the Bloodstorm's pincer bites the grabbed creature, dealing 3d8+8 piercing damage (basic Fortitude save). On a failure, the creature also takes 1d8 persistent bleed damage.",
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "3d8+8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bleed",
+                                "formula": "1d8",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -953,7 +975,38 @@
                                 "aonid": 29
                             }
                         ],
-                        "text": "Each creature in the Bloodstorm's space takes 3d6 piercing and 3d6 slashing damage (DC 31 basic Fortitude save). Creatures that fail their saving throw also take 1d8 persistent bleed damage."
+                        "text": "Each creature in the Bloodstorm's space takes 3d6 piercing and 3d6 slashing damage (DC 31 basic Fortitude save). Creatures that fail their saving throw also take 1d8 persistent bleed damage.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 31,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 31 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bleed",
+                                "formula": "1d8",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1015,7 +1068,31 @@
                             }
                         ],
                         "requirement": "There are bleeding creatures in the Bloodstorm's space",
-                        "effect": "The bleeding creatures take 3d8 piercing and 3d8 slashing damage (DC 34 basic Fortitude save). The Bloodstorm gains temporary Hit Points equal to half of the damage dealt this way."
+                        "effect": "The bleeding creatures take 3d8 piercing and 3d8 slashing damage (DC 34 basic Fortitude save). The Bloodstorm gains temporary Hit Points equal to half of the damage dealt this way.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "3d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "3d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -554,12 +554,14 @@
                         "range": 5,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 22",
-                        "dc": 22
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 22",
+                            "dc": 22
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -858,7 +860,16 @@
                         "trigger": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using",
                         "effect": "The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike.",
                         "game-id": "b9713edb3863029c09b5709dff24cd40"
-                    }
+                    },
+                    "damage": [
+                        {
+                            "damage_type": "bleed",
+                            "formula": "1d6",
+                            "persistent": true,
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1096,7 +1107,24 @@
                             }
                         ],
                         "requirement": "The almiraj has a creature grabbed",
-                        "effect": "The almiraj clamps its jaws down on the creature and shakes it vigorously, attempting to finish it off. The creature takes 2d6 bludgeoning damage and must succeed at a DC 20 Fortitude save or become enfeebled 1. Small or smaller creatures take a \u20132 circumstance penalty to their save."
+                        "effect": "The almiraj clamps its jaws down on the creature and shakes it vigorously, attempting to finish it off. The creature takes 2d6 bludgeoning damage and must succeed at a DC 20 Fortitude save or become enfeebled 1. Small or smaller creatures take a \u20132 circumstance penalty to their save.",
+                        "saving_throw": [
+                            {
+                                "dc": 20,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 20 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1123,7 +1151,16 @@
                                 "aonid": 29
                             }
                         ],
-                        "text": "The almiraj lowers its head and moves with ferocity toward its selected prey. The almiraj Strides twice. If it ends its movement within melee reach of at least one enemy, it makes a horn Strike against that enemy. This Strike deals an additional 1d6 persistent bleed damage."
+                        "text": "The almiraj lowers its head and moves with ferocity toward its selected prey. The almiraj Strides twice. If it ends its movement within melee reach of at least one enemy, it makes a horn Strike against that enemy. This Strike deals an additional 1d6 persistent bleed damage.",
+                        "damage": [
+                            {
+                                "damage_type": "bleed",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1172,7 +1209,16 @@
                             }
                         ],
                         "requirement": "The almiraj has a Medium or smaller creature grabbed",
-                        "effect": "The almiraj attempts to flee with its meal, burrowing into the ground. The grabbed creature must succeed at a DC 20 Reflex save or be dragged beneath the ground as the almiraj Burrows up to its Speed. If the target succeeds at its save, it Escapes and the almiraj continues burrowing as normal; if it fails, the grabbed creature must hold its breath or begin suffocating under the dirt."
+                        "effect": "The almiraj attempts to flee with its meal, burrowing into the ground. The grabbed creature must succeed at a DC 20 Reflex save or be dragged beneath the ground as the almiraj Burrows up to its Speed. If the target succeeds at its save, it Escapes and the almiraj continues burrowing as normal; if it fails, the grabbed creature must hold its breath or begin suffocating under the dirt.",
+                        "saving_throw": [
+                            {
+                                "dc": 20,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 20 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

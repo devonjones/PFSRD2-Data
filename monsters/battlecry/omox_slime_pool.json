@@ -1274,6 +1274,14 @@
                             "text": "An action with this trait requires a degree of mental concentration and discipline.",
                             "classes": []
                         }
+                    ],
+                    "saving_throw": [
+                        {
+                            "dc": 45,
+                            "subtype": "save_dc",
+                            "text": "DC 45",
+                            "type": "stat_block_section"
+                        }
                     ]
                 },
                 {
@@ -1548,7 +1556,54 @@
                                 "aonid": 61
                             }
                         ],
-                        "text": "The omoxes hurl balls of heavy slime in a 10- foot burst within 30 feet. All creatures in the area take 4d6 bludgeoning damage and 2d6 acid damage (DC 35 basic Reflex save). A creature that fails the save is mired in the slime, taking a \u201310-foot circumstance penalty to its Speeds for 1 minute or until it Escapes (DC 38); on a critical failure, the creature is also clumsy 1 for the same duration. When the slime pool is reduced to 2 segments, the area decreases to a 5-foot burst."
+                        "text": "The omoxes hurl balls of heavy slime in a 10- foot burst within 30 feet. All creatures in the area take 4d6 bludgeoning damage and 2d6 acid damage (DC 35 basic Reflex save). A creature that fails the save is mired in the slime, taking a \u201310-foot circumstance penalty to its Speeds for 1 minute or until it Escapes (DC 38); on a critical failure, the creature is also clumsy 1 for the same duration. When the slime pool is reduced to 2 segments, the area decreases to a 5-foot burst.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 35,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 35 basic Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 38,
+                                "subtype": "save_dc",
+                                "text": "DC 38",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1597,7 +1652,16 @@
                             }
                         ],
                         "requirement": "The omox slime pool has a creature grabbed or restrained",
-                        "effect": "Omox slime flows onto the creature, completely covering it. The creature must then succeed at a DC 38 Fortitude save or it becomes blinded and must hold its breath or begin suffocating. These effects last as long as the omoxes have the creature grabbed or restrained."
+                        "effect": "Omox slime flows onto the creature, completely covering it. The creature must then succeed at a DC 38 Fortitude save or it becomes blinded and must hold its breath or begin suffocating. These effects last as long as the omoxes have the creature grabbed or restrained.",
+                        "saving_throw": [
+                            {
+                                "dc": 38,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 38 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1639,7 +1703,65 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The omoxes attack all enemies in a 5-foot emanation with slimy tendrils (DC 35 basic Reflex save). A creature that critically fails this saving throw is also grabbed by the slime pool. The damage depends on the number of actions.  \n [#] 1d6+3 bludgeoning damage plus 1d6 acid damage   \n [##] 3d6+12 bludgeoning damage plus 2d6 acid damage   \n [###] 4d6+14 bludgeoning damage plus 3d6 acid damage"
+                        "effect": "The omoxes attack all enemies in a 5-foot emanation with slimy tendrils (DC 35 basic Reflex save). A creature that critically fails this saving throw is also grabbed by the slime pool. The damage depends on the number of actions.  \n [#] 1d6+3 bludgeoning damage plus 1d6 acid damage   \n [##] 3d6+12 bludgeoning damage plus 2d6 acid damage   \n [###] 4d6+14 bludgeoning damage plus 3d6 acid damage",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 35,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 35 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "1d6+3",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "3d6+12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d6+14",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

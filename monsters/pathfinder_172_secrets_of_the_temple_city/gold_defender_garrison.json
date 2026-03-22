@@ -800,7 +800,7 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Death Throes",
-                    "text": "As the garrison's numbers dwindle, gold defenders melt away into worthless slag. Every time that the garrison is reduced to a threshold, it leaves behind a 10-foot radius cloud of fumes and a 10-foot radius puddle of molten metal. Creatures that breathe fumes are exposed to gold defender poison. Creatures that move through the puddle take 10d6 fire damage. The fumes dissipate after 1 round and the puddle completely evaporates after 1 minute."
+                    "text": "As the garrison's numbers dwindle, gold defenders melt away into worthless slag. Every time that the garrison is reduced to a threshold, it leaves behind a 10-foot burst cloud of fumes and a 10-foot burst puddle of molten metal. Creatures that breathe fumes are exposed to gold defender poison. Creatures that move through the puddle take 10d6 fire damage. The fumes dissipate after 1 round and the puddle completely evaporates after 1 minute."
                 },
                 {
                     "type": "stat_block_section",
@@ -1007,7 +1007,44 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The garrison makes a melee attack against each enemy within 5 feet (DC 30 basic Reflex save). The damage depends on the number of actions.   \n [#] 2d8+2 bludgeoning damage   \n [##] 3d8+12 bludgeoning damage   \n [###] 4d8+15 bludgeoning damage"
+                        "effect": "The garrison makes a melee attack against each enemy within 5 feet (DC 30 basic Reflex save). The damage depends on the number of actions.   \n [#] 2d8+2 bludgeoning damage   \n [##] 3d8+12 bludgeoning damage   \n [###] 4d8+15 bludgeoning damage",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "2d8+2",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "3d8+12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d8+15",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 5,
+                            "subtype": "range",
+                            "text": "within 5 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1210,7 +1247,50 @@
                         "critical_success": "The creature takes no damage. ",
                         "success": "The creature takes half damage. ",
                         "failure": "The creature takes full damage and catches fire, taking 1d6 persistent fire damage. ",
-                        "critical_failure": "As failure, but the persistent fire damage is 5d6."
+                        "critical_failure": "As failure, but the persistent fire damage is 5d6.",
+                        "saving_throw": [
+                            {
+                                "dc": 31,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 31 Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "cone",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "14d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

@@ -818,12 +818,14 @@
                         "range": 300,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 45",
-                        "dc": 45
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 45",
+                            "dc": 45
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1495,7 +1497,23 @@
                             }
                         ],
                         "requirement": "Sorvuth-ka's previous action was a successful Strike against the target",
-                        "effect": "After landing a Strike, Sorvuth-ka commands it blood to continue the assault, choosing one of the three following options: Crystallize, Inject, or Splash. If the previous attack was a critical hit, Amber Strikes is a free action.\n* *Crystallize* Sorvuth-ka's blood flows around the target's limbs before hardening. The creature must succeed at a DC 48 Reflex save or become immobilized and off-guard until it Escapes. If the creature was flying, it falls.\n* *Inject* Sorvuth-ka's blood invades the target through its wounds. The target must succeed at a DC 48 Fortitude save or become sickened 2 (sickened 3 on a critical failure). As long as the target is sickened, Sorvuth-ka's blood will attempt to counteract any effect that could restore Hit Points to the target (counteract rank 10, counteract modifier +38).\n* *Splash* Sorvuth-ka's blood splashes violently, dazzling the target until the end of its next turn and creating a blood pool in a square adjacent to the target"
+                        "effect": "After landing a Strike, Sorvuth-ka commands it blood to continue the assault, choosing one of the three following options: Crystallize, Inject, or Splash. If the previous attack was a critical hit, Amber Strikes is a free action.\n* *Crystallize* Sorvuth-ka's blood flows around the target's limbs before hardening. The creature must succeed at a DC 48 Reflex save or become immobilized and off-guard until it Escapes. If the creature was flying, it falls.\n* *Inject* Sorvuth-ka's blood invades the target through its wounds. The target must succeed at a DC 48 Fortitude save or become sickened 2 (sickened 3 on a critical failure). As long as the target is sickened, Sorvuth-ka's blood will attempt to counteract any effect that could restore Hit Points to the target (counteract rank 10, counteract modifier +38).\n* *Splash* Sorvuth-ka's blood splashes violently, dazzling the target until the end of its next turn and creating a blood pool in a square adjacent to the target",
+                        "saving_throw": [
+                            {
+                                "dc": 48,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 48 Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 48,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 48 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1537,7 +1555,25 @@
                             }
                         ],
                         "requirement": "A pool of Sorvuth-ka's blood is within 500 feet",
-                        "effect": "Sorvuth-ka's blood detonates into crystalline amber flechettes. Every creature either in the required blood pool's square or in a 10- foot emanation of that pool other than Sorvuth-ka takes 20d8 piercing damage (DC 48 basic Reflex save). On a critical failure, any resistances to physical damage the creature has are reduced by 10 for 1 minute."
+                        "effect": "Sorvuth-ka's blood detonates into crystalline amber flechettes. Every creature either in the required blood pool's square or in a 10- foot emanation of that pool other than Sorvuth-ka takes 20d8 piercing damage (DC 48 basic Reflex save). On a critical failure, any resistances to physical damage the creature has are reduced by 10 for 1 minute.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 48,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 48 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "20d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1593,7 +1629,25 @@
                             }
                         ],
                         "requirement": "Sorvuth-ka has at least one creature grabbed or restrained",
-                        "effect": "Sorvuth-ka Strides, dragging any creatures it's grabbed or restrained along with it. Each grabbed or restrained creature takes 11d6 bludgeoning damage (DC 48 basic Fortitude save). On a failure, the creature is also clumsy 2 (or clumsy 3 on a critical failure) until it Escapes."
+                        "effect": "Sorvuth-ka Strides, dragging any creatures it's grabbed or restrained along with it. Each grabbed or restrained creature takes 11d6 bludgeoning damage (DC 48 basic Fortitude save). On a failure, the creature is also clumsy 2 (or clumsy 3 on a critical failure) until it Escapes.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 48,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 48 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "11d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

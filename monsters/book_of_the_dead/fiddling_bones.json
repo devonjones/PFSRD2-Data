@@ -802,6 +802,20 @@
                             ],
                             "classes": []
                         }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "sonic",
+                            "formula": "1d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        {
+                            "damage_type": "sonic",
+                            "formula": "2d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
                     ]
                 }
             ]
@@ -1453,7 +1467,26 @@
                         "critical_success": "The creature is unaffected and is temporarily immune for 1 hour.",
                         "success": "The creature can't use actions with the move trait except to dance, which uses the Stride action to move up to half the creature's Speed. If the creature has other Speeds, it can also dance using those modes of travel.",
                         "failure": "As success, and the creature must spend at least 1 action each turn dancing.",
-                        "text": "The fiddling bones plays a catchy song that compels others to dance. Each creature in a 30-foot emanation must attempt a DC 19 Will save. Fiddling bones are immune. The effect lasts until the end of the fiddling bones's next turn, but the fiddling bones can Sustain the effect on all affected creatures that remain within the emanation."
+                        "text": "The fiddling bones plays a catchy song that compels others to dance. Each creature in a 30-foot emanation must attempt a DC 19 Will save. Fiddling bones are immune. The effect lasts until the end of the fiddling bones's next turn, but the fiddling bones can Sustain the effect on all affected creatures that remain within the emanation.",
+                        "saving_throw": [
+                            {
+                                "dc": 19,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 19 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1603,7 +1636,43 @@
                             }
                         ],
                         "requirement": "Dance with Death is in effect",
-                        "effect": "The fiddling bones performs a boisterous finale. They choose a 30-foot cone or 15-foot emanation, and they deal 4d6 sonic damage to all creatures in that area (DC 21 basic Reflex save). Dance with Death immediately ends, and the fiddling bones can't use Dance with Death or Destructive Finale for 1d4 rounds."
+                        "effect": "The fiddling bones performs a boisterous finale. They choose a 30-foot cone or 15-foot emanation, and they deal 4d6 sonic damage to all creatures in that area (DC 21 basic Reflex save). Dance with Death immediately ends, and the fiddling bones can't use Dance with Death or Destructive Finale for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 21,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 21 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "emanation",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "sonic",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

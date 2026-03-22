@@ -1062,12 +1062,14 @@
                         "range": 100,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 43",
-                        "dc": 43
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 43",
+                            "dc": 43
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2406,7 +2408,33 @@
                                 "aonid": 147
                             }
                         ],
-                        "text": "The jabberwock creates a blast of strange noises and shouted nonsense in the various languages it knows (and invariably some languages it doesn't know), creating one of two effects. The jabberwock can't Burble again for 1d4 rounds.\n* **Confusion** (aura, emotion, enchantment, mental, primal) 60 feet. Each creature in the emanation must succeed at a DC 46 Will save or become confused for 1d4 rounds.\n* **Sonic Beam** (evocation, primal, sonic) The jabberwock focuses its Burbling into a 60.foot line of sonic energy that deals 24d6 sonic damage to creatures in the area (DC 46 basic Reflex save)."
+                        "text": "The jabberwock creates a blast of strange noises and shouted nonsense in the various languages it knows (and invariably some languages it doesn't know), creating one of two effects. The jabberwock can't Burble again for 1d4 rounds.\n* **Confusion** (aura, emotion, enchantment, mental, primal) 60 feet. Each creature in the emanation must succeed at a DC 46 Will save or become confused for 1d4 rounds.\n* **Sonic Beam** (evocation, primal, sonic) The jabberwock focuses its Burbling into a 60.foot line of sonic energy that deals 24d6 sonic damage to creatures in the area (DC 46 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "dc": 46,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 46 Will save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "basic": true,
+                                "dc": 46,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 46 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "sonic",
+                                "formula": "24d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2506,7 +2534,25 @@
                             }
                         ],
                         "trigger": "The jabberwock Flies or makes a wing Strike",
-                        "effect": "The jabberwock's wings whiffle, creating severe winds within a 30-foot emanation. These winds move outward from the jabberwock, and they persist until the start of the jabberwock's next turn. During this time, flight of any kind in the emanation requires a successful DC 43 Acrobatics check to Maneuver in Flight, and creatures flying toward the jabberwock are moving through greater difficult terrain. Creatures on the ground in the emanation must succeed at a DC 43 Athletics check to approach the jabberwock."
+                        "effect": "The jabberwock's wings whiffle, creating severe winds within a 30-foot emanation. These winds move outward from the jabberwock, and they persist until the start of the jabberwock's next turn. During this time, flight of any kind in the emanation requires a successful DC 43 Acrobatics check to Maneuver in Flight, and creatures flying toward the jabberwock are moving through greater difficult terrain. Creatures on the ground in the emanation must succeed at a DC 43 Athletics check to approach the jabberwock.",
+                        "saving_throw": [
+                            {
+                                "dc": 43,
+                                "subtype": "save_dc",
+                                "text": "DC 43",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 }
             ]

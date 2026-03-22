@@ -762,7 +762,7 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Death Throes",
-                    "text": "When the gold defender is destroyed, it melts into worthless slag. As it melts, it releases a 10-foot radius cloud of fumes and a 10-foot radius puddle of molten metal. Creatures that breathe fumes are exposed to gold defender poison. Creatures that move through the puddle take 10d6 fire damage. The fumes dissipate after 1 round and the puddle cools after 1 minute."
+                    "text": "When the gold defender is destroyed, it melts into worthless slag. As it melts, it releases a 10-foot burst cloud of fumes and a 10-foot burst puddle of molten metal. Creatures that breathe fumes are exposed to gold defender poison. Creatures that move through the puddle take 10d6 fire damage. The fumes dissipate after 1 round and the puddle cools after 1 minute."
                 },
                 {
                     "type": "stat_block_section",
@@ -1122,7 +1122,16 @@
                             "subtype": "action_type",
                             "name": "One Action"
                         },
-                        "text": "The gold defender Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can attempt to bar the way by succeeding at a DC 37 Fortitude save. On a critical success, the resisting creature takes no damage; otherwise, it is damaged as if hit by the defender's fist Strike."
+                        "text": "The gold defender Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can attempt to bar the way by succeeding at a DC 37 Fortitude save. On a critical success, the resisting creature takes no damage; otherwise, it is damaged as if hit by the defender's fist Strike.",
+                        "saving_throw": [
+                            {
+                                "dc": 37,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 37 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1238,7 +1247,42 @@
                         "critical_success": "The creature takes no damage. ",
                         "success": "The creature takes half damage. ",
                         "failure": "The creature takes full damage and catches fire, taking 1d6 persistent fire damage. ",
-                        "critical_failure": "As failure, but the persistent fire damage is 5d6."
+                        "critical_failure": "As failure, but the persistent fire damage is 5d6.",
+                        "saving_throw": [
+                            {
+                                "dc": 31,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 31 Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "14d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

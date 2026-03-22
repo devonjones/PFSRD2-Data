@@ -1189,7 +1189,15 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Animal Kindness",
-                    "text": "Vulnerability Kithangians find kindness to animals revolting. The first time each round that a kithangian sees someone heal or otherwise provide aid to a creature that has the animal trait, the kithangian takes 3d6 mental damage."
+                    "text": "Vulnerability Kithangians find kindness to animals revolting. The first time each round that a kithangian sees someone heal or otherwise provide aid to a creature that has the animal trait, the kithangian takes 3d6 mental damage.",
+                    "damage": [
+                        {
+                            "damage_type": "mental",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1759,7 +1767,15 @@
                         "subtype": "ability",
                         "ability_type": "offensive",
                         "name": "Animal Killer",
-                        "text": "A kithangian's melee Strikes deal an additional 2d6 precision damage to animals."
+                        "text": "A kithangian's melee Strikes deal an additional 2d6 precision damage to animals.",
+                        "damage": [
+                            {
+                                "damage_type": "precision",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2275,7 +2291,31 @@
                         ],
                         "frequency": "once per round",
                         "requirement": "The kithangian has a creature grabbed or restrained in one or both pincers",
-                        "effect": "Barbed tongues slither out of the faces in the kithangian's pincers. The tongues burrow into grabbed creatures and inject their minds with haunting psychic screams. Each grabbed creature takes 2d8 piercing damage and 2d8 mental damage. A creature can try to resist the mental damage by attempting a DC 25 basic Will save."
+                        "effect": "Barbed tongues slither out of the faces in the kithangian's pincers. The tongues burrow into grabbed creatures and inject their minds with haunting psychic screams. Each grabbed creature takes 2d8 piercing damage and 2d8 mental damage. A creature can try to resist the mental damage by attempting a DC 25 basic Will save.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 25,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 25 basic Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "2d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "mental",
+                                "formula": "2d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

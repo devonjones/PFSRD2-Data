@@ -1875,7 +1875,8 @@
                             "text": "This magic comes from the arcane tradition, which is built on logic and rationality. Anything with this trait is magical.  \n  \nA creature with this trait is primarily constituted of or has a strong connection to arcane magic.",
                             "classes": []
                         }
-                    ]
+                    ],
+                    "frequency": "1d4 rounds"
                 },
                 {
                     "type": "stat_block_section",
@@ -2346,7 +2347,14 @@
                                 "aonid": 3259
                             }
                         ],
-                        "text": "The rune dragon's Strikes and abilities can leave a detonating rune on their targets. If a creature would receive a detonating rune while they already have one, instead of adding another rune, their current detonating rune activates, dealing 8d6 damage to the target and expending the rune. The detonating rune's damage type matches the dragon's current Shifting Rune. A creature can use an Interact action to remove the rune. Detonating runes fade after 1 minute if not detonated."
+                        "text": "The rune dragon's Strikes and abilities can leave a detonating rune on their targets. If a creature would receive a detonating rune while they already have one, instead of adding another rune, their current detonating rune activates, dealing 8d6 damage to the target and expending the rune. The detonating rune's damage type matches the dragon's current Shifting Rune. A creature can use an Interact action to remove the rune. Detonating runes fade after 1 minute if not detonated.",
+                        "damage": [
+                            {
+                                "formula": "8d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2456,7 +2464,33 @@
                                 "aonid": 2296
                             }
                         ],
-                        "text": "The rune dragon creates large trapping runes in 3 non-overlapping 15-foot bursts within 60 feet. Creatures other than the dragon that enter a trapped space or end their turn in the trapped space activate the rune, causing it to entangle the creature. The creature must attempt a DC 46 Reflex save or become immobilized for 1 minute or until it Escapes. The rune can only trap a single creature at a time. The rune vanishes either when a creature succeeds against the rune, when a creature successfully Escapes the rune, or after 1 minute. A creature adjacent to the rune can use an Interact action to remove the rune."
+                        "text": "The rune dragon creates large trapping runes in 3 non-overlapping 15-foot bursts within 60 feet. Creatures other than the dragon that enter a trapped space or end their turn in the trapped space activate the rune, causing it to entangle the creature. The creature must attempt a DC 46 Reflex save or become immobilized for 1 minute or until it Escapes. The rune can only trap a single creature at a time. The rune vanishes either when a creature succeeds against the rune, when a creature successfully Escapes the rune, or after 1 minute. A creature adjacent to the rune can use an Interact action to remove the rune.",
+                        "saving_throw": [
+                            {
+                                "dc": 46,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 46 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2528,7 +2562,35 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The dragon launches hundreds of exploding runes that detonate upon impact, dealing 20d6 damage in a 60-foot cone (DC 46 basic Reflex save). The damage type of this ability is determined by Shifting Rune. Creatures that take damage from the breath also gain a detonating rune. The dragon can't use Runic Breath again for 1d4 rounds."
+                        "text": "The dragon launches hundreds of exploding runes that detonate upon impact, dealing 20d6 damage in a 60-foot cone (DC 46 basic Reflex save). The damage type of this ability is determined by Shifting Rune. Creatures that take damage from the breath also gain a detonating rune. The dragon can't use Runic Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 46,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 46 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

@@ -1867,12 +1867,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 44",
-                        "dc": 44
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 44",
+                            "dc": 44
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -3301,7 +3303,26 @@
                             }
                         ],
                         "frequency": "once per hour",
-                        "effect": "The dragon's armor glows with a golden light. The dragon gains a +2 status bonus to AC and resistance 25 to acid, cold, electricity, fire, and sonic damage. Each enemy in a 20-foot emanation must succeed at a DC 46 Fortitude save or be dazzled. All these effects last until the end of the dragon's next turn."
+                        "effect": "The dragon's armor glows with a golden light. The dragon gains a +2 status bonus to AC and resistance 25 to acid, cold, electricity, fire, and sonic damage. Each enemy in a 20-foot emanation must succeed at a DC 46 Fortitude save or be dazzled. All these effects last until the end of the dragon's next turn.",
+                        "saving_throw": [
+                            {
+                                "dc": 46,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 46 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3393,7 +3414,15 @@
                                 }
                             ],
                             "game-id": "7eda7a1859a1181dd920f675cabf85c8"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 46,
+                                "subtype": "save_dc",
+                                "text": "DC 46",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3617,7 +3646,36 @@
                                 "aonid": 64
                             }
                         ],
-                        "text": "The dragon unleashes a roar charged with psychic energy, dealing 24d6 mental damage in a 60-foot cone (DC 46 basic Will save). A creature who fails their save is also confused for 1 round (or controlled by the dragon for 1 round on critical failure). The dragon can't use Sovereign's Rebuke again for 1d4 rounds."
+                        "text": "The dragon unleashes a roar charged with psychic energy, dealing 24d6 mental damage in a 60-foot cone (DC 46 basic Will save). A creature who fails their save is also confused for 1 round (or controlled by the dragon for 1 round on critical failure). The dragon can't use Sovereign's Rebuke again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 46,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 46 basic Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "mental",
+                                "formula": "24d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

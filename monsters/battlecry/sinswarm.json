@@ -606,7 +606,25 @@
                         }
                     ],
                     "trigger": "A creature within a 5-foot emanation of the sinswarm uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using",
-                    "effect": "The sinswarm lashes out at the triggering creature, dealing 2d8+9 piercing or slashing damage (DC 25 basic Reflex save). If the creature critically fails the save and the trigger was a manipulate action, that action is disrupted."
+                    "effect": "The sinswarm lashes out at the triggering creature, dealing 2d8+9 piercing or slashing damage (DC 25 basic Reflex save). If the creature critically fails the save and the trigger was a manipulate action, that action is disrupted.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 25,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 25 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "piercing or slashing",
+                            "formula": "2d8+9",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -713,7 +731,47 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The sinswarm makes a coordinated attack against each enemy in a 5-foot emanation, with a DC 25 basic Reflex save. The damage depends on the number of actions.   \n [#] 1d8+2 piercing or slashing damage   \n [##] 2d8+9 piercing or slashing damage plus sinful bite   \n [###] 3d8+11 piercing or slashing damage plus sinful bite"
+                        "effect": "The sinswarm makes a coordinated attack against each enemy in a 5-foot emanation, with a DC 25 basic Reflex save. The damage depends on the number of actions.   \n [#] 1d8+2 piercing or slashing damage   \n [##] 2d8+9 piercing or slashing damage plus sinful bite   \n [###] 3d8+11 piercing or slashing damage plus sinful bite",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 25,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 25 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing or slashing",
+                                "formula": "1d8+2",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing or slashing",
+                                "formula": "2d8+9",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing or slashing",
+                                "formula": "3d8+11",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -877,7 +935,16 @@
                         "success": "The creature is sickened 1. ",
                         "failure": "The creature is sickened 2. ",
                         "critical_failure": "The creature is sickened 2 and takes one of the following additional effects, chosen by the GM: enfeebled 2 for 1 minute (envy), drained 1 (gluttony), clumsy 2 for 1 minute (greed), stupefied 2 for 1 minute (lust), clumsy 1 and enfeebled 1 for 1 minute (pride), \u201310-foot status penalty to all Speeds for 1 minute (sloth), or drained 1 and enfeebled 1 for 1 minute (wrath).",
-                        "text": "A creature bitten by a sinspawn must attempt a DC 28 Will save as it is assailed by sinful thoughts. The sinswarm can't inflict the same sin effect on multiple targets in the same round until it has inflicted all seven sins at least once. "
+                        "text": "A creature bitten by a sinspawn must attempt a DC 28 Will save as it is assailed by sinful thoughts. The sinswarm can't inflict the same sin effect on multiple targets in the same round until it has inflicted all seven sins at least once. ",
+                        "saving_throw": [
+                            {
+                                "dc": 28,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 28 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

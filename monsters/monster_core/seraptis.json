@@ -1262,6 +1262,14 @@
                             "game-obj": "Conditions",
                             "aonid": 29
                         }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "mental",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
                     ]
                 }
             ]
@@ -2170,7 +2178,32 @@
                             }
                         ],
                         "requirement": "The seraptis has at least one creature grabbed or restrained",
-                        "effect": "The seraptis's arm mouths gnaw on those creatures, dealing each of them 2d6+8 piercing damage with a DC 37 basic Fortitude save. Creatures that fail the save also take 2d6 persistent bleed damage."
+                        "effect": "The seraptis's arm mouths gnaw on those creatures, dealing each of them 2d6+8 piercing damage with a DC 37 basic Fortitude save. Creatures that fail the save also take 2d6 persistent bleed damage.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 37,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 37 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "2d6+8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bleed",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2314,7 +2347,23 @@
                                 "aonid": 521
                             }
                         ],
-                        "text": "The seraptis telepathically explains a plausible secret to a creature within 30 feet. That creature must succeed at a DC 37 Will save or be mentally cut off from those around them for 1 minute (or permanently on a critical failure). The affected creature treats no one as an ally and any speech they hear is warped, encouraging conflict, and negating any linguistic ability from creatures that aren't unholy. Regardless of the results of the saving throw, the creature is immune to Isolating Words for 24 hours."
+                        "text": "The seraptis telepathically explains a plausible secret to a creature within 30 feet. That creature must succeed at a DC 37 Will save or be mentally cut off from those around them for 1 minute (or permanently on a critical failure). The affected creature treats no one as an ally and any speech they hear is warped, encouraging conflict, and negating any linguistic ability from creatures that aren't unholy. Regardless of the results of the saving throw, the creature is immune to Isolating Words for 24 hours.",
+                        "saving_throw": [
+                            {
+                                "dc": 37,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 37 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

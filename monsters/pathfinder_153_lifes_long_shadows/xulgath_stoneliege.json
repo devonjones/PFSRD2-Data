@@ -748,13 +748,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 24 Fortitude",
-                        "dc": 24,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 24 Fortitude",
+                            "dc": 24,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1330,7 +1332,14 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The stoneliege commands nearby earth to attack a foe. The stoneliege makes a claw Strike against a creature that is within 60 feet of the stoneliege and 10 feet of an earthen surface, such as dirt, mud, stone, or sand. The Strike originates from the surface\u2019s square and has a reach of 10 feet. On a critical hit, the target is also knocked prone."
+                        "effect": "The stoneliege commands nearby earth to attack a foe. The stoneliege makes a claw Strike against a creature that is within 60 feet of the stoneliege and 10 feet of an earthen surface, such as dirt, mud, stone, or sand. The Strike originates from the surface\u2019s square and has a reach of 10 feet. On a critical hit, the target is also knocked prone.",
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1427,7 +1436,35 @@
                         ],
                         "frequency": "once per minute",
                         "requirement": "The stoneliege is standing on or next to at least 10 cubic feet of dirt, stone, or other earthen material",
-                        "effect": "The stoneliege creates a violent wave of roiling earth. Creatures in a 15-foot cone take 7d8 bludgeoning damage (DC 26 basic Reflex save; on a critical failure, creatures are also knocked prone)."
+                        "effect": "The stoneliege creates a violent wave of roiling earth. Creatures in a 15-foot cone take 7d8 bludgeoning damage (DC 26 basic Reflex save; on a critical failure, creatures are also knocked prone).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 26,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 26 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "7d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1543,7 +1580,15 @@
                                 "aonid": 79
                             }
                         ],
-                        "text": "The stoneliege turns their own body into solid stone like a statue and immediately becomes petrified. Any creature grappled or restrained by the stoneliege becomes immobilized; to get free, the creature must damage the statue enough to break it or succeed at a DC 28 Acrobatics check to Escape."
+                        "text": "The stoneliege turns their own body into solid stone like a statue and immediately becomes petrified. Any creature grappled or restrained by the stoneliege becomes immobilized; to get free, the creature must damage the statue enough to break it or succeed at a DC 28 Acrobatics check to Escape.",
+                        "saving_throw": [
+                            {
+                                "dc": 28,
+                                "subtype": "save_dc",
+                                "text": "DC 28",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

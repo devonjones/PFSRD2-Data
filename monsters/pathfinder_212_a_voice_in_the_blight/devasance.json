@@ -862,13 +862,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 34 Will",
-                        "dc": 34,
-                        "save_type": "Will"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 34 Will",
+                            "dc": 34,
+                            "save_type": "Will"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1327,7 +1329,16 @@
                         "success": "The target takes on the appearance of a rotted or nearly skeletal undead version of itself and becomes drained 1 for 1 round. If the target assumes another shape through a polymorph effect, it continues to look undead in its new shape. This change in appearance persists for 10 minutes.",
                         "failure": "As success, but with an unlimited duration. Healing effects on the target restore only half the Hit Points they normally would.",
                         "critical_failure": "As failure, but drained 2. If a living creature dies while under the effects of this curse, their soul is transformed into a devasance upon death. The creature cannot be restored to life, nor can its soul move on to the afterlife, until it is slain again as a devasance.",
-                        "text": "A creature hit by the devasance's void hand strike must attempt a DC 37 Fortitude save."
+                        "text": "A creature hit by the devasance's void hand strike must attempt a DC 37 Fortitude save.",
+                        "saving_throw": [
+                            {
+                                "dc": 37,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 37 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1444,7 +1455,35 @@
                                 "aonid": 71
                             }
                         ],
-                        "text": "The devasance emits a ray of void energy from its chest in a 60-foot line. Living creatures in this area take 7d6 void damage (DC 37 basic Fortitude save, plus enfeebled 1 on a failure, or enfeebled 2 on a critical failure; the condition has an unlimited duration in either case)."
+                        "text": "The devasance emits a ray of void energy from its chest in a 60-foot line. Living creatures in this area take 7d6 void damage (DC 37 basic Fortitude save, plus enfeebled 1 on a failure, or enfeebled 2 on a critical failure; the condition has an unlimited duration in either case).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 37,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 37 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "7d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

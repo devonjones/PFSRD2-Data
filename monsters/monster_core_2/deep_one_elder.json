@@ -833,12 +833,14 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 31",
-                        "dc": 31
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 31",
+                            "dc": 31
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1652,7 +1654,16 @@
                                 "aonid": 93
                             }
                         ],
-                        "text": "A deep one elder's claw Strikes ignore the first 10 Hardness of an object. Additionally, on a critical hit, the target must succeed at a DC 34 Fortitude save or be stunned 2."
+                        "text": "A deep one elder's claw Strikes ignore the first 10 Hardness of an object. Additionally, on a critical hit, the target must succeed at a DC 34 Fortitude save or be stunned 2.",
+                        "saving_throw": [
+                            {
+                                "dc": 34,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 34 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1737,7 +1748,15 @@
                                 }
                             ],
                             "game-id": "5cbb67fac546dfc69b9b73a06732a040"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 31,
+                                "subtype": "save_dc",
+                                "text": "DC 31",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1981,7 +2000,48 @@
                         "critical_success": "The creature is unaffected.  \n The creature takes double damage, is knocked prone, and takes a \u201310-foot circumstance penalty to their Speeds while in the void.",
                         "success": "The creature takes half damage and a \u20135-foot circumstance penalty to their Speeds while in the void.",
                         "failure": "The creature takes full damage and a \u201310-foot circumstance penalty to their Speeds while in the void.",
-                        "text": "The deep one elder makes an endless void of water appear in a 20-foot burst within 60 feet, dragging creatures down into its whirlpool. If cast underwater, the watery void fills a 60-foot-tall cylinder with a 20-foot radius. Creatures in the area when the void appears and creatures that end their turn in the area take 3d8 bludgeoning damage and 3d8 void damage and must attempt a DC 31 Reflex save. The void remains until the end of the deep one elder's next turn. The deep one elder can Sustain the void to extend the duration by 1 round, up to a total of 4 rounds, and can move the void up to 15 feet. Once the effect ends, the elder can't use Watery Void again for 1d4 rounds. "
+                        "text": "The deep one elder makes an endless void of water appear in a 20-foot burst within 60 feet, dragging creatures down into its whirlpool. If cast underwater, the watery void fills a 60-foot-tall cylinder with a 20-foot radius. Creatures in the area when the void appears and creatures that end their turn in the area take 3d8 bludgeoning damage and 3d8 void damage and must attempt a DC 31 Reflex save. The void remains until the end of the deep one elder's next turn. The deep one elder can Sustain the void to extend the duration by 1 round, up to a total of 4 rounds, and can move the void up to 15 feet. Once the effect ends, the elder can't use Watery Void again for 1d4 rounds. ",
+                        "saving_throw": [
+                            {
+                                "dc": 31,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 31 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "3d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "void",
+                                "formula": "3d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        },
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

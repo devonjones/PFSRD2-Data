@@ -1098,12 +1098,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 38",
-                        "dc": 38
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 38",
+                            "dc": 38
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1397,7 +1399,14 @@
                             "text": "Teleportation effects instantaneously move something from one point in space to another. Teleportation does not usually trigger reactions based on movement.",
                             "classes": []
                         }
-                    ]
+                    ],
+                    "range": {
+                        "range": 60,
+                        "subtype": "range",
+                        "text": "within 60 feet",
+                        "type": "stat_block_section",
+                        "unit": "feet"
+                    }
                 }
             ]
         },
@@ -1774,7 +1783,72 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The thruneosaurus channels sulfurous hellfire in one of three ways. The thruneosaurus chooses the effect, but it can't make the same choice in two consecutive rounds. \n* **Blistering Sun** (divine, fire, unholy); The thruneosaurus ignites an orb of hellfire between its horns that radiates heat in a 30-foot emanation, dealing 2d8 persistent fire damage.\n* **Choking Fumes** (divine, poison, unholy); The thruneosaurus exhales a 60-foot cone of sulfurous smoke that deals 6d8 poison damage (DC 38 basic Fortitude save). Creatures that fail their saves are sickened 2.\n* **Fiery Beam** (divine, fire, unholy); A 120-foot line of hellish flame erupts from the thruneosaurus's eyes, dealing 6d10 fire damage (DC 38 basic Reflex save)."
+                        "text": "The thruneosaurus channels sulfurous hellfire in one of three ways. The thruneosaurus chooses the effect, but it can't make the same choice in two consecutive rounds. \n* **Blistering Sun** (divine, fire, unholy); The thruneosaurus ignites an orb of hellfire between its horns that radiates heat in a 30-foot emanation, dealing 2d8 persistent fire damage.\n* **Choking Fumes** (divine, poison, unholy); The thruneosaurus exhales a 60-foot cone of sulfurous smoke that deals 6d8 poison damage (DC 38 basic Fortitude save). Creatures that fail their saves are sickened 2.\n* **Fiery Beam** (divine, fire, unholy); A 120-foot line of hellish flame erupts from the thruneosaurus's eyes, dealing 6d10 fire damage (DC 38 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 38,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 38 basic Fortitude save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "basic": true,
+                                "dc": 38,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 38 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "line",
+                                "size": 120,
+                                "subtype": "area",
+                                "text": "120-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d8",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "poison",
+                                "formula": "6d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "6d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

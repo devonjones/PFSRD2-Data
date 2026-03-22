@@ -1476,12 +1476,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 42",
-                        "dc": 42
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 42",
+                            "dc": 42
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1644,14 +1646,16 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 41 basic Reflex",
-                        "dc": 41,
-                        "save_type": "Ref",
-                        "result": "basic"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 41 basic Reflex",
+                            "dc": 41,
+                            "save_type": "Ref",
+                            "result": "basic"
+                        }
+                    ],
                     "damage": [
                         {
                             "type": "stat_block_section",
@@ -1829,7 +1833,14 @@
                             "text": "Effects and magic items with this trait are associated with the necromancy school of magic, typically involving forces of life and death.",
                             "classes": []
                         }
-                    ]
+                    ],
+                    "range": {
+                        "range": 1,
+                        "subtype": "range",
+                        "text": "within 1 mile",
+                        "type": "stat_block_section",
+                        "unit": "miles"
+                    }
                 },
                 {
                     "type": "stat_block_section",
@@ -2944,7 +2955,16 @@
                         "critical_success": "The creature is unaffected.",
                         "success": "The ravener tears off a small chunk of the creature\u2019s soul. If the victim is restored to life, they are drained 1 in addition to any other side effects of returning to life. The ravener adds a number of Hit Points to their soul ward equal to half the creature\u2019s level.",
                         "failure": "As success, but the creature\u2019s soul is ravaged. The creature is drained 3 and the ravener adds a number of Hit Points to their soul ward equal to the creature\u2019s level.",
-                        "critical_failure": "As failure, but the ravener devours the entire soul. The victim can\u2019t be restored to life as long as the ravener exists except via a 10th-level effect such as *miracle* or *wish*, and the ravener adds a number of Hit Points to their soul ward equal to twice the creature\u2019s level."
+                        "critical_failure": "As failure, but the ravener devours the entire soul. The victim can\u2019t be restored to life as long as the ravener exists except via a 10th-level effect such as *miracle* or *wish*, and the ravener adds a number of Hit Points to their soul ward equal to twice the creature\u2019s level.",
+                        "saving_throw": [
+                            {
+                                "dc": 44,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 44 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3091,7 +3111,14 @@
                                 "aonid": 371
                             }
                         ],
-                        "text": "The ravener attempts to take control of a magical fire or a fire spell within 100 feet. If it succeeds at a counteract check (counteract level 10, counteract modifier +34), the original caster loses control of the spell or magical fire, control is transferred to the ravener, and this action counts as the ravener having Sustained the Spell with the action (if applicable). The ravener can choose to end the spell instead of taking control, if they choose."
+                        "text": "The ravener attempts to take control of a magical fire or a fire spell within 100 feet. If it succeeds at a counteract check (counteract level 10, counteract modifier +34), the original caster loses control of the spell or magical fire, control is transferred to the ravener, and this action counts as the ravener having Sustained the Spell with the action (if applicable). The ravener can choose to end the spell instead of taking control, if they choose.",
+                        "range": {
+                            "range": 100,
+                            "subtype": "range",
+                            "text": "within 100 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -3238,7 +3265,33 @@
                                 "aonid": 10
                             }
                         ],
-                        "text": "The ravener breathes a blast of flame that deals 20d6 fire damage plus 4d6 persistent negative damage (DC 44 basic Reflex save). A creature that fails its save is also drained 1 (or drained 2 on a critical failure). If a creature is drained by the ravener's Ravenous Breath Weapon, the ravener's soul ward gains 5 HP. The ravener can't use Breath Weapon again for 1d4 rounds."
+                        "text": "The ravener breathes a blast of flame that deals 20d6 fire damage plus 4d6 persistent negative damage (DC 44 basic Reflex save). A creature that fails its save is also drained 1 (or drained 2 on a critical failure). If a creature is drained by the ravener's Ravenous Breath Weapon, the ravener's soul ward gains 5 HP. The ravener can't use Breath Weapon again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 44,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 44 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "negative",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

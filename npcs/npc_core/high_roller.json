@@ -1440,7 +1440,15 @@
                             "name": "One Action"
                         },
                         "requirement": "The high roller's last action was a critical success",
-                        "effect": "The high roller either Strides twice or attempts a Strike that deals an additional 4d6 precision damage and deals half damage on a failure (but not a critical failure)."
+                        "effect": "The high roller either Strides twice or attempts a Strike that deals an additional 4d6 precision damage and deals half damage on a failure (but not a critical failure).",
+                        "damage": [
+                            {
+                                "damage_type": "precision",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1469,7 +1477,35 @@
                         ],
                         "frequency": "once per hour",
                         "requirement": "The high roller has at least 16 cards in one hand",
-                        "effect": "The high roller unleashes the cards in a 30-foot cone, dealing 16d4 slashing damage to all creatures in the area with a DC 30 basic Reflex save. This ability expends the full deck of cards held."
+                        "effect": "The high roller unleashes the cards in a 30-foot cone, dealing 16d4 slashing damage to all creatures in the area with a DC 30 basic Reflex save. This ability expends the full deck of cards held.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "16d4",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

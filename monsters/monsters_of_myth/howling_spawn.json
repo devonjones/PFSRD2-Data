@@ -760,12 +760,14 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 27",
-                        "dc": 27
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 27",
+                            "dc": 27
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1434,7 +1436,16 @@
                                 "aonid": 28
                             }
                         ],
-                        "text": "The howling spawn's saliva is a potent paralytic substance that drains the energy from its prey. A creature hit by its spit Strike must succeed at a DC 30 Fortitude save or become drained 1 as well as paralyzed for 1 round. If the target was already drained, it instead increases the condition's value by 1, to a maximum of drained 4."
+                        "text": "The howling spawn's saliva is a potent paralytic substance that drains the energy from its prey. A creature hit by its spit Strike must succeed at a DC 30 Fortitude save or become drained 1 as well as paralyzed for 1 round. If the target was already drained, it instead increases the condition's value by 1, to a maximum of drained 4.",
+                        "saving_throw": [
+                            {
+                                "dc": 30,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 30 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1469,7 +1480,25 @@
                             }
                         ],
                         "requirement": "The howling spawn has a creature grabbed",
-                        "effect": "The howling spawn begins to consume the creature, dealing 2d12+5 piercing damage (DC 30 basic Fortitude save) and exposing the creature to its paralytic secretion."
+                        "effect": "The howling spawn begins to consume the creature, dealing 2d12+5 piercing damage (DC 30 basic Fortitude save) and exposing the creature to its paralytic secretion.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "2d12+5",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

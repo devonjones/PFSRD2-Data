@@ -820,13 +820,15 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 42 Will",
-                        "dc": 42,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 42 Will",
+                            "dc": 42,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1574,7 +1576,24 @@
                         "success": "The target takes half damage and becomes drained 1.",
                         "failure": "The target takes full damage and is drained 2. If it was already drained, its drained condition value increases by 1 to a maximum of drained 4.",
                         "critical_failure": "As failure, but double damage and the target becomes doomed 1.",
-                        "text": "The spawn extends feeding stalks to drain the spirit and life from an adjacent restrained or helpless creature. The target takes 10d6 spirit damage and must attempt a DC 45 Will save. If the damage from Drain Soul reduces a creature to 0 Hit Points, that creature dies instantly."
+                        "text": "The spawn extends feeding stalks to drain the spirit and life from an adjacent restrained or helpless creature. The target takes 10d6 spirit damage and must attempt a DC 45 Will save. If the damage from Drain Soul reduces a creature to 0 Hit Points, that creature dies instantly.",
+                        "saving_throw": [
+                            {
+                                "dc": 45,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 45 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "spirit",
+                                "formula": "10d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

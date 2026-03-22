@@ -1088,12 +1088,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 31",
-                        "dc": 31
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 31",
+                            "dc": 31
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1574,7 +1576,35 @@
                                 "aonid": 300
                             }
                         ],
-                        "text": "Heat scorches those who lay eyes on the nightmarchers. All creatures in a 60-foot cone take 15d6 fire damage (DC 34 basic Reflex save). Prone creatures and the nightmarchers' kin are unaffected as long as they have not taken a hostile action against the nightmarchers. The nightmarchers can't use Blazing Admonition for 1d4 rounds."
+                        "text": "Heat scorches those who lay eyes on the nightmarchers. All creatures in a 60-foot cone take 15d6 fire damage (DC 34 basic Reflex save). Prone creatures and the nightmarchers' kin are unaffected as long as they have not taken a hostile action against the nightmarchers. The nightmarchers can't use Blazing Admonition for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "15d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1664,7 +1694,56 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The nightmarchers fling a hail of spears and stones, dealing 5d6+9 bludgeoning or piercing damage to creatures in a 10-foot burst within 20 feet (DC 31 basic Reflex save). When the nightmarchers are reduced to 8 or fewer squares, this decreases to a 5-foot burst."
+                        "text": "The nightmarchers fling a hail of spears and stones, dealing 5d6+9 bludgeoning or piercing damage to creatures in a 10-foot burst within 20 feet (DC 31 basic Reflex save). When the nightmarchers are reduced to 8 or fewer squares, this decreases to a 5-foot burst.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 31,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 31 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "burst",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "5d6+9",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "5d6+9",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 20,
+                            "subtype": "range",
+                            "text": "within 20 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1692,7 +1771,44 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The troop attacks with spears, clubs, and leiomano against enemies within 5 feet (DC 33 basic Reflex save) for their choice of bludgeoning, piercing, or slashing damage depending on the number of actions.   \n [#] 2d6+2 slashing damage   \n [##] 4d6+12 slashing damage   \n [###] 6d6+12 slashing damage"
+                        "effect": "The troop attacks with spears, clubs, and leiomano against enemies within 5 feet (DC 33 basic Reflex save) for their choice of bludgeoning, piercing, or slashing damage depending on the number of actions.   \n [#] 2d6+2 slashing damage   \n [##] 4d6+12 slashing damage   \n [###] 6d6+12 slashing damage",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "2d6+2",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "4d6+12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "6d6+12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 5,
+                            "subtype": "range",
+                            "text": "within 5 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {

@@ -1350,12 +1350,14 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 39",
-                        "dc": 39
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 39",
+                            "dc": 39
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1560,7 +1562,15 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Lightning Drinker",
-                    "text": "Whenever a yamaraj would take electricity damage if not for its immunity, its fast healing increases to 40 on its next turn. During that turn, if it uses Beetle Breath, the beetles deal 2d12 additional electricity damage."
+                    "text": "Whenever a yamaraj would take electricity damage if not for its immunity, its fast healing increases to 40 on its next turn. During that turn, if it uses Beetle Breath, the beetles deal 2d12 additional electricity damage.",
+                    "damage": [
+                        {
+                            "damage_type": "electricity",
+                            "formula": "2d12",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2410,7 +2420,42 @@
                         "success": "The creature takes half damage and is sickened 1.",
                         "failure": "The creature takes full damage and is sickened 2.",
                         "critical_failure": "The creature takes double damage and is sickened 3.",
-                        "text": "The yamaraj breathes a blast of beetles in a 50-foot cone that deals 14d8 slashing damage and 4d8 persistent slashing damage to creatures in the area with a DC 42 Reflex save. It can't use Beetle Breath again for 1d4 rounds."
+                        "text": "The yamaraj breathes a blast of beetles in a 50-foot cone that deals 14d8 slashing damage and 4d8 persistent slashing damage to creatures in the area with a DC 42 Reflex save. It can't use Beetle Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "dc": 42,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 42 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 50,
+                                "subtype": "area",
+                                "text": "50-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "14d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "4d8",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2461,7 +2506,21 @@
                                 "aonid": 2840
                             }
                         ],
-                        "text": "A yamaraj's Strikes have the benefit of a *ghost touch* property rune and deal an additional 3d6 void damage to living creatures or 3d6 vitality damage to undead."
+                        "text": "A yamaraj's Strikes have the benefit of a *ghost touch* property rune and deal an additional 3d6 void damage to living creatures or 3d6 vitality damage to undead.",
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "vitality",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

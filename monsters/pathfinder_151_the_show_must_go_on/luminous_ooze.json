@@ -564,13 +564,15 @@
                         "range": 5,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 21 Fortitude",
-                        "dc": 21,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 21 Fortitude",
+                            "dc": 21,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -593,7 +595,15 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Lightning Catcher",
-                    "text": "Whenever the luminous ooze\u2019s electricity immunity prevents it from taking damage, it gains 8 temporary HP. Until the end of its next turn, the luminous ooze\u2019s pseudopod Strike deals an additional 1d6 points of electricity damage."
+                    "text": "Whenever the luminous ooze\u2019s electricity immunity prevents it from taking damage, it gains 8 temporary HP. Until the end of its next turn, the luminous ooze\u2019s pseudopod Strike deals an additional 1d6 points of electricity damage.",
+                    "damage": [
+                        {
+                            "damage_type": "electricity",
+                            "formula": "1d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -788,7 +798,26 @@
                         "success": "The creature is dazzled until the end of its next turn.",
                         "failure": "The creature is blinded until the end of its next turn.",
                         "critical_failure": "The creature is blinded for 1 minute.",
-                        "text": "The ooze glows with blinding brightness. All creatures within a 30-foot emanation must attempt a DC 21 Fortitude save."
+                        "text": "The ooze glows with blinding brightness. All creatures within a 30-foot emanation must attempt a DC 21 Fortitude save.",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 }
             ]

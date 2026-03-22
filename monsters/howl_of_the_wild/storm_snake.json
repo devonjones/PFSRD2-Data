@@ -486,7 +486,25 @@
                         }
                     ],
                     "trigger": "A creature touches the storm snake or damages it with an unarmed melee attack or non-reach melee weapon",
-                    "effect": "The triggering enemy is shocked for 2d8 electricity damage (DC 19 basic Fortitude save). On a failed save, the target is stunned 1."
+                    "effect": "The triggering enemy is shocked for 2d8 electricity damage (DC 19 basic Fortitude save). On a failed save, the target is stunned 1.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 19,
+                            "save_type": "Fort",
+                            "subtype": "save_dc",
+                            "text": "DC 19 basic Fortitude save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "electricity",
+                            "formula": "2d8",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -593,7 +611,32 @@
                                 "aonid": 65
                             }
                         ],
-                        "text": "The storm snake redirects the lightning it has absorbed from storms, dealing 2d10 electricity damage to a single target within 20 feet (DC 19 basic Reflex save). On a failure, the target is dazzled until the end of its next turn."
+                        "text": "The storm snake redirects the lightning it has absorbed from storms, dealing 2d10 electricity damage to a single target within 20 feet (DC 19 basic Reflex save). On a failure, the target is dazzled until the end of its next turn.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 19,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 19 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "2d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 20,
+                            "subtype": "range",
+                            "text": "within 20 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -627,7 +670,35 @@
                                 "aonid": 453
                             }
                         ],
-                        "text": "The storm snake gathers all static electricity in the area before releasing it in a 30-foot emanation that deals 3d12 electricity damage to all non-plant creatures (DC 19 Reflex save) and grants plant creatures 5 temporary Hit Points that last for 1 minute. Plant life in the area begins to grow significantly faster than the average for plants of their genus; in forests, fields, or otherwise floral locations, this immediately transforms the area into nonmagical difficult terrain. The storm snake can't use Static field again for 1d4 rounds."
+                        "text": "The storm snake gathers all static electricity in the area before releasing it in a 30-foot emanation that deals 3d12 electricity damage to all non-plant creatures (DC 19 Reflex save) and grants plant creatures 5 temporary Hit Points that last for 1 minute. Plant life in the area begins to grow significantly faster than the average for plants of their genus; in forests, fields, or otherwise floral locations, this immediately transforms the area into nonmagical difficult terrain. The storm snake can't use Static field again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "dc": 19,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 19 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "3d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

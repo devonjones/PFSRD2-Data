@@ -1796,12 +1796,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 44",
-                        "dc": 44
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 44",
+                            "dc": 44
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2110,7 +2112,14 @@
                             "text": "This magic comes from the divine tradition, drawing power from deities or similar sources. Anything with this trait is magical.  \n  \nA creature with this trait is primarily constituted of or has a strong connection to divine magic.",
                             "classes": []
                         }
-                    ]
+                    ],
+                    "range": {
+                        "range": 120,
+                        "subtype": "range",
+                        "text": "within 120 feet",
+                        "type": "stat_block_section",
+                        "unit": "feet"
+                    }
                 }
             ]
         },
@@ -2758,7 +2767,27 @@
                         "success": "The creature becomes doomed 1. ",
                         "failure": "The creature becomes doomed 2 and takes 100 void damage.",
                         "critical_failure": "The creature is slain. As long as the elder wyrmwraith still exists, the slain creature can't be returned to life through any means.",
-                        "text": "The elder wyrmwraith inhales sharply, sucking in the souls of nearby creatures. Each creature in a 60-foot cone must attempt a DC 46 Will save. The elder wyrmwraith can't Consume Souls again for 1d4 rounds."
+                        "text": "The elder wyrmwraith inhales sharply, sucking in the souls of nearby creatures. Each creature in a 60-foot cone must attempt a DC 46 Will save. The elder wyrmwraith can't Consume Souls again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "dc": 46,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 46 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2875,7 +2904,36 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The wyrmwraith unleashes a torrent of void energy that deals 24d6 void damage to all creatures in a 90-foot cone (DC 46 basic Reflex save). They can't use Decaying Breath again for 1d4 rounds."
+                        "text": "The wyrmwraith unleashes a torrent of void energy that deals 24d6 void damage to all creatures in a 90-foot cone (DC 46 basic Reflex save). They can't use Decaying Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 46,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 46 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 90,
+                                "subtype": "area",
+                                "text": "90-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "24d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -3145,7 +3203,8 @@
                                 "aonid": 86
                             }
                         ],
-                        "text": "A wyrmwraith can push through the ectoplasmic veil to temporarily assume a physical form made of ectoplasm. The wyrmwraith loses the incorporeal trait for 1d4 rounds, though they can return to their incorporeal form as a free action before then. Once this ability ends, the wyrmwraith can't use this ability again for 1d4 rounds. While in their ectoplasmic form, the wyrmwraith's AC increases to 52 and they gain 125 temporary Hit Points. They lose their immunity to precision and bleed damage and all their resistances. Their jaws and claw Strikes deal piercing and slashing damage, respectively, instead of void damage."
+                        "text": "A wyrmwraith can push through the ectoplasmic veil to temporarily assume a physical form made of ectoplasm. The wyrmwraith loses the incorporeal trait for 1d4 rounds, though they can return to their incorporeal form as a free action before then. Once this ability ends, the wyrmwraith can't use this ability again for 1d4 rounds. While in their ectoplasmic form, the wyrmwraith's AC increases to 52 and they gain 125 temporary Hit Points. They lose their immunity to precision and bleed damage and all their resistances. Their jaws and claw Strikes deal piercing and slashing damage, respectively, instead of void damage.",
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -3586,7 +3645,17 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The wyrmwraith spreads its spectral wings wide covering all near it in shadow. Each living creature within a 10-foot emanation is exposed to void's embrace."
+                        "effect": "The wyrmwraith spreads its spectral wings wide covering all near it in shadow. Each living creature within a 10-foot emanation is exposed to void's embrace.",
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 }
             ]

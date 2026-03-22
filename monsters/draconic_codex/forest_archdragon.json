@@ -1982,12 +1982,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 45",
-                        "dc": 45
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 45",
+                            "dc": 45
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -3084,7 +3086,15 @@
                                 }
                             ],
                             "game-id": "7eda7a1859a1181dd920f675cabf85c8"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 45,
+                                "subtype": "save_dc",
+                                "text": "DC 45",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3170,7 +3180,43 @@
                                 "aonid": 86
                             }
                         ],
-                        "text": "The dragon unleashes a swarm of insects that deals 20d6 piercing damage 4d6 persistent poison in a 60-foot cone (DC 45 basic Reflex save) before dispersing. A creature that critically fails takes 1d6 persistent poison damage. The dragon can't use Azure Swarm Breath again for 1d4 rounds."
+                        "text": "The dragon unleashes a swarm of insects that deals 20d6 piercing damage 4d6 persistent poison in a 60-foot cone (DC 45 basic Reflex save) before dispersing. A creature that critically fails takes 1d6 persistent poison damage. The dragon can't use Azure Swarm Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 45,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 45 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "poison",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -3385,7 +3431,35 @@
                             }
                         ],
                         "frequency": "once per day",
-                        "effect": "The dragon draws moisture from the living creatures surrounding them to heal their own wounds. Each living creature in a 30-foot emanation takes 12d10 void damage (DC 45 basic Fortitude save). Creatures made entirely of water and plant creatures use the outcome one degree of success worse than they rolled. The dragon regains Hit Points equal to half of the highest damage a single creature takes from this effect. All non-creature plant life in the area withers and dies, eliminating non-magical undergrowth and any associated difficult terrain, cover, and concealment."
+                        "effect": "The dragon draws moisture from the living creatures surrounding them to heal their own wounds. Each living creature in a 30-foot emanation takes 12d10 void damage (DC 45 basic Fortitude save). Creatures made entirely of water and plant creatures use the outcome one degree of success worse than they rolled. The dragon regains Hit Points equal to half of the highest damage a single creature takes from this effect. All non-creature plant life in the area withers and dies, eliminating non-magical undergrowth and any associated difficult terrain, cover, and concealment.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 45,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 45 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "12d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3524,7 +3598,16 @@
                                 "aonid": 1645
                             }
                         ],
-                        "text": "When a creature made of flesh is reduced to 0 Hit Points by the dragon's jaws Strike, that creature must attempt a DC 45 Fortitude save. If it fails, it dies, and its flesh, made of earth in a metaphysical sense, turns to wood. The wood is living and might grow into a tree over time, but it can't be used as a body or piece of a body for *raise dead* or other magic that would return the creature to life."
+                        "text": "When a creature made of flesh is reduced to 0 Hit Points by the dragon's jaws Strike, that creature must attempt a DC 45 Fortitude save. If it fails, it dies, and its flesh, made of earth in a metaphysical sense, turns to wood. The wood is living and might grow into a tree over time, but it can't be used as a body or piece of a body for *raise dead* or other magic that would return the creature to life.",
+                        "saving_throw": [
+                            {
+                                "dc": 45,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 45 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3611,7 +3694,14 @@
                             }
                         ],
                         "frequency": "once per day",
-                        "effect": "The dragon can cure most ailments. The dragon attempts to a Nature check to counteract a disease or poison afflicting a creature within 30 feet."
+                        "effect": "The dragon can cure most ailments. The dragon attempts to a Nature check to counteract a disease or poison afflicting a creature within 30 feet.",
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {

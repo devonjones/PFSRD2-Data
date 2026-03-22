@@ -1229,12 +1229,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 36",
-                        "dc": 36
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 36",
+                            "dc": 36
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1461,7 +1463,25 @@
                         }
                     ],
                     "trigger": "A creature the brine dragon observes within 30 feet uses a concentrate action",
-                    "effect": "The dragon spits a glob of caustic salt water at the creature. The creature takes 7d6 acid damage (DC 36 basic Reflex save). On a failure, the concentrate action is disrupted."
+                    "effect": "The dragon spits a glob of caustic salt water at the creature. The creature takes 7d6 acid damage (DC 36 basic Reflex save). On a failure, the concentrate action is disrupted.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 36,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 36 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "acid",
+                            "formula": "7d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2411,7 +2431,36 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The dragon breathes a spray of acidic salt water that deals 18d6 acid damage in a 120-foot line (DC 38 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds."
+                        "text": "The dragon breathes a spray of acidic salt water that deals 18d6 acid damage in a 120-foot line (DC 38 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 38,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 38 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 120,
+                                "subtype": "area",
+                                "text": "120-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "18d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2517,7 +2566,16 @@
                                 "aonid": 34
                             }
                         ],
-                        "text": "The dragon makes a jaws Strike. On a hit, the target takes 6d6 persistent acid damage, and is sickened 3 from the pain of salt and brine in its wounds."
+                        "text": "The dragon makes a jaws Strike. On a hit, the target takes 6d6 persistent acid damage, and is sickened 3 from the pain of salt and brine in its wounds.",
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "6d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2608,7 +2666,16 @@
                                 "aonid": 36
                             }
                         ],
-                        "text": "The brine dragon's body is encrusted with salty, acidic crystals. When a target takes damage from one of the dragon's melee Strikes, it must succeed at a DC 38 Fortitude Save or be stunned 1 (stunned 3 on a critical failure). The target then becomes temporarily immune for 1 minute."
+                        "text": "The brine dragon's body is encrusted with salty, acidic crystals. When a target takes damage from one of the dragon's melee Strikes, it must succeed at a DC 38 Fortitude Save or be stunned 1 (stunned 3 on a critical failure). The target then becomes temporarily immune for 1 minute.",
+                        "saving_throw": [
+                            {
+                                "dc": 38,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 38 Fortitude Save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

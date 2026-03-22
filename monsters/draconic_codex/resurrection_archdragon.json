@@ -1880,7 +1880,8 @@
                             "game-obj": "Spells",
                             "aonid": 1578
                         }
-                    ]
+                    ],
+                    "frequency": "once per turn"
                 },
                 {
                     "type": "stat_block_section",
@@ -2975,7 +2976,26 @@
                         "success": "The creature is frightened 2. ",
                         "failure": "The creature is frightened 3. A living creature can't reduce its frightened condition below 1 if it ends its turn within 15 feet of the archdragon or an undead creature. An undead creature can't reduce its frightened condition below 1 if it ends its turn within 15 feet of the archdragon or a living creature.",
                         "critical_failure": "As failure, but frightened 4.",
-                        "text": "The archdragon imposes the fear of death onto the living and fear of the living onto the undead. Each creature within a 120-foot emanation must attempt a DC 46 Will save. "
+                        "text": "The archdragon imposes the fear of death onto the living and fear of the living onto the undead. Each creature within a 120-foot emanation must attempt a DC 46 Will save. ",
+                        "saving_throw": [
+                            {
+                                "dc": 46,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 46 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 120,
+                                "subtype": "area",
+                                "text": "120-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3099,7 +3119,42 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The dragon siphons energy into an undead creature, a dying creature, or a corpse they can see within 60 feet. The dragon moves the target creature 30 feet and causes it to unleash a wave of void energy in a 10-foot emanation, dealing 8d8 void damage (DC 43 basic Reflex save)."
+                        "text": "The dragon siphons energy into an undead creature, a dying creature, or a corpse they can see within 60 feet. The dragon moves the target creature 30 feet and causes it to unleash a wave of void energy in a 10-foot emanation, dealing 8d8 void damage (DC 43 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 43,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 43 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "8d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -3223,7 +3278,36 @@
                                 "aonid": 62
                             }
                         ],
-                        "text": "The archdragon unleashes a torrent of divine energy dealing 22d6 void damage in a 60-foot cone (DC 46 basic Fortitude save) that draws the life force from the creatures within. The dragon gains fast healing 20 until their Soul Siphoning Breath recharges. The resurrection dragon can't use Soul Siphoning Breath again for 1d4 rounds."
+                        "text": "The archdragon unleashes a torrent of divine energy dealing 22d6 void damage in a 60-foot cone (DC 46 basic Fortitude save) that draws the life force from the creatures within. The dragon gains fast healing 20 until their Soul Siphoning Breath recharges. The resurrection dragon can't use Soul Siphoning Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 46,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 46 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "22d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

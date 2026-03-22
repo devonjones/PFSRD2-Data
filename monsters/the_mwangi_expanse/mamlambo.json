@@ -804,13 +804,15 @@
                     "range": 30,
                     "unit": "feet"
                 },
-                "saving_throw": {
-                    "type": "stat_block_section",
-                    "subtype": "save_dc",
-                    "text": "DC 23 Will",
-                    "dc": 23,
-                    "save_type": "Will"
-                }
+                "saving_throw": [
+                    {
+                        "type": "stat_block_section",
+                        "subtype": "save_dc",
+                        "text": "DC 23 Will",
+                        "dc": 23,
+                        "save_type": "Will"
+                    }
+                ]
             }
         ],
         "defense": {
@@ -1286,7 +1288,39 @@
                             }
                         ],
                         "requirement": "The mamlambo has a creature grabbed or restrained, or there is a dying, immobilized, or unconscious creature within the mamlambo's reach",
-                        "effect": "The mamlambo deals 2d8+11 piercing damage to the creature (DC 28 basic Fortitude save). On a failure, the creature also takes an additional 2d6 persistent bleed damage, or 4d6 persistent bleed damage on a critical failure."
+                        "effect": "The mamlambo deals 2d8+11 piercing damage to the creature (DC 28 basic Fortitude save). On a failure, the creature also takes an additional 2d6 persistent bleed damage, or 4d6 persistent bleed damage on a critical failure.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 28,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 28 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "2d8+11",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bleed",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bleed",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

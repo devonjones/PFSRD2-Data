@@ -1999,12 +1999,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 30",
-                        "dc": 30
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 30",
+                            "dc": 30
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2215,7 +2217,16 @@
                         "name": "Reaction"
                     },
                     "trigger": "The dragon is critically hit with a weapon or unarmed attack",
-                    "effect": "The dragon's tough scales ward off deadly attacks. The dragon attempts a DC 17 flat check. On a success, the triggering attack becomes a normal hit."
+                    "effect": "The dragon's tough scales ward off deadly attacks. The dragon attempts a DC 17 flat check. On a success, the triggering attack becomes a normal hit.",
+                    "saving_throw": [
+                        {
+                            "dc": 17,
+                            "save_type": "Flat Check",
+                            "subtype": "save_dc",
+                            "text": "DC 17 flat check",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2849,7 +2860,36 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The dragon belches a mass of boulders that deals 11d8 bludgeoning damage in a 40-foot cone (DC 33 basic Reflex save). They can't use Avalanche Breath again for 1d4 rounds."
+                        "text": "The dragon belches a mass of boulders that deals 11d8 bludgeoning damage in a 40-foot cone (DC 33 basic Reflex save). They can't use Avalanche Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 40,
+                                "subtype": "area",
+                                "text": "40-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "11d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2891,7 +2931,14 @@
                             }
                         ],
                         "requirement": "The dragon is burrowed",
-                        "effect": "The dragon Burrows, then Leaps out of the ground, landing at a point within 25 feet. The dragon makes a melee Strike against a creature within reach when they land. If the Strike is a critical hit, the target is knocked prone."
+                        "effect": "The dragon Burrows, then Leaps out of the ground, landing at a point within 25 feet. The dragon makes a melee Strike against a creature within reach when they land. If the Strike is a critical hit, the target is knocked prone.",
+                        "range": {
+                            "range": 25,
+                            "subtype": "range",
+                            "text": "within 25 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {

@@ -1844,12 +1844,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 38",
-                        "dc": 38
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 38",
+                            "dc": 38
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -3012,7 +3014,24 @@
                                 "aonid": 3280
                             }
                         ],
-                        "text": "The dragon conjures up a sudden mist in a 20-foot burst within 120 feet. All creatures within the mist become concealed, and all creatures outside the mist become concealed to creatures within it. The dragon can use this action again to dismiss the mist\u2014anyone else attempting to remove the dragonmist (via *gust of wind* or similar) must succeed at a counteract check. An ancient dragon can have up to five clouds of dragonmist active at a time."
+                        "text": "The dragon conjures up a sudden mist in a 20-foot burst within 120 feet. All creatures within the mist become concealed, and all creatures outside the mist become concealed to creatures within it. The dragon can use this action again to dismiss the mist\u2014anyone else attempting to remove the dragonmist (via *gust of wind* or similar) must succeed at a counteract check. An ancient dragon can have up to five clouds of dragonmist active at a time.",
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "range": {
+                            "range": 120,
+                            "subtype": "range",
+                            "text": "within 120 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -3069,7 +3088,14 @@
                             }
                         ],
                         "requirement": "The dragon is within a cloud of dragonmist",
-                        "effect": "The dragon dissolves into wisps of cloud, reforming within another cloud of dragonmist within 1 mile."
+                        "effect": "The dragon dissolves into wisps of cloud, reforming within another cloud of dragonmist within 1 mile.",
+                        "range": {
+                            "range": 1,
+                            "subtype": "range",
+                            "text": "within 1 mile",
+                            "type": "stat_block_section",
+                            "unit": "miles"
+                        }
                     }
                 },
                 {
@@ -3141,7 +3167,16 @@
                                 "aonid": 76
                             }
                         ],
-                        "text": "With a cloud dragon's mastery of their element, creating shapes and images in a fog is child's play. All creatures within or adjacent to one cloud of dragonmist must attempt a DC 41 Will save or be off-guard for 1 round (on a critical failure, they are also frightened 1)."
+                        "text": "With a cloud dragon's mastery of their element, creating shapes and images in a fog is child's play. All creatures within or adjacent to one cloud of dragonmist must attempt a DC 41 Will save or be off-guard for 1 round (on a critical failure, they are also frightened 1).",
+                        "saving_throw": [
+                            {
+                                "dc": 41,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 41 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3249,7 +3284,36 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The dragon breathes a thundercloud that deals 20d6 electricity damage in a 60-foot cone (DC 41 basic Reflex save). They can't use Thundercloud Breath again for 1d4 rounds."
+                        "text": "The dragon breathes a thundercloud that deals 20d6 electricity damage in a 60-foot cone (DC 41 basic Reflex save). They can't use Thundercloud Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 41,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 41 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

@@ -841,7 +841,14 @@
                             "classes": []
                         }
                     ],
-                    "text": "If Jervis is destroyed, he rejuvenates back in the underground chambers below Chopper's Isle and seeks out the carrier of the clockwork songbird's head as long as they remain within 5 miles of Sandpoint. If the architect of his whole doom, the Red Bishop, is slain, Stoot can move on to the afterlife."
+                    "text": "If Jervis is destroyed, he rejuvenates back in the underground chambers below Chopper's Isle and seeks out the carrier of the clockwork songbird's head as long as they remain within 5 miles of Sandpoint. If the architect of his whole doom, the Red Bishop, is slain, Stoot can move on to the afterlife.",
+                    "range": {
+                        "range": 5,
+                        "subtype": "range",
+                        "text": "within 5 miles",
+                        "type": "stat_block_section",
+                        "unit": "miles"
+                    }
                 }
             ]
         },
@@ -1179,7 +1186,27 @@
                         "success": "The creature takes 6d6 slashing damage.",
                         "failure": "The creature takes 10d6 slashing damage and 2d6 persistent bleed damage.",
                         "critical_failure": "The creature takes 15d6 slashing damage, 5d6 persistent bleed damage, and is blinded. The blindness persists until it's healed via an effect like *restore senses*.",
-                        "text": "Jervis Stoot raises a hand high, and a murder of ghostly crows manifests in a vortex above his hand. He then lowers his hand to point in a direction, and the murder of ghostly crows swarms out in a 20-foot cone. All creatures caught in the area must attempt a DC 30 Reflex save. Jervis can't use Ghostly Murder again for 1d4 rounds."
+                        "text": "Jervis Stoot raises a hand high, and a murder of ghostly crows manifests in a vortex above his hand. He then lowers his hand to point in a direction, and the murder of ghostly crows swarms out in a 20-foot cone. All creatures caught in the area must attempt a DC 30 Reflex save. Jervis can't use Ghostly Murder again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -1311,7 +1338,32 @@
                             }
                         ],
                         "frequency": "once per day",
-                        "effect": "Jervis Stoot makes a plucking motion with his fingers. One creature he can sense within 30 feet experiences the agony of their eyes being plucked out and takes 12d6 mental damage from the pain (DC 30 basic Fortitude save, plus blinded for 1 minute on a critical failure)."
+                        "effect": "Jervis Stoot makes a plucking motion with his fingers. One creature he can sense within 30 feet experiences the agony of their eyes being plucked out and takes 12d6 mental damage from the pain (DC 30 basic Fortitude save, plus blinded for 1 minute on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "mental",
+                                "formula": "12d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

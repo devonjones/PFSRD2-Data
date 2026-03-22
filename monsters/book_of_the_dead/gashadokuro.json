@@ -843,13 +843,15 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 30 Fortitude",
-                        "dc": 30,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 30 Fortitude",
+                            "dc": 30,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -857,6 +859,13 @@
                             "alt": "fatigued",
                             "game-obj": "Conditions",
                             "aonid": 15
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "formula": "6d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
                         }
                     ]
                 }
@@ -1192,7 +1201,36 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The gashadokuro breathes a spray of bone shards in a 30-foot cone. Each creature in the area takes 8d12 piercing damage (DC 34 basic Reflex save). It can't use Breath Weapon again for 1d4 rounds."
+                        "text": "The gashadokuro breathes a spray of bone shards in a 30-foot cone. Each creature in the area takes 8d12 piercing damage (DC 34 basic Reflex save). It can't use Breath Weapon again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "8d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

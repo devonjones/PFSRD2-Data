@@ -1252,13 +1252,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 31 Will",
-                        "dc": 31,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 31 Will",
+                            "dc": 31,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1900,7 +1902,14 @@
                                 "aonid": 28
                             }
                         ],
-                        "text": "The wild hunt hound fixes its glare at a creature it can see within 30 feet. The target must immediately attempt a Will save against the wild hunt hound's wild gaze. If the creature was already slowed by the wild gaze before attempting its save, a failed save causes it to be paralyzed for 1 round. After attempting its save, the creature is temporarily immune to Focus Gaze from any wild hunt until the start of the wild hunt hound's next turn."
+                        "text": "The wild hunt hound fixes its glare at a creature it can see within 30 feet. The target must immediately attempt a Will save against the wild hunt hound's wild gaze. If the creature was already slowed by the wild gaze before attempting its save, a failed save causes it to be paralyzed for 1 round. After attempting its save, the creature is temporarily immune to Focus Gaze from any wild hunt until the start of the wild hunt hound's next turn.",
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2057,7 +2066,25 @@
                             }
                         ],
                         "frequency": "once per day",
-                        "effect": "With a howl, the wild hunt hound summons a fog that manifests into several misty hounds. These foggy hounds shift and race and howl in a 20-foot aura as long as the wild hunt hound Sustains the effect. While the hounds seem to be made of fog, their teeth are very real, and any creature that ends its turn in this aura takes 6d6 piercing damage from numerous bites (DC 31 basic Reflex save)."
+                        "effect": "With a howl, the wild hunt hound summons a fog that manifests into several misty hounds. These foggy hounds shift and race and howl in a 20-foot aura as long as the wild hunt hound Sustains the effect. While the hounds seem to be made of fog, their teeth are very real, and any creature that ends its turn in this aura takes 6d6 piercing damage from numerous bites (DC 31 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 31,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 31 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

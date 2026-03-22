@@ -1032,12 +1032,14 @@
                         "range": 20,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 34",
-                        "dc": 34
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 34",
+                            "dc": 34
+                        }
+                    ],
                     "universal_monster_ability": {
                         "name": "Frightful Presence",
                         "type": "ability",
@@ -1897,7 +1899,35 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The vanth throws their scythe, which flies in a 60-foot line, dealing 6d8 slashing damage to all creatures in the area (DC 34 basic Reflex save) and returns to the vanth's hand."
+                        "text": "The vanth throws their scythe, which flies in a 60-foot line, dealing 6d8 slashing damage to all creatures in the area (DC 34 basic Reflex save) and returns to the vanth's hand.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "6d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1933,7 +1963,21 @@
                                 "aonid": 160
                             }
                         ],
-                        "text": "A vanth's Strikes affect incorporeal creatures with the effects of a *ghost touch* property rune and deal 3d6 negative damage to living creatures and 3d6 positive damage to undead."
+                        "text": "A vanth's Strikes affect incorporeal creatures with the effects of a *ghost touch* property rune and deal 3d6 negative damage to living creatures and 3d6 positive damage to undead.",
+                        "damage": [
+                            {
+                                "damage_type": "negative",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "positive",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2132,7 +2176,16 @@
                         "critical_success": "The target is unaffected and is temporarily immune to Vanth's Curse for 24 hours.",
                         "success": "The target feels a momentary shudder of doom and is stupefied 2 for 1 minute by the distracting sensation.",
                         "failure": "The target becomes morose and glum as it accepts its own inevitable fate. For 1 hour, the target is stupefied 3. Each time the target gains the dying condition, the stupefied value increases by 1, to a maximum value of stupefied 6.",
-                        "critical_failure": "As failure, but the effect is permanent."
+                        "critical_failure": "As failure, but the effect is permanent.",
+                        "saving_throw": [
+                            {
+                                "dc": 34,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 34 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

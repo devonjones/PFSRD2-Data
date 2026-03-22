@@ -839,13 +839,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 34 Fortitude",
-                        "dc": 34,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 34 Fortitude",
+                            "dc": 34,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1364,7 +1366,14 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "Thessekka commands nearby earth to attack a foe. Thessekka makes a claw Strike against a creature that is within 60 feet of her and 10 feet of an earthen surface, such as dirt, mud, stone, or sand. The Strike originates from the surface's square and has a reach of 10 feet. On a critical hit, the target is also knocked prone."
+                        "effect": "Thessekka commands nearby earth to attack a foe. Thessekka makes a claw Strike against a creature that is within 60 feet of her and 10 feet of an earthen surface, such as dirt, mud, stone, or sand. The Strike originates from the surface's square and has a reach of 10 feet. On a critical hit, the target is also knocked prone.",
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1468,7 +1477,35 @@
                         ],
                         "frequency": "once per minute",
                         "requirement": "Thessekka is standing on or next to at least 10 cubic feet of dirt, stone, or other earthen material",
-                        "effect": "Thessekka creates a violent wave of roiling earth. Creatures in a 15-foot cone take 10d10 bludgeoning damage (DC 34 basic Reflex save; on a critical failure, creatures are also knocked prone)."
+                        "effect": "Thessekka creates a violent wave of roiling earth. Creatures in a 15-foot cone take 10d10 bludgeoning damage (DC 34 basic Reflex save; on a critical failure, creatures are also knocked prone).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "10d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1490,7 +1527,21 @@
                                 "aonid": 150
                             }
                         ],
-                        "text": "Thessekka's bombs with the splash trait deal 4 additional splash damage and deal splash damage to all creatures within 10 feet."
+                        "text": "Thessekka's bombs with the splash trait deal 4 additional splash damage and deal splash damage to all creatures within 10 feet.",
+                        "damage": [
+                            {
+                                "formula": "4d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 10,
+                            "subtype": "range",
+                            "text": "within 10 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1666,7 +1717,15 @@
                                 "aonid": 79
                             }
                         ],
-                        "text": "Thessekka turns her own body into solid stone like a statue and immediately becomes petrified. Any creature grappled or restrained by her becomes immobilized; to get free, the creature must damage the statue enough to break it or succeed at a DC 36 Acrobatics check to Escape. The only action Thessekka can take while petrified is to use Stone Throes again to end the effect."
+                        "text": "Thessekka turns her own body into solid stone like a statue and immediately becomes petrified. Any creature grappled or restrained by her becomes immobilized; to get free, the creature must damage the statue enough to break it or succeed at a DC 36 Acrobatics check to Escape. The only action Thessekka can take while petrified is to use Stone Throes again to end the effect.",
+                        "saving_throw": [
+                            {
+                                "dc": 36,
+                                "subtype": "save_dc",
+                                "text": "DC 36",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

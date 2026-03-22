@@ -781,6 +781,14 @@
                             "game-obj": "Classes",
                             "aonid": 32
                         }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "mental",
+                            "formula": "1d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
                     ]
                 }
             ]
@@ -1454,7 +1462,23 @@
                         "success": "The creature takes 2d6 mental damage and becomes frightened 1. ",
                         "failure": "The creature takes 4d6 mental damage and becomes either frightened 2 or stunned 1 (the aghash's choice). ",
                         "critical_failure": "The creature takes 8d6 mental damage and becomes frightened 2 and stunned 2.",
-                        "text": "The aghash fixes their gaze on one creature they can see within 20 feet. The creature must attempt a DC 21 Will save. "
+                        "text": "The aghash fixes their gaze on one creature they can see within 20 feet. The creature must attempt a DC 21 Will save. ",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 20,
+                            "subtype": "range",
+                            "text": "within 20 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1563,7 +1587,34 @@
                             }
                         ],
                         "frequency": "once per day",
-                        "effect": "The aghash creates a temporary sandstorm in a 30-foot emanation that lasts for 1 minute. Creatures within the emanation take a \u20134 circumstance penalty to Perception checks and must succeed at a DC 18 Fortitude save. On a failure, they're forced to hold their breath or else they start suffocating. A creature within the sandstorm at the end of its turn takes 1d6 slashing damage. Divs are immune to all effects of an aghash's Sandstorm."
+                        "effect": "The aghash creates a temporary sandstorm in a 30-foot emanation that lasts for 1 minute. Creatures within the emanation take a \u20134 circumstance penalty to Perception checks and must succeed at a DC 18 Fortitude save. On a failure, they're forced to hold their breath or else they start suffocating. A creature within the sandstorm at the end of its turn takes 1d6 slashing damage. Divs are immune to all effects of an aghash's Sandstorm.",
+                        "saving_throw": [
+                            {
+                                "dc": 18,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 18 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

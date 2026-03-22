@@ -726,7 +726,17 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Explosive Compounds",
-                    "text": "When an attacker scores a critical hit against the siegebreaker, one of the siegebreaker's alchemical grenades bursts. The GM determines the grenade randomly. The siegebreaker takes damage from the grenade as though they were hit by the grenade (applying their resistance normally), and any creature in a 10-foot emanation takes the splash damage."
+                    "text": "When an attacker scores a critical hit against the siegebreaker, one of the siegebreaker's alchemical grenades bursts. The GM determines the grenade randomly. The siegebreaker takes damage from the grenade as though they were hit by the grenade (applying their resistance normally), and any creature in a 10-foot emanation takes the splash damage.",
+                    "area": [
+                        {
+                            "shape": "emanation",
+                            "size": 10,
+                            "subtype": "area",
+                            "text": "10-foot emanation",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
+                    ]
                 }
             ]
         },
@@ -1318,7 +1328,17 @@
                         "subtype": "ability",
                         "ability_type": "offensive",
                         "name": "Expanded Splash",
-                        "text": "The siegebreaker's grenades deal splash damage in a 10-foot radius."
+                        "text": "The siegebreaker's grenades deal splash damage in a 10-foot radius.",
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot radius",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1397,7 +1417,47 @@
                             }
                         ],
                         "requirement": "The siegebreaker is at the base of a fortified wall",
-                        "effect": "The siegebreaker has studied for years to gain exact knowledge of how to combine the alchemical ingredients in their grenades to exponentially multiply their power, creating a terrifying siege-ender bomb that can break open a city wall. The siegebreaker spends 10 minutes combining the ingredients from 9 different alchemical grenades of their choice. The siegebreaker then sets a fuse timer up to 1 minute long. When time's up, the bomb explodes in a concentrated 20-foot burst, dealing 20d6 acid, cold, or fire damage that ignores up to 10 Hardness of structures. Any creature in the area can reduce the damage they take with a DC 37 basic Reflex save."
+                        "effect": "The siegebreaker has studied for years to gain exact knowledge of how to combine the alchemical ingredients in their grenades to exponentially multiply their power, creating a terrifying siege-ender bomb that can break open a city wall. The siegebreaker spends 10 minutes combining the ingredients from 9 different alchemical grenades of their choice. The siegebreaker then sets a fuse timer up to 1 minute long. When time's up, the bomb explodes in a concentrated 20-foot burst, dealing 20d6 acid, cold, or fire damage that ignores up to 10 Hardness of structures. Any creature in the area can reduce the damage they take with a DC 37 basic Reflex save.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 37,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 37 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "cold",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

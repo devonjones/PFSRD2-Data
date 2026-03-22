@@ -736,7 +736,16 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Berserk",
-                    "text": "A severely damaged flesh golem has a chance of going berserk. If it has 40 or fewer HP at the start of its turn, the golem must succeed at a DC 5 flat check or go berserk. A berserk golem wildly attacks the nearest living creature, or the nearest object if no creatures are nearby."
+                    "text": "A severely damaged flesh golem has a chance of going berserk. If it has 40 or fewer HP at the start of its turn, the golem must succeed at a DC 5 flat check or go berserk. A berserk golem wildly attacks the nearest living creature, or the nearest object if no creatures are nearby.",
+                    "saving_throw": [
+                        {
+                            "dc": 5,
+                            "save_type": "Flat Check",
+                            "subtype": "save_dc",
+                            "text": "DC 5 flat check",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -765,7 +774,21 @@
                         "type": "stat_block_section",
                         "subtype": "action_type",
                         "name": "Reaction"
-                    }
+                    },
+                    "damage": [
+                        {
+                            "damage_type": "electricity",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        {
+                            "damage_type": "electricity",
+                            "formula": "6d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -958,7 +981,14 @@
                             }
                         ],
                         "requirement": "The flesh golem is berserk.",
-                        "effect": "The flesh golem Strikes with its fist at a \u20131 circumstance penalty. If it hits, it deals 1d6 extra damage and knocks the target prone."
+                        "effect": "The flesh golem Strikes with its fist at a \u20131 circumstance penalty. If it hits, it deals 1d6 extra damage and knocks the target prone.",
+                        "damage": [
+                            {
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

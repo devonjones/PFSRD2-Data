@@ -682,13 +682,15 @@
                         "range": 5,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 18 Reflex",
-                        "dc": 18,
-                        "save_type": "Ref"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 18 Reflex",
+                            "dc": 18,
+                            "save_type": "Ref"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1163,7 +1165,17 @@
                         "success": "The creature is unaffected. ",
                         "failure": "The hair wraps around the creature. The creature takes a \u201310-foot circumstance penalty to all of its Speeds until it Escapes (DC 21) or until the korred uses Hair Snare again (at which point the previous snare drops to the ground, no longer animated). ",
                         "critical_failure": "The creature is immobilized until it Escapes (DC 21) or the korred uses Hair Snare again.",
-                        "text": "The korred causes a long, tangled length of their hair to detach from their body and snake out to coil around an adjacent creature. The creature must attempt a DC 21 Reflex save. The korred cannot use Hair Snare again for 1d4 rounds. "
+                        "text": "The korred causes a long, tangled length of their hair to detach from their body and snake out to coil around an adjacent creature. The creature must attempt a DC 21 Reflex save. The korred cannot use Hair Snare again for 1d4 rounds. ",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -1415,7 +1427,26 @@
                             }
                         ],
                         "frequency": "three times per day",
-                        "effect": "The korred unleashes an otherworldly laugh. Each non-fey creature within a 30-foot burst must attempt a DC 21 Fortitude save. On a failure, the creature is slowed 1 for 1 round (or stunned 1 on a critical failure)."
+                        "effect": "The korred unleashes an otherworldly laugh. Each non-fey creature within a 30-foot burst must attempt a DC 21 Fortitude save. On a failure, the creature is slowed 1 for 1 round (or stunned 1 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1598,7 +1629,14 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The korred steps into a block of stone large enough for them to fit inside and instantly teleports to any other stone within 30 feet that has the same minimum size. Once the korred enters the stone, they instantly know the rough locations of other sufficiently large stones within 30 feet. They can exit from the original stone, if they prefer. They can't carry extradimensional spaces with them when they Stone Stride; if the korred attempts to do so, Stone Stride fails."
+                        "text": "The korred steps into a block of stone large enough for them to fit inside and instantly teleports to any other stone within 30 feet that has the same minimum size. Once the korred enters the stone, they instantly know the rough locations of other sufficiently large stones within 30 feet. They can exit from the original stone, if they prefer. They can't carry extradimensional spaces with them when they Stone Stride; if the korred attempts to do so, Stone Stride fails.",
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {

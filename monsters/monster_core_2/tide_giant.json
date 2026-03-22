@@ -822,7 +822,8 @@
                             "game-obj": "Traits",
                             "aonid": 509
                         }
-                    ]
+                    ],
+                    "frequency": "once per round"
                 }
             ]
         },
@@ -1447,7 +1448,39 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The tide giant Swims, or Swims twice if their cloak of high tide is active. Holding out their trident, they slash those they pass, dealing 2d8 piercing damage and 2d6 persistent bleed damage (DC 24 basic Reflex save) to each enemy the giant moves within 10 feet of during their movement. Each creature can be affected only once during a single use of Blood Tide."
+                        "text": "The tide giant Swims, or Swims twice if their cloak of high tide is active. Holding out their trident, they slash those they pass, dealing 2d8 piercing damage and 2d6 persistent bleed damage (DC 24 basic Reflex save) to each enemy the giant moves within 10 feet of during their movement. Each creature can be affected only once during a single use of Blood Tide.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 24,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 24 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "2d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bleed",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 10,
+                            "subtype": "range",
+                            "text": "within 10 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1571,7 +1604,66 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "A wave blasts from the giant's trident in a 15-foot cone or a 5-foot burst within 100 feet. If the giant's cloak of high tide is active, this is a 30-foot cone or a 10-foot burst. Each creature in the area takes 9d8 bludgeoning damage with a DC 33 basic Reflex save."
+                        "text": "A wave blasts from the giant's trident in a 15-foot cone or a 5-foot burst within 100 feet. If the giant's cloak of high tide is active, this is a 30-foot cone or a 10-foot burst. Each creature in the area takes 9d8 bludgeoning damage with a DC 33 basic Reflex save.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "burst",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "9d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 100,
+                            "subtype": "range",
+                            "text": "within 100 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

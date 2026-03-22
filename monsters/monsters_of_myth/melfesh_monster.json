@@ -1119,13 +1119,15 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 21 Will",
-                        "dc": 21,
-                        "save_type": "Will"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 21 Will",
+                            "dc": 21,
+                            "save_type": "Will"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1579,7 +1581,35 @@
                             }
                         ],
                         "requirement": "The Melfesh Monster has created a spore cloud, and the cloud is within range of one of the Melfesh Monster's fire abilities",
-                        "effect": "The Melfesh Monster targets the cloud with one of its abilities with the fire trait. The spore cloud explodes, dealing 4d10 fire damage and 4 persistent fire damage in a 40-foot burst originating from a single square within the cloud (DC 24 basic Reflex)."
+                        "effect": "The Melfesh Monster targets the cloud with one of its abilities with the fire trait. The spore cloud explodes, dealing 4d10 fire damage and 4 persistent fire damage in a 40-foot burst originating from a single square within the cloud (DC 24 basic Reflex).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 24,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 24 basic Reflex",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 40,
+                                "subtype": "area",
+                                "text": "40-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1697,7 +1727,41 @@
                             }
                         ],
                         "frequency": "once per minute",
-                        "effect": "The Melfesh Monster conjures a cloud of spores within 60 feet in a 20-foot burst. The cloud lasts 1 minute. Creatures that enter or begin their turn within the cloud must succeed at a DC 21 Fortitude save or take 3d8 poison damage, be sickened 2, and inhale spores that remain in their bodies for 1 minute (on a critical failure, sickened 3 and an additional 4 persistent poison damage)."
+                        "effect": "The Melfesh Monster conjures a cloud of spores within 60 feet in a 20-foot burst. The cloud lasts 1 minute. Creatures that enter or begin their turn within the cloud must succeed at a DC 21 Fortitude save or take 3d8 poison damage, be sickened 2, and inhale spores that remain in their bodies for 1 minute (on a critical failure, sickened 3 and an additional 4 persistent poison damage).",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "poison",
+                                "formula": "3d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

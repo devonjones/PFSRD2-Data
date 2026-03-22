@@ -1226,7 +1226,15 @@
                         ],
                         "frequency": "once per round",
                         "requirement": "The gunner is flanked by two or more creatures and the gunner's pistol is loaded",
-                        "effect": "The gunner turns their pistol on themself and pulls the trigger, firing through their own gut to catch the foe behind them unawares. The gunner makes a flintlock pistol Strike against an adjacent creature, who becomes flat-footed against this Strike. The gunner takes 1d4 piercing damage."
+                        "effect": "The gunner turns their pistol on themself and pulls the trigger, firing through their own gut to catch the foe behind them unawares. The gunner makes a flintlock pistol Strike against an adjacent creature, who becomes flat-footed against this Strike. The gunner takes 1d4 piercing damage.",
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "1d4",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1329,7 +1337,15 @@
                                 }
                             ],
                             "game-id": "efbac25ab69575cedbd74412212b2920"
-                        }
+                        },
+                        "damage": [
+                            {
+                                "damage_type": "precision",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1371,7 +1387,48 @@
                             }
                         ],
                         "requirement": "The gunner is holding a loaded firearm",
-                        "effect": "The gunner Interacts to draw an alchemist's fire, throws it at a point within 30 feet, and then shoots the bomb in midair. Creatures within a 10-foot radius of the shot bomb must succeed at a DC 15 Reflex save or take the splash and persistent damage from the alchemist's fire."
+                        "effect": "The gunner Interacts to draw an alchemist's fire, throws it at a point within 30 feet, and then shoots the bomb in midair. Creatures within a 10-foot radius of the shot bomb must succeed at a DC 15 Reflex save or take the splash and persistent damage from the alchemist's fire.",
+                        "saving_throw": [
+                            {
+                                "dc": 15,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 15 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot radius",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "1d4",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

@@ -1217,13 +1217,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 18 Will",
-                        "dc": 18,
-                        "save_type": "Will"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 18 Will",
+                            "dc": 18,
+                            "save_type": "Will"
+                        }
+                    ]
                 }
             ]
         },
@@ -1646,7 +1648,23 @@
                         "success": "The creature is unaffected and is temporarily immune to Compel Condemned for 24 hours. ",
                         "failure": "The creature must spend each of its actions to move closer to the catrina as quickly as possible while avoiding obvious dangers. If the compelled creature is adjacent to the catrina, it stays still and doesn't act. If the creature takes any damage, the effect ends and the creature is temporarily immune to Compel Condemned for 24 hours. This effect lasts for 1 round, but if the catrina uses this ability again on subsequent rounds, it extend the duration by 1 round for all affected creatures. ",
                         "critical_failure": "As failure, but damage does not end the effect.",
-                        "text": "The catrina telepathically compels a creature within 30 feet to approach and allow the catrina to kiss them, in preparation for using Kiss of Death. The target must attempt a DC 22 Will save. "
+                        "text": "The catrina telepathically compels a creature within 30 feet to approach and allow the catrina to kiss them, in preparation for using Kiss of Death. The target must attempt a DC 22 Will save. ",
+                        "saving_throw": [
+                            {
+                                "dc": 22,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 22 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1842,7 +1860,15 @@
                                 "aonid": 69
                             }
                         ],
-                        "text": "The catrina gives a long, passionate kiss to an unconscious or willing creature, dealing  3d6 void damage. Any creature damaged by the same catrina's Kiss of Death for 3 consecutive rounds becomes unconscious and is dying 1."
+                        "text": "The catrina gives a long, passionate kiss to an unconscious or willing creature, dealing  3d6 void damage. Any creature damaged by the same catrina's Kiss of Death for 3 consecutive rounds becomes unconscious and is dying 1.",
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1878,7 +1904,21 @@
                                 "aonid": 722
                             }
                         ],
-                        "text": "A psychopomp's Strikes affect incorporeal creatures with the effects of a *ghost touch* property rune and deal 1d6 void damage to living creatures and 1d6 vitality damage to undead."
+                        "text": "A psychopomp's Strikes affect incorporeal creatures with the effects of a *ghost touch* property rune and deal 1d6 void damage to living creatures and 1d6 vitality damage to undead.",
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "vitality",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -1318,13 +1318,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 31 Will",
-                        "dc": 31,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 31 Will",
+                            "dc": 31,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1907,7 +1909,23 @@
                         "success": "The creature is distracted by the sound. Until the start of the creature's next turn, if it attempts to use a reaction, it must succeed at a DC 5 flat check or the reaction is disrupted, wasted with no effect.",
                         "failure": "The creature is bewildered by the sound, with the same effects as success except it is also confused for 1 round.",
                         "critical_failure": "As failure, but the confusion effect persists for 1 minute or until the creature recovers by other means.",
-                        "text": "The wild hunt horse stamps its hooves and prances in place, creating the sound of hundreds of horses apparently approaching from all directions. Each creature within 60 feet must attempt a DC 33 Will save."
+                        "text": "The wild hunt horse stamps its hooves and prances in place, creating the sound of hundreds of horses apparently approaching from all directions. Each creature within 60 feet must attempt a DC 33 Will save.",
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2108,7 +2126,36 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The wild hunt horse gives out a thundering cry in a 15-foot cone. Creatures in the area take 16d6 sonic damage (DC 36 basic Fortitude save, plus deafened for 1 minute on a critical failure). The wild hunt horse can't use Deafening Cry again for 1d4 rounds."
+                        "text": "The wild hunt horse gives out a thundering cry in a 15-foot cone. Creatures in the area take 16d6 sonic damage (DC 36 basic Fortitude save, plus deafened for 1 minute on a critical failure). The wild hunt horse can't use Deafening Cry again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 36,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 36 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "sonic",
+                                "formula": "16d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2424,7 +2471,14 @@
                                 "aonid": 28
                             }
                         ],
-                        "text": "The wild hunt horse fixes its glare at a creature it can see within 30 feet. The target must immediately attempt a Will save against the wild hunt horse's wild gaze. If the creature was already slowed by the wild gaze before attempting its save, a failed save causes it to be paralyzed for 1 round. After attempting its save, the creature is temporarily immune to Focus Gaze from any wild hunt until the start of the wild hunt horse's next turn."
+                        "text": "The wild hunt horse fixes its glare at a creature it can see within 30 feet. The target must immediately attempt a Will save against the wild hunt horse's wild gaze. If the creature was already slowed by the wild gaze before attempting its save, a failed save causes it to be paralyzed for 1 round. After attempting its save, the creature is temporarily immune to Focus Gaze from any wild hunt until the start of the wild hunt horse's next turn.",
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2479,7 +2533,15 @@
                                 }
                             ],
                             "game-id": "835aea1efadf2fa4f9b9bb63b8ec0b98"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 36,
+                                "subtype": "save_dc",
+                                "text": "DC 36",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

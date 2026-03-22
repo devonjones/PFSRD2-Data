@@ -652,13 +652,15 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 32 Will",
-                        "dc": 32,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 32 Will",
+                            "dc": 32,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -696,7 +698,26 @@
                         }
                     ],
                     "trigger": "A creature within 30 feet casts a spell with the light trait or uses an ability with the light trait",
-                    "effect": "The quai dau to adjusts its position to reflect the light off their scales in a blinding display. All creatures in a 30-foot emanation must succeed at a DC 33 Fortitude saving throw or become blinded for 1 round."
+                    "effect": "The quai dau to adjusts its position to reflect the light off their scales in a blinding display. All creatures in a 30-foot emanation must succeed at a DC 33 Fortitude saving throw or become blinded for 1 round.",
+                    "saving_throw": [
+                        {
+                            "dc": 33,
+                            "save_type": "Fort",
+                            "subtype": "save_dc",
+                            "text": "DC 33 Fortitude",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "area": [
+                        {
+                            "shape": "emanation",
+                            "size": 30,
+                            "subtype": "area",
+                            "text": "30-foot emanation",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
+                    ]
                 }
             ]
         },
@@ -1036,7 +1057,17 @@
                             }
                         ],
                         "requirement": "The quai dau to is within 10 feet of a body of water that's at least 10 feet deep and their water sac is empty",
-                        "effect": "The quai dau to sucks water through their trunk to fill their water sac, lowering the level in the body of water by 10 feet. All creatures in the water within a 30-foot emanation are off-guard until the start of the quai dau to's next turn."
+                        "effect": "The quai dau to sucks water through their trunk to fill their water sac, lowering the level in the body of water by 10 feet. All creatures in the water within a 30-foot emanation are off-guard until the start of the quai dau to's next turn.",
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1181,7 +1212,17 @@
                             }
                         ],
                         "requirement": "The quai dau to's water sac is full",
-                        "effect": "The quai dau to empties their water sac to breathe out mist in a 10-foot emanation. All creatures within the mist become concealed, and all creatures outside the mist become concealed to creatures within it. The mist dissipates after 1 round."
+                        "effect": "The quai dau to empties their water sac to breathe out mist in a 10-foot emanation. All creatures within the mist become concealed, and all creatures outside the mist become concealed to creatures within it. The mist dissipates after 1 round.",
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1299,7 +1340,35 @@
                             }
                         ],
                         "requirement": "The quai dau to's water sac is full",
-                        "effect": "The quai dau to empties its water sac to blast water from its trunk, dealing 9d10 bludgeoning damage to all creatures in a 90-foot line, with a DC 33 basic Reflex save. A creature that fails is pushed 10 feet (or 20 feet on a critical failure)."
+                        "effect": "The quai dau to empties its water sac to blast water from its trunk, dealing 9d10 bludgeoning damage to all creatures in a 90-foot line, with a DC 33 basic Reflex save. A creature that fails is pushed 10 feet (or 20 feet on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 90,
+                                "subtype": "area",
+                                "text": "90-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "9d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

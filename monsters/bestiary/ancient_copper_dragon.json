@@ -1434,12 +1434,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 35",
-                        "dc": 35
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 35",
+                            "dc": 35
+                        }
+                    ],
                     "universal_monster_ability": {
                         "name": "Frightful Presence",
                         "type": "ability",
@@ -1763,13 +1765,15 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 37 Will",
-                        "dc": 37,
-                        "save_type": "Will"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 37 Will",
+                            "dc": 37,
+                            "save_type": "Will"
+                        }
+                    ]
                 }
             ],
             "reactive_abilities": [
@@ -2502,7 +2506,36 @@
                                 "aonid": 35
                             }
                         ],
-                        "text": "The copper dragon breathes in one of two ways. The dragon can\u2019t use Breath Weapon again for 1d4 rounds.\n* **Acid** (acid, arcane, evocation); The dragon breathes acid in a 100-foot line that deals 18d6 acid damage (DC 38 basic Fortitude save).\n* **Slowing Gas** (arcane, transmutation); The dragon breathes a 100-foot line of slowing gas. Each creature in the area must succeed at a DC 38 Fortitude save or be slowed 1 for 1 round (or slowed 2 on a critical failure)."
+                        "text": "The copper dragon breathes in one of two ways. The dragon can\u2019t use Breath Weapon again for 1d4 rounds.\n* **Acid** (acid, arcane, evocation); The dragon breathes acid in a 100-foot line that deals 18d6 acid damage (DC 38 basic Fortitude save).\n* **Slowing Gas** (arcane, transmutation); The dragon breathes a 100-foot line of slowing gas. Each creature in the area must succeed at a DC 38 Fortitude save or be slowed 1 for 1 round (or slowed 2 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 38,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 38 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 100,
+                                "subtype": "area",
+                                "text": "100-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "18d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2741,7 +2774,26 @@
                             }
                         ],
                         "frequency": "once per day.",
-                        "effect": "The copper dragon tells a fantastic joke. Each creature in a 100-foot emanation must succeed at a DC 39 Will save or suffer the effects of a 9th-level *hideous laughter* spell for 1 minute."
+                        "effect": "The copper dragon tells a fantastic joke. Each creature in a 100-foot emanation must succeed at a DC 39 Will save or suffer the effects of a 9th-level *hideous laughter* spell for 1 minute.",
+                        "saving_throw": [
+                            {
+                                "dc": 39,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 39 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 100,
+                                "subtype": "area",
+                                "text": "100-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 }
             ]

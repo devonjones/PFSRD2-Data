@@ -20,7 +20,11 @@
 				"requirement": {"type": "string"},
 				"prerequisite": {"type": "string"},
 				"range": {"$ref": "#/definitions/range"},
-				"saving_throw": {"$ref": "#/definitions/save_dc"},
+				"saving_throw": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/save_dc"},
+					"additionalItems": false
+				},
 				"damage": {
 					"type": "array",
 					"items": {"$ref": "#/definitions/attack_damage"},
@@ -37,6 +41,11 @@
 					"additionalItems": false
 				},
 				"traits": {"$ref": "#/definitions/traits"},
+				"area": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/area"},
+					"additionalItems": false
+				},
 				"modifiers": {"$ref": "#/definitions/modifiers"}
 			},
 			"required": ["name", "type", "subtype", "ability_type"],
@@ -739,6 +748,19 @@
 			"required": ["type", "subtype", "text", "range", "unit"],
 			"additionalProperties": false
 		},
+		"area": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["area"]},
+				"text": {"type": "string"},
+				"shape": {"enum": ["line", "cone", "burst", "emanation", "wall", "cylinder"]},
+				"size": {"type": "integer"},
+				"unit": {"enum": ["feet", "miles"]}
+			},
+			"required": ["type", "subtype", "text"],
+			"additionalProperties": false
+		},
 		"save": {
 			"type": "object",
 			"properties": {
@@ -772,6 +794,7 @@
 				"text": {"type": "string"},
 				"dc": {"type": "integer"},
 				"save_type": {"enum": ["Fort", "Ref", "Will", "Flat Check"]},
+				"basic": {"type": "boolean"},
 				"result": {"type": "string"},
 				"modifiers": {"$ref": "#/definitions/modifiers"}
 			},
@@ -1126,6 +1149,6 @@
 		"alternate_link": {"$ref": "#/definitions/alternate_link"},
 		"license": {"$ref": "#/definitions/license"}
 	},
-	"required": ["name", "type", "aonid", "game-obj", "sources", "sections", "license", "schema_version"],
+	"required": ["name", "type", "aonid", "game-obj", "sources", "sections", "pfs", "license", "schema_version"],
 	"additionalProperties": false
 }

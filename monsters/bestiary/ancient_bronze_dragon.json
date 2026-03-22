@@ -1605,12 +1605,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 38",
-                        "dc": 38
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 38",
+                            "dc": 38
+                        }
+                    ],
                     "universal_monster_ability": {
                         "name": "Frightful Presence",
                         "type": "ability",
@@ -2012,7 +2014,15 @@
                             "classes": []
                         }
                     ],
-                    "text": ";"
+                    "text": ";",
+                    "saving_throw": [
+                        {
+                            "dc": 40,
+                            "subtype": "save_dc",
+                            "text": "DC 40",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2730,7 +2740,43 @@
                                 "aonid": 17
                             }
                         ],
-                        "text": "The bronze dragon breathes in one of two ways. The dragon can\u2019t use Breath Weapon again for 1d4 rounds.\n* **Lightning** (arcane, electricity, evocation); The dragon breathes lightning in a 100-foot line that deals 12d12 electricity damage (DC 40 basic Reflex save).\n* **Repulsion Gas** (abjuration, arcane, incapacitation, mental); The dragon breathes a 100-foot line of repulsive gas. Each creature in the area must succeed at a DC 40 Will save or become fleeing from the dragon for 1 round (or 2 rounds on a critical failure)."
+                        "text": "The bronze dragon breathes in one of two ways. The dragon can\u2019t use Breath Weapon again for 1d4 rounds.\n* **Lightning** (arcane, electricity, evocation); The dragon breathes lightning in a 100-foot line that deals 12d12 electricity damage (DC 40 basic Reflex save).\n* **Repulsion Gas** (abjuration, arcane, incapacitation, mental); The dragon breathes a 100-foot line of repulsive gas. Each creature in the area must succeed at a DC 40 Will save or become fleeing from the dragon for 1 round (or 2 rounds on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 40,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 40 basic Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 40,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 40 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 100,
+                                "subtype": "area",
+                                "text": "100-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "12d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2774,7 +2820,14 @@
                         "subtype": "ability",
                         "ability_type": "offensive",
                         "name": "Water Mastery",
-                        "text": "For up to 120 minutes per day, the dragon, along with allied creatures and vessels within 50 feet, can move at double their normal Speed in water."
+                        "text": "For up to 120 minutes per day, the dragon, along with allied creatures and vessels within 50 feet, can move at double their normal Speed in water.",
+                        "range": {
+                            "range": 50,
+                            "subtype": "range",
+                            "text": "within 50 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

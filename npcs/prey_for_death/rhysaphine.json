@@ -891,13 +891,15 @@
                             "damage_type": "fire"
                         }
                     ],
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 37 Reflex",
-                        "dc": 37,
-                        "save_type": "Ref"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 37 Reflex",
+                            "dc": 37,
+                            "save_type": "Ref"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1781,7 +1783,14 @@
                             }
                         ],
                         "frequency": "once per hour",
-                        "effect": "Rhysaphine Strides into an open flame of medium size or larger and instantly transports himself to any other flame of sufficient size within 100 miles. Once he enters the first flame, he instantly learns the locations of all other flames within range."
+                        "effect": "Rhysaphine Strides into an open flame of medium size or larger and instantly transports himself to any other flame of sufficient size within 100 miles. Once he enters the first flame, he instantly learns the locations of all other flames within range.",
+                        "range": {
+                            "range": 100,
+                            "subtype": "range",
+                            "text": "within 100 miles",
+                            "type": "stat_block_section",
+                            "unit": "miles"
+                        }
                     }
                 },
                 {
@@ -1835,7 +1844,15 @@
                                 "aonid": 393
                             }
                         ],
-                        "text": "Rhysaphine can call forth a powerful weapon from his heart of flame. In his hands, this is a *+3 greater striking greater flaming scimitar* that deals 4d6 fire damage instead of 1d6."
+                        "text": "Rhysaphine can call forth a powerful weapon from his heart of flame. In his hands, this is a *+3 greater striking greater flaming scimitar* that deals 4d6 fire damage instead of 1d6.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1956,7 +1973,36 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "Rhysaphine spreads his wings and spins, forming a whirlwind of flame that deals 19d6 fire damage in a 20-foot emanation (DC 40 basic Reflex save). He can't use Wildfire Storm again for 1d4 rounds."
+                        "text": "Rhysaphine spreads his wings and spins, forming a whirlwind of flame that deals 19d6 fire damage in a 20-foot emanation (DC 40 basic Reflex save). He can't use Wildfire Storm again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 40,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 40 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "19d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

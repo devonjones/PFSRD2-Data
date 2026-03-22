@@ -1115,12 +1115,14 @@
                         "range": 100,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 33",
-                        "dc": 33
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 33",
+                            "dc": 33
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1996,7 +1998,16 @@
                                 "aonid": 29
                             }
                         ],
-                        "text": "On a critical hit, a mugrisant's fired tooth embeds itself and begins to burrow, inflicting 3d6 persistent piercing damage for the next 3 rounds."
+                        "text": "On a critical hit, a mugrisant's fired tooth embeds itself and begins to burrow, inflicting 3d6 persistent piercing damage for the next 3 rounds.",
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "3d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2455,7 +2466,26 @@
                         "success": "The creature takes 3d6 piercing damage and is sickened 1.",
                         "failure": "The creature takes 6d6 piercing damage, is sickened 2, and is drained 1.",
                         "critical_failure": "The creature takes 12d6 piercing damage, is sickened 2, and is drained 2.",
-                        "text": "The mugrisant opens their central maw to display a roiling mass of teratomas. The bodies of those who view this revolting sight change of their own accord, sprouting teratomas of their own. Creatures in a 30-foot emanation must attempt a DC 36 Will save, after which they are temporarily immune to further Teratomatous Displays for 1 minute. Tumors created from this ability vanish when the creature isn't sickened."
+                        "text": "The mugrisant opens their central maw to display a roiling mass of teratomas. The bodies of those who view this revolting sight change of their own accord, sprouting teratomas of their own. Creatures in a 30-foot emanation must attempt a DC 36 Will save, after which they are temporarily immune to further Teratomatous Displays for 1 minute. Tumors created from this ability vanish when the creature isn't sickened.",
+                        "saving_throw": [
+                            {
+                                "dc": 36,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 36 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 }
             ]

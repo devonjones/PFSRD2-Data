@@ -729,13 +729,15 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 43 Fortitude",
-                        "dc": 43,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 43 Fortitude",
+                            "dc": 43,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -925,12 +927,14 @@
                         "range": 300,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 42",
-                        "dc": 42
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 42",
+                            "dc": 42
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1823,7 +1827,16 @@
                         "success": "The target is unaffected. ",
                         "failure": "The target is confused for 1d4 rounds. It never attempts to attack Volnagur or another creature affected by endsong. ",
                         "critical_failure": "As failure, but the target is confused for 1 hour. While confused, its Strikes resonate with Volnagur's song, dealing an additional 1d6 sonic damage and forcing the target to save against endsong.",
-                        "text": "Subtle vibrations laced under Volnagur's attacks confuse its targets and fill their minds with the desire to destroy. A creature damaged by one of Volnagur's Strikes must attempt a DC 45 Will save. "
+                        "text": "Subtle vibrations laced under Volnagur's attacks confuse its targets and fill their minds with the desire to destroy. A creature damaged by one of Volnagur's Strikes must attempt a DC 45 Will save. ",
+                        "saving_throw": [
+                            {
+                                "dc": 45,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 45 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1850,7 +1863,18 @@
                                 "aonid": 2386
                             }
                         ],
-                        "text": "Volnagur makes an eye beam Strike against every creature in a 120-foot cone. These attacks count toward Volnagur's multiple attack penalty, but the multiple attack penalty doesn't increase until after Volnagur makes all its attacks. It can't use Gaze Upon again for 1d4 rounds, but until the start of Volnagur's next turn, it can use Intercepting Eyes as a free action."
+                        "text": "Volnagur makes an eye beam Strike against every creature in a 120-foot cone. These attacks count toward Volnagur's multiple attack penalty, but the multiple attack penalty doesn't increase until after Volnagur makes all its attacks. It can't use Gaze Upon again for 1d4 rounds, but until the start of Volnagur's next turn, it can use Intercepting Eyes as a free action.",
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 120,
+                                "subtype": "area",
+                                "text": "120-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -1937,7 +1961,25 @@
                             }
                         ],
                         "requirement": "Volnagur has a creature grabbed or restrained",
-                        "effect": "Volnagur holds a creature close to its eyes before blasting the creature at point-blank range. Volnagur deals 23d6 sonic damage to the target (DC 46 basic Reflex save). Regardless of the save's result, the target is no longer grabbed or restrained, is pushed 120 feet away from Volnagur, and falls prone."
+                        "effect": "Volnagur holds a creature close to its eyes before blasting the creature at point-blank range. Volnagur deals 23d6 sonic damage to the target (DC 46 basic Reflex save). Regardless of the save's result, the target is no longer grabbed or restrained, is pushed 120 feet away from Volnagur, and falls prone.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 46,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 46 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "sonic",
+                                "formula": "23d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

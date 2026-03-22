@@ -741,14 +741,16 @@
                         }
                     ],
                     "text": "The oregorger continually leaks tiny fragments of partially digested rust into the air around it. Any creature that ends its turn in the aura takes 2d6 acid damage with a DC 27 basic Reflex save. A creature that critically fails is also sickened 1.",
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 27 basic Reflex",
-                        "dc": 27,
-                        "save_type": "Ref",
-                        "result": "basic"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 27 basic Reflex",
+                            "dc": 27,
+                            "save_type": "Ref",
+                            "result": "basic"
+                        }
+                    ],
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -770,6 +772,14 @@
                             "alt": "sickened 1",
                             "game-obj": "Conditions",
                             "aonid": 34
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "acid",
+                            "formula": "2d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
                         }
                     ]
                 }
@@ -1070,7 +1080,32 @@
                                 "aonid": 453
                             }
                         ],
-                        "text": "The oregorger belches forth a cloud of caustic, rusted debris from its maw, filling a cube adjacent to itself that's 10 feet on each side. Any creature in this area takes 6d6 acid damage and 6d6 slashing damage (DC 30 basic Reflex). The ground under the cloud is difficult terrain for 1 hour, after which the shrapnel crumbles to dust. The oregorger can't use Searing Spew again for 1d4 rounds, but the ability recharges if the oregorger damages an item with devour metal."
+                        "text": "The oregorger belches forth a cloud of caustic, rusted debris from its maw, filling a cube adjacent to itself that's 10 feet on each side. Any creature in this area takes 6d6 acid damage and 6d6 slashing damage (DC 30 basic Reflex). The ground under the cloud is difficult terrain for 1 hour, after which the shrapnel crumbles to dust. The oregorger can't use Searing Spew again for 1d4 rounds, but the ability recharges if the oregorger damages an item with devour metal.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

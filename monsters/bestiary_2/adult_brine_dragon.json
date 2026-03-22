@@ -1217,12 +1217,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 30",
-                        "dc": 30
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 30",
+                            "dc": 30
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1449,7 +1451,25 @@
                         }
                     ],
                     "trigger": "A creature the brine dragon observes within 30 feet uses a concentrate action",
-                    "effect": "The dragon spits a glob of caustic salt water at the creature. The creature takes 5d6 acid damage (DC 30 basic Reflex save). On a failure, the concentrate action is disrupted."
+                    "effect": "The dragon spits a glob of caustic salt water at the creature. The creature takes 5d6 acid damage (DC 30 basic Reflex save). On a failure, the concentrate action is disrupted.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 30,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 30 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "acid",
+                            "formula": "5d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2369,7 +2389,36 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The dragon breathes a spray of acidic salt water that deals 13d6 acid damage in a 100-foot line (DC 32 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds."
+                        "text": "The dragon breathes a spray of acidic salt water that deals 13d6 acid damage in a 100-foot line (DC 32 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 32,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 32 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 100,
+                                "subtype": "area",
+                                "text": "100-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "13d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2434,7 +2483,16 @@
                                 "aonid": 34
                             }
                         ],
-                        "text": "The dragon makes a jaws Strike. On a hit, the target takes 4d6 persistent acid damage, and is sickened 2 from the pain of salt and brine in its wounds."
+                        "text": "The dragon makes a jaws Strike. On a hit, the target takes 4d6 persistent acid damage, and is sickened 2 from the pain of salt and brine in its wounds.",
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -662,7 +662,16 @@
                             "classes": []
                         }
                     ],
-                    "text": "If a redcap brigade sees a creature brandish a religious symbol of a deity (which requires an Interact action by that creature) or cast a divine spell while wearing a religious symbol, the troop must attempt a DC 26 Will save. They then become temporarily immune to all brandished religious symbols for 10 minutes."
+                    "text": "If a redcap brigade sees a creature brandish a religious symbol of a deity (which requires an Interact action by that creature) or cast a divine spell while wearing a religious symbol, the troop must attempt a DC 26 Will save. They then become temporarily immune to all brandished religious symbols for 10 minutes.",
+                    "saving_throw": [
+                        {
+                            "dc": 26,
+                            "save_type": "Will",
+                            "subtype": "save_dc",
+                            "text": "DC 26 Will save",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -787,7 +796,47 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The redcaps in the brigade wildly swing their halberds and sickles at each enemy in a 10-foot emanation, with a DC 26 basic Reflex save. The damage depends on the number of actions.   \n [#] 1d10+2 slashing   \n [##] 2d10+9 slashing   \n [###] 3d10+10 slashing"
+                        "effect": "The redcaps in the brigade wildly swing their halberds and sickles at each enemy in a 10-foot emanation, with a DC 26 basic Reflex save. The damage depends on the number of actions.   \n [#] 1d10+2 slashing   \n [##] 2d10+9 slashing   \n [###] 3d10+10 slashing",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 26,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 26 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "1d10+2",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "2d10+9",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "3d10+10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -825,7 +874,24 @@
                         "success": "The creature takes half damage. If it is prone, it also takes 1d6 persistent bleed damage. ",
                         "failure": "The creature takes full damage, is knocked prone, and takes 2d6 persistent bleed damage.",
                         "critical_failure": "The creature takes double damage, is knocked prone, and takes 2d6 persistent bleed damage.",
-                        "text": "The redcap brigade Strides; they can pass through spaces of Medium or smaller creatures, but can't end their movement in them. All enemies whose spaces the redcap brigade passed through take 4d8 bludgeoning damage and must attempt a DC 26 Fortitude save. Bowl Over and Stomp damages each creature only once."
+                        "text": "The redcap brigade Strides; they can pass through spaces of Medium or smaller creatures, but can't end their movement in them. All enemies whose spaces the redcap brigade passed through take 4d8 bludgeoning damage and must attempt a DC 26 Fortitude save. Bowl Over and Stomp damages each creature only once.",
+                        "saving_throw": [
+                            {
+                                "dc": 26,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 26 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -844,7 +910,8 @@
                             "name": "Reaction"
                         },
                         "trigger": "The redcap brigade drops a creature to 0 Hit Points with Bloody Reaping",
-                        "effect": "The redcap brigade performs an additional one-action Bloody Reaping, ignoring the once per round frequency limitation. This does not deal damage to the triggering creature."
+                        "effect": "The redcap brigade performs an additional one-action Bloody Reaping, ignoring the once per round frequency limitation. This does not deal damage to the triggering creature.",
+                        "frequency": "once per round"
                     }
                 }
             ]

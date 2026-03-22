@@ -1123,13 +1123,15 @@
                         "range": 15,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 22 Will",
-                        "dc": 22,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 22 Will",
+                            "dc": 22,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1225,7 +1227,14 @@
                             "aonid": 16
                         }
                     ],
-                    "effect": "Ulgrem-Axaan lunges and makes a jaws Strike against the creature, which is flat-footed against the attack and takes an additional 1d6 damage on a hit."
+                    "effect": "Ulgrem-Axaan lunges and makes a jaws Strike against the creature, which is flat-footed against the attack and takes an additional 1d6 damage on a hit.",
+                    "damage": [
+                        {
+                            "formula": "1d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1797,7 +1806,25 @@
                             }
                         ],
                         "requirement": "Ulgrem-Axaan has a creature grabbed with its tail",
-                        "effect": "An electric shock passes through Ulgrem-Axaan's tail, dealing 2d4+8 electricity damage to the creature (DC 25 basic Fortitude save)."
+                        "effect": "An electric shock passes through Ulgrem-Axaan's tail, dealing 2d4+8 electricity damage to the creature (DC 25 basic Fortitude save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 25,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 25 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "2d4+8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

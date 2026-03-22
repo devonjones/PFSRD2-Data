@@ -801,14 +801,16 @@
                             "damage_type": "slashing"
                         }
                     ],
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 36 basic Will save",
-                        "dc": 36,
-                        "save_type": "Will",
-                        "result": "basic"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 36 basic Will save",
+                            "dc": 36,
+                            "save_type": "Will",
+                            "result": "basic"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -823,6 +825,16 @@
                             "alt": "Averting its Gaze",
                             "game-obj": "Actions",
                             "aonid": 92
+                        }
+                    ],
+                    "area": [
+                        {
+                            "shape": "emanation",
+                            "size": 10,
+                            "subtype": "area",
+                            "text": "10-foot emanation",
+                            "type": "stat_block_section",
+                            "unit": "feet"
                         }
                     ]
                 },
@@ -1440,7 +1452,25 @@
                                 "aonid": 277
                             }
                         ],
-                        "text": "The Weaver buries a silk thread in the target's psyche and tugs, wrenching the target's astral form out of their body. Unless the target succeeds at a DC 36 Will save, their astral form is pulled out, causing a ghostly image of them to appear in an adjacent space of the Weaver's choosing. An astral body is immune to physical damage but affected normally by mental effects, force effects, and effects that directly target the spirit. The target remains connected to their physical body by a silver cord, which is always visible and possibly foils attempts to Hide. Separation from one's astral body takes a toll on the psyche, imposing a \u20131 status penalty to Will saves and dealing 1d6 persistent mental damage for as long as the body is separated; this increases to 3d6 if the target is ever more than 30 feet from its astral body. The target can use a single action, which has the concentrate trait, to move their astral body an amount equal to their Speed. When the target stops taking persistent mental damage from this ability, the astral body snaps back to the physical body, ending the effect. If a target is carrying silver, then the first time this ability is used on them, the ability fails and any silver they're carrying larger than a coin tarnishes\u2014while this doesn't outright destroy items like weapons or thaumaturge implements, it does prevent them from protecting against this ability more than once."
+                        "text": "The Weaver buries a silk thread in the target's psyche and tugs, wrenching the target's astral form out of their body. Unless the target succeeds at a DC 36 Will save, their astral form is pulled out, causing a ghostly image of them to appear in an adjacent space of the Weaver's choosing. An astral body is immune to physical damage but affected normally by mental effects, force effects, and effects that directly target the spirit. The target remains connected to their physical body by a silver cord, which is always visible and possibly foils attempts to Hide. Separation from one's astral body takes a toll on the psyche, imposing a \u20131 status penalty to Will saves and dealing 1d6 persistent mental damage for as long as the body is separated; this increases to 3d6 if the target is ever more than 30 feet from its astral body. The target can use a single action, which has the concentrate trait, to move their astral body an amount equal to their Speed. When the target stops taking persistent mental damage from this ability, the astral body snaps back to the physical body, ending the effect. If a target is carrying silver, then the first time this ability is used on them, the ability fails and any silver they're carrying larger than a coin tarnishes\u2014while this doesn't outright destroy items like weapons or thaumaturge implements, it does prevent them from protecting against this ability more than once.",
+                        "saving_throw": [
+                            {
+                                "dc": 36,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 36 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "mental",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1474,7 +1504,32 @@
                                 "aonid": 1
                             }
                         ],
-                        "text": "The Weaver uses a claw to cut the silver cord connecting a creature's astral and physical bodies. This deals 16d6 mental damage to any target affected by Separate Astral Body whose physical or astral body is within 10 feet of the Weaver (DC 37 basic Will save). After being targeted by this ability, the astral body slams violently back into the target's physical body, causing the target's vision to swim and blinding them until the start of their next turn unless they critically succeeded at their saving throw."
+                        "text": "The Weaver uses a claw to cut the silver cord connecting a creature's astral and physical bodies. This deals 16d6 mental damage to any target affected by Separate Astral Body whose physical or astral body is within 10 feet of the Weaver (DC 37 basic Will save). After being targeted by this ability, the astral body slams violently back into the target's physical body, causing the target's vision to swim and blinding them until the start of their next turn unless they critically succeeded at their saving throw.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 37,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 37 basic Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "mental",
+                                "formula": "16d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 10,
+                            "subtype": "range",
+                            "text": "within 10 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1554,7 +1609,14 @@
                             }
                         ],
                         "trigger": "The Weaver becomes concealed to all creatures within 60 feet or is not observed by any creatures within 60 feet",
-                        "effect": "The Weaver's presence on the Material Plane is connected to others' perception of him, and when that perception falters, he can skitter to a new location. The Weaver teleports to an unoccupied space within 60 feet not within line of sight of any creatures within 60 feet. If the Weaver became concealed or unobserved as part of a movement action he was taking, he can resume its movement after teleporting. A creature who Averts its Gaze from the Weaver is not observing him."
+                        "effect": "The Weaver's presence on the Material Plane is connected to others' perception of him, and when that perception falters, he can skitter to a new location. The Weaver teleports to an unoccupied space within 60 feet not within line of sight of any creatures within 60 feet. If the Weaver became concealed or unobserved as part of a movement action he was taking, he can resume its movement after teleporting. A creature who Averts its Gaze from the Weaver is not observing him.",
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {

@@ -971,13 +971,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 29 Will",
-                        "dc": 29,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 29 Will",
+                            "dc": 29,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -993,7 +995,15 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Boiled by Light",
-                    "text": "A chernobue takes 2d10 points of fire damage each time it starts its turn in an area of bright light."
+                    "text": "A chernobue takes 2d10 points of fire damage each time it starts its turn in an area of bright light.",
+                    "damage": [
+                        {
+                            "damage_type": "fire",
+                            "formula": "2d10",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1006,7 +1016,25 @@
                         "name": "Reaction"
                     },
                     "trigger": "A creature within 30 feet suffers the effects from stage 2 of rupturing venom",
-                    "effect": "The chernobue calls out telepathically to the semi-alive toxin, causing it to burst out of the target's body and slither through the air to drain back into one of the chernobue's mouths. The poisoned creature takes 7d6 bludgeoning damage (DC 32 basic Fortitude save) as the venom exits its body, but is thereafter cured of rupturing venom, and the chernobue regains an equal number of Hit Points."
+                    "effect": "The chernobue calls out telepathically to the semi-alive toxin, causing it to burst out of the target's body and slither through the air to drain back into one of the chernobue's mouths. The poisoned creature takes 7d6 bludgeoning damage (DC 32 basic Fortitude save) as the venom exits its body, but is thereafter cured of rupturing venom, and the chernobue regains an equal number of Hit Points.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 32,
+                            "save_type": "Fort",
+                            "subtype": "save_dc",
+                            "text": "DC 32 basic Fortitude save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "bludgeoning",
+                            "formula": "7d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1966,7 +1994,26 @@
                         "success": "The creature is slowed 1 for 1 round. ",
                         "failure": "The creature is paralyzed for 1d4 rounds. It can attempt a new save to end the effect at the end of each of its turns. ",
                         "critical_failure": "As failure, but paralyzed for 1 minute.",
-                        "text": "The chernobue's eye pulses and its lid peels back to reveal mind-bending awfulness. Creatures in a 30-foot emanation must attempt a DC 32 Will save, after which they are temporarily immune to further Paralyzing Displays for 1 minute. "
+                        "text": "The chernobue's eye pulses and its lid peels back to reveal mind-bending awfulness. Creatures in a 30-foot emanation must attempt a DC 32 Will save, after which they are temporarily immune to further Paralyzing Displays for 1 minute. ",
+                        "saving_throw": [
+                            {
+                                "dc": 32,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 32 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {

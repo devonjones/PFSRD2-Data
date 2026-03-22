@@ -803,7 +803,15 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "4",
-                    "text": "fire damage;"
+                    "text": "fire damage;",
+                    "damage": [
+                        {
+                            "damage_type": "fire",
+                            "formula": "4d8",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -817,14 +825,50 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "6",
-                    "text": "sickness: DC 26 Fortitude save or sickened 1 (sickened 2 on a critical failure)"
+                    "text": "sickness: DC 26 Fortitude save or sickened 1 (sickened 2 on a critical failure)",
+                    "saving_throw": [
+                        {
+                            "dc": 26,
+                            "save_type": "Fort",
+                            "subtype": "save_dc",
+                            "text": "DC 26 Fortitude save",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Alchemical Rupture",
-                    "text": "When an alchemical golem takes physical damage from a critical hit or is affected by a shatter spell, one glass chamber within its body shatters, spewing alchemical liquid in a 5-foot emanation. Roll on the alchemical chambers list (see above) to determine which one shatters\u2014on a roll of 1\u20135, creatures in the area take 10d6 damage of the appropriate type (DC 28 basic Reflex). On a roll of 6, creatures must instead save against the sickness effect."
+                    "text": "When an alchemical golem takes physical damage from a critical hit or is affected by a shatter spell, one glass chamber within its body shatters, spewing alchemical liquid in a 5-foot emanation. Roll on the alchemical chambers list (see above) to determine which one shatters\u2014on a roll of 1\u20135, creatures in the area take 10d6 damage of the appropriate type (DC 28 basic Reflex). On a roll of 6, creatures must instead save against the sickness effect.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 28,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 28 basic Reflex",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "area": [
+                        {
+                            "shape": "emanation",
+                            "size": 5,
+                            "subtype": "area",
+                            "text": "5-foot emanation",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "formula": "10d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1167,7 +1211,14 @@
                         "subtype": "ability",
                         "ability_type": "offensive",
                         "name": "Alchemical Injection",
-                        "text": "When an alchemical golem hits a creature with a syringe Strike, roll 1d6 on the alchemical chambers list to determine the additional effect of the attack. The syringe deals an additional 2d6 damage of the appropriate type (or exposes the target to the sickness effect, as appropriate)."
+                        "text": "When an alchemical golem hits a creature with a syringe Strike, roll 1d6 on the alchemical chambers list to determine the additional effect of the attack. The syringe deals an additional 2d6 damage of the appropriate type (or exposes the target to the sickness effect, as appropriate).",
+                        "damage": [
+                            {
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1253,7 +1304,15 @@
                                 "aonid": 75
                             }
                         ],
-                        "text": "The golem fills an empty vial from one of its alchemical chambers to create a bomb and then makes a bomb Strike. Determine the type of bomb created by rolling 1d6 on the alchemical chambers list above. On a roll of 1\u20134, it creates the corresponding greater alchemical bomb: an acid flask from chamber 1, a frost vial from chamber 2, bottled lightning from chamber 3, or alchemist\u2019s fire from chamber 4. On a roll of 5, it creates a poisonous bomb that deals 3d10 poison damage and 3 poison splash damage with no other effects. On a roll of 6, it creates a sickness bomb, which exposes the target and all creatures in the splash radius to the sickness effect; creatures hit by only the splash receive a +2 circumstance bonus to their Fortitude saves."
+                        "text": "The golem fills an empty vial from one of its alchemical chambers to create a bomb and then makes a bomb Strike. Determine the type of bomb created by rolling 1d6 on the alchemical chambers list above. On a roll of 1\u20134, it creates the corresponding greater alchemical bomb: an acid flask from chamber 1, a frost vial from chamber 2, bottled lightning from chamber 3, or alchemist\u2019s fire from chamber 4. On a roll of 5, it creates a poisonous bomb that deals 3d10 poison damage and 3 poison splash damage with no other effects. On a roll of 6, it creates a sickness bomb, which exposes the target and all creatures in the splash radius to the sickness effect; creatures hit by only the splash receive a +2 circumstance bonus to their Fortitude saves.",
+                        "damage": [
+                            {
+                                "damage_type": "poison",
+                                "formula": "3d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -729,13 +729,25 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 27 Will",
-                        "dc": 27,
-                        "save_type": "Will"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 27 Will",
+                            "dc": 27,
+                            "save_type": "Will"
+                        }
+                    ],
+                    "area": [
+                        {
+                            "shape": "burst",
+                            "size": 10,
+                            "subtype": "area",
+                            "text": "10-foot radius",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -764,6 +776,15 @@
                             "alt": "produce flame",
                             "game-obj": "Spells",
                             "aonid": 236
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "mental",
+                            "formula": "3d6",
+                            "persistent": true,
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
                         }
                     ]
                 }
@@ -1404,7 +1425,36 @@
                         "success": "The creature is splattered with 1d2+1 globs of wax.",
                         "failure": "The creature is splattered with 1d4+2 globs of wax.",
                         "critical_failure": "As failure, and the creature is blinded until it removes the globs of wax.",
-                        "text": "The yaganty whips a stream of scalding wax in a 30-foot line. Each glob deals 1d6 persistent fire damage. An affected creature or adjacent ally can remove one glob of wax by spending an Interact action to scrape it off. The yaganty can\u2019t use Fling Wax again for 1d4 rounds. Creatures in the area must attempt a DC 27 Reflex save."
+                        "text": "The yaganty whips a stream of scalding wax in a 30-foot line. Each glob deals 1d6 persistent fire damage. An affected creature or adjacent ally can remove one glob of wax by spending an Interact action to scrape it off. The yaganty can\u2019t use Fling Wax again for 1d4 rounds. Creatures in the area must attempt a DC 27 Reflex save.",
+                        "saving_throw": [
+                            {
+                                "dc": 27,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 27 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

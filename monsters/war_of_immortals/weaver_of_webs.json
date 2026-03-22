@@ -948,13 +948,15 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 34 Will",
-                        "dc": 34,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 34 Will",
+                            "dc": 34,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -983,7 +985,22 @@
                         "name": "Reaction"
                     },
                     "trigger": "A creature deals precision damage to the Weaver",
-                    "effect": "A spray of smaller spiders pours out of the open wound. These spiders deal 3d6 piercing damage to a single creature within 15 feet of the Weaver and expose that creature to Weaver venom before skittering away."
+                    "effect": "A spray of smaller spiders pours out of the open wound. These spiders deal 3d6 piercing damage to a single creature within 15 feet of the Weaver and expose that creature to Weaver venom before skittering away.",
+                    "damage": [
+                        {
+                            "damage_type": "piercing",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "range": {
+                        "range": 15,
+                        "subtype": "range",
+                        "text": "within 15 feet",
+                        "type": "stat_block_section",
+                        "unit": "feet"
+                    }
                 }
             ]
         },
@@ -1960,7 +1977,23 @@
                                 "aonid": 85
                             }
                         ],
-                        "text": "A creature struck by the Weaver's web Strike must succeed at a DC 34 Reflex save or become immobilized (Escape DC 34). If the Weaver spends 1 Mythic Point as a free action when a creature fails this save, the creature is also paralyzed, experiencing terrible nightmares of their deepest-held anxieties. The Weaver can view these dreams using a Sustain action, which imparts a \u20132 circumstance penalty to any Will saves the target attempts against the Weaver's spells until the beginning of the Weaver's next turn. At the end of a paralyzed victim's turn, they can attempt a DC 34 Will save to end the paralyzed condition (though they are still immobilized until they Escape)."
+                        "text": "A creature struck by the Weaver's web Strike must succeed at a DC 34 Reflex save or become immobilized (Escape DC 34). If the Weaver spends 1 Mythic Point as a free action when a creature fails this save, the creature is also paralyzed, experiencing terrible nightmares of their deepest-held anxieties. The Weaver can view these dreams using a Sustain action, which imparts a \u20132 circumstance penalty to any Will saves the target attempts against the Weaver's spells until the beginning of the Weaver's next turn. At the end of a paralyzed victim's turn, they can attempt a DC 34 Will save to end the paralyzed condition (though they are still immobilized until they Escape).",
+                        "saving_throw": [
+                            {
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 34,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 34 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

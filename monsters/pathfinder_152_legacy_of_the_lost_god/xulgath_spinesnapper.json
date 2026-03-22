@@ -651,13 +651,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 21 Fortitude",
-                        "dc": 21,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 21 Fortitude",
+                            "dc": 21,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "universal_monster_ability": {
                         "name": "Stench",
                         "type": "ability",
@@ -1047,7 +1049,16 @@
                         "success": "The creature is unaffected.",
                         "failure": "The creature is pushed 10 feet.",
                         "critical_failure": "The target is pushed 10 feet and knocked prone.",
-                        "text": "The spinesnapper makes a claw or weapon Strike. If it hits, in addition to dealing damage, the creature must attempt a DC 22 Fortitude saving throw, with the following effects. "
+                        "text": "The spinesnapper makes a claw or weapon Strike. If it hits, in addition to dealing damage, the creature must attempt a DC 22 Fortitude saving throw, with the following effects. ",
+                        "saving_throw": [
+                            {
+                                "dc": 22,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 22 Fortitude",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1067,7 +1078,24 @@
                         },
                         "frequency": "once per round",
                         "requirement": "The spinesnapper has a creature grabbed or restrained",
-                        "effect": "The spinesnapper slams the creature against a nearby surface. The target and the surface struck each take 4d6 bludgeoning damage, and the target must succeed at a DC 22 Fortitude save or become slowed 1 for 1 round, or stunned for 1 round on a critical failure."
+                        "effect": "The spinesnapper slams the creature against a nearby surface. The target and the surface struck each take 4d6 bludgeoning damage, and the target must succeed at a DC 22 Fortitude save or become slowed 1 for 1 round, or stunned for 1 round on a critical failure.",
+                        "saving_throw": [
+                            {
+                                "dc": 22,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 22 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

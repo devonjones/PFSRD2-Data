@@ -471,7 +471,15 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Exquisite Kokogiak Harness",
-                    "text": "A rage rider is equipped with an exquisitely crafted harness when riding a kokogiak. Two rage riders can ride a willing kokogiak at once using such a harness, and both of their hands remain free while doing so. When a rage rider is attached to a kokogiak, they can't use any action that uses their speed (such as Step or Stride, and all DCs to forcibly move the rage rider or to knock them from their mount are increased by 5. If a kokogiak being ridden by a rage rider using such a harness is killed or falls unconscious, the rage rider takes 3d6 bludgeoning damage from the fall)"
+                    "text": "A rage rider is equipped with an exquisitely crafted harness when riding a kokogiak. Two rage riders can ride a willing kokogiak at once using such a harness, and both of their hands remain free while doing so. When a rage rider is attached to a kokogiak, they can't use any action that uses their speed (such as Step or Stride, and all DCs to forcibly move the rage rider or to knock them from their mount are increased by 5. If a kokogiak being ridden by a rage rider using such a harness is killed or falls unconscious, the rage rider takes 3d6 bludgeoning damage from the fall)",
+                    "damage": [
+                        {
+                            "damage_type": "bludgeoning",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ],
             "reactive_abilities": [
@@ -839,7 +847,22 @@
                                 "aonid": 29
                             }
                         ],
-                        "text": "The rage rider enters a state of pure rage that lasts either for 1 minute, until there are no enemies they can perceive, or until they fall unconscious, whichever comes first. While raging, the rage rider has AC 27 and their spear Strikes deal 2d6+15 damage plus 2d6 persistent bleed damage. While raging, the rage rider can't use actions that have the concentrate trait, except for Seek. After they've stopped raging, a rage rider can't use Rage again for 1 minute."
+                        "text": "The rage rider enters a state of pure rage that lasts either for 1 minute, until there are no enemies they can perceive, or until they fall unconscious, whichever comes first. While raging, the rage rider has AC 27 and their spear Strikes deal 2d6+15 damage plus 2d6 persistent bleed damage. While raging, the rage rider can't use actions that have the concentrate trait, except for Seek. After they've stopped raging, a rage rider can't use Rage again for 1 minute.",
+                        "damage": [
+                            {
+                                "damage_type": "bleed",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "formula": "2d6+15",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1 minute"
                     }
                 }
             ]

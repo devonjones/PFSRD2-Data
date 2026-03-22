@@ -1026,12 +1026,14 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 45",
-                        "dc": 45
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 45",
+                            "dc": 45
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1557,7 +1559,15 @@
                         "subtype": "ability",
                         "ability_type": "offensive",
                         "name": "Eat Away",
-                        "text": "A creature that begins its turn inside Iffdahsil takes 10d6 negative damage. Iffdahsil gains temporary HP for 1 minute equal to half the damage dealt."
+                        "text": "A creature that begins its turn inside Iffdahsil takes 10d6 negative damage. Iffdahsil gains temporary HP for 1 minute equal to half the damage dealt.",
+                        "damage": [
+                            {
+                                "damage_type": "negative",
+                                "formula": "10d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1628,7 +1638,15 @@
                                 }
                             ],
                             "game-id": "beb7bf4f434c23115eddddaf2792d33c"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 43,
+                                "subtype": "save_dc",
+                                "text": "DC 43",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1662,7 +1680,35 @@
                                 "aonid": 16
                             }
                         ],
-                        "text": "Iffdahsil deals 8d8 piercing damage to each creature in a 10-foot emanation (DC 43 basic Reflex save) and can also attempt to Grab any creatures who critically fail their save as a free action. Iffdahsil is then flat-footed until the start of its next turn."
+                        "text": "Iffdahsil deals 8d8 piercing damage to each creature in a 10-foot emanation (DC 43 basic Reflex save) and can also attempt to Grab any creatures who critically fail their save as a free action. Iffdahsil is then flat-footed until the start of its next turn.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 43,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 43 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "8d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

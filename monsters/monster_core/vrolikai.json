@@ -1266,13 +1266,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 38 Fortitude",
-                        "dc": 38,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 38 Fortitude",
+                            "dc": 38,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2111,7 +2113,15 @@
                                 "aonid": 358
                             }
                         ],
-                        "text": "The vrolikai manifests a dagger-shaped blade of what looks like crystallized black flame in each of their four hands. These weapons function as *+2 greater striking daggers* that deal an additional 2d6 void damage. They fade away into nothingness 1 minute after a vrolikai no longer carries them."
+                        "text": "The vrolikai manifests a dagger-shaped blade of what looks like crystallized black flame in each of their four hands. These weapons function as *+2 greater striking daggers* that deal an additional 2d6 void damage. They fade away into nothingness 1 minute after a vrolikai no longer carries them.",
+                        "damage": [
+                            {
+                                "damage_type": "void",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2251,7 +2261,14 @@
                         "success": "The creature is unaffected.",
                         "failure": "The creature is affected by death-stealing gaze and becomes drained 1. If the creature was already drained 1 by the death-stealing gaze before attempting the save, a failed save increases the value of the drained condition by 1, to a maximum of drained 4. The vrolikai gains 10 temporary Hit Points, and the drained creature is temporarily immune until the start of the vrolikai's next turn.",
                         "critical_failure": "As failure, but the creature increases the amount of drain by 2.",
-                        "text": "The vrolikai focuses their deathstealing gaze upon a single target they can see within 30 feet. The target must immediately attempt a Fortitude save against death-stealing gaze."
+                        "text": "The vrolikai focuses their deathstealing gaze upon a single target they can see within 30 feet. The target must immediately attempt a Fortitude save against death-stealing gaze.",
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2388,7 +2405,16 @@
                         "success": "The creature becomes stupefied 1 for 1 minute.",
                         "failure": "The creature becomes stupefied 1. If it's already stupefied, its stupefied value increases by 1 instead (to a maximum of stupefied 4).",
                         "critical_failure": "As failure, plus the creature is confused for 1 minute.",
-                        "text": "The sting of a vrolikai is mind-warping. A creature struck must attempt a DC 44 Will save."
+                        "text": "The sting of a vrolikai is mind-warping. A creature struck must attempt a DC 44 Will save.",
+                        "saving_throw": [
+                            {
+                                "dc": 44,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 44 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

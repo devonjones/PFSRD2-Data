@@ -929,13 +929,24 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 35 Fortitude",
-                        "dc": 35,
-                        "save_type": "Fort"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 35 Fortitude",
+                            "dc": 35,
+                            "save_type": "Fort"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "bleed",
+                            "formula": "2d6",
+                            "persistent": true,
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1544,7 +1555,23 @@
                         "critical_success": "The creature is temporarily immune to Call of the Mire for 1 hour.",
                         "success": "The target immediately Strides or otherwise uses their fastest Speed to approach the swamp blight. This movement does not cost the target their actions. On the target's next turn, they cannot willingly move farther away from the blight, but they can otherwise act normally.",
                         "failure": "As success, except that the target spends all of their actions on their next turn also approaching the blight if they are not already adjacent, and they cannot take any other actions for 1 round. Additionally, the target cannot willingly move farther away from the blight for 1 minute.",
-                        "critical_failure": "As failure, except that the creature's only actions are to approach the blight for 1 minute."
+                        "critical_failure": "As failure, except that the creature's only actions are to approach the blight for 1 minute.",
+                        "saving_throw": [
+                            {
+                                "dc": 38,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 38 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1847,7 +1874,25 @@
                                 "aonid": 29
                             }
                         ],
-                        "text": "Targets hit by a decaying flesh Strike must succeed at a DC 40 Fortitude save or be sickened 1 (sickened 2 on a critical failure). This condition is cumulative with itself and with the sickened condition from the mosquito aura, up to a maximum value of sickened 4. If the Strike critically hits, the target also takes 2d6 persistent acid damage."
+                        "text": "Targets hit by a decaying flesh Strike must succeed at a DC 40 Fortitude save or be sickened 1 (sickened 2 on a critical failure). This condition is cumulative with itself and with the sickened condition from the mosquito aura, up to a maximum value of sickened 4. If the Strike critically hits, the target also takes 2d6 persistent acid damage.",
+                        "saving_throw": [
+                            {
+                                "dc": 40,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 40 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

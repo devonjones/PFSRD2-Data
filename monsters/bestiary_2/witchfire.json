@@ -1898,7 +1898,16 @@
                         "success": "The creature appears to catch fire with sickly green flames. These flames deal no damage on their own, but as long as the flames burn, the creature can't be concealed (invisible creatures are concealed rather than being undetected) and gains weakness 5 to fire for 1 round. ",
                         "failure": "As success, but the effect is permanent until removed. ",
                         "critical_failure": "As failure, but the creature gains weakness 10 to fire.",
-                        "text": "Any creature that takes negative damage from a witchfire's Strike must attempt a DC 26 Will save. "
+                        "text": "Any creature that takes negative damage from a witchfire's Strike must attempt a DC 26 Will save. ",
+                        "saving_throw": [
+                            {
+                                "dc": 26,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 26 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2030,7 +2039,31 @@
                             }
                         ],
                         "requirement": "A creature within 30 feet of the witchfire burns with witchflame",
-                        "effect": "The witchfire's eyes and mouth glow brightly, and the witchflame on the target creature momentarily burns much hotter, dealing 5d6 fire damage and 5d6 negative damage to that creature (DC 28 basic Fortitude save). The witchfire can't use Witchflame Kindling for 1d4 rounds."
+                        "effect": "The witchfire's eyes and mouth glow brightly, and the witchflame on the target creature momentarily burns much hotter, dealing 5d6 fire damage and 5d6 negative damage to that creature (DC 28 basic Fortitude save). The witchfire can't use Witchflame Kindling for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 28,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 28 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "5d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "negative",
+                                "formula": "5d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

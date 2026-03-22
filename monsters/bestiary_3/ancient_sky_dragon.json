@@ -1680,12 +1680,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 38",
-                        "dc": 38
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 38",
+                            "dc": 38
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2654,7 +2656,49 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The dragon shoots a ball of electricity that deals 9d12 electricity damage and 2d12 sonic damage in a 30-foot burst within 60 feet (DC 40 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds. See divine lightning below."
+                        "text": "The dragon shoots a ball of electricity that deals 9d12 electricity damage and 2d12 sonic damage in a 30-foot burst within 60 feet (DC 40 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds. See divine lightning below.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 40,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 40 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "9d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "sonic",
+                                "formula": "2d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        },
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2862,7 +2906,15 @@
                                 }
                             ],
                             "game-id": "b66ff37b600d7a07930015c902a3bb72"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 40,
+                                "subtype": "save_dc",
+                                "text": "DC 40",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3071,7 +3123,34 @@
                         "success": "Half damage, and the creature is stunned 1. ",
                         "failure": "Full damage, and the creature is stunned for 1 round and can't fly for 4 rounds. ",
                         "critical_failure": "Double damage, and the creature is stunned for 2 rounds and can't fly for 1 minute.",
-                        "text": "The dragon rapidly coils, then unleashes crackling lightning that deals 5d12 electricity damage in a 60-foot emanation. Each creature in the area must attempt a DC 40 Fortitude save; regardless of the outcome, the creature then becomes temporarily immune for 10 minutes. "
+                        "text": "The dragon rapidly coils, then unleashes crackling lightning that deals 5d12 electricity damage in a 60-foot emanation. Each creature in the area must attempt a DC 40 Fortitude save; regardless of the outcome, the creature then becomes temporarily immune for 10 minutes. ",
+                        "saving_throw": [
+                            {
+                                "dc": 40,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 40 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "electricity",
+                                "formula": "5d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

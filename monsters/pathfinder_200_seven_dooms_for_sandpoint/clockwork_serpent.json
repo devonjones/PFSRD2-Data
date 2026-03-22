@@ -809,7 +809,16 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Critical Deactivation",
-                    "text": "If a clockwork serpent takes any precision damage or takes a critical hit and it has a serpent mode active (see below), it must attempt a DC 16 flat check. On a failure, it takes the damage from the critical hit as normal, is stunned 1, and its serpent mode deactivates."
+                    "text": "If a clockwork serpent takes any precision damage or takes a critical hit and it has a serpent mode active (see below), it must attempt a DC 16 flat check. On a failure, it takes the damage from the critical hit as normal, is stunned 1, and its serpent mode deactivates.",
+                    "saving_throw": [
+                        {
+                            "dc": 16,
+                            "save_type": "Flat Check",
+                            "subtype": "save_dc",
+                            "text": "DC 16 flat check",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1414,7 +1423,15 @@
                                 }
                             ],
                             "game-id": "3900c3f784d7a523533b6cb0e7d2c952"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 26,
+                                "subtype": "save_dc",
+                                "text": "DC 26",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1661,7 +1678,26 @@
                             }
                         ],
                         "requirement": "The clockwork serpent is in cobra mode",
-                        "effect": "The clockwork serpent flares out a cobra hood. All creatures within a 15-foot emanation must succeed at a DC 26 Will save or become frightened 1 (frightened 2 on a critical failure)."
+                        "effect": "The clockwork serpent flares out a cobra hood. All creatures within a 15-foot emanation must succeed at a DC 26 Will save or become frightened 1 (frightened 2 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "dc": 26,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 26 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1802,7 +1838,33 @@
                             }
                         ],
                         "requirement": "The clockwork serpent is in rattlesnake mode",
-                        "effect": "The clockwork serpent rattles its tail, then snaps it like a whip to create a devastating blast of sonic energy in a 30-foot cone. Creatures in the area take 9d6 sonic damage (DC 26 basic Fort save)."
+                        "effect": "The clockwork serpent rattles its tail, then snaps it like a whip to create a devastating blast of sonic energy in a 30-foot cone. Creatures in the area take 9d6 sonic damage (DC 26 basic Fort save).",
+                        "saving_throw": [
+                            {
+                                "dc": 26,
+                                "subtype": "save_dc",
+                                "text": "DC 26",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "sonic",
+                                "formula": "9d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

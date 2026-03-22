@@ -770,7 +770,25 @@
                         }
                     ],
                     "effect": "Layers of the saltborn's salty skin flake off to foul the water around them. A creature that ends its turn in the aura takes 2d6 acid damage with a DC 30 basic Reflex save; creatures with the amphibious or aquatic trait are immune.",
-                    "text": "The saltborn stalkers are in a body of water;"
+                    "text": "The saltborn stalkers are in a body of water;",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 30,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 30 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "acid",
+                            "formula": "2d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1077,7 +1095,26 @@
                         "effect": "The saltborn stalkers move their luminescent lures in an entrancing light show, drawing nearby creatures into their grasp. Each creature in a 100-foot emanation must attempt a DC 33 Will save; regardless of the result of its save, the creature is then temporarily immune to Lightlure for 24 hours.",
                         "success": "The creature is unaffected.",
                         "failure": "The creature is fascinated with the lures and must spend all its actions on its next turn to move closer to them as expediently as possible, avoiding obvious dangers along its path.",
-                        "critical_failure": "As failure, but the creature is also dazzled for 1d4 rounds."
+                        "critical_failure": "As failure, but the creature is also dazzled for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 100,
+                                "subtype": "area",
+                                "text": "100-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1112,7 +1149,26 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The stalkers reach out to Grab their foes and drag them underwater. Each enemy in a 5-foot emanation must succeed at a DC 33 Reflex save or be grabbed by the stalkers (or restrained on a critical success). For the rest of the current turn, the saltborn stalkers can move toward water or in water without ending the grab, carrying any grabbed or restrained creatures along with them."
+                        "effect": "The stalkers reach out to Grab their foes and drag them underwater. Each enemy in a 5-foot emanation must succeed at a DC 33 Reflex save or be grabbed by the stalkers (or restrained on a critical success). For the rest of the current turn, the saltborn stalkers can move toward water or in water without ending the grab, carrying any grabbed or restrained creatures along with them.",
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1140,7 +1196,47 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The saltborn stalkers use their teeth and claws to vivisect each enemy in a 5-foot emanation (DC 30 basic Reflex save). The damage depends on the number of actions.  \n [#] 2d10 slashing damage  \n [##] 3d10+8 slashing damage  \n [###] 3d10+16 slashing damage"
+                        "effect": "The saltborn stalkers use their teeth and claws to vivisect each enemy in a 5-foot emanation (DC 30 basic Reflex save). The damage depends on the number of actions.  \n [#] 2d10 slashing damage  \n [##] 3d10+8 slashing damage  \n [###] 3d10+16 slashing damage",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "2d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "3d10+8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "slashing",
+                                "formula": "3d10+16",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

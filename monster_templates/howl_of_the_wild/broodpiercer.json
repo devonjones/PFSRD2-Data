@@ -162,7 +162,17 @@
                         }
                     },
                     {
-                        "conditional": "$.offense.offensive_actions[*].ability.frequency != null",
+                        "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency == null",
+                        "target": "$.offense.offensive_actions[*].ability.damage",
+                        "operation": "add_modifier",
+                        "modifier": {
+                            "type": "stat_block_section",
+                            "subtype": "modifier",
+                            "name": "+1 damage"
+                        }
+                    },
+                    {
+                        "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency != null",
                         "target": "$.offense.offensive_actions[*].ability.damage",
                         "operation": "add_modifier",
                         "modifier": {

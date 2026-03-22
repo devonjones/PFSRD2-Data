@@ -2031,12 +2031,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 41",
-                        "dc": 41
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 41",
+                            "dc": 41
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2256,7 +2258,16 @@
                             "aonid": 333
                         }
                     ],
-                    "effect": "The archdragon's scales ward off deadly attacks. The dragon attempts a DC 14 flat check. On a success, the triggering attack becomes a normal hit."
+                    "effect": "The archdragon's scales ward off deadly attacks. The dragon attempts a DC 14 flat check. On a success, the triggering attack becomes a normal hit.",
+                    "saving_throw": [
+                        {
+                            "dc": 14,
+                            "save_type": "Flat Check",
+                            "subtype": "save_dc",
+                            "text": "DC 14 flat check",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2963,7 +2974,16 @@
                                 "aonid": 2296
                             }
                         ],
-                        "text": "The dragon shapes rocks even after it throws them, capturing its prey. The creature struck must succeed at a DC 44 Reflex save or be immobilized. Creatures remain immobilized until they Escape and immediately fall if they're flying. The weight can be destroyed as an object with 40 Hit Points and 20 Hardness."
+                        "text": "The dragon shapes rocks even after it throws them, capturing its prey. The creature struck must succeed at a DC 44 Reflex save or be immobilized. Creatures remain immobilized until they Escape and immediately fall if they're flying. The weight can be destroyed as an object with 40 Hit Points and 20 Hardness.",
+                        "saving_throw": [
+                            {
+                                "dc": 44,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 44 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3028,7 +3048,36 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The dragon belches a mass of boulders that deals 17d8 bludgeoning damage in a 50-foot cone (DC 44 basic Reflex save). They can't use Avalanche Breath again for 1d4 rounds."
+                        "text": "The dragon belches a mass of boulders that deals 17d8 bludgeoning damage in a 50-foot cone (DC 44 basic Reflex save). They can't use Avalanche Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 44,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 44 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 50,
+                                "subtype": "area",
+                                "text": "50-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "17d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -3070,7 +3119,14 @@
                             }
                         ],
                         "requirement": "The dragon is burrowed",
-                        "effect": "The dragon Burrows, then Leaps out of the ground, landing at a point within 40 feet. The dragon makes a melee Strike against a creature within reach when they land. If the Strike is a critical hit, the target is knocked prone."
+                        "effect": "The dragon Burrows, then Leaps out of the ground, landing at a point within 40 feet. The dragon makes a melee Strike against a creature within reach when they land. If the Strike is a critical hit, the target is knocked prone.",
+                        "range": {
+                            "range": 40,
+                            "subtype": "range",
+                            "text": "within 40 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -3258,7 +3314,34 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "An eruption of skymetal blades churns the earth in a 40-foot emanation. The area becomes difficult terrain and creatures touching the ground take 8d8 slashing damage (basic DC 45 Reflex save). Creatures that fail the save are knocked prone and moved 20 feet in a direction of the dragon's choice."
+                        "text": "An eruption of skymetal blades churns the earth in a 40-foot emanation. The area becomes difficult terrain and creatures touching the ground take 8d8 slashing damage (basic DC 45 Reflex save). Creatures that fail the save are knocked prone and moved 20 feet in a direction of the dragon's choice.",
+                        "saving_throw": [
+                            {
+                                "dc": 45,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 45 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 40,
+                                "subtype": "area",
+                                "text": "40-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "8d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

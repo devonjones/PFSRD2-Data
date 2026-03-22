@@ -725,13 +725,15 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 16 Fortitude",
-                        "dc": 16,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 16 Fortitude",
+                            "dc": 16,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1225,7 +1227,15 @@
                                 "aonid": 38
                             }
                         ],
-                        "text": "The azer's Strikes deal an extra 1d6 fire damage (included above). When the azer successfully performs a Grapple or Shove action, they also deal 1d6 fire damage to their target."
+                        "text": "The azer's Strikes deal an extra 1d6 fire damage (included above). When the azer successfully performs a Grapple or Shove action, they also deal 1d6 fire damage to their target.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1356,7 +1366,35 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The azer shrouds their light hammer in flames and hurls it forward, dealing 2d6 fire damage to each creature in a 20-foot line (DC 16 basic Reflex save)."
+                        "text": "The azer shrouds their light hammer in flames and hurls it forward, dealing 2d6 fire damage to each creature in a 20-foot line (DC 16 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 16,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 16 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

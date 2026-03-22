@@ -705,13 +705,15 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 16 Fortitude",
-                        "dc": 16,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 16 Fortitude",
+                            "dc": 16,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1143,7 +1145,15 @@
                                 "aonid": 2380
                             }
                         ],
-                        "text": "The munsahir's Strikes deal an extra 1d6 fire damage (included above). When the munsahir successfully performs a Grapple, Reposition, or Shove, they also deal 1d6 fire damage to their target."
+                        "text": "The munsahir's Strikes deal an extra 1d6 fire damage (included above). When the munsahir successfully performs a Grapple, Reposition, or Shove, they also deal 1d6 fire damage to their target.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1252,7 +1262,35 @@
                             }
                         ],
                         "requirement": "The munsahir is wielding a light hammer",
-                        "effect": "The munsahir shrouds the light hammer in flames and hurls it forward, dealing 2d6 fire damage to each creature in a 20-foot line (DC 16 basic Reflex save)."
+                        "effect": "The munsahir shrouds the light hammer in flames and hurls it forward, dealing 2d6 fire damage to each creature in a 20-foot line (DC 16 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 16,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 16 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -955,7 +955,25 @@
                             "aonid": 2297
                         }
                     ],
-                    "effect": "The ally gains resistance 20 to all damage against the triggering damage and the enemy takes 1d8+4 piercing damage (DC 34 basic Reflex save)."
+                    "effect": "The ally gains resistance 20 to all damage against the triggering damage and the enemy takes 1d8+4 piercing damage (DC 34 basic Reflex save).",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 34,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 34 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "piercing",
+                            "formula": "1d8+4",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -1238,7 +1256,17 @@
                             "subtype": "action_type",
                             "name": "One Action"
                         },
-                        "text": "The archon bastion grants each ally within a 5-foot emanation a +2 circumstance bonus to AC until that ally is no longer within the area or until the start of the archon bastion's next turn, whichever comes first. If the archon bastion uses Archon's Aegis against an attack against one of the shielded allies, the archon bastion gains the resistance and takes the damage rather than the ally."
+                        "text": "The archon bastion grants each ally within a 5-foot emanation a +2 circumstance bonus to AC until that ally is no longer within the area or until the start of the archon bastion's next turn, whichever comes first. If the archon bastion uses Archon's Aegis against an attack against one of the shielded allies, the archon bastion gains the resistance and takes the damage rather than the ally.",
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1350,7 +1378,59 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The archon bastion engages in a uniform melee attack against each enemy in 10-foot emanation (DC 34 basic Reflex save). The damage depends on the number of actions. An unholy creature that fails its save against this effect takes an additional 2d6 spirit damage (or 1d6 spirit damage for the one-action version).   \n [#] 1d8+4 piercing damage   \n[two-actions] 3d8+14 piercing damage   \n[three-actions] 4d8+19 piercing damage"
+                        "effect": "The archon bastion engages in a uniform melee attack against each enemy in 10-foot emanation (DC 34 basic Reflex save). The damage depends on the number of actions. An unholy creature that fails its save against this effect takes an additional 2d6 spirit damage (or 1d6 spirit damage for the one-action version).   \n [#] 1d8+4 piercing damage   \n[two-actions] 3d8+14 piercing damage   \n[three-actions] 4d8+19 piercing damage",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "spirit",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "spirit",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "1d8+4",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "3d8+14",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "piercing",
+                                "formula": "4d8+19",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

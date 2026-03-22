@@ -1724,12 +1724,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 27",
-                        "dc": 27
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 27",
+                            "dc": 27
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2641,7 +2643,43 @@
                                 "aonid": 94
                             }
                         ],
-                        "text": "The dragon expresses their power in one of two ways. The dragon can't use Powerful Utterance again for 1d4 rounds. \n* **Ardent Proclamation** (occult, fire) The dragon breathes a blast of flame in a 30-foot cone that deals 12d6 fire damage (DC 30 basic Reflex save).\n* **Chastising Word** (mental, occult) The dragon chides the targets strictly enough to leave the mind reeling. Each creature within a 30-foot cone must succeed at a DC 30 Will save or become stupefied 1 for 1 minute (or stupefied 2 on a critical failure)."
+                        "text": "The dragon expresses their power in one of two ways. The dragon can't use Powerful Utterance again for 1d4 rounds. \n* **Ardent Proclamation** (occult, fire) The dragon breathes a blast of flame in a 30-foot cone that deals 12d6 fire damage (DC 30 basic Reflex save).\n* **Chastising Word** (mental, occult) The dragon chides the targets strictly enough to leave the mind reeling. Each creature within a 30-foot cone must succeed at a DC 30 Will save or become stupefied 1 for 1 minute (or stupefied 2 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 30,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 30 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "12d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2822,7 +2860,22 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The dragon is a skilled mentor, and commands its students like a general. An ally within 60 feet of the dragon can Stride once and Strike once, in any order. If it hits, the Strike deals an additional 2d6 fire damage."
+                        "effect": "The dragon is a skilled mentor, and commands its students like a general. An ally within 60 feet of the dragon can Stride once and Strike once, in any order. If it hits, the Strike deals an additional 2d6 fire damage.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -3003,7 +3056,14 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "Wise people listen when a vizier dragon speaks. An ally within 60 feet of the dragon gains immunity to the vizier dragon's Powerful Utterance and resistance 10 to all other damage for 1 round."
+                        "effect": "Wise people listen when a vizier dragon speaks. An ally within 60 feet of the dragon gains immunity to the vizier dragon's Powerful Utterance and resistance 10 to all other damage for 1 round.",
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

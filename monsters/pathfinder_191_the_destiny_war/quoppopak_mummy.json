@@ -927,13 +927,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 30 Will",
-                        "dc": 30,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 30 Will",
+                            "dc": 30,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1388,7 +1390,24 @@
                             "name": "Free Action"
                         },
                         "trigger": "The quoppopak mummy takes fire damage while it is above water",
-                        "effect": "The oil coating the mummy ignites. This fire does no additional damage to the mummy but does cause its melee Strikes to inflict an additional 1d6 fire damage. At the end of its turn, the mummy attempts a DC 10 flat check; on a success, the fire goes out. The fire also goes out immediately if the mummy submerges in water."
+                        "effect": "The oil coating the mummy ignites. This fire does no additional damage to the mummy but does cause its melee Strikes to inflict an additional 1d6 fire damage. At the end of its turn, the mummy attempts a DC 10 flat check; on a success, the fire goes out. The fire also goes out immediately if the mummy submerges in water.",
+                        "saving_throw": [
+                            {
+                                "dc": 10,
+                                "save_type": "Flat Check",
+                                "subtype": "save_dc",
+                                "text": "DC 10 flat check",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1613,7 +1632,8 @@
                             "subtype": "action_type",
                             "name": "One Action"
                         },
-                        "text": "Frequency once per round; Effect The quoppopak makes two tentacle Strikes against the same creature. These Strikes deal piercing damage instead of bludgeoning, and the quoppopak can't Grab with them. Its multiple attack penalty doesn't increase until after both attacks."
+                        "text": "Frequency once per round; Effect The quoppopak makes two tentacle Strikes against the same creature. These Strikes deal piercing damage instead of bludgeoning, and the quoppopak can't Grab with them. Its multiple attack penalty doesn't increase until after both attacks.",
+                        "frequency": "once per round"
                     }
                 },
                 {

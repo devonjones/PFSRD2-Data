@@ -765,7 +765,20 @@
                             "subtype": "action_type",
                             "name": "Two Actions"
                         },
-                        "text": "The hive mother makes a mandibles Strike; if the Strike hits, the target\u2019s armor takes the damage and the acid damage bypasses the armor\u2019s Hardness."
+                        "text": "The hive mother makes a mandibles Strike; if the Strike hits, the target\u2019s armor takes the damage and the acid damage bypasses the armor\u2019s Hardness.",
+                        "damage": [
+                            {
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -783,7 +796,18 @@
                             "subtype": "action_type",
                             "name": "Two Actions"
                         },
-                        "text": "The hive mother unleashes a pheromone that causes all other ankhravs within a 100-foot emanation to become quickened 1 until the start of the hive mother\u2019s next turn, and they can use the extra action only for Burrow, Stride, or Strike actions. The hive mother can\u2019t unleash the pheromone again for 1d4 rounds."
+                        "text": "The hive mother unleashes a pheromone that causes all other ankhravs within a 100-foot emanation to become quickened 1 until the start of the hive mother\u2019s next turn, and they can use the extra action only for Burrow, Stride, or Strike actions. The hive mother can\u2019t unleash the pheromone again for 1d4 rounds.",
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 100,
+                                "subtype": "area",
+                                "text": "100-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -839,7 +863,43 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The hive mother spews acid in a 60-foot cone, dealing 8d6 acid damage and 1d6 persistent acid damage (DC 26 basic Reflex save). It can\u2019t spew acid again for 1d4 rounds."
+                        "text": "The hive mother spews acid in a 60-foot cone, dealing 8d6 acid damage and 1d6 persistent acid damage (DC 26 basic Reflex save). It can\u2019t spew acid again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 26,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 26 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "8d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

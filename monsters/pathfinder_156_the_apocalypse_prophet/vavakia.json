@@ -1328,12 +1328,14 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 37",
-                        "dc": 37
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 37",
+                            "dc": 37
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1554,7 +1556,22 @@
                             "game-obj": "Conditions",
                             "aonid": 9
                         }
-                    ]
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "mental",
+                            "formula": "3d10+10",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "range": {
+                        "range": 100,
+                        "subtype": "range",
+                        "text": "within 100 feet",
+                        "type": "stat_block_section",
+                        "unit": "feet"
+                    }
                 }
             ]
         },
@@ -2790,7 +2807,36 @@
                                 "aonid": 377
                             }
                         ],
-                        "text": "The vavakia exhales ghostly green fire in a 60-foot cone. Living creatures in the area take 20d6 negative damage (DC 42 basic Reflex save). A good creature that fails this save is becomes stupefied 2 for 1 minute (stupefied 4 on a critical failure). A creature slain by Soulfire Breath can't be resurrected except by powerful magic such as a *wish* spell. The vavakia can't use Soulfire Breath again for 1d4 rounds."
+                        "text": "The vavakia exhales ghostly green fire in a 60-foot cone. Living creatures in the area take 20d6 negative damage (DC 42 basic Reflex save). A good creature that fails this save is becomes stupefied 2 for 1 minute (stupefied 4 on a critical failure). A creature slain by Soulfire Breath can't be resurrected except by powerful magic such as a *wish* spell. The vavakia can't use Soulfire Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 42,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 42 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "negative",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2991,7 +3037,16 @@
                                 "aonid": 36
                             }
                         ],
-                        "text": "If the vavakia critically hits with its tail Strike, the target must succeed at a DC 40 Fortitude save or be stunned for 1 round (1d4 rounds on a critical failure)."
+                        "text": "If the vavakia critically hits with its tail Strike, the target must succeed at a DC 40 Fortitude save or be stunned for 1 round (1d4 rounds on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "dc": 40,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 40 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -3046,7 +3101,15 @@
                                 }
                             ],
                             "game-id": "835aea1efadf2fa4f9b9bb63b8ec0b98"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 40,
+                                "subtype": "save_dc",
+                                "text": "DC 40",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -996,12 +996,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 43",
-                        "dc": 43
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 43",
+                            "dc": 43
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1335,7 +1337,8 @@
                         "name": "Reaction"
                     },
                     "trigger": "The gold dragon fails a saving throw.",
-                    "effect": "The dragon improves its result by one degree of success, turning a failure into a success or a critical failure into a normal failure. The dragon can't use this ability again for 1d4 rounds."
+                    "effect": "The dragon improves its result by one degree of success, turning a failure into a success or a critical failure into a normal failure. The dragon can't use this ability again for 1d4 rounds.",
+                    "frequency": "1d4 rounds"
                 }
             ]
         },
@@ -2882,7 +2885,43 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The gold dragon breathes in one of two ways. The dragon can't use Breath Weapon again for 1d4 rounds.\n* **Flame** (arcane, evocation, fire); The dragon breathes a blast of flame in a 80-foot cone that deals 24d6 fire damage (DC 46 basic Reflex save).\n* **Weakening Gas** (arcane, necromancy); The dragon breathes a blast of weakening gas. Each creature within a 80-foot cone must succeed at a DC 46 Fortitude save or become enfeebled 4 for 1 minute (or enfeebled 5 on a critical failure)."
+                        "text": "The gold dragon breathes in one of two ways. The dragon can't use Breath Weapon again for 1d4 rounds.\n* **Flame** (arcane, evocation, fire); The dragon breathes a blast of flame in a 80-foot cone that deals 24d6 fire damage (DC 46 basic Reflex save).\n* **Weakening Gas** (arcane, necromancy); The dragon breathes a blast of weakening gas. Each creature within a 80-foot cone must succeed at a DC 46 Fortitude save or become enfeebled 4 for 1 minute (or enfeebled 5 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 46,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 46 basic Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 46,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 46 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 80,
+                                "subtype": "area",
+                                "text": "80-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "24d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -3348,7 +3387,49 @@
                         "subtype": "ability",
                         "ability_type": "offensive",
                         "name": "Explosive Breath",
-                        "text": "When Mengkare uses Breath Weapon, he can expel an explosive orb of flame instead of a cone. When he does, he fires the orb at the corner of a square within 60 feet. The orb immediately detonates and deals 24d6 fire damage (DC 48 basic Reflex save) to all creatures within a 30-foot burst. Creatures that critically fail their save catch on fire and take 4d6 persistent fire damage."
+                        "text": "When Mengkare uses Breath Weapon, he can expel an explosive orb of flame instead of a cone. When he does, he fires the orb at the corner of a square within 60 feet. The orb immediately detonates and deals 24d6 fire damage (DC 48 basic Reflex save) to all creatures within a 30-foot burst. Creatures that critically fail their save catch on fire and take 4d6 persistent fire damage.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 48,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 48 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "24d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

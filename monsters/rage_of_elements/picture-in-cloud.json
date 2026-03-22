@@ -729,7 +729,14 @@
                         }
                     ],
                     "trigger": "The picture-in-clouds takes damage from a hostile action",
-                    "effect": "The picture-inclouds disperses. Until the end of the current turn, they can't be attacked or targeted, they don't take up space, and any auras or emanations they have are suppressed. At the end of the turn, the picture-in-clouds re-forms in any sufficient space within 150 feet of where they dispersed; any auras or emanations they have are restored as long as the duration didn't run out while the elemental was dispersed."
+                    "effect": "The picture-inclouds disperses. Until the end of the current turn, they can't be attacked or targeted, they don't take up space, and any auras or emanations they have are suppressed. At the end of the turn, the picture-in-clouds re-forms in any sufficient space within 150 feet of where they dispersed; any auras or emanations they have are restored as long as the duration didn't run out while the elemental was dispersed.",
+                    "range": {
+                        "range": 150,
+                        "subtype": "range",
+                        "text": "within 150 feet",
+                        "type": "stat_block_section",
+                        "unit": "feet"
+                    }
                 }
             ]
         },
@@ -1019,7 +1026,34 @@
                         "critical_success": "The creature is unaffected.",
                         "success": "The creature is pushed 20 feet.",
                         "failure": "The creature is pushed 40 feet.",
-                        "critical_failure": "The creature is pushed 40 feet and knocked prone."
+                        "critical_failure": "The creature is pushed 40 feet and knocked prone.",
+                        "saving_throw": [
+                            {
+                                "dc": 30,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 30 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1092,7 +1126,15 @@
                             }
                         ],
                         "requirement": "The picture-in-clouds is in eagle shape",
-                        "effect": "The picture-in-clouds Flies 125 feet, flapping their wings and creating a barrier along their path. This barrier has the effects of *wall of wind* (DC 30) and lasts until the end of the picture-in-clouds's next turn."
+                        "effect": "The picture-in-clouds Flies 125 feet, flapping their wings and creating a barrier along their path. This barrier has the effects of *wall of wind* (DC 30) and lasts until the end of the picture-in-clouds's next turn.",
+                        "saving_throw": [
+                            {
+                                "dc": 30,
+                                "subtype": "save_dc",
+                                "text": "DC 30",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1120,7 +1162,35 @@
                             }
                         ],
                         "requirement": "The picture-in-clouds is in sword shape",
-                        "effect": "The picture-in-clouds spins, forming a whirlwind that deals 5d8 slashing damage in a 15-foot emanation (DC 30 basic Reflex save)."
+                        "effect": "The picture-in-clouds spins, forming a whirlwind that deals 5d8 slashing damage in a 15-foot emanation (DC 30 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "5d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

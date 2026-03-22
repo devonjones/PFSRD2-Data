@@ -743,13 +743,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 30 Fortitude",
-                        "dc": 30,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 30 Fortitude",
+                            "dc": 30,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -778,6 +780,14 @@
                             "alt": "sickened 1",
                             "game-obj": "Conditions",
                             "aonid": 91
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "poison",
+                            "formula": "2d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
                         }
                     ]
                 }
@@ -1113,7 +1123,15 @@
                                 "classes": []
                             }
                         ],
-                        "text": "but DC 33."
+                        "text": "but DC 33.",
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "subtype": "save_dc",
+                                "text": "DC 33",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1240,7 +1258,35 @@
                         "success": "The creature takes half damage.",
                         "failure": "The creature takes full damage and is blinded for 1 minute.",
                         "critical_failure": "The creature takes double damage and is blinded permanently.",
-                        "text": "The gritblight forces disorienting visions of Ayrzul's Blistering Labyrinth into the minds of nearby creatures. All creatures in a 60-foot cone take 7d12 mental damage with a DC 33 Will save. Creatures blinded by a gritblight's Labyrinthine Vision see only endless earthen tunnels in every direction. The gritblight can't use this ability again for 1d4 rounds."
+                        "text": "The gritblight forces disorienting visions of Ayrzul's Blistering Labyrinth into the minds of nearby creatures. All creatures in a 60-foot cone take 7d12 mental damage with a DC 33 Will save. Creatures blinded by a gritblight's Labyrinthine Vision see only endless earthen tunnels in every direction. The gritblight can't use this ability again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "mental",
+                                "formula": "7d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -1311,7 +1357,15 @@
                                 }
                             ],
                             "game-id": "5cbb67fac546dfc69b9b73a06732a040"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "subtype": "save_dc",
+                                "text": "DC 33",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

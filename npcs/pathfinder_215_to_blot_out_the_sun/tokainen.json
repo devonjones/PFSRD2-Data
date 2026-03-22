@@ -661,7 +661,31 @@
                             "aonid": 2297
                         }
                     ],
-                    "effect": "Tokainen's flesh flares with scouring flames, dealing 1d4 fire damage to all adjacent enemies (DC 28 basic Reflex; increased to 2d8 fire damage if Tokainen is using Channel the Cataclysm stance)."
+                    "effect": "Tokainen's flesh flares with scouring flames, dealing 1d4 fire damage to all adjacent enemies (DC 28 basic Reflex; increased to 2d8 fire damage if Tokainen is using Channel the Cataclysm stance).",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 28,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 28 basic Reflex",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "fire",
+                            "formula": "1d4",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        {
+                            "damage_type": "fire",
+                            "formula": "2d8",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1441,7 +1465,16 @@
                                 "aonid": 86
                             }
                         ],
-                        "text": "If your next action is to cast *harm*, any living creature that fails its save against that spell is dealt 1d6 persistent bleed damage. In addition, if that version of *harm* has an area, you can designate up to 5 living creatures in the area; they're not affected by that casting of *harm*."
+                        "text": "If your next action is to cast *harm*, any living creature that fails its save against that spell is dealt 1d6 persistent bleed damage. In addition, if that version of *harm* has an area, you can designate up to 5 living creatures in the area; they're not affected by that casting of *harm*.",
+                        "damage": [
+                            {
+                                "damage_type": "bleed",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1506,7 +1539,15 @@
                                 "aonid": 62
                             }
                         ],
-                        "text": "Effect Tokainen screams in rage, channeling the cataclysmic fury of Scal into her own body as she Interacts to draw a weapon. While she is in this stance, Tokainen gains fast healing 5, immunity to fire, her melee Strikes deal an additional 2d8 fire damage, and she gains access to her Spiral Swing ability. While Tokainen is in this stance, she can't cast spells."
+                        "text": "Effect Tokainen screams in rage, channeling the cataclysmic fury of Scal into her own body as she Interacts to draw a weapon. While she is in this stance, Tokainen gains fast healing 5, immunity to fire, her melee Strikes deal an additional 2d8 fire damage, and she gains access to her Spiral Swing ability. While Tokainen is in this stance, she can't cast spells.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1572,7 +1613,32 @@
                             }
                         ],
                         "requirement": "Tokainen is wielding her meteor hammer and is in Channel Cataclysm stance",
-                        "effect": "Tokainen swings her meteor hammer in a wide circle, dealing 4d8 bludgeoning and 4d8 fire damage to each enemy in a 10-foot radius emanation. Tokainen can't use Spiral Swing again for 1d4 rounds."
+                        "effect": "Tokainen swings her meteor hammer in a wide circle, dealing 4d8 bludgeoning and 4d8 fire damage to each enemy in a 10-foot radius emanation. Tokainen can't use Spiral Swing again for 1d4 rounds.",
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot radius",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "4d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]

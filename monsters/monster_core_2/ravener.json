@@ -1488,12 +1488,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 42",
-                        "dc": 42
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 42",
+                            "dc": 42
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1656,7 +1658,14 @@
                             "text": "This magic comes from the primal tradition, connecting to the natural world and instinct. Anything with this trait is magical.  \n  \nA creature with this trait is primarily constituted of or has a strong connection to primal magic.",
                             "classes": []
                         }
-                    ]
+                    ],
+                    "range": {
+                        "range": 1,
+                        "subtype": "range",
+                        "text": "within 1 mile",
+                        "type": "stat_block_section",
+                        "unit": "miles"
+                    }
                 }
             ]
         },
@@ -2582,7 +2591,23 @@
                         "success": "The creature is cursed for 1 round. While cursed, any spells that the creature casts gain the fire trait and have their damage type changed to fire damage, regardless of the original damage type or types of the spell. Additionally, any magical items that the cursed target holds or wields are affected in the same manner, such as changing the cold damage of a *frost* rune to fire damage. The cursed creature can attempt to temporarily suppress the curse as an action, which has the concentrate trait. If the creature succeeds a DC 42 Will save, the curse is suppressed until the end of their turn.",
                         "failure": "As success, but the curse's duration is 1 hour. ",
                         "critical_failure": "As success, but the curse's duration is 1 day, and the DC to suppress the curse increases to DC 44.",
-                        "text": "The ravener curses a creature within 60 feet to have their magic replaced with primordial flames. The creature must attempt a DC 42 Will save. Regardless of the result, the target becomes temporarily immune for 1 day. "
+                        "text": "The ravener curses a creature within 60 feet to have their magic replaced with primordial flames. The creature must attempt a DC 42 Will save. Regardless of the result, the target becomes temporarily immune for 1 day. ",
+                        "saving_throw": [
+                            {
+                                "dc": 42,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 42 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2695,7 +2720,16 @@
                         "critical_success": "The creature is unaffected. ",
                         "success": "The ravener tears off a small chunk of the creature's soul. If the victim is restored to life, they are drained 1 in addition to any other side effects of returning to life. The ravener adds a number of Hit Points to their soul ward equal to half the creature's level. ",
                         "failure": "As success, but the creature's soul is ravaged. The creature is drained 3 and the ravener adds a number of Hit Points to their soul ward equal to the creature's level. ",
-                        "critical_failure": "As failure, but the ravener devours the entire soul. The victim can't be restored to life as long as the ravener exists except via powerful magic such as a *wish* ritual, and the ravener adds a number of Hit Points to their soul ward equal to twice the creature's level."
+                        "critical_failure": "As failure, but the ravener devours the entire soul. The victim can't be restored to life as long as the ravener exists except via powerful magic such as a *wish* ritual, and the ravener adds a number of Hit Points to their soul ward equal to twice the creature's level.",
+                        "saving_throw": [
+                            {
+                                "dc": 44,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 44 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2796,7 +2830,22 @@
                                 "aonid": 86
                             }
                         ],
-                        "text": "The ravener intensifies nearby fires. Every foe within 60 feet taking persistent fire damage takes 5d6 fire damage."
+                        "text": "The ravener intensifies nearby fires. Every foe within 60 feet taking persistent fire damage takes 5d6 fire damage.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "5d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 60,
+                            "subtype": "range",
+                            "text": "within 60 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2920,7 +2969,33 @@
                                 "aonid": 68
                             }
                         ],
-                        "text": "The ravener breathes a blast of necrotic flame that deals 20d6 fire damage plus 4d6 persistent void damage (DC 44 basic Reflex save). A creature that fails its save is also drained 1 (or drained 2 on a critical failure). If a creature is drained by the ravener's Void Breath, the ravener's soul ward gains 5 HP. The ravener can't use Void Breath again for 1d4 rounds."
+                        "text": "The ravener breathes a blast of necrotic flame that deals 20d6 fire damage plus 4d6 persistent void damage (DC 44 basic Reflex save). A creature that fails its save is also drained 1 (or drained 2 on a critical failure). If a creature is drained by the ravener's Void Breath, the ravener's soul ward gains 5 HP. The ravener can't use Void Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 44,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 44 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "20d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "void",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

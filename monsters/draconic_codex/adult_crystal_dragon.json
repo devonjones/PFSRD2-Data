@@ -1695,12 +1695,14 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 27",
-                        "dc": 27
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 27",
+                            "dc": 27
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1745,7 +1747,25 @@
                         }
                     ],
                     "effect": "The dragon conjures a thin slab of stone in an unoccupied square between themself and the attacker. The dragon gains standard cover against the triggering attack. The stone falls on the first person other than the dragon who enters that square, dealing 6d6 bludgeoning damage with a DC 27 basic Reflex save. Otherwise, it crumbles harmlessly after 1 round.",
-                    "text": "The dragon is on the ground and there is at least one unoccupied square between themself and the attacker;"
+                    "text": "The dragon is on the ground and there is at least one unoccupied square between themself and the attacker;",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 27,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 27 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "bludgeoning",
+                            "formula": "6d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2253,7 +2273,23 @@
                                 "aonid": 65
                             }
                         ],
-                        "text": "The dragon strikes a pose that makes its hide sparkle in the light. Each creature within 20 feet must succeed at a DC 27 Fortitude save or become dazzled for 1 round."
+                        "text": "The dragon strikes a pose that makes its hide sparkle in the light. Each creature within 20 feet must succeed at a DC 27 Fortitude save or become dazzled for 1 round.",
+                        "saving_throw": [
+                            {
+                                "dc": 27,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 27 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 20,
+                            "subtype": "range",
+                            "text": "within 20 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2325,7 +2361,34 @@
                                 "aonid": 61
                             }
                         ],
-                        "text": "The dragon exhales a torrent of shattered rocks and minerals in a 40-foot cone dealing 11d6 piercing damage (DC 30 Reflex save). A creature who fails the save is weighed down by the stones, becoming clumsy 1 (clumsy 2 on a critical failure)."
+                        "text": "The dragon exhales a torrent of shattered rocks and minerals in a 40-foot cone dealing 11d6 piercing damage (DC 30 Reflex save). A creature who fails the save is weighed down by the stones, becoming clumsy 1 (clumsy 2 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 40,
+                                "subtype": "area",
+                                "text": "40-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "11d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

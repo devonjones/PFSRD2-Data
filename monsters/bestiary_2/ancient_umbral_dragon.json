@@ -1186,12 +1186,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 40",
-                        "dc": 40
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 40",
+                            "dc": 40
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2465,7 +2467,49 @@
                                 "aonid": 1
                             }
                         ],
-                        "text": "The umbral dragon breathes in one of two ways. They can't use Breath Weapon again for 1d4 rounds.\n* **Negative** (necromancy, negative, primal) The dragon breathes a blast of darkness in a 50-foot cone that deals 21d6 negative damage (DC 42 basic Reflex save). Undead creatures take 25d6 force damage instead of the negative damage.\n* **Shadows** (necromancy, primal, shadow) The dragon breathes a blast of shadows in a 50-foot cone. Each creature within the cone must attempt a DC 42 Fortitude save.   **Critical Success** The creature is unaffected.   **Success** The creature is enfeebled 3 for 1 round.   **Failure** The creature is enfeebled 3 for 1 minute.   **Critical Failure** The creature is enfeebled 3 for 1 minute and blinded for 1 round."
+                        "text": "The umbral dragon breathes in one of two ways. They can't use Breath Weapon again for 1d4 rounds.\n* **Negative** (necromancy, negative, primal) The dragon breathes a blast of darkness in a 50-foot cone that deals 21d6 negative damage (DC 42 basic Reflex save). Undead creatures take 25d6 force damage instead of the negative damage.\n* **Shadows** (necromancy, primal, shadow) The dragon breathes a blast of shadows in a 50-foot cone. Each creature within the cone must attempt a DC 42 Fortitude save.   **Critical Success** The creature is unaffected.   **Success** The creature is enfeebled 3 for 1 round.   **Failure** The creature is enfeebled 3 for 1 minute.   **Critical Failure** The creature is enfeebled 3 for 1 minute and blinded for 1 round.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 42,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 42 basic Reflex save",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "dc": 42,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 42 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 50,
+                                "subtype": "area",
+                                "text": "50-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "negative",
+                                "formula": "21d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "force",
+                                "formula": "25d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2595,7 +2639,16 @@
                                 "aonid": 13
                             }
                         ],
-                        "text": "When the dragon deals negative damage to a living creature with its jaws Strike, the umbral dragon gains 20 temporary Hit Points and the creature must succeed at a DC 41 Fortitude save or become enfeebled 2. Further damage dealt by the dragon's jaws Strike increases the enfeebled condition value by 2 on a failed save, to a maximum of enfeebled 4."
+                        "text": "When the dragon deals negative damage to a living creature with its jaws Strike, the umbral dragon gains 20 temporary Hit Points and the creature must succeed at a DC 41 Fortitude save or become enfeebled 2. Further damage dealt by the dragon's jaws Strike increases the enfeebled condition value by 2 on a failed save, to a maximum of enfeebled 4.",
+                        "saving_throw": [
+                            {
+                                "dc": 41,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 41 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2631,7 +2684,15 @@
                                 "aonid": 160
                             }
                         ],
-                        "text": "An umbral dragon's Strikes affect incorporeal creatures with the effects of a ghost touch property rune, and an umbral dragon's jaws deal an additional 8d6 force damage to undead."
+                        "text": "An umbral dragon's Strikes affect incorporeal creatures with the effects of a ghost touch property rune, and an umbral dragon's jaws deal an additional 8d6 force damage to undead.",
+                        "damage": [
+                            {
+                                "damage_type": "force",
+                                "formula": "8d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

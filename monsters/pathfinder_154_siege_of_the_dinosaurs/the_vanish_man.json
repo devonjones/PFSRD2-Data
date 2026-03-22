@@ -700,12 +700,14 @@
                         "range": 10,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 33",
-                        "dc": 33
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 33",
+                            "dc": 33
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1981,7 +1983,16 @@
                             }
                         ],
                         "requirement": "The faceless butcher is within reach of a dying, immobilized, or unconscious creature",
-                        "effect": "The faceless butcher attempts a cleaver Strike or an Athletics check against the creature's Fortitude DC. On a success, the faceless butcher deals damage as if they had made a successful cleaver Strike against the creature and removes the creature's face. On a critical success, the damage doubles and the creature takes 4d6 persistent bleed damage. Once its face is removed, the creature takes a permanent \u20134 status penalty to Charisma checks and Charisma-based skill checks. This penalty can be removed only if the victim recovers its face from the faceless butcher and has a *restoration* spell cast on it."
+                        "effect": "The faceless butcher attempts a cleaver Strike or an Athletics check against the creature's Fortitude DC. On a success, the faceless butcher deals damage as if they had made a successful cleaver Strike against the creature and removes the creature's face. On a critical success, the damage doubles and the creature takes 4d6 persistent bleed damage. Once its face is removed, the creature takes a permanent \u20134 status penalty to Charisma checks and Charisma-based skill checks. This penalty can be removed only if the victim recovers its face from the faceless butcher and has a *restoration* spell cast on it.",
+                        "damage": [
+                            {
+                                "damage_type": "bleed",
+                                "formula": "4d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

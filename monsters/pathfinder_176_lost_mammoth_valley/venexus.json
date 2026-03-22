@@ -843,12 +843,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 25",
-                        "dc": 25
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 25",
+                            "dc": 25
+                        }
+                    ],
                     "universal_monster_ability": {
                         "name": "Frightful Presence",
                         "type": "ability",
@@ -1320,6 +1322,14 @@
                             "game-id": "f8249eb70df69fe9dec268ae3ef0a2f1",
                             "text": "Effects with this trait deal cold damage. Creatures with this trait have a connection to magical cold.",
                             "classes": []
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "cold",
+                            "formula": "2d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
                         }
                     ]
                 }
@@ -2109,7 +2119,36 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "Venexus breathes a cloud of frost that deals 10d6 cold damage in a 40-foot cone (DC 28 basic Reflex save). She can't use Breath Weapon again for 1d4 rounds."
+                        "text": "Venexus breathes a cloud of frost that deals 10d6 cold damage in a 40-foot cone (DC 28 basic Reflex save). She can't use Breath Weapon again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 28,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 28 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 40,
+                                "subtype": "area",
+                                "text": "40-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "cold",
+                                "formula": "10d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2300,7 +2339,16 @@
                                 "aonid": 31
                             }
                         ],
-                        "text": "Venexus magically reshapes a cube of ice or snow she touches, up to 10 feet across. Any creature standing atop the ice must succeed at a DC 15 Reflex save or Acrobatics check. On a failure, the creature falls prone on the ice; on a critical failure, it falls off the ice entirely and is also prone."
+                        "text": "Venexus magically reshapes a cube of ice or snow she touches, up to 10 feet across. Any creature standing atop the ice must succeed at a DC 15 Reflex save or Acrobatics check. On a failure, the creature falls prone on the ice; on a critical failure, it falls off the ice entirely and is also prone.",
+                        "saving_throw": [
+                            {
+                                "dc": 15,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 15 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2447,7 +2495,23 @@
                                 "aonid": 371
                             }
                         ],
-                        "text": "Venexus releases a wave of sleet, which douses open flames within 30 feet. All non-magical fire is automatically extinguished. All creatures in the area suffering from persistent fire damage immediately attempt a DC 10 flat check to end the persistent damage. If Snuff overlaps with an ongoing fire effect, Snuff attempts to counteract the fire effect."
+                        "text": "Venexus releases a wave of sleet, which douses open flames within 30 feet. All non-magical fire is automatically extinguished. All creatures in the area suffering from persistent fire damage immediately attempt a DC 10 flat check to end the persistent damage. If Snuff overlaps with an ongoing fire effect, Snuff attempts to counteract the fire effect.",
+                        "saving_throw": [
+                            {
+                                "dc": 10,
+                                "save_type": "Flat Check",
+                                "subtype": "save_dc",
+                                "text": "DC 10 flat check",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

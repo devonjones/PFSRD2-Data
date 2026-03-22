@@ -1372,12 +1372,14 @@
                         "range": 300,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 41",
-                        "dc": 41
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 41",
+                            "dc": 41
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1687,13 +1689,15 @@
                         "range": 120,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 41 Fortitude",
-                        "dc": 41,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 41 Fortitude",
+                            "dc": 41,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1814,13 +1818,15 @@
                         "range": 120,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 41 Will",
-                        "dc": 41,
-                        "save_type": "Will"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 41 Will",
+                            "dc": 41,
+                            "save_type": "Will"
+                        }
+                    ]
                 },
                 {
                     "type": "stat_block_section",
@@ -2371,7 +2377,22 @@
                                 "classes": []
                             }
                         ],
-                        "text": "Kothogaz disappears, then bursts as a cacophonous sound from the throat of a creature within 240 feet. Kothogaz appears within reach of the creature and makes a melee Strike against it. The Strike deals an additional 2d12 sonic damage."
+                        "text": "Kothogaz disappears, then bursts as a cacophonous sound from the throat of a creature within 240 feet. Kothogaz appears within reach of the creature and makes a melee Strike against it. The Strike deals an additional 2d12 sonic damage.",
+                        "damage": [
+                            {
+                                "damage_type": "sonic",
+                                "formula": "2d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 240,
+                            "subtype": "range",
+                            "text": "within 240 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2622,7 +2643,42 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "Kothogaz raises a pustule from the ground within 120 feet, which erupts in a 10-foot radius, 200-foot-high cylinder of cloying filth. Creatures in the area must succeed at a DC 44 basic Reflex save or take 6d10 poison damage. On a failure, they can't fly for 1 round (1 minute on a critical failure); flying creatures fall safely to the ground."
+                        "text": "Kothogaz raises a pustule from the ground within 120 feet, which erupts in a 10-foot radius, 200-foot-high cylinder of cloying filth. Creatures in the area must succeed at a DC 44 basic Reflex save or take 6d10 poison damage. On a failure, they can't fly for 1 round (1 minute on a critical failure); flying creatures fall safely to the ground.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 44,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 44 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot radius",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "poison",
+                                "formula": "6d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 120,
+                            "subtype": "range",
+                            "text": "within 120 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2640,7 +2696,30 @@
                             "subtype": "action_type",
                             "name": "One Action"
                         },
-                        "text": "The earth festers in Kothogaz's wake. Kothogaz Strides up to its Speed. Squares through which Kothogaz passes are greater difficult terrain until the start of its next turn, and any creature that enters or begins its turn in those squares must succeed at a DC 44 Reflex save or take 4d10 poison damage and 4d10 acid damage (on a critical failure, double damage and exposed to many-eyed blight)."
+                        "text": "The earth festers in Kothogaz's wake. Kothogaz Strides up to its Speed. Squares through which Kothogaz passes are greater difficult terrain until the start of its next turn, and any creature that enters or begins its turn in those squares must succeed at a DC 44 Reflex save or take 4d10 poison damage and 4d10 acid damage (on a critical failure, double damage and exposed to many-eyed blight).",
+                        "saving_throw": [
+                            {
+                                "dc": 44,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 44 Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "poison",
+                                "formula": "4d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "4d10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

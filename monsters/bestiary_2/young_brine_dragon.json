@@ -1198,12 +1198,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 24",
-                        "dc": 24
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 24",
+                            "dc": 24
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1430,7 +1432,25 @@
                         }
                     ],
                     "trigger": "A creature the brine dragon observes within 30 feet uses a concentrate action",
-                    "effect": "The dragon spits a glob of caustic salt water at the creature. The creature takes 3d6 acid damage (DC 26 basic Reflex save). On a failure, the concentrate action is disrupted."
+                    "effect": "The dragon spits a glob of caustic salt water at the creature. The creature takes 3d6 acid damage (DC 26 basic Reflex save). On a failure, the concentrate action is disrupted.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 26,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 26 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "acid",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2062,7 +2082,36 @@
                                 "classes": []
                             }
                         ],
-                        "text": "The dragon breathes a spray of acidic salt water that deals 9d6 acid damage in an 80-foot line (DC 26 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds."
+                        "text": "The dragon breathes a spray of acidic salt water that deals 9d6 acid damage in an 80-foot line (DC 26 basic Reflex save). They can't use Breath Weapon again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 26,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 26 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 80,
+                                "subtype": "area",
+                                "text": "80-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "9d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {

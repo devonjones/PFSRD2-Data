@@ -743,13 +743,15 @@
                         }
                     ],
                     "text": "The blustering gale constantly unleashes a tirade of insults and aggressive taunts. Each enemy who enters or starts their turn in the aura must succeed at a DC 30 Will save or become stupefied 1 for as long as they remain within the aura (stupefied 2 on a critical failure). The troop's members are collectively able to mimic a few curse words or insults in every language, allowing their Bullying Bluster to affect any creature who understands a language. A creature who succeeds at its save is temporarily immune for 1 hour. The blustering gale can activate or deactivate the aura with a free action, which has the concentrate trait.",
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 30 Will",
-                        "dc": 30,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 30 Will",
+                            "dc": 30,
+                            "save_type": "Will"
+                        }
+                    ],
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -888,7 +890,37 @@
                             }
                         ],
                         "frequency": "once per round",
-                        "effect": "The blustering gale bashes, batters, and pummels each adjacent enemy (DC 27 basic Reflex save). The damage depends on the number of actions.  \n [#] 1d8+2 bludgeoning damage  \n [##] 2d8+12 bludgeoning damage  \n [###] 3d8+15 bludgeoning damage"
+                        "effect": "The blustering gale bashes, batters, and pummels each adjacent enemy (DC 27 basic Reflex save). The damage depends on the number of actions.  \n [#] 1d8+2 bludgeoning damage  \n [##] 2d8+12 bludgeoning damage  \n [###] 3d8+15 bludgeoning damage",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 27,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 27 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "1d8+2",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "2d8+12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "3d8+15",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -967,7 +999,50 @@
                                 "aonid": 31
                             }
                         ],
-                        "text": "The blustering gale exhales as a unit, creating a powerful windstorm. This windstorm is a 10-foot burst within 100 feet that deals 3d8+10 bludgeoning damage (DC 30 basic Reflex save). Creatures that fail their saving throw are pushed 10 feet in any direction (plus knocked prone on a critical failure). When the troop is reduced to 8 or fewer squares, this area decreases to a 5-foot burst and the distance pushed decreases to 5 feet."
+                        "text": "The blustering gale exhales as a unit, creating a powerful windstorm. This windstorm is a 10-foot burst within 100 feet that deals 3d8+10 bludgeoning damage (DC 30 basic Reflex save). Creatures that fail their saving throw are pushed 10 feet in any direction (plus knocked prone on a critical failure). When the troop is reduced to 8 or fewer squares, this area decreases to a 5-foot burst and the distance pushed decreases to 5 feet.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 30,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 30 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "burst",
+                                "size": 10,
+                                "subtype": "area",
+                                "text": "10-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            },
+                            {
+                                "shape": "burst",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot burst",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "3d8+10",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 100,
+                            "subtype": "range",
+                            "text": "within 100 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

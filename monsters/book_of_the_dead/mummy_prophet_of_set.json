@@ -1142,13 +1142,15 @@
                         "range": 30,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 31 Will",
-                        "dc": 31,
-                        "save_type": "Will"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 31 Will",
+                            "dc": 31,
+                            "save_type": "Will"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2195,7 +2197,41 @@
                             }
                         ],
                         "requirement": "The prophet's Sandstorm is active",
-                        "effect": "The prophet inhales its Sandstorm, suppressing the effect until the end of the prophet's next turn. It then exhales a 120-foot cone of negatively charged sand that deals 7d6 negative and 7d6 slashing damage (DC 33 basic Reflex save)."
+                        "effect": "The prophet inhales its Sandstorm, suppressing the effect until the end of the prophet's next turn. It then exhales a 120-foot cone of negatively charged sand that deals 7d6 negative and 7d6 slashing damage (DC 33 basic Reflex save).",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 120,
+                                "subtype": "area",
+                                "text": "120-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "7d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "negative",
+                                "formula": "7d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2907,7 +2943,40 @@
                             }
                         ],
                         "frequency": "once per day",
-                        "effect": "The mummy creates a temporary sandstorm in a 30-foot emanation that lasts for 1 minute. Creatures within the emanation take a \u20134 circumstance penalty to Perception checks and must succeed at a DC 33 Fortitude save or be forced to hold their breath or start suffocating. A creature within the sandstorm at the end of its turn takes 2d6 negative and 1d6 slashing damage."
+                        "effect": "The mummy creates a temporary sandstorm in a 30-foot emanation that lasts for 1 minute. Creatures within the emanation take a \u20134 circumstance penalty to Perception checks and must succeed at a DC 33 Fortitude save or be forced to hold their breath or start suffocating. A creature within the sandstorm at the end of its turn takes 2d6 negative and 1d6 slashing damage.",
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 30,
+                                "subtype": "area",
+                                "text": "30-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "negative",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

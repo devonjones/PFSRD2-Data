@@ -1092,6 +1092,14 @@
                             "game-obj": "Conditions",
                             "aonid": 94
                         }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "mental",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
                     ]
                 }
             ]
@@ -1589,7 +1597,15 @@
                                 "aonid": 60
                             }
                         ],
-                        "text": "A vloriak's saliva causes metal to rust rapidly. If they succeed at a tongue Strike or Disarm attempt, the vloriak deals 2d6 acid damage (doubled on a critical hit) to a metal item the target is wearing or holding, ignoring its Hardness. If the vloriak hits an unattended metal item, the item takes this damage automatically. If a creature uses the Shield Block reaction with a metal shield against a tongue attack, the shield is automatically broken, but no other item is rusted on that attack."
+                        "text": "A vloriak's saliva causes metal to rust rapidly. If they succeed at a tongue Strike or Disarm attempt, the vloriak deals 2d6 acid damage (doubled on a critical hit) to a metal item the target is wearing or holding, ignoring its Hardness. If the vloriak hits an unattended metal item, the item takes this damage automatically. If a creature uses the Shield Block reaction with a metal shield against a tongue attack, the shield is automatically broken, but no other item is rusted on that attack.",
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1668,7 +1684,41 @@
                                 "aonid": 28
                             }
                         ],
-                        "text": "The vloriak spews a 15-foot cone of acid and rusted metal. Creatures in the area take 3d6 acid and 3d6 piercing damage (DC 22 basic Reflex save). A creature that takes any piercing damage is exposed to tetanus. The vloriak can't Spew Rusted Shards for 1d4 rounds."
+                        "text": "The vloriak spews a 15-foot cone of acid and rusted metal. Creatures in the area take 3d6 acid and 3d6 piercing damage (DC 22 basic Reflex save). A creature that takes any piercing damage is exposed to tetanus. The vloriak can't Spew Rusted Shards for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 22,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 22 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 15,
+                                "subtype": "area",
+                                "text": "15-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "acid",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

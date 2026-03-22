@@ -1075,7 +1075,16 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Mercy Vulnerability",
-                    "text": "Kalakaighs delight in the sight of fresh wounds, and when one is healed, they recoil in pain. When a creature heals from damage that the kalakaigh dealt on their last turn, the demon takes 4d6 mental damage. The kalakaigh can take this damage only once per round."
+                    "text": "Kalakaighs delight in the sight of fresh wounds, and when one is healed, they recoil in pain. When a creature heals from damage that the kalakaigh dealt on their last turn, the demon takes 4d6 mental damage. The kalakaigh can take this damage only once per round.",
+                    "damage": [
+                        {
+                            "damage_type": "mental",
+                            "formula": "4d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "frequency": "once per round"
                 }
             ]
         },
@@ -1652,7 +1661,22 @@
                                 "aonid": 58
                             }
                         ],
-                        "text": "A kalakaigh deals 1d6 extra precision damage and 1d6 extra persistent bleed damage to off-guard creatures."
+                        "text": "A kalakaigh deals 1d6 extra precision damage and 1d6 extra persistent bleed damage to off-guard creatures.",
+                        "damage": [
+                            {
+                                "damage_type": "precision",
+                                "formula": "1d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "bleed",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2173,7 +2197,23 @@
                             }
                         ],
                         "trigger": "The kalakaigh damages a creature with a melee Strike while in its humanoid form",
-                        "effect": "The kalakaigh reverts to its true form, and all creatures within 30 feet who witness the transformation must make a DC 21 Will save or become frightened 1 (frightened 2 on a critical failure)."
+                        "effect": "The kalakaigh reverts to its true form, and all creatures within 30 feet who witness the transformation must make a DC 21 Will save or become frightened 1 (frightened 2 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -2207,7 +2247,16 @@
                                 "aonid": 76
                             }
                         ],
-                        "text": "The kalakaigh attacks with a recognizable flourish or in a specific way that links all its murders together. The kalakaigh makes a melee Strike with its kukri. This counts as two attacks when calculating the demon's multiple attack penalty. If this strike hits, the kalakaigh deals an additional 2d6 persistent bleed damage, and the target is frightened 2."
+                        "text": "The kalakaigh attacks with a recognizable flourish or in a specific way that links all its murders together. The kalakaigh makes a melee Strike with its kukri. This counts as two attacks when calculating the demon's multiple attack penalty. If this strike hits, the kalakaigh deals an additional 2d6 persistent bleed damage, and the target is frightened 2.",
+                        "damage": [
+                            {
+                                "damage_type": "bleed",
+                                "formula": "2d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

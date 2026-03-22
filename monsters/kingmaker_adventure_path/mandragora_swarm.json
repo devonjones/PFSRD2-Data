@@ -725,7 +725,14 @@
                             }
                         ],
                         "trigger": "An enemy takes damage from the mandragora swarm's Swarming Bites action",
-                        "effect": "The mandragora swarm drains blood from the creature, dealing 9d6 damage. If the creature is a demon, fey, or sorcerer, the mandragora gains temporary Hit Points equal to the damage dealt. A creature that has its blood drained by a mandragora is drained 2 until it receives healing of any kind or amount."
+                        "effect": "The mandragora swarm drains blood from the creature, dealing 9d6 damage. If the creature is a demon, fey, or sorcerer, the mandragora gains temporary Hit Points equal to the damage dealt. A creature that has its blood drained by a mandragora is drained 2 until it receives healing of any kind or amount.",
+                        "damage": [
+                            {
+                                "formula": "9d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1031,7 +1038,23 @@
                         "critical_success": "The creature is unaffected. ",
                         "success": "The creature is sickened 1. ",
                         "failure": "The creature is sickened 2. ",
-                        "critical_failure": "The creature is sickened 2 and slowed 1. As long as the creature remains sickened, this slowed condition value can't be reduced below 1."
+                        "critical_failure": "The creature is sickened 2 and slowed 1. As long as the creature remains sickened, this slowed condition value can't be reduced below 1.",
+                        "saving_throw": [
+                            {
+                                "dc": 40,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 40 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -1049,7 +1072,25 @@
                             "subtype": "action_type",
                             "name": "One Action"
                         },
-                        "text": "Each enemy in the swarm's space takes 7d8 piercing damage (DC 40 basic Reflex save) and is exposed to mandragora swarm venom. A successful save negates the poison exposure."
+                        "text": "Each enemy in the swarm's space takes 7d8 piercing damage (DC 40 basic Reflex save) and is exposed to mandragora swarm venom. A successful save negates the poison exposure.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 40,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 40 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "7d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

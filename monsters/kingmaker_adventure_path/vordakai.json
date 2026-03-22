@@ -1241,12 +1241,14 @@
                         "range": 60,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 29",
-                        "dc": 29
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 29",
+                            "dc": 29
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -1458,7 +1460,16 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Steady Spellcasting",
-                    "text": "If a reaction would disrupt Vordakai's spellcasting action, the lich attempts a DC 15 flat check. On a success, the action isn't disrupted."
+                    "text": "If a reaction would disrupt Vordakai's spellcasting action, the lich attempts a DC 15 flat check. On a success, the action isn't disrupted.",
+                    "saving_throw": [
+                        {
+                            "dc": 15,
+                            "save_type": "Flat Check",
+                            "subtype": "save_dc",
+                            "text": "DC 15 flat check",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -2360,7 +2371,24 @@
                         "success": "The target becomes stupefied 1 for 1 round.",
                         "failure": "The target becomes stupefied 1 with an unlimited duration. Vordakai gains a +1 status bonus to all skill checks for 1 minute as a result of the consumed memories.",
                         "critical_failure": "As failure, but the target is stupefied 2 with an unlimited duration. In addition, Vordakai can telepathically learn one specific bit of secret information known by the victim, subject to the GM's discretion.",
-                        "text": "Vordakai draws out a creature's memories and consumes them, learning bits and pieces of the world through the victim's thoughts. The lich makes a hand Strike against the target; if he hits, he deals 6d6 negative energy damage. The target must attempt a DC 32 Will save, after which it is temporarily immune to Consume Memories for 24 hours."
+                        "text": "Vordakai draws out a creature's memories and consumes them, learning bits and pieces of the world through the victim's thoughts. The lich makes a hand Strike against the target; if he hits, he deals 6d6 negative energy damage. The target must attempt a DC 32 Will save, after which it is temporarily immune to Consume Memories for 24 hours.",
+                        "saving_throw": [
+                            {
+                                "dc": 32,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 32 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "negative",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

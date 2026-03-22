@@ -2054,12 +2054,14 @@
                         "range": 90,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 43",
-                        "dc": 43
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 43",
+                            "dc": 43
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2346,13 +2348,15 @@
                         "range": 20,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 43 Fortitude",
-                        "dc": 43,
-                        "save_type": "Fort"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 43 Fortitude",
+                            "dc": 43,
+                            "save_type": "Fort"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "link",
@@ -2374,6 +2378,14 @@
                             "alt": "concealed",
                             "game-obj": "Conditions",
                             "aonid": 62
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "poison",
+                            "formula": "6d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
                         }
                     ]
                 }
@@ -3320,7 +3332,36 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The dragon breathes a toxic cloud that deals 22d6 poison damage in a 70-foot cone (DC 43 basic Fortitude save). The Poison Breath also creates a miasma. The dragon can't use Poison Breath again for 1d4 rounds."
+                        "text": "The dragon breathes a toxic cloud that deals 22d6 poison damage in a 70-foot cone (DC 43 basic Fortitude save). The Poison Breath also creates a miasma. The dragon can't use Poison Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 43,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 43 basic Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 70,
+                                "subtype": "area",
+                                "text": "70-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "poison",
+                                "formula": "22d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -3370,7 +3411,24 @@
                             }
                         ],
                         "requirement": "The dragon can use its Poison Breath",
-                        "effect": "The dragon redirects its natural poisons into its horn. Until the end of its turn, the dragon's next horn Strike deals an additional 3d6 poison damage. If the dragon uses Impaling Charge while Miasma Horn is active to impale a target, the target must also succeed at a DC 41 Fortitude save or become sickened 3 (sickened 4 on a critical failure)."
+                        "effect": "The dragon redirects its natural poisons into its horn. Until the end of its turn, the dragon's next horn Strike deals an additional 3d6 poison damage. If the dragon uses Impaling Charge while Miasma Horn is active to impale a target, the target must also succeed at a DC 41 Fortitude save or become sickened 3 (sickened 4 on a critical failure).",
+                        "saving_throw": [
+                            {
+                                "dc": 41,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 41 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "poison",
+                                "formula": "3d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

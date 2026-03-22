@@ -1851,13 +1851,15 @@
                         "range": 15,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 33 Fortitude",
-                        "dc": 33,
-                        "save_type": "Fort"
-                    }
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 33 Fortitude",
+                            "dc": 33,
+                            "save_type": "Fort"
+                        }
+                    ]
                 }
             ]
         },
@@ -2568,7 +2570,36 @@
                                 "aonid": 2297
                             }
                         ],
-                        "text": "The dragon breathes out a gust of frost and ice that deals 12d8 cold damage in a 40-foot cone (DC 36 basic Reflex save). They can't use Blizzard Breath again for 1d4 rounds."
+                        "text": "The dragon breathes out a gust of frost and ice that deals 12d8 cold damage in a 40-foot cone (DC 36 basic Reflex save). They can't use Blizzard Breath again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 36,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 36 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "cone",
+                                "size": 40,
+                                "subtype": "area",
+                                "text": "40-foot cone",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "cold",
+                                "formula": "12d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 },
                 {
@@ -2751,7 +2782,41 @@
                             }
                         ],
                         "requirement": "The dragon has temporary Hit Points from Rime Shield",
-                        "effect": "The dragon launches the collected ice shards from its scales in a 5-foot emanation, dealing 6d6 piercing damage and 4d6 cold damage (DC 36 basic Reflex save). The dragon then loses the AC bonus and temporary Hit Points from Rime Shield."
+                        "effect": "The dragon launches the collected ice shards from its scales in a 5-foot emanation, dealing 6d6 piercing damage and 4d6 cold damage (DC 36 basic Reflex save). The dragon then loses the AC bonus and temporary Hit Points from Rime Shield.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 36,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 36 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 5,
+                                "subtype": "area",
+                                "text": "5-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "piercing",
+                                "formula": "6d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "cold",
+                                "formula": "4d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

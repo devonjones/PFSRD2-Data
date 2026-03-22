@@ -932,14 +932,16 @@
                         "range": 5,
                         "unit": "feet"
                     },
-                    "saving_throw": {
-                        "type": "stat_block_section",
-                        "subtype": "save_dc",
-                        "text": "DC 31 basic Reflex",
-                        "dc": 31,
-                        "save_type": "Ref",
-                        "result": "basic"
-                    },
+                    "saving_throw": [
+                        {
+                            "type": "stat_block_section",
+                            "subtype": "save_dc",
+                            "text": "DC 31 basic Reflex",
+                            "dc": 31,
+                            "save_type": "Ref",
+                            "result": "basic"
+                        }
+                    ],
                     "damage": [
                         {
                             "type": "stat_block_section",
@@ -1933,7 +1935,14 @@
                             }
                         ],
                         "frequency": "once per hour",
-                        "effect": "The peri Strides into an open flame of their size or larger and instantly transports themself to any other flame of sufficient size within 100 miles. Once they enter the first flame, the peri instantly learns the locations of all other flames within range."
+                        "effect": "The peri Strides into an open flame of their size or larger and instantly transports themself to any other flame of sufficient size within 100 miles. Once they enter the first flame, the peri instantly learns the locations of all other flames within range.",
+                        "range": {
+                            "range": 100,
+                            "subtype": "range",
+                            "text": "within 100 miles",
+                            "type": "stat_block_section",
+                            "unit": "miles"
+                        }
                     }
                 },
                 {
@@ -1962,7 +1971,15 @@
                                 "aonid": 280
                             }
                         ],
-                        "text": "The peri can call forth a powerful weapon from their heart of flame. In their hands, this is a *+2 greater flaming greater striking weapon* that deals 2d6 fire damage instead of 1d6."
+                        "text": "The peri can call forth a powerful weapon from their heart of flame. In their hands, this is a *+2 greater flaming greater striking weapon* that deals 2d6 fire damage instead of 1d6.",
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2090,7 +2107,36 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The peri spreads their wings and spins, forming a whirlwind of flame that deals 15d6 fire damage in a 20-foot emanation (DC 34 basic Reflex save). They can't use Wildfire Storm again for 1d4 rounds."
+                        "text": "The peri spreads their wings and spins, forming a whirlwind of flame that deals 15d6 fire damage in a 20-foot emanation (DC 34 basic Reflex save). They can't use Wildfire Storm again for 1d4 rounds.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 34,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 34 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 20,
+                                "subtype": "area",
+                                "text": "20-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "15d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "frequency": "1d4 rounds"
                     }
                 }
             ]
