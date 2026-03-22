@@ -148,6 +148,32 @@
 			"required": ["type", "subtype", "name"],
 			"additionalProperties": false
 		},
+		"range": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["range"]},
+				"text": {"type": "string"},
+				"range": {"type": "integer"},
+				"unit": {"enum": ["feet", "miles"]},
+				"touch": {"type": "boolean"}
+			},
+			"required": ["type", "subtype", "text"],
+			"additionalProperties": false
+		},
+		"area": {
+			"type": "object",
+			"properties": {
+				"type": {"enum": ["stat_block_section"]},
+				"subtype": {"enum": ["area"]},
+				"text": {"type": "string"},
+				"shape": {"enum": ["line", "cone", "burst", "emanation", "wall", "cylinder"]},
+				"size": {"type": "integer"},
+				"unit": {"enum": ["feet", "miles"]}
+			},
+			"required": ["type", "subtype", "text"],
+			"additionalProperties": false
+		},
 		"trait": {
 			"type": "object",
 			"properties": {
@@ -280,9 +306,9 @@
 					"items": {"$ref": "#/definitions/spell_access"},
 					"additionalItems": false
 				},
-				"range": {"type": "string"},
+				"range": {"$ref": "#/definitions/range"},
 				"targets": {"type": "string"},
-				"area": {"type": "string"},
+				"area": {"$ref": "#/definitions/area"},
 				"duration": {"type": "string"},
 				"trigger": {"type": "string"},
 				"requirement": {"type": "string"},
