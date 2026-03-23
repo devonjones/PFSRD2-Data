@@ -29,8 +29,8 @@
                 "change_category": "level",
                 "effects": [
                     {
-                        "target": "$.creature_type.level",
                         "operation": "adjustment",
+                        "target": "$.creature_type.level",
                         "value": -1
                     }
                 ]
@@ -51,13 +51,13 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Deception",
                             "subtype": "skill",
-                            "name": "Deception"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.statistics.skills"
                     }
                 ]
             },
@@ -77,13 +77,13 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills",
                         "operation": "select",
                         "selection": {
-                            "type": "select_one",
                             "constraint": "lore",
-                            "description": "- The creature gains a Lore skill relevant to its career in retirement, such as Cooking Lore, Farming Lore, Guild Lore, or Sailing Lore. This typically uses the high skill modifier for the creature's level."
-                        }
+                            "description": "- The creature gains a Lore skill relevant to its career in retirement, such as Cooking Lore, Farming Lore, Guild Lore, or Sailing Lore. This typically uses the high skill modifier for the creature's level.",
+                            "type": "select_one"
+                        },
+                        "target": "$.statistics.skills"
                     }
                 ]
             },
@@ -94,12 +94,12 @@
                 "change_category": "gear",
                 "effects": [
                     {
-                        "target": "$.statistics.gear",
                         "operation": "select",
                         "selection": {
-                            "type": "remove_n",
-                            "description": "- Typically, you remove any combat items, as well as attacks and abilities that rely on any of these items. These items are usually readily retrievable from a hidden cache."
-                        }
+                            "description": "- Typically, you remove any combat items, as well as attacks and abilities that rely on any of these items. These items are usually readily retrievable from a hidden cache.",
+                            "type": "remove_n"
+                        },
+                        "target": "$.statistics.gear"
                     }
                 ]
             },
@@ -110,9 +110,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

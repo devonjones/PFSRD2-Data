@@ -29,14 +29,14 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Diplomacy And Labor Lore",
                             "subtype": "skill",
-                            "name": "Diplomacy And Labor Lore"
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.skills[*].value | max"
+                        "operation": "add_item",
+                        "target": "$.statistics.skills",
+                        "value_from": "$.statistics.skills[*].value | max"
                     }
                 ]
             },
@@ -47,9 +47,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

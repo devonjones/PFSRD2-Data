@@ -52,15 +52,15 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Amphibious",
                         "operation": "add_item",
-                        "name": "Amphibious"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
-                        "operation": "remove_item",
+                        "conditional": "$.creature_type.creature_types[?(@ == 'Aquatic')]",
                         "name": "Aquatic",
-                        "conditional": "$.creature_type.creature_types[?(@ == 'Aquatic')]"
+                        "operation": "remove_item",
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -80,14 +80,14 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Athletics",
                             "subtype": "skill",
-                            "name": "Athletics"
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.skills[*].value | max"
+                        "operation": "add_item",
+                        "target": "$.statistics.skills",
+                        "value_from": "$.statistics.skills[*].value | max"
                     }
                 ]
             },
@@ -98,17 +98,17 @@
                 "change_category": "speed",
                 "effects": [
                     {
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
+                        "conditional": "$.offense.speed.movement[?(@.movement_type=='swim')] == null",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "speed",
+                            "movement_type": "swim",
                             "name": "swim",
-                            "movement_type": "swim"
+                            "subtype": "speed",
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.offense.speed.movement[?(@.movement_type=='land')].value / 2",
                         "minimum": 15,
-                        "conditional": "$.offense.speed.movement[?(@.movement_type=='swim')] == null"
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement",
+                        "value_from": "$.offense.speed.movement[?(@.movement_type=='walk')].value / 2"
                     }
                 ]
             },
@@ -119,17 +119,17 @@
                 "change_category": "speed",
                 "effects": [
                     {
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
+                        "conditional": "$.offense.speed.movement[?(@.movement_type=='walk')] == null",
                         "item": {
-                            "type": "stat_block_section",
+                            "movement_type": "walk",
+                            "name": "walk",
                             "subtype": "speed",
-                            "name": "land",
-                            "movement_type": "land"
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.offense.speed.movement[?(@.movement_type=='swim')].value / 2",
                         "minimum": 15,
-                        "conditional": "$.offense.speed.movement[?(@.movement_type=='land')] == null"
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement",
+                        "value_from": "$.offense.speed.movement[?(@.movement_type=='swim')].value / 2"
                     }
                 ]
             },
@@ -194,9 +194,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

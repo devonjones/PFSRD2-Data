@@ -45,14 +45,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Undead",
                         "operation": "add_item",
-                        "name": "Undead"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Vampire",
                         "operation": "add_item",
-                        "name": "Vampire"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -72,13 +72,13 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Necril",
                             "subtype": "language",
-                            "name": "Necril"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -90,32 +90,32 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level == 1",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -3
                     },
                     {
                         "conditional": "$.creature_type.level == 0",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -5
                     },
                     {
                         "conditional": "$.creature_type.level == 2",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -10
                     },
                     {
                         "conditional": "$.creature_type.level == 6",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -20
                     },
                     {
                         "conditional": "$.creature_type.level >= 11",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -40
                     }
                 ]
@@ -164,49 +164,49 @@
                 "change_category": "immunities",
                 "effects": [
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "death effects",
                             "subtype": "immunity",
-                            "name": "death effects"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "disease",
                             "subtype": "immunity",
-                            "name": "disease"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "paralyzed",
                             "subtype": "immunity",
-                            "name": "paralyzed"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "poison",
                             "subtype": "immunity",
-                            "name": "poison"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "sleep",
                             "subtype": "immunity",
-                            "name": "sleep"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     }
                 ]
             },
@@ -233,22 +233,22 @@
                 "change_category": "resistances",
                 "effects": [
                     {
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "physical",
                             "subtype": "resistance",
-                            "name": "physical"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].resistances[?(@.name=='physical')]",
                         "operation": "select",
                         "selection": {
-                            "type": "select_one",
                             "constraint": "bypass_material",
-                            "description": "- Add resistance to physical damage, with a value based on the creature's level. Choose one type of material that bypasses this resistance: cold iron (vetalarana), silver (moroi), or wood (jiang-shi or nosferatu)."
-                        }
+                            "description": "- Add resistance to physical damage, with a value based on the creature's level. Choose one type of material that bypasses this resistance: cold iron (vetalarana), silver (moroi), or wood (jiang-shi or nosferatu).",
+                            "type": "select_one"
+                        },
+                        "target": "$.defense.hitpoints[*].resistances[?(@.name=='physical')]"
                     }
                 ]
             },
@@ -259,13 +259,13 @@
                 "change_category": "damage",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Fangs",
                             "subtype": "offensive_action",
-                            "name": "Fangs"
+                            "type": "stat_block_section"
                         },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions",
                         "value_from": "$.offense.offensive_actions[*].attack.damage | min"
                     }
                 ]
@@ -358,9 +358,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

@@ -53,47 +53,47 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "cold",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 3
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "cold",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 5
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "cold",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 10
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "cold",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 15
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     }
                 ]
             },
@@ -104,16 +104,16 @@
                 "change_category": "speed",
                 "effects": [
                     {
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
+                        "conditional": "$.offense.speed.movement[?(@.movement_type=='burrow')] == null",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "speed",
+                            "movement_type": "burrow",
                             "name": "burrow",
-                            "movement_type": "burrow"
+                            "subtype": "speed",
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.offense.speed.movement[?(@.movement_type=='fastest')].value / 2",
-                        "conditional": "$.offense.speed.movement[?(@.movement_type=='burrow')] == null"
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement",
+                        "value_from": "$.offense.speed.movement[?(@.movement_type=='fastest')].value / 2"
                     }
                 ]
             },
@@ -260,9 +260,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

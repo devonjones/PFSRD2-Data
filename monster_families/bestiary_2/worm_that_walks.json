@@ -90,14 +90,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Aberration",
                         "operation": "add_item",
-                        "name": "Aberration"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Swarm",
                         "operation": "add_item",
-                        "name": "Swarm"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -108,38 +108,53 @@
                 "change_category": "combat_stats",
                 "effects": [
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.ac.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
+                        "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.fort.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.ref.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.will.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
-                        "target": "$.skills[*].value",
                         "operation": "adjustment",
+                        "target": "$.statistics.skills[*].value",
                         "value": 1
                     }
                 ]
@@ -148,33 +163,7 @@
                 "type": "stat_block_section",
                 "subtype": "change",
                 "text": "- Reduce its Hit Points by the amount listed on the table (to a minimum of 2 HP per level).",
-                "change_category": "hit_points",
-                "effects": [
-                    {
-                        "conditional": "$.creature\\_type.level <= 4",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "operation": "adjustment",
-                        "value": 20
-                    },
-                    {
-                        "conditional": "$.creature\\_type.level >= 5 && $.creature\\_type.level <= 7",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "operation": "adjustment",
-                        "value": 30
-                    },
-                    {
-                        "conditional": "$.creature\\_type.level >= 8 && $.creature\\_type.level <= 14",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "operation": "adjustment",
-                        "value": 40
-                    },
-                    {
-                        "conditional": "$.creature_type.level == 15",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "operation": "adjustment",
-                        "value": 60
-                    }
-                ]
+                "change_category": "hit_points"
             },
             {
                 "type": "stat_block_section",
@@ -183,13 +172,13 @@
                 "change_category": "weaknesses",
                 "effects": [
                     {
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "area damage and splash damage as indicated in the table",
                             "subtype": "weakness",
-                            "name": "area damage and splash damage as indicated in the table"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     }
                 ]
             }
@@ -260,6 +249,78 @@
                                 "operation": "add_items",
                                 "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Darkvision",
+                                "alt": "Darkvision",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 12
+                            },
+                            {
+                                "type": "link",
+                                "name": "Tremorsense",
+                                "alt": "Tremorsense",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 40
+                            },
+                            {
+                                "type": "link",
+                                "name": "swarm mind",
+                                "alt": "swarm mind",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 36
+                            },
+                            {
+                                "type": "link",
+                                "name": "mental",
+                                "alt": "mental",
+                                "game-obj": "Traits",
+                                "aonid": 106
+                            },
+                            {
+                                "type": "link",
+                                "name": "All-Around Vision",
+                                "alt": "All-Around Vision",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 1
+                            },
+                            {
+                                "type": "link",
+                                "name": "splash",
+                                "alt": "splash",
+                                "game-obj": "Traits",
+                                "aonid": 150
+                            },
+                            {
+                                "type": "link",
+                                "name": "persistent piercing damage",
+                                "alt": "persistent piercing damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
+                            },
+                            {
+                                "type": "link",
+                                "name": "agile",
+                                "alt": "agile",
+                                "game-obj": "Traits",
+                                "aonid": 170
+                            },
+                            {
+                                "type": "link",
+                                "name": "concentrate",
+                                "alt": "concentrate",
+                                "game-obj": "Traits",
+                                "aonid": 32
+                            },
+                            {
+                                "type": "link",
+                                "name": "Squeeze",
+                                "alt": "Squeeze",
+                                "game-obj": "Actions",
+                                "aonid": 31
+                            }
                         ]
                     }
                 ],
@@ -288,6 +349,15 @@
                                         "target": "$.defense.automatic_abilities",
                                         "operation": "add_items",
                                         "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                    }
+                                ],
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "light blindness",
+                                        "alt": "light blindness",
+                                        "game-obj": "MonsterAbilities",
+                                        "aonid": 22
                                     }
                                 ]
                             }

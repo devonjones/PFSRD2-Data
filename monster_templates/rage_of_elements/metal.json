@@ -45,9 +45,9 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Metal",
                         "operation": "add_item",
-                        "name": "Metal"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -67,14 +67,14 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
+                        "conditional": "$.statistics.languages.languages != null",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Talican",
                             "subtype": "language",
-                            "name": "Talican"
+                            "type": "stat_block_section"
                         },
-                        "conditional": "$.languages.languages != null"
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -86,26 +86,26 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -6
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -10
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -20
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -30
                     }
                 ]
@@ -118,47 +118,47 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "electricity",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 6
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "electricity",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 10
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "electricity",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 20
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "electricity",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 30
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     }
                 ]
             },
@@ -178,16 +178,16 @@
                 "change_category": "strikes",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].attack.traits",
                         "operation": "select",
                         "selection": {
-                            "type": "select_one",
+                            "description": "- If the creature has metal spikes or blades, you can give its physical Strikes your choice of versatile P or versatile S.",
                             "options": [
                                 "versatile P",
                                 "versatile S"
                             ],
-                            "description": "- If the creature has metal spikes or blades, you can give its physical Strikes your choice of versatile P or versatile S."
-                        }
+                            "type": "select_one"
+                        },
+                        "target": "$.offense.offensive_actions[*].attack.traits"
                     }
                 ]
             },
@@ -270,13 +270,13 @@
                 "change_category": "spells",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells",
                         "operation": "select",
                         "selection": {
-                            "type": "replace_n",
                             "constraint": "metal",
-                            "description": "- If the creature can cast spells, you can replace spells with metal spells of the same rank, such as: **Cantrip** *needle darts*, **1st** *conductive weapon*, **2nd** *magnetic repulsion*, **3rd** *noxious metals*, **4th** *rust cloud*, **5th** *impaling spike*, **6th** *field of razors*, **7th** *beheading buzz saw*, **8th** *ferrous form*, **9th** *magnetic dominion*."
-                        }
+                            "description": "- If the creature can cast spells, you can replace spells with metal spells of the same rank, such as: **Cantrip** *needle darts*, **1st** *conductive weapon*, **2nd** *magnetic repulsion*, **3rd** *noxious metals*, **4th** *rust cloud*, **5th** *impaling spike*, **6th** *field of razors*, **7th** *beheading buzz saw*, **8th** *ferrous form*, **9th** *magnetic dominion*.",
+                            "type": "replace_n"
+                        },
+                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
                     }
                 ]
             }

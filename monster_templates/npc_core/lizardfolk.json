@@ -45,14 +45,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Human",
                         "operation": "remove_item",
-                        "name": "Human"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Lizardfolk",
                         "operation": "add_item",
-                        "name": "Lizardfolk"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -72,13 +72,13 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Iruxi",
                             "subtype": "language",
-                            "name": "Iruxi"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -89,15 +89,15 @@
                 "change_category": "speed",
                 "effects": [
                     {
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "speed",
-                            "name": "swim 15 feet",
                             "movement_type": "swim",
+                            "name": "swim 15 feet",
+                            "subtype": "speed",
+                            "type": "stat_block_section",
                             "value": 15
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement"
                     }
                 ]
             },
@@ -108,18 +108,18 @@
                 "change_category": "strikes",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='fist')].attack.weapon",
                         "operation": "replace",
+                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='fist')].attack.weapon",
                         "value": "claw"
                     },
                     {
-                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='fist')].attack.name",
                         "operation": "replace",
+                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='fist')].attack.name",
                         "value": "Claw"
                     },
                     {
-                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='claw')].attack.damage[*].damage_type",
                         "operation": "replace",
+                        "target": "$.offense.offensive_actions[?(@.attack.weapon=='claw')].attack.damage[*].damage_type",
                         "value": "slashing"
                     }
                 ]
@@ -131,9 +131,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

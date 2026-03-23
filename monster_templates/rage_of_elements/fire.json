@@ -45,9 +45,9 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Fire",
                         "operation": "add_item",
-                        "name": "Fire"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -67,14 +67,14 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
+                        "conditional": "$.statistics.languages.languages != null",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Pyric",
                             "subtype": "language",
-                            "name": "Pyric"
+                            "type": "stat_block_section"
                         },
-                        "conditional": "$.languages.languages != null"
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -85,13 +85,13 @@
                 "change_category": "immunities",
                 "effects": [
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "fire",
                             "subtype": "immunity",
-                            "name": "fire"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     }
                 ]
             },
@@ -102,20 +102,20 @@
                 "change_category": "damage",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].attack.damage",
                         "operation": "replace_one_die",
+                        "target": "$.offense.offensive_actions[*].attack.damage",
                         "value": "fire"
                     },
                     {
                         "conditional": "$.offense.offensive_actions[*].attack.damage[0].formula | dice_count <= 1",
-                        "target": "$.offense.offensive_actions[*].attack.damage",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "attack_damage",
+                            "damage_type": "fire",
                             "formula": "1",
-                            "damage_type": "fire"
-                        }
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].attack.damage"
                     }
                 ]
             },
@@ -198,13 +198,13 @@
                 "change_category": "spells",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells",
                         "operation": "select",
                         "selection": {
-                            "type": "replace_n",
                             "constraint": "fire",
-                            "description": "- If the creature can cast spells, you can replace spells with fire spells of the same rank: **Cantrip** *ignition*, **1st** *breathe fire*, **2nd** *blazing bolt*, **3rd** *fireball*, **4th** *wall of fire*, **5th** *fire's pathway*, **6th** *fireball*, **7th** *fiery body*, **8th** *burning blossoms*, **9th** *falling stars*."
-                        }
+                            "description": "- If the creature can cast spells, you can replace spells with fire spells of the same rank: **Cantrip** *ignition*, **1st** *breathe fire*, **2nd** *blazing bolt*, **3rd** *fireball*, **4th** *wall of fire*, **5th** *fire's pathway*, **6th** *fireball*, **7th** *fiery body*, **8th** *burning blossoms*, **9th** *falling stars*.",
+                            "type": "replace_n"
+                        },
+                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
                     }
                 ]
             }

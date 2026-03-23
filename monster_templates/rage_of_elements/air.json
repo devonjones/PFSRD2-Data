@@ -45,9 +45,9 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Air",
                         "operation": "add_item",
-                        "name": "Air"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -67,14 +67,14 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
+                        "conditional": "$.statistics.languages.languages != null",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Sussuran",
                             "subtype": "language",
-                            "name": "Sussuran"
+                            "type": "stat_block_section"
                         },
-                        "conditional": "$.languages.languages != null"
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -86,15 +86,15 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level >= 8",
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "speed",
-                            "name": "fly 25 feet",
                             "movement_type": "fly",
+                            "name": "fly 25 feet",
+                            "subtype": "speed",
+                            "type": "stat_block_section",
                             "value": 25
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement"
                     }
                 ]
             },
@@ -177,13 +177,13 @@
                 "change_category": "spells",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells",
                         "operation": "select",
                         "selection": {
-                            "type": "replace_n",
                             "constraint": "air",
-                            "description": "- If the creature can cast spells, you can replace spells with air spells of the same rank, such as: **Cantrip** *gale blast*, **1st** *gust of wind*, **2nd** *cleanse air*, **3rd** *wall of wind*, **4th** *fly*, **5th** *pressure zone*, **6th** *phantom orchestra*, **7th** *fly*, **8th** *whirlwind*, **9th** *wrathful storm*."
-                        }
+                            "description": "- If the creature can cast spells, you can replace spells with air spells of the same rank, such as: **Cantrip** *gale blast*, **1st** *gust of wind*, **2nd** *cleanse air*, **3rd** *wall of wind*, **4th** *fly*, **5th** *pressure zone*, **6th** *phantom orchestra*, **7th** *fly*, **8th** *whirlwind*, **9th** *wrathful storm*.",
+                            "type": "replace_n"
+                        },
+                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
                     }
                 ]
             }

@@ -29,43 +29,53 @@
                 "change_category": "combat_stats",
                 "effects": [
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.ac.value",
-                        "operation": "adjustment",
                         "value": -2
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
-                        "operation": "adjustment",
                         "value": -2
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
-                        "operation": "adjustment",
                         "value": -2
                     },
                     {
+                        "operation": "adjustment",
+                        "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
+                        "value": -2
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
+                        "value": -2
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
+                        "value": -2
+                    },
+                    {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.fort.value",
-                        "operation": "adjustment",
                         "value": -2
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.ref.value",
-                        "operation": "adjustment",
                         "value": -2
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.will.value",
-                        "operation": "adjustment",
                         "value": -2
                     },
                     {
-                        "target": "$.senses.perception.value",
                         "operation": "adjustment",
-                        "value": -2
-                    },
-                    {
-                        "target": "$.skills[*].value",
-                        "operation": "adjustment",
+                        "target": "$.statistics.skills[*].value",
                         "value": -2
                     }
                 ]
@@ -78,33 +88,36 @@
                 "effects": [
                     {
                         "conditional": "default",
-                        "target": "$.offense.offensive_actions[*].attack.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "-2 damage (weak)"
-                        }
+                        "item": {
+                            "formula": "-2",
+                            "notes": "Weak",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].attack.damage"
                     },
                     {
                         "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency == null",
-                        "target": "$.offense.offensive_actions[*].ability.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "-2 damage (weak)"
-                        }
+                        "item": {
+                            "formula": "-2",
+                            "notes": "Weak",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].ability.damage"
                     },
                     {
                         "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency != null",
-                        "target": "$.offense.offensive_actions[*].ability.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "-4 damage (weak, limited use)"
-                        }
+                        "item": {
+                            "formula": "-4",
+                            "notes": "Weak, limited use",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].ability.damage"
                     }
                 ]
             },
@@ -116,26 +129,26 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level >= 1 && $.creature_type.level <= 2",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -10
                     },
                     {
                         "conditional": "$.creature_type.level >= 3 && $.creature_type.level <= 5",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -15
                     },
                     {
                         "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 20",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -20
                     },
                     {
                         "conditional": "$.creature_type.level >= 21",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -30
                     }
                 ]

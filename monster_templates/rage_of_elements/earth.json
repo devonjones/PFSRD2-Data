@@ -45,9 +45,9 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Earth",
                         "operation": "add_item",
-                        "name": "Earth"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -74,20 +74,20 @@
                 "change_category": "senses",
                 "effects": [
                     {
-                        "target": "$.senses.special_senses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "special_sense",
                             "name": "tremorsense",
                             "range": {
-                                "type": "stat_block_section",
+                                "range": 60,
                                 "subtype": "range",
                                 "text": "60 feet",
-                                "range": 60,
+                                "type": "stat_block_section",
                                 "unit": "feet"
-                            }
-                        }
+                            },
+                            "subtype": "special_sense",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.senses.special_senses"
                     }
                 ]
             },
@@ -107,14 +107,14 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
+                        "conditional": "$.statistics.languages.languages != null",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Petran",
                             "subtype": "language",
-                            "name": "Petran"
+                            "type": "stat_block_section"
                         },
-                        "conditional": "$.languages.languages != null"
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -125,15 +125,15 @@
                 "change_category": "speed",
                 "effects": [
                     {
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "speed",
-                            "name": "burrow 20 feet",
                             "movement_type": "burrow",
+                            "name": "burrow 20 feet",
+                            "subtype": "speed",
+                            "type": "stat_block_section",
                             "value": 20
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement"
                     }
                 ]
             },
@@ -209,13 +209,13 @@
                 "change_category": "spells",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells",
                         "operation": "select",
                         "selection": {
-                            "type": "replace_n",
                             "constraint": "earth",
-                            "description": "- If the creature can cast spells, you can replace spells with earth spells of the same rank, such as: **Cantrip** *scatter scree*, **1st** *pummeling rubble*, **2nd** *exploding earth*, **3rd** *one with stone*, **4th** *mountain resilience*, **5th** *wall of stone*, **6th** *petrify*, **7th** *heaving earth*, **8th** *earthquake*."
-                        }
+                            "description": "- If the creature can cast spells, you can replace spells with earth spells of the same rank, such as: **Cantrip** *scatter scree*, **1st** *pummeling rubble*, **2nd** *exploding earth*, **3rd** *one with stone*, **4th** *mountain resilience*, **5th** *wall of stone*, **6th** *petrify*, **7th** *heaving earth*, **8th** *earthquake*.",
+                            "type": "replace_n"
+                        },
+                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
                     }
                 ]
             }

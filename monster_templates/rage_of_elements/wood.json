@@ -52,9 +52,9 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Wood",
                         "operation": "add_item",
-                        "name": "Wood"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -74,14 +74,14 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
+                        "conditional": "$.statistics.languages.languages != null",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Muan",
                             "subtype": "language",
-                            "name": "Muan"
+                            "type": "stat_block_section"
                         },
-                        "conditional": "$.languages.languages != null"
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -93,26 +93,26 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 10
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 20
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 40
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 60
                     }
                 ]
@@ -134,47 +134,47 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "to fire and to damage from axes depending on its level",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 10
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "to fire and to damage from axes depending on its level",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 20
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "to fire and to damage from axes depending on its level",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 40
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "to fire and to damage from axes depending on its level",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 60
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     }
                 ]
             },
@@ -257,13 +257,13 @@
                 "change_category": "spells",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells",
                         "operation": "select",
                         "selection": {
-                            "type": "replace_n",
                             "constraint": "wood",
-                            "description": "- If the creature can cast spells, you can replace spells with wood spells of the same rank, such as: **Cantrip** *timber*, **1st** *protector tree*, **2nd** *oaken resilience*, **3rd** *wall of thorns*, **4th** *life-draining roots*, **5th** *nature's pathway*, **6th** *lignify*, **7th** *pollen pods*, **8th** *burning blossoms*, **9th** *one with the land*."
-                        }
+                            "description": "- If the creature can cast spells, you can replace spells with wood spells of the same rank, such as: **Cantrip** *timber*, **1st** *protector tree*, **2nd** *oaken resilience*, **3rd** *wall of thorns*, **4th** *life-draining roots*, **5th** *nature's pathway*, **6th** *lignify*, **7th** *pollen pods*, **8th** *burning blossoms*, **9th** *one with the land*.",
+                            "type": "replace_n"
+                        },
+                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
                     }
                 ]
             }

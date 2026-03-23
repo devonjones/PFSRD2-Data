@@ -29,8 +29,8 @@
                 "change_category": "size",
                 "effects": [
                     {
-                        "target": "$.creature_type.size",
                         "operation": "replace",
+                        "target": "$.creature_type.size",
                         "value": "Small"
                     }
                 ]
@@ -58,14 +58,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Human",
                         "operation": "remove_item",
-                        "name": "Human"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Humanoid",
                         "operation": "remove_item",
-                        "name": "Humanoid"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -92,14 +92,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Leshy",
                         "operation": "add_item",
-                        "name": "Leshy"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Plant",
                         "operation": "add_item",
-                        "name": "Plant"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -119,13 +119,13 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Fey",
                             "subtype": "language",
-                            "name": "Fey"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -136,9 +136,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

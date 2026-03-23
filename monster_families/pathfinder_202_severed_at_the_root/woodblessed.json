@@ -29,38 +29,53 @@
                 "change_category": "combat_stats",
                 "effects": [
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.ac.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
+                        "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.fort.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.ref.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.will.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
-                        "target": "$.skills[*].value",
                         "operation": "adjustment",
+                        "target": "$.statistics.skills[*].value",
                         "value": 1
                     }
                 ]
@@ -88,9 +103,9 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Wood",
                         "operation": "add_item",
-                        "name": "Wood"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -117,13 +132,13 @@
                 "change_category": "damage",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Splinter",
                             "subtype": "offensive_action",
-                            "name": "Splinter"
+                            "type": "stat_block_section"
                         },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions",
                         "value_from": "$.offense.offensive_actions[*].attack.damage | min"
                     }
                 ]
@@ -190,6 +205,78 @@
                                 "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
                                 "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "primal",
+                                "alt": "primal",
+                                "game-obj": "Traits",
+                                "aonid": 676
+                            },
+                            {
+                                "type": "link",
+                                "name": "wood",
+                                "alt": "wood",
+                                "game-obj": "Traits",
+                                "aonid": 508
+                            },
+                            {
+                                "type": "link",
+                                "name": "basic",
+                                "alt": "basic",
+                                "game-obj": "Rules",
+                                "aonid": 329
+                            },
+                            {
+                                "type": "link",
+                                "name": "aura",
+                                "alt": "aura",
+                                "game-obj": "Traits",
+                                "aonid": 542
+                            },
+                            {
+                                "type": "link",
+                                "name": "light",
+                                "alt": "light",
+                                "game-obj": "Traits",
+                                "aonid": 640
+                            },
+                            {
+                                "type": "link",
+                                "name": "timber",
+                                "alt": "timber",
+                                "game-obj": "Spells",
+                                "aonid": 1412
+                            },
+                            {
+                                "type": "link",
+                                "name": "basic",
+                                "alt": "basic",
+                                "game-obj": "Rules",
+                                "aonid": 329
+                            },
+                            {
+                                "type": "link",
+                                "name": "concentrate",
+                                "alt": "concentrate",
+                                "game-obj": "Traits",
+                                "aonid": 561
+                            },
+                            {
+                                "type": "link",
+                                "name": "primal",
+                                "alt": "primal",
+                                "game-obj": "Traits",
+                                "aonid": 676
+                            },
+                            {
+                                "type": "link",
+                                "name": "persistent bleed damage",
+                                "alt": "persistent bleed damage",
+                                "game-obj": "Conditions",
+                                "aonid": 29
                             }
                         ]
                     }

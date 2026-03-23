@@ -45,14 +45,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Ghoul",
                         "operation": "add_item",
-                        "name": "Ghoul"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Undead",
                         "operation": "add_item",
-                        "name": "Undead"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -100,49 +100,49 @@
                 "change_category": "immunities",
                 "effects": [
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "death effects",
                             "subtype": "immunity",
-                            "name": "death effects"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "disease",
                             "subtype": "immunity",
-                            "name": "disease"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "paralyzed",
                             "subtype": "immunity",
-                            "name": "paralyzed"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "poison",
                             "subtype": "immunity",
-                            "name": "poison"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "unconscious",
                             "subtype": "immunity",
-                            "name": "unconscious"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     }
                 ]
             },
@@ -153,18 +153,18 @@
                 "change_category": "combat_stats",
                 "effects": [
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.fort.value",
-                        "operation": "adjustment",
                         "value": -1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.ref.value",
-                        "operation": "adjustment",
                         "value": -1
                     },
                     {
-                        "target": "$.defense.saves.will.value",
                         "operation": "adjustment",
+                        "target": "$.defense.saves.will.value",
                         "value": -1
                     }
                 ]
@@ -185,12 +185,12 @@
                 "change_category": "strikes",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].attack",
                         "operation": "select",
                         "selection": {
-                            "type": "select_n",
-                            "description": "- Add the paralysis ability to the creature's jaws, fangs, or similar unarmed attack. If the creature doesn't have one, add one with the same attack and damage as its strongest melee attack."
-                        }
+                            "description": "- Add the paralysis ability to the creature's jaws, fangs, or similar unarmed attack. If the creature doesn't have one, add one with the same attack and damage as its strongest melee attack.",
+                            "type": "select_n"
+                        },
+                        "target": "$.offense.offensive_actions[*].attack"
                     }
                 ]
             },
@@ -315,9 +315,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

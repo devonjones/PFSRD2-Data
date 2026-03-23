@@ -45,14 +45,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Mummy",
                         "operation": "add_item",
-                        "name": "Mummy"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Undead",
                         "operation": "add_item",
-                        "name": "Undead"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -72,13 +72,13 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Necril",
                             "subtype": "language",
-                            "name": "Necril"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -126,49 +126,49 @@
                 "change_category": "immunities",
                 "effects": [
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "death effects",
                             "subtype": "immunity",
-                            "name": "death effects"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "disease",
                             "subtype": "immunity",
-                            "name": "disease"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "paralyzed",
                             "subtype": "immunity",
-                            "name": "paralyzed"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "poison",
                             "subtype": "immunity",
-                            "name": "poison"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     },
                     {
-                        "target": "$.defense.hitpoints[*].immunities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "unconscious",
                             "subtype": "immunity",
-                            "name": "unconscious"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].immunities"
                     }
                 ]
             },
@@ -189,47 +189,47 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "fire",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 3
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "fire",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 5
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "fire",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 10
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].weaknesses",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "weakness",
                             "name": "fire",
+                            "subtype": "weakness",
+                            "type": "stat_block_section",
                             "value": 15
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].weaknesses"
                     }
                 ]
             },
@@ -374,9 +374,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

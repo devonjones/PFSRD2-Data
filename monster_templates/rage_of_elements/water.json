@@ -59,14 +59,14 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Water Trait",
                         "operation": "add_item",
-                        "name": "Water Trait"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Either The Amphibious Or Aquatic",
                         "operation": "add_item",
-                        "name": "Either The Amphibious Or Aquatic"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -86,14 +86,14 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
+                        "conditional": "$.statistics.languages.languages != null",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Thalassic",
                             "subtype": "language",
-                            "name": "Thalassic"
+                            "type": "stat_block_section"
                         },
-                        "conditional": "$.languages.languages != null"
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -105,26 +105,26 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -6
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -10
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -20
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": -30
                     }
                 ]
@@ -137,47 +137,47 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 3",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "fire",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 6
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
                         "conditional": "$.creature_type.level == 4",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "fire",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 10
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
                         "conditional": "$.creature_type.level == 9",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "fire",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 20
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
                         "conditional": "$.creature_type.level >= 14",
-                        "target": "$.defense.hitpoints[*].resistances",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "resistance",
                             "name": "fire",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
                             "value": 30
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
                     }
                 ]
             },
@@ -188,15 +188,15 @@
                 "change_category": "speed",
                 "effects": [
                     {
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "speed",
-                            "name": "swim 25 feet",
                             "movement_type": "swim",
+                            "name": "swim 25 feet",
+                            "subtype": "speed",
+                            "type": "stat_block_section",
                             "value": 25
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement"
                     }
                 ]
             },
@@ -272,13 +272,13 @@
                 "change_category": "spells",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells",
                         "operation": "select",
                         "selection": {
-                            "type": "replace_n",
                             "constraint": "water",
-                            "description": "- If the creature can cast spells, you can replace spells with water spells of the same rank, such as: **Cantrip** *spout*, **1st** *hydraulic push*, **2nd** *mist*, **3rd** *aqueous orb*, **4th** *hydraulic torrent*, **5th** *control water*, **6th** *personal ocean*, **7th** *hungry depths*, **8th** *whirlpool*."
-                        }
+                            "description": "- If the creature can cast spells, you can replace spells with water spells of the same rank, such as: **Cantrip** *spout*, **1st** *hydraulic push*, **2nd** *mist*, **3rd** *aqueous orb*, **4th** *hydraulic torrent*, **5th** *control water*, **6th** *personal ocean*, **7th** *hungry depths*, **8th** *whirlpool*.",
+                            "type": "replace_n"
+                        },
+                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
                     }
                 ]
             }

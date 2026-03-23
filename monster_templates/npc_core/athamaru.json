@@ -52,19 +52,19 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Human",
                         "operation": "remove_item",
-                        "name": "Human"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Athamaru",
                         "operation": "add_item",
-                        "name": "Athamaru"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Amphibious",
                         "operation": "add_item",
-                        "name": "Amphibious"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -84,13 +84,13 @@
                 "change_category": "languages",
                 "effects": [
                     {
-                        "target": "$.languages.languages",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Thalassic",
                             "subtype": "language",
-                            "name": "Thalassic"
-                        }
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.statistics.languages.languages"
                     }
                 ]
             },
@@ -101,15 +101,15 @@
                 "change_category": "speed",
                 "effects": [
                     {
-                        "target": "$.offense.speed.movement",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "speed",
-                            "name": "swim 25 feet",
                             "movement_type": "swim",
+                            "name": "swim 25 feet",
+                            "subtype": "speed",
+                            "type": "stat_block_section",
                             "value": 25
-                        }
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.speed.movement"
                     }
                 ]
             },
@@ -120,9 +120,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

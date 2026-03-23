@@ -45,14 +45,14 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Stealth",
                             "subtype": "skill",
-                            "name": "Stealth"
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.skills | high_for_level"
+                        "operation": "add_item",
+                        "target": "$.statistics.skills",
+                        "value_from": "$.statistics.skills | high_for_level"
                     }
                 ]
             },
@@ -72,8 +72,8 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills[?(@.name=='Its')].value",
                         "operation": "adjustment",
+                        "target": "$.statistics.skills[?(@.name=='Its')].value",
                         "value": -2
                     }
                 ]
@@ -94,13 +94,14 @@
                 "change_category": "damage",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[*].attack.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "-2 damage"
-                        }
+                        "item": {
+                            "formula": "-2",
+                            "notes": "Guerrilla",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].attack.damage"
                     }
                 ]
             },
@@ -120,13 +121,13 @@
                 "change_category": "strikes",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "offensive_action"
+                            "subtype": "offensive_action",
+                            "type": "stat_block_section"
                         },
-                        "source": "$.monster_template.changes[*].abilities"
+                        "operation": "add_item",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.offense.offensive_actions"
                     }
                 ]
             }

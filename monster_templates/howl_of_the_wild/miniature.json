@@ -36,8 +36,8 @@
                 "change_category": "size",
                 "effects": [
                     {
-                        "target": "$.creature_type.size",
                         "operation": "replace",
+                        "target": "$.creature_type.size",
                         "value": "Tiny"
                     }
                 ]
@@ -58,8 +58,8 @@
                 "change_category": "strikes",
                 "effects": [
                     {
-                        "target": "$.offense.offensive_actions[?(@.attack.attack_type=='melee')].attack.bonus",
                         "operation": "set_reach",
+                        "target": "$.offense.offensive_actions[?(@.attack.attack_type=='melee')].attack.bonus",
                         "value": 0
                     }
                 ]
@@ -80,14 +80,14 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Stealth",
                             "subtype": "skill",
-                            "name": "Stealth"
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.skills[*].value | max"
+                        "operation": "add_item",
+                        "target": "$.statistics.skills",
+                        "value_from": "$.statistics.skills[*].value | max"
                     }
                 ]
             },
@@ -116,9 +116,9 @@
                 "change_category": "abilities",
                 "effects": [
                     {
-                        "target": "$.defense.automatic_abilities",
                         "operation": "add_items",
-                        "source": "$.monster_template.changes[*].abilities"
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
                     }
                 ]
             }

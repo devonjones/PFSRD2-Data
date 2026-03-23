@@ -73,9 +73,9 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Rare",
                         "operation": "add_item",
-                        "name": "Rare"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -87,8 +87,8 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.intelligence_modifier <= -4",
-                        "target": "$.creature_type.intelligence_modifier",
                         "operation": "replace",
+                        "target": "$.creature_type.intelligence_modifier",
                         "value": -3
                     }
                 ]
@@ -109,14 +109,14 @@
                 "change_category": "skills",
                 "effects": [
                     {
-                        "target": "$.skills",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
+                            "name": "Stealth",
                             "subtype": "skill",
-                            "name": "Stealth"
+                            "type": "stat_block_section"
                         },
-                        "value_from": "$.skills[*].value | max"
+                        "operation": "add_item",
+                        "target": "$.statistics.skills",
+                        "value_from": "$.statistics.skills[*].value | max"
                     }
                 ]
             },
@@ -127,43 +127,58 @@
                 "change_category": "combat_stats",
                 "effects": [
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.ac.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
+                        "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.fort.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.ref.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.will.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.senses.perception.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
-                        "target": "$.skills[*].value",
                         "operation": "adjustment",
+                        "target": "$.statistics.skills[*].value",
                         "value": 1
                     }
                 ]
@@ -176,33 +191,36 @@
                 "effects": [
                     {
                         "conditional": "default",
-                        "target": "$.offense.offensive_actions[*].attack.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "+1 damage"
-                        }
+                        "item": {
+                            "formula": "+1",
+                            "notes": "Rumored Cryptid",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].attack.damage"
                     },
                     {
                         "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency == null",
-                        "target": "$.offense.offensive_actions[*].ability.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "+1 damage"
-                        }
+                        "item": {
+                            "formula": "+1",
+                            "notes": "Rumored Cryptid",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].ability.damage"
                     },
                     {
                         "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency != null",
-                        "target": "$.offense.offensive_actions[*].ability.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "+2 damage (limited use)"
-                        }
+                        "item": {
+                            "formula": "+2",
+                            "notes": "Rumored Cryptid, limited use",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].ability.damage"
                     }
                 ]
             },
@@ -214,26 +232,26 @@
                 "effects": [
                     {
                         "conditional": "$.creature_type.level <= 1",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 10
                     },
                     {
                         "conditional": "$.creature_type.level == 2",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 15
                     },
                     {
                         "conditional": "$.creature_type.level == 5",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 20
                     },
                     {
                         "conditional": "$.creature_type.level >= 20",
-                        "target": "$.defense.hitpoints[*].hp",
                         "operation": "adjustment",
+                        "target": "$.defense.hitpoints[*].hp",
                         "value": 30
                     }
                 ]

@@ -114,19 +114,19 @@
                 "change_category": "traits",
                 "effects": [
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Shadow",
                         "operation": "add_item",
-                        "name": "Shadow"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Undead",
                         "operation": "add_item",
-                        "name": "Undead"
+                        "target": "$.creature_type.creature_types"
                     },
                     {
-                        "target": "$.creature_type.creature_types",
+                        "name": "Vampire",
                         "operation": "add_item",
-                        "name": "Vampire"
+                        "target": "$.creature_type.creature_types"
                     }
                 ]
             },
@@ -137,38 +137,53 @@
                 "change_category": "combat_stats",
                 "effects": [
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.ac.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
+                        "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
+                        "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
+                        "value": 1
+                    },
+                    {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.fort.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.ref.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
+                        "operation": "adjustment",
                         "target": "$.defense.saves.will.value",
-                        "operation": "adjustment",
                         "value": 1
                     },
                     {
-                        "target": "$.skills[*].value",
                         "operation": "adjustment",
+                        "target": "$.statistics.skills[*].value",
                         "value": 1
                     }
                 ]
@@ -181,23 +196,36 @@
                 "effects": [
                     {
                         "conditional": "default",
-                        "target": "$.offense.offensive_actions[*].attack.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "+2 damage"
-                        }
+                        "item": {
+                            "formula": "+1",
+                            "notes": "Vampire, Strigoi",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].attack.damage"
                     },
                     {
-                        "conditional": "$.offense.offensive_actions[*].ability.frequency != null",
-                        "target": "$.offense.offensive_actions[*].ability.damage",
-                        "operation": "add_modifier",
-                        "modifier": {
-                            "type": "stat_block_section",
-                            "subtype": "modifier",
-                            "name": "+2 damage (limited use)"
-                        }
+                        "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency == null",
+                        "item": {
+                            "formula": "+1",
+                            "notes": "Vampire, Strigoi",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].ability.damage"
+                    },
+                    {
+                        "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency != null",
+                        "item": {
+                            "formula": "+2",
+                            "notes": "Vampire, Strigoi, limited use",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].ability.damage"
                     }
                 ]
             },
@@ -245,14 +273,14 @@
                 "change_category": "resistances",
                 "effects": [
                     {
-                        "target": "$.defense.hitpoints[*].automatic_abilities",
-                        "operation": "add_item",
                         "item": {
-                            "type": "stat_block_section",
-                            "subtype": "ability",
+                            "ability_type": "automatic",
                             "name": "Fast Healing",
-                            "ability_type": "automatic"
-                        }
+                            "subtype": "ability",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].automatic_abilities"
                     }
                 ]
             }
@@ -347,6 +375,309 @@
                                 "operation": "add_items",
                                 "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "human",
+                                "alt": "human",
+                                "game-obj": "Traits",
+                                "aonid": 90
+                            },
+                            {
+                                "type": "link",
+                                "name": "humanoid",
+                                "alt": "humanoid",
+                                "game-obj": "Traits",
+                                "aonid": 91
+                            },
+                            {
+                                "type": "link",
+                                "name": "Greater Darkvision",
+                                "alt": "Greater Darkvision",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 12
+                            },
+                            {
+                                "type": "link",
+                                "name": "Negative Healing",
+                                "alt": "Negative Healing",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 42
+                            },
+                            {
+                                "type": "link",
+                                "name": "death",
+                                "alt": "death",
+                                "game-obj": "Traits",
+                                "aonid": 40
+                            },
+                            {
+                                "type": "link",
+                                "name": "disease",
+                                "alt": "disease",
+                                "game-obj": "Traits",
+                                "aonid": 46
+                            },
+                            {
+                                "type": "link",
+                                "name": "poison",
+                                "alt": "poison",
+                                "game-obj": "Traits",
+                                "aonid": 126
+                            },
+                            {
+                                "type": "link",
+                                "name": "sleep",
+                                "alt": "sleep",
+                                "game-obj": "Traits",
+                                "aonid": 145
+                            },
+                            {
+                                "type": "link",
+                                "name": "divine",
+                                "alt": "divine",
+                                "game-obj": "Traits",
+                                "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "necromancy",
+                                "alt": "necromancy",
+                                "game-obj": "Traits",
+                                "aonid": 117
+                            },
+                            {
+                                "type": "link",
+                                "name": "negative",
+                                "alt": "negative",
+                                "game-obj": "Traits",
+                                "aonid": 118
+                            },
+                            {
+                                "type": "link",
+                                "name": "unconscious",
+                                "alt": "unconscious",
+                                "game-obj": "Conditions",
+                                "aonid": 38
+                            },
+                            {
+                                "type": "link",
+                                "name": "Raising a Shield",
+                                "alt": "Raising a Shield",
+                                "game-obj": "Actions",
+                                "aonid": 98
+                            },
+                            {
+                                "type": "link",
+                                "name": "fleeing",
+                                "alt": "fleeing",
+                                "game-obj": "Conditions",
+                                "aonid": 17
+                            },
+                            {
+                                "type": "link",
+                                "name": "concentrate",
+                                "alt": "concentrate",
+                                "game-obj": "Traits",
+                                "aonid": 32
+                            },
+                            {
+                                "type": "link",
+                                "name": "Sense Motive",
+                                "alt": "Sense Motive",
+                                "game-obj": "Actions",
+                                "aonid": 85
+                            },
+                            {
+                                "type": "link",
+                                "name": "detect evil",
+                                "alt": "detect evil",
+                                "game-obj": "Spells",
+                                "aonid": 65
+                            },
+                            {
+                                "type": "link",
+                                "name": "lifesense",
+                                "alt": "lifesense",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 21
+                            },
+                            {
+                                "type": "link",
+                                "name": "positive",
+                                "alt": "positive",
+                                "game-obj": "Traits",
+                                "aonid": 128
+                            },
+                            {
+                                "type": "link",
+                                "name": "slowed 2",
+                                "alt": "slowed 2",
+                                "game-obj": "Conditions",
+                                "aonid": 35
+                            },
+                            {
+                                "type": "link",
+                                "name": "fleeing",
+                                "alt": "fleeing",
+                                "game-obj": "Conditions",
+                                "aonid": 17
+                            },
+                            {
+                                "type": "link",
+                                "name": "divine",
+                                "alt": "divine",
+                                "game-obj": "Traits",
+                                "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "evocation",
+                                "alt": "evocation",
+                                "game-obj": "Traits",
+                                "aonid": 65
+                            },
+                            {
+                                "type": "link",
+                                "name": "shadow",
+                                "alt": "shadow",
+                                "game-obj": "Traits",
+                                "aonid": 143
+                            },
+                            {
+                                "type": "link",
+                                "name": "levitate",
+                                "alt": "levitate",
+                                "game-obj": "Spells",
+                                "aonid": 170
+                            },
+                            {
+                                "type": "link",
+                                "name": "agile",
+                                "alt": "agile",
+                                "game-obj": "Traits",
+                                "aonid": 170
+                            },
+                            {
+                                "type": "link",
+                                "name": "magic",
+                                "alt": "magic",
+                                "game-obj": "Traits",
+                                "aonid": 103
+                            },
+                            {
+                                "type": "link",
+                                "name": "moderate Strike damage for a creature of its level",
+                                "alt": "moderate Strike damage for a creature of its level",
+                                "game-obj": "Rules",
+                                "aonid": 1018
+                            },
+                            {
+                                "type": "link",
+                                "name": "divine",
+                                "alt": "divine",
+                                "game-obj": "Traits",
+                                "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "necromancy",
+                                "alt": "necromancy",
+                                "game-obj": "Traits",
+                                "aonid": 117
+                            },
+                            {
+                                "type": "link",
+                                "name": "grabbed",
+                                "alt": "grabbed",
+                                "game-obj": "Conditions",
+                                "aonid": 20
+                            },
+                            {
+                                "type": "link",
+                                "name": "paralyzed",
+                                "alt": "paralyzed",
+                                "game-obj": "Conditions",
+                                "aonid": 28
+                            },
+                            {
+                                "type": "link",
+                                "name": "restrained",
+                                "alt": "restrained",
+                                "game-obj": "Conditions",
+                                "aonid": 33
+                            },
+                            {
+                                "type": "link",
+                                "name": "unconscious",
+                                "alt": "unconscious",
+                                "game-obj": "Conditions",
+                                "aonid": 38
+                            },
+                            {
+                                "type": "link",
+                                "name": "Athletics",
+                                "alt": "Athletics",
+                                "game-obj": "Skills",
+                                "aonid": 3
+                            },
+                            {
+                                "type": "link",
+                                "name": "drained 1",
+                                "alt": "drained 1",
+                                "game-obj": "Conditions",
+                                "aonid": 10
+                            },
+                            {
+                                "type": "link",
+                                "name": "stupefied 1",
+                                "alt": "stupefied 1",
+                                "game-obj": "Conditions",
+                                "aonid": 37
+                            },
+                            {
+                                "type": "link",
+                                "name": "Grab",
+                                "alt": "Grab",
+                                "game-obj": "MonsterAbilities",
+                                "aonid": 18
+                            },
+                            {
+                                "type": "link",
+                                "name": "concentrate",
+                                "alt": "concentrate",
+                                "game-obj": "Traits",
+                                "aonid": 32
+                            },
+                            {
+                                "type": "link",
+                                "name": "divine",
+                                "alt": "divine",
+                                "game-obj": "Traits",
+                                "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "shadow",
+                                "alt": "shadow",
+                                "game-obj": "Traits",
+                                "aonid": 143
+                            },
+                            {
+                                "type": "link",
+                                "name": "transmutation",
+                                "alt": "transmutation",
+                                "game-obj": "Traits",
+                                "aonid": 157
+                            },
+                            {
+                                "type": "link",
+                                "name": "stunned 1",
+                                "alt": "stunned 1",
+                                "game-obj": "Conditions",
+                                "aonid": 36
+                            }
                         ]
                     }
                 ]
@@ -424,6 +755,127 @@
                                 "operation": "add_items",
                                 "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "divine",
+                                "alt": "divine",
+                                "game-obj": "Traits",
+                                "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "downtime",
+                                "alt": "downtime",
+                                "game-obj": "Traits",
+                                "aonid": 49
+                            },
+                            {
+                                "type": "link",
+                                "name": "necromancy",
+                                "alt": "necromancy",
+                                "game-obj": "Traits",
+                                "aonid": 117
+                            },
+                            {
+                                "type": "link",
+                                "name": "conjuration",
+                                "alt": "conjuration",
+                                "game-obj": "Traits",
+                                "aonid": 33
+                            },
+                            {
+                                "type": "link",
+                                "name": "divine",
+                                "alt": "divine",
+                                "game-obj": "Traits",
+                                "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "shadow",
+                                "alt": "shadow",
+                                "game-obj": "Traits",
+                                "aonid": 143
+                            },
+                            {
+                                "type": "link",
+                                "name": "basic",
+                                "alt": "basic",
+                                "game-obj": "Rules",
+                                "aonid": 329
+                            },
+                            {
+                                "type": "link",
+                                "name": "DC of the strigoi's level",
+                                "alt": "DC of the strigoi's level",
+                                "game-obj": "Rules",
+                                "aonid": 554
+                            },
+                            {
+                                "type": "link",
+                                "name": "dazzled",
+                                "alt": "dazzled",
+                                "game-obj": "Conditions",
+                                "aonid": 7
+                            },
+                            {
+                                "type": "link",
+                                "name": "blinded",
+                                "alt": "blinded",
+                                "game-obj": "Conditions",
+                                "aonid": 1
+                            },
+                            {
+                                "type": "link",
+                                "name": "divine",
+                                "alt": "divine",
+                                "game-obj": "Traits",
+                                "aonid": 48
+                            },
+                            {
+                                "type": "link",
+                                "name": "enchantment",
+                                "alt": "enchantment",
+                                "game-obj": "Traits",
+                                "aonid": 61
+                            },
+                            {
+                                "type": "link",
+                                "name": "incapacitation",
+                                "alt": "incapacitation",
+                                "game-obj": "Traits",
+                                "aonid": 93
+                            },
+                            {
+                                "type": "link",
+                                "name": "mental",
+                                "alt": "mental",
+                                "game-obj": "Traits",
+                                "aonid": 106
+                            },
+                            {
+                                "type": "link",
+                                "name": "visual",
+                                "alt": "visual",
+                                "game-obj": "Traits",
+                                "aonid": 163
+                            },
+                            {
+                                "type": "link",
+                                "name": "dominate",
+                                "alt": "dominate",
+                                "game-obj": "Spells",
+                                "aonid": 87
+                            },
+                            {
+                                "type": "link",
+                                "name": "visual",
+                                "alt": "visual",
+                                "game-obj": "Traits",
+                                "aonid": 163
+                            }
                         ]
                     }
                 ]
@@ -451,6 +903,50 @@
                                 "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
                                 "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "Vampire",
+                                "alt": "Vampire",
+                                "game-obj": "MonsterFamilies",
+                                "aonid": 97
+                            },
+                            {
+                                "type": "link",
+                                "name": "Vampire, Jiang-Shi",
+                                "alt": "Vampire, Jiang-Shi",
+                                "game-obj": "MonsterFamilies",
+                                "aonid": 286
+                            },
+                            {
+                                "type": "link",
+                                "name": "Vampire, Nosferatu",
+                                "alt": "Vampire, Nosferatu",
+                                "game-obj": "MonsterFamilies",
+                                "aonid": 273
+                            },
+                            {
+                                "type": "link",
+                                "name": "Vampire, Nosferatu",
+                                "alt": "Vampire, Nosferatu",
+                                "game-obj": "MonsterFamilies",
+                                "aonid": 630
+                            },
+                            {
+                                "type": "link",
+                                "name": "Vampire, Vetalarana",
+                                "alt": "Vampire, Vetalarana",
+                                "game-obj": "MonsterFamilies",
+                                "aonid": 311
+                            },
+                            {
+                                "type": "link",
+                                "name": "Vampire, Vrykolakas",
+                                "alt": "Vampire, Vrykolakas",
+                                "game-obj": "MonsterFamilies",
+                                "aonid": 159
                             }
                         ]
                     }
