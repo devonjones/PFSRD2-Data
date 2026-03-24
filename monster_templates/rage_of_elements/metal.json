@@ -122,7 +122,7 @@
                             "name": "electricity",
                             "subtype": "resistance",
                             "type": "stat_block_section",
-                            "value": 6
+                            "value": 3
                         },
                         "operation": "add_item",
                         "target": "$.defense.hitpoints[*].resistances"
@@ -133,7 +133,7 @@
                             "name": "electricity",
                             "subtype": "resistance",
                             "type": "stat_block_section",
-                            "value": 10
+                            "value": 5
                         },
                         "operation": "add_item",
                         "target": "$.defense.hitpoints[*].resistances"
@@ -144,7 +144,7 @@
                             "name": "electricity",
                             "subtype": "resistance",
                             "type": "stat_block_section",
-                            "value": 20
+                            "value": 10
                         },
                         "operation": "add_item",
                         "target": "$.defense.hitpoints[*].resistances"
@@ -155,7 +155,7 @@
                             "name": "electricity",
                             "subtype": "resistance",
                             "type": "stat_block_section",
-                            "value": 30
+                            "value": 15
                         },
                         "operation": "add_item",
                         "target": "$.defense.hitpoints[*].resistances"
@@ -181,11 +181,21 @@
                         "operation": "select",
                         "selection": {
                             "description": "- If the creature has metal spikes or blades, you can give its physical Strikes your choice of versatile P or versatile S.",
+                            "max": 1,
+                            "min": 1,
                             "options": [
-                                "versatile P",
-                                "versatile S"
+                                {
+                                    "name": "versatile P",
+                                    "subtype": "trait",
+                                    "type": "stat_block_section"
+                                },
+                                {
+                                    "name": "versatile S",
+                                    "subtype": "trait",
+                                    "type": "stat_block_section"
+                                }
                             ],
-                            "type": "select_one"
+                            "type": "select"
                         },
                         "target": "$.offense.offensive_actions[*].attack.traits"
                     }
@@ -272,9 +282,10 @@
                     {
                         "operation": "select",
                         "selection": {
+                            "action": "replace",
                             "constraint": "metal",
                             "description": "- If the creature can cast spells, you can replace spells with metal spells of the same rank, such as: **Cantrip** *needle darts*, **1st** *conductive weapon*, **2nd** *magnetic repulsion*, **3rd** *noxious metals*, **4th** *rust cloud*, **5th** *impaling spike*, **6th** *field of razors*, **7th** *beheading buzz saw*, **8th** *ferrous form*, **9th** *magnetic dominion*.",
-                            "type": "replace_n"
+                            "type": "select"
                         },
                         "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
                     }

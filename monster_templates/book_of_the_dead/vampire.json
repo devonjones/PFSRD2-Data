@@ -233,10 +233,56 @@
                 "change_category": "resistances",
                 "effects": [
                     {
+                        "conditional": "$.creature_type.level == 1",
                         "item": {
                             "name": "physical",
                             "subtype": "resistance",
-                            "type": "stat_block_section"
+                            "type": "stat_block_section",
+                            "value": 2
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
+                    },
+                    {
+                        "conditional": "$.creature_type.level == 0",
+                        "item": {
+                            "name": "physical",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
+                            "value": 2
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
+                    },
+                    {
+                        "conditional": "$.creature_type.level == 2",
+                        "item": {
+                            "name": "physical",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
+                            "value": 3
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
+                    },
+                    {
+                        "conditional": "$.creature_type.level == 6",
+                        "item": {
+                            "name": "physical",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
+                            "value": 5
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
+                    },
+                    {
+                        "conditional": "$.creature_type.level >= 11",
+                        "item": {
+                            "name": "physical",
+                            "subtype": "resistance",
+                            "type": "stat_block_section",
+                            "value": 10
                         },
                         "operation": "add_item",
                         "target": "$.defense.hitpoints[*].resistances"
@@ -244,9 +290,27 @@
                     {
                         "operation": "select",
                         "selection": {
-                            "constraint": "bypass_material",
-                            "description": "- Add resistance to physical damage, with a value based on the creature's level. Choose one type of material that bypasses this resistance: cold iron (vetalarana), silver (moroi), or wood (jiang-shi or nosferatu).",
-                            "type": "select_one"
+                            "description": "bypass material",
+                            "max": 1,
+                            "min": 1,
+                            "options": [
+                                {
+                                    "name": "except cold iron",
+                                    "subtype": "modifier",
+                                    "type": "stat_block_section"
+                                },
+                                {
+                                    "name": "except silver",
+                                    "subtype": "modifier",
+                                    "type": "stat_block_section"
+                                },
+                                {
+                                    "name": "except wood",
+                                    "subtype": "modifier",
+                                    "type": "stat_block_section"
+                                }
+                            ],
+                            "type": "select"
                         },
                         "target": "$.defense.hitpoints[*].resistances[?(@.name=='physical')]"
                     }
