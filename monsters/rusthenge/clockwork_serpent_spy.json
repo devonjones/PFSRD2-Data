@@ -465,7 +465,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Winding Clockworks",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -474,11 +473,24 @@
                                             "text": "For a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time remaining. If it's unclear when a clockwork was last wound, most clockwork keepers wind all their clockworks at a set time, typically 8 a.m."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "Disable a Device",
+                                            "alt": "Disable a Device",
+                                            "game-obj": "Actions",
+                                            "aonid": 69
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Wind-Up"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.stat_block.interaction_abilities"
                                         }
                                     ]
                                 }
@@ -494,7 +506,6 @@
                                             "type": "stat_block_section",
                                             "subtype": "change",
                                             "text": "Malfunction!",
-                                            "change_category": "abilities",
                                             "abilities": [
                                                 {
                                                     "type": "stat_block_section",
@@ -515,11 +526,26 @@
                                                     "text": ": When damaged, the clockwork attempts a DC 5 flat check. On a failure, a plate of its armor falls loose. It takes a status penalty to AC equal to the number of lost plates (up to \u20134)."
                                                 }
                                             ],
+                                            "links": [
+                                                {
+                                                    "type": "link",
+                                                    "name": "slowed 1",
+                                                    "alt": "slowed 1",
+                                                    "game-obj": "Conditions",
+                                                    "aonid": 35
+                                                }
+                                            ],
+                                            "change_category": "abilities",
                                             "effects": [
                                                 {
-                                                    "target": "$.defense.automatic_abilities",
+                                                    "names": [
+                                                        "Backfire",
+                                                        "Damaged Propulsion",
+                                                        "Loose Screws"
+                                                    ],
                                                     "operation": "add_items",
-                                                    "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                                    "source": "$.changes[*].abilities",
+                                                    "target": "$.defense.automatic_abilities"
                                                 }
                                             ]
                                         }

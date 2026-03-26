@@ -505,7 +505,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Dragon, Chromatic",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -514,11 +513,45 @@
                                             "text": "*Dragon, Black* , *Dragon, Green* , *Dragon, Red* , *Dragon, White*"
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "Dragon, Black",
+                                            "alt": "Dragon, Black",
+                                            "game-obj": "MonsterFamilies",
+                                            "aonid": 165
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Dragon, Green",
+                                            "alt": "Dragon, Green",
+                                            "game-obj": "MonsterFamilies",
+                                            "aonid": 167
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Dragon, Red",
+                                            "alt": "Dragon, Red",
+                                            "game-obj": "MonsterFamilies",
+                                            "aonid": 168
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Dragon, White",
+                                            "alt": "Dragon, White",
+                                            "game-obj": "MonsterFamilies",
+                                            "aonid": 169
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Related Groups"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }
@@ -534,13 +567,17 @@
                                             "type": "stat_block_section",
                                             "subtype": "change",
                                             "text": "Shape-Changing Dragons",
-                                            "change_category": "abilities",
                                             "abilities": [
                                                 {
                                                     "type": "stat_block_section",
                                                     "subtype": "ability",
                                                     "name": "Change Shape",
-                                                    "text": "[one-action]  (arcane, concentrate, polymorph, transmutation) The dragon takes on the appearance of any Small or Medium humanoid. This doesn\u2019t change its Speed or attack and damage bonuses with its Strikes, but might change the damage type its Strikes deal (typically to bludgeoning).",
+                                                    "action_type": {
+                                                        "type": "stat_block_section",
+                                                        "subtype": "action_type",
+                                                        "name": "One Action"
+                                                    },
+                                                    "text": "arcane, concentrate, polymorph, transmutation) The dragon takes on the appearance of any Small or Medium humanoid. This doesn\u2019t change its Speed or attack and damage bonuses with its Strikes, but might change the damage type its Strikes deal (typically to bludgeoning).",
                                                     "universal_monster_ability": {
                                                         "name": "Change Shape",
                                                         "type": "ability",
@@ -755,11 +792,45 @@
                                                     }
                                                 }
                                             ],
+                                            "links": [
+                                                {
+                                                    "type": "link",
+                                                    "name": "arcane",
+                                                    "alt": "arcane",
+                                                    "game-obj": "Traits",
+                                                    "aonid": 11
+                                                },
+                                                {
+                                                    "type": "link",
+                                                    "name": "concentrate",
+                                                    "alt": "concentrate",
+                                                    "game-obj": "Traits",
+                                                    "aonid": 32
+                                                },
+                                                {
+                                                    "type": "link",
+                                                    "name": "polymorph",
+                                                    "alt": "polymorph",
+                                                    "game-obj": "Traits",
+                                                    "aonid": 127
+                                                },
+                                                {
+                                                    "type": "link",
+                                                    "name": "transmutation",
+                                                    "alt": "transmutation",
+                                                    "game-obj": "Traits",
+                                                    "aonid": 157
+                                                }
+                                            ],
+                                            "change_category": "abilities",
                                             "effects": [
                                                 {
-                                                    "target": "$.defense.automatic_abilities",
+                                                    "names": [
+                                                        "Change Shape"
+                                                    ],
                                                     "operation": "add_items",
-                                                    "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                                    "source": "$.changes[*].abilities",
+                                                    "target": "$.offense.offensive_actions"
                                                 }
                                             ]
                                         }

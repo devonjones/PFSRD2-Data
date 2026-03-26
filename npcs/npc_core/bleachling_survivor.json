@@ -384,7 +384,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Bleachlings",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -393,11 +392,24 @@
                                             "text": "When the bleachling gnome rolls a critical failure on a check with the emotion trait, they get a failure instead."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "emotion",
+                                            "alt": "emotion",
+                                            "game-obj": "Traits",
+                                            "aonid": 590
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Unflappable"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.stat_block.interaction_abilities"
                                         }
                                     ]
                                 }

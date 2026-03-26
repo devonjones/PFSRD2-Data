@@ -458,7 +458,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Zombie",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -467,11 +466,24 @@
                                             "text": "*Zombie*"
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "Zombie",
+                                            "alt": "Zombie",
+                                            "game-obj": "MonsterFamilies",
+                                            "aonid": 103
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Related Groups"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }
@@ -487,31 +499,35 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Zombie Abilities",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
                                             "subtype": "ability",
                                             "name": "Disgusting Pustules",
-                                            "text": "(disease, necromancy) The zombie is covered in pustules that rupture when it takes any piercing damage or any critical hit. In either case, adjacent creatures are hit with vile fluid, causing them to become sickened 1 unless they succeed at a Fortitude save."
+                                            "text": "disease, necromancy) The zombie is covered in pustules that rupture when it takes any piercing damage or any critical hit. In either case, adjacent creatures are hit with vile fluid, causing them to become sickened 1 unless they succeed at a Fortitude save."
                                         },
                                         {
                                             "type": "stat_block_section",
                                             "subtype": "ability",
                                             "name": "Feast",
-                                            "text": "[two-actions]  (manipulate) If the zombie is adjacent to a helpless or unconscious creature, or a deceased creature that died in the past hour, the zombie can feast upon its flesh to heal itself. This restores an amount of Hit Points equal to the zombie's level. If the creature is alive, the zombie deals damage equal to its jaws, flst, or claw damage."
+                                            "action_type": {
+                                                "type": "stat_block_section",
+                                                "subtype": "action_type",
+                                                "name": "Two Actions"
+                                            },
+                                            "text": "manipulate) If the zombie is adjacent to a helpless or unconscious creature, or a deceased creature that died in the past hour, the zombie can feast upon its flesh to heal itself. This restores an amount of Hit Points equal to the zombie's level. If the creature is alive, the zombie deals damage equal to its jaws, flst, or claw damage."
                                         },
                                         {
                                             "type": "stat_block_section",
                                             "subtype": "ability",
                                             "name": "Plague-Ridden",
-                                            "text": "(disease, necromancy) The zombie carries a plague that can create more of its own kind. This functions as the plague zombie's zombie rot, except at stage 5, the victim rises as another of the zombie's type, rather than a plague zombie."
+                                            "text": "disease, necromancy) The zombie carries a plague that can create more of its own kind. This functions as the plague zombie's zombie rot, except at stage 5, the victim rises as another of the zombie's type, rather than a plague zombie."
                                         },
                                         {
                                             "type": "stat_block_section",
                                             "subtype": "ability",
                                             "name": "Rotting Aura",
-                                            "text": "(aura, disease, necromancy) The zombie emits an aura of rot and disease that causes wounds to fester and turn sour. Any living creature that starts its turn within 10 feet of the zombie and is not at full Hit Points takes 1d6 damage as its wounds fester. This damage increases by 1d6 for every 6 levels the zombie has. Creatures that take a critical hit from the zombie also take this damage immediately."
+                                            "text": "aura, disease, necromancy) The zombie emits an aura of rot and disease that causes wounds to fester and turn sour. Any living creature that starts its turn within 10 feet of the zombie and is not at full Hit Points takes 1d6 damage as its wounds fester. This damage increases by 1d6 for every 6 levels the zombie has. Creatures that take a critical hit from the zombie also take this damage immediately."
                                         },
                                         {
                                             "type": "stat_block_section",
@@ -520,11 +536,84 @@
                                             "text": "This zombie is nigh unkillable. The zombie loses its weakness to slashing and gains resistance against all damage equal to its level (minimum 3), and it gains weakness equal to twice its level (minimum 6) to critical hits. Increase the zombie's level by 1 if you give it this ability."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "disease",
+                                            "alt": "disease",
+                                            "game-obj": "Traits",
+                                            "aonid": 46
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "necromancy",
+                                            "alt": "necromancy",
+                                            "game-obj": "Traits",
+                                            "aonid": 117
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "manipulate",
+                                            "alt": "manipulate",
+                                            "game-obj": "Traits",
+                                            "aonid": 104
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "disease",
+                                            "alt": "disease",
+                                            "game-obj": "Traits",
+                                            "aonid": 46
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "necromancy",
+                                            "alt": "necromancy",
+                                            "game-obj": "Traits",
+                                            "aonid": 117
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "aura",
+                                            "alt": "aura",
+                                            "game-obj": "Traits",
+                                            "aonid": 206
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "disease",
+                                            "alt": "disease",
+                                            "game-obj": "Traits",
+                                            "aonid": 46
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "necromancy",
+                                            "alt": "necromancy",
+                                            "game-obj": "Traits",
+                                            "aonid": 117
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Disgusting Pustules",
+                                                "Plague-Ridden",
+                                                "Rotting Aura",
+                                                "Unkillable"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
+                                        },
+                                        {
+                                            "names": [
+                                                "Feast"
+                                            ],
+                                            "operation": "add_items",
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.offense.offensive_actions"
                                         }
                                     ]
                                 }
@@ -540,7 +629,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Additional Monster Abilities",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -558,7 +646,7 @@
                                             "type": "stat_block_section",
                                             "subtype": "ability",
                                             "name": "Putrid Stench",
-                                            "text": "(aura, olfactory) 15 feet. The zombie's rotting flesh is particularly malodorous. A creature that enters the area must attempt a Fortitude save. On a failure, the creature is sickened 1, and on a critical failure, the creature also takes a \u20135-foot status penalty to its Speeds for 1 round. While within the aura, the creature takes a \u20132 circumstance penalty to saves to recover from the sickened condition. A creature that succeeds at its save is temporarily immune to all zombies' putrid stenches for 1 minute."
+                                            "text": "aura, olfactory) 15 feet. The zombie's rotting flesh is particularly malodorous. A creature that enters the area must attempt a Fortitude save. On a failure, the creature is sickened 1, and on a critical failure, the creature also takes a \u20135-foot status penalty to its Speeds for 1 round. While within the aura, the creature takes a \u20132 circumstance penalty to saves to recover from the sickened condition. A creature that succeeds at its save is temporarily immune to all zombies' putrid stenches for 1 minute."
                                         },
                                         {
                                             "type": "stat_block_section",
@@ -567,11 +655,76 @@
                                             "text": "The zombie gains a +10 status bonus to all its Speeds"
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "prone",
+                                            "alt": "prone",
+                                            "game-obj": "Conditions",
+                                            "aonid": 31
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "flat-footed",
+                                            "alt": "flat-footed",
+                                            "game-obj": "Conditions",
+                                            "aonid": 16
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Athletics",
+                                            "alt": "Athletics",
+                                            "game-obj": "Skills",
+                                            "aonid": 3
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Trip",
+                                            "alt": "Trip",
+                                            "game-obj": "Actions",
+                                            "aonid": 40
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Crawls",
+                                            "alt": "Crawls",
+                                            "game-obj": "Actions",
+                                            "aonid": 76
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "aura",
+                                            "alt": "aura",
+                                            "game-obj": "Traits",
+                                            "aonid": 206
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "olfactory",
+                                            "alt": "olfactory",
+                                            "game-obj": "Traits",
+                                            "aonid": 246
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "sickened 1",
+                                            "alt": "sickened 1",
+                                            "game-obj": "Conditions",
+                                            "aonid": 34
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Ankle Biter",
+                                                "Persistent Limbs",
+                                                "Putrid Stench",
+                                                "Unholy Speed"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }

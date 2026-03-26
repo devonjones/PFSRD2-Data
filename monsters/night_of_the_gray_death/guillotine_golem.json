@@ -448,7 +448,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Golem Antimagic",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -457,11 +456,24 @@
                                             "text": "Any magic of this type that targets the golem causes it to take the listed amount of damage (this damage has no type) instead of the usual effect. If the golem starts its turn in an area of magic of this type or is affected by a persistent effect of the appropriate type, it takes the damage listed in the parenthetical."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "slowed",
+                                            "alt": "slowed",
+                                            "game-obj": "Conditions",
+                                            "aonid": 35
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Harmed By"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }

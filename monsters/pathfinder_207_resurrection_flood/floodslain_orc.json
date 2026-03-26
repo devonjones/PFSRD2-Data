@@ -228,14 +228,14 @@
                             "change_category": "traits",
                             "effects": [
                                 {
-                                    "target": "$.creature_type.creature_types",
+                                    "name": "Amphibious",
                                     "operation": "add_item",
-                                    "name": "Amphibious"
+                                    "target": "$.creature_type.creature_types"
                                 },
                                 {
-                                    "target": "$.creature_type.creature_types",
+                                    "name": "Undead",
                                     "operation": "add_item",
-                                    "name": "Undead"
+                                    "target": "$.creature_type.creature_types"
                                 }
                             ]
                         },
@@ -246,13 +246,13 @@
                             "change_category": "senses",
                             "effects": [
                                 {
-                                    "target": "$.senses.special_senses",
-                                    "operation": "add_item",
                                     "item": {
-                                        "type": "stat_block_section",
+                                        "name": "darkvision",
                                         "subtype": "special_sense",
-                                        "name": "darkvision"
-                                    }
+                                        "type": "stat_block_section"
+                                    },
+                                    "operation": "add_item",
+                                    "target": "$.senses.special_senses"
                                 }
                             ]
                         },
@@ -263,38 +263,53 @@
                             "change_category": "combat_stats",
                             "effects": [
                                 {
+                                    "operation": "adjustment",
                                     "target": "$.defense.ac.value",
-                                    "operation": "adjustment",
                                     "value": 1
                                 },
                                 {
+                                    "operation": "adjustment",
                                     "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
-                                    "operation": "adjustment",
                                     "value": 1
                                 },
                                 {
+                                    "operation": "adjustment",
                                     "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
-                                    "operation": "adjustment",
                                     "value": 1
                                 },
                                 {
+                                    "operation": "adjustment",
+                                    "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
+                                    "value": 1
+                                },
+                                {
+                                    "operation": "adjustment",
+                                    "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
+                                    "value": 1
+                                },
+                                {
+                                    "operation": "adjustment",
+                                    "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
+                                    "value": 1
+                                },
+                                {
+                                    "operation": "adjustment",
                                     "target": "$.defense.saves.fort.value",
-                                    "operation": "adjustment",
                                     "value": 1
                                 },
                                 {
+                                    "operation": "adjustment",
                                     "target": "$.defense.saves.ref.value",
-                                    "operation": "adjustment",
                                     "value": 1
                                 },
                                 {
+                                    "operation": "adjustment",
                                     "target": "$.defense.saves.will.value",
-                                    "operation": "adjustment",
                                     "value": 1
                                 },
                                 {
-                                    "target": "$.skills[*].value",
                                     "operation": "adjustment",
+                                    "target": "$.statistics.skills[*].value",
                                     "value": 1
                                 }
                             ]
@@ -303,33 +318,7 @@
                             "type": "stat_block_section",
                             "subtype": "change",
                             "text": "- Increase its Hit Points as shown on the table below.",
-                            "change_category": "hit_points",
-                            "effects": [
-                                {
-                                    "conditional": "$.creature\\\\_type.level <= 1",
-                                    "target": "$.defense.hitpoints[*].hp",
-                                    "operation": "adjustment",
-                                    "value": 10
-                                },
-                                {
-                                    "conditional": "$.creature_type.level == 2",
-                                    "target": "$.defense.hitpoints[*].hp",
-                                    "operation": "adjustment",
-                                    "value": 15
-                                },
-                                {
-                                    "conditional": "$.creature_type.level == 5",
-                                    "target": "$.defense.hitpoints[*].hp",
-                                    "operation": "adjustment",
-                                    "value": 20
-                                },
-                                {
-                                    "conditional": "$.creature_type.level >= 20",
-                                    "target": "$.defense.hitpoints[*].hp",
-                                    "operation": "adjustment",
-                                    "value": 30
-                                }
-                            ]
+                            "change_category": "hit_points"
                         }
                     ],
                     "subtypes": [
@@ -343,7 +332,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Floodslain Creature Abilities",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -528,11 +516,186 @@
                                             "text": "[two-actions]  (occult) A floodslain creature's body is filled with debris from their horrific death, which they can spew at their enemies. The floodslain vomits flotsam in a 15-foot cone. Any creature in the area takes 1d8 bludgeoning damage per level of the floodslain creature (minimum 1d8) with a basic Reflex save against the floodslain's Fortitude DC."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "human",
+                                            "alt": "human",
+                                            "game-obj": "Traits",
+                                            "aonid": 627
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "humanoid",
+                                            "alt": "humanoid",
+                                            "game-obj": "Traits",
+                                            "aonid": 628
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Darkvision",
+                                            "alt": "Darkvision",
+                                            "game-obj": "MonsterAbilities",
+                                            "aonid": 59
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Void Healing",
+                                            "alt": "Void Healing",
+                                            "game-obj": "MonsterAbilities",
+                                            "aonid": 83
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "death",
+                                            "alt": "death",
+                                            "game-obj": "Traits",
+                                            "aonid": 571
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "disease",
+                                            "alt": "disease",
+                                            "game-obj": "Traits",
+                                            "aonid": 578
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "paralyzed",
+                                            "alt": "paralyzed",
+                                            "game-obj": "Conditions",
+                                            "aonid": 85
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "poison",
+                                            "alt": "poison",
+                                            "game-obj": "Traits",
+                                            "aonid": 669
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "sleep",
+                                            "alt": "sleep",
+                                            "game-obj": "Traits",
+                                            "aonid": 696
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "occult",
+                                            "alt": "occult",
+                                            "game-obj": "Traits",
+                                            "aonid": 662
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "slowed 1",
+                                            "alt": "slowed 1",
+                                            "game-obj": "Conditions",
+                                            "aonid": 92
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "drowning",
+                                            "alt": "drowning",
+                                            "game-obj": "Rules",
+                                            "aonid": 2439
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "occult",
+                                            "alt": "occult",
+                                            "game-obj": "Traits",
+                                            "aonid": 662
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "animal",
+                                            "alt": "animal",
+                                            "game-obj": "Traits",
+                                            "aonid": 531
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "humanoid",
+                                            "alt": "humanoid",
+                                            "game-obj": "Traits",
+                                            "aonid": 628
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "aura",
+                                            "alt": "aura",
+                                            "game-obj": "Traits",
+                                            "aonid": 542
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "occult",
+                                            "alt": "occult",
+                                            "game-obj": "Traits",
+                                            "aonid": 662
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "water",
+                                            "alt": "water",
+                                            "game-obj": "Traits",
+                                            "aonid": 732
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "occult",
+                                            "alt": "occult",
+                                            "game-obj": "Traits",
+                                            "aonid": 662
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "basic",
+                                            "alt": "basic",
+                                            "game-obj": "Rules",
+                                            "aonid": 329
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Darkvision"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.senses.special_senses"
+                                        },
+                                        {
+                                            "names": [
+                                                "Void Healing"
+                                            ],
+                                            "operation": "add_items",
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.hitpoints[*].automatic_abilities"
+                                        },
+                                        {
+                                            "names": [
+                                                "Immunities",
+                                                "Hard to Burn",
+                                                "Sodden Ground",
+                                                "Swimmer"
+                                            ],
+                                            "operation": "add_items",
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
+                                        },
+                                        {
+                                            "names": [
+                                                "Drowning Touch",
+                                                "Floodslain Spawn",
+                                                "Vomit Flotsam"
+                                            ],
+                                            "operation": "add_items",
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.offense.offensive_actions"
                                         }
                                     ]
                                 }

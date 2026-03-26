@@ -283,7 +283,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Mercenary Banter",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -340,11 +339,30 @@
                                             "text": ": Anyone who can move stealthily."
                                         }
                                     ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Crackster",
+                                                "Diving",
+                                                "Foxing",
+                                                "Medic",
+                                                "Slinger",
+                                                "Sway of Coin",
+                                                "Waterline",
+                                                "Whisperstep"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
+                                        },
+                                        {
+                                            "names": [
+                                                "Ram"
+                                            ],
+                                            "operation": "add_items",
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.offense.offensive_actions"
                                         }
                                     ]
                                 }

@@ -197,7 +197,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Rabies",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -236,11 +235,20 @@
                                             "text": "dead"
                                         }
                                     ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Rabies",
+                                                "Saving Throw",
+                                                "Stage 1",
+                                                "Stage 2",
+                                                "Stage 3",
+                                                "Stage 4"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }
@@ -502,15 +510,7 @@
                         "trigger": "A creature Mounts or uses the Command an Animal action while riding the monster.",
                         "effect": "The triggering creature must succeed at a Reflex saving throw against the listed DC or fall off the creature and land prone. If the save is a critical failure, the triggering creature also takes 1d6 bludgeoning damage in addition to the normal damage for the fall.",
                         "game-id": "078362e5d7a5f822ed1ff16c821fa777"
-                    },
-                    "saving_throw": [
-                        {
-                            "dc": 17,
-                            "subtype": "save_dc",
-                            "text": "DC 17",
-                            "type": "stat_block_section"
-                        }
-                    ]
+                    }
                 }
             ]
         },

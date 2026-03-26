@@ -209,7 +209,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Spawn Of Rovagug Abilities",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -224,11 +223,60 @@
                                             "text": "Spawn of Rovagug can sleep for centuries in a regenerative hibernation. While slumbering, a Spawn doesn't need to eat, drink, or even breathe, and its resistances double in value. It can't be located by detection, revelation, or scrying effects, and for any saving throw, it uses the outcome one degree of success better than the result. With no outlet while the Spawn slumbers, its massive destructive energies turn outward and infect its surroundings, causing natural disasters of a type matching the Spawn to occur more frequently and with greater severity in a 1-mile emanation from the Spawn's resting place, increasing in radius by roughly a mile every decade the Spawn slumbers."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "regeneration",
+                                            "alt": "regeneration",
+                                            "game-obj": "MonsterAbilities",
+                                            "aonid": 72
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "death",
+                                            "alt": "death",
+                                            "game-obj": "Domains",
+                                            "aonid": 70
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "detection",
+                                            "alt": "detection",
+                                            "game-obj": "Traits",
+                                            "aonid": 574
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "revelation",
+                                            "alt": "revelation",
+                                            "game-obj": "Traits",
+                                            "aonid": 686
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "scrying",
+                                            "alt": "scrying",
+                                            "game-obj": "Traits",
+                                            "aonid": 689
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Absolute Regeneration"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
+                                        },
+                                        {
+                                            "names": [
+                                                "Slumbering Armageddon"
+                                            ],
+                                            "operation": "add_items",
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.stat_block.interaction_abilities"
                                         }
                                     ]
                                 }

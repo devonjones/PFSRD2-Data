@@ -327,7 +327,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Darkening Poison",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -360,11 +359,42 @@
                                             "text": "1d6 poison and creatures you can see only with darkvision are hidden from you (1 round)"
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "darkvision",
+                                            "alt": "darkvision",
+                                            "game-obj": "Rules",
+                                            "aonid": 415
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "concealed",
+                                            "alt": "concealed",
+                                            "game-obj": "Conditions",
+                                            "aonid": 62
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "hidden",
+                                            "alt": "hidden",
+                                            "game-obj": "Conditions",
+                                            "aonid": 79
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Saving Throw",
+                                                "Maximum Duration",
+                                                "Stage 1",
+                                                "Stage 2",
+                                                "Stage 3"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }

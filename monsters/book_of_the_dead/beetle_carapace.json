@@ -460,7 +460,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Bestiary",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -499,11 +498,97 @@
                                             "text": "[two-actions]  (auditory, emotion, fear, mental) The skeleton removes its skull and throws it, making a jaws attack with a range of 20 feet. It then attempts to Demoralize each foe within 10 feet of the target. The head bounces, rolls, or even flies back, returning to the skeleton at the start of its next turn. The skeleton is blind until then."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "fast healing",
+                                            "alt": "fast healing",
+                                            "game-obj": "MonsterAbilities",
+                                            "aonid": 15
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "immobilized",
+                                            "alt": "immobilized",
+                                            "game-obj": "Conditions",
+                                            "aonid": 24
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "flat-footed",
+                                            "alt": "flat-footed",
+                                            "game-obj": "Conditions",
+                                            "aonid": 16
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "basic",
+                                            "alt": "basic",
+                                            "game-obj": "Rules",
+                                            "aonid": 329
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "auditory",
+                                            "alt": "auditory",
+                                            "game-obj": "Traits",
+                                            "aonid": 16
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "emotion",
+                                            "alt": "emotion",
+                                            "game-obj": "Traits",
+                                            "aonid": 60
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "fear",
+                                            "alt": "fear",
+                                            "game-obj": "Traits",
+                                            "aonid": 68
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "mental",
+                                            "alt": "mental",
+                                            "game-obj": "Traits",
+                                            "aonid": 106
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Demoralize",
+                                            "alt": "Demoralize",
+                                            "game-obj": "Actions",
+                                            "aonid": 53
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "blind",
+                                            "alt": "blind",
+                                            "game-obj": "Conditions",
+                                            "aonid": 1
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Bloody",
+                                                "Explosive Death",
+                                                "Screaming Skull"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
+                                        },
+                                        {
+                                            "names": [
+                                                "Collapse"
+                                            ],
+                                            "operation": "add_items",
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.offense.offensive_actions"
                                         }
                                     ]
                                 }
@@ -518,7 +603,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Bestiary 3",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -550,11 +634,49 @@
                                             "text": "Thick briars have grown through the skeleton's bones, covering it in red roses with inch-long thorns. The skeleton's unarmed melee Strikes deal additional piercing damage equal to 1/3 the skeleton's level (minimum 1 damage). At the end of each of its turns, if the skeleton has caused piercing damage with its thorns, it regains HP equal to its level (minimum 1). Each time the skeleton regains HP in this way, another rose blossoms."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "fire",
+                                            "alt": "fire",
+                                            "game-obj": "Traits",
+                                            "aonid": 72
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "cold",
+                                            "alt": "cold",
+                                            "game-obj": "Traits",
+                                            "aonid": 27
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "persistent fire damage",
+                                            "alt": "persistent fire damage",
+                                            "game-obj": "Conditions",
+                                            "aonid": 29
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "persistent poison damage",
+                                            "alt": "persistent poison damage",
+                                            "game-obj": "Conditions",
+                                            "aonid": 29
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Blaze",
+                                                "Bone Missile",
+                                                "Bone Powder",
+                                                "Source",
+                                                "Skeleton of Roses"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }
@@ -569,7 +691,6 @@
                                     "type": "stat_block_section",
                                     "subtype": "change",
                                     "text": "Book of the Dead",
-                                    "change_category": "abilities",
                                     "abilities": [
                                         {
                                             "type": "stat_block_section",
@@ -644,11 +765,143 @@
                                             "text": "The bones of this skeleton are black and rotten, having spent years in polluted water or some other foul substance. The skeleton loses its resistance to piercing and slashing damage and is surrounded by a horrific stench in a 10-foot aura. A creature entering or starting its turn in the aura must succeed at a Fortitude save against the standard DC of the skeleton's level or become sickened 1 (plus slowed 1 for as long as it remains sickened on a critical failure). While within the aura, affected creatures take a \u20132 circumstance penalty to saves against disease and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute."
                                         }
                                     ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "aquatic",
+                                            "alt": "aquatic",
+                                            "game-obj": "Traits",
+                                            "aonid": 168
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "aquatic ambush",
+                                            "alt": "aquatic ambush",
+                                            "game-obj": "MonsterAbilities",
+                                            "aonid": 2
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "basic",
+                                            "alt": "basic",
+                                            "game-obj": "Rules",
+                                            "aonid": 329
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "hard DC for the creature's level",
+                                            "alt": "hard DC for the creature's level",
+                                            "game-obj": "Rules",
+                                            "aonid": 554
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "cold",
+                                            "alt": "cold",
+                                            "game-obj": "Traits",
+                                            "aonid": 27
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "fire",
+                                            "alt": "fire",
+                                            "game-obj": "Traits",
+                                            "aonid": 72
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "basic",
+                                            "alt": "basic",
+                                            "game-obj": "Rules",
+                                            "aonid": 329
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "standard DC for its level",
+                                            "alt": "standard DC for its level",
+                                            "game-obj": "Rules",
+                                            "aonid": 554
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "undetected",
+                                            "alt": "undetected",
+                                            "game-obj": "Conditions",
+                                            "aonid": 39
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "flat-footed",
+                                            "alt": "flat-footed",
+                                            "game-obj": "Conditions",
+                                            "aonid": 16
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "frightened 1",
+                                            "alt": "frightened 1",
+                                            "game-obj": "Conditions",
+                                            "aonid": 19
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "acid",
+                                            "alt": "acid",
+                                            "game-obj": "Traits",
+                                            "aonid": 3
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Nimble Dodge",
+                                            "alt": "Nimble Dodge",
+                                            "game-obj": "Feats",
+                                            "aonid": 550
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "standard DC of the skeleton's level",
+                                            "alt": "standard DC of the skeleton's level",
+                                            "game-obj": "Rules",
+                                            "aonid": 554
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "sickened 1",
+                                            "alt": "sickened 1",
+                                            "game-obj": "Conditions",
+                                            "aonid": 34
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "slowed 1",
+                                            "alt": "slowed 1",
+                                            "game-obj": "Conditions",
+                                            "aonid": 35
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "disease",
+                                            "alt": "disease",
+                                            "game-obj": "Traits",
+                                            "aonid": 46
+                                        }
+                                    ],
+                                    "change_category": "abilities",
                                     "effects": [
                                         {
-                                            "target": "$.defense.automatic_abilities",
+                                            "names": [
+                                                "Aquatic Bones",
+                                                "Bone Storm",
+                                                "Crumbling Bones",
+                                                "Frozen",
+                                                "Grave Eruption",
+                                                "Lacquered",
+                                                "Nimble",
+                                                "Rotten"
+                                            ],
                                             "operation": "add_items",
-                                            "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                            "source": "$.changes[*].abilities",
+                                            "target": "$.defense.automatic_abilities"
                                         }
                                     ]
                                 }
@@ -1239,15 +1492,7 @@
                                 }
                             ],
                             "game-id": "3900c3f784d7a523533b6cb0e7d2c952"
-                        },
-                        "saving_throw": [
-                            {
-                                "dc": 24,
-                                "subtype": "save_dc",
-                                "text": "DC 24",
-                                "type": "stat_block_section"
-                            }
-                        ]
+                        }
                     }
                 }
             ]
