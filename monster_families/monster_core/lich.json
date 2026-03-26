@@ -147,7 +147,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Lich Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -218,13 +217,6 @@
                                 "subtype": "ability",
                                 "name": "Siphon Life",
                                 "text": "A lich's form draws forth life from those who come into contact with it. When the lich damages a living creature with an unarmed attack, the lich gains 5 temporary Hit Points and the creature must succeed at a Fortitude save against the lich's spell DC \u2013 2 or become drained 1. If the lich is grabbed or restrained at the start of its turn, each creature grabbing or restraining it must succeed at a Fortitude save or become drained 1. If the lich siphons a creature's life again, the drained value increase by 1, to a maximum of drained 4."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -361,6 +353,47 @@
                                 "game-obj": "Conditions",
                                 "aonid": 90
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Darkvision"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Saving Throws",
+                                    "Immunities",
+                                    "Resistances",
+                                    "Frightful Presence",
+                                    "Hand of the Lich"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing",
+                                    "Rejuvenation"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Drain Soul Cage",
+                                    "Paralyzing Touch"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -375,7 +408,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Alternate Lich Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -400,13 +432,6 @@
                                 "subtype": "ability",
                                 "name": "Void Shroud",
                                 "text": "(aura, death) 30 feet. The lich is surrounded by an aura of death, drawing forth souls to be consumed by the lich's constant hunger. Living creatures in the emanation take a \u20132 status penalty to saves against fear and death effects. In addition, any creature that starts its turn in the area gains the doomed 1 condition unless it succeeds at a Will save against the lich's spell DC \u2013 4."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -493,6 +518,27 @@
                                 "alt": "doomed 1",
                                 "game-obj": "Conditions",
                                 "aonid": 67
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Blasphemous Utterances",
+                                    "Dark Deliverance",
+                                    "Void Shroud"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Cold Beyond Cold"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

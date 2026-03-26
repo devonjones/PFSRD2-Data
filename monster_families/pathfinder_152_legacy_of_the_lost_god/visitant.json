@@ -62,7 +62,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Visitant Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -111,13 +110,6 @@
                                 "subtype": "ability",
                                 "name": "Wrestle",
                                 "text": "[one-action]  The visitant makes a claw Strike against a creature it has grabbed. If the attack hits, that creature is knocked prone."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -198,6 +190,27 @@
                                 "game-obj": "Traits",
                                 "aonid": 106
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Noxious Breath",
+                                    "Roar",
+                                    "Wrestle"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            },
+                            {
+                                "names": [
+                                    "Vengeful Presence"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -212,7 +225,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Visitant Spells",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -231,13 +243,6 @@
                                 "subtype": "ability",
                                 "name": "Constant (1st)",
                                 "text": "*detect alignment* (evil only)"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -261,6 +266,19 @@
                                 "alt": "detect alignment",
                                 "game-obj": "Spells",
                                 "aonid": 65
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Innate Spells",
+                                    "1st",
+                                    "Constant (1st)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

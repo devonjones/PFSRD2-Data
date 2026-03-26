@@ -81,25 +81,25 @@
                         "value": 10
                     },
                     {
-                        "conditional": "$.creature_type.level == 2",
+                        "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 5",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": 20
                     },
                     {
-                        "conditional": "$.creature_type.level == 6",
+                        "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 10",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": 50
                     },
                     {
-                        "conditional": "$.creature_type.level == 11",
+                        "conditional": "$.creature_type.level >= 11 && $.creature_type.level <= 15",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": 75
                     },
                     {
-                        "conditional": "$.creature_type.level == 16",
+                        "conditional": "$.creature_type.level >= 16 && $.creature_type.level <= 19",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": 100
@@ -236,7 +236,7 @@
                     {
                         "conditional": "$.creature_type.level <= 1",
                         "item": {
-                            "name": "with a value based on its level: positive",
+                            "name": "positive",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 5
@@ -245,9 +245,9 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 2",
+                        "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 5",
                         "item": {
-                            "name": "with a value based on its level: positive",
+                            "name": "positive",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 5
@@ -256,9 +256,9 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 6",
+                        "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 10",
                         "item": {
-                            "name": "with a value based on its level: positive",
+                            "name": "positive",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 10
@@ -267,9 +267,9 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 11",
+                        "conditional": "$.creature_type.level >= 11 && $.creature_type.level <= 15",
                         "item": {
-                            "name": "with a value based on its level: positive",
+                            "name": "positive",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 15
@@ -278,9 +278,9 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 16",
+                        "conditional": "$.creature_type.level >= 16 && $.creature_type.level <= 19",
                         "item": {
-                            "name": "with a value based on its level: positive",
+                            "name": "positive",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 20
@@ -291,7 +291,7 @@
                     {
                         "conditional": "$.creature_type.level >= 20",
                         "item": {
-                            "name": "with a value based on its level: positive",
+                            "name": "positive",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 25
@@ -311,7 +311,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 2",
+                        "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 5",
                         "item": {
                             "name": "slashing",
                             "subtype": "weakness",
@@ -322,7 +322,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 6",
+                        "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 10",
                         "item": {
                             "name": "slashing",
                             "subtype": "weakness",
@@ -333,7 +333,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 11",
+                        "conditional": "$.creature_type.level >= 11 && $.creature_type.level <= 15",
                         "item": {
                             "name": "slashing",
                             "subtype": "weakness",
@@ -344,7 +344,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 16",
+                        "conditional": "$.creature_type.level >= 16 && $.creature_type.level <= 19",
                         "item": {
                             "name": "slashing",
                             "subtype": "weakness",
@@ -414,9 +414,12 @@
                 "change_category": "abilities",
                 "effects": [
                     {
+                        "names": [
+                            "Slow"
+                        ],
                         "operation": "add_items",
                         "source": "$.changes[*].abilities",
-                        "target": "$.defense.automatic_abilities"
+                        "target": "$.stat_block.interaction_abilities"
                     }
                 ]
             }

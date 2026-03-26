@@ -99,7 +99,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Serpentfolk Magic",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -136,13 +135,6 @@
                                 "subtype": "ability",
                                 "name": "1st",
                                 "text": "*mindlink* , *phantom pain* . Aapoph serpentfolk lack innate spells."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -215,6 +207,22 @@
                                 "alt": "phantom pain",
                                 "game-obj": "Spells",
                                 "aonid": 1632
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "6th",
+                                    "5th",
+                                    "4th",
+                                    "3rd",
+                                    "2nd",
+                                    "1st"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

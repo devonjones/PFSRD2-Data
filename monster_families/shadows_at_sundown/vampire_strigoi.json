@@ -296,7 +296,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Basic Strigoi Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -367,13 +366,6 @@
                                 "subtype": "ability",
                                 "name": "Shadow Form",
                                 "text": "[one-action]  (concentrate, divine, shadow, transmutation) The strigoi reverts to pure shadow and absorbs its body and its gear into the darkness, or it shifts back to its physical form. In shadow form, the strigoi gains a climb Speed equal to its land Speed and can move through any gap that isn't airtight. However, it can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface it's on is destroyed, the strigoi returns to physical form and is stunned 1. The strigoi loses fast healing while in shadow form but can remain in shadow form indefinitely."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -678,6 +670,47 @@
                                 "game-obj": "Conditions",
                                 "aonid": 36
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Greater Darkvision"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing",
+                                    "Coffin Restoration"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Strigoi Weaknesses",
+                                    "Levitation",
+                                    "Claws"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Drink Essence",
+                                    "Grab",
+                                    "Shadow Form"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -692,7 +725,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Strigoi Progenitor Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -747,13 +779,6 @@
                                 "subtype": "ability",
                                 "name": "Drink Essence",
                                 "text": "As a typical strigoi, but the victim is drained 2 and stupefied 2 instead of 1."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -876,6 +901,30 @@
                                 "game-obj": "Traits",
                                 "aonid": 163
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Resistances",
+                                    "Fly Speed",
+                                    "Shadow Escape"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Create Spawn",
+                                    "Domain of Dusk",
+                                    "Dominate",
+                                    "Drink Essence"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -889,20 +938,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Vampire",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Vampire* , *Vampire, Jiang-Shi* , *Vampire, Nosferatu* , *Vampire, Nosferatu* , *Vampire, Vetalarana* , *Vampire, Vrykolakas*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -947,6 +988,17 @@
                                 "alt": "Vampire, Vrykolakas",
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 159
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

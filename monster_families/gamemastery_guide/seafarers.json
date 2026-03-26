@@ -59,7 +59,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Shipboard Spells",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -83,14 +82,7 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Cantrips",
-                                "text": "(2nd, 1st for bosun) *electric arc* , *guidance* , *know direction* , *light* , *tanglefoot*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "text": "2nd, 1st for bosun) *electric arc* , *guidance* , *know direction* , *light* , *tanglefoot*"
                             }
                         ],
                         "links": [
@@ -177,6 +169,20 @@
                                 "alt": "tanglefoot",
                                 "game-obj": "Spells",
                                 "aonid": 330
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Primal Prepared Spells",
+                                    "2nd",
+                                    "1st",
+                                    "Cantrips"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

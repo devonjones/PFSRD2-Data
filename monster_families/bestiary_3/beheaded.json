@@ -38,7 +38,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Beheaded Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -56,20 +55,13 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Fiendish",
-                                "text": "(aura, divine, emotion, fear, mental, necromancy) 30 feet. The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a Will save or be frightened 1."
+                                "text": "aura, divine, emotion, fear, mental, necromancy) 30 feet. The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a Will save or be frightened 1."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Giant",
                                 "text": "A beheaded created from the head of a giant is a Medium creature, gaining 2 levels and one or more additional beheaded abilities."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -136,6 +128,20 @@
                                 "game-obj": "Conditions",
                                 "aonid": 19
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Bleeding",
+                                    "Entangling",
+                                    "Fiendish",
+                                    "Giant"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -149,7 +155,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Alternate Beheaded Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -161,20 +166,13 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Whispering",
-                                "text": "(aura, emotion, fear, mental, necromancy) 30 feet. The beheaded constantly whispers twisted incantations in unknown languages secret and foul. Foes that enter or begin their turn in the area must succeed at a Will save or be stupefied 1. The aura uses the moderate DC for the beheaded's level."
+                                "text": "aura, emotion, fear, mental, necromancy) 30 feet. The beheaded constantly whispers twisted incantations in unknown languages secret and foul. Foes that enter or begin their turn in the area must succeed at a Will save or be stupefied 1. The aura uses the moderate DC for the beheaded's level."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Furious Headbutt",
                                 "text": "**Frequency** once per round; **Effect** The beheaded makes a wild Strike, taking a \u20132 penalty to its AC until the end of its next turn. If the Strike damages a creature, it deals additional damage equal to the beheaded's level.###  Monstrous Heads\n\nWhile the traditional image of a beheaded is that of a disembodied human head or skull, necromancers can create beheaded out of any sort of head. This variety can lead to extremely distinctive beheaded, including dragon heads, giant insect heads, medusa heads, or those of even rarer creatures. Occasionally, such beheaded retain weakened versions of their original special abilities from the constituent creature instead of a beheaded ability, such as a breath weapon for a dragon head or a gaze for a medusa head.###  More Beheaded Abilities\n\nSince beheaded are very similar to skeletons or zombies (or at least the heads from those creatures), you can also customize them with abilities from the skeleton and zombie entries, though take care to avoid abilities that require bodies or limbs. If you give the beheaded more than one additional ability, you might want to increase its level and adjust its statistics accordingly. Use the guidelines in Chapter 2 of the *Pathfinder Gamemastery Guide* to determine its new statistics."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -261,6 +259,26 @@
                                 "alt": "zombie",
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 103
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Lifesense"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Whispering",
+                                    "Furious Headbutt"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

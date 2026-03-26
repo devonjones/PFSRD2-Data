@@ -91,13 +91,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Ankhrav Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Ranged",
-                                "text": "[one-action]  acid spit +20 (range increment 30 feet),"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "acid spit +20 (range increment 30 feet),"
                             },
                             {
                                 "type": "stat_block_section",
@@ -109,14 +113,12 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Spray Acid",
-                                "text": "[two-actions]  (acid) The chimera spews acid in a 30-foot cone, dealing 9d6 acid damage to all creatures in the area (DC 26 basic Reflex save). The chimera can't use Spray Acid again for 1d4 rounds."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "acid) The chimera spews acid in a 30-foot cone, dealing 9d6 acid damage to all creatures in the area (DC 26 basic Reflex save). The chimera can't use Spray Acid again for 1d4 rounds."
                             }
                         ],
                         "links": [
@@ -141,6 +143,26 @@
                                 "game-obj": "Rules",
                                 "aonid": 329
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Ranged",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Spray Acid"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -154,13 +176,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Hippogriff Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  hippogriff beak +22 (fatal d10),"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "hippogriff beak +22 (fatal d10),"
                             },
                             {
                                 "type": "stat_block_section",
@@ -172,14 +198,12 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Rend",
-                                "text": "[one-action]  hippogriff beak"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "hippogriff beak"
                             }
                         ],
                         "links": [
@@ -197,6 +221,26 @@
                                 "game-obj": "MonsterAbilities",
                                 "aonid": 73
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Rend"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -210,26 +254,23 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Rotting Animal Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Ranged",
-                                "text": "[one-action]  virulent spit +18 (poison),"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "virulent spit +18 (poison),"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Damage",
                                 "text": "3d8+4 poison plus chimeric rot"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -254,6 +295,18 @@
                                 "game-obj": "Conditions",
                                 "aonid": 91
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Ranged",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -267,13 +320,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Snake Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  snake fangs +20 (agile, reach 10 feet),"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "snake fangs +20 (agile, reach 10 feet),"
                             },
                             {
                                 "type": "stat_block_section",
@@ -285,14 +342,12 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Constrict",
-                                "text": "[one-action]  2d8 bludgeoning, DC 24"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "2d8 bludgeoning, DC 24"
                             }
                         ],
                         "links": [
@@ -324,6 +379,26 @@
                                 "game-obj": "MonsterAbilities",
                                 "aonid": 57
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Constrict"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -337,13 +412,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Snapping Turtle Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  snapping jaws +20,"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "snapping jaws +20,"
                             },
                             {
                                 "type": "stat_block_section",
@@ -358,13 +437,6 @@
                                 "text": "The chimera can hold its breath for 1 hour."
                             }
                         ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
-                            }
-                        ],
                         "links": [
                             {
                                 "type": "link",
@@ -372,6 +444,26 @@
                                 "alt": "hold its breath",
                                 "game-obj": "Rules",
                                 "aonid": 2436
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Deep Breath"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.stat_block.interaction_abilities"
                             }
                         ]
                     }
@@ -386,13 +478,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Wolf Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  wolf jaws +20,"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "wolf jaws +20,"
                             },
                             {
                                 "type": "stat_block_section",
@@ -405,13 +501,6 @@
                                 "subtype": "ability",
                                 "name": "Leader of the Pack",
                                 "text": "The chimera's wolf jaws attacks deal 1d6 extra damage to prone creatures."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -429,6 +518,26 @@
                                 "game-obj": "Conditions",
                                 "aonid": 88
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Leader of the Pack"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -442,13 +551,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Adult Dragon Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  dragon jaws +27,"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "dragon jaws +27,"
                             },
                             {
                                 "type": "stat_block_section",
@@ -466,14 +579,12 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Dragon Breath",
-                                "text": "[two-actions]  The greater chimera deals 12d6 damage to all creatures in a 30-foot cone (DC 33 basic Reflex). This breath deals either acid, cold, electricity, fire, force, mental, sonic, or spirit, depending on the kind of dragon head the greater chimera possesses. The greater chimera can't use Dragon Breath again for 1d4 rounds."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "The greater chimera deals 12d6 damage to all creatures in a 30-foot cone (DC 33 basic Reflex). This breath deals either acid, cold, electricity, fire, force, mental, sonic, or spirit, depending on the kind of dragon head the greater chimera possesses. The greater chimera can't use Dragon Breath again for 1d4 rounds."
                             }
                         ],
                         "links": [
@@ -483,6 +594,27 @@
                                 "alt": "basic",
                                 "game-obj": "Rules",
                                 "aonid": 329
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Draconic Bite",
+                                    "Dragon Breath"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }
@@ -497,13 +629,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Cave Worm Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  worm jaws +27 (reach 10 feet),"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "worm jaws +27 (reach 10 feet),"
                             },
                             {
                                 "type": "stat_block_section",
@@ -515,14 +651,12 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Swallow Whole",
-                                "text": "[one-action]  (attack) Large, 3d10+8 bludgeoning, Rupture 24; the target must be grabbed by the greater chimera's worm jaws"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "attack) Large, 3d10+8 bludgeoning, Rupture 24; the target must be grabbed by the greater chimera's worm jaws"
                             }
                         ],
                         "links": [
@@ -554,6 +688,26 @@
                                 "game-obj": "Conditions",
                                 "aonid": 77
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Swallow Whole"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -567,13 +721,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Emperor Cobra Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  emperor cobra fangs +27,"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "emperor cobra fangs +27,"
                             },
                             {
                                 "type": "stat_block_section",
@@ -585,14 +743,7 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Chimeric Venom",
-                                "text": "(poison) When the greater chimera critically hits a creature with emperor cobra fangs, it deals an additional 6d6 persistent poison damage."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "text": "poison) When the greater chimera critically hits a creature with emperor cobra fangs, it deals an additional 6d6 persistent poison damage."
                             }
                         ],
                         "links": [
@@ -610,6 +761,19 @@
                                 "game-obj": "Conditions",
                                 "aonid": 29
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage",
+                                    "Chimeric Venom"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -623,13 +787,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Phantasmal Beast Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  phantom slam +27 (agile, finesse, magical),"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "phantom slam +27 (agile, finesse, magical),"
                             },
                             {
                                 "type": "stat_block_section",
@@ -642,13 +810,6 @@
                                 "subtype": "ability",
                                 "name": "Incorporeal Features",
                                 "text": "The greater chimera gains resistance 5 to all damage (except force, spirit, and damage from Strikes with the *ghost touch* property rune)."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -694,6 +855,19 @@
                                 "game-obj": "Equipment",
                                 "aonid": 2840
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage",
+                                    "Incorporeal Features"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -707,13 +881,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Screeching Roc Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  beak +26 (deadly d10),"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "beak +26 (deadly d10),"
                             },
                             {
                                 "type": "stat_block_section",
@@ -725,20 +903,18 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Ear-splitting Screech",
-                                "text": "[two-actions]  (auditory, sonic) The screeching roc head emits a harsh cry that deals 9d6 sonic damage (DC 26 basic Fortitude save) in a 30-foot emanation. It can't use Ear-splitting Screech again for 1d4 rounds."
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "auditory, sonic) The screeching roc head emits a harsh cry that deals 9d6 sonic damage (DC 26 basic Fortitude save) in a 30-foot emanation. It can't use Ear-splitting Screech again for 1d4 rounds."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Powerful Wings",
                                 "text": "The greater chimera's fly Speed increases by 10 feet."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -770,6 +946,20 @@
                                 "game-obj": "Rules",
                                 "aonid": 329
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage",
+                                    "Ear-splitting Screech",
+                                    "Powerful Wings"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -783,13 +973,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Witchwarg Head",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
-                                "text": "[one-action]  witchwarg jaws +25,"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "witchwarg jaws +25,"
                             },
                             {
                                 "type": "stat_block_section",
@@ -801,14 +995,12 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Freezing Breath",
-                                "text": "[two-actions]  (cold, primal) The greater chimera breathes a cloud of frost in a 15-foot cone that deals 9d10 cold damage (DC 33 basic Reflex save). The greater chimera can't use Freezing Breath again for 1d4 rounds."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "cold, primal) The greater chimera breathes a cloud of frost in a 15-foot cone that deals 9d10 cold damage (DC 33 basic Reflex save). The greater chimera can't use Freezing Breath again for 1d4 rounds."
                             }
                         ],
                         "links": [
@@ -839,6 +1031,26 @@
                                 "alt": "basic",
                                 "game-obj": "Rules",
                                 "aonid": 329
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Melee",
+                                    "Damage"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Freezing Breath"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

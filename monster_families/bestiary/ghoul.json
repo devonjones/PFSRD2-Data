@@ -275,7 +275,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Ghoul Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -384,13 +383,6 @@
                                 "text": "[one-action]  (move) The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."
                             }
                         ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
-                            }
-                        ],
                         "links": [
                             {
                                 "type": "link",
@@ -448,20 +440,67 @@
                                 "game-obj": "Traits",
                                 "aonid": 114
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Darkvision"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Claws",
+                                    "Ghoul Fever",
+                                    "Saving Throw",
+                                    "Stage 1",
+                                    "Stage 2",
+                                    "Stage 3",
+                                    "Stage 4",
+                                    "Stage 5",
+                                    "Stage 6"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Jaws",
+                                    "Consume Flesh",
+                                    "Paralysis",
+                                    "Swift Leap"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
             },
             {
-                "name": "Ghast Abilities A ghast has all the abilities above, plus following additions.",
+                "name": "Ghast Abilities",
                 "type": "stat_block_section",
                 "subtype": "monster_family",
+                "text": "A ghast has all the abilities above, plus following additions.",
                 "changes": [
                     {
                         "type": "stat_block_section",
                         "subtype": "change",
-                        "text": "Ghast Abilities A ghast has all the abilities above, plus following additions.",
-                        "change_category": "abilities",
+                        "text": "Ghast Abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -536,13 +575,6 @@
                                 "text": "(incapacitation, occult, necromancy) As ghoul, but elves are not immune."
                             }
                         ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
-                            }
-                        ],
                         "links": [
                             {
                                 "type": "link",
@@ -585,6 +617,35 @@
                                 "alt": "necromancy",
                                 "game-obj": "Traits",
                                 "aonid": 117
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Stench",
+                                    "Ghast Fever",
+                                    "Saving Throw",
+                                    "Stage 1",
+                                    "Stage 2",
+                                    "Stage 3",
+                                    "Stage 4",
+                                    "Stage 5",
+                                    "Stage 6"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Claws and Jaws",
+                                    "Consume Flesh",
+                                    "Paralysis"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

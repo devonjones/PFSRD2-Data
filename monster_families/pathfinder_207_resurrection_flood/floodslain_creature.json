@@ -170,7 +170,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Floodslain Creature Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -247,13 +246,6 @@
                                 "subtype": "ability",
                                 "name": "Vomit Flotsam",
                                 "text": "[two-actions]  (occult) A floodslain creature's body is filled with debris from their horrific death, which they can spew at their enemies. The floodslain vomits flotsam in a 15-foot cone. Any creature in the area takes 1d8 bludgeoning damage per level of the floodslain creature (minimum 1d8) with a basic Reflex save against the floodslain's Fortitude DC."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -396,6 +388,46 @@
                                 "alt": "basic",
                                 "game-obj": "Rules",
                                 "aonid": 329
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Darkvision"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Void Healing"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Hard to Burn",
+                                    "Sodden Ground",
+                                    "Swimmer"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Drowning Touch",
+                                    "Floodslain Spawn",
+                                    "Vomit Flotsam"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

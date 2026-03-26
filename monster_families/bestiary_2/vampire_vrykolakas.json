@@ -340,7 +340,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Basic Vrykolakas Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -429,13 +428,6 @@
                                 "subtype": "ability",
                                 "name": "Rend",
                                 "text": "[one-action]  The vrykolakas gains the Rend action with its claws."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -649,6 +641,55 @@
                                 "game-obj": "MonsterAbilities",
                                 "aonid": 30
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Darkvision"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Swift Tracker"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.stat_block.interaction_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Feral Corruption",
+                                    "Vrykolakas Vulnerabilities",
+                                    "Climb Speed",
+                                    "Claws",
+                                    "Fangs"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Drink Blood",
+                                    "Rend"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -663,7 +704,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Vrykolakas Master Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -736,13 +776,6 @@
                                 "subtype": "ability",
                                 "name": "Drink Blood",
                                 "text": "As a typical vrykolakas, but the creature is drained 2 instead of 1."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -977,6 +1010,42 @@
                                 "game-obj": "Spells",
                                 "aonid": 87
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Children of the Night"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.stat_block.interaction_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Pestilential Aura",
+                                    "Divine Innate Spells",
+                                    "Bubonic Plague",
+                                    "Saving Throw",
+                                    "Onset",
+                                    "Stage 1",
+                                    "Stage 2"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Change Shape",
+                                    "Create Spawn",
+                                    "Dominate Animal",
+                                    "Drink Blood"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -990,20 +1059,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Vampire",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Vampire* , *Vampire, Jiang-Shi* , *Vampire, Nosferatu* , *Vampire, Nosferatu* , *Vampire, Strigoi* , *Vampire, Vetalarana*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -1048,6 +1109,17 @@
                                 "alt": "Vampire, Vetalarana",
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 311
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

@@ -297,20 +297,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Elemental",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Elemental, Air* , *Elemental, Air* , *Elemental, Earth* , *Elemental, Earth* , *Elemental, Fire* , *Elemental, Mephit* , *Elemental, Metal* , *Elemental, Scamp* , *Elemental, Water* , *Elemental, Water* , *Elemental, Wisp* , *Elemental, Wood*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -397,6 +389,17 @@
                                 "alt": "Elemental, Wood",
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 345
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

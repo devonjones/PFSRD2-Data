@@ -307,7 +307,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Basic Vetalarana Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -367,13 +366,6 @@
                                 "subtype": "ability",
                                 "name": "Effect",
                                 "text": "The vetalarana seizes a creature and consumes its memories. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim is stupefied 1, and the vetalarana regains HP equal to 10% of the vetalarana's maximum HP, gaining any excess as temporary Hit Points. Draining Thoughts from a creature that is already stupefied doesn't restore any HP to the vetalarana but increases the victim's stupefied value by 1. Additionally, the vetalarana views one of the victim's memories."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -622,6 +614,45 @@
                                 "game-obj": "Skills",
                                 "aonid": 3
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Thoughtsense"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing",
+                                    "Mental Rebirth"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Vetalarana Vulnerabilities",
+                                    "Climb Speed",
+                                    "Claws"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Drain Thoughts"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -636,7 +667,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Vetalarana Manipulator Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -679,13 +709,6 @@
                                 "subtype": "ability",
                                 "name": "Paralyzing Claws",
                                 "text": "(incapacitation, occult, necromancy) Any living creature hit by a vetalarana manipulator's claw Strike must succeed at a Fortitude save or become paralyzed. The target can attempt a new save at the end of each of its turns to end the effect, and the DC cumulatively decreases by 1 on each such save. Use the moderate DC for the creature's level on the Spell DC and Spell Attack Bonus table."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -829,6 +852,28 @@
                                 "game-obj": "Rules",
                                 "aonid": 1020
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Resistances",
+                                    "Occult Innate Spells"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Control Comatose",
+                                    "Drain Thoughts",
+                                    "Paralyzing Claws"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -842,20 +887,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Vampire",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Vampire* , *Vampire, Jiang-Shi* , *Vampire, Nosferatu* , *Vampire, Nosferatu* , *Vampire, Strigoi* , *Vampire, Vrykolakas*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -900,6 +937,17 @@
                                 "alt": "Vampire, Vrykolakas",
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 159
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

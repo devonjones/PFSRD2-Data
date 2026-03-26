@@ -32,7 +32,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Virulak Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -75,13 +74,6 @@
                                 "subtype": "ability",
                                 "name": "Venomous Gaze",
                                 "text": "[two-actions]   (concentrate, divine, necromancy, poison, visual) The virulak locks its gaze on a single creature within 30 feet. The target is exposed to the virulak's undead virulence."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -203,6 +195,35 @@
                                 "alt": "visual",
                                 "game-obj": "Traits",
                                 "aonid": 163
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Envenomed Weapons",
+                                    "Venomous Gaze"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            },
+                            {
+                                "names": [
+                                    "Fetid Breath",
+                                    "Intensify Toxin"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Lingering Ichor"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.reactive_abilities"
                             }
                         ]
                     }

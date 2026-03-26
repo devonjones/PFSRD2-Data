@@ -32,7 +32,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Variant Bore Worms",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -59,13 +58,6 @@
                                 "text": ": These luminous, purple worms present just one more reason to avoid the Mana Wastes between Geb and Nex, where magic is unreliable at best and more often dangerously unpredictable. When a creature fails a save against Swarming Bites or Painful Bite, the worms also attempt a counteract check against a single spell affecting the creature (counteract level 3, counteract modifier +12)."
                             }
                         ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
-                            }
-                        ],
                         "links": [
                             {
                                 "type": "link",
@@ -87,6 +79,20 @@
                                 "alt": "counteract",
                                 "game-obj": "Rules",
                                 "aonid": 371
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Ice Worms",
+                                    "Lava Worms",
+                                    "Necral Worms",
+                                    "Mage-Eater Worms"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

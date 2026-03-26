@@ -119,19 +119,19 @@
                         "value": -2
                     },
                     {
-                        "conditional": "$.creature_type.level == 0",
+                        "conditional": "$.creature_type.level >= 0 && $.creature_type.level <= 1",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": -4
                     },
                     {
-                        "conditional": "$.creature_type.level == 2",
+                        "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 5",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": -10
                     },
                     {
-                        "conditional": "$.creature_type.level == 6",
+                        "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 10",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": -20
@@ -272,7 +272,7 @@
                 "effects": [
                     {
                         "item": {
-                            "name": "with a value based on the creature's level: cold",
+                            "name": "cold",
                             "subtype": "resistance",
                             "type": "stat_block_section"
                         },
@@ -352,9 +352,20 @@
                 "change_category": "abilities",
                 "effects": [
                     {
+                        "names": [
+                            "Darkvision"
+                        ],
                         "operation": "add_items",
                         "source": "$.changes[*].abilities",
-                        "target": "$.defense.automatic_abilities"
+                        "target": "$.senses.special_senses"
+                    },
+                    {
+                        "names": [
+                            "Negative Healing"
+                        ],
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.hitpoints[*].automatic_abilities"
                     }
                 ]
             }

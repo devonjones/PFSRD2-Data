@@ -38,20 +38,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Swapping Deities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Selective Energy",
                                 "text": "When the devotee casts a version of *harm* or *heal* that has an area, they can designate up to 5 creatures in the area. Those creatures are not targeted by the spell."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -81,6 +73,17 @@
                                 "alt": "here",
                                 "href": "Deities.aspx"
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Selective Energy"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ],
@@ -95,7 +98,6 @@
                                 "type": "stat_block_section",
                                 "subtype": "change",
                                 "text": "Deity Swap Example",
-                                "change_category": "abilities",
                                 "abilities": [
                                     {
                                         "type": "stat_block_section",
@@ -126,13 +128,6 @@
                                         "subtype": "ability",
                                         "name": "Cleric Domain Spell",
                                         "text": "*touch of undeath*"
-                                    }
-                                ],
-                                "effects": [
-                                    {
-                                        "target": "$.defense.automatic_abilities",
-                                        "operation": "add_items",
-                                        "source": "$.monster_family.subtypes[*].changes[*].abilities"
                                     }
                                 ],
                                 "links": [
@@ -317,6 +312,21 @@
                                         "alt": "touch of undeath",
                                         "game-obj": "Spells",
                                         "aonid": 1846
+                                    }
+                                ],
+                                "change_category": "abilities",
+                                "effects": [
+                                    {
+                                        "names": [
+                                            "3rd",
+                                            "2nd",
+                                            "1st",
+                                            "Cantrips",
+                                            "Cleric Domain Spell"
+                                        ],
+                                        "operation": "add_items",
+                                        "source": "$.changes[*].abilities",
+                                        "target": "$.defense.automatic_abilities"
                                     }
                                 ]
                             }

@@ -341,7 +341,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Basic Jiang-Shi Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -412,13 +411,6 @@
                                 "subtype": "ability",
                                 "name": "Effect",
                                 "text": "The jiang-shi drains the victim's life energy, or qi, through their breath. This requires an Athletics check against the  victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim is drained 1 and the jiang-shi regains HP equal to 10% of its maximum HP, gaining any excess HP as temporary Hit Points. Draining qi from a creature that's already drained doesn't restore any HP to the jiang-shi but increases the victim's drained condition value by 1. If the victim has the ability to cast ki spells, it can spend 1 Focus Point to avoid becoming drained. This protects it only from the current attack, not from subsequent attempts to Drain Qi."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -702,6 +694,48 @@
                                 "game-obj": "Conditions",
                                 "aonid": 10
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Darkvision",
+                                    "Breathsense"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing",
+                                    "One More Breath"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Jiang-shi Vulnerabilities",
+                                    "Warped Fulu",
+                                    "Claws",
+                                    "Requirement"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Rigor Mortis",
+                                    "Drain Qi"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -716,7 +750,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Jiang-Shi Minister Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -741,13 +774,6 @@
                                 "subtype": "ability",
                                 "name": "Tumult of the Blood",
                                 "text": "(divine, necromancy); The third time a jiang-shi successfully Drains Qi within a single minute, they become quickened for 1 minute. They can use their extra action only to Strike or Stride."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -800,6 +826,20 @@
                                 "game-obj": "Conditions",
                                 "aonid": 32
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Resistances",
+                                    "Dark Enlightenment",
+                                    "Distant Steps",
+                                    "Tumult of the Blood"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -813,20 +853,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Vampire",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Vampire* , *Vampire, Nosferatu* , *Vampire, Nosferatu* , *Vampire, Strigoi* , *Vampire, Vetalarana* , *Vampire, Vrykolakas*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -871,6 +903,17 @@
                                 "alt": "Vampire, Vrykolakas",
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 159
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

@@ -95,19 +95,19 @@
                         "value": -3
                     },
                     {
-                        "conditional": "$.creature_type.level == 0",
+                        "conditional": "$.creature_type.level >= 0 && $.creature_type.level <= 1",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": -5
                     },
                     {
-                        "conditional": "$.creature_type.level == 2",
+                        "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 5",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": -10
                     },
                     {
-                        "conditional": "$.creature_type.level == 6",
+                        "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 10",
                         "operation": "adjustment",
                         "target": "$.defense.hitpoints[*].hp",
                         "value": -20
@@ -244,7 +244,7 @@
                         "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
-                        "conditional": "$.creature_type.level == 0",
+                        "conditional": "$.creature_type.level >= 0 && $.creature_type.level <= 1",
                         "item": {
                             "name": "physical",
                             "subtype": "resistance",
@@ -255,7 +255,7 @@
                         "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
-                        "conditional": "$.creature_type.level == 2",
+                        "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 5",
                         "item": {
                             "name": "physical",
                             "subtype": "resistance",
@@ -266,7 +266,7 @@
                         "target": "$.defense.hitpoints[*].resistances"
                     },
                     {
-                        "conditional": "$.creature_type.level == 6",
+                        "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 10",
                         "item": {
                             "name": "physical",
                             "subtype": "resistance",
@@ -422,9 +422,28 @@
                 "change_category": "abilities",
                 "effects": [
                     {
+                        "names": [
+                            "Darkvision"
+                        ],
                         "operation": "add_items",
                         "source": "$.changes[*].abilities",
-                        "target": "$.defense.automatic_abilities"
+                        "target": "$.senses.special_senses"
+                    },
+                    {
+                        "names": [
+                            "Negative Healing"
+                        ],
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.hitpoints[*].automatic_abilities"
+                    },
+                    {
+                        "names": [
+                            "Feed"
+                        ],
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.offense.offensive_actions"
                     }
                 ]
             }

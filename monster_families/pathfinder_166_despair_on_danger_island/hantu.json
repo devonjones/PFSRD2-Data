@@ -53,7 +53,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Other Hantus",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -80,11 +79,18 @@
                                 "text": ": These giant tree spirits tower above forest canopies. They tend to defend a location by using their great height to pick up intruders and place them elsewhere."
                             }
                         ],
+                        "change_category": "abilities",
                         "effects": [
                             {
-                                "target": "$.defense.automatic_abilities",
+                                "names": [
+                                    "Hantu Batu",
+                                    "Hantu Beruk",
+                                    "Hantu Hutan",
+                                    "Hantu Tinggi"
+                                ],
                                 "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

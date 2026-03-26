@@ -45,7 +45,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Skeleton Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -178,13 +177,6 @@
                                 "subtype": "ability",
                                 "name": "Skeleton of Roses",
                                 "text": "Thick briars have grown through the skeleton\u2019s bones, covering it in red roses with inch-long thorns. The skeleton\u2019s unarmed melee Strikes deal additional piercing damage equal to one-third the skeleton\u2019s level (minimum 1 damage). At the end of each of its turns, if the skeleton has caused piercing damage with its thorns, it regains HP equal to its level (minimum 1). Each time the skeleton regains HP in this way, another rose blossoms."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -404,6 +396,39 @@
                                 "alt": "blind",
                                 "game-obj": "Conditions",
                                 "aonid": 59
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Aquatic Bones",
+                                    "Blaze",
+                                    "Bloody",
+                                    "Bone Missile",
+                                    "Bone Powder",
+                                    "Bone Storm",
+                                    "Crumbling Bones",
+                                    "Explosive Death",
+                                    "Frozen",
+                                    "Grave Eruption",
+                                    "Lacquered",
+                                    "Nimble",
+                                    "Rotten",
+                                    "Screaming Skull",
+                                    "Skeleton of Roses"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Collapse"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

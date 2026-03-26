@@ -217,7 +217,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Ravener Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -324,13 +323,6 @@
                                 "subtype": "ability",
                                 "name": "Vicious Criticals",
                                 "text": "The ravener treats an attack roll as a critical hit on a roll of 19 or 20, as long as the attack roll was a success. Additionally, whenever the ravener makes a critical hit with one of their Strikes, the target must succeed on a Fortitude save or gain the drained 1 condition. If the target already has a drained value of greater than 0, their drained value instead increases by 1, to a maximum of drained 4. Whenever the ravener applies drain to a creature in this way, their soul ward gains 5 Hit Points."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -474,6 +466,47 @@
                                 "game-obj": "Conditions",
                                 "aonid": 10
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Darkvision",
+                                    "Soulsense"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Cowering Fear",
+                                    "Soul Ward",
+                                    "Discorporate",
+                                    "Ravenous Breath"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Consume Soul",
+                                    "Vicious Criticals"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ],
@@ -488,20 +521,12 @@
                                 "type": "stat_block_section",
                                 "subtype": "change",
                                 "text": "Ravener Spellcasters",
-                                "change_category": "abilities",
                                 "abilities": [
                                     {
                                         "type": "stat_block_section",
                                         "subtype": "ability",
                                         "name": "10th",
                                         "text": "*wish*"
-                                    }
-                                ],
-                                "effects": [
-                                    {
-                                        "target": "$.defense.automatic_abilities",
-                                        "operation": "add_items",
-                                        "source": "$.monster_family.subtypes[*].changes[*].abilities"
                                     }
                                 ],
                                 "links": [
@@ -574,6 +599,17 @@
                                         "alt": "spell turning",
                                         "game-obj": "Spells",
                                         "aonid": 297
+                                    }
+                                ],
+                                "change_category": "abilities",
+                                "effects": [
+                                    {
+                                        "names": [
+                                            "10th"
+                                        ],
+                                        "operation": "add_items",
+                                        "source": "$.changes[*].abilities",
+                                        "target": "$.defense.automatic_abilities"
                                     }
                                 ]
                             }

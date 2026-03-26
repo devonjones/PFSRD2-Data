@@ -223,7 +223,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Elemental Permutations",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -248,13 +247,6 @@
                                 "subtype": "ability",
                                 "name": "Water",
                                 "text": ": brinesoul (saltwater undine), mistsoul (vapor undine), rimesoul (frost undine)"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -342,6 +334,27 @@
                                 "game-obj": "Feats",
                                 "aonid": 2608
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Air",
+                                    "Earth",
+                                    "Water"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Fire"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -355,20 +368,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Planar Scion",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Geniekin* , *Nephilim*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -385,6 +390,17 @@
                                 "alt": "Nephilim",
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 569
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

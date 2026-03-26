@@ -38,7 +38,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Beheaded Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -56,20 +55,13 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Fiendish",
-                                "text": "(aura, divine, emotion, fear, mental) 30 feet. The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a Will save or be frightened 1."
+                                "text": "aura, divine, emotion, fear, mental) 30 feet. The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a Will save or be frightened 1."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Giant",
                                 "text": "A beheaded created from the head of a giant is a Medium creature, gaining 2 levels and one or more additional beheaded abilities."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -128,6 +120,20 @@
                                 "alt": "frightened 1",
                                 "game-obj": "Conditions",
                                 "aonid": 76
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Bleeding",
+                                    "Entangling",
+                                    "Fiendish",
+                                    "Giant"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

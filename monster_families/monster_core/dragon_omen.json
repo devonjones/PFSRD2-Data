@@ -311,26 +311,23 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Alternate Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Forewarned and Forearmed",
-                                "text": "(occult) At the start of the day, a dragon can perform a 10-minute ritual to prepare themself for any fights they might have in the day ahead. The dragon chooses one of the following effects, which last for 24 hours. \n* **Assured Fate** (fortune) When the omen dragon rolls initiative, instead of rolling, they can choose to have a result equal to 13 + their initiative modifier.\n* **Instinctive Challenge** During an encounter, the fortune dragon gains an additional reaction at the start of their turn that can be used only for Challenge Fate.\n Some omen dragons can partially manipulate the destinies of other creatures, linking them together. To make an omen dragon with this ability, replace Draconic Frenzy with the following."
+                                "text": "occult) At the start of the day, a dragon can perform a 10-minute ritual to prepare themself for any fights they might have in the day ahead. The dragon chooses one of the following effects, which last for 24 hours. \n* **Assured Fate** (fortune) When the omen dragon rolls initiative, instead of rolling, they can choose to have a result equal to 13 + their initiative modifier.\n* **Instinctive Challenge** During an encounter, the fortune dragon gains an additional reaction at the start of their turn that can be used only for Challenge Fate.\n Some omen dragons can partially manipulate the destinies of other creatures, linking them together. To make an omen dragon with this ability, replace Draconic Frenzy with the following."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Link Fates",
-                                "text": "[two-actions]  (curse, mental, occult) The omen dragon creates a bond between two creatures within 60 feet, entwining their destinies for 1 round. The first time during this duration that one of the creatures takes damage, the other takes an equal amount of mental damage, with a basic Will save (DC equal to the dragon\u2019s Destiny Breath DC)."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "curse, mental, occult) The omen dragon creates a bond between two creatures within 60 feet, entwining their destinies for 1 round. The first time during this duration that one of the creatures takes damage, the other takes an equal amount of mental damage, with a basic Will save (DC equal to the dragon\u2019s Destiny Breath DC)."
                             }
                         ],
                         "links": [
@@ -376,6 +373,18 @@
                                 "game-obj": "Rules",
                                 "aonid": 2297
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Forewarned and Forearmed",
+                                    "Link Fates"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -389,7 +398,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Young Omen Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -420,13 +428,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (3rd)",
                                 "text": "*daze* , *detect magic* , *know the way* , *message* , *read aura*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -521,6 +522,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1646
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "3rd",
+                                    "2nd",
+                                    "1st",
+                                    "Cantrips (3rd)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -534,7 +550,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Adult Omen Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -565,13 +580,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (5th)",
                                 "text": "*daze* , *detect magic* , *know the way* , *message* , *read aura*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -610,6 +618,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1647
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "5th",
+                                    "4th",
+                                    "3rd",
+                                    "Cantrips (5th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -623,7 +646,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Ancient Omen Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -654,13 +676,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (7th)",
                                 "text": "*daze* , *detect magic* , *know the way* , *message* , *read aura*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -713,6 +728,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1665
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "7th",
+                                    "6th",
+                                    "5th",
+                                    "Cantrips (7th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -726,7 +756,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Omen Archdragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -751,13 +780,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (9th)",
                                 "text": "*daze* , *detect magic* , *know the way* , *message* , *read aura*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -796,6 +818,20 @@
                                 "game-obj": "Spells",
                                 "aonid": 1633
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "9th",
+                                    "8th",
+                                    "Cantrips (9th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -809,20 +845,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Dragon, Adamantine* , *Dragon, Barrage* , *Dragon, Bog* , *Dragon, Brine* , *Dragon, Cinder* , *Dragon, Cloud* , *Dragon, Conspirator* , *Dragon, Coral* , *Dragon, Crystal* , *Dragon, Delight* , *Dragon, Despair* , *Dragon, Diabolic* , *Dragon, Empyreal* , *Dragon, Executor* , *Dragon, Forest* , *Dragon, Fortune* , *Dragon, Horned* , *Dragon, Magma* , *Dragon, Mirage* , *Dragon, Mocking* , *Dragon, Oath* , *Dragon, Phase* , *Dragon, Requiem* , *Dragon, Resurrection* , *Dragon, Rime* , *Dragon, Rune* , *Dragon, Sage* , *Dragon, Sea* , *Dragon, Sky* , *Dragon, Sovereign* , *Dragon, Stormcrown* , *Dragon, Time* , *Dragon, Umbral* , *Dragon, Underworld* , *Dragon, Vizier* , *Dragon, Vorpal* , *Dragon, Wailing* , *Dragon, Whisper* , *Dragon, Wish* , *Dragonet* , *Wyrmwraith*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -1113,6 +1141,17 @@
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 662
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -1127,7 +1166,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Draconic Groupings",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -1160,11 +1198,19 @@
                                 "text": ": In addition to these classifications, dragons are sometimes grouped into families. These include the enigmatic esoteric dragons, the regal imperial dragons, the space-faring outer dragons, and the mighty skymetal dragons. Draconic families are sometimes made up of dragons with obvious physiological similarities, while other families seem to be made up of dragons of similar color, habitat, behavior, or other traits that make for vague connections. Often, families include dragons of varied magical traditions. As such, the members of a given family are sometimes the subject of debate and scholarly arguments."
                             }
                         ],
+                        "change_category": "abilities",
                         "effects": [
                             {
-                                "target": "$.defense.automatic_abilities",
+                                "names": [
+                                    "Arcane Dragons",
+                                    "Divine Dragons",
+                                    "Occult Dragons",
+                                    "Primal Dragons",
+                                    "Draconic Families"
+                                ],
                                 "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }
@@ -1180,20 +1226,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Shape-Changing Dragons",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Change Shape",
-                                "text": "[one-action]  (concentrate, polymorph); The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change their Speed or attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "concentrate, polymorph); The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change their Speed or attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."
                             }
                         ],
                         "links": [
@@ -1224,6 +1267,17 @@
                                 "alt": "humanoid",
                                 "game-obj": "Traits",
                                 "aonid": 628
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Change Shape"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

@@ -199,7 +199,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 4",
+                        "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
                         "item": {
                             "name": "fire",
                             "subtype": "weakness",
@@ -210,7 +210,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 9",
+                        "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
                         "item": {
                             "name": "fire",
                             "subtype": "weakness",
@@ -374,6 +374,25 @@
                 "change_category": "abilities",
                 "effects": [
                     {
+                        "names": [
+                            "Darkvision"
+                        ],
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.senses.special_senses"
+                    },
+                    {
+                        "names": [
+                            "Negative Healing"
+                        ],
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.hitpoints[*].automatic_abilities"
+                    },
+                    {
+                        "names": [
+                            "Lesser Despair"
+                        ],
                         "operation": "add_items",
                         "source": "$.changes[*].abilities",
                         "target": "$.defense.automatic_abilities"

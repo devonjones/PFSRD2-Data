@@ -249,32 +249,39 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Alternate Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Draft Contract",
-                                "text": "[three-actions] (occult, manipulate) The dragon produces a contract for a single living mortal. This contract can grant a single boon or ability, the extent of which is dependent on the power of the dragon, in exchange for one piece of knowledge the mortal possesses. The mortal must willingly sign their true name to the contract, as well as the knowledge they wish to surrender. Upon signing, the mortal forgets the bartered information, which cannot be restored by any means short of a *wish* ritual; if they restore this knowledge, they lose the boon granted by the contract."
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Three Actions"
+                                },
+                                "text": "occult, manipulate) The dragon produces a contract for a single living mortal. This contract can grant a single boon or ability, the extent of which is dependent on the power of the dragon, in exchange for one piece of knowledge the mortal possesses. The mortal must willingly sign their true name to the contract, as well as the knowledge they wish to surrender. Upon signing, the mortal forgets the bartered information, which cannot be restored by any means short of a *wish* ritual; if they restore this knowledge, they lose the boon granted by the contract."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Share Sight",
-                                "text": "[two-actions]  (concentrate, occult, scrying) The dragon states the name of an allied informant within 100 miles, giving them a mental alert. The informant can choose whether to accept the contact. If they consent, the dragon projects their senses into the informant\u2019s, allowing them to perceive through their informant. When they do, they lose all sensory information from their own body. The dragon can Sustain this effect for up to 1 hour and Dismiss it as a free action. A whisper dragon might take on a humanoid guise to gather information without attracting notice. To make a dragon with this ability, give them the following ability."
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "concentrate, occult, scrying) The dragon states the name of an allied informant within 100 miles, giving them a mental alert. The informant can choose whether to accept the contact. If they consent, the dragon projects their senses into the informant\u2019s, allowing them to perceive through their informant. When they do, they lose all sensory information from their own body. The dragon can Sustain this effect for up to 1 hour and Dismiss it as a free action. A whisper dragon might take on a humanoid guise to gather information without attracting notice. To make a dragon with this ability, give them the following ability."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Change Shape",
-                                "text": "[one-action]  (concentrate, occult, polymorph) The dragon takes on the appearance of a Small or Medium humanoid. Their humanoid shape has a specific, persistent appearance. In humanoid shape, the dragon loses their jaws, claws, and tail Strikes, but retains their attack bonuses with any weapons they wield. Their Speed is reduced to 25 feet."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "concentrate, occult, polymorph) The dragon takes on the appearance of a Small or Medium humanoid. Their humanoid shape has a specific, persistent appearance. In humanoid shape, the dragon loses their jaws, claws, and tail Strikes, but retains their attack bonuses with any weapons they wield. Their Speed is reduced to 25 feet."
                             }
                         ],
                         "links": [
@@ -355,6 +362,26 @@
                                 "game-obj": "Traits",
                                 "aonid": 670
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Draft Contract",
+                                    "Change Shape"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            },
+                            {
+                                "names": [
+                                    "Share Sight"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -368,7 +395,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Young Whisper Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -399,13 +425,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (3rd)",
                                 "text": "*daze* , *detect magic* , *forbidding ward* , *message* , *telekinetic hand*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -500,6 +519,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1715
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "3rd",
+                                    "2nd",
+                                    "1st",
+                                    "Cantrips (3rd)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -513,7 +547,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Adult Whisper Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -544,13 +577,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (5th)",
                                 "text": "*daze* , *detect magic* , *forbidding ward* , *message* , *telekinetic hand*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -596,6 +622,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1503
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "5th",
+                                    "4th",
+                                    "3rd",
+                                    "Cantrips (5th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -609,7 +650,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Ancient Whisper Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -640,13 +680,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (7th)",
                                 "text": "*daze* , *detect magic* , *forbidding ward* , *message* , *telekinetic hand* o"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -699,6 +732,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1661
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "7th",
+                                    "6th",
+                                    "5th",
+                                    "Cantrips (7th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -712,7 +760,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Whisper Archdragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -737,13 +784,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (9th)",
                                 "text": "*daze* , *detect magic* , *forbidding ward* , *message* , *telekinetic hand*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -782,6 +822,20 @@
                                 "game-obj": "Spells",
                                 "aonid": 1734
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "9th",
+                                    "8th",
+                                    "Cantrips (9th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -795,20 +849,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Dragon, Adamantine* , *Dragon, Barrage* , *Dragon, Bog* , *Dragon, Brine* , *Dragon, Cinder* , *Dragon, Cloud* , *Dragon, Conspirator* , *Dragon, Coral* , *Dragon, Crystal* , *Dragon, Delight* , *Dragon, Despair* , *Dragon, Diabolic* , *Dragon, Empyreal* , *Dragon, Executor* , *Dragon, Forest* , *Dragon, Fortune* , *Dragon, Horned* , *Dragon, Magma* , *Dragon, Mirage* , *Dragon, Mocking* , *Dragon, Oath* , *Dragon, Omen* , *Dragon, Phase* , *Dragon, Requiem* , *Dragon, Resurrection* , *Dragon, Rime* , *Dragon, Rune* , *Dragon, Sage* , *Dragon, Sea* , *Dragon, Sky* , *Dragon, Sovereign* , *Dragon, Stormcrown* , *Dragon, Time* , *Dragon, Umbral* , *Dragon, Underworld* , *Dragon, Vizier* , *Dragon, Vorpal* , *Dragon, Wailing* , *Dragon, Wish* , *Dragonet* , *Wyrmwraith*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -1099,6 +1145,17 @@
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 662
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -1113,7 +1170,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Draconic Groupings",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -1146,11 +1202,19 @@
                                 "text": ": In addition to these classifications, dragons are sometimes grouped into families. These include the enigmatic esoteric dragons, the regal imperial dragons, the space-faring outer dragons, and the mighty skymetal dragons. Draconic families are sometimes made up of dragons with obvious physiological similarities, while other families seem to be made up of dragons of similar color, habitat, behavior, or other traits that make for vague connections. Often, families include dragons of varied magical traditions. As such, the members of a given family are sometimes the subject of debate and scholarly arguments."
                             }
                         ],
+                        "change_category": "abilities",
                         "effects": [
                             {
-                                "target": "$.defense.automatic_abilities",
+                                "names": [
+                                    "Arcane Dragons",
+                                    "Divine Dragons",
+                                    "Occult Dragons",
+                                    "Primal Dragons",
+                                    "Draconic Families"
+                                ],
                                 "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }
@@ -1166,20 +1230,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Shape-Changing Dragons",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Change Shape",
-                                "text": "[one-action]  (concentrate, polymorph); The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change their Speed or attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "concentrate, polymorph); The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change their Speed or attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."
                             }
                         ],
                         "links": [
@@ -1210,6 +1271,17 @@
                                 "alt": "humanoid",
                                 "game-obj": "Traits",
                                 "aonid": 628
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Change Shape"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

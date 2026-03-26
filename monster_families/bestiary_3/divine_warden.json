@@ -159,7 +159,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Divine Warden Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -220,13 +219,6 @@
                                 "subtype": "ability",
                                 "name": "Instrument of Faith",
                                 "text": "The divine warden is a beacon for its deity's faith. A cleric of the divine warden's patron deity can channel a *heal* spell through a divine warden they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -334,6 +326,29 @@
                                 "alt": "heal",
                                 "game-obj": "Spells",
                                 "aonid": 148
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Divine Destruction",
+                                    "Divine Innate Spells",
+                                    "Divine Domain Spells",
+                                    "Faith Bound"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Faithful Weapon",
+                                    "Instrument of Faith"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

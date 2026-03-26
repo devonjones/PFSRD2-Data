@@ -103,7 +103,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Spell Swap Example",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -134,13 +133,6 @@
                                 "subtype": "ability",
                                 "name": "Cleric Domain Spell",
                                 "text": "*undeath's blessing*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -276,6 +268,21 @@
                                 "alt": "undeath's blessing",
                                 "game-obj": "Spells",
                                 "aonid": 518
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "3rd",
+                                    "2nd",
+                                    "1st",
+                                    "Cantrips",
+                                    "Cleric Domain Spell"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

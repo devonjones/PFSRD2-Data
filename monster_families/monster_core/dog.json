@@ -45,7 +45,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Rabies",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -84,13 +83,6 @@
                                 "text": "dead."
                             }
                         ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
-                            }
-                        ],
                         "links": [
                             {
                                 "type": "link",
@@ -112,6 +104,22 @@
                                 "alt": "confused",
                                 "game-obj": "Conditions",
                                 "aonid": 63
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Rabies",
+                                    "Saving Throw",
+                                    "Stage 1",
+                                    "Stage 2",
+                                    "Stage 3",
+                                    "Stage 4"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

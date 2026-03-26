@@ -162,7 +162,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Failed Prophet Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -253,13 +252,6 @@
                                 "subtype": "ability",
                                 "name": "This Is My Reality!",
                                 "text": "[two-actions]  (concentrate) The failed prophet exerts control over their crumbling mindscape to inflict harm upon those trapped within. This can take the form of falling debris, natural disasters, or anything else the failed prophet can imagine. No matter the form, each creature currently paralyzed by the failed prophet\u2019s broken mindscape takes spirit damage with a basic Will save. The save DC uses the high spell DC for the failed prophet\u2019s level and the unlimited use area damage for the failed prophet\u2019s level."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -486,6 +478,46 @@
                                 "alt": "unlimited use area damage",
                                 "game-obj": "Rules",
                                 "aonid": 2910
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Wealthsense"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Weakness",
+                                    "Resistances",
+                                    "Broken Mindscape",
+                                    "Taboos",
+                                    "Fists"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Greedy Grab"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.reactive_abilities"
+                            },
+                            {
+                                "names": [
+                                    "This Is My Reality!"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

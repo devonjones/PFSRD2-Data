@@ -228,7 +228,7 @@
                     {
                         "conditional": "$.creature_type.level <= 3",
                         "item": {
-                            "name": "with a value based on the creature's level: force",
+                            "name": "force",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 3
@@ -237,9 +237,9 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 4",
+                        "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
                         "item": {
-                            "name": "with a value based on the creature's level: force",
+                            "name": "force",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 5
@@ -248,9 +248,9 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 9",
+                        "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
                         "item": {
-                            "name": "with a value based on the creature's level: force",
+                            "name": "force",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 10
@@ -261,7 +261,7 @@
                     {
                         "conditional": "$.creature_type.level >= 14",
                         "item": {
-                            "name": "with a value based on the creature's level: force",
+                            "name": "force",
                             "subtype": "weakness",
                             "type": "stat_block_section",
                             "value": 15
@@ -281,7 +281,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 4",
+                        "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
                         "item": {
                             "name": "ghost touch",
                             "subtype": "weakness",
@@ -292,7 +292,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 9",
+                        "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
                         "item": {
                             "name": "ghost touch",
                             "subtype": "weakness",
@@ -325,7 +325,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 4",
+                        "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
                         "item": {
                             "name": "positive",
                             "subtype": "weakness",
@@ -336,7 +336,7 @@
                         "target": "$.defense.hitpoints[*].weaknesses"
                     },
                     {
-                        "conditional": "$.creature_type.level == 9",
+                        "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
                         "item": {
                             "name": "positive",
                             "subtype": "weakness",
@@ -366,8 +366,18 @@
                 "change_category": "speed",
                 "effects": [
                     {
+                        "item": {
+                            "movement_type": "fly",
+                            "subtype": "speed",
+                            "type": "stat_block_section"
+                        },
                         "movement_type": "fly",
                         "operation": "replace_highest_with",
+                        "target": "$.offense.speed.movement"
+                    },
+                    {
+                        "movement_type": "fly",
+                        "operation": "remove_all_except",
                         "target": "$.offense.speed.movement"
                     }
                 ]
@@ -398,6 +408,15 @@
                         "operation": "replace",
                         "target": "$.offense.offensive_actions[*].attack.damage[*].damage_type",
                         "value": "negative"
+                    },
+                    {
+                        "item": {
+                            "name": "magical",
+                            "subtype": "trait",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].attack.traits"
                     }
                 ]
             },
@@ -499,9 +518,28 @@
                 "change_category": "abilities",
                 "effects": [
                     {
+                        "names": [
+                            "Darkvision"
+                        ],
                         "operation": "add_items",
                         "source": "$.changes[*].abilities",
-                        "target": "$.defense.automatic_abilities"
+                        "target": "$.senses.special_senses"
+                    },
+                    {
+                        "names": [
+                            "Negative Healing"
+                        ],
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.hitpoints[*].automatic_abilities"
+                    },
+                    {
+                        "names": [
+                            "Slink in Shadows"
+                        ],
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.offense.offensive_actions"
                     }
                 ]
             }

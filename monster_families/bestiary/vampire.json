@@ -308,7 +308,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Basic Vampire Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -368,13 +367,6 @@
                                 "subtype": "ability",
                                 "name": "Grab",
                                 "text": "The creature's claw attacks (or equivalent unarmed attacks) gain Grab."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -574,6 +566,39 @@
                                 "game-obj": "MonsterAbilities",
                                 "aonid": 18
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Negative Healing",
+                                    "Coffin Restoration"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Vampire Weaknesses",
+                                    "Climb Speed",
+                                    "Claws",
+                                    "Requirement"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Drink Blood",
+                                    "Grab"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            }
                         ]
                     }
                 ]
@@ -588,7 +613,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "True Vampire Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -649,13 +673,6 @@
                                 "subtype": "ability",
                                 "name": "Turn to Mist",
                                 "text": "[one-action] (concentrate, divine, transmutation) The vampire turns into a cloud of vapor, as the *gaseous form* spell, or back to its normal form. The vampire loses fast healing while in gaseous form. The vampire can remain in this form indefinitely."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -847,6 +864,38 @@
                                 "alt": "gaseous form",
                                 "game-obj": "Spells",
                                 "aonid": 129
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Resistances",
+                                    "Mist Escape"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Create Spawn",
+                                    "Change Shape",
+                                    "Dominate",
+                                    "Drink Blood",
+                                    "Turn to Mist"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
+                            },
+                            {
+                                "names": [
+                                    "Children of the Night"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.stat_block.interaction_abilities"
                             }
                         ]
                     }

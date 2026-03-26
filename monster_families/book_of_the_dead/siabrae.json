@@ -187,7 +187,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Siabrae Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -198,7 +197,7 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Tremorsense",
-                                "text": "(imprecise) 60 feet"
+                                "text": "imprecise) 60 feet"
                             },
                             {
                                 "type": "stat_block_section",
@@ -209,7 +208,7 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Rejuvenation",
-                                "text": "(primal, necromancy) When a siabrae is destroyed, they can attempt a DC 10 flat check (they automatically succeed if they're standing on blighted or diseased terrain, and automatically fail if they're standing on sacred ground). If the flat check succeeds, the siabrae's body crumbles to dust and absorbs into the earth. After 1d10 days, the siabrae's body reforms from a mass of unworked stone large enough to create a new body; this stone is in a random location within 1d10 miles of where the siabrae was destroyed. The siabrae emerges from the stone with a peal of thunder, though without any of their gear."
+                                "text": "primal, necromancy) When a siabrae is destroyed, they can attempt a DC 10 flat check (they automatically succeed if they're standing on blighted or diseased terrain, and automatically fail if they're standing on sacred ground). If the flat check succeeds, the siabrae's body crumbles to dust and absorbs into the earth. After 1d10 days, the siabrae's body reforms from a mass of unworked stone large enough to create a new body; this stone is in a random location within 1d10 miles of where the siabrae was destroyed. The siabrae emerges from the stone with a peal of thunder, though without any of their gear."
                             },
                             {
                                 "type": "stat_block_section",
@@ -245,7 +244,7 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Miasma",
-                                "text": "(aura, disease, primal) 20 feet, DC equal to the siabrae's spell DC \u2013 4. A creature that enters the aura or begins its turn there becomes sickened 2 on a failure (or sickened 4 on a critical failure). An animal, fey, or plant that rolls a failure gets a critical failure instead. Regardless of the result of the saving throw, the creature is temporarily immune to the siabrae's miasma for 1 minute."
+                                "text": "aura, disease, primal) 20 feet, DC equal to the siabrae's spell DC \u2013 4. A creature that enters the aura or begins its turn there becomes sickened 2 on a failure (or sickened 4 on a critical failure). An animal, fey, or plant that rolls a failure gets a critical failure instead. Regardless of the result of the saving throw, the creature is temporarily immune to the siabrae's miasma for 1 minute."
                             },
                             {
                                 "type": "stat_block_section",
@@ -257,14 +256,7 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Stony Shards",
-                                "text": "(curse, earth, incapacitation, necromancy, primal) Tiny shards break off the siabrae's antlers when they attack, lodging in the target's wounds and inflicting a terrible curse. A creature damaged by a siabrae's stone antlers Strike must succeed at a Fortitude save against the siabrae's spell DC \u2013 4 or become clumsy 2 for 1d4 rounds on a failure. If the creature critically fails, or fails while already clumsy 2 or greater, the creature is petrified."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "text": "curse, earth, incapacitation, necromancy, primal) Tiny shards break off the siabrae's antlers when they attack, lodging in the target's wounds and inflicting a terrible curse. A creature damaged by a siabrae's stone antlers Strike must succeed at a Fortitude save against the siabrae's spell DC \u2013 4 or become clumsy 2 for 1d4 rounds on a failure. If the creature critically fails, or fails while already clumsy 2 or greater, the creature is petrified."
                             }
                         ],
                         "links": [
@@ -477,6 +469,49 @@
                                 "alt": "petrified",
                                 "game-obj": "Conditions",
                                 "aonid": 30
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Darkvision",
+                                    "Tremorsense"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.senses.special_senses"
+                            },
+                            {
+                                "names": [
+                                    "Negative Healing",
+                                    "Rejuvenation"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.hitpoints[*].automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Immunities",
+                                    "Resistances",
+                                    "Speed",
+                                    "Miasma",
+                                    "Stone Antlers"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Blight Mastery",
+                                    "Earth Glide",
+                                    "Stony Shards"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

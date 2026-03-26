@@ -224,32 +224,34 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Alternate Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Manifest Fear",
-                                "text": "[two-actions]  (auditory, concentrate, illusion, manipulate, mental, olfactory, visual) The despair dragon creates an illusory image of a creature referenced in local superstition. This functions as illusory creature, heightened to a rank equal to half the dragon\u2019s level. The damage die of the illusory creature\u2019s Strikes increases to d6s against creatures with the frightened condition. Some despair dragons can implant false memories in the minds of others. To make a dragon with this ability, replace Draconic Momentum with the following."
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "auditory, concentrate, illusion, manipulate, mental, olfactory, visual) The despair dragon creates an illusory image of a creature referenced in local superstition. This functions as illusory creature, heightened to a rank equal to half the dragon\u2019s level. The damage die of the illusory creature\u2019s Strikes increases to d6s against creatures with the frightened condition. Some despair dragons can implant false memories in the minds of others. To make a dragon with this ability, replace Draconic Momentum with the following."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Cursed Memories",
-                                "text": "(aura, mental, misfortune, occult) 90 feet. Creatures near a despair dragon can't trust their own minds. When any creature in the aura attempts a skill check to Recall Knowledge, they must roll twice and take the lower result."
+                                "text": "aura, mental, misfortune, occult) 90 feet. Creatures near a despair dragon can't trust their own minds. When any creature in the aura attempts a skill check to Recall Knowledge, they must roll twice and take the lower result."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Lights Out",
-                                "text": "[two-actions]  (darkness, occult) The despair dragon belches an impenetrable darkness that encompasses a 30-foot emanation. Light does not enter the area and any non-magical light sources, such as a torch or lantern, do not emanate any light while inside the area, even if their light radius would extend beyond the darkness. This also suppresses magical light of a spell rank equal to half the dragon's level or lower. Light can't pass through, so all creatures in the area except for the dragon can't see outside."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "Two Actions"
+                                },
+                                "text": "darkness, occult) The despair dragon belches an impenetrable darkness that encompasses a 30-foot emanation. Light does not enter the area and any non-magical light sources, such as a torch or lantern, do not emanate any light while inside the area, even if their light radius would extend beyond the darkness. This also suppresses magical light of a spell rank equal to half the dragon's level or lower. Light can't pass through, so all creatures in the area except for the dragon can't see outside."
                             }
                         ],
                         "links": [
@@ -372,6 +374,19 @@
                                 "game-obj": "Equipment",
                                 "aonid": 2730
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Manifest Fear",
+                                    "Cursed Memories",
+                                    "Lights Out"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -385,7 +400,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Young Despair Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -428,13 +442,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (6th)",
                                 "text": "*detect magic* , *figment* , *haunting hymn* , *message* , *telekinetic projectile*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -557,6 +564,23 @@
                                 "game-obj": "Spells",
                                 "aonid": 1718
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "4th",
+                                    "3rd",
+                                    "2nd",
+                                    "1st",
+                                    "Cantrips (4th)",
+                                    "Cantrips (6th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -570,7 +594,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Adult Despair Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -601,13 +624,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (6th)",
                                 "text": "*detect magic* , *figment* , *haunting hymn* , *message* , *telekinetic projectile*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -646,6 +662,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1757
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "6th",
+                                    "5th",
+                                    "4th",
+                                    "Cantrips (6th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -659,7 +690,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Ancient Despair Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -690,13 +720,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (8th)",
                                 "text": "*detect magic* , *figment* , *haunting hymn* , *message* , *telekinetic projectile* o"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -742,6 +765,21 @@
                                 "game-obj": "Spells",
                                 "aonid": 1662
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "8th",
+                                    "7th",
+                                    "6th",
+                                    "Cantrips (8th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -755,7 +793,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Despair Archdragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -780,13 +817,6 @@
                                 "subtype": "ability",
                                 "name": "Cantrips (10th)",
                                 "text": "*detect magic* , *figment* , *haunting hymn* , *message* , *telekinetic projectile*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -818,6 +848,20 @@
                                 "game-obj": "Spells",
                                 "aonid": 1747
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Occult Prepared Spells",
+                                    "10th",
+                                    "9th",
+                                    "Cantrips (10th)"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -831,20 +875,12 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Dragon",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Related Groups",
                                 "text": "*Dragon, Adamantine* , *Dragon, Barrage* , *Dragon, Bog* , *Dragon, Brine* , *Dragon, Cinder* , *Dragon, Cloud* , *Dragon, Conspirator* , *Dragon, Coral* , *Dragon, Crystal* , *Dragon, Delight* , *Dragon, Diabolic* , *Dragon, Empyreal* , *Dragon, Executor* , *Dragon, Forest* , *Dragon, Fortune* , *Dragon, Horned* , *Dragon, Magma* , *Dragon, Mirage* , *Dragon, Mocking* , *Dragon, Oath* , *Dragon, Omen* , *Dragon, Phase* , *Dragon, Requiem* , *Dragon, Resurrection* , *Dragon, Rime* , *Dragon, Rune* , *Dragon, Sage* , *Dragon, Sea* , *Dragon, Sky* , *Dragon, Sovereign* , *Dragon, Stormcrown* , *Dragon, Time* , *Dragon, Umbral* , *Dragon, Underworld* , *Dragon, Vizier* , *Dragon, Vorpal* , *Dragon, Wailing* , *Dragon, Whisper* , *Dragon, Wish* , *Dragonet* , *Wyrmwraith*"
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -1135,6 +1171,17 @@
                                 "game-obj": "MonsterFamilies",
                                 "aonid": 662
                             }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Related Groups"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            }
                         ]
                     }
                 ]
@@ -1149,7 +1196,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Draconic Groupings",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -1182,11 +1228,19 @@
                                 "text": ": In addition to these classifications, dragons are sometimes grouped into families. These include the enigmatic esoteric dragons, the regal imperial dragons, the space-faring outer dragons, and the mighty skymetal dragons. Draconic families are sometimes made up of dragons with obvious physiological similarities, while other families seem to be made up of dragons of similar color, habitat, behavior, or other traits that make for vague connections. Often, families include dragons of varied magical traditions. As such, the members of a given family are sometimes the subject of debate and scholarly arguments."
                             }
                         ],
+                        "change_category": "abilities",
                         "effects": [
                             {
-                                "target": "$.defense.automatic_abilities",
+                                "names": [
+                                    "Arcane Dragons",
+                                    "Divine Dragons",
+                                    "Occult Dragons",
+                                    "Primal Dragons",
+                                    "Draconic Families"
+                                ],
                                 "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }
@@ -1202,20 +1256,17 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Shape-Changing Dragons",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Change Shape",
-                                "text": "[one-action]  (concentrate, polymorph); The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change their Speed or attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."
-                            }
-                        ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
+                                "action_type": {
+                                    "type": "stat_block_section",
+                                    "subtype": "action_type",
+                                    "name": "One Action"
+                                },
+                                "text": "concentrate, polymorph); The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change their Speed or attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."
                             }
                         ],
                         "links": [
@@ -1246,6 +1297,17 @@
                                 "alt": "humanoid",
                                 "game-obj": "Traits",
                                 "aonid": 628
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Change Shape"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }

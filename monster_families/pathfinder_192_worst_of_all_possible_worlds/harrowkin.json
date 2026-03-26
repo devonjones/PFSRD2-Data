@@ -32,7 +32,6 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Harrowkin Abilities",
-                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
@@ -83,13 +82,6 @@
                                 "text": "At the end of the current round, all creatures currently in initiative reroll their initiative, using the same modifiers as their original initiative roll, and use the new initiative values for all following rounds."
                             }
                         ],
-                        "effects": [
-                            {
-                                "target": "$.defense.automatic_abilities",
-                                "operation": "add_items",
-                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
-                            }
-                        ],
                         "links": [
                             {
                                 "type": "link",
@@ -132,6 +124,33 @@
                                 "alt": "occult",
                                 "game-obj": "Traits",
                                 "aonid": 120
+                            }
+                        ],
+                        "change_category": "abilities",
+                        "effects": [
+                            {
+                                "names": [
+                                    "Defensive Suit"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.defense.automatic_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Read the Cards"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.stat_block.interaction_abilities"
+                            },
+                            {
+                                "names": [
+                                    "Shuffle the Deck"
+                                ],
+                                "operation": "add_items",
+                                "source": "$.changes[*].abilities",
+                                "target": "$.offense.offensive_actions"
                             }
                         ]
                     }
