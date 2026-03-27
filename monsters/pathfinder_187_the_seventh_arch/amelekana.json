@@ -362,7 +362,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -377,7 +378,30 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 21
                     },
-                    "name": "lifesense"
+                    "name": "lifesense",
+                    "universal_monster_ability": {
+                        "name": "Lifesense",
+                        "type": "ability",
+                        "text": "Lifesense allows a monster to sense the vital essence of living and undead creatures within the listed range. The sense can distinguish between the positive energy animating living creatures and the negative energy animating undead creatures, much as sight distinguishes colors.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 21,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "game-id": "fb27e655dfdce59a449430811465c91f"
+                    }
                 }
             ]
         },
@@ -617,7 +641,14 @@
                         "success": "The target takes 2d4+8 bludgeoning damage and the symbiotic amoeba lands in a square adjacent to the target.",
                         "failure": "The target takes no damage, but the symbiotic amoeba still spawns in a square adjacent to the target.",
                         "critical_failure": "The target takes no damage and the lobbed amoeba dies on impact.",
-                        "text": "The amelekana flings a symbiotic amoeba at a target within 40 feet\u2014this is a ranged attack that doesn't count toward the amelekana's multiple attack penalty, and its multiple attack penalty doesn't apply to this attack."
+                        "text": "The amelekana flings a symbiotic amoeba at a target within 40 feet\u2014this is a ranged attack that doesn't count toward the amelekana's multiple attack penalty, and its multiple attack penalty doesn't apply to this attack.",
+                        "range": {
+                            "range": 40,
+                            "subtype": "range",
+                            "text": "within 40 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 },
                 {
@@ -639,7 +670,15 @@
                                 "aonid": 109
                             }
                         ],
-                        "text": "An amoeba produced by the amelekana is a Tiny, mindless, semi-independent creature controlled by the amelekana. It has the minion trait, AC 15, 1 Hit Point, and the same skills and saving throws as the amelekana. Each round, the amelekana can Command a Minion to make an amoeba Step or Swim 20 feet and make a pseudopod Strike (**Melee** pseudopod +13, **Damage** 2d4 acid). If an amelekana is killed, its symbiotic amoebas are also killed by the host creature's psychic backlash. An amelekana can have up to three extant symbiotic amoebas at a time."
+                        "text": "An amoeba produced by the amelekana is a Tiny, mindless, semi-independent creature controlled by the amelekana. It has the minion trait, AC 15, 1 Hit Point, and the same skills and saving throws as the amelekana. Each round, the amelekana can Command a Minion to make an amoeba Step or Swim 20 feet and make a pseudopod Strike (**Melee** pseudopod +13, **Damage** 2d4 acid). If an amelekana is killed, its symbiotic amoebas are also killed by the host creature's psychic backlash. An amelekana can have up to three extant symbiotic amoebas at a time.",
+                        "damage": [
+                            {
+                                "damage_type": "acid",
+                                "formula": "2d4",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

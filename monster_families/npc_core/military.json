@@ -41,7 +41,20 @@
                         "aonid": 2885
                     }
                 ],
-                "text": "- Give the creature a Stealth modifier equal to the high skill value for its level. If you're in a hurry, use the creature's highest skill modifier."
+                "text": "- Give the creature a Stealth modifier equal to the high skill value for its level. If you're in a hurry, use the creature's highest skill modifier.",
+                "change_category": "skills",
+                "effects": [
+                    {
+                        "item": {
+                            "name": "Stealth",
+                            "subtype": "skill",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.statistics.skills",
+                        "value_from": "$.statistics.skills | high_for_level"
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -55,7 +68,15 @@
                         "aonid": 36
                     }
                 ],
-                "text": "- If the creature has the Athletics skill, reduce its modifier by 2."
+                "text": "- If the creature has the Athletics skill, reduce its modifier by 2.",
+                "change_category": "skills",
+                "effects": [
+                    {
+                        "operation": "adjustment",
+                        "target": "$.statistics.skills[?(@.name=='Its')].value",
+                        "value": -2
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -69,12 +90,33 @@
                         "aonid": 58
                     }
                 ],
-                "text": "- Reduce the damage of the creature's Strikes by 2, but give it the Sneak Attack ability.  **Sneak Attack** The creature deals 1d6 extra precision damage to off-guard creatures."
+                "text": "- Reduce the damage of the creature's Strikes by 2, but give it the Sneak Attack ability.  **Sneak Attack** The creature deals 1d6 extra precision damage to off-guard creatures.",
+                "change_category": "damage",
+                "effects": [
+                    {
+                        "item": {
+                            "formula": "-2",
+                            "notes": "Military",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.offense.offensive_actions[*].attack.damage"
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
                 "subtype": "change",
-                "text": "- Add the Pounce ability."
+                "text": "- Add the Pounce ability.",
+                "change_category": "abilities",
+                "effects": [
+                    {
+                        "operation": "add_items",
+                        "source": "$.changes[*].abilities",
+                        "target": "$.defense.automatic_abilities"
+                    }
+                ]
             }
         ],
         "subtypes": [
@@ -109,7 +151,8 @@
                                         "aonid": 79
                                     }
                                 ],
-                                "text": "The creature Strides and makes a Strike at the end of that movement. If the creature began this action hidden, they remain hidden until after this ability's Strike."
+                                "text": "The creature Strides and makes a Strike at the end of that movement. If the creature began this action hidden, they remain hidden until after this ability's Strike.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [
@@ -200,7 +243,8 @@
                                         "aonid": 92
                                     }
                                 ],
-                                "text": "The troop reconfigures to assume one of the formations below they know. Using this action again ends any previous formation, and the troop can also use this action to revert to its default formation, ending any benefits and drawbacks. \n* **Loose** Members of the troop fan out to cover more ground. **Benefit** Any weaknesses the troop has to area and splash damage are suppressed. **Drawback** Enemies' saving throws against the troop's damaging effects are one degree of success better than they roll.\n* **Marching Column** This formation traverses long distances more rapidly. **Benefit** The troop gains a +10 foot circumstance bonus to all its Speeds. **Drawback** The troop is off-guard and takes a \u20132 penalty to Reflex saves.\n* **Turtle Shell** The troop interlocks their shields. Only a group with shields can use this formation. **Benefit** The troop gains a +2 circumstance bonus to AC against ranged attacks and to Reflex saves. **Drawback** The troop takes a \u201310-foot penalty to all its Speeds.\n* **Wedge** The troop aligns itself behind a powerful commander. **Benefit** The troop chooses an adjacent allied creature without the troop trait to fall in behind. Each time the chosen creature Strides, the troop follows as a free action, Striding to keep the chosen creature adjacent. **Drawback** The troop loses some of their autonomy. They're slowed 1 and can't voluntarily move away from their leader."
+                                "text": "The troop reconfigures to assume one of the formations below they know. Using this action again ends any previous formation, and the troop can also use this action to revert to its default formation, ending any benefits and drawbacks. \n* **Loose** Members of the troop fan out to cover more ground. **Benefit** Any weaknesses the troop has to area and splash damage are suppressed. **Drawback** Enemies' saving throws against the troop's damaging effects are one degree of success better than they roll.\n* **Marching Column** This formation traverses long distances more rapidly. **Benefit** The troop gains a +10 foot circumstance bonus to all its Speeds. **Drawback** The troop is off-guard and takes a \u20132 penalty to Reflex saves.\n* **Turtle Shell** The troop interlocks their shields. Only a group with shields can use this formation. **Benefit** The troop gains a +2 circumstance bonus to AC against ranged attacks and to Reflex saves. **Drawback** The troop takes a \u201310-foot penalty to all its Speeds.\n* **Wedge** The troop aligns itself behind a powerful commander. **Benefit** The troop chooses an adjacent allied creature without the troop trait to fall in behind. Each time the chosen creature Strides, the troop follows as a free action, Striding to keep the chosen creature adjacent. **Drawback** The troop loses some of their autonomy. They're slowed 1 and can't voluntarily move away from their leader.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [

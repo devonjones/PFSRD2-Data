@@ -380,7 +380,30 @@
                         "aonid": 85
                     }
                 ],
-                "text": "- **Revulsion** Strigoi are uncomfortable near mirrors or sources of bright light. Only a strigoi's shadow reflects in a mirror, and this often compels them to cover or destroy mirrors in their presence rather than risk their true nature being displayed. A strigoi can't voluntarily come within 10 feet of a brandished mirror or source of bright light. To brandish a mirror or light source, a creature must Interact to do so for 1 round (similar to Raising a Shield). If the strigoi involuntarily comes within 10 feet of a brandished mirror or light source, it gains the fleeing condition, running from the brandished object until it ends an action beyond 10 feet. After 1 round of being exposed to the subject of its revulsion, a strigoi can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, it overcomes its revulsions for 1d6 rounds (or 1 hour on a critical success). A strigoi can move normally around mirrors or bright light sources that are not brandished, although doing so causes them discomfort that can be noticed with a successful Perception check to Sense Motive."
+                "text": "- **Revulsion** Strigoi are uncomfortable near mirrors or sources of bright light. Only a strigoi's shadow reflects in a mirror, and this often compels them to cover or destroy mirrors in their presence rather than risk their true nature being displayed. A strigoi can't voluntarily come within 10 feet of a brandished mirror or source of bright light. To brandish a mirror or light source, a creature must Interact to do so for 1 round (similar to Raising a Shield). If the strigoi involuntarily comes within 10 feet of a brandished mirror or light source, it gains the fleeing condition, running from the brandished object until it ends an action beyond 10 feet. After 1 round of being exposed to the subject of its revulsion, a strigoi can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, it overcomes its revulsions for 1d6 rounds (or 1 hour on a critical success). A strigoi can move normally around mirrors or bright light sources that are not brandished, although doing so causes them discomfort that can be noticed with a successful Perception check to Sense Motive.",
+                "change_category": "traits",
+                "effects": [
+                    {
+                        "name": "Concentrate",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Condition",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Revulsion",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Action",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -408,7 +431,19 @@
                         "aonid": 128
                     }
                 ],
-                "text": "- **Sunlight** When exposed to direct sunlight, a strigoi immediately becomes unconscious and falls to the ground. It appears to be dead: it doesn't breathe, its body temperature matches its surroundings, and it doesn't react to pain or other stimuli. A successful Perception check against the strigoi's Reflex DC is enough to note one anomaly: the shadow cast by its \u201cdead\u201d body shifts and moves slightly, its edges twisting and active. Spells like *detect evil*, senses like lifesense, and the \u201ccorpse\u201d taking damage from positive energy still function normally, and could reveal the truth without needing a successful Perception check. Viewing the \u201ccorpse\u201d in a mirror's reflection can also reveal the truth, for only the body's shadow reflects. While in sunlight and unconscious, the strigoi loses its resistance to physical damage. If the strigoi takes enough damage that it would be reduced to 0 Hit Points, its body quickly decomposes, and the strigoi is destroyed."
+                "text": "- **Sunlight** When exposed to direct sunlight, a strigoi immediately becomes unconscious and falls to the ground. It appears to be dead: it doesn't breathe, its body temperature matches its surroundings, and it doesn't react to pain or other stimuli. A successful Perception check against the strigoi's Reflex DC is enough to note one anomaly: the shadow cast by its \u201cdead\u201d body shifts and moves slightly, its edges twisting and active. Spells like *detect evil*, senses like lifesense, and the \u201ccorpse\u201d taking damage from positive energy still function normally, and could reveal the truth without needing a successful Perception check. Viewing the \u201ccorpse\u201d in a mirror's reflection can also reveal the truth, for only the body's shadow reflects. While in sunlight and unconscious, the strigoi loses its resistance to physical damage. If the strigoi takes enough damage that it would be reduced to 0 Hit Points, its body quickly decomposes, and the strigoi is destroyed.",
+                "change_category": "resistances",
+                "effects": [
+                    {
+                        "item": {
+                            "name": "physical",
+                            "subtype": "resistance",
+                            "type": "stat_block_section"
+                        },
+                        "operation": "add_item",
+                        "target": "$.defense.hitpoints[*].resistances"
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -456,7 +491,8 @@
                                     "alt": "Greater Darkvision",
                                     "game-obj": "MonsterAbilities",
                                     "aonid": 12
-                                }
+                                },
+                                "ability_category": "special_sense"
                             },
                             {
                                 "type": "stat_block_section",
@@ -499,7 +535,8 @@
                                         }
                                     ],
                                     "game-id": "26efbc8d7d89662ed2ef5191e0001427"
-                                }
+                                },
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -536,7 +573,8 @@
                                         "aonid": 145
                                     }
                                 ],
-                                "text": "death effects, disease, paralyze, poison, sleep"
+                                "text": "death effects, disease, paralyze, poison, sleep",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -590,14 +628,16 @@
                                         "aonid": 38
                                     }
                                 ],
-                                "text": "As with moroi vampires, a strigoi isn't destroyed at 0 HP. Instead, it falls unconscious and loses fast healing. If its body rests in its coffin for 1 hour, the strigoi gains 1 HP, after which its fast healing begins to function normally."
+                                "text": "As with moroi vampires, a strigoi isn't destroyed at 0 HP. Instead, it falls unconscious and loses fast healing. If its body rests in its coffin for 1 hour, the strigoi gains 1 HP, after which its fast healing begins to function normally.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Strigoi Weaknesses",
                                 "ability_type": "ability",
-                                "text": "All strigoi possess the following weaknesses:"
+                                "text": "All strigoi possess the following weaknesses:",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -656,7 +696,8 @@
                                         "aonid": 170
                                     }
                                 ],
-                                "text": "Strigoi can cast *levitate* at will as a divine innate spell; when they do so, they appear to ascend or descend on a coiling mass of shadows."
+                                "text": "Strigoi can cast *levitate* at will as a divine innate spell; when they do so, they appear to ascend or descend on a coiling mass of shadows.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -686,7 +727,8 @@
                                         "aonid": 1018
                                     }
                                 ],
-                                "text": "If the creature had hands, its shadow solidifies around the fingers when it attacks, granting it a claw Strike that deals slashing damage, and has the agile and magic traits. The damage caused by its claws should be roughly the same as the moderate Strike damage for a creature of its level."
+                                "text": "If the creature had hands, its shadow solidifies around the fingers when it attacks, granting it a claw Strike that deals slashing damage, and has the agile and magic traits. The damage caused by its claws should be roughly the same as the moderate Strike damage for a creature of its level.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -776,7 +818,8 @@
                                     }
                                 ],
                                 "requirement": "A grabbed, paralyzed, restrained, unconscious, or willing creature is within the strigoi's reach",
-                                "effect": "The strigoi sinks their fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an Athletics check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes drained 1 and stupefied 1, and the strigoi regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Essence from a creature that's already drained or stupefied doesn't restore any HP, but increases either the creature's drained condition value or its stupefied condition value by 1 (whichever value is lesser is increased; if both values are equal, then the strigoi chooses which condition to increase the value of)."
+                                "effect": "The strigoi sinks their fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an Athletics check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes drained 1 and stupefied 1, and the strigoi regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Essence from a creature that's already drained or stupefied doesn't restore any HP, but increases either the creature's drained condition value or its stupefied condition value by 1 (whichever value is lesser is increased; if both values are equal, then the strigoi chooses which condition to increase the value of).",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -851,7 +894,8 @@
                                     "requirement": "The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature grabbed or restrained",
                                     "effect": "If used after a Strike, the monster attempts to Grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty.  \n  \n The monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn.",
                                     "game-id": "dfef42b0053f2a80ead602bf5321d1a9"
-                                }
+                                },
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -922,7 +966,8 @@
                                         "aonid": 36
                                     }
                                 ],
-                                "text": "The strigoi reverts to pure shadow and absorbs its body and its gear into the darkness, or it shifts back to its physical form. In shadow form, the strigoi gains a climb Speed equal to its land Speed and can move through any gap that isn't airtight. However, it can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface it's on is destroyed, the strigoi returns to physical form and is stunned 1. The strigoi loses fast healing while in shadow form but can remain in shadow form indefinitely."
+                                "text": "The strigoi reverts to pure shadow and absorbs its body and its gear into the darkness, or it shifts back to its physical form. In shadow form, the strigoi gains a climb Speed equal to its land Speed and can move through any gap that isn't airtight. However, it can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface it's on is destroyed, the strigoi returns to physical form and is stunned 1. The strigoi loses fast healing while in shadow form but can remain in shadow form indefinitely.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [
@@ -968,14 +1013,16 @@
                                 "subtype": "ability",
                                 "name": "Resistances",
                                 "ability_type": "ability",
-                                "text": "The strigoi progenitor resists all physical damage except magical silver weapons or magical weapons that shed at least 5 feet of bright light."
+                                "text": "The strigoi progenitor resists all physical damage except magical silver weapons or magical weapons that shed at least 5 feet of bright light.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Fly Speed",
                                 "ability_type": "ability",
-                                "text": "Instead of being able to *levitate* at will, a strigoi progenitor gains a fly Speed equal to their land Speed. When a strigoi progenitor flies, it manifests batlike wings made of shadow."
+                                "text": "Instead of being able to *levitate* at will, a strigoi progenitor gains a fly Speed equal to their land Speed. When a strigoi progenitor flies, it manifests batlike wings made of shadow.",
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1020,7 +1067,8 @@
                                         }
                                     }
                                 ],
-                                "text": "If a creature dies after being reduced to 0 HP by Domain of Dusk or Drink Essence, the strigoi can turn this victim into a vampire by donating some of its own blood to the victim and burying the victim in earth for 3 nights. If the new vampire is lower level than its creator, it is under the creator's control. A victim that is 8th level or higher becomes a strigoi servant, while a lower-level victim instead becomes a moroi vampire. If a vampire controls too many spawn at once (as determined by the GM), strong-willed spawn can free themselves by succeeding at a Will saving throw against the vampire's Will DC."
+                                "text": "If a creature dies after being reduced to 0 HP by Domain of Dusk or Drink Essence, the strigoi can turn this victim into a vampire by donating some of its own blood to the victim and burying the victim in earth for 3 nights. If the new vampire is lower level than its creator, it is under the creator's control. A victim that is 8th level or higher becomes a strigoi servant, while a lower-level victim instead becomes a moroi vampire. If a vampire controls too many spawn at once (as determined by the GM), strong-willed spawn can free themselves by succeeding at a Will saving throw against the vampire's Will DC.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1033,7 +1081,8 @@
                                     "name": "Free Action"
                                 },
                                 "trigger": "The strigoi is reduced to 0 HP",
-                                "effect": "The strigoi uses Shadow Form. It can take move actions to move toward its coffin even though it's at 0 HP. While at 0 HP in this form, the strigoi is unaffected by further damage. Once the strigoi reaches its coffin, or if it hasn't done so within 2 hours, it automatically returns to its physical form, unconscious."
+                                "effect": "The strigoi uses Shadow Form. It can take move actions to move toward its coffin even though it's at 0 HP. While at 0 HP in this form, the strigoi is unaffected by further damage. Once the strigoi reaches its coffin, or if it hasn't done so within 2 hours, it automatically returns to its physical form, unconscious.",
+                                "ability_category": "reactive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1113,7 +1162,26 @@
                                         "aonid": 1
                                     }
                                 ],
-                                "text": "With a wave of its hand, the strigoi calls fourth vile ruination from the surrounding shadows, causing coils of darkness and shadowy bats, rats, and wolves to lash out at living targets in a 30-foot emanation. Living creatures in this area take 1d6 negative damage +1d6 per 2 levels possessed by the strigoi (basic Fortitude save against the DC of the strigoi's level). A creature that fails this save is also dazzled for 1 round (or blinded for 1 round and then dazzled for 1 round) by the darkness. The strigoi progenitor can't use Domain of Dusk for 1 minute."
+                                "text": "With a wave of its hand, the strigoi calls fourth vile ruination from the surrounding shadows, causing coils of darkness and shadowy bats, rats, and wolves to lash out at living targets in a 30-foot emanation. Living creatures in this area take 1d6 negative damage +1d6 per 2 levels possessed by the strigoi (basic Fortitude save against the DC of the strigoi's level). A creature that fails this save is also dazzled for 1 round (or blinded for 1 round and then dazzled for 1 round) by the darkness. The strigoi progenitor can't use Domain of Dusk for 1 minute.",
+                                "ability_category": "offensive",
+                                "area": [
+                                    {
+                                        "shape": "emanation",
+                                        "size": 30,
+                                        "subtype": "area",
+                                        "text": "30-foot emanation",
+                                        "type": "stat_block_section",
+                                        "unit": "feet"
+                                    }
+                                ],
+                                "damage": [
+                                    {
+                                        "damage_type": "negative",
+                                        "formula": "1d6",
+                                        "subtype": "attack_damage",
+                                        "type": "stat_block_section"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
@@ -1203,14 +1271,16 @@
                                         "aonid": 163
                                     }
                                 ],
-                                "text": "The vampire can cast *dominate* at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC uses the DC of the vampire's level, and a creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours. Fully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell."
+                                "text": "The vampire can cast *dominate* at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC uses the DC of the vampire's level, and a creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours. Fully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Drink Essence",
                                 "ability_type": "ability",
-                                "text": "As a typical strigoi, but the victim is drained 2 and stupefied 2 instead of 1."
+                                "text": "As a typical strigoi, but the victim is drained 2 and stupefied 2 instead of 1.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [

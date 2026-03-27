@@ -292,7 +292,30 @@
                         "aonid": 561
                     }
                 ],
-                "text": "- **Revulsion** A vampire can't voluntarily come within 10 feet of brandished garlic or a brandished religious symbol of a deity with a holy sanctification option. To brandish garlic or a religious symbol, a creature must Interact to do so, and it remains brandished for 1 round (similar to Raising a Shield). If the vampire involuntarily comes within 10 feet of an object of their revulsion, they gain the fleeing condition, running from the object of their revulsion until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a vampire can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success)."
+                "text": "- **Revulsion** A vampire can't voluntarily come within 10 feet of brandished garlic or a brandished religious symbol of a deity with a holy sanctification option. To brandish garlic or a religious symbol, a creature must Interact to do so, and it remains brandished for 1 round (similar to Raising a Shield). If the vampire involuntarily comes within 10 feet of an object of their revulsion, they gain the fleeing condition, running from the object of their revulsion until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a vampire can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success).",
+                "change_category": "traits",
+                "effects": [
+                    {
+                        "name": "Concentrate",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Condition",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Revulsion",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Action",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -313,7 +336,8 @@
                         "aonid": 3001
                     }
                 ],
-                "text": "- **Stake** A wooden stake driven through a vampire's heart drops the vampire to 0 HP and prevents them from healing above 0 HP, even in their coffin. Staking a vampire requires 3 actions and works only if the vampire is unconscious. If the stake is removed, the vampire can heal above 0 HP again, and if they're in their coffin, the 1-hour rest period begins once the stake is removed. If the vampire's head is severed and anointed with *holy water* while the stake is in place, the vampire is destroyed."
+                "text": "- **Stake** A wooden stake driven through a vampire's heart drops the vampire to 0 HP and prevents them from healing above 0 HP, even in their coffin. Staking a vampire requires 3 actions and works only if the vampire is unconscious. If the stake is removed, the vampire can heal above 0 HP again, and if they're in their coffin, the 1-hour rest period begins once the stake is removed. If the vampire's head is severed and anointed with *holy water* while the stake is in place, the vampire is destroyed.",
+                "change_category": "hit_points"
             },
             {
                 "type": "stat_block_section",
@@ -327,7 +351,15 @@
                         "aonid": 92
                     }
                 ],
-                "text": "- **Sunlight** If exposed to direct sunlight, a vampire immediately becomes slowed 1. The slowed value increases by 1 each time the vampire ends their turn in sunlight, and the condition ends when they're no longer in sunlight. If the vampire loses all their actions in this way, they're destroyed. Due to their supernatural aversion to light, vampires don't cast shadows or show a reflection in mirrors."
+                "text": "- **Sunlight** If exposed to direct sunlight, a vampire immediately becomes slowed 1. The slowed value increases by 1 each time the vampire ends their turn in sunlight, and the condition ends when they're no longer in sunlight. If the vampire loses all their actions in this way, they're destroyed. Due to their supernatural aversion to light, vampires don't cast shadows or show a reflection in mirrors.",
+                "change_category": "combat_stats",
+                "effects": [
+                    {
+                        "operation": "adjustment",
+                        "target": "$.defense.ac.value",
+                        "value": 1
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -348,7 +380,20 @@
                         "aonid": 46
                     }
                 ],
-                "text": "- **Bat** The vampire changes into a bat swarm or giant bat. They gain echolocation 40 feet, a land Speed of 20 feet and a fly Speed of 30 feet, and a fangs Strike with the same attack bonus as their highest melee attack. These fangs deal the same amount of damage as the vampire's claws but deal piercing damage rather than slashing damage."
+                "text": "- **Bat** The vampire changes into a bat swarm or giant bat. They gain echolocation 40 feet, a land Speed of 20 feet and a fly Speed of 30 feet, and a fangs Strike with the same attack bonus as their highest melee attack. These fangs deal the same amount of damage as the vampire's claws but deal piercing damage rather than slashing damage.",
+                "change_category": "speed",
+                "effects": [
+                    {
+                        "item": {
+                            "movement_type": "fly",
+                            "subtype": "speed",
+                            "type": "stat_block_section"
+                        },
+                        "movement_type": "fly",
+                        "operation": "replace_highest_with",
+                        "target": "$.offense.speed.movement"
+                    }
+                ]
             }
         ],
         "subtypes": [
@@ -428,7 +473,8 @@
                                         }
                                     ],
                                     "game-id": "fbaadf5607a32287e723316e8772a2c6"
-                                }
+                                },
+                                "ability_category": "special_sense"
                             },
                             {
                                 "type": "stat_block_section",
@@ -494,7 +540,8 @@
                                         }
                                     ],
                                     "game-id": "ebe30e9ccb052cef2a000a746b7233e9"
-                                }
+                                },
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -538,7 +585,8 @@
                                         "aonid": 696
                                     }
                                 ],
-                                "text": "death effects, disease, paralyzed, poison, sleep"
+                                "text": "death effects, disease, paralyzed, poison, sleep",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -580,21 +628,24 @@
                                         "aonid": 95
                                     }
                                 ],
-                                "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, they fall unconscious. If their body rests in their coffin for 1 hour, the vampire gains 1 HP, after which their fast healing begins to function normally."
+                                "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, they fall unconscious. If their body rests in their coffin for 1 hour, the vampire gains 1 HP, after which their fast healing begins to function normally.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Vampire Vulnerabilities",
                                 "ability_type": "ability",
-                                "text": "All vampires possess the following vulnerabilities."
+                                "text": "All vampires possess the following vulnerabilities.",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Climb Speed",
                                 "ability_type": "ability",
-                                "text": "Vampires gain a climb Speed equal to their land Speed."
+                                "text": "Vampires gain a climb Speed equal to their land Speed.",
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -617,7 +668,8 @@
                                         "aonid": 526
                                     }
                                 ],
-                                "text": "If the creature had hands, their fingernails thicken and grow, granting them an unarmed claw Strike that deals slashing damage and has the agile trait. If the monster had any agile attacks, the damage dealt by their claws should be roughly the same as the damage dealt by those attacks. If they had only non-agile attacks, their claws should deal three-quarters that damage."
+                                "text": "If the creature had hands, their fingernails thicken and grow, granting them an unarmed claw Strike that deals slashing damage and has the agile trait. If the monster had any agile attacks, the damage dealt by their claws should be roughly the same as the damage dealt by those attacks. If they had only non-agile attacks, their claws should deal three-quarters that damage.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -688,7 +740,8 @@
                                     }
                                 ],
                                 "requirement": "A grabbed, paralyzed, restrained, unconscious, or willing creature is within the vampire's reach",
-                                "effect": "The vampire sinks their fangs into that creature to drink their blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim is drained 1 and the vampire regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary HP. Drinking Blood from a creature that's already drained doesn't restore any HP to the vampire but increases the victim's drained value by 1, killing the victim when it reaches drained 5. A vampire can also consume blood that's been emptied into a vessel for sustenance, but they gain no HP from doing so."
+                                "effect": "The vampire sinks their fangs into that creature to drink their blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim is drained 1 and the vampire regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary HP. Drinking Blood from a creature that's already drained doesn't restore any HP to the vampire but increases the victim's drained value by 1, killing the victim when it reaches drained 5. A vampire can also consume blood that's been emptied into a vessel for sustenance, but they gain no HP from doing so.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -763,7 +816,8 @@
                                     "requirement": "The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature grabbed or restrained",
                                     "effect": "If used after a Strike, the monster attempts to Grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty.  \n  \n The monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn.",
                                     "game-id": "dfef42b0053f2a80ead602bf5321d1a9"
-                                }
+                                },
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [
@@ -809,7 +863,8 @@
                                 "subtype": "ability",
                                 "name": "Resistances",
                                 "ability_type": "ability",
-                                "text": "The vampire resists all physical damage except magical silver."
+                                "text": "The vampire resists all physical damage except magical silver.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -842,7 +897,8 @@
                                         }
                                     }
                                 ],
-                                "text": "If a creature dies after being reduced to 0 HP by Drink Blood, the vampire can turn this victim into a vampire servitor by donating some of their own blood to the victim and burying the victim in earth for 3 nights. A vampiric servitor is compelled to obey its creator, but if a vampire controls too many vampiric servitors at once (as determined by the GM), or if the servitor is a higher level than the vampire that created it, strong-willed servitors can free themselves by succeeding at a Will saving throw against the vampire's Will DC."
+                                "text": "If a creature dies after being reduced to 0 HP by Drink Blood, the vampire can turn this victim into a vampire servitor by donating some of their own blood to the victim and burying the victim in earth for 3 nights. A vampiric servitor is compelled to obey its creator, but if a vampire controls too many vampiric servitors at once (as determined by the GM), or if the servitor is a higher level than the vampire that created it, strong-willed servitors can free themselves by succeeding at a Will saving throw against the vampire's Will DC.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -871,7 +927,8 @@
                                         "aonid": 95
                                     }
                                 ],
-                                "effect": "The vampire uses Turn to Mist. They can take move actions to move toward their coffin even though they're at 0 HP. While at 0 HP in this form, the vampire is unaffected by further damage. They automatically return to their corporeal form, unconscious, if they reach their coffin or after 2 hours, whichever comes first."
+                                "effect": "The vampire uses Turn to Mist. They can take move actions to move toward their coffin even though they're at 0 HP. While at 0 HP in this form, the vampire is unaffected by further damage. They automatically return to their corporeal form, unconscious, if they reach their coffin or after 2 hours, whichever comes first.",
+                                "ability_category": "reactive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1112,7 +1169,8 @@
                                         }
                                     ],
                                     "game-id": "7564ef41c1e467932029913cee1f7b20"
-                                }
+                                },
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1145,7 +1203,15 @@
                                         }
                                     }
                                 ],
-                                "text": "The vampire's presence brings forth creatures of the night to do the master's bidding. These typically include rat swarms, bat swarms, and wolves but can include other creatures. The vampire can give telepathic orders to these creatures as long as they're within 100 feet, but they can't communicate back."
+                                "text": "The vampire's presence brings forth creatures of the night to do the master's bidding. These typically include rat swarms, bat swarms, and wolves but can include other creatures. The vampire can give telepathic orders to these creatures as long as they're within 100 feet, but they can't communicate back.",
+                                "range": {
+                                    "range": 100,
+                                    "subtype": "range",
+                                    "text": "within 100 feet",
+                                    "type": "stat_block_section",
+                                    "unit": "feet"
+                                },
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1230,7 +1296,8 @@
                                         "aonid": 2899
                                     }
                                 ],
-                                "text": "The vampire can cast *dominate* at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC uses the high spell DC of the vampire's level, and a creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours. Fully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell."
+                                "text": "The vampire can cast *dominate* at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC uses the high spell DC of the vampire's level, and a creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours. Fully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1246,7 +1313,8 @@
                                         "aonid": 68
                                     }
                                 ],
-                                "text": "As a typical vampire, but the victim is drained 2 instead of 1."
+                                "text": "As a typical vampire, but the victim is drained 2 instead of 1.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1324,7 +1392,8 @@
                                         "aonid": 62
                                     }
                                 ],
-                                "text": "The vampire turns into a cloud of vapor, as the *vapor form* spell, or back to their normal form. The vampire loses fast healing while turned to mist. The vampire can remain in this form indefinitely."
+                                "text": "The vampire turns into a cloud of vapor, as the *vapor form* spell, or back to their normal form. The vampire loses fast healing while turned to mist. The vampire can remain in this form indefinitely.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [

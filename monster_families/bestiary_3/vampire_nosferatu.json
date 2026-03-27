@@ -464,7 +464,30 @@
                         "aonid": 32
                     }
                 ],
-                "text": "- **Revulsion** A nosferatu can't voluntarily come within 10 feet of brandished garlic or a brandished religious symbol of a non-evil deity. To brandish garlic or a religious symbol, a creature must Interact to do so for 1 round (similar to Raise a Shield). If the nosferatu involuntarily comes within 10 feet of an object of their revulsion, they gain the fleeing condition, running from the object of their revulsion until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a nosferatu can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success)."
+                "text": "- **Revulsion** A nosferatu can't voluntarily come within 10 feet of brandished garlic or a brandished religious symbol of a non-evil deity. To brandish garlic or a religious symbol, a creature must Interact to do so for 1 round (similar to Raise a Shield). If the nosferatu involuntarily comes within 10 feet of an object of their revulsion, they gain the fleeing condition, running from the object of their revulsion until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a nosferatu can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success).",
+                "change_category": "traits",
+                "effects": [
+                    {
+                        "name": "Concentrate",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Condition",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Revulsion",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Action",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -492,7 +515,8 @@
                         "aonid": 38
                     }
                 ],
-                "text": "- **Stake** A magical wooden stake (such as one affected by a *weapon potency* rune, *magic weapon*, or similar magic) driven through the nosferatu's heart drops the nosferatu to 0 HP and prevents them from healing above 0 HP, even in their coffin. Staking a nosferatu requires 3 actions and works only if the nosferatu is unconscious. If the stake is removed, the nosferatu can heal above 0 HP again, and if they're in their coffin, the 1-hour rest period begins once the stake is removed. If the nosferatu's head is severed and anointed with holy water while the stake is in place, the nosferatu is destroyed."
+                "text": "- **Stake** A magical wooden stake (such as one affected by a *weapon potency* rune, *magic weapon*, or similar magic) driven through the nosferatu's heart drops the nosferatu to 0 HP and prevents them from healing above 0 HP, even in their coffin. Staking a nosferatu requires 3 actions and works only if the nosferatu is unconscious. If the stake is removed, the nosferatu can heal above 0 HP again, and if they're in their coffin, the 1-hour rest period begins once the stake is removed. If the nosferatu's head is severed and anointed with holy water while the stake is in place, the nosferatu is destroyed.",
+                "change_category": "hit_points"
             },
             {
                 "type": "stat_block_section",
@@ -506,7 +530,15 @@
                         "aonid": 35
                     }
                 ],
-                "text": "- **Sunlight** If exposed to direct sunlight, a nosferatu immediately becomes slowed 1. The slowed value increases by 1 each time the nosferatu ends their turn in sunlight, and the condition ends when they're no longer in sunlight. If the nosferatu loses all their actions in this way, they're destroyed."
+                "text": "- **Sunlight** If exposed to direct sunlight, a nosferatu immediately becomes slowed 1. The slowed value increases by 1 each time the nosferatu ends their turn in sunlight, and the condition ends when they're no longer in sunlight. If the nosferatu loses all their actions in this way, they're destroyed.",
+                "change_category": "combat_stats",
+                "effects": [
+                    {
+                        "operation": "adjustment",
+                        "target": "$.defense.ac.value",
+                        "value": 1
+                    }
+                ]
             }
         ],
         "subtypes": [
@@ -586,7 +618,8 @@
                                         }
                                     ],
                                     "game-id": "fbaadf5607a32287e723316e8772a2c6"
-                                }
+                                },
+                                "ability_category": "special_sense"
                             },
                             {
                                 "type": "stat_block_section",
@@ -629,7 +662,8 @@
                                         }
                                     ],
                                     "game-id": "26efbc8d7d89662ed2ef5191e0001427"
-                                }
+                                },
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -673,13 +707,15 @@
                                         "aonid": 145
                                     }
                                 ],
-                                "text": "death effects, disease, paralyzed, poison, sleep"
+                                "text": "death effects, disease, paralyzed, poison, sleep",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Nosferatu Vulnerabilities",
-                                "ability_type": "ability"
+                                "ability_type": "ability",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -724,7 +760,8 @@
                                         }
                                     }
                                 ],
-                                "text": "Unlike other undead, a nosferatu isn't destroyed at 0 HP. Instead, they disperse into an immense number of individual rats heading in every direction in an attempt to return to their coffin. If even a single rat reaches the coffin, the nosferatu can recover. A nosferatu regains their strength through resting in earth taken from the grave of a creature who died of plague. If their body rests in their earth-filled coffin for 1 hour, the nosferatu gains 1 HP, after which their fast healing begins to function normally. If the coffin doesn't contain this plagued grave dirt, they instead need to rest in their coffin for 1 day before they gain 1 HP and regain their fast healing."
+                                "text": "Unlike other undead, a nosferatu isn't destroyed at 0 HP. Instead, they disperse into an immense number of individual rats heading in every direction in an attempt to return to their coffin. If even a single rat reaches the coffin, the nosferatu can recover. A nosferatu regains their strength through resting in earth taken from the grave of a creature who died of plague. If their body rests in their earth-filled coffin for 1 hour, the nosferatu gains 1 HP, after which their fast healing begins to function normally. If the coffin doesn't contain this plagued grave dirt, they instead need to rest in their coffin for 1 day before they gain 1 HP and regain their fast healing.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -977,7 +1014,16 @@
                                         }
                                     ],
                                     "game-id": "7564ef41c1e467932029913cee1f7b20"
-                                }
+                                },
+                                "ability_category": "offensive",
+                                "damage": [
+                                    {
+                                        "damage_type": "piercing",
+                                        "formula": "2d10",
+                                        "subtype": "attack_damage",
+                                        "type": "stat_block_section"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
@@ -1028,7 +1074,8 @@
                                     }
                                 ],
                                 "requirement": "One of the nosferatu's thralls is present and can hear the nosferatu",
-                                "effect": "The nosferatu gives a single command to one of their thralls, which the thrall follows to the best of its ability during its next turn."
+                                "effect": "The nosferatu gives a single command to one of their thralls, which the thrall follows to the best of its ability during its next turn.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1160,7 +1207,8 @@
                                         "name": "Stage 6",
                                         "text": "death"
                                     }
-                                ]
+                                ],
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1250,7 +1298,8 @@
                                         "aonid": 163
                                     }
                                 ],
-                                "text": "The nosferatu can cast *dominate* at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC uses a high DC for the nosferatu's level, and a creature that succeeds is temporarily immune to that nosferatu's Dominate for 24 hours. Fully destroying the nosferatu ends the domination, but merely reducing the nosferatu to 0 HP is insufficient to break the spell."
+                                "text": "The nosferatu can cast *dominate* at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC uses a high DC for the nosferatu's level, and a creature that succeeds is temporarily immune to that nosferatu's Dominate for 24 hours. Fully destroying the nosferatu ends the domination, but merely reducing the nosferatu to 0 HP is insufficient to break the spell.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1305,7 +1354,8 @@
                                         "aonid": 10
                                     }
                                 ],
-                                "effect": "The nosferatu sinks their fangs into the targeted creature to drink its blood. This requires an Athletics check against the creature's Fortitude DC. On a success, the creature becomes drained 1, and the nosferatu regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore any HP to the nosferatu, but increases the creature's drained condition value by 1. A nosferatu can also consume blood that's been emptied into a vessel for sustenance, but they gain no HP from doing so."
+                                "effect": "The nosferatu sinks their fangs into the targeted creature to drink its blood. This requires an Athletics check against the creature's Fortitude DC. On a success, the creature becomes drained 1, and the nosferatu regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore any HP to the nosferatu, but increases the creature's drained condition value by 1. A nosferatu can also consume blood that's been emptied into a vessel for sustenance, but they gain no HP from doing so.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [
@@ -1388,7 +1438,8 @@
                                     "text": "30 feet",
                                     "range": 30,
                                     "unit": "feet"
-                                }
+                                },
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1479,7 +1530,8 @@
                                     }
                                 ],
                                 "requirement": "The nosferatu overlord's last action was a successful claw Strike",
-                                "effect": "The nosferatu drags the target of the Strike close and freezes its mind in terror. The target must attempt a Will save with a moderate DC for the nosferatu's level."
+                                "effect": "The nosferatu drags the target of the Strike close and freezes its mind in terror. The target must attempt a Will save with a moderate DC for the nosferatu's level.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1594,7 +1646,8 @@
                                         }
                                     ],
                                     "game-id": "fe1c17e78f6d3164529bc07d7374d9c9"
-                                }
+                                },
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1610,7 +1663,8 @@
                                         "aonid": 106
                                     }
                                 ],
-                                "text": "The strain of being controlled wears on the nosferatu thrall's mind, giving them weakness 10 to mental damage."
+                                "text": "The strain of being controlled wears on the nosferatu thrall's mind, giving them weakness 10 to mental damage.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1659,7 +1713,8 @@
                                         "aonid": 371
                                     }
                                 ],
-                                "text": "A nosferatu master exerts a fierce hold over their thrall's mind. If any creature other than the thrall's master targets them with an effect that would give them the controlled condition, the thrall's master rolls a counteract check against it using their Dominate DC - 10 as the counteract check modifier."
+                                "text": "A nosferatu master exerts a fierce hold over their thrall's mind. If any creature other than the thrall's master targets them with an effect that would give them the controlled condition, the thrall's master rolls a counteract check against it using their Dominate DC - 10 as the counteract check modifier.",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1672,7 +1727,8 @@
                                     "name": "Reaction"
                                 },
                                 "trigger": "The thrall's master would take damage from a Strike or spell attack and is in an adjacent square",
-                                "effect": "The thrall throws themself in front of their master, taking half the damage of the attack (before applying any weaknesses or resistances). The thrall's master takes the remaining damage, applying any weaknesses or resistances as normal."
+                                "effect": "The thrall throws themself in front of their master, taking half the damage of the attack (before applying any weaknesses or resistances). The thrall's master takes the remaining damage, applying any weaknesses or resistances as normal.",
+                                "ability_category": "reactive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1685,7 +1741,8 @@
                                     "name": "Reaction"
                                 },
                                 "trigger": "The thrall ends their turn more than 30 feet away from their master",
-                                "effect": "The thrall Strides up to their Speed toward their master."
+                                "effect": "The thrall Strides up to their Speed toward their master.",
+                                "ability_category": "reactive"
                             }
                         ],
                         "effects": [

@@ -600,7 +600,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "greater darkvision",
@@ -612,7 +613,8 @@
                 },
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -627,7 +629,30 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 21
                     },
-                    "name": "lifesense"
+                    "name": "lifesense",
+                    "universal_monster_ability": {
+                        "name": "Lifesense",
+                        "type": "ability",
+                        "text": "Lifesense allows a monster to sense the vital essence of living and undead creatures within the listed range. The sense can distinguish between the positive energy animating living creatures and the negative energy animating undead creatures, much as sight distinguishes colors.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 21,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "game-id": "fb27e655dfdce59a449430811465c91f"
+                    }
                 }
             ]
         },
@@ -2072,7 +2097,24 @@
                             }
                         ],
                         "requirement": "A creature is grabbed or restrained in the nasurgeth's jaws",
-                        "effect": "The nasurgeth breaks a tooth off in the target, who takes 3d10 persistent bleed damage and is no longer grabbed or restrained. If the target is adjacent to a surface, the tooth also pins it in place, making it immobilized (Escape DC 45)."
+                        "effect": "The nasurgeth breaks a tooth off in the target, who takes 3d10 persistent bleed damage and is no longer grabbed or restrained. If the target is adjacent to a surface, the tooth also pins it in place, making it immobilized (Escape DC 45).",
+                        "saving_throw": [
+                            {
+                                "dc": 45,
+                                "subtype": "save_dc",
+                                "text": "DC 45",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bleed",
+                                "formula": "3d10",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -2106,7 +2148,17 @@
                                 "aonid": 329
                             }
                         ],
-                        "text": "The nasurgeth barrels forward with their mouth open, Swimming twice in a straight line and moving through the spaces of Huge or smaller creatures. The nasurgeth deals the damage of their jaws Strike to each creature whose space they enter (DC 45 basic Reflex save). Any creature that critically fails is automatically Swallowed Whole."
+                        "text": "The nasurgeth barrels forward with their mouth open, Swimming twice in a straight line and moving through the spaces of Huge or smaller creatures. The nasurgeth deals the damage of their jaws Strike to each creature whose space they enter (DC 45 basic Reflex save). Any creature that critically fails is automatically Swallowed Whole.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 45,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 45 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

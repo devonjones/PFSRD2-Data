@@ -519,7 +519,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "darkvision",
@@ -527,7 +528,60 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 12
                     },
-                    "name": "darkvision"
+                    "name": "darkvision",
+                    "universal_monster_ability": {
+                        "name": "Darkvision",
+                        "type": "ability",
+                        "text": "A monster with darkvision can see perfectly well in areas of darkness and dim light, though such vision is in black and white only. Some forms of magical darkness, such as a 4th-level *darkness* spell, block normal darkvision. A monster with greater darkvision, however, can see through even these forms of magical darkness.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 12,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "darkvision",
+                                "alt": "darkvision",
+                                "game-obj": "Rules",
+                                "aonid": 415
+                            },
+                            {
+                                "type": "link",
+                                "name": "darkness",
+                                "alt": "darkness",
+                                "game-obj": "Rules",
+                                "aonid": 409
+                            },
+                            {
+                                "type": "link",
+                                "name": "dim light",
+                                "alt": "dim light",
+                                "game-obj": "Rules",
+                                "aonid": 408
+                            },
+                            {
+                                "type": "link",
+                                "name": "darkness",
+                                "alt": "darkness",
+                                "game-obj": "Spells",
+                                "aonid": 59
+                            }
+                        ],
+                        "game-id": "fbaadf5607a32287e723316e8772a2c6"
+                    }
                 }
             ]
         },
@@ -1136,7 +1190,25 @@
                             }
                         ],
                         "requirement": "The animated trebuchet has a creature grabbed in its arm",
-                        "effect": "The animated trebuchet attempts an Athletics check against the grabbed creature's Fortitude DC. On a success, it fires the creature up to 40 feet in height and up to 120 feet away. The creature takes 4d12 bludgeoning damage plus the appropriate falling damage. If the flung creature lands on another creature, the creature it lands on takes the same amount of bludgeoning damage (DC 33 basic Reflex save). On a successful Launch, the animated trebuchet must Interact to reposition its arm into the proper position before it can Launch again."
+                        "effect": "The animated trebuchet attempts an Athletics check against the grabbed creature's Fortitude DC. On a success, it fires the creature up to 40 feet in height and up to 120 feet away. The creature takes 4d12 bludgeoning damage plus the appropriate falling damage. If the flung creature lands on another creature, the creature it lands on takes the same amount of bludgeoning damage (DC 33 basic Reflex save). On a successful Launch, the animated trebuchet must Interact to reposition its arm into the proper position before it can Launch again.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 33,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 33 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "bludgeoning",
+                                "formula": "4d12",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -1219,7 +1291,15 @@
                                 }
                             ],
                             "game-id": "835aea1efadf2fa4f9b9bb63b8ec0b98"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "subtype": "save_dc",
+                                "text": "DC 33",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

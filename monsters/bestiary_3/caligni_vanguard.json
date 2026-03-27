@@ -513,7 +513,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -525,7 +526,8 @@
                 },
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "name": "no vision"
                 }
             ]
@@ -810,7 +812,41 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Death Blaze",
-                    "text": "When the vanguard dies, their body combusts in a blaze of fire and armor shrapnel. All creatures within a 10-foot emanation take 3d6 fire damage and 3d6 piercing damage (DC 19 basic Reflex save). The vanguard's armor is destroyed in the blaze, but their other gear is unaffected and left in a pile where they died."
+                    "text": "When the vanguard dies, their body combusts in a blaze of fire and armor shrapnel. All creatures within a 10-foot emanation take 3d6 fire damage and 3d6 piercing damage (DC 19 basic Reflex save). The vanguard's armor is destroyed in the blaze, but their other gear is unaffected and left in a pile where they died.",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 19,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 19 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "area": [
+                        {
+                            "shape": "emanation",
+                            "size": 10,
+                            "subtype": "area",
+                            "text": "10-foot emanation",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "fire",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        },
+                        {
+                            "damage_type": "piercing",
+                            "formula": "3d6",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -1275,7 +1311,16 @@
                                 "aonid": 1
                             }
                         ],
-                        "text": "The vanguard makes a melee Strike, channeling shadowy essence into their weapon or unarmed attack to envelop the target. If the Strike hits, the target must succeed at a DC 19 Fortitude save or become blinded until the end of its next turn."
+                        "text": "The vanguard makes a melee Strike, channeling shadowy essence into their weapon or unarmed attack to envelop the target. If the Strike hits, the target must succeed at a DC 19 Fortitude save or become blinded until the end of its next turn.",
+                        "saving_throw": [
+                            {
+                                "dc": 19,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 19 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

@@ -380,7 +380,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -402,7 +403,30 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 40
                     },
-                    "name": "tremorsense"
+                    "name": "tremorsense",
+                    "universal_monster_ability": {
+                        "name": "Tremorsense",
+                        "type": "ability",
+                        "text": "Tremorsense allows a monster to feel the vibrations through a solid surface caused by movement. It is an imprecise sense with a limited range (listed in the ability). Tremorsense functions only if the monster is on the same surface as the subject, and only if the subject is moving along (or burrowing through) the surface.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 40,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 344",
+                                    "alt": "Bestiary pg. 344",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 344
+                            }
+                        ],
+                        "game-id": "0ee039798743b8879736178247f002d2"
+                    }
                 }
             ]
         },
@@ -714,7 +738,15 @@
                                 }
                             ],
                             "game-id": "3900c3f784d7a523533b6cb0e7d2c952"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "subtype": "save_dc",
+                                "text": "DC 21",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -788,7 +820,23 @@
                         "effect": "The glimmervine shakes its iridescent blossoms to astound nearby foes. All creatures within 30 feet, except other glimmervines, must attempt a DC 21 Fortitude save. The glimmervine then can't use Dazzling Blooms for 1d4 rounds.",
                         "success": "The creature is unaffected.",
                         "failure": "The creature is dazzled for 1 round.",
-                        "critical_failure": "The creature is blinded for 1 round, then dazzled for 1 round."
+                        "critical_failure": "The creature is blinded for 1 round, then dazzled for 1 round.",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "range": {
+                            "range": 30,
+                            "subtype": "range",
+                            "text": "within 30 feet",
+                            "type": "stat_block_section",
+                            "unit": "feet"
+                        }
                     }
                 }
             ]

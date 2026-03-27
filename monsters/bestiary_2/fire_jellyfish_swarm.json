@@ -466,7 +466,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "low-light vision",
@@ -474,7 +475,39 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 23
                     },
-                    "name": "low-light vision"
+                    "name": "low-light vision",
+                    "universal_monster_ability": {
+                        "name": "Low-Light Vision",
+                        "type": "ability",
+                        "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 23,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "concealed",
+                                "alt": "concealed",
+                                "game-obj": "Conditions",
+                                "aonid": 4
+                            }
+                        ],
+                        "game-id": "2925971fb76ab7d097ed1fdfccb8a069"
+                    }
                 }
             ]
         },
@@ -717,7 +750,25 @@
                                 "text": "An effect with this trait delivers a poison or deals poison damage. An item with this trait is poisonous and might cause an affliction."
                             }
                         ],
-                        "text": "Each enemy in the swarm's space takes 3d8 poison damage (DC 24 basic Reflex save) and is exposed to fire jelly venom."
+                        "text": "Each enemy in the swarm's space takes 3d8 poison damage (DC 24 basic Reflex save) and is exposed to fire jelly venom.",
+                        "saving_throw": [
+                            {
+                                "basic": true,
+                                "dc": 24,
+                                "save_type": "Ref",
+                                "subtype": "save_dc",
+                                "text": "DC 24 basic Reflex save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "poison",
+                                "formula": "3d8",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {

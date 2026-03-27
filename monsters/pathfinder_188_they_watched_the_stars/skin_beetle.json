@@ -315,7 +315,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "low-light vision",
@@ -323,7 +324,39 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 23
                     },
-                    "name": "low-light vision"
+                    "name": "low-light vision",
+                    "universal_monster_ability": {
+                        "name": "Low-Light Vision",
+                        "type": "ability",
+                        "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 23,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "concealed",
+                                "alt": "concealed",
+                                "game-obj": "Conditions",
+                                "aonid": 4
+                            }
+                        ],
+                        "game-id": "2925971fb76ab7d097ed1fdfccb8a069"
+                    }
                 }
             ]
         },
@@ -716,7 +749,16 @@
                                 "aonid": 3
                             }
                         ],
-                        "text": "A creature exposed to a skin beetle's saliva must succeed on a DC 19 Fortitude save or become clumsy 1 for 1 round."
+                        "text": "A creature exposed to a skin beetle's saliva must succeed on a DC 19 Fortitude save or become clumsy 1 for 1 round.",
+                        "saving_throw": [
+                            {
+                                "dc": 19,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 19 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -757,7 +799,16 @@
                                 "aonid": 29
                             }
                         ],
-                        "text": "The skin beetle makes a mandibles Strike against an animal or humanoid. If the Strike deals damage, the beetle tears off a large portion of flesh, dealing an additional 1d6 persistent bleed damage."
+                        "text": "The skin beetle makes a mandibles Strike against an animal or humanoid. If the Strike deals damage, the beetle tears off a large portion of flesh, dealing an additional 1d6 persistent bleed damage.",
+                        "damage": [
+                            {
+                                "damage_type": "bleed",
+                                "formula": "1d6",
+                                "persistent": true,
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

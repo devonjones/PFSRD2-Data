@@ -304,7 +304,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "low-light vision",
@@ -312,11 +313,44 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 23
                     },
-                    "name": "low-light vision"
+                    "name": "low-light vision",
+                    "universal_monster_ability": {
+                        "name": "Low-Light Vision",
+                        "type": "ability",
+                        "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 23,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "concealed",
+                                "alt": "concealed",
+                                "game-obj": "Conditions",
+                                "aonid": 4
+                            }
+                        ],
+                        "game-id": "2925971fb76ab7d097ed1fdfccb8a069"
+                    }
                 },
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -338,7 +372,30 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 40
                     },
-                    "name": "tremorsense"
+                    "name": "tremorsense",
+                    "universal_monster_ability": {
+                        "name": "Tremorsense",
+                        "type": "ability",
+                        "text": "Tremorsense allows a monster to feel the vibrations through a solid surface caused by movement. It is an imprecise sense with a limited range (listed in the ability). Tremorsense functions only if the monster is on the same surface as the subject, and only if the subject is moving along (or burrowing through) the surface.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 40,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 344",
+                                    "alt": "Bestiary pg. 344",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 344
+                            }
+                        ],
+                        "game-id": "0ee039798743b8879736178247f002d2"
+                    }
                 }
             ]
         },
@@ -870,7 +927,26 @@
                         "success": "The creature is sickened 1. ",
                         "failure": "The creature is fascinated, and it must spend each of its actions to move closer to the viper vine as expediently as possible while avoiding obvious dangers. If a captivated creature is adjacent to the viper vine, it stays still and doesn't act. It ceases to be fascinated if it's no longer in the pollen aura at the end of its turn. ",
                         "critical_failure": "As failure, plus the creature is stupefied 2 for 24 hours.",
-                        "text": "The viper vine releases a 60-foot emanation of invisible pollen that stays in the air for 5 rounds unless dispersed by a moderate or stronger wind. Each creature that enters or starts its turn in the area must attempt a DC 33 Will save or be captivated. The viper vine can't use Captivating Pollen for 1d4 rounds. "
+                        "text": "The viper vine releases a 60-foot emanation of invisible pollen that stays in the air for 5 rounds unless dispersed by a moderate or stronger wind. Each creature that enters or starts its turn in the area must attempt a DC 33 Will save or be captivated. The viper vine can't use Captivating Pollen for 1d4 rounds. ",
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "save_type": "Will",
+                                "subtype": "save_dc",
+                                "text": "DC 33 Will save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "emanation",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot emanation",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ]
                     }
                 },
                 {
@@ -948,7 +1024,15 @@
                                 }
                             ],
                             "game-id": "3900c3f784d7a523533b6cb0e7d2c952"
-                        }
+                        },
+                        "saving_throw": [
+                            {
+                                "dc": 33,
+                                "subtype": "save_dc",
+                                "text": "DC 33",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]

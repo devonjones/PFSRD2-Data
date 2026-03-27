@@ -316,7 +316,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "low-light vision",
@@ -324,7 +325,39 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 23
                     },
-                    "name": "low-light vision"
+                    "name": "low-light vision",
+                    "universal_monster_ability": {
+                        "name": "Low-Light Vision",
+                        "type": "ability",
+                        "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 23,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "concealed",
+                                "alt": "concealed",
+                                "game-obj": "Conditions",
+                                "aonid": 4
+                            }
+                        ],
+                        "game-id": "2925971fb76ab7d097ed1fdfccb8a069"
+                    }
                 }
             ]
         },
@@ -541,7 +574,40 @@
                         "success": "The creature takes no damage.",
                         "failure": "The creature takes 3d6 damage of the appropriate type.",
                         "critical_failure": "The creature takes 6d6 damage of the appropriate type and either is deafened for 1 minute (if sonic damage) or takes 1d6 persistent fire damage (if fire damage).",
-                        "text": "The kareq beats its legs against its reverberation chamber, creating a blast of sound concentrated enough to ignite the air around it. The kareq chooses to affect either a 30- foot cone (which deals sonic damage) or a 60-foot line (which deals fire damage). Affected creatures must attempt a DC 21 Fortitude save."
+                        "text": "The kareq beats its legs against its reverberation chamber, creating a blast of sound concentrated enough to ignite the air around it. The kareq chooses to affect either a 30- foot cone (which deals sonic damage) or a 60-foot line (which deals fire damage). Affected creatures must attempt a DC 21 Fortitude save.",
+                        "saving_throw": [
+                            {
+                                "dc": 21,
+                                "save_type": "Fort",
+                                "subtype": "save_dc",
+                                "text": "DC 21 Fortitude save",
+                                "type": "stat_block_section"
+                            }
+                        ],
+                        "area": [
+                            {
+                                "shape": "line",
+                                "size": 60,
+                                "subtype": "area",
+                                "text": "60-foot line",
+                                "type": "stat_block_section",
+                                "unit": "feet"
+                            }
+                        ],
+                        "damage": [
+                            {
+                                "damage_type": "fire",
+                                "formula": "2d6",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            },
+                            {
+                                "damage_type": "sonic",
+                                "formula": "1d6+2",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 }
             ]
@@ -561,6 +627,11 @@
                 "name": "Core Rulebook",
                 "type": "section",
                 "text": "**Pathfinder Core Rulebook (Second Edition)** \u00a9 2019, Paizo Inc.; Designers: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter."
+            },
+            {
+                "name": "Bestiary",
+                "type": "section",
+                "text": "**Daemon, Guardian from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.  \n **Dark Creeper from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Rik Shepard.  \n **Dark Stalker from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.  \n **Dragon, Faerie from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Brian Jaeger and Gary Gygax.  \n **Genie, Marid from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.  \n **Mite from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.  \n **Pathfinder Bestiary (Second Edition)** \u00a9 2019, Paizo Inc.; Authors: Alexander Augunas, Logan Bonner, Jason Bulmahn, John Compton, Paris Crenshaw, Adam Daigle, Eleanor Ferron, Leo Glass, Thurston Hillman, James Jacobs, Jason Keeley, Lyz Liddell, Ron Lundeen, Robert G. McCreary, Tim Nightengale, Stephen Radney-MacFarland, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Jeffrey Swank, Jason Tondro, Tonya Woldridge, and Linda Zayas-Palmer."
             }
         ],
         "subtype": "license",

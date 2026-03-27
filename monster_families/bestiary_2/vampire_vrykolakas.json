@@ -401,7 +401,8 @@
             {
                 "type": "stat_block_section",
                 "subtype": "change",
-                "text": "- **Burial Site Bound** A vrykolakas is bound to the place of its death or interment. It must return to this location once per week and bury itself in the earth for 24 hours, during which time it is paralyzed and can be beheaded. If it is unable to return to this site, it is reduced to 0 Hit Points and attempts to use Feral Corruption; if this host animal can't return to the burial site before the possession effect ends, the vrykolakas is destroyed and the animal host returns to normal."
+                "text": "- **Burial Site Bound** A vrykolakas is bound to the place of its death or interment. It must return to this location once per week and bury itself in the earth for 24 hours, during which time it is paralyzed and can be beheaded. If it is unable to return to this site, it is reduced to 0 Hit Points and attempts to use Feral Corruption; if this host animal can't return to the burial site before the possession effect ends, the vrykolakas is destroyed and the animal host returns to normal.",
+                "change_category": "hit_points"
             },
             {
                 "type": "stat_block_section",
@@ -486,7 +487,8 @@
                                         }
                                     ],
                                     "game-id": "fbaadf5607a32287e723316e8772a2c6"
-                                }
+                                },
+                                "ability_category": "special_sense"
                             },
                             {
                                 "type": "stat_block_section",
@@ -502,7 +504,8 @@
                                         "aonid": 66
                                     }
                                 ],
-                                "text": "The vrykolakas moves at full Speed while Tracking."
+                                "text": "The vrykolakas moves at full Speed while Tracking.",
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -545,7 +548,8 @@
                                         }
                                     ],
                                     "game-id": "26efbc8d7d89662ed2ef5191e0001427"
-                                }
+                                },
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -589,7 +593,8 @@
                                         "aonid": 145
                                     }
                                 ],
-                                "text": "death effects, disease, paralyzed, poison, sleep"
+                                "text": "death effects, disease, paralyzed, poison, sleep",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -713,21 +718,31 @@
                                     }
                                 ],
                                 "trigger": "The vrykolakas is reduced to 0 Hit Points, and an animal is within 100 feet",
-                                "effect": "Unlike most other undead, a vrykolakas isn't destroyed when it reaches 0 HP. Instead, it attempts to cast its spirit into an animal within 100 feet, which must attempt a Will save (use a high DC for the vrykolakas's level from the Spell DC and Spell Attack Roll table). On a failure, the animal is possessed. This has the effects of the *possession* spell, but it lasts a number of days equal to the vrykolakas's level. This possession can't be counteracted with magic (though *remove curse* works against it normally)."
+                                "effect": "Unlike most other undead, a vrykolakas isn't destroyed when it reaches 0 HP. Instead, it attempts to cast its spirit into an animal within 100 feet, which must attempt a Will save (use a high DC for the vrykolakas's level from the Spell DC and Spell Attack Roll table). On a failure, the animal is possessed. This has the effects of the *possession* spell, but it lasts a number of days equal to the vrykolakas's level. This possession can't be counteracted with magic (though *remove curse* works against it normally).",
+                                "ability_category": "reactive",
+                                "range": {
+                                    "range": 100,
+                                    "subtype": "range",
+                                    "text": "within 100 feet",
+                                    "type": "stat_block_section",
+                                    "unit": "feet"
+                                }
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Vrykolakas Vulnerabilities",
                                 "ability_type": "ability",
-                                "text": "Vrykolakas all have the following vulnerabilities."
+                                "text": "Vrykolakas all have the following vulnerabilities.",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Climb Speed",
                                 "ability_type": "ability",
-                                "text": "A vrykolakas gains a climb Speed equal to one-half its land Speed."
+                                "text": "A vrykolakas gains a climb Speed equal to one-half its land Speed.",
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -750,14 +765,16 @@
                                         "aonid": 1018
                                     }
                                 ],
-                                "text": "If the base creature had hands, it gains an unarmed claw Strike that deals slashing damage and has the agile trait. Use the moderate damage for the creature's level on the Strike Damage table."
+                                "text": "If the base creature had hands, it gains an unarmed claw Strike that deals slashing damage and has the agile trait. Use the moderate damage for the creature's level on the Strike Damage table.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Fangs",
                                 "ability_type": "ability",
-                                "text": "The teeth of the vrykolakas grow long, sharp, and deadly, granting it a fangs Strike: an unarmed attack that deals piercing damage and enables the use of its Drink Blood ability. Use the high damage for the creature's level on the Strike Damage table."
+                                "text": "The teeth of the vrykolakas grow long, sharp, and deadly, granting it a fangs Strike: an unarmed attack that deals piercing damage and enables the use of its Drink Blood ability. Use the high damage for the creature's level on the Strike Damage table.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -812,7 +829,8 @@
                                         "aonid": 10
                                     }
                                 ],
-                                "effect": "The vrykolakas sinks its fangs into that creature to drink its blood. This requires an Athletics check against the creature's Fortitude DC. On a success, the creature becomes drained 1, and the vrykolakas regains HP equal to 10% of its maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore any HP to the vampire, but it increases the creature's drained condition value by 1. A vrykolakas can also consume blood that's been emptied into a vessel for sustenance, but it gains no HP from doing so."
+                                "effect": "The vrykolakas sinks its fangs into that creature to drink its blood. This requires an Athletics check against the creature's Fortitude DC. On a success, the creature becomes drained 1, and the vrykolakas regains HP equal to 10% of its maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore any HP to the vampire, but it increases the creature's drained condition value by 1. A vrykolakas can also consume blood that's been emptied into a vessel for sustenance, but it gains no HP from doing so.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -861,7 +879,8 @@
                                     "requirement": "The monster hit the same enemy with two consecutive Strikes of the listed type in the same round.",
                                     "effect": "The monster automatically deals that Strike\u2019s damage again to the enemy.",
                                     "game-id": "8d0a751cabb8428977d34549d18b8904"
-                                }
+                                },
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [
@@ -968,7 +987,15 @@
                                         "aonid": 411
                                     }
                                 ],
-                                "text": "The presence of a vrykolakas master inspires savage creatures to crawl forth to do its bidding, including rat swarms, warg, werewolves, and similar creatures. The vrykolakas master can give telepathic orders to these creatures within 100 feet, but they can't communicate back."
+                                "text": "The presence of a vrykolakas master inspires savage creatures to crawl forth to do its bidding, including rat swarms, warg, werewolves, and similar creatures. The vrykolakas master can give telepathic orders to these creatures within 100 feet, but they can't communicate back.",
+                                "range": {
+                                    "range": 100,
+                                    "subtype": "range",
+                                    "text": "within 100 feet",
+                                    "type": "stat_block_section",
+                                    "unit": "feet"
+                                },
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1029,7 +1056,8 @@
                                     "text": "5 feet",
                                     "range": 5,
                                     "unit": "feet"
-                                }
+                                },
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1052,7 +1080,8 @@
                                         "aonid": 110
                                     }
                                 ],
-                                "text": "The vrykolakas master can cast *vampiric touch* (heightened to half its level rounded up) and 3rd-level fear three times per day each as divine innate spells. It uses a high DC for its level."
+                                "text": "The vrykolakas master can cast *vampiric touch* (heightened to half its level rounded up) and 3rd-level fear three times per day each as divine innate spells. It uses a high DC for its level.",
+                                "frequency": "three times per day"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1125,7 +1154,8 @@
                                         "name": "Stage 2",
                                         "text": "enfeebled 2 and fatigued (1 day); Stage 3 enfeebled 3, fatigued, and takes 1d6 persistent bleed damage every 1d20 minutes (1 day)"
                                     }
-                                ]
+                                ],
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1210,7 +1240,176 @@
                                         "aonid": 46
                                     }
                                 ],
-                                "text": "A vrykolakas master can transform into a form resembling the body it had in life, with the effects of *humanoid form* but with unlimited duration. It loses its fangs and claw Strikes but gains a +2 circumstance bonus to Deception checks to Impersonate in this form."
+                                "text": "A vrykolakas master can transform into a form resembling the body it had in life, with the effects of *humanoid form* but with unlimited duration. It loses its fangs and claw Strikes but gains a +2 circumstance bonus to Deception checks to Impersonate in this form.",
+                                "ability_category": "offensive",
+                                "universal_monster_ability": {
+                                    "name": "Change Shape",
+                                    "type": "ability",
+                                    "text": "The monster changes its shape indefinitely. It can use this action again to return to its natural shape or adopt a new shape. Unless otherwise noted, a monster cannot use Change Shape to appear as a specific individual. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. The monster's transformation automatically defeats Perception DCs to determine whether the creature is a member of the ancestry or creature type into which it transformed, and it gains a +4 status bonus to its Deception DC to prevent others from seeing through its disguise. Change Shape abilities specify what shapes the monster can adopt. The monster doesn't gain any special abilities of the new shape, only its physical form. For example, in each shape, it replaces its normal Speeds and Strikes, and might potentially change its senses or size. Any changes are listed in its stat block.",
+                                    "ability_type": "universal_monster_ability",
+                                    "aonid": 8,
+                                    "game-obj": "MonsterAbilities",
+                                    "action_type": {
+                                        "type": "stat_block_section",
+                                        "subtype": "action_type",
+                                        "name": "One Action"
+                                    },
+                                    "sources": [
+                                        {
+                                            "type": "source",
+                                            "name": "Bestiary",
+                                            "link": {
+                                                "type": "link",
+                                                "name": "Bestiary pg. 342",
+                                                "alt": "Bestiary pg. 342",
+                                                "game-obj": "Sources",
+                                                "aonid": 2
+                                            },
+                                            "page": 342
+                                        }
+                                    ],
+                                    "traits": [
+                                        {
+                                            "name": "Concentrate",
+                                            "type": "trait",
+                                            "alternate_link": {
+                                                "type": "alternate_link",
+                                                "game-obj": "Traits",
+                                                "aonid": 32,
+                                                "alternate_type": "legacy"
+                                            },
+                                            "edition": "remastered",
+                                            "sources": [
+                                                {
+                                                    "type": "source",
+                                                    "name": "Player Core",
+                                                    "link": {
+                                                        "type": "link",
+                                                        "name": "Player Core pg. 454",
+                                                        "alt": "Player Core pg. 454",
+                                                        "game-obj": "Sources",
+                                                        "aonid": 216
+                                                    },
+                                                    "page": 454,
+                                                    "errata": {
+                                                        "type": "link",
+                                                        "name": "2.0",
+                                                        "alt": "2.0",
+                                                        "game-obj": "Sources",
+                                                        "aonid": 216
+                                                    }
+                                                }
+                                            ],
+                                            "game-obj": "Traits",
+                                            "game-id": "e32d877417a40fe977d27634dc14f99f",
+                                            "text": "An action with this trait requires a degree of mental concentration and discipline."
+                                        },
+                                        {
+                                            "name": "Polymorph",
+                                            "type": "trait",
+                                            "alternate_link": {
+                                                "type": "alternate_link",
+                                                "game-obj": "Traits",
+                                                "aonid": 127,
+                                                "alternate_type": "legacy"
+                                            },
+                                            "edition": "remastered",
+                                            "sources": [
+                                                {
+                                                    "type": "source",
+                                                    "name": "Player Core",
+                                                    "link": {
+                                                        "type": "link",
+                                                        "name": "Player Core pg. 301",
+                                                        "alt": "Player Core pg. 301",
+                                                        "game-obj": "Sources",
+                                                        "aonid": 216
+                                                    },
+                                                    "page": 301,
+                                                    "errata": {
+                                                        "type": "link",
+                                                        "name": "2.0",
+                                                        "alt": "2.0",
+                                                        "game-obj": "Sources",
+                                                        "aonid": 216
+                                                    }
+                                                }
+                                            ],
+                                            "game-obj": "Traits",
+                                            "game-id": "69f30c8801710f12f6fbd5a2c7c0d91d",
+                                            "text": "These effects transform the target into a new form. A target can't be under the effect of more than one polymorph effect at a time. If it comes under the effect of a second polymorph effect, the second polymorph effect attempts to counteract the first. If it succeeds, it takes effect, and if it fails, the spell has no effect on that target. Any Strikes specifically granted by a polymorph effect are magical. Unless otherwise stated, polymorph spells don't allow the target to take on the appearance of a specific individual creature, but rather just a generic creature of a general type or ancestry.  \n  \n If you take on a battle form with a polymorph spell, the special statistics can be adjusted only by circumstance bonuses, status bonuses, and penalties. Unless otherwise noted, the battle form prevents you from casting spells, speaking, and using most manipulate actions that require hands. (If there's doubt about whether you can use an action, the GM decides.) Your gear is absorbed into you; the constant abilities of your gear still function, but you can't activate any items. If a polymorph effect causes you to increase in size, you must have space to expand into or the effect is disrupted.",
+                                            "links": [
+                                                {
+                                                    "type": "link",
+                                                    "name": "counteract",
+                                                    "alt": "counteract",
+                                                    "game-obj": "Rules",
+                                                    "aonid": 371
+                                                },
+                                                {
+                                                    "type": "link",
+                                                    "name": "magical",
+                                                    "alt": "magical",
+                                                    "game-obj": "Traits",
+                                                    "aonid": 103
+                                                },
+                                                {
+                                                    "type": "link",
+                                                    "name": "manipulate",
+                                                    "alt": "manipulate",
+                                                    "game-obj": "Traits",
+                                                    "aonid": 104
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Transmutation",
+                                            "type": "trait",
+                                            "edition": "legacy",
+                                            "sources": [
+                                                {
+                                                    "type": "source",
+                                                    "name": "Core Rulebook",
+                                                    "link": {
+                                                        "type": "link",
+                                                        "name": "Core Rulebook pg. 637",
+                                                        "alt": "Core Rulebook pg. 637",
+                                                        "game-obj": "Sources",
+                                                        "aonid": 1
+                                                    },
+                                                    "page": 637,
+                                                    "errata": {
+                                                        "type": "link",
+                                                        "name": "4.0",
+                                                        "alt": "4.0",
+                                                        "game-obj": "Sources",
+                                                        "aonid": 1
+                                                    }
+                                                }
+                                            ],
+                                            "game-obj": "Traits",
+                                            "game-id": "e15261ef9d67eae23579ccf106d27c86",
+                                            "text": "Effects and magic items with this trait are associated with the transmutation school of magic, typically changing something\u2019s form."
+                                        }
+                                    ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "Impersonate",
+                                            "alt": "Impersonate",
+                                            "game-obj": "Actions",
+                                            "aonid": 46
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "Deception",
+                                            "alt": "Deception",
+                                            "game-obj": "Skills",
+                                            "aonid": 5
+                                        }
+                                    ],
+                                    "game-id": "7564ef41c1e467932029913cee1f7b20"
+                                }
                             },
                             {
                                 "type": "stat_block_section",
@@ -1271,7 +1470,8 @@
                                         "aonid": 18
                                     }
                                 ],
-                                "text": "If a creature dies after being reduced to 0 HP by Drink Blood, a vrykolakas master can turn this creature into a vrykolakas spawn by donating some of its own blood to the creature and burying it in earth for 3 nights. Such vrykolakas spawn are generally friendly to the vrykolakas that created them, but they are not under its control and typically wander off on their own rampage within 1d6 days of their creation."
+                                "text": "If a creature dies after being reduced to 0 HP by Drink Blood, a vrykolakas master can turn this creature into a vrykolakas spawn by donating some of its own blood to the creature and burying it in earth for 3 nights. Such vrykolakas spawn are generally friendly to the vrykolakas that created them, but they are not under its control and typically wander off on their own rampage within 1d6 days of their creation.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1342,14 +1542,16 @@
                                         "aonid": 87
                                     }
                                 ],
-                                "text": "The vrykolakas can cast *dominate* at will as a divine innate spell that affects only animals. The save DC is a high DC for the vrykolakas's level, and a creature that succeeds is immune to that vrykolakas's Dominate Animal for 24 hours. Destroying the vrykolakas ends the effect, but reducing it to 0 HP does not. A dominated animal takes a \u20134 circumstance penalty to saving throws against the vrykolakas's Feral Possession."
+                                "text": "The vrykolakas can cast *dominate* at will as a divine innate spell that affects only animals. The save DC is a high DC for the vrykolakas's level, and a creature that succeeds is immune to that vrykolakas's Dominate Animal for 24 hours. Destroying the vrykolakas ends the effect, but reducing it to 0 HP does not. A dominated animal takes a \u20134 circumstance penalty to saving throws against the vrykolakas's Feral Possession.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Drink Blood",
                                 "ability_type": "ability",
-                                "text": "As a typical vrykolakas, but the creature is drained 2 instead of 1."
+                                "text": "As a typical vrykolakas, but the creature is drained 2 instead of 1.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [

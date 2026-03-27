@@ -338,7 +338,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "darkvision",
@@ -346,7 +347,60 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 12
                     },
-                    "name": "darkvision"
+                    "name": "darkvision",
+                    "universal_monster_ability": {
+                        "name": "Darkvision",
+                        "type": "ability",
+                        "text": "A monster with darkvision can see perfectly well in areas of darkness and dim light, though such vision is in black and white only. Some forms of magical darkness, such as a 4th-level *darkness* spell, block normal darkvision. A monster with greater darkvision, however, can see through even these forms of magical darkness.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 12,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "darkvision",
+                                "alt": "darkvision",
+                                "game-obj": "Rules",
+                                "aonid": 415
+                            },
+                            {
+                                "type": "link",
+                                "name": "darkness",
+                                "alt": "darkness",
+                                "game-obj": "Rules",
+                                "aonid": 409
+                            },
+                            {
+                                "type": "link",
+                                "name": "dim light",
+                                "alt": "dim light",
+                                "game-obj": "Rules",
+                                "aonid": 408
+                            },
+                            {
+                                "type": "link",
+                                "name": "darkness",
+                                "alt": "darkness",
+                                "game-obj": "Spells",
+                                "aonid": 59
+                            }
+                        ],
+                        "game-id": "fbaadf5607a32287e723316e8772a2c6"
+                    }
                 }
             ]
         },
@@ -656,7 +710,25 @@
                             "text": "An effect with this trait delivers a poison or deals poison damage. An item with this trait is poisonous and might cause an affliction."
                         }
                     ],
-                    "text": "Whenever the festrog takes piercing or slashing damage, creatures adjacent to the festrog take 1d4 poison damage (DC 14 basic Reflex save)."
+                    "text": "Whenever the festrog takes piercing or slashing damage, creatures adjacent to the festrog take 1d4 poison damage (DC 14 basic Reflex save).",
+                    "saving_throw": [
+                        {
+                            "basic": true,
+                            "dc": 14,
+                            "save_type": "Ref",
+                            "subtype": "save_dc",
+                            "text": "DC 14 basic Reflex save",
+                            "type": "stat_block_section"
+                        }
+                    ],
+                    "damage": [
+                        {
+                            "damage_type": "poison",
+                            "formula": "1d4",
+                            "subtype": "attack_damage",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },
@@ -851,7 +923,15 @@
                             }
                         ],
                         "requirement": "The festrog's last action was a jaws Strike that damaged a living creature",
-                        "effect": "The festrog tears into the creature's flesh and gulps it down voraciously, dealing 1d4 slashing damage to the creature and gaining temporary Hit Points equal to the damage dealt. These temporary HP last for 1 minute."
+                        "effect": "The festrog tears into the creature's flesh and gulps it down voraciously, dealing 1d4 slashing damage to the creature and gaining temporary Hit Points equal to the damage dealt. These temporary HP last for 1 minute.",
+                        "damage": [
+                            {
+                                "damage_type": "slashing",
+                                "formula": "1d4",
+                                "subtype": "attack_damage",
+                                "type": "stat_block_section"
+                            }
+                        ]
                     }
                 },
                 {
@@ -890,6 +970,11 @@
                 "name": "Core Rulebook",
                 "type": "section",
                 "text": "**Pathfinder Core Rulebook (Second Edition)** \u00a9 2019, Paizo Inc.; Designers: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter."
+            },
+            {
+                "name": "Bestiary",
+                "type": "section",
+                "text": "**Daemon, Guardian from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.  \n **Dark Creeper from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Rik Shepard.  \n **Dark Stalker from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.  \n **Dragon, Faerie from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Brian Jaeger and Gary Gygax.  \n **Genie, Marid from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.  \n **Mite from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.  \n **Pathfinder Bestiary (Second Edition)** \u00a9 2019, Paizo Inc.; Authors: Alexander Augunas, Logan Bonner, Jason Bulmahn, John Compton, Paris Crenshaw, Adam Daigle, Eleanor Ferron, Leo Glass, Thurston Hillman, James Jacobs, Jason Keeley, Lyz Liddell, Ron Lundeen, Robert G. McCreary, Tim Nightengale, Stephen Radney-MacFarland, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Jeffrey Swank, Jason Tondro, Tonya Woldridge, and Linda Zayas-Palmer."
             },
             {
                 "name": "Bestiary 2",

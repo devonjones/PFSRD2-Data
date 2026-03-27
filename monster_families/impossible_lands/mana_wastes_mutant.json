@@ -304,7 +304,16 @@
                                         "aonid": 329
                                     }
                                 ],
-                                "text": "Whenever the mutant takes piercing or slashing damage, creatures adjacent to the mutant take 1d6 acid damage (basic Reflex save). The damage increases to 2d6 if the mutant is at least 8th level and 3d6 if the mutant is at least 15th level."
+                                "text": "Whenever the mutant takes piercing or slashing damage, creatures adjacent to the mutant take 1d6 acid damage (basic Reflex save). The damage increases to 2d6 if the mutant is at least 8th level and 3d6 if the mutant is at least 15th level.",
+                                "damage": [
+                                    {
+                                        "damage_type": "acid",
+                                        "formula": "1d6",
+                                        "subtype": "attack_damage",
+                                        "type": "stat_block_section"
+                                    }
+                                ],
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -341,7 +350,8 @@
                                         "aonid": 15
                                     }
                                 ],
-                                "text": "The mutant can change their coloration to match their surroundings. They don't need cover or concealment to attempt to Hide with a Stealth check."
+                                "text": "The mutant can change their coloration to match their surroundings. They don't need cover or concealment to attempt to Hide with a Stealth check.",
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -374,7 +384,15 @@
                                         }
                                     }
                                 ],
-                                "text": "A creature who casts a spell within 30 feet of the mutant must succeed at a Will save or spend its next action to Stride toward the mutant. It can't Delay or take any reactions until it has obeyed the compulsion."
+                                "text": "A creature who casts a spell within 30 feet of the mutant must succeed at a Will save or spend its next action to Stride toward the mutant. It can't Delay or take any reactions until it has obeyed the compulsion.",
+                                "range": {
+                                    "range": 30,
+                                    "subtype": "range",
+                                    "text": "within 30 feet",
+                                    "type": "stat_block_section",
+                                    "unit": "feet"
+                                },
+                                "ability_category": "reactive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -421,14 +439,42 @@
                                         "aonid": 329
                                     }
                                 ],
-                                "text": "Choose an energy type; this ability gains that energy type as a trait. The mutant gains some sort of physical alteration to their shape that suggests how they trigger their energy blast, be it numerous pustules on their body, an extra limb, or an additional opening in their throat to exhale the blast as a breath weapon. Choose whether the mutant creates a 60-foot line of energy or a 30-foot cone of energy when they activate this ability. The energy deals 1d6 damage per level with a basic Reflex save. The mutant can't use Energy Blast again for 1d4 rounds."
+                                "text": "Choose an energy type; this ability gains that energy type as a trait. The mutant gains some sort of physical alteration to their shape that suggests how they trigger their energy blast, be it numerous pustules on their body, an extra limb, or an additional opening in their throat to exhale the blast as a breath weapon. Choose whether the mutant creates a 60-foot line of energy or a 30-foot cone of energy when they activate this ability. The energy deals 1d6 damage per level with a basic Reflex save. The mutant can't use Energy Blast again for 1d4 rounds.",
+                                "ability_category": "offensive",
+                                "area": [
+                                    {
+                                        "shape": "line",
+                                        "size": 60,
+                                        "subtype": "area",
+                                        "text": "60-foot line",
+                                        "type": "stat_block_section",
+                                        "unit": "feet"
+                                    },
+                                    {
+                                        "shape": "cone",
+                                        "size": 30,
+                                        "subtype": "area",
+                                        "text": "30-foot cone",
+                                        "type": "stat_block_section",
+                                        "unit": "feet"
+                                    }
+                                ],
+                                "damage": [
+                                    {
+                                        "formula": "1d6",
+                                        "subtype": "attack_damage",
+                                        "type": "stat_block_section"
+                                    }
+                                ],
+                                "frequency": "1d4 rounds"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Energy Resistance",
                                 "ability_type": "ability",
-                                "text": "The mutant has strangely colored skin or fur and gains resistance to a single type of energy damage. The amount of energy resistance gained depends on the mutant's level."
+                                "text": "The mutant has strangely colored skin or fur and gains resistance to a single type of energy damage. The amount of energy resistance gained depends on the mutant's level.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -458,7 +504,8 @@
                                         "aonid": 18
                                     }
                                 ],
-                                "text": "The mutant grows a writhing, serpentine appendage, granting them a tentacle Strike (an agile unarmed attack that deals bludgeoning damage), and the Grab ability with that Strike. If they had any agile attacks, the damage dealt by their tentacle should be roughly the same as the damage dealt by those attacks. If they had only non-agile attacks, their tentacle should deal three-quarters that damage."
+                                "text": "The mutant grows a writhing, serpentine appendage, granting them a tentacle Strike (an agile unarmed attack that deals bludgeoning damage), and the Grab ability with that Strike. If they had any agile attacks, the damage dealt by their tentacle should be roughly the same as the damage dealt by those attacks. If they had only non-agile attacks, their tentacle should deal three-quarters that damage.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -474,14 +521,16 @@
                                         "aonid": 192
                                     }
                                 ],
-                                "text": "Increase the mutant's size by one category. Decrease their AC by 1, increase their HP by 1/10 their normal maximum HP, and increase the reach of all their melee Strikes by 5 feet."
+                                "text": "Increase the mutant's size by one category. Decrease their AC by 1, increase their HP by 1/10 their normal maximum HP, and increase the reach of all their melee Strikes by 5 feet.",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Hungry Maw",
                                 "ability_type": "ability",
-                                "text": "A mouth full of razor-sharp teeth opens somewhere on the mutant's body. They gain a maw Strike (an unarmed attack that does piercing damage roughly the same as the damage dealt by their most damaging melee attack), and they gain the Vengeful Bite reaction."
+                                "text": "A mouth full of razor-sharp teeth opens somewhere on the mutant's body. They gain a maw Strike (an unarmed attack that does piercing damage roughly the same as the damage dealt by their most damaging melee attack), and they gain the Vengeful Bite reaction.",
+                                "ability_category": "reactive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -510,21 +559,31 @@
                                     }
                                 ],
                                 "trigger": "A creature critically hits the mutant with a melee unarmed Strike or a non-reach melee **Strike**",
-                                "effect": "The mutant makes a maw Strike against the triggering creature."
+                                "effect": "The mutant makes a maw Strike against the triggering creature.",
+                                "ability_category": "reactive"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Increased Speed",
                                 "ability_type": "ability",
-                                "text": "The mutant's limbs change, or they grow new limbs to accommodate their mutation. Either one of their existing Speeds increases by 20 feet or they gain a new Speed (such as fly or swim) of 15 feet."
+                                "text": "The mutant's limbs change, or they grow new limbs to accommodate their mutation. Either one of their existing Speeds increases by 20 feet or they gain a new Speed (such as fly or swim) of 15 feet.",
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Magic Hunger",
                                 "ability_type": "ability",
-                                "text": "The mutant gains the ability to detect the source of any magic within 30 feet as an imprecise sense."
+                                "text": "The mutant gains the ability to detect the source of any magic within 30 feet as an imprecise sense.",
+                                "range": {
+                                    "range": 30,
+                                    "subtype": "range",
+                                    "text": "within 30 feet",
+                                    "type": "stat_block_section",
+                                    "unit": "feet"
+                                },
+                                "ability_category": "special_sense"
                             },
                             {
                                 "type": "stat_block_section",
@@ -595,7 +654,8 @@
                                         "aonid": 91
                                     }
                                 ],
-                                "text": "The mutant takes on the specific appearance of any Small or Medium humanoid they can currently see. This doesn't alter their statistics, but it might change the damage type of their Strikes."
+                                "text": "The mutant takes on the specific appearance of any Small or Medium humanoid they can currently see. This doesn't alter their statistics, but it might change the damage type of their Strikes.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -656,14 +716,23 @@
                                         "aonid": 34
                                     }
                                 ],
-                                "text": "Details of the mutant's appearance are disturbing and unnatural in the extreme. A non-mutant living creature who begins their turn within 60 feet of the mutant must succeed at a Fortitude save or become sickened 2. A creature who succeeds at its save is then temporarily immune to the aura for 24 hours."
+                                "text": "Details of the mutant's appearance are disturbing and unnatural in the extreme. A non-mutant living creature who begins their turn within 60 feet of the mutant must succeed at a Fortitude save or become sickened 2. A creature who succeeds at its save is then temporarily immune to the aura for 24 hours.",
+                                "range": {
+                                    "range": 60,
+                                    "subtype": "range",
+                                    "text": "within 60 feet",
+                                    "type": "stat_block_section",
+                                    "unit": "feet"
+                                },
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sprouted Limb",
                                 "ability_type": "ability",
-                                "text": "The mutant grows an extra leg, increasing their Speed by 10 feet."
+                                "text": "The mutant grows an extra leg, increasing their Speed by 10 feet.",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -679,7 +748,8 @@
                                         "aonid": 1
                                     }
                                 ],
-                                "text": "Countless eyes sprout on the mutant's skin. They gain all-around vision."
+                                "text": "Countless eyes sprout on the mutant's skin. They gain all-around vision.",
+                                "ability_category": "special_sense"
                             }
                         ],
                         "effects": [
@@ -731,14 +801,24 @@
                                         "aonid": 329
                                     }
                                 ],
-                                "text": "The mutant must have a jaws, claw, sting, or other melee Strike to gain this ability. That Strike now inflicts a disease, poison, or similar affliction on a hit, with a Fortitude save to resist. You can use the rules for existing monsters of the mutant's level for diseases, poisons, and similar afflictions to give to your mutant, or you can simply say the strike inflicts an additional 1d6 poison damage + an additional 1d6 points per 4 mutant levels on a hit, with a basic Fortitude save. This makes the Strike significantly more deadly, so reduce the damage in other ways to account for this increase."
+                                "text": "The mutant must have a jaws, claw, sting, or other melee Strike to gain this ability. That Strike now inflicts a disease, poison, or similar affliction on a hit, with a Fortitude save to resist. You can use the rules for existing monsters of the mutant's level for diseases, poisons, and similar afflictions to give to your mutant, or you can simply say the strike inflicts an additional 1d6 poison damage + an additional 1d6 points per 4 mutant levels on a hit, with a basic Fortitude save. This makes the Strike significantly more deadly, so reduce the damage in other ways to account for this increase.",
+                                "damage": [
+                                    {
+                                        "damage_type": "poison",
+                                        "formula": "1d6",
+                                        "subtype": "attack_damage",
+                                        "type": "stat_block_section"
+                                    }
+                                ],
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Energy Resistance",
                                 "ability_type": "ability",
-                                "text": "The mutant has strangely colored skin or fur and gains resistance to a single type of energy damage. The amount of energy resistance gained depends on the mutant's level:"
+                                "text": "The mutant has strangely colored skin or fur and gains resistance to a single type of energy damage. The amount of energy resistance gained depends on the mutant's level:",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -785,7 +865,26 @@
                                         "aonid": 329
                                     }
                                 ],
-                                "text": "Choose an energy type; this ability gains that energy type as a trait. The mutant gains some sort of physical alteration to its shape that suggests how it triggers its energy blast, be it numerous pustules on its body, an additional limb, or additional opening in its throat to exhale the blast as a breath weapon. Choose whether the mutant creates a 60- foot line of energy or a 30-foot cone of energy when it activates this ability. The energy deals 1d6 damage per level with a basic Reflex save. The mutant can't use Energy Blast again for 1d4 rounds."
+                                "text": "Choose an energy type; this ability gains that energy type as a trait. The mutant gains some sort of physical alteration to its shape that suggests how it triggers its energy blast, be it numerous pustules on its body, an additional limb, or additional opening in its throat to exhale the blast as a breath weapon. Choose whether the mutant creates a 60- foot line of energy or a 30-foot cone of energy when it activates this ability. The energy deals 1d6 damage per level with a basic Reflex save. The mutant can't use Energy Blast again for 1d4 rounds.",
+                                "ability_category": "offensive",
+                                "area": [
+                                    {
+                                        "shape": "cone",
+                                        "size": 30,
+                                        "subtype": "area",
+                                        "text": "30-foot cone",
+                                        "type": "stat_block_section",
+                                        "unit": "feet"
+                                    }
+                                ],
+                                "damage": [
+                                    {
+                                        "formula": "1d6",
+                                        "subtype": "attack_damage",
+                                        "type": "stat_block_section"
+                                    }
+                                ],
+                                "frequency": "1d4 rounds"
                             },
                             {
                                 "type": "stat_block_section",
@@ -808,14 +907,16 @@
                                         "aonid": 126
                                     }
                                 ],
-                                "text": "The mutant's flesh is distorted with the addition of unexpected fur, scales, warts, or other growths. The creature gains a +2 status bonus to saves against disease and poison. In rare cases, you might choose to grant immunity instead."
+                                "text": "The mutant's flesh is distorted with the addition of unexpected fur, scales, warts, or other growths. The creature gains a +2 status bonus to saves against disease and poison. In rare cases, you might choose to grant immunity instead.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Increased Speed",
                                 "ability_type": "ability",
-                                "text": "The mutant's limbs change, or it grows new limbs to accommodate its mutation. Either one of its existing Speeds increases by 20 feet, or it gains a new Speed (such as fly or swim) of 15 feet."
+                                "text": "The mutant's limbs change, or it grows new limbs to accommodate its mutation. Either one of its existing Speeds increases by 20 feet, or it gains a new Speed (such as fly or swim) of 15 feet.",
+                                "ability_category": "interaction"
                             }
                         ],
                         "effects": [

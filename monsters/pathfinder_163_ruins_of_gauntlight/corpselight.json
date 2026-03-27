@@ -402,7 +402,8 @@
             "special_senses": [
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "range": {
                         "type": "stat_block_section",
                         "subtype": "range",
@@ -421,7 +422,8 @@
                 },
                 {
                     "type": "stat_block_section",
-                    "subtype": "special_sense",
+                    "subtype": "ability",
+                    "ability_type": "special_sense",
                     "link": {
                         "type": "link",
                         "name": "darkvision",
@@ -429,7 +431,60 @@
                         "game-obj": "MonsterAbilities",
                         "aonid": 12
                     },
-                    "name": "darkvision"
+                    "name": "darkvision",
+                    "universal_monster_ability": {
+                        "name": "Darkvision",
+                        "type": "ability",
+                        "text": "A monster with darkvision can see perfectly well in areas of darkness and dim light, though such vision is in black and white only. Some forms of magical darkness, such as a 4th-level *darkness* spell, block normal darkvision. A monster with greater darkvision, however, can see through even these forms of magical darkness.",
+                        "ability_type": "universal_monster_ability",
+                        "aonid": 12,
+                        "game-obj": "MonsterAbilities",
+                        "sources": [
+                            {
+                                "type": "source",
+                                "name": "Bestiary",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Bestiary pg. 343",
+                                    "alt": "Bestiary pg. 343",
+                                    "game-obj": "Sources",
+                                    "aonid": 2
+                                },
+                                "page": 343
+                            }
+                        ],
+                        "links": [
+                            {
+                                "type": "link",
+                                "name": "darkvision",
+                                "alt": "darkvision",
+                                "game-obj": "Rules",
+                                "aonid": 415
+                            },
+                            {
+                                "type": "link",
+                                "name": "darkness",
+                                "alt": "darkness",
+                                "game-obj": "Rules",
+                                "aonid": 409
+                            },
+                            {
+                                "type": "link",
+                                "name": "dim light",
+                                "alt": "dim light",
+                                "game-obj": "Rules",
+                                "aonid": 408
+                            },
+                            {
+                                "type": "link",
+                                "name": "darkness",
+                                "alt": "darkness",
+                                "game-obj": "Spells",
+                                "aonid": 59
+                            }
+                        ],
+                        "game-id": "fbaadf5607a32287e723316e8772a2c6"
+                    }
                 }
             ]
         },
@@ -752,7 +807,16 @@
                     "subtype": "ability",
                     "ability_type": "automatic",
                     "name": "Wisp Form",
-                    "text": "When a corpselight is reduced to 0 Hit Points while merged with a corpse, it is instead reduced to 1 Hit Point as the corpse collapses to the ground and the corpselight emerges in its wisp form. While in wisp form, a corpselight is Tiny and can take no actions other than Claim Corpse or Fly. A corpselight that starts its turn in wisp form must attempt a DC 16 flat check at the end of its turn; if it fails, it loses 1 Hit Point. A corpselight reduced to 0 Hit Points while in wisp form is destroyed."
+                    "text": "When a corpselight is reduced to 0 Hit Points while merged with a corpse, it is instead reduced to 1 Hit Point as the corpse collapses to the ground and the corpselight emerges in its wisp form. While in wisp form, a corpselight is Tiny and can take no actions other than Claim Corpse or Fly. A corpselight that starts its turn in wisp form must attempt a DC 16 flat check at the end of its turn; if it fails, it loses 1 Hit Point. A corpselight reduced to 0 Hit Points while in wisp form is destroyed.",
+                    "saving_throw": [
+                        {
+                            "dc": 16,
+                            "save_type": "Flat Check",
+                            "subtype": "save_dc",
+                            "text": "DC 16 flat check",
+                            "type": "stat_block_section"
+                        }
+                    ]
                 }
             ]
         },

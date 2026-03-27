@@ -153,7 +153,61 @@
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Darkvision",
-                                "ability_type": "ability"
+                                "ability_type": "ability",
+                                "ability_category": "special_sense",
+                                "universal_monster_ability": {
+                                    "name": "Darkvision",
+                                    "type": "ability",
+                                    "text": "A monster with darkvision can see perfectly well in areas of darkness and dim light, though such vision is in black and white only. Some forms of magical darkness, such as a 4th-level *darkness* spell, block normal darkvision. A monster with greater darkvision, however, can see through even these forms of magical darkness.",
+                                    "ability_type": "universal_monster_ability",
+                                    "aonid": 12,
+                                    "game-obj": "MonsterAbilities",
+                                    "sources": [
+                                        {
+                                            "type": "source",
+                                            "name": "Bestiary",
+                                            "link": {
+                                                "type": "link",
+                                                "name": "Bestiary pg. 343",
+                                                "alt": "Bestiary pg. 343",
+                                                "game-obj": "Sources",
+                                                "aonid": 2
+                                            },
+                                            "page": 343
+                                        }
+                                    ],
+                                    "links": [
+                                        {
+                                            "type": "link",
+                                            "name": "darkvision",
+                                            "alt": "darkvision",
+                                            "game-obj": "Rules",
+                                            "aonid": 415
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "darkness",
+                                            "alt": "darkness",
+                                            "game-obj": "Rules",
+                                            "aonid": 409
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "dim light",
+                                            "alt": "dim light",
+                                            "game-obj": "Rules",
+                                            "aonid": 408
+                                        },
+                                        {
+                                            "type": "link",
+                                            "name": "darkness",
+                                            "alt": "darkness",
+                                            "game-obj": "Spells",
+                                            "aonid": 59
+                                        }
+                                    ],
+                                    "game-id": "fbaadf5607a32287e723316e8772a2c6"
+                                }
                             },
                             {
                                 "type": "stat_block_section",
@@ -169,7 +223,8 @@
                                         "aonid": 509
                                     }
                                 ],
-                                "text": "+1 status bonus to all saves vs. vitality"
+                                "text": "+1 status bonus to all saves vs. vitality",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -235,7 +290,8 @@
                                         }
                                     ],
                                     "game-id": "ebe30e9ccb052cef2a000a746b7233e9"
-                                }
+                                },
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -256,7 +312,8 @@
                                         }
                                     }
                                 ],
-                                "text": "When a lich is destroyed, their soul immediately transfers to their *soul cage*. A lich can be permanently destroyed only if their *soul cage* is found and destroyed."
+                                "text": "When a lich is destroyed, their soul immediately transfers to their *soul cage*. A lich can be permanently destroyed only if their *soul cage* is found and destroyed.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -300,7 +357,8 @@
                                         "aonid": 95
                                     }
                                 ],
-                                "text": "bleed, death effects, disease, paralyzed, poison, unconscious"
+                                "text": "bleed, death effects, disease, paralyzed, poison, unconscious",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -316,7 +374,8 @@
                                         "aonid": 644
                                     }
                                 ],
-                                "text": "cold 10, physical 10 (except magical bludgeoning)"
+                                "text": "cold 10, physical 10 (except magical bludgeoning)",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -586,7 +645,8 @@
                                         "text": "DC 30",
                                         "dc": 30
                                     }
-                                ]
+                                ],
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -609,7 +669,16 @@
                                         "aonid": 602
                                     }
                                 ],
-                                "text": "All liches have a hand unarmed attack that deals 1d8 void damage for every 3 levels the lich has. This attack has the finesse trait."
+                                "text": "All liches have a hand unarmed attack that deals 1d8 void damage for every 3 levels the lich has. This attack has the finesse trait.",
+                                "damage": [
+                                    {
+                                        "damage_type": "void",
+                                        "formula": "1d8",
+                                        "subtype": "attack_damage",
+                                        "type": "stat_block_section"
+                                    }
+                                ],
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -622,7 +691,8 @@
                                     "name": "Free Action"
                                 },
                                 "frequency": "once per day",
-                                "effect": "The lich taps into their soul cage's power to cast any arcane spell up to the highest rank the lich can cast, even if the spell being cast is not one of the lich's prepared spells. The lich's soul cage doesn't need to be present for the lich to use this ability."
+                                "effect": "The lich taps into their soul cage's power to cast any arcane spell up to the highest rank the lich can cast, even if the spell being cast is not one of the lich's prepared spells. The lich's soul cage doesn't need to be present for the lich to use this ability.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -652,7 +722,8 @@
                                         "aonid": 90
                                     }
                                 ],
-                                "text": "A lich's form draws forth life from those who come into contact with it. When the lich damages a living creature with an unarmed attack, the lich gains 5 temporary Hit Points and the creature must succeed at a Fortitude save against the lich's spell DC \u2013 2 or become drained 1. If the lich is grabbed or restrained at the start of its turn, each creature grabbing or restraining it must succeed at a Fortitude save or become drained 1. If the lich siphons a creature's life again, the drained value increase by 1, to a maximum of drained 4."
+                                "text": "A lich's form draws forth life from those who come into contact with it. When the lich damages a living creature with an unarmed attack, the lich gains 5 temporary Hit Points and the creature must succeed at a Fortitude save against the lich's spell DC \u2013 2 or become drained 1. If the lich is grabbed or restrained at the start of its turn, each creature grabbing or restraining it must succeed at a Fortitude save or become drained 1. If the lich siphons a creature's life again, the drained value increase by 1, to a maximum of drained 4.",
+                                "ability_category": "automatic"
                             }
                         ],
                         "effects": [
@@ -750,7 +821,17 @@
                                     "text": "10 feet",
                                     "range": 10,
                                     "unit": "feet"
-                                }
+                                },
+                                "saving_throw": [
+                                    {
+                                        "dc": 10,
+                                        "save_type": "Flat Check",
+                                        "subtype": "save_dc",
+                                        "text": "DC 10 flat check",
+                                        "type": "stat_block_section"
+                                    }
+                                ],
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -766,14 +847,16 @@
                                         "aonid": 92
                                     }
                                 ],
-                                "text": "The lich's hand Strike deals cold damage instead of void and the target is slowed 2. A successful Fortitude save reduces this to slowed 1 (or negates it on a critical success)."
+                                "text": "The lich's hand Strike deals cold damage instead of void and the target is slowed 2. A successful Fortitude save reduces this to slowed 1 (or negates it on a critical success).",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Dark Deliverance",
                                 "ability_type": "ability",
-                                "text": "The lich has resistance equal to their level to vitality."
+                                "text": "The lich has resistance equal to their level to vitality.",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -836,7 +919,8 @@
                                     "text": "30 feet",
                                     "range": 30,
                                     "unit": "feet"
-                                }
+                                },
+                                "ability_category": "automatic"
                             }
                         ],
                         "effects": [

@@ -405,7 +405,40 @@
                         "aonid": 101
                     }
                 ],
-                "text": "- **Revulsion** A vetalarana delights in consuming memories and secrets, and is disgusted by those who share such sensitive tidbits openly. A vetalarana can't voluntarily come within 10 feet of a creature loudly voicing their intimate personal secrets or most cherished memories aloud. Speaking such information aloud with conviction is a single action that has the auditory, concentrate, and linguistic traits, and protects the creature until the start of its next turn. A vetalarana that involuntarily comes within 10 feet of a creature sharing such information gains the fleeing condition until they're 10 feet or farther from the creature. After 1 round of being exposed to the secrets of a creature, a vetalarana can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success)."
+                "text": "- **Revulsion** A vetalarana delights in consuming memories and secrets, and is disgusted by those who share such sensitive tidbits openly. A vetalarana can't voluntarily come within 10 feet of a creature loudly voicing their intimate personal secrets or most cherished memories aloud. Speaking such information aloud with conviction is a single action that has the auditory, concentrate, and linguistic traits, and protects the creature until the start of its next turn. A vetalarana that involuntarily comes within 10 feet of a creature sharing such information gains the fleeing condition until they're 10 feet or farther from the creature. After 1 round of being exposed to the secrets of a creature, a vetalarana can attempt a DC 25 Will save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success).",
+                "change_category": "traits",
+                "effects": [
+                    {
+                        "name": "Auditory",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Concentrate",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Linguistic",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Feet",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Creature",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    },
+                    {
+                        "name": "Action",
+                        "operation": "add_item",
+                        "target": "$.creature_type.creature_types"
+                    }
+                ]
             },
             {
                 "type": "stat_block_section",
@@ -419,7 +452,8 @@
                         "aonid": 106
                     }
                 ],
-                "text": "- **Vulnerable to Brain Destruction** A vetalarana whose brain has been destroyed, or is reduced to 0 HP while unable to take mental actions, can't use Mental Rebirth."
+                "text": "- **Vulnerable to Brain Destruction** A vetalarana whose brain has been destroyed, or is reduced to 0 HP while unable to take mental actions, can't use Mental Rebirth.",
+                "change_category": "hit_points"
             }
         ],
         "subtypes": [
@@ -487,13 +521,52 @@
                                         "aonid": 108
                                     }
                                 ],
-                                "text": "The vetalarana senses all non-mindless creatures within 100 feet as a precise sense."
+                                "text": "The vetalarana senses all non-mindless creatures within 100 feet as a precise sense.",
+                                "range": {
+                                    "range": 100,
+                                    "subtype": "range",
+                                    "text": "within 100 feet",
+                                    "type": "stat_block_section",
+                                    "unit": "feet"
+                                },
+                                "ability_category": "special_sense"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Negative Healing",
-                                "ability_type": "ability"
+                                "ability_type": "ability",
+                                "ability_category": "hp_automatic",
+                                "universal_monster_ability": {
+                                    "name": "Negative Healing",
+                                    "type": "ability",
+                                    "text": "A creature with negative healing draws health from negative energy rather than positive energy. It is damaged by positive damage and is not healed by positive healing effects. It does not take negative damage, and it is healed by negative effects that heal undead.",
+                                    "ability_type": "universal_monster_ability",
+                                    "aonid": 42,
+                                    "game-obj": "MonsterAbilities",
+                                    "sources": [
+                                        {
+                                            "type": "source",
+                                            "name": "Bestiary 2",
+                                            "link": {
+                                                "type": "link",
+                                                "name": "Bestiary 2 pg. 305",
+                                                "alt": "Bestiary 2 pg. 305",
+                                                "game-obj": "Sources",
+                                                "aonid": 32
+                                            },
+                                            "page": 305,
+                                            "errata": {
+                                                "type": "link",
+                                                "name": "2.0",
+                                                "alt": "2.0",
+                                                "game-obj": "Sources",
+                                                "aonid": 32
+                                            }
+                                        }
+                                    ],
+                                    "game-id": "26efbc8d7d89662ed2ef5191e0001427"
+                                }
                             },
                             {
                                 "type": "stat_block_section",
@@ -530,14 +603,16 @@
                                         "aonid": 145
                                     }
                                 ],
-                                "text": "death effects, disease, paralyzed, poison, sleep"
+                                "text": "death effects, disease, paralyzed, poison, sleep",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Vetalarana Vulnerabilities",
                                 "ability_type": "ability",
-                                "text": "All vetalaranas possess the following weaknesses."
+                                "text": "All vetalaranas possess the following weaknesses.",
+                                "ability_category": "automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -629,14 +704,23 @@
                                         "aonid": 38
                                     }
                                 ],
-                                "text": "Unlike most other undead, a vetalarana isn't destroyed when they reach 0 HP. Instead, their body is destroyed, crumbling to ash, and their mind is immediately transferred into a creature they rendered comatose through Drain Thoughts. This creature must be within 1 mile; if no such creature is in range, the vetalarana is destroyed. The creature becomes controlled by the vetalarana and loses the stupefied and unconscious conditions. If the creature controlled by a vetalarana in this way is killed, the vetalarana's mind transfers to another creature within 1 mile who they rendered comatose through Drain Thoughts."
+                                "text": "Unlike most other undead, a vetalarana isn't destroyed when they reach 0 HP. Instead, their body is destroyed, crumbling to ash, and their mind is immediately transferred into a creature they rendered comatose through Drain Thoughts. This creature must be within 1 mile; if no such creature is in range, the vetalarana is destroyed. The creature becomes controlled by the vetalarana and loses the stupefied and unconscious conditions. If the creature controlled by a vetalarana in this way is killed, the vetalarana's mind transfers to another creature within 1 mile who they rendered comatose through Drain Thoughts.",
+                                "range": {
+                                    "range": 1,
+                                    "subtype": "range",
+                                    "text": "within 1 mile",
+                                    "type": "stat_block_section",
+                                    "unit": "miles"
+                                },
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Climb Speed",
                                 "ability_type": "ability",
-                                "text": "A vetalarana gains a climb Speed equal to their land Speed."
+                                "text": "A vetalarana gains a climb Speed equal to their land Speed.",
+                                "ability_category": "interaction"
                             },
                             {
                                 "type": "stat_block_section",
@@ -666,7 +750,8 @@
                                         "aonid": 1018
                                     }
                                 ],
-                                "text": "If the base creature had hands, its fingernails thicken and grow to terrible proportions, granting it an unarmed claw Strike that deals slashing damage, has the agile trait, and can Grab. Use the moderate damage for the creature's level on the Strike Damage table."
+                                "text": "If the base creature had hands, its fingernails thicken and grow to terrible proportions, granting it an unarmed claw Strike that deals slashing damage, has the agile trait, and can Grab. Use the moderate damage for the creature's level on the Strike Damage table.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -754,7 +839,8 @@
                                     }
                                 ],
                                 "requirement": "A grabbed, paralyzed, restrained, unconscious, or willing creature is within the vetalarana's reach",
-                                "effect": "The vetalarana seizes a creature and consumes its memories. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim is stupefied 1, and the vetalarana regains HP equal to 10% of the vetalarana's maximum HP, gaining any excess as temporary Hit Points. Draining Thoughts from a creature that is already stupefied doesn't restore any HP to the vetalarana but increases the victim's stupefied value by 1. Additionally, the vetalarana views one of the victim's memories."
+                                "effect": "The vetalarana seizes a creature and consumes its memories. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim is stupefied 1, and the vetalarana regains HP equal to 10% of the vetalarana's maximum HP, gaining any excess as temporary Hit Points. Draining Thoughts from a creature that is already stupefied doesn't restore any HP to the vetalarana but increases the victim's stupefied value by 1. Additionally, the vetalarana views one of the victim's memories.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [
@@ -823,7 +909,8 @@
                                         "aonid": 375
                                     }
                                 ],
-                                "text": "The vetalarana manipulator resists mental damage and all physical damage (except magical cold iron)."
+                                "text": "The vetalarana manipulator resists mental damage and all physical damage (except magical cold iron).",
+                                "ability_category": "hp_automatic"
                             },
                             {
                                 "type": "stat_block_section",
@@ -914,7 +1001,15 @@
                                         "aonid": 225
                                     }
                                 ],
-                                "effect": "The vetalarana manipulator spends 10 minutes to take psychic control of the creatures they've rendered comatose with Drain Thoughts. This has the effects of the *possession* spell, but lasts for up to 6 hours, has a range of 1 mile, and the vetalarana can control a number of comatose victims at a time equal to half the vetalarana's level. A comatose victim can't resist this possession and automatically gets a critical failure on its saving throw against Control Comatose."
+                                "effect": "The vetalarana manipulator spends 10 minutes to take psychic control of the creatures they've rendered comatose with Drain Thoughts. This has the effects of the *possession* spell, but lasts for up to 6 hours, has a range of 1 mile, and the vetalarana can control a number of comatose victims at a time equal to half the vetalarana's level. A comatose victim can't resist this possession and automatically gets a critical failure on its saving throw against Control Comatose.",
+                                "range": {
+                                    "range": 1,
+                                    "subtype": "range",
+                                    "text": "range of 1 mile",
+                                    "type": "stat_block_section",
+                                    "unit": "miles"
+                                },
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -973,7 +1068,8 @@
                                         "aonid": 200
                                     }
                                 ],
-                                "text": "As a basic vetalarana, but the vetalarana manipulator can choose to alter, enhance, or erase the memory they view as a 4th-level *modify memory* spell. If the vetalarana gets a critical success on their Athletics check to Drain Thoughts, the target is stupefied 2 instead of stupefied 1."
+                                "text": "As a basic vetalarana, but the vetalarana manipulator can choose to alter, enhance, or erase the memory they view as a 4th-level *modify memory* spell. If the vetalarana gets a critical success on their Athletics check to Drain Thoughts, the target is stupefied 2 instead of stupefied 1.",
+                                "ability_category": "offensive"
                             },
                             {
                                 "type": "stat_block_section",
@@ -1050,7 +1146,8 @@
                                         "aonid": 1020
                                     }
                                 ],
-                                "text": "Any living creature hit by a vetalarana manipulator's claw Strike must succeed at a Fortitude save or become paralyzed. The target can attempt a new save at the end of each of its turns to end the effect, and the DC cumulatively decreases by 1 on each such save. Use the moderate DC for the creature's level on the Spell DC and Spell Attack Bonus table."
+                                "text": "Any living creature hit by a vetalarana manipulator's claw Strike must succeed at a Fortitude save or become paralyzed. The target can attempt a new save at the end of each of its turns to end the effect, and the DC cumulatively decreases by 1 on each such save. Use the moderate DC for the creature's level on the Spell DC and Spell Attack Bonus table.",
+                                "ability_category": "offensive"
                             }
                         ],
                         "effects": [
