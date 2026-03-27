@@ -81,30 +81,63 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Medical Service Prices",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Identify Affliction",
+                                "ability_type": "ability",
                                 "text": ": 1 sp."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Treat Wounds",
+                                "ability_type": "ability",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Treat Wounds",
+                                    "alt": "Treat Wounds",
+                                    "game-obj": "Actions",
+                                    "aonid": 57
+                                },
                                 "text": ": 2 sp."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Treat Disease",
+                                "ability_type": "ability",
+                                "link": {
+                                    "type": "link",
+                                    "name": "Treat Disease",
+                                    "alt": "Treat Disease",
+                                    "game-obj": "Actions",
+                                    "aonid": 55
+                                },
                                 "text": ": 1 gp."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "First Aid or Treating a Poison",
+                                "ability_type": "ability",
+                                "link": {
+                                    "type": "link",
+                                    "name": "First Aid",
+                                    "alt": "First Aid",
+                                    "game-obj": "Actions",
+                                    "aonid": 54
+                                },
                                 "text": ": 1 sp."
+                            }
+                        ],
+                        "effects": [
+                            {
+                                "target": "$.defense.automatic_abilities",
+                                "operation": "add_items",
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ],
                         "links": [
@@ -142,48 +175,6 @@
                                 "alt": "plague doctor",
                                 "game-obj": "NPCs",
                                 "aonid": 911
-                            },
-                            {
-                                "type": "link",
-                                "name": "Treat Wounds",
-                                "alt": "Treat Wounds",
-                                "game-obj": "Actions",
-                                "aonid": 57
-                            },
-                            {
-                                "type": "link",
-                                "name": "Treat Disease",
-                                "alt": "Treat Disease",
-                                "game-obj": "Actions",
-                                "aonid": 55
-                            },
-                            {
-                                "type": "link",
-                                "name": "First Aid",
-                                "alt": "First Aid",
-                                "game-obj": "Actions",
-                                "aonid": 54
-                            },
-                            {
-                                "type": "link",
-                                "name": "Treating a Poison",
-                                "alt": "Treating a Poison",
-                                "game-obj": "Actions",
-                                "aonid": 56
-                            }
-                        ],
-                        "change_category": "abilities",
-                        "effects": [
-                            {
-                                "names": [
-                                    "Identify Affliction",
-                                    "Treat Wounds",
-                                    "Treat Disease",
-                                    "First Aid or Treating a Poison"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
                             }
                         ]
                     }

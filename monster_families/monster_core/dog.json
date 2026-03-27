@@ -45,81 +45,85 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Rabies",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Rabies",
-                                "text": "(disease)"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Saving Throw",
-                                "text": "DC 17 Fortitude;"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Stage 1",
-                                "text": "sickened 1 (1 day);"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Stage 2",
-                                "text": "sickened 2 (1 day);"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Stage 3",
-                                "text": "confused (1 day);"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Stage 4",
-                                "text": "dead."
+                                "ability_type": "affliction",
+                                "traits": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "trait",
+                                        "name": "disease",
+                                        "link": {
+                                            "type": "link",
+                                            "name": "disease",
+                                            "alt": "disease",
+                                            "game-obj": "Traits",
+                                            "aonid": 578
+                                        }
+                                    }
+                                ],
+                                "saving_throw": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "save_dc",
+                                        "text": "DC 17 Fortitude",
+                                        "dc": 17,
+                                        "save_type": "Fort"
+                                    }
+                                ],
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "sickened 1",
+                                        "alt": "sickened 1",
+                                        "game-obj": "Conditions",
+                                        "aonid": 91
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "confused",
+                                        "alt": "confused",
+                                        "game-obj": "Conditions",
+                                        "aonid": 63
+                                    }
+                                ],
+                                "stages": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "affliction_stage",
+                                        "name": "Stage 1",
+                                        "text": "sickened 1 (1 day)"
+                                    },
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "affliction_stage",
+                                        "name": "Stage 2",
+                                        "text": "sickened 2 (1 day)"
+                                    },
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "affliction_stage",
+                                        "name": "Stage 3",
+                                        "text": "confused (1 day)"
+                                    },
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "affliction_stage",
+                                        "name": "Stage 4",
+                                        "text": "dead."
+                                    }
+                                ]
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "disease",
-                                "alt": "disease",
-                                "game-obj": "Traits",
-                                "aonid": 578
-                            },
-                            {
-                                "type": "link",
-                                "name": "sickened 1",
-                                "alt": "sickened 1",
-                                "game-obj": "Conditions",
-                                "aonid": 91
-                            },
-                            {
-                                "type": "link",
-                                "name": "confused",
-                                "alt": "confused",
-                                "game-obj": "Conditions",
-                                "aonid": 63
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Rabies",
-                                    "Saving Throw",
-                                    "Stage 1",
-                                    "Stage 2",
-                                    "Stage 3",
-                                    "Stage 4"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }

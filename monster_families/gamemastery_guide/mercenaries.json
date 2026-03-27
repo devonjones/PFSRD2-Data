@@ -68,86 +68,77 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Mercenary Banter",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Crackster",
+                                "ability_type": "ability",
                                 "text": ": Someone adept at breaking locks or safes."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Diving",
+                                "ability_type": "ability",
                                 "text": ": Theft or smuggling below ground, often through tunnels."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Foxing",
+                                "ability_type": "ability",
                                 "text": ": To play at being asleep, usually for an ambush."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Medic",
+                                "ability_type": "ability",
                                 "text": ": A healer."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Ram",
+                                "ability_type": "ability",
                                 "text": ": A hard-hitting warrior."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Slinger",
+                                "ability_type": "ability",
                                 "text": ": A spellcaster."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sway of Coin",
+                                "ability_type": "ability",
                                 "text": ": Swearing allegiance to whoever pays the most."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Waterline",
+                                "ability_type": "ability",
                                 "text": ": A mercenary troupe's money: \u201cTake time in town while the waterline's high, everyone.\u201d"
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Whisperstep",
+                                "ability_type": "ability",
                                 "text": ": Anyone who can move stealthily."
                             }
                         ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Crackster",
-                                    "Diving",
-                                    "Foxing",
-                                    "Medic",
-                                    "Slinger",
-                                    "Sway of Coin",
-                                    "Waterline",
-                                    "Whisperstep"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Ram"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }

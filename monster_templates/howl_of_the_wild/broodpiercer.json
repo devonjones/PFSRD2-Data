@@ -239,7 +239,7 @@
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "name": "Cold Stasis",
-                "text": "A broodpiercer larva is vulnerable to cold . Any effect that deals cold damage causes the host creature to become slowed 1 for 1d4 rounds. While slowed from cold, the broodpiercer can't use Fumbling Dodge or Erratic Barrage. This occurs even if the base creature is immune to cold.",
+                "ability_type": "ability",
                 "links": [
                     {
                         "type": "link",
@@ -255,29 +255,20 @@
                         "game-obj": "Conditions",
                         "aonid": 92
                     }
-                ]
+                ],
+                "text": "A broodpiercer larva is vulnerable to cold. Any effect that deals cold damage causes the host creature to become slowed 1 for 1d4 rounds. While slowed from cold, the broodpiercer can't use Fumbling Dodge or Erratic Barrage. This occurs even if the base creature is immune to cold."
             },
             {
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "name": "Fumbling Dodge",
+                "ability_type": "ability",
                 "action_type": {
                     "type": "stat_block_section",
                     "subtype": "action_type",
                     "name": "Reaction"
-                }
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "ability",
-                "name": "Trigger",
-                "text": "The host creature is targeted with an attack, or an effect that requires a Reflex save and is aware of the attacker;"
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "ability",
-                "name": "Effect",
-                "text": "The host creature lurches suddenly, stumbling out of harm's way as if dragged by a puppeteer. The creature gains a +3 circumstance bonus to AC against the triggering attack or to its Reflex save. After using Fumbling Dodge, the creature becomes clumsy 2 for 1 round.",
+                },
+                "trigger": "The host creature is targeted with an attack, or an effect that requires a Reflex save and is aware of the attacker",
                 "links": [
                     {
                         "type": "link",
@@ -286,18 +277,19 @@
                         "game-obj": "Conditions",
                         "aonid": 61
                     }
-                ]
+                ],
+                "effect": "The host creature lurches suddenly, stumbling out of harm's way as if dragged by a puppeteer. The creature gains a +3 circumstance bonus to AC against the triggering attack or to its Reflex save. After using Fumbling Dodge, the creature becomes clumsy 2 for 1 round."
             },
             {
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "name": "Erratic Barrage",
+                "ability_type": "ability",
                 "action_type": {
                     "type": "stat_block_section",
                     "subtype": "action_type",
                     "name": "Two Actions"
                 },
-                "text": "The host creature attacks twice while spinning ceaselessly, aiming blows from unexpected, seemingly illogical directions. The host creature makes two melee Strikes against the same creature; the host's multiple attack penalty does not increase until it has made both attacks. The target is off-guard for the second Strike. The target creature then gets a sense for the erratic movement and becomes temporarily immune to Erratic Barrage for 1 day.",
                 "links": [
                     {
                         "type": "link",
@@ -306,26 +298,34 @@
                         "game-obj": "Conditions",
                         "aonid": 58
                     }
-                ]
+                ],
+                "text": "The host creature attacks twice while spinning ceaselessly, aiming blows from unexpected, seemingly illogical directions. The host creature makes two melee Strikes against the same creature; the host's multiple attack penalty does not increase until it has made both attacks. The target is off-guard for the second Strike. The target creature then gets a sense for the erratic movement and becomes temporarily immune to Erratic Barrage for 1 day."
             },
             {
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "name": "Induce Frenzy",
+                "ability_type": "ability",
                 "action_type": {
                     "type": "stat_block_section",
                     "subtype": "action_type",
                     "name": "One Action"
                 },
-                "text": "( emotion ) The broodpiercer floods the brain of its host creature with adrenaline, amplifying the host's hunger and numbing its pain to drive it into an obsessive fugue. While frenzied, the creature gains a +2 circumstance bonus to Will saves, temporary Hit Points equal to its level, and a +10-foot circumstance bonus to its Speeds. The frenzy lasts for 1 minute, after which the host creature is fatigued for 1 minute and can't enter another frenzy for 1 minute.",
-                "links": [
+                "traits": [
                     {
-                        "type": "link",
+                        "type": "stat_block_section",
+                        "subtype": "trait",
                         "name": "emotion",
-                        "alt": "emotion",
-                        "game-obj": "Traits",
-                        "aonid": 590
-                    },
+                        "link": {
+                            "type": "link",
+                            "name": "emotion",
+                            "alt": "emotion",
+                            "game-obj": "Traits",
+                            "aonid": 590
+                        }
+                    }
+                ],
+                "links": [
                     {
                         "type": "link",
                         "name": "fatigued",
@@ -333,7 +333,8 @@
                         "game-obj": "Conditions",
                         "aonid": 73
                     }
-                ]
+                ],
+                "text": "The broodpiercer floods the brain of its host creature with adrenaline, amplifying the host's hunger and numbing its pain to drive it into an obsessive fugue. While frenzied, the creature gains a +2 circumstance bonus to Will saves, temporary Hit Points equal to its level, and a +10-foot circumstance bonus to its Speeds. The frenzy lasts for 1 minute, after which the host creature is fatigued for 1 minute and can't enter another frenzy for 1 minute."
             }
         ],
         "adjustments": [

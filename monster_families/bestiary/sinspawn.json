@@ -59,65 +59,57 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "ENVYSPAWN",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
+                                "ability_type": "ability",
                                 "action_type": {
                                     "type": "stat_block_section",
                                     "subtype": "action_type",
                                     "name": "One Action"
                                 },
-                                "text": "halberd +10 (reach 10 feet, versatile S),"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Damage",
-                                "text": "1d10+4 piercing"
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "reach 10 feet",
+                                        "alt": "reach 10 feet",
+                                        "game-obj": "Traits",
+                                        "aonid": 192
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "versatile S",
+                                        "alt": "versatile S",
+                                        "game-obj": "Traits",
+                                        "aonid": 200
+                                    }
+                                ],
+                                "text": "halberd +10 (reach 10 feet, versatile S),",
+                                "damage": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "attack_damage",
+                                        "formula": "1d10+4",
+                                        "damage_type": "piercing"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sinful Bite",
+                                "ability_type": "ability",
                                 "text": "Creatures that critically fail their saves against an envyspawn\u2019s sinful bite are enfeebled 2 for 1 minute."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "reach 10 feet",
-                                "alt": "reach 10 feet",
-                                "game-obj": "Traits",
-                                "aonid": 192
-                            },
-                            {
-                                "type": "link",
-                                "name": "versatile S",
-                                "alt": "versatile S",
-                                "game-obj": "Traits",
-                                "aonid": 200
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Melee",
-                                    "Damage"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Sinful Bite"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }
@@ -133,65 +125,57 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "GLUTTONYSPAWN",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
+                                "ability_type": "ability",
                                 "action_type": {
                                     "type": "stat_block_section",
                                     "subtype": "action_type",
                                     "name": "One Action"
                                 },
-                                "text": "scythe +10 (deadly d10, trip),"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Damage",
-                                "text": "1d10+4 slashing"
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "deadly d10",
+                                        "alt": "deadly d10",
+                                        "game-obj": "Traits",
+                                        "aonid": 174
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "trip",
+                                        "alt": "trip",
+                                        "game-obj": "Traits",
+                                        "aonid": 196
+                                    }
+                                ],
+                                "text": "scythe +10 (deadly d10, trip),",
+                                "damage": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "attack_damage",
+                                        "formula": "1d10+4",
+                                        "damage_type": "slashing"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sinful Bite",
+                                "ability_type": "ability",
                                 "text": "Creatures that critically fail their saves against a gluttonyspawn\u2019s sinful bite are drained 1."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "deadly d10",
-                                "alt": "deadly d10",
-                                "game-obj": "Traits",
-                                "aonid": 174
-                            },
-                            {
-                                "type": "link",
-                                "name": "trip",
-                                "alt": "trip",
-                                "game-obj": "Traits",
-                                "aonid": 196
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Melee",
-                                    "Damage"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Sinful Bite"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }
@@ -207,72 +191,64 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "GREEDSPAWN",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
+                                "ability_type": "ability",
                                 "action_type": {
                                     "type": "stat_block_section",
                                     "subtype": "action_type",
                                     "name": "One Action"
                                 },
-                                "text": "glaive +10 (deadly d8, forceful, reach 10 feet),"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Damage",
-                                "text": "1d8+4 slashing"
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "deadly d8",
+                                        "alt": "deadly d8",
+                                        "game-obj": "Traits",
+                                        "aonid": 174
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "forceful",
+                                        "alt": "forceful",
+                                        "game-obj": "Traits",
+                                        "aonid": 180
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "reach 10 feet",
+                                        "alt": "reach 10 feet",
+                                        "game-obj": "Traits",
+                                        "aonid": 192
+                                    }
+                                ],
+                                "text": "glaive +10 (deadly d8, forceful, reach 10 feet),",
+                                "damage": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "attack_damage",
+                                        "formula": "1d8+4",
+                                        "damage_type": "slashing"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sinful Bite",
+                                "ability_type": "ability",
                                 "text": "Creatures that critically fail their saves against a greedspawn\u2019s sinful bite are clumsy 2 for 1 minute."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "deadly d8",
-                                "alt": "deadly d8",
-                                "game-obj": "Traits",
-                                "aonid": 174
-                            },
-                            {
-                                "type": "link",
-                                "name": "forceful",
-                                "alt": "forceful",
-                                "game-obj": "Traits",
-                                "aonid": 180
-                            },
-                            {
-                                "type": "link",
-                                "name": "reach 10 feet",
-                                "alt": "reach 10 feet",
-                                "game-obj": "Traits",
-                                "aonid": 192
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Melee",
-                                    "Damage"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Sinful Bite"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }
@@ -288,65 +264,57 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "LUSTSPAWN",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
+                                "ability_type": "ability",
                                 "action_type": {
                                     "type": "stat_block_section",
                                     "subtype": "action_type",
                                     "name": "One Action"
                                 },
-                                "text": "guisarme +10 (reach 10 feet, trip),"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Damage",
-                                "text": "1d10+4 slashing"
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "reach 10 feet",
+                                        "alt": "reach 10 feet",
+                                        "game-obj": "Traits",
+                                        "aonid": 192
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "trip",
+                                        "alt": "trip",
+                                        "game-obj": "Traits",
+                                        "aonid": 196
+                                    }
+                                ],
+                                "text": "guisarme +10 (reach 10 feet, trip),",
+                                "damage": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "attack_damage",
+                                        "formula": "1d10+4",
+                                        "damage_type": "slashing"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sinful Bite",
+                                "ability_type": "ability",
                                 "text": "Creatures that critically fail their saves against a lustspawn\u2019s sinful bite are stupefied 2 for 1 minute."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "reach 10 feet",
-                                "alt": "reach 10 feet",
-                                "game-obj": "Traits",
-                                "aonid": 192
-                            },
-                            {
-                                "type": "link",
-                                "name": "trip",
-                                "alt": "trip",
-                                "game-obj": "Traits",
-                                "aonid": 196
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Melee",
-                                    "Damage"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Sinful Bite"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }
@@ -362,58 +330,50 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "PRIDESPAWN",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
+                                "ability_type": "ability",
                                 "action_type": {
                                     "type": "stat_block_section",
                                     "subtype": "action_type",
                                     "name": "One Action"
                                 },
-                                "text": "maul +10 (shove),"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Damage",
-                                "text": "1d12+4 bludgeoning"
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "shove",
+                                        "alt": "shove",
+                                        "game-obj": "Traits",
+                                        "aonid": 193
+                                    }
+                                ],
+                                "text": "maul +10 (shove),",
+                                "damage": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "attack_damage",
+                                        "formula": "1d12+4",
+                                        "damage_type": "bludgeoning"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sinful Bite",
+                                "ability_type": "ability",
                                 "text": "Creatures that critically fail their saves against a pridespawn\u2019s sinful bite are clumsy 1 and enfeebled 1 for 1 minute."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "shove",
-                                "alt": "shove",
-                                "game-obj": "Traits",
-                                "aonid": 193
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Melee",
-                                    "Damage"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Sinful Bite"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }
@@ -429,58 +389,50 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "SLOTHSPAWN",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
+                                "ability_type": "ability",
                                 "action_type": {
                                     "type": "stat_block_section",
                                     "subtype": "action_type",
                                     "name": "One Action"
                                 },
-                                "text": "longspear +10 (reach 10 feet),"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Damage",
-                                "text": "1d8+4 piercing"
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "reach 10 feet",
+                                        "alt": "reach 10 feet",
+                                        "game-obj": "Traits",
+                                        "aonid": 192
+                                    }
+                                ],
+                                "text": "longspear +10 (reach 10 feet),",
+                                "damage": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "attack_damage",
+                                        "formula": "1d8+4",
+                                        "damage_type": "piercing"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sinful Bite",
+                                "ability_type": "ability",
                                 "text": "Creatures that critically fail their saves against a slothspawn\u2019s sinful bite take a \u201310-foot status penalty to their Speeds for 1 minute."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "reach 10 feet",
-                                "alt": "reach 10 feet",
-                                "game-obj": "Traits",
-                                "aonid": 192
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Melee",
-                                    "Damage"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Sinful Bite"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }
@@ -496,65 +448,57 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "WRATHSPAWN",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Melee",
+                                "ability_type": "ability",
                                 "action_type": {
                                     "type": "stat_block_section",
                                     "subtype": "action_type",
                                     "name": "One Action"
                                 },
-                                "text": "ranseur + 10 (disarm, reach 10 feet),"
-                            },
-                            {
-                                "type": "stat_block_section",
-                                "subtype": "ability",
-                                "name": "Damage",
-                                "text": "1d10+4 piercing"
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "disarm",
+                                        "alt": "disarm",
+                                        "game-obj": "Traits",
+                                        "aonid": 175
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "reach 10 feet",
+                                        "alt": "reach 10 feet",
+                                        "game-obj": "Traits",
+                                        "aonid": 192
+                                    }
+                                ],
+                                "text": "ranseur + 10 (disarm, reach 10 feet),",
+                                "damage": [
+                                    {
+                                        "type": "stat_block_section",
+                                        "subtype": "attack_damage",
+                                        "formula": "1d10+4",
+                                        "damage_type": "piercing"
+                                    }
+                                ]
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Sinful Bite",
+                                "ability_type": "ability",
                                 "text": "Creatures that critically fail their saves against a wrathspawn\u2019s sinful bite are drained 1 as well as enfeebled 1 for 1 minute."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "disarm",
-                                "alt": "disarm",
-                                "game-obj": "Traits",
-                                "aonid": 175
-                            },
-                            {
-                                "type": "link",
-                                "name": "reach 10 feet",
-                                "alt": "reach 10 feet",
-                                "game-obj": "Traits",
-                                "aonid": 192
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Melee",
-                                    "Damage"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
-                            },
-                            {
-                                "names": [
-                                    "Sinful Bite"
-                                ],
-                                "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.offense.offensive_actions"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }

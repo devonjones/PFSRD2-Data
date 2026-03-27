@@ -32,67 +32,67 @@
                         "type": "stat_block_section",
                         "subtype": "change",
                         "text": "Variant Bore Worms",
+                        "change_category": "abilities",
                         "abilities": [
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Ice Worms",
+                                "ability_type": "ability",
                                 "text": ": Found tunneling through the glaciers beneath the Crown of the World, these pale-blue worms behave similarly to their soil-bred cousins, but their frigid acid inflicts marks similar to frostbite on anything they touch. Ice worms still flee from liquid water but are immune to cold rather than to acid, and they substitute cold for acid in all of their attacks and abilities."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Lava Worms",
+                                "ability_type": "ability",
                                 "text": ": Dwelling in the deepest, hottest reaches of the Darklands, these bizarre creatures consume not living matter but minerals and rare earths. They're most often found near volcanoes or open magma and will swim through the lava in pursuit of a meal. Lava worms are immune to fire rather than to acid, and they substitute fire for acid in all of their attacks and abilities."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Necral Worms",
+                                "ability_type": "ability",
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "undead",
+                                        "alt": "undead",
+                                        "game-obj": "Traits",
+                                        "aonid": 160
+                                    },
+                                    {
+                                        "type": "link",
+                                        "name": "negative healing",
+                                        "alt": "negative healing",
+                                        "game-obj": "MonsterAbilities",
+                                        "aonid": 42
+                                    }
+                                ],
                                 "text": ": An undead sorcerer in the ghoul-run Darklands city of Nemret Noktoria developed necral worms about 60 years ago by filling an empress bore worm's abandoned exoskeleton with a unique alchemical paste. These undead bore worms radiate the very energies of death, making them surprisingly sophisticated magical batteries. Less pleasant entities often use them as magical tools. Necral worms have the undead trait and negative healing. They substitute negative damage for acid damage in all of their attacks and abilities, and they gain a weakness to positive damage in place of their weakness to water."
                             },
                             {
                                 "type": "stat_block_section",
                                 "subtype": "ability",
                                 "name": "Mage-Eater Worms",
+                                "ability_type": "ability",
+                                "links": [
+                                    {
+                                        "type": "link",
+                                        "name": "counteract",
+                                        "alt": "counteract",
+                                        "game-obj": "Rules",
+                                        "aonid": 371
+                                    }
+                                ],
                                 "text": ": These luminous, purple worms present just one more reason to avoid the Mana Wastes between Geb and Nex, where magic is unreliable at best and more often dangerously unpredictable. When a creature fails a save against Swarming Bites or Painful Bite, the worms also attempt a counteract check against a single spell affecting the creature (counteract level 3, counteract modifier +12)."
                             }
                         ],
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "undead",
-                                "alt": "undead",
-                                "game-obj": "Traits",
-                                "aonid": 160
-                            },
-                            {
-                                "type": "link",
-                                "name": "negative healing",
-                                "alt": "negative healing",
-                                "game-obj": "MonsterAbilities",
-                                "aonid": 42
-                            },
-                            {
-                                "type": "link",
-                                "name": "counteract",
-                                "alt": "counteract",
-                                "game-obj": "Rules",
-                                "aonid": 371
-                            }
-                        ],
-                        "change_category": "abilities",
                         "effects": [
                             {
-                                "names": [
-                                    "Ice Worms",
-                                    "Lava Worms",
-                                    "Necral Worms",
-                                    "Mage-Eater Worms"
-                                ],
+                                "target": "$.defense.automatic_abilities",
                                 "operation": "add_items",
-                                "source": "$.changes[*].abilities",
-                                "target": "$.defense.automatic_abilities"
+                                "source": "$.monster_family.subtypes[*].changes[*].abilities"
                             }
                         ]
                     }

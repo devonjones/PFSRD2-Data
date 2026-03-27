@@ -33,7 +33,7 @@
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "name": "Independent Brains",
-                "text": "Each of the twinned creature's heads rolls its own initiative and has its own turn. Neither head can Delay . At the start of a head's turn, that head gets 2 actions and 1 reaction. Each brain can control the creature's body normally. Taking damage equal to half its hit points or any ability that would sever a twinned creature's head (such as the *vorpal* weapon property) destroys one head and causes the twinned creature to lose the turns, actions, and reactions of the severed head. Mental effects that target a single creature affect only one of the creature's heads.",
+                "ability_type": "ability",
                 "links": [
                     {
                         "type": "link",
@@ -56,23 +56,19 @@
                         "game-obj": "Traits",
                         "aonid": 647
                     }
-                ]
+                ],
+                "text": "Each of the twinned creature's heads rolls its own initiative and has its own turn. Neither head can Delay. At the start of a head's turn, that head gets 2 actions and 1 reaction. Each brain can control the creature's body normally. Taking damage equal to half its hit points or any ability that would sever a twinned creature's head (such as the *vorpal* weapon property) destroys one head and causes the twinned creature to lose the turns, actions, and reactions of the severed head. Mental effects that target a single creature affect only one of the creature's heads."
             },
             {
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "name": "Gnaw Free",
+                "ability_type": "ability",
                 "action_type": {
                     "type": "stat_block_section",
                     "subtype": "action_type",
                     "name": "Reaction"
-                }
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "ability",
-                "name": "Trigger",
-                "text": "The twinned creature's other head attempts to Escape ;",
+                },
                 "links": [
                     {
                         "type": "link",
@@ -81,22 +77,78 @@
                         "game-obj": "Actions",
                         "aonid": 2296
                     }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "ability",
-                "name": "Effect",
-                "text": "This head bites its grappler or restraints to help the other head break free. The twinned creature gains a +2 circumstance bonus to its Escape check."
+                ],
+                "trigger": "The twinned creature's other head attempts to Escape",
+                "effect": "This head bites its grappler or restraints to help the other head break free. The twinned creature gains a +2 circumstance bonus to its Escape check."
             },
             {
                 "type": "stat_block_section",
                 "subtype": "ability",
                 "name": "Reactive Strike",
+                "ability_type": "ability",
+                "link": {
+                    "type": "link",
+                    "name": "Reactive Strike",
+                    "alt": "Reactive Strike",
+                    "game-obj": "MonsterAbilities",
+                    "aonid": 48
+                },
                 "action_type": {
                     "type": "stat_block_section",
                     "subtype": "action_type",
                     "name": "Reaction"
+                },
+                "universal_monster_ability": {
+                    "name": "Reactive Strike",
+                    "type": "ability",
+                    "ability_type": "universal_monster_ability",
+                    "aonid": 48,
+                    "game-obj": "MonsterAbilities",
+                    "action_type": {
+                        "type": "stat_block_section",
+                        "subtype": "action_type",
+                        "name": "Reaction"
+                    },
+                    "sources": [
+                        {
+                            "type": "source",
+                            "name": "Rage of Elements",
+                            "link": {
+                                "type": "link",
+                                "name": "Rage of Elements pg. 233",
+                                "alt": "Rage of Elements pg. 233",
+                                "game-obj": "Sources",
+                                "aonid": 205
+                            },
+                            "page": 233,
+                            "errata": {
+                                "type": "link",
+                                "name": "2.0",
+                                "alt": "2.0",
+                                "game-obj": "Sources",
+                                "aonid": 205
+                            }
+                        }
+                    ],
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "manipulate",
+                            "alt": "manipulate",
+                            "game-obj": "Traits",
+                            "aonid": 104
+                        },
+                        {
+                            "type": "link",
+                            "name": "move",
+                            "alt": "move",
+                            "game-obj": "Traits",
+                            "aonid": 114
+                        }
+                    ],
+                    "trigger": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using",
+                    "effect": "The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike.",
+                    "game-id": "b9713edb3863029c09b5709dff24cd40"
                 }
             }
         ]
