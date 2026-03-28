@@ -1,382 +1,382 @@
 {
-    "name": "Water",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "Rage of Elements",
-            "link": {
-                "type": "link",
-                "name": "Rage of Elements pg. 169",
-                "alt": "Rage of Elements pg. 169",
-                "game-obj": "Sources",
-                "aonid": 205
-            },
-            "page": 169,
-            "errata": {
-                "type": "link",
-                "name": "2.0",
-                "alt": "2.0",
-                "game-obj": "Sources",
-                "aonid": 205
-            }
-        }
-    ],
-    "aonid": 20,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Water",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "water",
-                        "alt": "water",
-                        "game-obj": "Traits",
-                        "aonid": 165
-                    },
-                    {
-                        "type": "link",
-                        "name": "amphibious",
-                        "alt": "amphibious",
-                        "game-obj": "Traits",
-                        "aonid": 207
-                    },
-                    {
-                        "type": "link",
-                        "name": "aquatic",
-                        "alt": "aquatic",
-                        "game-obj": "Traits",
-                        "aonid": 168
-                    }
-                ],
-                "text": "- Add the water trait and either the amphibious or aquatic trait.",
-                "change_category": "traits",
-                "effects": [
-                    {
-                        "name": "Water",
-                        "operation": "add_item",
-                        "target": "$.creature_type.creature_types"
-                    },
-                    {
-                        "operation": "select",
-                        "selection": {
-                            "description": "choose one of: Amphibious, Aquatic",
-                            "max": 1,
-                            "min": 1,
-                            "options": [
-                                {
-                                    "name": "Amphibious",
-                                    "operation": "add_item",
-                                    "target": "$.creature_type.creature_types"
-                                },
-                                {
-                                    "name": "Aquatic",
-                                    "operation": "add_item",
-                                    "target": "$.creature_type.creature_types"
-                                }
-                            ],
-                            "type": "select"
-                        },
-                        "target": "$.creature_type.creature_types"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Thalassic",
-                        "alt": "Thalassic",
-                        "game-obj": "Languages",
-                        "aonid": 113
-                    }
-                ],
-                "text": "- If it has any languages, add Thalassic.",
-                "change_category": "languages",
-                "effects": [
-                    {
-                        "conditional": "$.statistics.languages.languages != null",
-                        "item": {
-                            "name": "Thalassic",
-                            "subtype": "language",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.statistics.languages.languages"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Decrease the creature's HP based on its level.",
-                "change_category": "hit_points",
-                "effects": [
-                    {
-                        "conditional": "$.creature_type.level <= 3",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": -6
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": -10
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": -20
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 14",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": -30
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Add resistance to fire depending on its level.",
-                "change_category": "resistances",
-                "effects": [
-                    {
-                        "conditional": "$.creature_type.level <= 3",
-                        "item": {
-                            "name": "fire",
-                            "subtype": "resistance",
-                            "type": "stat_block_section",
-                            "value": 3
-                        },
-                        "operation": "add_item",
-                        "target": "$.defense.hitpoints[*].resistances"
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
-                        "item": {
-                            "name": "fire",
-                            "subtype": "resistance",
-                            "type": "stat_block_section",
-                            "value": 5
-                        },
-                        "operation": "add_item",
-                        "target": "$.defense.hitpoints[*].resistances"
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
-                        "item": {
-                            "name": "fire",
-                            "subtype": "resistance",
-                            "type": "stat_block_section",
-                            "value": 10
-                        },
-                        "operation": "add_item",
-                        "target": "$.defense.hitpoints[*].resistances"
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 14",
-                        "item": {
-                            "name": "fire",
-                            "subtype": "resistance",
-                            "type": "stat_block_section",
-                            "value": 15
-                        },
-                        "operation": "add_item",
-                        "target": "$.defense.hitpoints[*].resistances"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Add a swim Speed of 25 feet, or 40 feet if the creature is 8th level or higher.",
-                "change_category": "speed",
-                "effects": [
-                    {
-                        "item": {
-                            "movement_type": "swim",
-                            "name": "swim 25 feet",
-                            "subtype": "speed",
-                            "type": "stat_block_section",
-                            "value": 25
-                        },
-                        "operation": "add_item",
-                        "target": "$.offense.speed.movement"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "spout",
-                        "alt": "spout",
-                        "game-obj": "Spells",
-                        "aonid": 1002
-                    },
-                    {
-                        "type": "link",
-                        "name": "hydraulic push",
-                        "alt": "hydraulic push",
-                        "game-obj": "Spells",
-                        "aonid": 154
-                    },
-                    {
-                        "type": "link",
-                        "name": "mist",
-                        "alt": "mist",
-                        "game-obj": "Spells",
-                        "aonid": 210
-                    },
-                    {
-                        "type": "link",
-                        "name": "aqueous orb",
-                        "alt": "aqueous orb",
-                        "game-obj": "Spells",
-                        "aonid": 669
-                    },
-                    {
-                        "type": "link",
-                        "name": "hydraulic torrent",
-                        "alt": "hydraulic torrent",
-                        "game-obj": "Spells",
-                        "aonid": 155
-                    },
-                    {
-                        "type": "link",
-                        "name": "control water",
-                        "alt": "control water",
-                        "game-obj": "Spells",
-                        "aonid": 51
-                    },
-                    {
-                        "type": "link",
-                        "name": "personal ocean",
-                        "alt": "personal ocean",
-                        "game-obj": "Spells",
-                        "aonid": 1393
-                    },
-                    {
-                        "type": "link",
-                        "name": "hungry depths",
-                        "alt": "hungry depths",
-                        "game-obj": "Spells",
-                        "aonid": 1391
-                    },
-                    {
-                        "type": "link",
-                        "name": "whirlpool",
-                        "alt": "whirlpool",
-                        "game-obj": "Spells",
-                        "aonid": 1398
-                    }
-                ],
-                "text": "- If the creature can cast spells, you can replace spells with water spells of the same rank, such as: **Cantrip** *spout*, **1st** *hydraulic push*, **2nd** *mist*, **3rd** *aqueous orb*, **4th** *hydraulic torrent*, **5th** *control water*, **6th** *personal ocean*, **7th** *hungry depths*, **8th** *whirlpool*.",
-                "change_category": "spells",
-                "effects": [
-                    {
-                        "operation": "select",
-                        "selection": {
-                            "action": "replace",
-                            "constraint": "water",
-                            "description": "- If the creature can cast spells, you can replace spells with water spells of the same rank, such as: **Cantrip** *spout*, **1st** *hydraulic push*, **2nd** *mist*, **3rd** *aqueous orb*, **4th** *hydraulic torrent*, **5th** *control water*, **6th** *personal ocean*, **7th** *hungry depths*, **8th** *whirlpool*.",
-                            "type": "select"
-                        },
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
-                    }
-                ]
-            }
-        ],
-        "adjustments": [
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "level": "3 or lower",
-                "hp_decrease": "6",
-                "resistance_to_fire": "3"
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "level": "4\u20138",
-                "hp_decrease": "10",
-                "resistance_to_fire": "5"
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "level": "9\u201313",
-                "hp_decrease": "20",
-                "resistance_to_fire": "10"
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "level": "14+",
-                "hp_decrease": "30",
-                "resistance_to_fire": "15"
-            }
-        ]
-    },
-    "game-id": "052cdf62eaeab7deeee6553574513325",
-    "text": "To quickly give a creature a magical connection to the element of water, you can use the following adjustments.",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 20,
+  "edition": "remastered",
+  "game-id": "052cdf62eaeab7deeee6553574513325",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "Rage of Elements",
-                        "type": "section",
-                        "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Rage of Elements*** \u00a9 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, James Case, Jessica Catalan, Andrew D. Geels, Sen H.H.S., Patrick Hurley, Jason Keeley, Luis Loza, Mark Moreland, Jonathan Morgantini, AJ Neuro, Jessica Redekop, Solomon St. John, Michael Sayre, Mark Seifter, Shahreena Shahrani, Shay Snow, Levi Steadman, Mari Tokuda, Ruvaid Virk, Andrew White, and Linda Zayas-Palmer."
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            }
+          {
+            "name": "Rage of Elements",
+            "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Rage of Elements*** \u00a9 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, James Case, Jessica Catalan, Andrew D. Geels, Sen H.H.S., Patrick Hurley, Jason Keeley, Luis Loza, Mark Moreland, Jonathan Morgantini, AJ Neuro, Jessica Redekop, Solomon St. John, Michael Sayre, Mark Seifter, Shahreena Shahrani, Shay Snow, Levi Steadman, Mari Tokuda, Ruvaid Virk, Andrew White, and Linda Zayas-Palmer.",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "adjustments": [
+      {
+        "hp_decrease": "6",
+        "level": "3 or lower",
+        "resistance_to_fire": "3",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      },
+      {
+        "hp_decrease": "10",
+        "level": "4\u20138",
+        "resistance_to_fire": "5",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      },
+      {
+        "hp_decrease": "20",
+        "level": "9\u201313",
+        "resistance_to_fire": "10",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      },
+      {
+        "hp_decrease": "30",
+        "level": "14+",
+        "resistance_to_fire": "15",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      }
+    ],
+    "changes": [
+      {
+        "change_category": "traits",
+        "effects": [
+          {
+            "name": "Water",
+            "operation": "add_item",
+            "target": "$.creature_type.creature_types"
+          },
+          {
+            "operation": "select",
+            "selection": {
+              "description": "choose one of: Amphibious, Aquatic",
+              "max": 1,
+              "min": 1,
+              "options": [
+                {
+                  "name": "Amphibious",
+                  "operation": "add_item",
+                  "target": "$.creature_type.creature_types"
+                },
+                {
+                  "name": "Aquatic",
+                  "operation": "add_item",
+                  "target": "$.creature_type.creature_types"
+                }
+              ],
+              "type": "select"
+            },
+            "target": "$.creature_type.creature_types"
+          }
+        ],
+        "links": [
+          {
+            "alt": "water",
+            "aonid": 165,
+            "game-obj": "Traits",
+            "name": "water",
+            "type": "link"
+          },
+          {
+            "alt": "amphibious",
+            "aonid": 207,
+            "game-obj": "Traits",
+            "name": "amphibious",
+            "type": "link"
+          },
+          {
+            "alt": "aquatic",
+            "aonid": 168,
+            "game-obj": "Traits",
+            "name": "aquatic",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the water trait and either the amphibious or aquatic trait.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "languages",
+        "effects": [
+          {
+            "conditional": "$.statistics.languages.languages != null",
+            "item": {
+              "name": "Thalassic",
+              "subtype": "language",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.statistics.languages.languages"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Thalassic",
+            "aonid": 113,
+            "game-obj": "Languages",
+            "name": "Thalassic",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If it has any languages, add Thalassic.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "hit_points",
+        "effects": [
+          {
+            "conditional": "$.creature_type.level <= 3",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -6
+          },
+          {
+            "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -10
+          },
+          {
+            "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -20
+          },
+          {
+            "conditional": "$.creature_type.level >= 14",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -30
+          }
+        ],
+        "subtype": "change",
+        "text": "- Decrease the creature's HP based on its level.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "resistances",
+        "effects": [
+          {
+            "conditional": "$.creature_type.level <= 3",
+            "item": {
+              "name": "fire",
+              "subtype": "resistance",
+              "type": "stat_block_section",
+              "value": 3
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].resistances"
+          },
+          {
+            "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
+            "item": {
+              "name": "fire",
+              "subtype": "resistance",
+              "type": "stat_block_section",
+              "value": 5
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].resistances"
+          },
+          {
+            "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
+            "item": {
+              "name": "fire",
+              "subtype": "resistance",
+              "type": "stat_block_section",
+              "value": 10
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].resistances"
+          },
+          {
+            "conditional": "$.creature_type.level >= 14",
+            "item": {
+              "name": "fire",
+              "subtype": "resistance",
+              "type": "stat_block_section",
+              "value": 15
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].resistances"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add resistance to fire depending on its level.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "speed",
+        "effects": [
+          {
+            "item": {
+              "movement_type": "swim",
+              "name": "swim 25 feet",
+              "subtype": "speed",
+              "type": "stat_block_section",
+              "value": 25
+            },
+            "operation": "add_item",
+            "target": "$.offense.speed.movement"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add a swim Speed of 25 feet, or 40 feet if the creature is 8th level or higher.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "spells",
+        "effects": [
+          {
+            "operation": "select",
+            "selection": {
+              "action": "replace",
+              "constraint": "water",
+              "description": "- If the creature can cast spells, you can replace spells with water spells of the same rank, such as: **Cantrip** *spout*, **1st** *hydraulic push*, **2nd** *mist*, **3rd** *aqueous orb*, **4th** *hydraulic torrent*, **5th** *control water*, **6th** *personal ocean*, **7th** *hungry depths*, **8th** *whirlpool*.",
+              "type": "select"
+            },
+            "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
+          }
+        ],
+        "links": [
+          {
+            "alt": "spout",
+            "aonid": 1002,
+            "game-obj": "Spells",
+            "name": "spout",
+            "type": "link"
+          },
+          {
+            "alt": "hydraulic push",
+            "aonid": 154,
+            "game-obj": "Spells",
+            "name": "hydraulic push",
+            "type": "link"
+          },
+          {
+            "alt": "mist",
+            "aonid": 210,
+            "game-obj": "Spells",
+            "name": "mist",
+            "type": "link"
+          },
+          {
+            "alt": "aqueous orb",
+            "aonid": 669,
+            "game-obj": "Spells",
+            "name": "aqueous orb",
+            "type": "link"
+          },
+          {
+            "alt": "hydraulic torrent",
+            "aonid": 155,
+            "game-obj": "Spells",
+            "name": "hydraulic torrent",
+            "type": "link"
+          },
+          {
+            "alt": "control water",
+            "aonid": 51,
+            "game-obj": "Spells",
+            "name": "control water",
+            "type": "link"
+          },
+          {
+            "alt": "personal ocean",
+            "aonid": 1393,
+            "game-obj": "Spells",
+            "name": "personal ocean",
+            "type": "link"
+          },
+          {
+            "alt": "hungry depths",
+            "aonid": 1391,
+            "game-obj": "Spells",
+            "name": "hungry depths",
+            "type": "link"
+          },
+          {
+            "alt": "whirlpool",
+            "aonid": 1398,
+            "game-obj": "Spells",
+            "name": "whirlpool",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If the creature can cast spells, you can replace spells with water spells of the same rank, such as: **Cantrip** *spout*, **1st** *hydraulic push*, **2nd** *mist*, **3rd** *aqueous orb*, **4th** *hydraulic torrent*, **5th** *control water*, **6th** *personal ocean*, **7th** *hungry depths*, **8th** *whirlpool*.",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Water",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Water",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "errata": {
+        "alt": "2.0",
+        "aonid": 205,
+        "game-obj": "Sources",
+        "name": "2.0",
+        "type": "link"
+      },
+      "link": {
+        "alt": "Rage of Elements pg. 169",
+        "aonid": 205,
+        "game-obj": "Sources",
+        "name": "Rage of Elements pg. 169",
+        "type": "link"
+      },
+      "name": "Rage of Elements",
+      "page": 169,
+      "type": "source"
+    }
+  ],
+  "text": "To quickly give a creature a magical connection to the element of water, you can use the following adjustments.",
+  "type": "monster_template"
 }

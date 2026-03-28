@@ -1,295 +1,312 @@
 {
-    "name": "Amphibious",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "Howl of the Wild",
-            "link": {
-                "type": "link",
-                "name": "Howl of the Wild pg. 122",
-                "alt": "Howl of the Wild pg. 122",
-                "game-obj": "Sources",
-                "aonid": 226
-            },
-            "page": 122,
-            "errata": {
-                "type": "link",
-                "name": "2.1",
-                "alt": "2.1",
-                "game-obj": "Sources",
-                "aonid": 226
-            }
-        }
-    ],
-    "aonid": 24,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Amphibious",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "amphibious",
-                        "alt": "amphibious",
-                        "game-obj": "Traits",
-                        "aonid": 529
-                    },
-                    {
-                        "type": "link",
-                        "name": "aquatic",
-                        "alt": "aquatic",
-                        "game-obj": "Traits",
-                        "aonid": 533
-                    }
-                ],
-                "text": "- Add the amphibious trait. If the creature has the aquatic trait, remove it.",
-                "change_category": "traits",
-                "effects": [
-                    {
-                        "name": "Amphibious",
-                        "operation": "remove_item",
-                        "target": "$.creature_type.creature_types"
-                    },
-                    {
-                        "name": "Aquatic",
-                        "operation": "remove_item",
-                        "target": "$.creature_type.creature_types"
-                    },
-                    {
-                        "conditional": "$.creature_type.creature_types[?(@ == 'Aquatic')]",
-                        "name": "Aquatic",
-                        "operation": "remove_item",
-                        "target": "$.creature_type.creature_types"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Athletics",
-                        "alt": "Athletics",
-                        "game-obj": "Skills",
-                        "aonid": 36
-                    }
-                ],
-                "text": "- Add Athletics with a modifier equal to the creature's highest skill modifier.",
-                "change_category": "skills",
-                "effects": [
-                    {
-                        "item": {
-                            "name": "Athletics",
-                            "subtype": "skill",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.statistics.skills",
-                        "value_from": "$.statistics.skills[*].value | max"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- If the creature doesn't have a swim Speed, add a swim Speed equal to half its land Speed (minimum 15 feet).",
-                "change_category": "speed",
-                "effects": [
-                    {
-                        "conditional": "$.offense.speed.movement[?(@.movement_type=='swim')] == null",
-                        "item": {
-                            "movement_type": "swim",
-                            "name": "swim",
-                            "subtype": "speed",
-                            "type": "stat_block_section"
-                        },
-                        "minimum": 15,
-                        "operation": "add_item",
-                        "target": "$.offense.speed.movement",
-                        "value_from": "$.offense.speed.movement[?(@.movement_type=='walk')].value / 2"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- If the creature doesn't have a land Speed, add a land Speed equal to half its swim Speed (minimum 15 feet).",
-                "change_category": "speed",
-                "effects": [
-                    {
-                        "conditional": "$.offense.speed.movement[?(@.movement_type=='walk')] == null",
-                        "item": {
-                            "movement_type": "walk",
-                            "name": "walk",
-                            "subtype": "speed",
-                            "type": "stat_block_section"
-                        },
-                        "minimum": 15,
-                        "operation": "add_item",
-                        "target": "$.offense.speed.movement",
-                        "value_from": "$.offense.speed.movement[?(@.movement_type=='swim')].value / 2"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "abilities": [
-                    {
-                        "type": "stat_block_section",
-                        "subtype": "ability",
-                        "name": "Low-light Vision",
-                        "ability_type": "ability",
-                        "link": {
-                            "type": "link",
-                            "name": "Low-light Vision",
-                            "alt": "Low-light Vision",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 69
-                        },
-                        "universal_monster_ability": {
-                            "name": "Low-Light Vision",
-                            "type": "ability",
-                            "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
-                            "ability_type": "universal_monster_ability",
-                            "aonid": 23,
-                            "game-obj": "MonsterAbilities",
-                            "sources": [
-                                {
-                                    "type": "source",
-                                    "name": "Bestiary",
-                                    "link": {
-                                        "type": "link",
-                                        "name": "Bestiary pg. 343",
-                                        "alt": "Bestiary pg. 343",
-                                        "game-obj": "Sources",
-                                        "aonid": 2
-                                    },
-                                    "page": 343
-                                }
-                            ],
-                            "links": [
-                                {
-                                    "type": "link",
-                                    "name": "concealed",
-                                    "alt": "concealed",
-                                    "game-obj": "Conditions",
-                                    "aonid": 4
-                                }
-                            ],
-                            "game-id": "2925971fb76ab7d097ed1fdfccb8a069"
-                        },
-                        "ability_category": "special_sense"
-                    },
-                    {
-                        "type": "stat_block_section",
-                        "subtype": "ability",
-                        "name": "Drag Along",
-                        "ability_type": "ability",
-                        "action_type": {
-                            "type": "stat_block_section",
-                            "subtype": "action_type",
-                            "name": "One Action"
-                        },
-                        "requirement": "The amphibious creature's previous action was a successful melee Strike",
-                        "links": [
-                            {
-                                "type": "link",
-                                "name": "Swims",
-                                "alt": "Swims",
-                                "game-obj": "Actions",
-                                "aonid": 2381
-                            }
-                        ],
-                        "effect": "The amphibious creature Strides or Swims 10 feet away from the target. The target moves the same direction and distance as forced movement.",
-                        "ability_category": "offensive"
-                    }
-                ],
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Low-light Vision",
-                        "alt": "Low-light Vision",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 69
-                    },
-                    {
-                        "type": "link",
-                        "name": "Swims",
-                        "alt": "Swims",
-                        "game-obj": "Actions",
-                        "aonid": 2381
-                    }
-                ],
-                "text": "- Add the following abilities:  **Low-light Vision**  **Drag Along** [one-action] **Requirements** The amphibious creature's previous action was a successful melee Strike; **Effect** The amphibious creature Strides or Swims 10 feet away from the target. The target moves the same direction and distance as forced movement.",
-                "change_category": "abilities",
-                "effects": [
-                    {
-                        "operation": "add_items",
-                        "source": "$.changes[*].abilities",
-                        "target": "$.defense.automatic_abilities"
-                    }
-                ]
-            }
-        ]
-    },
-    "game-id": "f5087ceecd864c377408d4baf72ae7e4",
-    "text": "An amphibious creature has adapted to live both on land and in water.",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 24,
+  "edition": "remastered",
+  "game-id": "f5087ceecd864c377408d4baf72ae7e4",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "Howl of the Wild",
-                        "type": "section",
-                        "text": "***Pathfinder Howl of the Wild*** \u00a9 2024 Paizo Inc. Authors: Kate Baker, Joshua Birdsong, Rigby Bendele, Chris Bissette, Jeremy Blum, Logan Bonner, Dan Cascone, James Case, Jessica Catalan, Brite Cheney, Rue Dickey, Caryn DiMarco, Matthew Fu, Leo Glass, Steven Hammond, Patrick Hurley, Michelle Y. Kim, Dustin Knight, Kendra Leigh Speedling, Christiana Lewis, Jessie \u201cAki\u201d Lo, Luis Loza, Letterio Mammoliti, Jonathan \u201cRyomasa\u201d Mendoza, Quinn Murphy, Dave Nelson, Mikhail Rekun, Kai Revius, Ember Rose, Simone D. Sall\u00e9, Michael Sayre, Shay Snow, Levi Steadman, Kyle Tam, Ruvaid Virk, and Andrew White"
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            },
-            {
-                "name": "Bestiary",
-                "type": "section",
-                "text": "**Daemon, Guardian from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.  \n **Dark Creeper from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Rik Shepard.  \n **Dark Stalker from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.  \n **Dragon, Faerie from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Brian Jaeger and Gary Gygax.  \n **Genie, Marid from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.  \n **Mite from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.  \n **Pathfinder Bestiary (Second Edition)** \u00a9 2019, Paizo Inc.; Authors: Alexander Augunas, Logan Bonner, Jason Bulmahn, John Compton, Paris Crenshaw, Adam Daigle, Eleanor Ferron, Leo Glass, Thurston Hillman, James Jacobs, Jason Keeley, Lyz Liddell, Ron Lundeen, Robert G. McCreary, Tim Nightengale, Stephen Radney-MacFarland, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Jeffrey Swank, Jason Tondro, Tonya Woldridge, and Linda Zayas-Palmer."
-            }
+          {
+            "name": "Howl of the Wild",
+            "text": "***Pathfinder Howl of the Wild*** \u00a9 2024 Paizo Inc. Authors: Kate Baker, Joshua Birdsong, Rigby Bendele, Chris Bissette, Jeremy Blum, Logan Bonner, Dan Cascone, James Case, Jessica Catalan, Brite Cheney, Rue Dickey, Caryn DiMarco, Matthew Fu, Leo Glass, Steven Hammond, Patrick Hurley, Michelle Y. Kim, Dustin Knight, Kendra Leigh Speedling, Christiana Lewis, Jessie \u201cAki\u201d Lo, Luis Loza, Letterio Mammoliti, Jonathan \u201cRyomasa\u201d Mendoza, Quinn Murphy, Dave Nelson, Mikhail Rekun, Kai Revius, Ember Rose, Simone D. Sall\u00e9, Michael Sayre, Shay Snow, Levi Steadman, Kyle Tam, Ruvaid Virk, and Andrew White",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "changes": [
+      {
+        "change_category": "traits",
+        "effects": [
+          {
+            "name": "Amphibious",
+            "operation": "remove_item",
+            "target": "$.creature_type.creature_types"
+          },
+          {
+            "name": "Aquatic",
+            "operation": "remove_item",
+            "target": "$.creature_type.creature_types"
+          },
+          {
+            "conditional": "$.creature_type.creature_types[?(@ == 'Aquatic')]",
+            "name": "Aquatic",
+            "operation": "remove_item",
+            "target": "$.creature_type.creature_types"
+          }
+        ],
+        "links": [
+          {
+            "alt": "amphibious",
+            "aonid": 529,
+            "game-obj": "Traits",
+            "name": "amphibious",
+            "type": "link"
+          },
+          {
+            "alt": "aquatic",
+            "aonid": 533,
+            "game-obj": "Traits",
+            "name": "aquatic",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the amphibious trait. If the creature has the aquatic trait, remove it.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "skills",
+        "effects": [
+          {
+            "item": {
+              "name": "Athletics",
+              "subtype": "skill",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.statistics.skills",
+            "value_from": "$.statistics.skills[*].value | max"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Athletics",
+            "aonid": 36,
+            "game-obj": "Skills",
+            "name": "Athletics",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add Athletics with a modifier equal to the creature's highest skill modifier.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "speed",
+        "effects": [
+          {
+            "conditional": "$.offense.speed.movement[?(@.movement_type=='swim')] == null",
+            "item": {
+              "movement_type": "swim",
+              "name": "swim",
+              "subtype": "speed",
+              "type": "stat_block_section"
+            },
+            "minimum": 15,
+            "operation": "add_item",
+            "target": "$.offense.speed.movement",
+            "value_from": "$.offense.speed.movement[?(@.movement_type=='walk')].value / 2"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If the creature doesn't have a swim Speed, add a swim Speed equal to half its land Speed (minimum 15 feet).",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "speed",
+        "effects": [
+          {
+            "conditional": "$.offense.speed.movement[?(@.movement_type=='walk')] == null",
+            "item": {
+              "movement_type": "walk",
+              "name": "walk",
+              "subtype": "speed",
+              "type": "stat_block_section"
+            },
+            "minimum": 15,
+            "operation": "add_item",
+            "target": "$.offense.speed.movement",
+            "value_from": "$.offense.speed.movement[?(@.movement_type=='swim')].value / 2"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If the creature doesn't have a land Speed, add a land Speed equal to half its swim Speed (minimum 15 feet).",
+        "type": "stat_block_section"
+      },
+      {
+        "abilities": [
+          {
+            "ability_category": "special_sense",
+            "ability_type": "ability",
+            "link": {
+              "alt": "Low-light Vision",
+              "aonid": 69,
+              "game-obj": "MonsterAbilities",
+              "name": "Low-light Vision",
+              "type": "link"
+            },
+            "name": "Low-light Vision",
+            "subtype": "ability",
+            "type": "stat_block_section",
+            "universal_monster_ability": {
+              "ability_type": "universal_monster_ability",
+              "aonid": 69,
+              "edition": "remastered",
+              "game-id": "343ef31521452d923ce3b1f6e39f1918",
+              "game-obj": "MonsterAbilities",
+              "links": [
+                {
+                  "alt": "dim light",
+                  "aonid": 407,
+                  "game-obj": "Rules",
+                  "name": "dim light",
+                  "type": "link"
+                },
+                {
+                  "alt": "bright light",
+                  "aonid": 408,
+                  "game-obj": "Rules",
+                  "name": "bright light",
+                  "type": "link"
+                },
+                {
+                  "alt": "concealed",
+                  "aonid": 62,
+                  "game-obj": "Conditions",
+                  "name": "concealed",
+                  "type": "link"
+                }
+              ],
+              "name": "Low-Light Vision",
+              "sources": [
+                {
+                  "errata": {
+                    "alt": "1.1",
+                    "aonid": 221,
+                    "game-obj": "Sources",
+                    "name": "1.1",
+                    "type": "link"
+                  },
+                  "link": {
+                    "alt": "Monster Core pg. 359",
+                    "aonid": 221,
+                    "game-obj": "Sources",
+                    "name": "Monster Core pg. 359",
+                    "type": "link"
+                  },
+                  "name": "Monster Core",
+                  "page": 359,
+                  "type": "source"
+                }
+              ],
+              "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+              "type": "ability"
+            }
+          },
+          {
+            "ability_category": "offensive",
+            "ability_type": "ability",
+            "action_type": {
+              "name": "One Action",
+              "subtype": "action_type",
+              "type": "stat_block_section"
+            },
+            "effect": "The amphibious creature Strides or Swims 10 feet away from the target. The target moves the same direction and distance as forced movement.",
+            "links": [
+              {
+                "alt": "Swims",
+                "aonid": 2381,
+                "game-obj": "Actions",
+                "name": "Swims",
+                "type": "link"
+              }
+            ],
+            "name": "Drag Along",
+            "requirement": "The amphibious creature's previous action was a successful melee Strike",
+            "subtype": "ability",
+            "type": "stat_block_section"
+          }
+        ],
+        "change_category": "abilities",
+        "effects": [
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities",
+            "target": "$.defense.automatic_abilities"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Low-light Vision",
+            "aonid": 69,
+            "game-obj": "MonsterAbilities",
+            "name": "Low-light Vision",
+            "type": "link"
+          },
+          {
+            "alt": "Swims",
+            "aonid": 2381,
+            "game-obj": "Actions",
+            "name": "Swims",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the following abilities:  **Low-light Vision**  **Drag Along** [one-action] **Requirements** The amphibious creature's previous action was a successful melee Strike; **Effect** The amphibious creature Strides or Swims 10 feet away from the target. The target moves the same direction and distance as forced movement.",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Amphibious",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Amphibious",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "errata": {
+        "alt": "2.1",
+        "aonid": 226,
+        "game-obj": "Sources",
+        "name": "2.1",
+        "type": "link"
+      },
+      "link": {
+        "alt": "Howl of the Wild pg. 122",
+        "aonid": 226,
+        "game-obj": "Sources",
+        "name": "Howl of the Wild pg. 122",
+        "type": "link"
+      },
+      "name": "Howl of the Wild",
+      "page": 122,
+      "type": "source"
+    }
+  ],
+  "text": "An amphibious creature has adapted to live both on land and in water.",
+  "type": "monster_template"
 }

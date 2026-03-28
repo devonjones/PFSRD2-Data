@@ -1,200 +1,217 @@
 {
-    "name": "Catfolk",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "NPC Core",
-            "link": {
-                "type": "link",
-                "name": "NPC Core pg. 168",
-                "alt": "NPC Core pg. 168",
-                "game-obj": "Sources",
-                "aonid": 236
-            },
-            "page": 168
-        }
-    ],
-    "aonid": 41,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Catfolk",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "human",
-                        "alt": "human",
-                        "game-obj": "Traits",
-                        "aonid": 627
-                    },
-                    {
-                        "type": "link",
-                        "name": "catfolk",
-                        "alt": "catfolk",
-                        "game-obj": "Traits",
-                        "aonid": 746
-                    }
-                ],
-                "text": "- Replace the human trait with the catfolk trait.",
-                "change_category": "traits",
-                "effects": [
-                    {
-                        "name": "Human",
-                        "operation": "remove_item",
-                        "target": "$.creature_type.creature_types"
-                    },
-                    {
-                        "name": "Catfolk",
-                        "operation": "add_item",
-                        "target": "$.creature_type.creature_types"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Amurrun",
-                        "alt": "Amurrun",
-                        "game-obj": "Languages",
-                        "aonid": 25
-                    }
-                ],
-                "text": "- Add the Amurrun language.",
-                "change_category": "languages",
-                "effects": [
-                    {
-                        "item": {
-                            "name": "Amurrun",
-                            "subtype": "language",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.statistics.languages.languages"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Add the following abilities.",
-                "change_category": "abilities",
-                "effects": [
-                    {
-                        "operation": "add_items",
-                        "source": "$.changes[*].abilities",
-                        "target": "$.defense.automatic_abilities"
-                    }
-                ]
-            }
-        ],
-        "abilities": [
-            {
-                "type": "stat_block_section",
-                "subtype": "ability",
-                "name": "Low-Light Vision",
-                "ability_type": "ability",
-                "link": {
-                    "type": "link",
-                    "name": "Low-Light Vision",
-                    "alt": "Low-Light Vision",
-                    "game-obj": "Rules",
-                    "aonid": 416
-                },
-                "universal_monster_ability": {
-                    "name": "Low-Light Vision",
-                    "type": "ability",
-                    "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
-                    "ability_type": "universal_monster_ability",
-                    "aonid": 23,
-                    "game-obj": "MonsterAbilities",
-                    "sources": [
-                        {
-                            "type": "source",
-                            "name": "Bestiary",
-                            "link": {
-                                "type": "link",
-                                "name": "Bestiary pg. 343",
-                                "alt": "Bestiary pg. 343",
-                                "game-obj": "Sources",
-                                "aonid": 2
-                            },
-                            "page": 343
-                        }
-                    ],
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "concealed",
-                            "alt": "concealed",
-                            "game-obj": "Conditions",
-                            "aonid": 4
-                        }
-                    ],
-                    "game-id": "2925971fb76ab7d097ed1fdfccb8a069"
-                },
-                "ability_category": "special_sense"
-            }
-        ]
-    },
-    "game-id": "f6fd730642a2a6e93af9119c6b8adfca",
-    "text": "Catfolk are often avid travelers who will keep a collection of trinkets from their various journeys. They can often be extremely social, both within their community and with strangers. They tend to be quick on their feet.",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 41,
+  "edition": "remastered",
+  "game-id": "f6fd730642a2a6e93af9119c6b8adfca",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "NPC Core",
-                        "type": "section",
-                        "text": "**Pathfinder NPC Core** \u00a9 2025, Paizo Inc. Authors: Raychael Allor, Alexander Augunas, Rigby Bendele, Jesse Benner, John Bennett, Joshua Birdsong, Chris Bissette, Jeremy Blum, Logan Bonner, Clinton J. Boomer, Dan Cascone, Jessica Catalan, Paris Crenshaw, Katina Davis, Rue Dickey, Robert N. Emerson, Chris Eng, Eleanor Ferron, Josh Foster, Matthew Fu, Andrew D. Geels, T.H. Gulliver, Sen H.H.S., Kev Hamilton, Sasha Laranoa Harving, Katrina Hennessy, BJ Hensley, Vanessa Hoskins, Patrick Hurley, Sara Jeffers, Michelle Jones, Erik Keith, Michelle Y. Kim, Jason LeMaitre, Christiana Lewis, Luis Loza, Colm Lundberg, Maryssa Mari, Jacob W. Michaels, Zac Moran, Matt Morris, Patchen Mortimer, K. Tessa Newton, Stephen Radney-MacFarland, Jessica Redekop, Mikhail Rekun, Alistair Rigg, David N. Pathfinder NPC Core \u00a9 2025, Paizo Inc. Paizo, the Paizo golem, Pathfinder, Starfinder, and other trademarks owned by Paizo are property of Paizo Inc. All rights reserved.Produced using ecologically sourced FSC\u00ae certified paper and soy ink. Printed in China.Ross, Tony Saunders, Shay Snow, Joel Southall, Kendra Leigh Speedling, Levi Steadman, Christina Stiles, Kyle Tam, Jamie Trollope, Ruvaid Virk, Grady Wang, Andrew White, Jackson Wood, Isis Wozniakowska, and Basil Wright."
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            },
-            {
-                "name": "Bestiary",
-                "type": "section",
-                "text": "**Daemon, Guardian from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.  \n **Dark Creeper from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Rik Shepard.  \n **Dark Stalker from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.  \n **Dragon, Faerie from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Brian Jaeger and Gary Gygax.  \n **Genie, Marid from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.  \n **Mite from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.  \n **Pathfinder Bestiary (Second Edition)** \u00a9 2019, Paizo Inc.; Authors: Alexander Augunas, Logan Bonner, Jason Bulmahn, John Compton, Paris Crenshaw, Adam Daigle, Eleanor Ferron, Leo Glass, Thurston Hillman, James Jacobs, Jason Keeley, Lyz Liddell, Ron Lundeen, Robert G. McCreary, Tim Nightengale, Stephen Radney-MacFarland, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Jeffrey Swank, Jason Tondro, Tonya Woldridge, and Linda Zayas-Palmer."
-            }
+          {
+            "name": "NPC Core",
+            "text": "**Pathfinder NPC Core** \u00a9 2025, Paizo Inc. Authors: Raychael Allor, Alexander Augunas, Rigby Bendele, Jesse Benner, John Bennett, Joshua Birdsong, Chris Bissette, Jeremy Blum, Logan Bonner, Clinton J. Boomer, Dan Cascone, Jessica Catalan, Paris Crenshaw, Katina Davis, Rue Dickey, Robert N. Emerson, Chris Eng, Eleanor Ferron, Josh Foster, Matthew Fu, Andrew D. Geels, T.H. Gulliver, Sen H.H.S., Kev Hamilton, Sasha Laranoa Harving, Katrina Hennessy, BJ Hensley, Vanessa Hoskins, Patrick Hurley, Sara Jeffers, Michelle Jones, Erik Keith, Michelle Y. Kim, Jason LeMaitre, Christiana Lewis, Luis Loza, Colm Lundberg, Maryssa Mari, Jacob W. Michaels, Zac Moran, Matt Morris, Patchen Mortimer, K. Tessa Newton, Stephen Radney-MacFarland, Jessica Redekop, Mikhail Rekun, Alistair Rigg, David N. Pathfinder NPC Core \u00a9 2025, Paizo Inc. Paizo, the Paizo golem, Pathfinder, Starfinder, and other trademarks owned by Paizo are property of Paizo Inc. All rights reserved.Produced using ecologically sourced FSC\u00ae certified paper and soy ink. Printed in China.Ross, Tony Saunders, Shay Snow, Joel Southall, Kendra Leigh Speedling, Levi Steadman, Christina Stiles, Kyle Tam, Jamie Trollope, Ruvaid Virk, Grady Wang, Andrew White, Jackson Wood, Isis Wozniakowska, and Basil Wright.",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "abilities": [
+      {
+        "ability_category": "special_sense",
+        "ability_type": "ability",
+        "link": {
+          "alt": "Low-Light Vision",
+          "aonid": 416,
+          "game-obj": "Rules",
+          "name": "Low-Light Vision",
+          "type": "link"
+        },
+        "name": "Low-Light Vision",
+        "subtype": "ability",
+        "type": "stat_block_section",
+        "universal_monster_ability": {
+          "ability_type": "universal_monster_ability",
+          "aonid": 69,
+          "edition": "remastered",
+          "game-id": "343ef31521452d923ce3b1f6e39f1918",
+          "game-obj": "MonsterAbilities",
+          "links": [
+            {
+              "alt": "dim light",
+              "aonid": 407,
+              "game-obj": "Rules",
+              "name": "dim light",
+              "type": "link"
+            },
+            {
+              "alt": "bright light",
+              "aonid": 408,
+              "game-obj": "Rules",
+              "name": "bright light",
+              "type": "link"
+            },
+            {
+              "alt": "concealed",
+              "aonid": 62,
+              "game-obj": "Conditions",
+              "name": "concealed",
+              "type": "link"
+            }
+          ],
+          "name": "Low-Light Vision",
+          "sources": [
+            {
+              "errata": {
+                "alt": "1.1",
+                "aonid": 221,
+                "game-obj": "Sources",
+                "name": "1.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Monster Core pg. 359",
+                "aonid": 221,
+                "game-obj": "Sources",
+                "name": "Monster Core pg. 359",
+                "type": "link"
+              },
+              "name": "Monster Core",
+              "page": 359,
+              "type": "source"
+            }
+          ],
+          "text": "The monster can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+          "type": "ability"
+        }
+      }
+    ],
+    "changes": [
+      {
+        "change_category": "traits",
+        "effects": [
+          {
+            "name": "Human",
+            "operation": "remove_item",
+            "target": "$.creature_type.creature_types"
+          },
+          {
+            "name": "Catfolk",
+            "operation": "add_item",
+            "target": "$.creature_type.creature_types"
+          }
+        ],
+        "links": [
+          {
+            "alt": "human",
+            "aonid": 627,
+            "game-obj": "Traits",
+            "name": "human",
+            "type": "link"
+          },
+          {
+            "alt": "catfolk",
+            "aonid": 746,
+            "game-obj": "Traits",
+            "name": "catfolk",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Replace the human trait with the catfolk trait.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "languages",
+        "effects": [
+          {
+            "item": {
+              "name": "Amurrun",
+              "subtype": "language",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.statistics.languages.languages"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Amurrun",
+            "aonid": 25,
+            "game-obj": "Languages",
+            "name": "Amurrun",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the Amurrun language.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "abilities",
+        "effects": [
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities",
+            "target": "$.defense.automatic_abilities"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the following abilities.",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Catfolk",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Catfolk",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "link": {
+        "alt": "NPC Core pg. 168",
+        "aonid": 236,
+        "game-obj": "Sources",
+        "name": "NPC Core pg. 168",
+        "type": "link"
+      },
+      "name": "NPC Core",
+      "page": 168,
+      "type": "source"
+    }
+  ],
+  "text": "Catfolk are often avid travelers who will keep a collection of trinkets from their various journeys. They can often be extremely social, both within their community and with strangers. They tend to be quick on their feet.",
+  "type": "monster_template"
 }

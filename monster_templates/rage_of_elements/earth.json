@@ -1,272 +1,272 @@
 {
-    "name": "Earth",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "Rage of Elements",
-            "link": {
-                "type": "link",
-                "name": "Rage of Elements pg. 91",
-                "alt": "Rage of Elements pg. 91",
-                "game-obj": "Sources",
-                "aonid": 205
-            },
-            "page": 91,
-            "errata": {
-                "type": "link",
-                "name": "2.0",
-                "alt": "2.0",
-                "game-obj": "Sources",
-                "aonid": 205
-            }
-        }
-    ],
-    "aonid": 17,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Earth",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "earth",
-                        "alt": "earth",
-                        "game-obj": "Traits",
-                        "aonid": 55
-                    }
-                ],
-                "text": "- Add the earth trait.",
-                "change_category": "traits",
-                "effects": [
-                    {
-                        "name": "Earth",
-                        "operation": "add_item",
-                        "target": "$.creature_type.creature_types"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "tremorsense",
-                        "alt": "tremorsense",
-                        "game-obj": "MonsterAbilities",
-                        "aonid": 40
-                    },
-                    {
-                        "type": "link",
-                        "name": "imprecise",
-                        "alt": "imprecise",
-                        "game-obj": "Rules",
-                        "aonid": 412
-                    }
-                ],
-                "text": "- Add tremorsense 60 feet (imprecise).",
-                "change_category": "senses",
-                "effects": [
-                    {
-                        "item": {
-                            "name": "tremorsense",
-                            "range": {
-                                "range": 60,
-                                "subtype": "range",
-                                "text": "60 feet",
-                                "type": "stat_block_section",
-                                "unit": "feet"
-                            },
-                            "subtype": "special_sense",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.senses.special_senses"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Petran",
-                        "alt": "Petran",
-                        "game-obj": "Languages",
-                        "aonid": 109
-                    }
-                ],
-                "text": "- If it has any languages, add Petran.",
-                "change_category": "languages",
-                "effects": [
-                    {
-                        "conditional": "$.statistics.languages.languages != null",
-                        "item": {
-                            "name": "Petran",
-                            "subtype": "language",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.statistics.languages.languages"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Add a burrow Speed of 20 feet, or 40 feet if the creature is 8th level or higher.",
-                "change_category": "speed",
-                "effects": [
-                    {
-                        "item": {
-                            "movement_type": "burrow",
-                            "name": "burrow 20 feet",
-                            "subtype": "speed",
-                            "type": "stat_block_section",
-                            "value": 20
-                        },
-                        "operation": "add_item",
-                        "target": "$.offense.speed.movement"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "scatter scree",
-                        "alt": "scatter scree",
-                        "game-obj": "Spells",
-                        "aonid": 990
-                    },
-                    {
-                        "type": "link",
-                        "name": "pummeling rubble",
-                        "alt": "pummeling rubble",
-                        "game-obj": "Spells",
-                        "aonid": 708
-                    },
-                    {
-                        "type": "link",
-                        "name": "exploding earth",
-                        "alt": "exploding earth",
-                        "game-obj": "Spells",
-                        "aonid": 1331
-                    },
-                    {
-                        "type": "link",
-                        "name": "one with stone",
-                        "alt": "one with stone",
-                        "game-obj": "Spells",
-                        "aonid": 188
-                    },
-                    {
-                        "type": "link",
-                        "name": "mountain resilience",
-                        "alt": "mountain resilience",
-                        "game-obj": "Spells",
-                        "aonid": 312
-                    },
-                    {
-                        "type": "link",
-                        "name": "wall of stone",
-                        "alt": "wall of stone",
-                        "game-obj": "Spells",
-                        "aonid": 365
-                    },
-                    {
-                        "type": "link",
-                        "name": "petrify",
-                        "alt": "petrify",
-                        "game-obj": "Spells",
-                        "aonid": 123
-                    },
-                    {
-                        "type": "link",
-                        "name": "heaving earth",
-                        "alt": "heaving earth",
-                        "game-obj": "Spells",
-                        "aonid": 1335
-                    },
-                    {
-                        "type": "link",
-                        "name": "earthquake",
-                        "alt": "earthquake",
-                        "game-obj": "Spells",
-                        "aonid": 95
-                    }
-                ],
-                "text": "- If the creature can cast spells, you can replace spells with earth spells of the same rank, such as: **Cantrip** *scatter scree*, **1st** *pummeling rubble*, **2nd** *exploding earth*, **3rd** *one with stone*, **4th** *mountain resilience*, **5th** *wall of stone*, **6th** *petrify*, **7th** *heaving earth*, **8th** *earthquake*.",
-                "change_category": "spells",
-                "effects": [
-                    {
-                        "operation": "select",
-                        "selection": {
-                            "action": "replace",
-                            "constraint": "earth",
-                            "description": "- If the creature can cast spells, you can replace spells with earth spells of the same rank, such as: **Cantrip** *scatter scree*, **1st** *pummeling rubble*, **2nd** *exploding earth*, **3rd** *one with stone*, **4th** *mountain resilience*, **5th** *wall of stone*, **6th** *petrify*, **7th** *heaving earth*, **8th** *earthquake*.",
-                            "type": "select"
-                        },
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
-                    }
-                ]
-            }
-        ]
-    },
-    "game-id": "6585b232d358084b86e2edb98a5b1304",
-    "text": "To quickly give a creature a magical connection to the element of earth, you can use the following adjustments.",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 17,
+  "edition": "remastered",
+  "game-id": "6585b232d358084b86e2edb98a5b1304",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "Rage of Elements",
-                        "type": "section",
-                        "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Rage of Elements*** \u00a9 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, James Case, Jessica Catalan, Andrew D. Geels, Sen H.H.S., Patrick Hurley, Jason Keeley, Luis Loza, Mark Moreland, Jonathan Morgantini, AJ Neuro, Jessica Redekop, Solomon St. John, Michael Sayre, Mark Seifter, Shahreena Shahrani, Shay Snow, Levi Steadman, Mari Tokuda, Ruvaid Virk, Andrew White, and Linda Zayas-Palmer."
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            }
+          {
+            "name": "Rage of Elements",
+            "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Rage of Elements*** \u00a9 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, James Case, Jessica Catalan, Andrew D. Geels, Sen H.H.S., Patrick Hurley, Jason Keeley, Luis Loza, Mark Moreland, Jonathan Morgantini, AJ Neuro, Jessica Redekop, Solomon St. John, Michael Sayre, Mark Seifter, Shahreena Shahrani, Shay Snow, Levi Steadman, Mari Tokuda, Ruvaid Virk, Andrew White, and Linda Zayas-Palmer.",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "changes": [
+      {
+        "change_category": "traits",
+        "effects": [
+          {
+            "name": "Earth",
+            "operation": "add_item",
+            "target": "$.creature_type.creature_types"
+          }
+        ],
+        "links": [
+          {
+            "alt": "earth",
+            "aonid": 55,
+            "game-obj": "Traits",
+            "name": "earth",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the earth trait.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "senses",
+        "effects": [
+          {
+            "item": {
+              "name": "tremorsense",
+              "range": {
+                "range": 60,
+                "subtype": "range",
+                "text": "60 feet",
+                "type": "stat_block_section",
+                "unit": "feet"
+              },
+              "subtype": "special_sense",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.senses.special_senses"
+          }
+        ],
+        "links": [
+          {
+            "alt": "tremorsense",
+            "aonid": 40,
+            "game-obj": "MonsterAbilities",
+            "name": "tremorsense",
+            "type": "link"
+          },
+          {
+            "alt": "imprecise",
+            "aonid": 412,
+            "game-obj": "Rules",
+            "name": "imprecise",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add tremorsense 60 feet (imprecise).",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "languages",
+        "effects": [
+          {
+            "conditional": "$.statistics.languages.languages != null",
+            "item": {
+              "name": "Petran",
+              "subtype": "language",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.statistics.languages.languages"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Petran",
+            "aonid": 109,
+            "game-obj": "Languages",
+            "name": "Petran",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If it has any languages, add Petran.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "speed",
+        "effects": [
+          {
+            "item": {
+              "movement_type": "burrow",
+              "name": "burrow 20 feet",
+              "subtype": "speed",
+              "type": "stat_block_section",
+              "value": 20
+            },
+            "operation": "add_item",
+            "target": "$.offense.speed.movement"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add a burrow Speed of 20 feet, or 40 feet if the creature is 8th level or higher.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "spells",
+        "effects": [
+          {
+            "operation": "select",
+            "selection": {
+              "action": "replace",
+              "constraint": "earth",
+              "description": "- If the creature can cast spells, you can replace spells with earth spells of the same rank, such as: **Cantrip** *scatter scree*, **1st** *pummeling rubble*, **2nd** *exploding earth*, **3rd** *one with stone*, **4th** *mountain resilience*, **5th** *wall of stone*, **6th** *petrify*, **7th** *heaving earth*, **8th** *earthquake*.",
+              "type": "select"
+            },
+            "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
+          }
+        ],
+        "links": [
+          {
+            "alt": "scatter scree",
+            "aonid": 990,
+            "game-obj": "Spells",
+            "name": "scatter scree",
+            "type": "link"
+          },
+          {
+            "alt": "pummeling rubble",
+            "aonid": 708,
+            "game-obj": "Spells",
+            "name": "pummeling rubble",
+            "type": "link"
+          },
+          {
+            "alt": "exploding earth",
+            "aonid": 1331,
+            "game-obj": "Spells",
+            "name": "exploding earth",
+            "type": "link"
+          },
+          {
+            "alt": "one with stone",
+            "aonid": 188,
+            "game-obj": "Spells",
+            "name": "one with stone",
+            "type": "link"
+          },
+          {
+            "alt": "mountain resilience",
+            "aonid": 312,
+            "game-obj": "Spells",
+            "name": "mountain resilience",
+            "type": "link"
+          },
+          {
+            "alt": "wall of stone",
+            "aonid": 365,
+            "game-obj": "Spells",
+            "name": "wall of stone",
+            "type": "link"
+          },
+          {
+            "alt": "petrify",
+            "aonid": 123,
+            "game-obj": "Spells",
+            "name": "petrify",
+            "type": "link"
+          },
+          {
+            "alt": "heaving earth",
+            "aonid": 1335,
+            "game-obj": "Spells",
+            "name": "heaving earth",
+            "type": "link"
+          },
+          {
+            "alt": "earthquake",
+            "aonid": 95,
+            "game-obj": "Spells",
+            "name": "earthquake",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If the creature can cast spells, you can replace spells with earth spells of the same rank, such as: **Cantrip** *scatter scree*, **1st** *pummeling rubble*, **2nd** *exploding earth*, **3rd** *one with stone*, **4th** *mountain resilience*, **5th** *wall of stone*, **6th** *petrify*, **7th** *heaving earth*, **8th** *earthquake*.",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Earth",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Earth",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "errata": {
+        "alt": "2.0",
+        "aonid": 205,
+        "game-obj": "Sources",
+        "name": "2.0",
+        "type": "link"
+      },
+      "link": {
+        "alt": "Rage of Elements pg. 91",
+        "aonid": 205,
+        "game-obj": "Sources",
+        "name": "Rage of Elements pg. 91",
+        "type": "link"
+      },
+      "name": "Rage of Elements",
+      "page": 91,
+      "type": "source"
+    }
+  ],
+  "text": "To quickly give a creature a magical connection to the element of earth, you can use the following adjustments.",
+  "type": "monster_template"
 }

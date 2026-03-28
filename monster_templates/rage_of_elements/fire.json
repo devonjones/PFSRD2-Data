@@ -1,261 +1,261 @@
 {
-    "name": "Fire",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "Rage of Elements",
-            "link": {
-                "type": "link",
-                "name": "Rage of Elements pg. 115",
-                "alt": "Rage of Elements pg. 115",
-                "game-obj": "Sources",
-                "aonid": 205
-            },
-            "page": 115,
-            "errata": {
-                "type": "link",
-                "name": "2.0",
-                "alt": "2.0",
-                "game-obj": "Sources",
-                "aonid": 205
-            }
-        }
-    ],
-    "aonid": 18,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Fire",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "fire",
-                        "alt": "fire",
-                        "game-obj": "Traits",
-                        "aonid": 72
-                    }
-                ],
-                "text": "- Add the fire trait.",
-                "change_category": "traits",
-                "effects": [
-                    {
-                        "name": "Fire",
-                        "operation": "add_item",
-                        "target": "$.creature_type.creature_types"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Pyric",
-                        "alt": "Pyric",
-                        "game-obj": "Languages",
-                        "aonid": 110
-                    }
-                ],
-                "text": "- If it has any languages, add Pyric.",
-                "change_category": "languages",
-                "effects": [
-                    {
-                        "conditional": "$.statistics.languages.languages != null",
-                        "item": {
-                            "name": "Pyric",
-                            "subtype": "language",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.statistics.languages.languages"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Add immunity to fire.",
-                "change_category": "immunities",
-                "effects": [
-                    {
-                        "item": {
-                            "name": "fire",
-                            "subtype": "immunity",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.defense.hitpoints[*].immunities"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- If the creature's Strikes deal more than one die of damage, change one die to fire damage. If not, add 1 fire damage to its Strikes.",
-                "change_category": "damage",
-                "effects": [
-                    {
-                        "operation": "replace_one_die",
-                        "target": "$.offense.offensive_actions[*].attack.damage",
-                        "value": "fire"
-                    },
-                    {
-                        "conditional": "$.offense.offensive_actions[*].attack.damage[0].formula | dice_count <= 1",
-                        "item": {
-                            "damage_type": "fire",
-                            "formula": "1",
-                            "subtype": "attack_damage",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.offense.offensive_actions[*].attack.damage"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "ignition",
-                        "alt": "ignition",
-                        "game-obj": "Spells",
-                        "aonid": 236
-                    },
-                    {
-                        "type": "link",
-                        "name": "breathe fire",
-                        "alt": "breathe fire",
-                        "game-obj": "Spells",
-                        "aonid": 30
-                    },
-                    {
-                        "type": "link",
-                        "name": "blazing bolt",
-                        "alt": "blazing bolt",
-                        "game-obj": "Spells",
-                        "aonid": 992
-                    },
-                    {
-                        "type": "link",
-                        "name": "fireball",
-                        "alt": "fireball",
-                        "game-obj": "Spells",
-                        "aonid": 119
-                    },
-                    {
-                        "type": "link",
-                        "name": "wall of fire",
-                        "alt": "wall of fire",
-                        "game-obj": "Spells",
-                        "aonid": 362
-                    },
-                    {
-                        "type": "link",
-                        "name": "fire's pathway",
-                        "alt": "fire's pathway",
-                        "game-obj": "Spells",
-                        "aonid": 1354
-                    },
-                    {
-                        "type": "link",
-                        "name": "fireball",
-                        "alt": "fireball",
-                        "game-obj": "Spells",
-                        "aonid": 119
-                    },
-                    {
-                        "type": "link",
-                        "name": "fiery body",
-                        "alt": "fiery body",
-                        "game-obj": "Spells",
-                        "aonid": 115
-                    },
-                    {
-                        "type": "link",
-                        "name": "burning blossoms",
-                        "alt": "burning blossoms",
-                        "game-obj": "Spells",
-                        "aonid": 878
-                    },
-                    {
-                        "type": "link",
-                        "name": "falling stars",
-                        "alt": "falling stars",
-                        "game-obj": "Spells",
-                        "aonid": 191
-                    }
-                ],
-                "text": "- If the creature can cast spells, you can replace spells with fire spells of the same rank: **Cantrip** *ignition*, **1st** *breathe fire*, **2nd** *blazing bolt*, **3rd** *fireball*, **4th** *wall of fire*, **5th** *fire's pathway*, **6th** *fireball*, **7th** *fiery body*, **8th** *burning blossoms*, **9th** *falling stars*.",
-                "change_category": "spells",
-                "effects": [
-                    {
-                        "operation": "select",
-                        "selection": {
-                            "action": "replace",
-                            "constraint": "fire",
-                            "description": "- If the creature can cast spells, you can replace spells with fire spells of the same rank: **Cantrip** *ignition*, **1st** *breathe fire*, **2nd** *blazing bolt*, **3rd** *fireball*, **4th** *wall of fire*, **5th** *fire's pathway*, **6th** *fireball*, **7th** *fiery body*, **8th** *burning blossoms*, **9th** *falling stars*.",
-                            "type": "select"
-                        },
-                        "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
-                    }
-                ]
-            }
-        ]
-    },
-    "game-id": "68acfa93950b6bed8acf182d9d6cb71a",
-    "text": "To quickly give a creature a magical connection to the element of fire, you can use the following adjustments.",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 18,
+  "edition": "remastered",
+  "game-id": "68acfa93950b6bed8acf182d9d6cb71a",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "Rage of Elements",
-                        "type": "section",
-                        "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Rage of Elements*** \u00a9 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, James Case, Jessica Catalan, Andrew D. Geels, Sen H.H.S., Patrick Hurley, Jason Keeley, Luis Loza, Mark Moreland, Jonathan Morgantini, AJ Neuro, Jessica Redekop, Solomon St. John, Michael Sayre, Mark Seifter, Shahreena Shahrani, Shay Snow, Levi Steadman, Mari Tokuda, Ruvaid Virk, Andrew White, and Linda Zayas-Palmer."
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            }
+          {
+            "name": "Rage of Elements",
+            "text": "***Pathfinder Core Rulebook (Second Edition)*** \u00a9 2019, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.  \n ***Pathfinder Rage of Elements*** \u00a9 2023, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, James Case, Jessica Catalan, Andrew D. Geels, Sen H.H.S., Patrick Hurley, Jason Keeley, Luis Loza, Mark Moreland, Jonathan Morgantini, AJ Neuro, Jessica Redekop, Solomon St. John, Michael Sayre, Mark Seifter, Shahreena Shahrani, Shay Snow, Levi Steadman, Mari Tokuda, Ruvaid Virk, Andrew White, and Linda Zayas-Palmer.",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "changes": [
+      {
+        "change_category": "traits",
+        "effects": [
+          {
+            "name": "Fire",
+            "operation": "add_item",
+            "target": "$.creature_type.creature_types"
+          }
+        ],
+        "links": [
+          {
+            "alt": "fire",
+            "aonid": 72,
+            "game-obj": "Traits",
+            "name": "fire",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the fire trait.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "languages",
+        "effects": [
+          {
+            "conditional": "$.statistics.languages.languages != null",
+            "item": {
+              "name": "Pyric",
+              "subtype": "language",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.statistics.languages.languages"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Pyric",
+            "aonid": 110,
+            "game-obj": "Languages",
+            "name": "Pyric",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If it has any languages, add Pyric.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "immunities",
+        "effects": [
+          {
+            "item": {
+              "name": "fire",
+              "subtype": "immunity",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].immunities"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add immunity to fire.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "damage",
+        "effects": [
+          {
+            "operation": "replace_one_die",
+            "target": "$.offense.offensive_actions[*].attack.damage",
+            "value": "fire"
+          },
+          {
+            "conditional": "$.offense.offensive_actions[*].attack.damage[0].formula | dice_count <= 1",
+            "item": {
+              "damage_type": "fire",
+              "formula": "1",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.offense.offensive_actions[*].attack.damage"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If the creature's Strikes deal more than one die of damage, change one die to fire damage. If not, add 1 fire damage to its Strikes.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "spells",
+        "effects": [
+          {
+            "operation": "select",
+            "selection": {
+              "action": "replace",
+              "constraint": "fire",
+              "description": "- If the creature can cast spells, you can replace spells with fire spells of the same rank: **Cantrip** *ignition*, **1st** *breathe fire*, **2nd** *blazing bolt*, **3rd** *fireball*, **4th** *wall of fire*, **5th** *fire's pathway*, **6th** *fireball*, **7th** *fiery body*, **8th** *burning blossoms*, **9th** *falling stars*.",
+              "type": "select"
+            },
+            "target": "$.offense.offensive_actions[*].spells.spell_list[*].spells"
+          }
+        ],
+        "links": [
+          {
+            "alt": "ignition",
+            "aonid": 236,
+            "game-obj": "Spells",
+            "name": "ignition",
+            "type": "link"
+          },
+          {
+            "alt": "breathe fire",
+            "aonid": 30,
+            "game-obj": "Spells",
+            "name": "breathe fire",
+            "type": "link"
+          },
+          {
+            "alt": "blazing bolt",
+            "aonid": 992,
+            "game-obj": "Spells",
+            "name": "blazing bolt",
+            "type": "link"
+          },
+          {
+            "alt": "fireball",
+            "aonid": 119,
+            "game-obj": "Spells",
+            "name": "fireball",
+            "type": "link"
+          },
+          {
+            "alt": "wall of fire",
+            "aonid": 362,
+            "game-obj": "Spells",
+            "name": "wall of fire",
+            "type": "link"
+          },
+          {
+            "alt": "fire's pathway",
+            "aonid": 1354,
+            "game-obj": "Spells",
+            "name": "fire's pathway",
+            "type": "link"
+          },
+          {
+            "alt": "fireball",
+            "aonid": 119,
+            "game-obj": "Spells",
+            "name": "fireball",
+            "type": "link"
+          },
+          {
+            "alt": "fiery body",
+            "aonid": 115,
+            "game-obj": "Spells",
+            "name": "fiery body",
+            "type": "link"
+          },
+          {
+            "alt": "burning blossoms",
+            "aonid": 878,
+            "game-obj": "Spells",
+            "name": "burning blossoms",
+            "type": "link"
+          },
+          {
+            "alt": "falling stars",
+            "aonid": 191,
+            "game-obj": "Spells",
+            "name": "falling stars",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If the creature can cast spells, you can replace spells with fire spells of the same rank: **Cantrip** *ignition*, **1st** *breathe fire*, **2nd** *blazing bolt*, **3rd** *fireball*, **4th** *wall of fire*, **5th** *fire's pathway*, **6th** *fireball*, **7th** *fiery body*, **8th** *burning blossoms*, **9th** *falling stars*.",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Fire",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Fire",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "errata": {
+        "alt": "2.0",
+        "aonid": 205,
+        "game-obj": "Sources",
+        "name": "2.0",
+        "type": "link"
+      },
+      "link": {
+        "alt": "Rage of Elements pg. 115",
+        "aonid": 205,
+        "game-obj": "Sources",
+        "name": "Rage of Elements pg. 115",
+        "type": "link"
+      },
+      "name": "Rage of Elements",
+      "page": 115,
+      "type": "source"
+    }
+  ],
+  "text": "To quickly give a creature a magical connection to the element of fire, you can use the following adjustments.",
+  "type": "monster_template"
 }

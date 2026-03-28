@@ -1,256 +1,256 @@
 {
-    "name": "Elite",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "Monster Core",
-            "link": {
-                "type": "link",
-                "name": "Monster Core pg. 6",
-                "alt": "Monster Core pg. 6",
-                "game-obj": "Sources",
-                "aonid": 221
-            },
-            "page": 6,
-            "errata": {
-                "type": "link",
-                "name": "1.1",
-                "alt": "1.1",
-                "game-obj": "Sources",
-                "aonid": 221
-            }
-        }
-    ],
-    "aonid": 22,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Elite",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Increase the creature\u2019s level by 1; if the creature is level \u20131 or 0, instead increase its level by 2.",
-                "change_category": "level",
-                "effects": [
-                    {
-                        "operation": "adjustment",
-                        "target": "$.creature_type.level",
-                        "value": 1
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Increase the creature\u2019s AC, attack modifiers, DCs, saving throws, Perception, and skill modifiers by 2.",
-                "change_category": "combat_stats",
-                "effects": [
-                    {
-                        "operation": "adjustment",
-                        "target": "$.defense.ac.value",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.defense.saves.fort.value",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.defense.saves.ref.value",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.defense.saves.will.value",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.senses.perception.value",
-                        "value": 2
-                    },
-                    {
-                        "operation": "adjustment",
-                        "target": "$.statistics.skills[*].value",
-                        "value": 2
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Increase the damage of its Strikes and other offensive abilities by 2. If the creature has limits on how many times or how often it can use an ability (such as a spellcaster\u2019s spells or a dragon\u2019s breath), increase the damage by 4 instead.",
-                "change_category": "damage",
-                "effects": [
-                    {
-                        "conditional": "default",
-                        "item": {
-                            "formula": "+2",
-                            "notes": "Elite",
-                            "subtype": "attack_damage",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.offense.offensive_actions[*].attack.damage"
-                    },
-                    {
-                        "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency == null",
-                        "item": {
-                            "formula": "+2",
-                            "notes": "Elite",
-                            "subtype": "attack_damage",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.offense.offensive_actions[*].ability.damage"
-                    },
-                    {
-                        "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency != null",
-                        "item": {
-                            "formula": "+4",
-                            "notes": "Elite, limited use",
-                            "subtype": "attack_damage",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.offense.offensive_actions[*].ability.damage"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Increase the creature\u2019s Hit Points based on its starting level (see the table below).",
-                "change_category": "hit_points",
-                "effects": [
-                    {
-                        "conditional": "$.creature_type.level <= 1",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": 10
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 4",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": 15
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 5 && $.creature_type.level <= 19",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": 20
-                    },
-                    {
-                        "conditional": "$.creature_type.level >= 20",
-                        "operation": "adjustment",
-                        "target": "$.defense.hitpoints[*].hp",
-                        "value": 30
-                    }
-                ]
-            }
-        ],
-        "adjustments": [
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "starting_level": "1 or lower",
-                "hp_increase": "10"
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "starting_level": "2-4",
-                "hp_increase": "15"
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "starting_level": "5-19",
-                "hp_increase": "20"
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "adjustment",
-                "starting_level": "20+",
-                "hp_increase": "30"
-            }
-        ]
-    },
-    "game-id": "8eee65a0f6f8c10e3d45d51b8e1843a0",
-    "text": "Sometimes you\u2019ll want a creature that\u2019s just a bit more powerful than normal so that you can present a challenge that would otherwise be trivial or show that one enemy is stronger than its kin. To do this quickly and easily, apply the elite adjustments to its statistics as follows:",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 22,
+  "edition": "remastered",
+  "game-id": "8eee65a0f6f8c10e3d45d51b8e1843a0",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "Monster Core",
-                        "type": "section",
-                        "text": "***Pathfinder Monster Core*** \u00a9 2024 Paizo Inc., Authors: Alexander Augunas, Dennis Baker, Kate Baker, Joshua Birdsong, Joseph Blomquist, Logan Bonner, Jason Bulmahn, James Case, John Compton, Paris Crenshaw, Adam Daigle, Darrin Drader, Brian Duckwitz, Robert N. Emerson, Scott Fernandez, Eleanor Ferron, Leo Glass, Matthew Goodall, BJ Hensley, Thurston Hillman, Vanessa Hoskins, James Jacobs, Jenny Jarzabski, Miko Kallio, Jason Keeley, Jeff Lee, Lyz Liddell, Luis Loza, Ron Lundeen, Robert G. McCreary, Philippe-Antoine Menard, Jacob W. Michaels, Dave Nelson, Jason Nelson, Tim Nightengale, Stephen Radney-MacFarland, Mikhail Rekun, Patrick Renie, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Amber Stewart, Jeffrey Swank, William Thompson, Jason Tondro, Clark Valentine, Landon Winkler, Tonya Woldridge, and Linda Zayas-Palmer"
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            }
+          {
+            "name": "Monster Core",
+            "text": "***Pathfinder Monster Core*** \u00a9 2024 Paizo Inc., Authors: Alexander Augunas, Dennis Baker, Kate Baker, Joshua Birdsong, Joseph Blomquist, Logan Bonner, Jason Bulmahn, James Case, John Compton, Paris Crenshaw, Adam Daigle, Darrin Drader, Brian Duckwitz, Robert N. Emerson, Scott Fernandez, Eleanor Ferron, Leo Glass, Matthew Goodall, BJ Hensley, Thurston Hillman, Vanessa Hoskins, James Jacobs, Jenny Jarzabski, Miko Kallio, Jason Keeley, Jeff Lee, Lyz Liddell, Luis Loza, Ron Lundeen, Robert G. McCreary, Philippe-Antoine Menard, Jacob W. Michaels, Dave Nelson, Jason Nelson, Tim Nightengale, Stephen Radney-MacFarland, Mikhail Rekun, Patrick Renie, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Amber Stewart, Jeffrey Swank, William Thompson, Jason Tondro, Clark Valentine, Landon Winkler, Tonya Woldridge, and Linda Zayas-Palmer",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "adjustments": [
+      {
+        "hp_increase": "10",
+        "starting_level": "1 or lower",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      },
+      {
+        "hp_increase": "15",
+        "starting_level": "2-4",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      },
+      {
+        "hp_increase": "20",
+        "starting_level": "5-19",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      },
+      {
+        "hp_increase": "30",
+        "starting_level": "20+",
+        "subtype": "adjustment",
+        "type": "stat_block_section"
+      }
+    ],
+    "changes": [
+      {
+        "change_category": "level",
+        "effects": [
+          {
+            "operation": "adjustment",
+            "target": "$.creature_type.level",
+            "value": 1
+          }
+        ],
+        "subtype": "change",
+        "text": "- Increase the creature\u2019s level by 1; if the creature is level \u20131 or 0, instead increase its level by 2.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "combat_stats",
+        "effects": [
+          {
+            "operation": "adjustment",
+            "target": "$.defense.ac.value",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.offense.offensive_actions[*].attack.bonus.bonuses",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.defense.automatic_abilities[*].saving_throw[*].dc",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.defense.reactive_abilities[*].saving_throw[*].dc",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.offense.offensive_actions[*].ability.saving_throw[*].dc",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.defense.saves.fort.value",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.defense.saves.ref.value",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.defense.saves.will.value",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.senses.perception.value",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.statistics.skills[*].value",
+            "value": 2
+          }
+        ],
+        "subtype": "change",
+        "text": "- Increase the creature\u2019s AC, attack modifiers, DCs, saving throws, Perception, and skill modifiers by 2.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "damage",
+        "effects": [
+          {
+            "conditional": "default",
+            "item": {
+              "formula": "+2",
+              "notes": "Elite",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.offense.offensive_actions[*].attack.damage"
+          },
+          {
+            "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency == null",
+            "item": {
+              "formula": "+2",
+              "notes": "Elite",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.offense.offensive_actions[*].ability.damage"
+          },
+          {
+            "conditional": "$.offense.offensive_actions[*].ability.damage != null && $.offense.offensive_actions[*].ability.frequency != null",
+            "item": {
+              "formula": "+4",
+              "notes": "Elite, limited use",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.offense.offensive_actions[*].ability.damage"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Increase the damage of its Strikes and other offensive abilities by 2. If the creature has limits on how many times or how often it can use an ability (such as a spellcaster\u2019s spells or a dragon\u2019s breath), increase the damage by 4 instead.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "hit_points",
+        "effects": [
+          {
+            "conditional": "$.creature_type.level <= 1",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 10
+          },
+          {
+            "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 4",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 15
+          },
+          {
+            "conditional": "$.creature_type.level >= 5 && $.creature_type.level <= 19",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 20
+          },
+          {
+            "conditional": "$.creature_type.level >= 20",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 30
+          }
+        ],
+        "subtype": "change",
+        "text": "- Increase the creature\u2019s Hit Points based on its starting level (see the table below).",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Elite",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Elite",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "errata": {
+        "alt": "1.1",
+        "aonid": 221,
+        "game-obj": "Sources",
+        "name": "1.1",
+        "type": "link"
+      },
+      "link": {
+        "alt": "Monster Core pg. 6",
+        "aonid": 221,
+        "game-obj": "Sources",
+        "name": "Monster Core pg. 6",
+        "type": "link"
+      },
+      "name": "Monster Core",
+      "page": 6,
+      "type": "source"
+    }
+  ],
+  "text": "Sometimes you\u2019ll want a creature that\u2019s just a bit more powerful than normal so that you can present a challenge that would otherwise be trivial or show that one enemy is stronger than its kin. To do this quickly and easily, apply the elite adjustments to its statistics as follows:",
+  "type": "monster_template"
 }

@@ -1,234 +1,237 @@
 {
-    "name": "Goblin",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "NPC Core",
-            "link": {
-                "type": "link",
-                "name": "NPC Core pg. 168",
-                "alt": "NPC Core pg. 168",
-                "game-obj": "Sources",
-                "aonid": 236
-            },
-            "page": 168
-        }
-    ],
-    "aonid": 44,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Goblin",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Change size to Small.",
-                "change_category": "size",
-                "effects": [
-                    {
-                        "operation": "replace",
-                        "target": "$.creature_type.size",
-                        "value": "Small"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "human",
-                        "alt": "human",
-                        "game-obj": "Traits",
-                        "aonid": 627
-                    },
-                    {
-                        "type": "link",
-                        "name": "goblin",
-                        "alt": "goblin",
-                        "game-obj": "Traits",
-                        "aonid": 618
-                    }
-                ],
-                "text": "- Replace the human trait with the goblin trait.",
-                "change_category": "traits",
-                "effects": [
-                    {
-                        "name": "Human",
-                        "operation": "remove_item",
-                        "target": "$.creature_type.creature_types"
-                    },
-                    {
-                        "name": "Goblin",
-                        "operation": "add_item",
-                        "target": "$.creature_type.creature_types"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Goblin",
-                        "alt": "Goblin",
-                        "game-obj": "Languages",
-                        "aonid": 160
-                    }
-                ],
-                "text": "- Add the Goblin language.",
-                "change_category": "languages",
-                "effects": [
-                    {
-                        "item": {
-                            "name": "Goblin",
-                            "subtype": "language",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.statistics.languages.languages"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "text": "- Add the following abilities.",
-                "change_category": "abilities",
-                "effects": [
-                    {
-                        "operation": "add_items",
-                        "source": "$.changes[*].abilities",
-                        "target": "$.defense.automatic_abilities"
-                    }
-                ]
-            }
-        ],
-        "abilities": [
-            {
-                "type": "stat_block_section",
-                "subtype": "ability",
-                "name": "Darkvision",
-                "ability_type": "ability",
-                "link": {
-                    "type": "link",
-                    "name": "Darkvision",
-                    "alt": "Darkvision",
-                    "game-obj": "Rules",
-                    "aonid": 415
-                },
-                "universal_monster_ability": {
-                    "name": "Darkvision",
-                    "type": "ability",
-                    "text": "A monster with darkvision can see perfectly well in areas of darkness and dim light, though such vision is in black and white only. Some forms of magical darkness, such as a 4th-level *darkness* spell, block normal darkvision. A monster with greater darkvision, however, can see through even these forms of magical darkness.",
-                    "ability_type": "universal_monster_ability",
-                    "aonid": 12,
-                    "game-obj": "MonsterAbilities",
-                    "sources": [
-                        {
-                            "type": "source",
-                            "name": "Bestiary",
-                            "link": {
-                                "type": "link",
-                                "name": "Bestiary pg. 343",
-                                "alt": "Bestiary pg. 343",
-                                "game-obj": "Sources",
-                                "aonid": 2
-                            },
-                            "page": 343
-                        }
-                    ],
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "darkvision",
-                            "alt": "darkvision",
-                            "game-obj": "Rules",
-                            "aonid": 415
-                        },
-                        {
-                            "type": "link",
-                            "name": "darkness",
-                            "alt": "darkness",
-                            "game-obj": "Rules",
-                            "aonid": 409
-                        },
-                        {
-                            "type": "link",
-                            "name": "dim light",
-                            "alt": "dim light",
-                            "game-obj": "Rules",
-                            "aonid": 408
-                        },
-                        {
-                            "type": "link",
-                            "name": "darkness",
-                            "alt": "darkness",
-                            "game-obj": "Spells",
-                            "aonid": 59
-                        }
-                    ],
-                    "game-id": "fbaadf5607a32287e723316e8772a2c6"
-                },
-                "ability_category": "special_sense"
-            }
-        ]
-    },
-    "game-id": "9f4efd610ba0b10c6224836660189756",
-    "text": "Goblins are excellent at picking up new skills and finding their own creative ways of implementing them. Goblins prefer to live solely in the present, often caring very little about the wars and wisdom of the past. They strive for big creative dreams or small methodical advancement.",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 44,
+  "edition": "remastered",
+  "game-id": "9f4efd610ba0b10c6224836660189756",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "NPC Core",
-                        "type": "section",
-                        "text": "**Pathfinder NPC Core** \u00a9 2025, Paizo Inc. Authors: Raychael Allor, Alexander Augunas, Rigby Bendele, Jesse Benner, John Bennett, Joshua Birdsong, Chris Bissette, Jeremy Blum, Logan Bonner, Clinton J. Boomer, Dan Cascone, Jessica Catalan, Paris Crenshaw, Katina Davis, Rue Dickey, Robert N. Emerson, Chris Eng, Eleanor Ferron, Josh Foster, Matthew Fu, Andrew D. Geels, T.H. Gulliver, Sen H.H.S., Kev Hamilton, Sasha Laranoa Harving, Katrina Hennessy, BJ Hensley, Vanessa Hoskins, Patrick Hurley, Sara Jeffers, Michelle Jones, Erik Keith, Michelle Y. Kim, Jason LeMaitre, Christiana Lewis, Luis Loza, Colm Lundberg, Maryssa Mari, Jacob W. Michaels, Zac Moran, Matt Morris, Patchen Mortimer, K. Tessa Newton, Stephen Radney-MacFarland, Jessica Redekop, Mikhail Rekun, Alistair Rigg, David N. Pathfinder NPC Core \u00a9 2025, Paizo Inc. Paizo, the Paizo golem, Pathfinder, Starfinder, and other trademarks owned by Paizo are property of Paizo Inc. All rights reserved.Produced using ecologically sourced FSC\u00ae certified paper and soy ink. Printed in China.Ross, Tony Saunders, Shay Snow, Joel Southall, Kendra Leigh Speedling, Levi Steadman, Christina Stiles, Kyle Tam, Jamie Trollope, Ruvaid Virk, Grady Wang, Andrew White, Jackson Wood, Isis Wozniakowska, and Basil Wright."
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            },
-            {
-                "name": "Bestiary",
-                "type": "section",
-                "text": "**Daemon, Guardian from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.  \n **Dark Creeper from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Rik Shepard.  \n **Dark Stalker from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.  \n **Dragon, Faerie from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Brian Jaeger and Gary Gygax.  \n **Genie, Marid from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.  \n **Mite from the Tome of Horrors Complete** \u00a9 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.  \n **Pathfinder Bestiary (Second Edition)** \u00a9 2019, Paizo Inc.; Authors: Alexander Augunas, Logan Bonner, Jason Bulmahn, John Compton, Paris Crenshaw, Adam Daigle, Eleanor Ferron, Leo Glass, Thurston Hillman, James Jacobs, Jason Keeley, Lyz Liddell, Ron Lundeen, Robert G. McCreary, Tim Nightengale, Stephen Radney-MacFarland, Alex Riggs, David N. Ross, Michael Sayre, Mark Seifter, Chris S. Sims, Jeffrey Swank, Jason Tondro, Tonya Woldridge, and Linda Zayas-Palmer."
-            }
+          {
+            "name": "NPC Core",
+            "text": "**Pathfinder NPC Core** \u00a9 2025, Paizo Inc. Authors: Raychael Allor, Alexander Augunas, Rigby Bendele, Jesse Benner, John Bennett, Joshua Birdsong, Chris Bissette, Jeremy Blum, Logan Bonner, Clinton J. Boomer, Dan Cascone, Jessica Catalan, Paris Crenshaw, Katina Davis, Rue Dickey, Robert N. Emerson, Chris Eng, Eleanor Ferron, Josh Foster, Matthew Fu, Andrew D. Geels, T.H. Gulliver, Sen H.H.S., Kev Hamilton, Sasha Laranoa Harving, Katrina Hennessy, BJ Hensley, Vanessa Hoskins, Patrick Hurley, Sara Jeffers, Michelle Jones, Erik Keith, Michelle Y. Kim, Jason LeMaitre, Christiana Lewis, Luis Loza, Colm Lundberg, Maryssa Mari, Jacob W. Michaels, Zac Moran, Matt Morris, Patchen Mortimer, K. Tessa Newton, Stephen Radney-MacFarland, Jessica Redekop, Mikhail Rekun, Alistair Rigg, David N. Pathfinder NPC Core \u00a9 2025, Paizo Inc. Paizo, the Paizo golem, Pathfinder, Starfinder, and other trademarks owned by Paizo are property of Paizo Inc. All rights reserved.Produced using ecologically sourced FSC\u00ae certified paper and soy ink. Printed in China.Ross, Tony Saunders, Shay Snow, Joel Southall, Kendra Leigh Speedling, Levi Steadman, Christina Stiles, Kyle Tam, Jamie Trollope, Ruvaid Virk, Grady Wang, Andrew White, Jackson Wood, Isis Wozniakowska, and Basil Wright.",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "abilities": [
+      {
+        "ability_category": "special_sense",
+        "ability_type": "ability",
+        "link": {
+          "alt": "Darkvision",
+          "aonid": 415,
+          "game-obj": "Rules",
+          "name": "Darkvision",
+          "type": "link"
+        },
+        "name": "Darkvision",
+        "subtype": "ability",
+        "type": "stat_block_section",
+        "universal_monster_ability": {
+          "ability_type": "universal_monster_ability",
+          "aonid": 59,
+          "edition": "remastered",
+          "game-id": "8ec277ab70576ba965a6c33f34a8773e",
+          "game-obj": "MonsterAbilities",
+          "links": [
+            {
+              "alt": "darkvision",
+              "aonid": 415,
+              "game-obj": "Rules",
+              "name": "darkvision",
+              "type": "link"
+            },
+            {
+              "alt": "darkness",
+              "aonid": 409,
+              "game-obj": "Rules",
+              "name": "darkness",
+              "type": "link"
+            },
+            {
+              "alt": "dim light",
+              "aonid": 408,
+              "game-obj": "Rules",
+              "name": "dim light",
+              "type": "link"
+            },
+            {
+              "alt": "darkness",
+              "aonid": 1480,
+              "game-obj": "Spells",
+              "name": "darkness",
+              "type": "link"
+            }
+          ],
+          "name": "Darkvision",
+          "sources": [
+            {
+              "errata": {
+                "alt": "1.1",
+                "aonid": 221,
+                "game-obj": "Sources",
+                "name": "1.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Monster Core pg. 359",
+                "aonid": 221,
+                "game-obj": "Sources",
+                "name": "Monster Core pg. 359",
+                "type": "link"
+              },
+              "name": "Monster Core",
+              "page": 359,
+              "type": "source"
+            }
+          ],
+          "text": "A monster with darkvision can see perfectly well in areas of darkness and dim light, though such vision is in black and white only. Some forms of magical darkness, such as a 4th-level *darkness* spell, block normal darkvision. A monster with greater darkvision, however, can see through even these forms of magical darkness.",
+          "type": "ability"
+        }
+      }
+    ],
+    "changes": [
+      {
+        "change_category": "size",
+        "effects": [
+          {
+            "operation": "replace",
+            "target": "$.creature_type.size",
+            "value": "Small"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Change size to Small.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "traits",
+        "effects": [
+          {
+            "name": "Human",
+            "operation": "remove_item",
+            "target": "$.creature_type.creature_types"
+          },
+          {
+            "name": "Goblin",
+            "operation": "add_item",
+            "target": "$.creature_type.creature_types"
+          }
+        ],
+        "links": [
+          {
+            "alt": "human",
+            "aonid": 627,
+            "game-obj": "Traits",
+            "name": "human",
+            "type": "link"
+          },
+          {
+            "alt": "goblin",
+            "aonid": 618,
+            "game-obj": "Traits",
+            "name": "goblin",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Replace the human trait with the goblin trait.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "languages",
+        "effects": [
+          {
+            "item": {
+              "name": "Goblin",
+              "subtype": "language",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.statistics.languages.languages"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Goblin",
+            "aonid": 160,
+            "game-obj": "Languages",
+            "name": "Goblin",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the Goblin language.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "abilities",
+        "effects": [
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities",
+            "target": "$.defense.automatic_abilities"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the following abilities.",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Goblin",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Goblin",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "link": {
+        "alt": "NPC Core pg. 168",
+        "aonid": 236,
+        "game-obj": "Sources",
+        "name": "NPC Core pg. 168",
+        "type": "link"
+      },
+      "name": "NPC Core",
+      "page": 168,
+      "type": "source"
+    }
+  ],
+  "text": "Goblins are excellent at picking up new skills and finding their own creative ways of implementing them. Goblins prefer to live solely in the present, often caring very little about the wars and wisdom of the past. They strive for big creative dreams or small methodical advancement.",
+  "type": "monster_template"
 }

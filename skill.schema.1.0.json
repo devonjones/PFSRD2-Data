@@ -1,252 +1,629 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-
-	"definitions": {
-		"alternate_link": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["alternate_link"]},
-				"game-obj": {"enum": [
-					"Spells", "Sources", "Skills", "Traits", "MonsterAbilities",
-					"Conditions", "Languages", "Weapons", "Armor", "Shields",
-					"Equipment", "Deities", "Feats", "Actions", "Monsters",
-					"Heritages", "Rules", "Diseases", "Rituals", "Planes",
-					"MonsterFamilies", "Domains", "Classes", "Ancestries",
-					"Archetypes", "SiegeWeapons", "WeaponGroups"
-				]},
-				"game-id": {"type": "string"},
-				"alternate_type": {"enum": ["legacy", "remastered"]},
-				"aonid": {"type": "integer"}
-			},
-			"required": ["game-obj", "aonid"],
-			"additionalProperties": false
-		},
-		"license": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["section"]},
-				"subtype": {"enum": ["license"]},
-				"license": {"enum": [
-					"OPEN GAME LICENSE Version 1.0a",
-					"Open RPG Creative license"]},
-				"text": {"type": "string"},
-				"sections": {"$ref": "#/definitions/sections"}
-			},
-			"additionalProperties": false
-		},
-		"link": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["link"]},
-				"alt": {"type": "string"},
-				"href": {"type": "string"},
-				"game-obj": {"enum": [
-					"Spells", "Sources", "Skills", "Traits", "MonsterAbilities",
-					"Conditions", "Languages", "Weapons", "Armor", "Shields",
-					"Equipment", "Deities", "Feats", "Actions", "Monsters",
-					"Heritages", "Rules", "Diseases", "Rituals", "Planes",
-					"MonsterFamilies", "Domains", "Classes", "Ancestries",
-					"Archetypes", "SiegeWeapons", "WeaponGroups", "SpellLists"
-				]},
-				"aonid": {"type": "integer"}
-			},
-			"required": ["name", "type", "alt"],
-			"additionalProperties": false
-		},
-		"action_type": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["action_type"]},
-				"name": {"enum": [
-					"Reaction", "Free Action", "One Action",
-					"Two Actions", "Three Actions", "One to Three Actions",
-					"One or Two Actions", "Two or Three Actions",
-					"Free Action or Single Action", "One Action or more",
-					"Two to Three Actions", "Reaction or One Action"
-				]}
-			},
-			"required": ["type", "subtype", "name"],
-			"additionalProperties": false
-		},
-		"trait": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["trait"]},
-				"game-id": {"type": "string"},
-				"game-obj": {"enum": ["Traits"]},
-				"value": {"type": "string"},
-				"text": {"type": "string"},
-				"classes": {
-					"type": "array",
-					"items": {"type": "string"},
-					"additionalItems": false
-				},
-				"sources": {"$ref": "#/definitions/sources"},
-				"sections": {"$ref": "#/definitions/sections"},
-				"links": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/link"},
-					"additionalItems": false
-				},
-				"alternate_link": {"$ref": "#/definitions/alternate_link"},
-				"edition": {"enum": ["legacy", "remastered"]}
-			},
-			"required": ["name", "type", "game-id", "game-obj", "sources", "edition"],
-			"additionalProperties": false
-		},
-		"sample_task": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["sample_task"]},
-				"name": {"type": "string"},
-				"proficiency": {"enum": ["untrained", "trained", "expert", "master", "legendary"]}
-			},
-			"required": ["type", "subtype", "name", "proficiency"],
-			"additionalProperties": false
-		},
-		"skill_action": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["skill_action"]},
-				"text": {"type": "string"},
-				"action_type": {"$ref": "#/definitions/action_type"},
-				"sample_tasks": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/sample_task"},
-					"additionalItems": false
-				},
-				"traits": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/trait"},
-					"additionalItems": false
-				},
-				"source": {"$ref": "#/definitions/source"},
-				"sources": {"$ref": "#/definitions/sources"},
-				"trained": {"type": "boolean"},
-				"sections": {"$ref": "#/definitions/sections"},
-				"links": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/link"},
-					"additionalItems": false
-				},
-				"requirement": {"type": "string"},
-				"trigger": {"type": "string"},
-				"frequency": {"type": "string"},
-				"cost": {"type": "string"},
-				"duration": {"type": "string"},
-				"effect": {"type": "string"},
-				"critical_success": {"type": "string"},
-				"success": {"type": "string"},
-				"failure": {"type": "string"},
-				"critical_failure": {"type": "string"}
-			},
-			"required": ["name", "type", "subtype"],
-			"additionalProperties": false
-		},
-		"section": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["section"]},
-				"text": {"type": "string"},
-				"sections": {"$ref": "#/definitions/sections"},
-				"sources": {"$ref": "#/definitions/sources"},
-				"subtype": {"enum": ["sidebar", "index"]},
-				"sidebar_type": {"enum": [
-					"treasure_and_rewards", "related_creatures", "locations",
-					"additional_lore", "advice_and_rules", "geb"
-				]},
-				"sidebar_heading": {"type": "string"},
-				"image": {"$ref": "#/definitions/image"},
-				"links": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/link"},
-					"additionalItems": false
-				}
-			},
-			"additionalProperties": false
-		},
-		"sections": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/section"},
-			"additionalItems": false
-		},
-		"source": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["source"]},
-				"link": {"$ref": "#/definitions/link"},
-				"page": {"type": "integer"},
-				"errata": {"$ref": "#/definitions/link"},
-				"note": {"$ref": "#/definitions/link"}
-			},
-			"required": ["name", "type", "link"],
-			"additionalProperties": false
-		},
-		"sources": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/source"},
-			"additionalItems": false
-		},
-		"image": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["image"]},
-				"name": {"type": "string"},
-				"game-obj": {"type": "string"},
-				"image": {"type": "string"}
-			},
-			"required": ["type", "name", "image"],
-			"additionalProperties": false
-		},
-		"skill": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["skill"]},
-				"name": {"type": "string"},
-				"skill_type": {"enum": ["character_skill", "kingdom_skill"]},
-				"key_ability": {"enum": ["str", "dex", "con", "int", "wis", "cha"]},
-				"key_kingdom_ability": {"enum": ["culture", "economy", "loyalty", "stability"]},
-				"text": {"type": "string"},
-				"links": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/link"},
-					"additionalItems": false
-				},
-				"actions": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/skill_action"},
-					"additionalItems": false
-				}
-			},
-			"required": ["type", "subtype", "name"],
-			"additionalProperties": false
-		}
-	},
-	"type": "object",
-	"properties": {
-		"name": {"type": "string"},
-		"type": {"enum": ["skill"]},
-		"game-id": {"type": "string"},
-		"game-obj": {"enum": ["Skills"]},
-		"aonid": {"type": "integer"},
-		"sources": {"$ref": "#/definitions/sources"},
-		"skill": {"$ref": "#/definitions/skill"},
-		"sections": {"$ref": "#/definitions/sections"},
-		"alternate_link": {"$ref": "#/definitions/alternate_link"},
-		"schema_version": {"enum": [1.0]},
-		"edition": {"enum": ["legacy", "remastered"]},
-		"license": {"$ref": "#/definitions/license"}
-	},
-	"required": ["name", "type", "game-id", "game-obj", "sources", "license", "schema_version", "edition"],
-	"additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "action_type": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "enum": [
+            "Reaction",
+            "Free Action",
+            "One Action",
+            "Two Actions",
+            "Three Actions",
+            "One to Three Actions",
+            "One or Two Actions",
+            "Two or Three Actions",
+            "Free Action or Single Action",
+            "One Action or more",
+            "Two to Three Actions",
+            "Reaction or One Action"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "action_type"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "name"
+      ],
+      "type": "object"
+    },
+    "alternate_link": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_type": {
+          "enum": [
+            "legacy",
+            "remastered"
+          ]
+        },
+        "aonid": {
+          "type": "integer"
+        },
+        "game-id": {
+          "type": "string"
+        },
+        "game-obj": {
+          "enum": [
+            "Spells",
+            "Sources",
+            "Skills",
+            "Traits",
+            "MonsterAbilities",
+            "Conditions",
+            "Languages",
+            "Weapons",
+            "Armor",
+            "Shields",
+            "Equipment",
+            "Deities",
+            "Feats",
+            "Actions",
+            "Monsters",
+            "Heritages",
+            "Rules",
+            "Diseases",
+            "Rituals",
+            "Planes",
+            "MonsterFamilies",
+            "Domains",
+            "Classes",
+            "Ancestries",
+            "Archetypes",
+            "SiegeWeapons",
+            "WeaponGroups"
+          ]
+        },
+        "type": {
+          "enum": [
+            "alternate_link"
+          ]
+        }
+      },
+      "required": [
+        "game-obj",
+        "aonid"
+      ],
+      "type": "object"
+    },
+    "image": {
+      "additionalProperties": false,
+      "properties": {
+        "game-obj": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "image"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "name",
+        "image"
+      ],
+      "type": "object"
+    },
+    "license": {
+      "additionalProperties": false,
+      "properties": {
+        "license": {
+          "enum": [
+            "OPEN GAME LICENSE Version 1.0a",
+            "Open RPG Creative license"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "subtype": {
+          "enum": [
+            "license"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "section"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "link": {
+      "additionalProperties": false,
+      "properties": {
+        "alt": {
+          "type": "string"
+        },
+        "aonid": {
+          "type": "integer"
+        },
+        "game-obj": {
+          "enum": [
+            "Spells",
+            "Sources",
+            "Skills",
+            "Traits",
+            "MonsterAbilities",
+            "Conditions",
+            "Languages",
+            "Weapons",
+            "Armor",
+            "Shields",
+            "Equipment",
+            "Deities",
+            "Feats",
+            "Actions",
+            "Monsters",
+            "Heritages",
+            "Rules",
+            "Diseases",
+            "Rituals",
+            "Planes",
+            "MonsterFamilies",
+            "Domains",
+            "Classes",
+            "Ancestries",
+            "Archetypes",
+            "SiegeWeapons",
+            "WeaponGroups",
+            "SpellLists"
+          ]
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "link"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "alt"
+      ],
+      "type": "object"
+    },
+    "sample_task": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "proficiency": {
+          "enum": [
+            "untrained",
+            "trained",
+            "expert",
+            "master",
+            "legendary"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "sample_task"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "name",
+        "proficiency"
+      ],
+      "type": "object"
+    },
+    "section": {
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/image"
+        },
+        "links": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "sidebar_heading": {
+          "type": "string"
+        },
+        "sidebar_type": {
+          "enum": [
+            "treasure_and_rewards",
+            "related_creatures",
+            "locations",
+            "additional_lore",
+            "advice_and_rules",
+            "geb"
+          ]
+        },
+        "sources": {
+          "$ref": "#/definitions/sources"
+        },
+        "subtype": {
+          "enum": [
+            "sidebar",
+            "index"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "section"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "sections": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/section"
+      },
+      "type": "array"
+    },
+    "skill": {
+      "additionalProperties": false,
+      "properties": {
+        "actions": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/skill_action"
+          },
+          "type": "array"
+        },
+        "key_ability": {
+          "enum": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ]
+        },
+        "key_kingdom_ability": {
+          "enum": [
+            "culture",
+            "economy",
+            "loyalty",
+            "stability"
+          ]
+        },
+        "links": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "skill_type": {
+          "enum": [
+            "character_skill",
+            "kingdom_skill"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "skill"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "name"
+      ],
+      "type": "object"
+    },
+    "skill_action": {
+      "additionalProperties": false,
+      "properties": {
+        "action_type": {
+          "$ref": "#/definitions/action_type"
+        },
+        "cost": {
+          "type": "string"
+        },
+        "critical_failure": {
+          "type": "string"
+        },
+        "critical_success": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "failure": {
+          "type": "string"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "links": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "requirement": {
+          "type": "string"
+        },
+        "sample_tasks": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/sample_task"
+          },
+          "type": "array"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "source": {
+          "$ref": "#/definitions/source"
+        },
+        "sources": {
+          "$ref": "#/definitions/sources"
+        },
+        "subtype": {
+          "enum": [
+            "skill_action"
+          ]
+        },
+        "success": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "trained": {
+          "type": "boolean"
+        },
+        "traits": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/trait"
+          },
+          "type": "array"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "subtype"
+      ],
+      "type": "object"
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "errata": {
+          "$ref": "#/definitions/link"
+        },
+        "link": {
+          "$ref": "#/definitions/link"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "$ref": "#/definitions/link"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "source"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "link"
+      ],
+      "type": "object"
+    },
+    "sources": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/source"
+      },
+      "type": "array"
+    },
+    "trait": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_link": {
+          "$ref": "#/definitions/alternate_link"
+        },
+        "classes": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "edition": {
+          "enum": [
+            "legacy",
+            "remastered"
+          ]
+        },
+        "game-id": {
+          "type": "string"
+        },
+        "game-obj": {
+          "enum": [
+            "Traits"
+          ]
+        },
+        "links": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "sources": {
+          "$ref": "#/definitions/sources"
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "trait"
+          ]
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "game-id",
+        "game-obj",
+        "sources",
+        "edition"
+      ],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "alternate_link": {
+      "$ref": "#/definitions/alternate_link"
+    },
+    "aonid": {
+      "type": "integer"
+    },
+    "edition": {
+      "enum": [
+        "legacy",
+        "remastered"
+      ]
+    },
+    "game-id": {
+      "type": "string"
+    },
+    "game-obj": {
+      "enum": [
+        "Skills"
+      ]
+    },
+    "license": {
+      "$ref": "#/definitions/license"
+    },
+    "name": {
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        1.0
+      ]
+    },
+    "sections": {
+      "$ref": "#/definitions/sections"
+    },
+    "skill": {
+      "$ref": "#/definitions/skill"
+    },
+    "sources": {
+      "$ref": "#/definitions/sources"
+    },
+    "type": {
+      "enum": [
+        "skill"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "game-id",
+    "game-obj",
+    "sources",
+    "license",
+    "schema_version",
+    "edition"
+  ],
+  "type": "object"
 }

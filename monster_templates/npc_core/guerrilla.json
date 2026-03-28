@@ -1,183 +1,183 @@
 {
-    "name": "Guerrilla",
-    "type": "monster_template",
-    "sources": [
-        {
-            "type": "source",
-            "name": "NPC Core",
-            "link": {
-                "type": "link",
-                "name": "NPC Core pg. 95",
-                "alt": "NPC Core pg. 95",
-                "game-obj": "Sources",
-                "aonid": 236
-            },
-            "page": 95
-        }
-    ],
-    "aonid": 37,
-    "game-obj": "MonsterTemplates",
-    "monster_template": {
-        "name": "Guerrilla",
-        "type": "stat_block_section",
-        "subtype": "monster_template",
-        "changes": [
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Stealth",
-                        "alt": "Stealth",
-                        "game-obj": "Skills",
-                        "aonid": 48
-                    },
-                    {
-                        "type": "link",
-                        "name": "high skill value for its level",
-                        "alt": "high skill value for its level",
-                        "game-obj": "Rules",
-                        "aonid": 2885
-                    }
-                ],
-                "text": "- Give the creature a Stealth modifier equal to the high skill value for its level. If you're in a hurry, use the creature's highest skill modifier.",
-                "change_category": "skills",
-                "effects": [
-                    {
-                        "item": {
-                            "name": "Stealth",
-                            "subtype": "skill",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.statistics.skills",
-                        "value_from": "$.statistics.skills | high_for_level"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "Athletics",
-                        "alt": "Athletics",
-                        "game-obj": "Skills",
-                        "aonid": 36
-                    }
-                ],
-                "text": "- If the creature has the Athletics skill, reduce its modifier by 2.",
-                "change_category": "skills",
-                "effects": [
-                    {
-                        "operation": "adjustment",
-                        "target": "$.statistics.skills[?(@.name=='Its')].value",
-                        "value": -2
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "off-guard",
-                        "alt": "off-guard",
-                        "game-obj": "Conditions",
-                        "aonid": 58
-                    }
-                ],
-                "text": "- Reduce the damage of the creature's Strikes by 2, but give it the Sneak Attack ability.  **Sneak Attack** The creature deals 1d6 extra precision damage to off-guard creatures.",
-                "change_category": "damage",
-                "effects": [
-                    {
-                        "item": {
-                            "formula": "-2",
-                            "notes": "Guerrilla",
-                            "subtype": "attack_damage",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "target": "$.offense.offensive_actions[*].attack.damage"
-                    }
-                ]
-            },
-            {
-                "type": "stat_block_section",
-                "subtype": "change",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "hidden",
-                        "alt": "hidden",
-                        "game-obj": "Conditions",
-                        "aonid": 79
-                    }
-                ],
-                "text": "- Add the Pounce ability.  **Pounce** [one-action] The creature Strides and makes a Strike at the end of that movement. If the creature began this action hidden, they remain hidden until after this ability's Strike.",
-                "change_category": "strikes",
-                "effects": [
-                    {
-                        "item": {
-                            "subtype": "offensive_action",
-                            "type": "stat_block_section"
-                        },
-                        "operation": "add_item",
-                        "source": "$.changes[*].abilities",
-                        "target": "$.offense.offensive_actions"
-                    }
-                ]
-            }
-        ]
-    },
-    "game-id": "866ef94a5356e1e28747de2401efac3f",
-    "text": "Most military engagements take place in large areas, such as plains or cities, where there is the most territory or resources to be gained. However, guerrilla units fight in forests, swamps, and other tough locations, where they set up traps, ambushes, and use other surprise tactics.  \n  \n You can use these adjustments to turn a military NPC or troop into a guerrilla. These can also be useful for mercenaries or other non-military NPCs.",
-    "edition": "remastered",
-    "license": {
-        "name": "ORC Notice",
-        "type": "section",
+  "aonid": 37,
+  "edition": "remastered",
+  "game-id": "866ef94a5356e1e28747de2401efac3f",
+  "game-obj": "MonsterTemplates",
+  "license": {
+    "license": "Open RPG Creative license",
+    "name": "ORC Notice",
+    "sections": [
+      {
+        "name": "Attribution",
         "sections": [
-            {
-                "name": "Attribution",
-                "type": "section",
-                "text": "This product is based on the following Licensed Material:",
-                "sections": [
-                    {
-                        "name": "NPC Core",
-                        "type": "section",
-                        "text": "**Pathfinder NPC Core** \u00a9 2025, Paizo Inc. Authors: Raychael Allor, Alexander Augunas, Rigby Bendele, Jesse Benner, John Bennett, Joshua Birdsong, Chris Bissette, Jeremy Blum, Logan Bonner, Clinton J. Boomer, Dan Cascone, Jessica Catalan, Paris Crenshaw, Katina Davis, Rue Dickey, Robert N. Emerson, Chris Eng, Eleanor Ferron, Josh Foster, Matthew Fu, Andrew D. Geels, T.H. Gulliver, Sen H.H.S., Kev Hamilton, Sasha Laranoa Harving, Katrina Hennessy, BJ Hensley, Vanessa Hoskins, Patrick Hurley, Sara Jeffers, Michelle Jones, Erik Keith, Michelle Y. Kim, Jason LeMaitre, Christiana Lewis, Luis Loza, Colm Lundberg, Maryssa Mari, Jacob W. Michaels, Zac Moran, Matt Morris, Patchen Mortimer, K. Tessa Newton, Stephen Radney-MacFarland, Jessica Redekop, Mikhail Rekun, Alistair Rigg, David N. Pathfinder NPC Core \u00a9 2025, Paizo Inc. Paizo, the Paizo golem, Pathfinder, Starfinder, and other trademarks owned by Paizo are property of Paizo Inc. All rights reserved.Produced using ecologically sourced FSC\u00ae certified paper and soy ink. Printed in China.Ross, Tony Saunders, Shay Snow, Joel Southall, Kendra Leigh Speedling, Levi Steadman, Christina Stiles, Kyle Tam, Jamie Trollope, Ruvaid Virk, Grady Wang, Andrew White, Jackson Wood, Isis Wozniakowska, and Basil Wright."
-                    }
-                ]
-            },
-            {
-                "name": "Attributing us",
-                "type": "section",
-                "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
-                "sections": [
-                    {
-                        "name": "Pathfinder Open Reference",
-                        "type": "section",
-                        "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones."
-                    }
-                ]
-            },
-            {
-                "name": "Reserved Material",
-                "type": "section",
-                "text": "Reserved Material elements in this product include, but may not be limited to: [none]"
-            },
-            {
-                "name": "Expressly Designated Licensed Material",
-                "type": "section",
-                "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None]."
-            }
+          {
+            "name": "NPC Core",
+            "text": "**Pathfinder NPC Core** \u00a9 2025, Paizo Inc. Authors: Raychael Allor, Alexander Augunas, Rigby Bendele, Jesse Benner, John Bennett, Joshua Birdsong, Chris Bissette, Jeremy Blum, Logan Bonner, Clinton J. Boomer, Dan Cascone, Jessica Catalan, Paris Crenshaw, Katina Davis, Rue Dickey, Robert N. Emerson, Chris Eng, Eleanor Ferron, Josh Foster, Matthew Fu, Andrew D. Geels, T.H. Gulliver, Sen H.H.S., Kev Hamilton, Sasha Laranoa Harving, Katrina Hennessy, BJ Hensley, Vanessa Hoskins, Patrick Hurley, Sara Jeffers, Michelle Jones, Erik Keith, Michelle Y. Kim, Jason LeMaitre, Christiana Lewis, Luis Loza, Colm Lundberg, Maryssa Mari, Jacob W. Michaels, Zac Moran, Matt Morris, Patchen Mortimer, K. Tessa Newton, Stephen Radney-MacFarland, Jessica Redekop, Mikhail Rekun, Alistair Rigg, David N. Pathfinder NPC Core \u00a9 2025, Paizo Inc. Paizo, the Paizo golem, Pathfinder, Starfinder, and other trademarks owned by Paizo are property of Paizo Inc. All rights reserved.Produced using ecologically sourced FSC\u00ae certified paper and soy ink. Printed in China.Ross, Tony Saunders, Shay Snow, Joel Southall, Kendra Leigh Speedling, Levi Steadman, Christina Stiles, Kyle Tam, Jamie Trollope, Ruvaid Virk, Grady Wang, Andrew White, Jackson Wood, Isis Wozniakowska, and Basil Wright.",
+            "type": "section"
+          }
         ],
-        "subtype": "license",
-        "license": "Open RPG Creative license",
-        "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein."
-    },
-    "schema_version": 1.0
+        "text": "This product is based on the following Licensed Material:",
+        "type": "section"
+      },
+      {
+        "name": "Attributing us",
+        "sections": [
+          {
+            "name": "Pathfinder Open Reference",
+            "text": "\u00a9 2023 Masterwork Tools LLC, Authors: Devon Jones, Monica Jones.",
+            "type": "section"
+          }
+        ],
+        "text": "If you use our Licensed Material in your own published works, please credit us as follows:",
+        "type": "section"
+      },
+      {
+        "name": "Reserved Material",
+        "text": "Reserved Material elements in this product include, but may not be limited to: [none]",
+        "type": "section"
+      },
+      {
+        "name": "Expressly Designated Licensed Material",
+        "text": "The following elements are owned by the Licensor and would otherwise constitute Reserved Material and are hereby designated as Licensed Material: [None].",
+        "type": "section"
+      }
+    ],
+    "subtype": "license",
+    "text": "This product is licensed under the ORC License to be held in the Library of Congress and available online at various locations including paizo.com/orclicense, azoralaw.com/orclicense, and others. All warranties are disclaimed as set forth therein.",
+    "type": "section"
+  },
+  "monster_template": {
+    "changes": [
+      {
+        "change_category": "skills",
+        "effects": [
+          {
+            "item": {
+              "name": "Stealth",
+              "subtype": "skill",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.statistics.skills",
+            "value_from": "$.statistics.skills | high_for_level"
+          }
+        ],
+        "links": [
+          {
+            "alt": "Stealth",
+            "aonid": 48,
+            "game-obj": "Skills",
+            "name": "Stealth",
+            "type": "link"
+          },
+          {
+            "alt": "high skill value for its level",
+            "aonid": 2885,
+            "game-obj": "Rules",
+            "name": "high skill value for its level",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Give the creature a Stealth modifier equal to the high skill value for its level. If you're in a hurry, use the creature's highest skill modifier.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "skills",
+        "effects": [
+          {
+            "operation": "adjustment",
+            "target": "$.statistics.skills[?(@.name=='Its')].value",
+            "value": -2
+          }
+        ],
+        "links": [
+          {
+            "alt": "Athletics",
+            "aonid": 36,
+            "game-obj": "Skills",
+            "name": "Athletics",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- If the creature has the Athletics skill, reduce its modifier by 2.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "damage",
+        "effects": [
+          {
+            "item": {
+              "formula": "-2",
+              "notes": "Guerrilla",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "target": "$.offense.offensive_actions[*].attack.damage"
+          }
+        ],
+        "links": [
+          {
+            "alt": "off-guard",
+            "aonid": 58,
+            "game-obj": "Conditions",
+            "name": "off-guard",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Reduce the damage of the creature's Strikes by 2, but give it the Sneak Attack ability.  **Sneak Attack** The creature deals 1d6 extra precision damage to off-guard creatures.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "strikes",
+        "effects": [
+          {
+            "item": {
+              "subtype": "offensive_action",
+              "type": "stat_block_section"
+            },
+            "operation": "add_item",
+            "source": "$.changes[*].abilities",
+            "target": "$.offense.offensive_actions"
+          }
+        ],
+        "links": [
+          {
+            "alt": "hidden",
+            "aonid": 79,
+            "game-obj": "Conditions",
+            "name": "hidden",
+            "type": "link"
+          }
+        ],
+        "subtype": "change",
+        "text": "- Add the Pounce ability.  **Pounce** [one-action] The creature Strides and makes a Strike at the end of that movement. If the creature began this action hidden, they remain hidden until after this ability's Strike.",
+        "type": "stat_block_section"
+      }
+    ],
+    "name": "Guerrilla",
+    "subtype": "monster_template",
+    "type": "stat_block_section"
+  },
+  "name": "Guerrilla",
+  "schema_version": 1.0,
+  "sources": [
+    {
+      "link": {
+        "alt": "NPC Core pg. 95",
+        "aonid": 236,
+        "game-obj": "Sources",
+        "name": "NPC Core pg. 95",
+        "type": "link"
+      },
+      "name": "NPC Core",
+      "page": 95,
+      "type": "source"
+    }
+  ],
+  "text": "Most military engagements take place in large areas, such as plains or cities, where there is the most territory or resources to be gained. However, guerrilla units fight in forests, swamps, and other tough locations, where they set up traps, ambushes, and use other surprise tactics.  \n  \n You can use these adjustments to turn a military NPC or troop into a guerrilla. These can also be useful for mercenaries or other non-military NPCs.",
+  "type": "monster_template"
 }
