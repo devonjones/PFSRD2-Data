@@ -670,11 +670,10 @@
         },
         "interaction_abilities": [
             {
-                "name": "Green Tongue",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Green Tongue",
                 "ability_type": "interaction",
-                "text": "A green man can communicate with plants, with the effects of *speak with plants*, and can use Diplomacy to Make an Impression on plants and Request things from plants.",
                 "links": [
                     {
                         "type": "link",
@@ -704,12 +703,13 @@
                         "game-obj": "Actions",
                         "aonid": 2393
                     }
-                ]
+                ],
+                "text": "A green man can communicate with plants, with the effects of *speak with plants*, and can use Diplomacy to Make an Impression on plants and Request things from plants."
             },
             {
-                "name": "Plantsense",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Plantsense",
                 "ability_type": "interaction",
                 "text": "A green man can sense life force via plants. This allows them to observe a living or undead creature's vital essence within 60 feet of the green man, but they can also use this precise sense to observe any living or undead creature within 60 feet of any plant matter within 120 feet of the green man. This allows the green man to see living things through solid plant matter, as well as seeing through other barriers if there are plants on the other side."
             }
@@ -790,28 +790,8 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Green Caress",
-                    "critical_success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 2.",
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "slowed",
-                            "alt": "slowed",
-                            "game-obj": "Conditions",
-                            "aonid": 92
-                        },
-                        {
-                            "type": "link",
-                            "name": "manifestation",
-                            "alt": "manifestation",
-                            "game-obj": "Spells",
-                            "aonid": 1592
-                        }
-                    ],
-                    "success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 1.",
-                    "failure": "The creature becomes slowed 1, or if it was already slowed by green caress, increases the slowed value by 1, as their body transforms more and more into a non-creature plant. If the creature ever becomes slowed to the point they have no actions left for their turn, they become an inanimate plant, a condition that can only be reversed by *manifestation* or similarly powerful magic.",
-                    "critical_failure": "As failure, except the creature becomes slowed 2 (or increases the condition value by 2).",
+                    "ability_type": "automatic",
                     "traits": [
                         {
                             "name": "Aura",
@@ -962,26 +942,47 @@
                         "range": 60,
                         "unit": "feet"
                     },
+                    "critical_success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 2.",
+                    "success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 1.",
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "slowed",
+                            "alt": "slowed",
+                            "game-obj": "Conditions",
+                            "aonid": 92
+                        },
+                        {
+                            "type": "link",
+                            "name": "manifestation",
+                            "alt": "manifestation",
+                            "game-obj": "Spells",
+                            "aonid": 1592
+                        }
+                    ],
+                    "failure": "The creature becomes slowed 1, or if it was already slowed by green caress, increases the slowed value by 1, as their body transforms more and more into a non-creature plant. If the creature ever becomes slowed to the point they have no actions left for their turn, they become an inanimate plant, a condition that can only be reversed by *manifestation* or similarly powerful magic.",
+                    "critical_failure": "As failure, except the creature becomes slowed 2 (or increases the condition value by 2).",
                     "saving_throw": [
                         {
-                            "type": "stat_block_section",
-                            "subtype": "save_dc",
-                            "text": "DC 45 Fortitude",
                             "dc": 45,
-                            "save_type": "Fort"
+                            "save_type": "Fort",
+                            "subtype": "save_dc",
+                            "text": "DC 45 Fortitude save",
+                            "type": "stat_block_section"
                         }
                     ]
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Root In Place",
+                    "ability_type": "automatic",
                     "action_type": {
                         "type": "stat_block_section",
                         "subtype": "action_type",
                         "name": "Reaction"
                     },
+                    "trigger": "A creature within the green man's reach uses a move action or leaves a square during a move action it's using",
                     "links": [
                         {
                             "type": "link",
@@ -998,7 +999,6 @@
                             "aonid": 3374
                         }
                     ],
-                    "trigger": "A creature within the green man's reach uses a move action or leaves a square during a move action it's using",
                     "effect": "The green man lashes out to hold the foe in place. The green man makes a vine Strike against the triggering creature. If the attack hits, the green man disrupts the action. If the creature was Flying when its action was disrupted, it falls."
                 }
             ]

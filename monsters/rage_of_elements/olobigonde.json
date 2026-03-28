@@ -567,11 +567,10 @@
         },
         "interaction_abilities": [
             {
-                "name": "Camouflage",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Camouflage",
                 "ability_type": "interaction",
-                "text": "An olobigonde can Hide in aquatic environments even if it doesn't have cover. However, there must be plants, debris, a seabed, or other objects for it to camouflage itself, not just open water.",
                 "links": [
                     {
                         "type": "link",
@@ -580,7 +579,8 @@
                         "game-obj": "Actions",
                         "aonid": 62
                     }
-                ]
+                ],
+                "text": "An olobigonde can Hide in aquatic environments even if it doesn't have cover. However, there must be plants, debris, a seabed, or other objects for it to camouflage itself, not just open water."
             }
         ],
         "defense": {
@@ -624,14 +624,15 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Ambush",
+                    "ability_type": "automatic",
                     "action_type": {
                         "type": "stat_block_section",
                         "subtype": "action_type",
                         "name": "Reaction"
                     },
                     "trigger": "A target creature passes within 20 feet of the olobigonde's hiding place and has not detected the olobigonde",
+                    "effect": "The olobigonde lunges out of its hiding place, Swims directly toward the triggering creature, and makes a jaws Strike against it. The target creature is off-guard to this attack.",
                     "links": [
                         {
                             "type": "link",
@@ -647,19 +648,19 @@
                             "game-obj": "Conditions",
                             "aonid": 58
                         }
-                    ],
-                    "effect": "The olobigonde lunges out of its hiding place, Swims directly toward the triggering creature, and makes a jaws Strike against it. The target creature is off-guard to this attack."
+                    ]
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Reactive Grab",
+                    "ability_type": "automatic",
                     "action_type": {
                         "type": "stat_block_section",
                         "subtype": "action_type",
                         "name": "Reaction"
                     },
+                    "trigger": "A creature within the olobigonde's reach leaves a square during a move action it's using",
                     "links": [
                         {
                             "type": "link",
@@ -667,26 +668,24 @@
                             "alt": "move",
                             "game-obj": "Traits",
                             "aonid": 114
-                        }
-                    ],
-                    "trigger": "A creature within the olobigonde's reach leaves a square during a move action it's using"
-                },
-                {
-                    "type": "stat_block_section",
-                    "subtype": "ability",
-                    "ability_type": "automatic",
-                    "name": "Requirements",
-                    "links": [
+                        },
                         {
                             "type": "link",
                             "name": "grabbed",
                             "alt": "grabbed",
                             "game-obj": "Conditions",
                             "aonid": 20
+                        },
+                        {
+                            "type": "link",
+                            "name": "Grapple",
+                            "alt": "Grapple",
+                            "game-obj": "Actions",
+                            "aonid": 35
                         }
                     ],
-                    "effect": "The olobigonde attempts to Grapple the triggering creature with its jaws. On a success, the target also takes 3 piercing damage (doubled on a critical success).",
-                    "text": "The olobigonde doesn't have a creature grabbed;"
+                    "requirement": "The olobigonde doesn't have a creature grabbed",
+                    "effect": "The olobigonde attempts to Grapple the triggering creature with its jaws. On a success, the target also takes 3 piercing damage (doubled on a critical success)."
                 }
             ]
         },

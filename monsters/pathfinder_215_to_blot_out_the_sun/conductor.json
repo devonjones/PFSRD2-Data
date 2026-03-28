@@ -696,9 +696,9 @@
         },
         "interaction_abilities": [
             {
-                "name": "Painsight",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Painsight",
                 "ability_type": "interaction",
                 "traits": [
                     {
@@ -737,7 +737,6 @@
                         "text": "This magic comes from the divine tradition, drawing power from deities or similar sources. Anything with this trait is magical.  \n  \nA creature with this trait is primarily constituted of or has a strong connection to divine magic."
                     }
                 ],
-                "text": "A velstrac automatically knows whether a creature it sees has any of the doomed, dying, and wounded conditions, as well as the value of those conditions.",
                 "links": [
                     {
                         "type": "link",
@@ -760,7 +759,8 @@
                         "game-obj": "Conditions",
                         "aonid": 99
                     }
-                ]
+                ],
+                "text": "A velstrac automatically knows whether a creature it sees has any of the doomed, dying, and wounded conditions, as well as the value of those conditions."
             }
         ],
         "gear": [
@@ -925,8 +925,8 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Horrifying Accompaniment",
+                    "ability_type": "automatic",
                     "traits": [
                         {
                             "name": "Auditory",
@@ -1139,6 +1139,15 @@
                             "text": "A mental effect can alter the target\u2019s mind. It has no effect on an object or a mindless creature."
                         }
                     ],
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "frightened",
+                            "alt": "frightened",
+                            "game-obj": "Conditions",
+                            "aonid": 76
+                        }
+                    ],
                     "text": "When a creature ends its turn in the aura, it hears every scream the velstrac conductor's victims have ever uttered. The creature must succeed at a DC 25 Will save or become frightened 2 (frightened 4 on a critical failure).",
                     "range": {
                         "type": "stat_block_section",
@@ -1149,51 +1158,24 @@
                     },
                     "saving_throw": [
                         {
-                            "type": "stat_block_section",
-                            "subtype": "save_dc",
-                            "text": "DC 25 Will",
                             "dc": 25,
-                            "save_type": "Will"
-                        }
-                    ],
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "frightened",
-                            "alt": "frightened",
-                            "game-obj": "Conditions",
-                            "aonid": 76
+                            "save_type": "Will",
+                            "subtype": "save_dc",
+                            "text": "DC 25 Will save",
+                            "type": "stat_block_section"
                         }
                     ]
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Sonic Redirection",
+                    "ability_type": "automatic",
                     "action_type": {
                         "type": "stat_block_section",
                         "subtype": "action_type",
                         "name": "Reaction"
                     },
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "auditory",
-                            "alt": "auditory",
-                            "game-obj": "Traits",
-                            "aonid": 541
-                        },
-                        {
-                            "type": "link",
-                            "name": "sonic",
-                            "alt": "sonic",
-                            "game-obj": "Traits",
-                            "aonid": 697
-                        }
-                    ],
-                    "trigger": "A creature targets the velstrac conductor with an auditory or sonic effect or includes the conductor in the area of an auditory or sonic effect",
-                    "effect": "The conductor sings a note that resonates with the triggering effect, redirecting it to the triggering creature. The triggering creature becomes the target of the triggering effect, instead of the conductor.",
                     "traits": [
                         {
                             "name": "Divine",
@@ -1265,7 +1247,25 @@
                             "game-id": "062d349c50c70477d316b8620025454e",
                             "text": "An effect with the sonic trait functions only if it makes sound, meaning it has no effect in an area of silence or in a vacuum. This is different from an auditory spell, which is effective only if the target can hear it. A sonic effect might deal sonic damage."
                         }
-                    ]
+                    ],
+                    "trigger": "A creature targets the velstrac conductor with an auditory or sonic effect or includes the conductor in the area of an auditory or sonic effect",
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "auditory",
+                            "alt": "auditory",
+                            "game-obj": "Traits",
+                            "aonid": 541
+                        },
+                        {
+                            "type": "link",
+                            "name": "sonic",
+                            "alt": "sonic",
+                            "game-obj": "Traits",
+                            "aonid": 697
+                        }
+                    ],
+                    "effect": "The conductor sings a note that resonates with the triggering effect, redirecting it to the triggering creature. The triggering creature becomes the target of the triggering effect, instead of the conductor."
                 }
             ]
         },

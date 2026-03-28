@@ -497,32 +497,10 @@
         },
         "interaction_abilities": [
             {
-                "name": "Weeping Aura",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Weeping Aura",
                 "ability_type": "interaction",
-                "requirement": "The Tree that Weeps isn't using Dead Tree",
-                "effect": "A creature that begins its turn in the aura is potentially overwhelmed with despair and must attempt a DC 40 Will save.",
-                "critical_success": "The creature is unaffected and is temporarily immune for 1 hour.",
-                "links": [
-                    {
-                        "type": "link",
-                        "name": "sickened",
-                        "alt": "sickened",
-                        "game-obj": "Conditions",
-                        "aonid": 34
-                    },
-                    {
-                        "type": "link",
-                        "name": "paralyzed",
-                        "alt": "paralyzed",
-                        "game-obj": "Conditions",
-                        "aonid": 28
-                    }
-                ],
-                "success": "The creature is sickened 1.",
-                "failure": "The creature is paralyzed for 1 round by despair, and then sickened 2 after recovering from paralysis.",
-                "critical_failure": "As failure, but the paralysis doesn't end automatically. A character can attempt a new Will save to end the paralysis at the end of their turn the DC is reduced by 1 each turn that passes.",
                 "traits": [
                     {
                         "name": "Aura",
@@ -742,7 +720,29 @@
                         "dc": 40,
                         "save_type": "Will"
                     }
-                ]
+                ],
+                "requirement": "The Tree that Weeps isn't using Dead Tree",
+                "effect": "A creature that begins its turn in the aura is potentially overwhelmed with despair and must attempt a DC 40 Will save.",
+                "critical_success": "The creature is unaffected and is temporarily immune for 1 hour.",
+                "success": "The creature is sickened 1.",
+                "links": [
+                    {
+                        "type": "link",
+                        "name": "sickened",
+                        "alt": "sickened",
+                        "game-obj": "Conditions",
+                        "aonid": 34
+                    },
+                    {
+                        "type": "link",
+                        "name": "paralyzed",
+                        "alt": "paralyzed",
+                        "game-obj": "Conditions",
+                        "aonid": 28
+                    }
+                ],
+                "failure": "The creature is paralyzed for 1 round by despair, and then sickened 2 after recovering from paralysis.",
+                "critical_failure": "As failure, but the paralysis doesn't end automatically. A character can attempt a new Will save to end the paralysis at the end of their turn the DC is reduced by 1 each turn that passes."
             }
         ],
         "defense": {
@@ -807,8 +807,8 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Axe Vulnerability",
+                    "ability_type": "automatic",
                     "text": "A Tree that Weeps takes 20 additional damage from axes."
                 }
             ],
@@ -816,9 +816,15 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "reactive",
                     "name": "Ripping Disarm",
+                    "ability_type": "reactive",
+                    "action_type": {
+                        "type": "stat_block_section",
+                        "subtype": "action_type",
+                        "name": "Reaction"
+                    },
                     "trigger": "A creature rolls a critical failure on a melee weapon Strike against the Tree that Weeps",
+                    "effect": "The Tree that Weeps attempts to Disarm the creature of the weapon used to attempt the Strike.",
                     "links": [
                         {
                             "type": "link",
@@ -827,13 +833,7 @@
                             "game-obj": "Traits",
                             "aonid": 175
                         }
-                    ],
-                    "effect": "The Tree that Weeps attempts to Disarm the creature of the weapon used to attempt the Strike.",
-                    "action_type": {
-                        "type": "stat_block_section",
-                        "subtype": "action_type",
-                        "name": "Reaction"
-                    }
+                    ]
                 }
             ]
         },

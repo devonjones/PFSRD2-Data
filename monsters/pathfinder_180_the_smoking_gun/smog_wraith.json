@@ -702,9 +702,9 @@
         },
         "interaction_abilities": [
             {
-                "name": "Floating Corpses",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Floating Corpses",
                 "ability_type": "interaction",
                 "text": "A smog wraith's victims are imbued with an eerie buoyancy; corpses of such creatures float up to 30 feet in the air while inside the wraith's noxious smog aura, though the wraith has no control over the corpse's movement."
             }
@@ -925,21 +925,8 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Noxious Smog",
-                    "critical_success": "The creature is unaffected.",
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "concealed",
-                            "alt": "concealed",
-                            "game-obj": "Conditions",
-                            "aonid": 4
-                        }
-                    ],
-                    "success": "The creature is sickened 1.",
-                    "failure": "The creature is sickened 1 and slowed 1 while within the cloud.",
-                    "critical_failure": "The creature is sickened 2 and slowed 1 while within the cloud.",
+                    "ability_type": "automatic",
                     "traits": [
                         {
                             "name": "Aura",
@@ -1057,6 +1044,29 @@
                             "text": "An effect with this trait delivers a poison or deals poison damage. An item with this trait is poisonous and might cause an affliction."
                         }
                     ],
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "concealed",
+                            "alt": "concealed",
+                            "game-obj": "Conditions",
+                            "aonid": 4
+                        },
+                        {
+                            "type": "link",
+                            "name": "sickened 1",
+                            "alt": "sickened 1",
+                            "game-obj": "Conditions",
+                            "aonid": 34
+                        },
+                        {
+                            "type": "link",
+                            "name": "slowed 1",
+                            "alt": "slowed 1",
+                            "game-obj": "Conditions",
+                            "aonid": 35
+                        }
+                    ],
                     "text": "Creatures within the aura are concealed, and creatures outside the aura are concealed to creatures within it. A creature that ends its turn within the aura must attempt a DC 25 Fortitude save.",
                     "range": {
                         "type": "stat_block_section",
@@ -1073,14 +1083,17 @@
                             "dc": 25,
                             "save_type": "Fort"
                         }
-                    ]
+                    ],
+                    "critical_success": "The creature is unaffected.",
+                    "success": "The creature is sickened 1.",
+                    "failure": "The creature is sickened 1 and slowed 1 while within the cloud.",
+                    "critical_failure": "The creature is sickened 2 and slowed 1 while within the cloud."
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Sunlight Powerlessness",
-                    "text": "A smog wraith caught in sunlight is stunned 2 and clumsy 2.",
+                    "ability_type": "automatic",
                     "links": [
                         {
                             "type": "link",
@@ -1096,7 +1109,8 @@
                             "game-obj": "Conditions",
                             "aonid": 3
                         }
-                    ]
+                    ],
+                    "text": "A smog wraith caught in sunlight is stunned 2 and clumsy 2."
                 }
             ]
         },

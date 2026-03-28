@@ -524,9 +524,9 @@
         },
         "interaction_abilities": [
             {
-                "name": "Hungersense",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Hungersense",
                 "ability_type": "interaction",
                 "text": "Hungersense allows the gimmerling to sense creatures that require food to live."
             }
@@ -645,32 +645,126 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Thorny Aura",
-                    "text": "(aura, primal, transmutation) 15 feet. Thorny roots and barbed vines writhe and twist in the aura, creating difficult hazardous terrain that inflicts 4d6 piercing damage whenever a non-flying creature moves within the aura.",
-                    "links": [
+                    "ability_type": "automatic",
+                    "traits": [
                         {
-                            "type": "link",
-                            "name": "aura",
-                            "alt": "aura",
-                            "game-obj": "MonsterAbilities",
-                            "aonid": 5
+                            "name": "Aura",
+                            "type": "trait",
+                            "alternate_link": {
+                                "type": "alternate_link",
+                                "game-obj": "Traits",
+                                "aonid": 542,
+                                "alternate_type": "remastered"
+                            },
+                            "edition": "legacy",
+                            "sources": [
+                                {
+                                    "type": "source",
+                                    "name": "Core Rulebook",
+                                    "link": {
+                                        "type": "link",
+                                        "name": "Core Rulebook pg. 629",
+                                        "alt": "Core Rulebook pg. 629",
+                                        "game-obj": "Sources",
+                                        "aonid": 1
+                                    },
+                                    "page": 629,
+                                    "errata": {
+                                        "type": "link",
+                                        "name": "4.0",
+                                        "alt": "4.0",
+                                        "game-obj": "Sources",
+                                        "aonid": 1
+                                    }
+                                }
+                            ],
+                            "game-obj": "Traits",
+                            "game-id": "fed42ee4e8c8baf344ba3613c090a15f",
+                            "text": "An aura is an emanation that continually ebbs out from you, affecting creatures within a certain radius. Aura can also refer to the magical signature of an item or a creature with a strong alignment."
                         },
                         {
-                            "type": "link",
-                            "name": "primal",
-                            "alt": "primal",
+                            "name": "Primal",
+                            "type": "trait",
+                            "alternate_link": {
+                                "type": "alternate_link",
+                                "game-obj": "Traits",
+                                "aonid": 676,
+                                "alternate_type": "remastered"
+                            },
+                            "edition": "legacy",
+                            "sources": [
+                                {
+                                    "type": "source",
+                                    "name": "Core Rulebook",
+                                    "link": {
+                                        "type": "link",
+                                        "name": "Core Rulebook pg. 635",
+                                        "alt": "Core Rulebook pg. 635",
+                                        "game-obj": "Sources",
+                                        "aonid": 1
+                                    },
+                                    "page": 635,
+                                    "errata": {
+                                        "type": "link",
+                                        "name": "4.0",
+                                        "alt": "4.0",
+                                        "game-obj": "Sources",
+                                        "aonid": 1
+                                    }
+                                }
+                            ],
                             "game-obj": "Traits",
-                            "aonid": 134
+                            "game-id": "e96c6783f38a842d8fbd4231a853c319",
+                            "text": "This magic comes from the primal tradition, connecting to the natural world and instinct. Anything with this trait is magical.",
+                            "links": [
+                                {
+                                    "type": "link",
+                                    "name": "magical",
+                                    "alt": "magical",
+                                    "game-obj": "Traits",
+                                    "aonid": 103
+                                }
+                            ]
                         },
                         {
-                            "type": "link",
-                            "name": "transmutation",
-                            "alt": "transmutation",
+                            "name": "Transmutation",
+                            "type": "trait",
+                            "edition": "legacy",
+                            "sources": [
+                                {
+                                    "type": "source",
+                                    "name": "Core Rulebook",
+                                    "link": {
+                                        "type": "link",
+                                        "name": "Core Rulebook pg. 637",
+                                        "alt": "Core Rulebook pg. 637",
+                                        "game-obj": "Sources",
+                                        "aonid": 1
+                                    },
+                                    "page": 637,
+                                    "errata": {
+                                        "type": "link",
+                                        "name": "4.0",
+                                        "alt": "4.0",
+                                        "game-obj": "Sources",
+                                        "aonid": 1
+                                    }
+                                }
+                            ],
                             "game-obj": "Traits",
-                            "aonid": 157
+                            "game-id": "e15261ef9d67eae23579ccf106d27c86",
+                            "text": "Effects and magic items with this trait are associated with the transmutation school of magic, typically changing something\u2019s form."
                         }
                     ],
+                    "text": "Thorny roots and barbed vines writhe and twist in the aura, creating difficult hazardous terrain that inflicts 4d6 piercing damage whenever a non-flying creature moves within the aura.",
+                    "range": {
+                        "type": "stat_block_section",
+                        "subtype": "range",
+                        "text": "15 feet",
+                        "range": 15,
+                        "unit": "feet"
+                    },
                     "damage": [
                         {
                             "damage_type": "piercing",
@@ -685,11 +779,17 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "reactive",
                     "name": "Trip Up",
+                    "ability_type": "reactive",
+                    "action_type": {
+                        "type": "stat_block_section",
+                        "subtype": "action_type",
+                        "name": "Reaction"
+                    },
                     "trigger": "A creature critically fails a melee attack to hit the gimmerling or moves into a space within the gimmerling's treacherous aura.",
                     "effect": "The triggering creature must attempt a DC 44 Reflex save.",
                     "critical_success": "The target is unaffected.",
+                    "success": "The target is flat-footed until the start of its next turn.",
                     "links": [
                         {
                             "type": "link",
@@ -706,14 +806,8 @@
                             "aonid": 31
                         }
                     ],
-                    "success": "The target is flat-footed until the start of its next turn.",
                     "failure": "The target takes 2d10 bludgeoning damage and is flat-footed until the start of its next turn.",
                     "critical_failure": "As failure, and the target is knocked prone.",
-                    "action_type": {
-                        "type": "stat_block_section",
-                        "subtype": "action_type",
-                        "name": "Reaction"
-                    },
                     "saving_throw": [
                         {
                             "dc": 44,

@@ -709,11 +709,10 @@
         },
         "interaction_abilities": [
             {
-                "name": "Green Tongue",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Green Tongue",
                 "ability_type": "interaction",
-                "text": "A green man can communicate with plants, with the effects of *speak with plants*, and can use Diplomacy to Make an Impression on plants and Request things from plants.",
                 "links": [
                     {
                         "type": "link",
@@ -743,14 +742,14 @@
                         "game-obj": "Actions",
                         "aonid": 51
                     }
-                ]
+                ],
+                "text": "A green man can communicate with plants, with the effects of *speak with plants*, and can use Diplomacy to Make an Impression on plants and Request things from plants."
             },
             {
-                "name": "Plantsense",
                 "type": "stat_block_section",
                 "subtype": "ability",
+                "name": "Plantsense",
                 "ability_type": "interaction",
-                "text": "A green man can sense life force via plants. This allows them to observe a living or undead creature's vital essence within 60 feet of the green man, but they can also use this precise sense to observe any living or undead creature within 60 feet of any plant matter within 120 feet of the green man. This allows the green man to see living things through solid plant matter, as well as seeing through other barriers if there are plants on the other side.",
                 "links": [
                     {
                         "type": "link",
@@ -760,13 +759,7 @@
                         "aonid": 160
                     }
                 ],
-                "range": {
-                    "range": 60,
-                    "subtype": "range",
-                    "text": "within 60 feet",
-                    "type": "stat_block_section",
-                    "unit": "feet"
-                }
+                "text": "A green man can sense life force via plants. This allows them to observe a living or undead creature's vital essence within 60 feet of the green man, but they can also use this precise sense to observe any living or undead creature within 60 feet of any plant matter within 120 feet of the green man. This allows the green man to see living things through solid plant matter, as well as seeing through other barriers if there are plants on the other side."
             }
         ],
         "defense": {
@@ -837,9 +830,8 @@
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Axe Vulnerability",
-                    "text": "A green man takes 20 additional damage from axes.",
+                    "ability_type": "automatic",
                     "links": [
                         {
                             "type": "link",
@@ -848,26 +840,14 @@
                             "game-obj": "WeaponGroups",
                             "aonid": 1
                         }
-                    ]
+                    ],
+                    "text": "A green man takes 20 additional damage from axes."
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Green Caress",
-                    "links": [
-                        {
-                            "type": "link",
-                            "name": "plants",
-                            "alt": "plants",
-                            "game-obj": "Traits",
-                            "aonid": 125
-                        }
-                    ],
-                    "critical_success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 2.",
-                    "success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 1.",
-                    "failure": "The creature becomes slowed 1, or if it was already slowed by green caress, increases the slowed value by 1, as their body transforms more and more into a non-creature plant. If the creature ever becomes slowed to the point they have no actions left for their turn, they become an inanimate plant, a condition that can only be reversed by *primal phenomenon* or similarly powerful magic.",
-                    "critical_failure": "As failure, except the creature becomes slowed 2 (or increases the condition value by 2).",
+                    "ability_type": "automatic",
                     "traits": [
                         {
                             "name": "Aura",
@@ -1048,6 +1028,29 @@
                             "text": "Effects and magic items with this trait are associated with the transmutation school of magic, typically changing something\u2019s form."
                         }
                     ],
+                    "links": [
+                        {
+                            "type": "link",
+                            "name": "plants",
+                            "alt": "plants",
+                            "game-obj": "Traits",
+                            "aonid": 125
+                        },
+                        {
+                            "type": "link",
+                            "name": "slowed",
+                            "alt": "slowed",
+                            "game-obj": "Conditions",
+                            "aonid": 35
+                        },
+                        {
+                            "type": "link",
+                            "name": "primal phenomenon",
+                            "alt": "primal phenomenon",
+                            "game-obj": "Spells",
+                            "aonid": 231
+                        }
+                    ],
                     "text": "Living creatures in the area other than plants slowly transform into non-creature plants. The green man can exclude creatures from this effect, but they must be aware of a creature's presence and location to do so. A non-plant creature in the area must attempt a DC 45 Fortitude save immediately before the start of its turn.",
                     "range": {
                         "type": "stat_block_section",
@@ -1064,18 +1067,23 @@
                             "dc": 45,
                             "save_type": "Fort"
                         }
-                    ]
+                    ],
+                    "critical_success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 2.",
+                    "success": "The creature is unaffected, or if it is slowed by green caress, it reduces its slowed value by 1.",
+                    "failure": "The creature becomes slowed 1, or if it was already slowed by green caress, increases the slowed value by 1, as their body transforms more and more into a non-creature plant. If the creature ever becomes slowed to the point they have no actions left for their turn, they become an inanimate plant, a condition that can only be reversed by *primal phenomenon* or similarly powerful magic.",
+                    "critical_failure": "As failure, except the creature becomes slowed 2 (or increases the condition value by 2)."
                 },
                 {
                     "type": "stat_block_section",
                     "subtype": "ability",
-                    "ability_type": "automatic",
                     "name": "Root In Place",
+                    "ability_type": "automatic",
                     "action_type": {
                         "type": "stat_block_section",
                         "subtype": "action_type",
                         "name": "Reaction"
                     },
+                    "trigger": "A creature within the green man's reach uses a move action or leaves a square during a move action it's using",
                     "links": [
                         {
                             "type": "link",
@@ -1092,7 +1100,6 @@
                             "aonid": 94
                         }
                     ],
-                    "trigger": "A creature within the green man's reach uses a move action or leaves a square during a move action it's using",
                     "effect": "The green man lashes out to hold the foe in place. The green man makes a vine Strike against the triggering creature. If the attack hits, the green man disrupts the action. If the creature was Flying when its action was disrupted, it falls."
                 }
             ]
@@ -1798,22 +1805,7 @@
                                 "aonid": 9
                             }
                         ],
-                        "text": "The green man's thorns embed themselves into any creature they damage, taking root into the ground. A target damaged by a thorn has its Speeds halved, and it can't Step, Fly, *air walk*, or otherwise leave the ground until the thorn is removed. Removing a thorn requires 3 Interact actions, which don't have to be consecutive. If the creature performing the final action doesn't succeed at a DC 45 Medicine check as part of that action, the target takes 10d6 damage upon the thorn's removal.",
-                        "saving_throw": [
-                            {
-                                "dc": 45,
-                                "subtype": "save_dc",
-                                "text": "DC 45",
-                                "type": "stat_block_section"
-                            }
-                        ],
-                        "damage": [
-                            {
-                                "formula": "10d6",
-                                "subtype": "attack_damage",
-                                "type": "stat_block_section"
-                            }
-                        ]
+                        "text": "The green man's thorns embed themselves into any creature they damage, taking root into the ground. A target damaged by a thorn has its Speeds halved, and it can't Step, Fly, *air walk*, or otherwise leave the ground until the thorn is removed. Removing a thorn requires 3 Interact actions, which don't have to be consecutive. If the creature performing the final action doesn't succeed at a DC 45 Medicine check as part of that action, the target takes 10d6 damage upon the thorn's removal."
                     }
                 },
                 {
