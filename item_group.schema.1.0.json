@@ -1,150 +1,380 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-
-	"definitions": {
-		"alternate_link": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["alternate_link"]},
-				"game-obj": {"enum": [
-					"Spells", "Sources", "Skills", "Traits", "MonsterAbilities",
-					"Conditions", "Languages", "Weapons", "Armor", "Shields",
-					"Equipment", "Deities", "Feats", "Actions", "Monsters",
-					"Heritages", "Rules", "Diseases", "Rituals", "Planes",
-					"MonsterFamilies", "Domains", "Classes", "Ancestries",
-					"Archetypes", "SiegeWeapons", "WeaponGroups", "ArmorGroups"
-				]},
-				"game-id": {"type": "string"},
-				"alternate_type": {"enum": ["legacy", "remastered"]},
-				"aonid": {"type": "integer"}
-			},
-			"required": ["game-obj", "aonid"],
-			"additionalProperties": false
-		},
-		"image": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["image"]},
-				"game-obj": {"type": "string"},
-				"image": {"type": "string"}
-			},
-			"required": ["name", "type", "image"],
-			"additionalProperties": false
-		},
-		"license": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["section"]},
-				"subtype": {"enum": ["license"]},
-				"license": {"enum": [
-					"OPEN GAME LICENSE Version 1.0a",
-					"Open RPG Creative license"]},
-				"text": {"type": "string"},
-				"sections": {"$ref": "#/definitions/sections"}
-			},
-			"additionalProperties": false
-		},
-		"link": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["link"]},
-				"alt": {"type": "string"},
-				"href": {"type": "string"},
-				"game-obj": {"enum": [
-					"Spells", "Sources", "Skills", "Traits", "MonsterAbilities",
-					"Conditions", "Languages", "Weapons", "Armor", "Shields",
-					"Equipment", "Deities", "Feats", "Actions", "Monsters",
-					"Heritages", "Rules", "Diseases", "Rituals", "Planes",
-					"MonsterFamilies", "Domains", "Classes", "Ancestries",
-					"Archetypes", "SiegeWeapons", "WeaponGroups", "ArmorGroups"
-				]},
-				"aonid": {"type": "integer"}
-			},
-			"required": ["name", "type", "alt"],
-			"additionalProperties": false
-		},
-		"item_group_stat_block": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["armor_group", "weapon_group"]},
-				"name": {"type": "string"},
-				"text": {"type": "string"},
-				"sections": {"$ref": "#/definitions/sections"}
-			},
-			"required": ["type", "subtype", "name"],
-			"additionalProperties": false
-		},
-		"section": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["section", "stat_block_section"]},
-				"subtype": {"enum": ["armor_group", "weapon_group", "sidebar", "index"]},
-				"text": {"type": "string"},
-				"sections": {"$ref": "#/definitions/sections"},
-				"sources": {"$ref": "#/definitions/sources"},
-				"sidebar_type": {"enum": [
-					"treasure_and_rewards", "related_creatures", "locations",
-					"additional_lore", "advice_and_rules"
-				]},
-				"sidebar_heading": {"type": "string"},
-				"links": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/link"},
-					"additionalItems": false
-				},
-				"image": {"$ref": "#/definitions/image"}
-			},
-			"additionalProperties": false
-		},
-		"sections": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/section"},
-			"additionalItems": false
-		},
-		"source": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["source"]},
-				"link": {"$ref": "#/definitions/link"},
-				"page": {"type": "integer"},
-				"errata": {"$ref": "#/definitions/link"},
-				"note": {"$ref": "#/definitions/link"}
-			},
-			"required": ["name", "type", "link"],
-			"additionalProperties": false
-		},
-		"sources": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/source"},
-			"additionalItems": false
-		}
-	},
-	"type": "object",
-	"properties": {
-		"name": {"type": "string"},
-		"type": {"enum": ["armor_group", "weapon_group"]},
-		"game-id": {"type": "string"},
-		"game-obj": {"enum": ["ArmorGroups", "WeaponGroups"]},
-		"aonid": {"type": "integer"},
-		"text": {"type": "string"},
-		"sources": {"$ref": "#/definitions/sources"},
-		"sections": {"$ref": "#/definitions/sections"},
-		"links": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/link"},
-			"additionalItems": false
-		},
-		"alternate_link": {"$ref": "#/definitions/alternate_link"},
-		"schema_version": {"enum": [1.0]},
-		"edition": {"enum": ["legacy", "remastered"]},
-		"license": {"$ref": "#/definitions/license"}
-	},
-	"required": ["name", "type", "game-id", "game-obj", "aonid", "text", "sources", "edition", "license", "schema_version"],
-	"additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "alternate_link": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_type": {
+          "enum": [
+            "legacy",
+            "remastered"
+          ]
+        },
+        "aonid": {
+          "type": "integer"
+        },
+        "game-id": {
+          "type": "string"
+        },
+        "game-obj": {
+          "enum": [
+            "Spells",
+            "Sources",
+            "Skills",
+            "Traits",
+            "MonsterAbilities",
+            "Conditions",
+            "Languages",
+            "Weapons",
+            "Armor",
+            "Shields",
+            "Equipment",
+            "Deities",
+            "Feats",
+            "Actions",
+            "Monsters",
+            "Heritages",
+            "Rules",
+            "Diseases",
+            "Rituals",
+            "Planes",
+            "MonsterFamilies",
+            "Domains",
+            "Classes",
+            "Ancestries",
+            "Archetypes",
+            "SiegeWeapons",
+            "WeaponGroups",
+            "ArmorGroups"
+          ]
+        },
+        "type": {
+          "enum": [
+            "alternate_link"
+          ]
+        }
+      },
+      "required": [
+        "game-obj",
+        "aonid"
+      ],
+      "type": "object"
+    },
+    "image": {
+      "additionalProperties": false,
+      "properties": {
+        "game-obj": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "image"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "image"
+      ],
+      "type": "object"
+    },
+    "item_group_stat_block": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "subtype": {
+          "enum": [
+            "armor_group",
+            "weapon_group"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "name"
+      ],
+      "type": "object"
+    },
+    "license": {
+      "additionalProperties": false,
+      "properties": {
+        "license": {
+          "enum": [
+            "OPEN GAME LICENSE Version 1.0a",
+            "Open RPG Creative license"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "subtype": {
+          "enum": [
+            "license"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "section"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "link": {
+      "additionalProperties": false,
+      "properties": {
+        "alt": {
+          "type": "string"
+        },
+        "aonid": {
+          "type": "integer"
+        },
+        "game-obj": {
+          "enum": [
+            "Spells",
+            "Sources",
+            "Skills",
+            "Traits",
+            "MonsterAbilities",
+            "Conditions",
+            "Languages",
+            "Weapons",
+            "Armor",
+            "Shields",
+            "Equipment",
+            "Deities",
+            "Feats",
+            "Actions",
+            "Monsters",
+            "Heritages",
+            "Rules",
+            "Diseases",
+            "Rituals",
+            "Planes",
+            "MonsterFamilies",
+            "Domains",
+            "Classes",
+            "Ancestries",
+            "Archetypes",
+            "SiegeWeapons",
+            "WeaponGroups",
+            "ArmorGroups"
+          ]
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "link"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "alt"
+      ],
+      "type": "object"
+    },
+    "section": {
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/image"
+        },
+        "links": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "sidebar_heading": {
+          "type": "string"
+        },
+        "sidebar_type": {
+          "enum": [
+            "treasure_and_rewards",
+            "related_creatures",
+            "locations",
+            "additional_lore",
+            "advice_and_rules"
+          ]
+        },
+        "sources": {
+          "$ref": "#/definitions/sources"
+        },
+        "subtype": {
+          "enum": [
+            "armor_group",
+            "weapon_group",
+            "sidebar",
+            "index"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "section",
+            "stat_block_section"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "sections": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/section"
+      },
+      "type": "array"
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "errata": {
+          "$ref": "#/definitions/link"
+        },
+        "link": {
+          "$ref": "#/definitions/link"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "$ref": "#/definitions/link"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "source"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "link"
+      ],
+      "type": "object"
+    },
+    "sources": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/source"
+      },
+      "type": "array"
+    }
+  },
+  "properties": {
+    "alternate_link": {
+      "$ref": "#/definitions/alternate_link"
+    },
+    "aonid": {
+      "type": "integer"
+    },
+    "edition": {
+      "enum": [
+        "legacy",
+        "remastered"
+      ]
+    },
+    "game-id": {
+      "type": "string"
+    },
+    "game-obj": {
+      "enum": [
+        "ArmorGroups",
+        "WeaponGroups"
+      ]
+    },
+    "license": {
+      "$ref": "#/definitions/license"
+    },
+    "links": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/link"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        1.0
+      ]
+    },
+    "sections": {
+      "$ref": "#/definitions/sections"
+    },
+    "sources": {
+      "$ref": "#/definitions/sources"
+    },
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "armor_group",
+        "weapon_group"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "game-id",
+    "game-obj",
+    "aonid",
+    "text",
+    "sources",
+    "edition",
+    "license",
+    "schema_version"
+  ],
+  "type": "object"
 }

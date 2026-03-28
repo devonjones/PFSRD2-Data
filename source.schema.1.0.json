@@ -1,81 +1,177 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
   "definitions": {
     "license": {
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "name": { "type": "string" },
-        "type": { "enum": ["section"] },
-        "subtype": { "enum": ["license"] },
-        "license": { "enum": [
-          "OPEN GAME LICENSE Version 1.0a",
-          "Open RPG Creative license"
-        ] },
-        "text": { "type": "string" },
+        "license": {
+          "enum": [
+            "OPEN GAME LICENSE Version 1.0a",
+            "Open RPG Creative license"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
         "sections": {
-          "type": "array",
+          "additionalItems": false,
           "items": {},
-          "additionalItems": false
+          "type": "array"
+        },
+        "subtype": {
+          "enum": [
+            "license"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "section"
+          ]
         }
       },
-      "additionalProperties": false
+      "type": "object"
     }
   },
-  "type": "object",
   "properties": {
-    "name": { "type": "string" },
-    "type": { "enum": ["source"] },
-    "game-id": { "type": "string" },
-    "game-obj": { "enum": ["Sources"] },
-    "aonid": { "type": "integer" },
-    "edition": { "enum": ["legacy", "remastered"] },
-    "release_date": { "type": "string", "format": "date" },
-    "errata": {
-      "type": "object",
-      "properties": {
-        "version": { "type": "number" },
-        "errata_date": { "type": "string", "format": "date" }
-      },
-      "required": ["version", "errata_date"],
-      "additionalProperties": false
+    "aonid": {
+      "type": "integer"
     },
-    "product_line": { "type": "string" },
-    "note": { "type": "string" },
-    "sections": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": { "type": "string" },
-          "type": { "enum": ["section"] },
-          "text": { "type": "string" },
-          "sections": { "type": "array" }
+    "edition": {
+      "enum": [
+        "legacy",
+        "remastered"
+      ]
+    },
+    "errata": {
+      "additionalProperties": false,
+      "properties": {
+        "errata_date": {
+          "format": "date",
+          "type": "string"
         },
-        "required": ["name", "type", "text"],
-        "additionalProperties": false
+        "version": {
+          "type": "number"
+        }
       },
-      "additionalItems": false
+      "required": [
+        "version",
+        "errata_date"
+      ],
+      "type": "object"
+    },
+    "game-id": {
+      "type": "string"
+    },
+    "game-obj": {
+      "enum": [
+        "Sources"
+      ]
+    },
+    "license": {
+      "$ref": "#/definitions/license"
     },
     "links": {
-      "type": "array",
+      "additionalItems": false,
       "items": {
-        "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "name": { "type": "string" },
-          "type": { "enum": ["link"] },
-          "alt": { "type": "string" },
-          "href": { "type": "string" },
-          "game-obj": { "type": "string" },
-          "aonid": { "type": "integer" }
+          "alt": {
+            "type": "string"
+          },
+          "aonid": {
+            "type": "integer"
+          },
+          "game-obj": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "link"
+            ]
+          }
         },
-        "required": ["name", "type", "alt"],
-        "additionalProperties": false
+        "required": [
+          "name",
+          "type",
+          "alt"
+        ],
+        "type": "object"
       },
-      "additionalItems": false
+      "type": "array"
     },
-    "schema_version": { "enum": [1.0] },
-    "license": { "$ref": "#/definitions/license" }
+    "name": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "product_line": {
+      "type": "string"
+    },
+    "release_date": {
+      "format": "date",
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        1.0
+      ]
+    },
+    "sections": {
+      "additionalItems": false,
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "sections": {
+            "type": "array"
+          },
+          "text": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "section"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "text"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "type": {
+      "enum": [
+        "source"
+      ]
+    }
   },
-  "required": ["name", "type", "game-id", "game-obj", "aonid", "edition", "release_date", "license", "schema_version"],
-  "additionalProperties": false
-} 
+  "required": [
+    "name",
+    "type",
+    "game-id",
+    "game-obj",
+    "aonid",
+    "edition",
+    "release_date",
+    "license",
+    "schema_version"
+  ],
+  "type": "object"
+}

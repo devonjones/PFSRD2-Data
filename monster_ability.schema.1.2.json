@@ -1,196 +1,475 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-
-	"definitions": {
-		"action_type": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["stat_block_section"]},
-				"subtype": {"enum": ["action_type"]},
-				"name": {"enum": [
-					"Reaction", "Free Action", "One Action",
-					"Two Actions", "Three Actions", "One to Three Actions",
-					"One or Two Actions", "Two or Three Actions"
-				]}
-			},
-			"required": ["name", "type", "subtype"],
-			"additionalProperties": false
-		},
-		"alternate_link": {
-			"type": "object",
-			"properties": {
-				"type": {"enum": ["alternate_link"]},
-				"game-obj": {"enum": [
-					"Spells", "Sources", "Skills", "Traits", "MonsterAbilities",
-					"Conditions", "Languages", "Weapons", "Armor", "Shields",
-					"Equipment", "Deities", "Feats", "Actions", "Monsters",
-					"Heritages", "Rules", "Diseases", "Rituals", "Planes",
-					"MonsterFamilies", "Domains", "Classes", "Ancestries",
-					"Archetypes", "SiegeWeapons", "WeaponGroups"
-				]},
-				"game-id": {"type": "string"},
-				"alternate_type": {"enum": ["legacy", "remastered"]},
-				"aonid": {"type": "integer"}
-			},
-			"required": ["game-obj", "aonid"],
-			"additionalProperties": false
-		},
-		"license": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["section"]},
-				"subtype": {"enum": ["license"]},
-				"license": {"enum": [
-					"OPEN GAME LICENSE Version 1.0a",
-					"Open RPG Creative license"]},
-				"text": {"type": "string"},
-				"sections": {"$ref": "#/definitions/sections"}
-			},
-			"additionalProperties": false
-		},
-		"link": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["link"]},
-				"alt": {"type": "string"},
-				"href": {"type": "string"},
-				"game-obj": {"enum": [
-					"MonsterAbilities", "Sources", "Conditions", "Traits",
-					"Rules", "Actions", "Skills", "Spells", "Rituals"
-				]},
-				"aonid": {"type": "integer"}
-			},
-			"required": ["name", "type", "alt"],
-			"additionalProperties": false
-		},
-		"section": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["section"]},
-				"text": {"type": "string"},
-				"sections": {"$ref": "#/definitions/sections"},
-				"sources": {"$ref": "#/definitions/sources"},
-				"subtype": {"enum": ["sidebar", "index"]},
-				"sidebar_type": {"enum": [
-					"treasure_and_rewards", "related_creatures", "locations",
-					"additional_lore", "advice_and_rules"
-				]},
-				"sidebar_heading": {"type": "string"},
-				"image": {"$ref": "#/definitions/image"}
-			},
-			"additionalProperties": false
-		},
-		"sections": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/section"},
-			"additionalItems": false
-		},
-		"source": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["source"]},
-				"link": {"$ref": "#/definitions/link"},
-				"page": {"type": "integer"},
-				"errata": {"$ref": "#/definitions/link"},
-				"note": {"$ref": "#/definitions/link"}
-			},
-			"required": ["name", "type", "link"],
-			"additionalProperties": false
-		},
-		"sources": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/source"},
-			"additionalItems": false
-		},
-		"abstract_trait": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["trait", "trait_template"]},
-				"text": {"type": "string"}
-			},
-			"required": ["name", "type"],
-			"dependencies": {
-				"game-id": {"$ref": "#/definitions/trait"}
-			}
-		},
-		"trait": {
-			"type": "object",
-			"properties": {
-				"name": {"type": "string"},
-				"type": {"enum": ["trait"]},
-				"game-id": {"type": "string"},
-				"game-obj": {"enum": ["Traits"]},
-				"value": {"type": "string"},
-				"text": {"type": "string"},
-				"classes": {
-					"type": "array",
-					"items": {"type": "string"},
-					"additionalItems": false
-				},
-				"sources": {"$ref": "#/definitions/sources"},
-				"sections": {"$ref": "#/definitions/sections"},
-				"links": {
-					"type": "array",
-					"items": {"$ref": "#/definitions/link"},
-					"additionalItems": false
-				},
-				"alternate_link": {"$ref": "#/definitions/alternate_link"},
-				"edition": {"enum": ["legacy", "remastered"]}
-			},
-			"required": ["name", "type", "game-id", "game-obj", "sources", "edition"],
-			"additionalProperties": false
-		},
-		"traits": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/abstract_trait"},
-			"additionalItems": false
-		},
-		"trait_template": {
-			"type": "object",
-			"properties": {
-				"name": {"enum": ["magical tradition"]},
-				"type": {"enum": ["trait_template"]},
-				"text": {"type": "string"}
-			},
-			"required": ["name", "type", "text"],
-			"additionalProperties": false
-		}
-	},
-	"type": "object",
-	"properties": {
-		"name": {"type": "string"},
-		"type": {"enum": ["ability"]},
-		"ability_type": {"enum": ["universal_monster_ability"]},
-		"game-id": {"type": "string"},
-		"game-obj": {"enum": ["MonsterAbilities"]},
-		"aonid": {"type": "integer"},
-		"value": {"type": "string"},
-		"action_type": {"$ref": "#/definitions/action_type"},
-		"text": {"type": "string"},
-		"effect": {"type": "string"},
-		"requirement": {"type": "string"},
-		"trigger": {"type": "string"},
-		"failure": {"type": "string"},
-		"success": {"type": "string"},
-		"critical_failure": {"type": "string"},
-		"critical_success": {"type": "string"},
-		"sources": {"$ref": "#/definitions/sources"},
-		"traits": {"$ref": "#/definitions/traits"},
-		"links": {
-			"type": "array",
-			"items": {"$ref": "#/definitions/link"},
-			"additionalItems": false
-		},
-		"alternate_link": {"$ref": "#/definitions/alternate_link"},
-		"schema_version": {"enum": [1.2]},
-		"edition": {"enum": ["legacy", "remastered"]},
-		"license": {"$ref": "#/definitions/license"}
-	},
-	"required": ["name", "type", "game-id", "game-obj", "sources", "schema_version"],
-	"additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "abstract_trait": {
+      "dependencies": {
+        "game-id": {
+          "$ref": "#/definitions/trait"
+        }
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "trait",
+            "trait_template"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object"
+    },
+    "action_type": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "enum": [
+            "Reaction",
+            "Free Action",
+            "One Action",
+            "Two Actions",
+            "Three Actions",
+            "One to Three Actions",
+            "One or Two Actions",
+            "Two or Three Actions"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "action_type"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "subtype"
+      ],
+      "type": "object"
+    },
+    "alternate_link": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_type": {
+          "enum": [
+            "legacy",
+            "remastered"
+          ]
+        },
+        "aonid": {
+          "type": "integer"
+        },
+        "game-id": {
+          "type": "string"
+        },
+        "game-obj": {
+          "enum": [
+            "Spells",
+            "Sources",
+            "Skills",
+            "Traits",
+            "MonsterAbilities",
+            "Conditions",
+            "Languages",
+            "Weapons",
+            "Armor",
+            "Shields",
+            "Equipment",
+            "Deities",
+            "Feats",
+            "Actions",
+            "Monsters",
+            "Heritages",
+            "Rules",
+            "Diseases",
+            "Rituals",
+            "Planes",
+            "MonsterFamilies",
+            "Domains",
+            "Classes",
+            "Ancestries",
+            "Archetypes",
+            "SiegeWeapons",
+            "WeaponGroups"
+          ]
+        },
+        "type": {
+          "enum": [
+            "alternate_link"
+          ]
+        }
+      },
+      "required": [
+        "game-obj",
+        "aonid"
+      ],
+      "type": "object"
+    },
+    "license": {
+      "additionalProperties": false,
+      "properties": {
+        "license": {
+          "enum": [
+            "OPEN GAME LICENSE Version 1.0a",
+            "Open RPG Creative license"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "subtype": {
+          "enum": [
+            "license"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "section"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "link": {
+      "additionalProperties": false,
+      "properties": {
+        "alt": {
+          "type": "string"
+        },
+        "aonid": {
+          "type": "integer"
+        },
+        "game-obj": {
+          "enum": [
+            "MonsterAbilities",
+            "Sources",
+            "Conditions",
+            "Traits",
+            "Rules",
+            "Actions",
+            "Skills",
+            "Spells",
+            "Rituals"
+          ]
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "link"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "alt"
+      ],
+      "type": "object"
+    },
+    "section": {
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/image"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "sidebar_heading": {
+          "type": "string"
+        },
+        "sidebar_type": {
+          "enum": [
+            "treasure_and_rewards",
+            "related_creatures",
+            "locations",
+            "additional_lore",
+            "advice_and_rules"
+          ]
+        },
+        "sources": {
+          "$ref": "#/definitions/sources"
+        },
+        "subtype": {
+          "enum": [
+            "sidebar",
+            "index"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "section"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "sections": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/section"
+      },
+      "type": "array"
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "errata": {
+          "$ref": "#/definitions/link"
+        },
+        "link": {
+          "$ref": "#/definitions/link"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "$ref": "#/definitions/link"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "source"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "link"
+      ],
+      "type": "object"
+    },
+    "sources": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/source"
+      },
+      "type": "array"
+    },
+    "trait": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_link": {
+          "$ref": "#/definitions/alternate_link"
+        },
+        "classes": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "edition": {
+          "enum": [
+            "legacy",
+            "remastered"
+          ]
+        },
+        "game-id": {
+          "type": "string"
+        },
+        "game-obj": {
+          "enum": [
+            "Traits"
+          ]
+        },
+        "links": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sections": {
+          "$ref": "#/definitions/sections"
+        },
+        "sources": {
+          "$ref": "#/definitions/sources"
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "trait"
+          ]
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "game-id",
+        "game-obj",
+        "sources",
+        "edition"
+      ],
+      "type": "object"
+    },
+    "trait_template": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "enum": [
+            "magical tradition"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "trait_template"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "text"
+      ],
+      "type": "object"
+    },
+    "traits": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/abstract_trait"
+      },
+      "type": "array"
+    }
+  },
+  "properties": {
+    "ability_type": {
+      "enum": [
+        "universal_monster_ability"
+      ]
+    },
+    "action_type": {
+      "$ref": "#/definitions/action_type"
+    },
+    "alternate_link": {
+      "$ref": "#/definitions/alternate_link"
+    },
+    "aonid": {
+      "type": "integer"
+    },
+    "critical_failure": {
+      "type": "string"
+    },
+    "critical_success": {
+      "type": "string"
+    },
+    "edition": {
+      "enum": [
+        "legacy",
+        "remastered"
+      ]
+    },
+    "effect": {
+      "type": "string"
+    },
+    "failure": {
+      "type": "string"
+    },
+    "game-id": {
+      "type": "string"
+    },
+    "game-obj": {
+      "enum": [
+        "MonsterAbilities"
+      ]
+    },
+    "license": {
+      "$ref": "#/definitions/license"
+    },
+    "links": {
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/link"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "requirement": {
+      "type": "string"
+    },
+    "schema_version": {
+      "enum": [
+        1.2
+      ]
+    },
+    "sources": {
+      "$ref": "#/definitions/sources"
+    },
+    "success": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "traits": {
+      "$ref": "#/definitions/traits"
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "ability"
+      ]
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "game-id",
+    "game-obj",
+    "sources",
+    "schema_version"
+  ],
+  "type": "object"
 }
