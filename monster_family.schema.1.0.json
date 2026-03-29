@@ -462,6 +462,12 @@
           },
           "type": "array"
         },
+        "spells": {
+          "items": {
+            "$ref": "#/definitions/spells"
+          },
+          "type": "array"
+        },
         "subtype": {
           "enum": [
             "change"
@@ -798,6 +804,9 @@
         "dc": {
           "type": "integer"
         },
+        "dc_text": {
+          "type": "string"
+        },
         "modifiers": {
           "$ref": "#/definitions/modifiers"
         },
@@ -919,6 +928,208 @@
         "$ref": "#/definitions/source"
       },
       "type": "array"
+    },
+    "spell": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "count_text": {
+          "type": "string"
+        },
+        "links": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "subtype": {
+          "enum": [
+            "spell"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "subtype"
+      ],
+      "type": "object"
+    },
+    "spell_list": {
+      "additionalProperties": false,
+      "properties": {
+        "cantrips": {
+          "type": "boolean"
+        },
+        "constant": {
+          "type": "boolean"
+        },
+        "level": {
+          "type": "integer"
+        },
+        "level_text": {
+          "type": "string"
+        },
+        "spells": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/spell"
+          },
+          "type": "array"
+        },
+        "subtype": {
+          "enum": [
+            "spell_list"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype"
+      ],
+      "type": "object"
+    },
+    "spells": {
+      "additionalProperties": false,
+      "properties": {
+        "bloodline": {
+          "enum": [
+            "Aberrant",
+            "Angelic",
+            "Demonic",
+            "Diabolic",
+            "Draconic",
+            "Elemental",
+            "Fey",
+            "Genie",
+            "Hag",
+            "Harrow",
+            "Imperial",
+            "Nymph",
+            "Phoenix",
+            "Psychopomp",
+            "Shadow",
+            "Undead",
+            "Wyrmblessed"
+          ]
+        },
+        "focus_points": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "additionalItems": false,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "saving_throw": {
+          "$ref": "#/definitions/save_dc"
+        },
+        "spell_attack": {
+          "type": "integer"
+        },
+        "spell_attack_text": {
+          "type": "string"
+        },
+        "spell_list": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/spell_list"
+          },
+          "type": "array"
+        },
+        "spell_tradition": {
+          "enum": [
+            "Occult",
+            "Arcane",
+            "Divine",
+            "Primal",
+            "Unique"
+          ]
+        },
+        "spell_type": {
+          "enum": [
+            "Spells",
+            "Spells Known",
+            "Spells Prepared",
+            "Innate Spells",
+            "Focus Spells",
+            "Spontaneous Spells",
+            "Prepared Spells",
+            "Rituals",
+            "Alchemical Formulas",
+            "Bard Composition Spells",
+            "Bard Spontaneous Spells",
+            "Cleric Domain Spells",
+            "Cleric Prepared Spells",
+            "Champion Devotion Spells",
+            "Champion Focus Spells",
+            "Druid Animal Order Spells",
+            "Druid Focus Spells",
+            "Druid Order Spells",
+            "Druid Prepared Spells",
+            "Druid Order Focus Spells",
+            "Magus Conflux Spells",
+            "Magus Focus Spells",
+            "Monk Focus Spells",
+            "Monk Ki Spells",
+            "Oracle Revelation Spells",
+            "Oracle Focus Spells",
+            "Primordial Flame Spells",
+            "Ranger Warden Spells",
+            "Red Mantis Focus Spells",
+            "Red Mantis Prepared Spells",
+            "Sorcerer Bloodline Spells",
+            "Summoner Conduit Spells",
+            "Witch Hexes",
+            "Wizard Spells Prepared",
+            "Wizard School Spells",
+            "Envy Spells",
+            "Gluttony Spells",
+            "Greed Spells",
+            "Lust Spells",
+            "Pride Spells",
+            "Sloth Spells",
+            "Wrath Spells"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "spells"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "subtype"
+      ],
+      "type": "object"
     },
     "trait": {
       "additionalProperties": false,
