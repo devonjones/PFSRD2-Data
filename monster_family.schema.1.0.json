@@ -496,7 +496,10 @@
           "type": "string"
         },
         "item": {
-          "type": "object"
+          "type": [
+            "object",
+            "string"
+          ]
         },
         "minimum": {
           "type": "integer"
@@ -582,6 +585,31 @@
           ]
         }
       },
+      "type": "object"
+    },
+    "image": {
+      "additionalProperties": false,
+      "properties": {
+        "game-obj": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "image"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "image"
+      ],
       "type": "object"
     },
     "link": {
@@ -871,6 +899,13 @@
         },
         "sources": {
           "$ref": "#/definitions/sources"
+        },
+        "spells": {
+          "additionalItems": false,
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
         },
         "text": {
           "type": "string"
@@ -1317,6 +1352,9 @@
       "enum": [
         "MonsterFamilies"
       ]
+    },
+    "image": {
+      "$ref": "#/definitions/image"
     },
     "license": {
       "$ref": "#/definitions/license"
