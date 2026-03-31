@@ -30,70 +30,21 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "affliction",
-                "name": "Rabies",
-                "saving_throw": [
-                  {
-                    "dc": 17,
-                    "save_type": "Fort",
-                    "subtype": "save_dc",
-                    "text": "DC 17 Fortitude",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "stages": [
-                  {
-                    "name": "Stage 1",
-                    "subtype": "affliction_stage",
-                    "text": "sickened 1 (1 day)",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "name": "Stage 2",
-                    "subtype": "affliction_stage",
-                    "text": "sickened 2 (1 day)",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "name": "Stage 3",
-                    "subtype": "affliction_stage",
-                    "text": "confusion (1 day)",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "name": "Stage 4",
-                    "subtype": "affliction_stage",
-                    "text": "dead",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "subtype": "ability",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "disease",
-                      "aonid": 46,
-                      "game-obj": "Traits",
-                      "name": "disease",
-                      "type": "link"
-                    },
-                    "name": "disease",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Rabies')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "disease",
+                "aonid": 46,
+                "game-obj": "Traits",
+                "name": "disease",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -103,7 +54,6 @@
         ],
         "name": "Rabies",
         "subtype": "monster_family",
-        "text": "While many societies adore dogs and value them for their loyalty as pets, no affliction other than rabies can reverse sentiments about these creatures quite so easily. While many animals can be afflicted with this debilitating illness, something about a loyal family pet growing feral and violent as a result of the disease makes it that much worse.",
         "type": "stat_block_section"
       }
     ],
@@ -111,6 +61,94 @@
   },
   "name": "Dog",
   "schema_version": 1.0,
+  "sections": [
+    {
+      "abilities": [
+        {
+          "ability_category": "offensive",
+          "ability_type": "affliction",
+          "name": "Rabies",
+          "saving_throw": [
+            {
+              "dc": 17,
+              "save_type": "Fort",
+              "subtype": "save_dc",
+              "text": "DC 17 Fortitude",
+              "type": "stat_block_section"
+            }
+          ],
+          "stages": [
+            {
+              "name": "Stage 1",
+              "subtype": "affliction_stage",
+              "text": "sickened 1 (1 day)",
+              "type": "stat_block_section"
+            },
+            {
+              "name": "Stage 2",
+              "subtype": "affliction_stage",
+              "text": "sickened 2 (1 day)",
+              "type": "stat_block_section"
+            },
+            {
+              "name": "Stage 3",
+              "subtype": "affliction_stage",
+              "text": "confusion (1 day)",
+              "type": "stat_block_section"
+            },
+            {
+              "name": "Stage 4",
+              "subtype": "affliction_stage",
+              "text": "dead",
+              "type": "stat_block_section"
+            }
+          ],
+          "subtype": "ability",
+          "traits": [
+            {
+              "link": {
+                "alt": "disease",
+                "aonid": 46,
+                "game-obj": "Traits",
+                "name": "disease",
+                "type": "link"
+              },
+              "name": "disease",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            }
+          ],
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "disease",
+          "aonid": 46,
+          "game-obj": "Traits",
+          "name": "disease",
+          "type": "link"
+        }
+      ],
+      "name": "Rabies",
+      "sources": [
+        {
+          "link": {
+            "alt": "Bestiary pg. 102",
+            "aonid": 2,
+            "game-obj": "Sources",
+            "name": "Bestiary pg. 102",
+            "type": "link"
+          },
+          "name": "Bestiary",
+          "page": 102,
+          "type": "source"
+        }
+      ],
+      "text": "While many societies adore dogs and value them for their loyalty as pets, no affliction other than rabies can reverse sentiments about these creatures quite so easily. While many animals can be afflicted with this debilitating illness, something about a loyal family pet growing feral and violent as a result of the disease makes it that much worse.  \n**Rabies** (disease); **Saving Throw** DC 17 Fortitude; **Stage 1** sickened 1 (1 day); **Stage 2** sickened 2 (1 day); **Stage 3** confusion (1 day); **Stage 4** dead",
+      "type": "section"
+    }
+  ],
   "sources": [
     {
       "link": {

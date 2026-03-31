@@ -30,22 +30,21 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "interaction",
-                "ability_type": "ability",
-                "name": "Wind-Up",
-                "subtype": "ability",
-                "text": "For a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time remaining. If it's unclear when a clockwork was last wound, most clockwork keepers wind all their clockworks at a set time, typically 8 a.m.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Winding Clockworks')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "Disable a Device",
+                "aonid": 69,
+                "game-obj": "Actions",
+                "name": "Disable a Device",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -59,80 +58,21 @@
           {
             "changes": [
               {
-                "abilities": [
-                  {
-                    "ability_type": "ability",
-                    "area": [
-                      {
-                        "shape": "cone",
-                        "size": 15,
-                        "subtype": "area",
-                        "text": "15-foot cone",
-                        "type": "stat_block_section",
-                        "unit": "feet"
-                      }
-                    ],
-                    "damage": [
-                      {
-                        "damage_type": "fire",
-                        "formula": "2d6",
-                        "subtype": "attack_damage",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "links": [
-                      {
-                        "alt": "slowed 1",
-                        "aonid": 35,
-                        "game-obj": "Conditions",
-                        "name": "slowed 1",
-                        "type": "link"
-                      }
-                    ],
-                    "name": "Backfire",
-                    "saving_throw": [
-                      {
-                        "dc": 5,
-                        "save_type": "Flat Check",
-                        "subtype": "save_dc",
-                        "text": "DC 5 flat check",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "subtype": "ability",
-                    "text": ": The clockwork rolls a DC 5 flat check at the start of each of its turns. On a failure, it backfires, dealing 2d6 fire damage in a 15-foot cone, including to itself (basic Reflex save at the standard DC for its level), and is slowed 1 this turn.",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "ability_type": "ability",
-                    "name": "Damaged Propulsion",
-                    "subtype": "ability",
-                    "text": ": The clockwork loses 1d4 hours of operational time at the end of each of its turns.",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "ability_type": "ability",
-                    "name": "Loose Screws",
-                    "saving_throw": [
-                      {
-                        "dc": 5,
-                        "save_type": "Flat Check",
-                        "subtype": "save_dc",
-                        "text": "DC 5 flat check",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "subtype": "ability",
-                    "text": ": When damaged, the clockwork attempts a DC 5 flat check. On a failure, a plate of its armor falls loose. It takes a status penalty to AC equal to the number of lost plates (up to \u20134).",
-                    "type": "stat_block_section"
-                  }
-                ],
                 "change_category": "abilities",
                 "effects": [
                   {
                     "operation": "add_items",
-                    "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                    "source": "$.sections[?(@.name=='Winding Clockworks')].sections[?(@.name=='Malfunction!')].abilities",
                     "target": "$.defense.automatic_abilities"
+                  }
+                ],
+                "links": [
+                  {
+                    "alt": "slowed 1",
+                    "aonid": 35,
+                    "game-obj": "Conditions",
+                    "name": "slowed 1",
+                    "type": "link"
                   }
                 ],
                 "subtype": "change",
@@ -142,11 +82,9 @@
             ],
             "name": "Malfunction!",
             "subtype": "monster_family",
-            "text": "Clockworks can be prone to errors if not well maintained or properly programmed. You might want to introduce one of the malfunctions listed below in a clockwork that is in disrepair or gets damaged heavily in battle (such as with a critical hit).",
             "type": "stat_block_section"
           }
         ],
-        "text": "A clockwork must be wound to remain operational. Each clockwork has the wind-up ability, with the specifics listed in its stat block.",
         "type": "stat_block_section"
       }
     ],
@@ -154,6 +92,217 @@
   },
   "name": "Clockworks",
   "schema_version": 1.0,
+  "sections": [
+    {
+      "abilities": [
+        {
+          "ability_category": "interaction",
+          "ability_type": "ability",
+          "name": "Wind-Up",
+          "subtype": "ability",
+          "text": "For a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time remaining. If it's unclear when a clockwork was last wound, most clockwork keepers wind all their clockworks at a set time, typically 8 a.m.",
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "Disable a Device",
+          "aonid": 69,
+          "game-obj": "Actions",
+          "name": "Disable a Device",
+          "type": "link"
+        }
+      ],
+      "name": "Winding Clockworks",
+      "sections": [
+        {
+          "name": "Clockwork Research",
+          "sources": [
+            {
+              "link": {
+                "alt": "Bestiary 3 pg. 48",
+                "aonid": 66,
+                "game-obj": "Sources",
+                "name": "Bestiary 3 pg. 48",
+                "type": "link"
+              },
+              "name": "Bestiary 3",
+              "page": 48,
+              "type": "source"
+            }
+          ],
+          "text": "Clockworks were invented in ancient times, culminating in the clockwork army of Xin, the first emperor of ancient Thassilon, but were lost for millennia. Disparate peoples later rediscovered the techniques and began to alter and improve them. Today, the Clockwork Cathedral in Absalom is a center of clockwork research, with many breakthroughs also coming from the kingdom of Nex and the mechanically savvy Grand Duchy of Alkenstar. The Qadiran professor Hadia Al-Dannah, formerly of the Clockwork Cathedral, wrote the best-regarded modern text on clockwork design\u2014*Glorious Rhythms in Life and Mechanica*.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_type": "ability",
+              "area": [
+                {
+                  "shape": "cone",
+                  "size": 15,
+                  "subtype": "area",
+                  "text": "15-foot cone",
+                  "type": "stat_block_section",
+                  "unit": "feet"
+                }
+              ],
+              "damage": [
+                {
+                  "damage_type": "fire",
+                  "formula": "2d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "slowed 1",
+                  "aonid": 35,
+                  "game-obj": "Conditions",
+                  "name": "slowed 1",
+                  "type": "link"
+                }
+              ],
+              "name": "Backfire",
+              "saving_throw": [
+                {
+                  "dc": 5,
+                  "save_type": "Flat Check",
+                  "subtype": "save_dc",
+                  "text": "DC 5 flat check",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": ": The clockwork rolls a DC 5 flat check at the start of each of its turns. On a failure, it backfires, dealing 2d6 fire damage in a 15-foot cone, including to itself (basic Reflex save at the standard DC for its level), and is slowed 1 this turn.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_type": "ability",
+              "name": "Damaged Propulsion",
+              "subtype": "ability",
+              "text": ": The clockwork loses 1d4 hours of operational time at the end of each of its turns.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_type": "ability",
+              "name": "Loose Screws",
+              "saving_throw": [
+                {
+                  "dc": 5,
+                  "save_type": "Flat Check",
+                  "subtype": "save_dc",
+                  "text": "DC 5 flat check",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": ": When damaged, the clockwork attempts a DC 5 flat check. On a failure, a plate of its armor falls loose. It takes a status penalty to AC equal to the number of lost plates (up to \u20134).",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "slowed 1",
+              "aonid": 35,
+              "game-obj": "Conditions",
+              "name": "slowed 1",
+              "type": "link"
+            }
+          ],
+          "name": "Malfunction!",
+          "sources": [
+            {
+              "link": {
+                "alt": "Bestiary 3 pg. 48",
+                "aonid": 66,
+                "game-obj": "Sources",
+                "name": "Bestiary 3 pg. 48",
+                "type": "link"
+              },
+              "name": "Bestiary 3",
+              "page": 48,
+              "type": "source"
+            }
+          ],
+          "text": "Clockworks can be prone to errors if not well maintained or properly programmed. You might want to introduce one of the malfunctions listed below in a clockwork that is in disrepair or gets damaged heavily in battle (such as with a critical hit).   \n  \n**Backfire**: The clockwork rolls a DC 5 flat check at the start of each of its turns. On a failure, it backfires, dealing 2d6 fire damage in a 15-foot cone, including to itself (basic Reflex save at the standard DC for its level), and is slowed 1 this turn.   \n  \n**Damaged Propulsion**: The clockwork loses 1d4 hours of operational time at the end of each of its turns.   \n  \n**Loose Screws**: When damaged, the clockwork attempts a DC 5 flat check. On a failure, a plate of its armor falls loose. It takes a status penalty to AC equal to the number of lost plates (up to \u20134).",
+          "type": "section"
+        },
+        {
+          "links": [
+            {
+              "alt": "clockwork door warden",
+              "aonid": 1946,
+              "game-obj": "Monsters",
+              "name": "clockwork door warden",
+              "type": "link"
+            },
+            {
+              "alt": "clockwork disposer",
+              "aonid": 1947,
+              "game-obj": "Monsters",
+              "name": "clockwork disposer",
+              "type": "link"
+            }
+          ],
+          "name": "Versatile Designs",
+          "sources": [
+            {
+              "link": {
+                "alt": "Bestiary 3 pg. 48",
+                "aonid": 66,
+                "game-obj": "Sources",
+                "name": "Bestiary 3 pg. 48",
+                "type": "link"
+              },
+              "name": "Bestiary 3",
+              "page": 48,
+              "type": "source"
+            }
+          ],
+          "text": "Most clockwork builders design their mechanical minions to perform a single specific task, as in the case of the clockwork door warden or clockwork disposer. Though these constructs' intended functions are typically limited, creative owners can find workarounds or loopholes to exploit, effectively turning their single-purpose clockwork into a versatile guardian or servant. Of course, nearly every clockwork is pre-programmed to defend itself against foes, a function which typically requires no special action on the clockwork's part.",
+          "type": "section"
+        },
+        {
+          "name": "Winding Routines",
+          "sources": [
+            {
+              "link": {
+                "alt": "Bestiary 3 pg. 48",
+                "aonid": 66,
+                "game-obj": "Sources",
+                "name": "Bestiary 3 pg. 48",
+                "type": "link"
+              },
+              "name": "Bestiary 3",
+              "page": 48,
+              "type": "source"
+            }
+          ],
+          "text": "Maintaining a group of clockworks that are meant to operate on a regular basis takes planning and attention. A cadre of clockwork soldiers set to patrol a location needs to be regularly wound. Typically, one or more servants are assigned to wind all the clockworks serving in one place at a standard time.",
+          "type": "section"
+        }
+      ],
+      "sources": [
+        {
+          "link": {
+            "alt": "Bestiary 3 pg. 48",
+            "aonid": 66,
+            "game-obj": "Sources",
+            "name": "Bestiary 3 pg. 48",
+            "type": "link"
+          },
+          "name": "Bestiary 3",
+          "page": 48,
+          "type": "source"
+        }
+      ],
+      "text": "A clockwork must be wound to remain operational. Each clockwork has the wind-up ability, with the specifics listed in its stat block.   \n  \n**Wind-Up** For a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time remaining. If it's unclear when a clockwork was last wound, most clockwork keepers wind all their clockworks at a set time, typically 8 a.m.  \n  \n A clockwork that lists standby in its wind-up entry can enter standby mode as a 3-action activity. Its operational time doesn't decrease in standby, but it can sense its surroundings (with a \u20132 penalty to Perception). It can't act, with one exception: when it perceives a creature, it can exit standby as a reaction (rolling initiative if appropriate).  \n  \n A creature can attempt to Disable a Device to wind a clockwork down (with a DC listed in the wind-up entry). For each success, the clockwork loses 1 hour of operational time. This can be done even if the clockwork is in standby mode.",
+      "type": "section"
+    }
+  ],
   "sources": [
     {
       "link": {

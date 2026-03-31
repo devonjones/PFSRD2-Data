@@ -59,63 +59,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_type": "ability",
-                "name": "Identify Affliction",
-                "subtype": "ability",
-                "text": ": 1 sp",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_type": "ability",
-                "link": {
-                  "alt": "Treat Wounds",
-                  "aonid": 2399,
-                  "game-obj": "Actions",
-                  "name": "Treat Wounds",
-                  "type": "link"
-                },
-                "name": "Treat Wounds",
-                "subtype": "ability",
-                "text": ": 2 sp",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_type": "ability",
-                "link": {
-                  "alt": "Treat Disease",
-                  "aonid": 2397,
-                  "game-obj": "Actions",
-                  "name": "Treat Disease",
-                  "type": "link"
-                },
-                "name": "Treat Disease",
-                "subtype": "ability",
-                "text": ": 1 gp",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_type": "ability",
-                "link": {
-                  "alt": "First Aid",
-                  "aonid": 2396,
-                  "game-obj": "Actions",
-                  "name": "First Aid",
-                  "type": "link"
-                },
-                "name": "First Aid or Treating a Poison",
-                "subtype": "ability",
-                "text": ": 1 sp",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Medical Service Prices')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "Treat Wounds",
+                "aonid": 2399,
+                "game-obj": "Actions",
+                "name": "Treat Wounds",
+                "type": "link"
+              },
+              {
+                "alt": "Treat Disease",
+                "aonid": 2397,
+                "game-obj": "Actions",
+                "name": "Treat Disease",
+                "type": "link"
+              },
+              {
+                "alt": "First Aid",
+                "aonid": 2396,
+                "game-obj": "Actions",
+                "name": "First Aid",
+                "type": "link"
+              },
+              {
+                "alt": "Treating a Poison",
+                "aonid": 2398,
+                "game-obj": "Actions",
+                "name": "Treating a Poison",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -125,7 +104,6 @@
         ],
         "name": "Medical Service Prices",
         "subtype": "monster_family",
-        "text": "The physician and surgeon are masters of Medicine; the apothecary and plague doctor are experts. Plague doctors charge five times this rate, and surgeons 10 times.",
         "type": "stat_block_section"
       }
     ],
@@ -211,6 +189,106 @@
         }
       ],
       "text": "Healers who don't use magic are always on the hunt for ingredients. NPCs like the apothecary, local herbalist, and tonic merchant might hire PCs to collect rare ingredients they've heard contain latent alchemical properties. Such a quest could involve traveling to an inhospitable area to collect plants, fungi, or minerals. Or it might require tracking down and slaying or capturing a creature with organs that produce ingredients useful in healing.",
+      "type": "section"
+    },
+    {
+      "abilities": [
+        {
+          "ability_type": "ability",
+          "name": "Identify Affliction",
+          "subtype": "ability",
+          "text": ": 1 sp",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_type": "ability",
+          "link": {
+            "alt": "Treat Wounds",
+            "aonid": 2399,
+            "game-obj": "Actions",
+            "name": "Treat Wounds",
+            "type": "link"
+          },
+          "name": "Treat Wounds",
+          "subtype": "ability",
+          "text": ": 2 sp",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_type": "ability",
+          "link": {
+            "alt": "Treat Disease",
+            "aonid": 2397,
+            "game-obj": "Actions",
+            "name": "Treat Disease",
+            "type": "link"
+          },
+          "name": "Treat Disease",
+          "subtype": "ability",
+          "text": ": 1 gp",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_type": "ability",
+          "link": {
+            "alt": "First Aid",
+            "aonid": 2396,
+            "game-obj": "Actions",
+            "name": "First Aid",
+            "type": "link"
+          },
+          "name": "First Aid or Treating a Poison",
+          "subtype": "ability",
+          "text": ": 1 sp",
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "Treat Wounds",
+          "aonid": 2399,
+          "game-obj": "Actions",
+          "name": "Treat Wounds",
+          "type": "link"
+        },
+        {
+          "alt": "Treat Disease",
+          "aonid": 2397,
+          "game-obj": "Actions",
+          "name": "Treat Disease",
+          "type": "link"
+        },
+        {
+          "alt": "First Aid",
+          "aonid": 2396,
+          "game-obj": "Actions",
+          "name": "First Aid",
+          "type": "link"
+        },
+        {
+          "alt": "Treating a Poison",
+          "aonid": 2398,
+          "game-obj": "Actions",
+          "name": "Treating a Poison",
+          "type": "link"
+        }
+      ],
+      "name": "Medical Service Prices",
+      "sources": [
+        {
+          "link": {
+            "alt": "NPC Core pg. 60",
+            "aonid": 236,
+            "game-obj": "Sources",
+            "name": "NPC Core pg. 60",
+            "type": "link"
+          },
+          "name": "NPC Core",
+          "page": 60,
+          "type": "source"
+        }
+      ],
+      "text": "The physician and surgeon are masters of Medicine; the apothecary and plague doctor are experts. Plague doctors charge five times this rate, and surgeons 10 times.  \n**Identify Affliction**: 1 sp  \n**Treat Wounds**: 2 sp  \n**Treat Disease**: 1 gp  \n**First Aid or Treating a Poison**: 1 sp",
       "type": "section"
     }
   ],
