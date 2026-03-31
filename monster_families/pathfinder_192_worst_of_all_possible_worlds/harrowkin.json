@@ -84,103 +84,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "automatic",
-                "ability_type": "ability",
-                "name": "Defensive Suit",
-                "subtype": "ability",
-                "text": "When the harrowkin attempts a saving throw connected to its suit\u2014that is, Fortitude (Hammers or Shields), Reflex (Keys or Books), or Will (Stars or Crowns)\u2014if they roll a success, they get a critical success instead.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "reactive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Free Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "effect": "The harrowkin attempts to rewrite destiny. Roll 1d6 to determine a suit. The harrowkin gains the effects of the suit for 1 minute. If the suit matches the harrowkin's suit, the value is doubled.",
-                "name": "Read the Cards",
-                "subtype": "ability",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "divination",
-                      "aonid": 47,
-                      "game-obj": "Traits",
-                      "name": "divination",
-                      "type": "link"
-                    },
-                    "name": "divination",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "occult",
-                      "aonid": 120,
-                      "game-obj": "Traits",
-                      "name": "occult",
-                      "type": "link"
-                    },
-                    "name": "occult",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "trigger": "The harrowkin is about to roll initiative",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Free Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "effect": "At the end of the current round, all creatures currently in initiative reroll their initiative, using the same modifiers as their original initiative roll, and use the new initiative values for all following rounds.",
-                "frequency": "once per day",
-                "name": "Shuffle the Deck",
-                "requirement": "The harrowkin has rolled initiative",
-                "subtype": "ability",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "divination",
-                      "aonid": 47,
-                      "game-obj": "Traits",
-                      "name": "divination",
-                      "type": "link"
-                    },
-                    "name": "divination",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "occult",
-                      "aonid": 120,
-                      "game-obj": "Traits",
-                      "name": "occult",
-                      "type": "link"
-                    },
-                    "name": "occult",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Harrowkin Abilities')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "divination",
+                "aonid": 47,
+                "game-obj": "Traits",
+                "name": "divination",
+                "type": "link"
+              },
+              {
+                "alt": "occult",
+                "aonid": 120,
+                "game-obj": "Traits",
+                "name": "occult",
+                "type": "link"
+              },
+              {
+                "alt": "divination",
+                "aonid": 47,
+                "game-obj": "Traits",
+                "name": "divination",
+                "type": "link"
+              },
+              {
+                "alt": "occult",
+                "aonid": 120,
+                "game-obj": "Traits",
+                "name": "occult",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -190,7 +129,6 @@
         ],
         "name": "Harrowkin Abilities",
         "subtype": "monster_family",
-        "text": "Each harrowkin is connected one specific harrow suit and has the following shared abilities.",
         "type": "stat_block_section"
       }
     ],
@@ -198,6 +136,188 @@
   },
   "name": "Harrowkin",
   "schema_version": 1.0,
+  "sections": [
+    {
+      "abilities": [
+        {
+          "ability_category": "automatic",
+          "ability_type": "ability",
+          "name": "Defensive Suit",
+          "subtype": "ability",
+          "text": "When the harrowkin attempts a saving throw connected to its suit\u2014that is, Fortitude (Hammers or Shields), Reflex (Keys or Books), or Will (Stars or Crowns)\u2014if they roll a success, they get a critical success instead.",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_category": "reactive",
+          "ability_type": "ability",
+          "action_type": {
+            "name": "Free Action",
+            "subtype": "action_type",
+            "type": "stat_block_section"
+          },
+          "effect": "The harrowkin attempts to rewrite destiny. Roll 1d6 to determine a suit. The harrowkin gains the effects of the suit for 1 minute. If the suit matches the harrowkin's suit, the value is doubled.",
+          "name": "Read the Cards",
+          "subtype": "ability",
+          "traits": [
+            {
+              "link": {
+                "alt": "divination",
+                "aonid": 47,
+                "game-obj": "Traits",
+                "name": "divination",
+                "type": "link"
+              },
+              "name": "divination",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "occult",
+                "aonid": 120,
+                "game-obj": "Traits",
+                "name": "occult",
+                "type": "link"
+              },
+              "name": "occult",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            }
+          ],
+          "trigger": "The harrowkin is about to roll initiative",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_category": "offensive",
+          "ability_type": "ability",
+          "action_type": {
+            "name": "Free Action",
+            "subtype": "action_type",
+            "type": "stat_block_section"
+          },
+          "effect": "At the end of the current round, all creatures currently in initiative reroll their initiative, using the same modifiers as their original initiative roll, and use the new initiative values for all following rounds.",
+          "frequency": "once per day",
+          "name": "Shuffle the Deck",
+          "requirement": "The harrowkin has rolled initiative",
+          "subtype": "ability",
+          "traits": [
+            {
+              "link": {
+                "alt": "divination",
+                "aonid": 47,
+                "game-obj": "Traits",
+                "name": "divination",
+                "type": "link"
+              },
+              "name": "divination",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "occult",
+                "aonid": 120,
+                "game-obj": "Traits",
+                "name": "occult",
+                "type": "link"
+              },
+              "name": "occult",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            }
+          ],
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "divination",
+          "aonid": 47,
+          "game-obj": "Traits",
+          "name": "divination",
+          "type": "link"
+        },
+        {
+          "alt": "occult",
+          "aonid": 120,
+          "game-obj": "Traits",
+          "name": "occult",
+          "type": "link"
+        },
+        {
+          "alt": "divination",
+          "aonid": 47,
+          "game-obj": "Traits",
+          "name": "divination",
+          "type": "link"
+        },
+        {
+          "alt": "occult",
+          "aonid": 120,
+          "game-obj": "Traits",
+          "name": "occult",
+          "type": "link"
+        }
+      ],
+      "name": "Harrowkin Abilities",
+      "sections": [
+        {
+          "name": "Ancient Harrowkin",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #192: Worst of All Possible Worlds pg. 82",
+                "aonid": 203,
+                "game-obj": "Sources",
+                "name": "Pathfinder #192: Worst of All Possible Worlds pg. 82",
+                "type": "link"
+              },
+              "name": "Pathfinder #192: Worst of All Possible Worlds",
+              "page": 82,
+              "type": "source"
+            }
+          ],
+          "text": "Some harrowkin form from ancient decks, even originating from the days before Earthfall. These harrowkin are especially powerful as they've spent a long time\u2014sometimes millennia\u2014learning to control their own abilities and their magical influence over the power of fate. These harrowkin are known to keep weaker harrowkin as companions or servants, living secluded lives in their own courts of fate. Unlike other harrowkin, ancient harrowkin have souls, agency, free will, and can be of any alignment.",
+          "type": "section"
+        },
+        {
+          "name": "Harrowkin Agency",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #192: Worst of All Possible Worlds pg. 82",
+                "aonid": 203,
+                "game-obj": "Sources",
+                "name": "Pathfinder #192: Worst of All Possible Worlds pg. 82",
+                "type": "link"
+              },
+              "name": "Pathfinder #192: Worst of All Possible Worlds",
+              "page": 82,
+              "type": "source"
+            }
+          ],
+          "text": "Harrowkin lack free will, despite being sapient. All are neutral, even in the case of fabled harrowkin whose legacies force them into specific roles. They do not possess souls. When slain they revert back to the card from which they sprang.",
+          "type": "section"
+        }
+      ],
+      "sources": [
+        {
+          "link": {
+            "alt": "Pathfinder #192: Worst of All Possible Worlds pg. 82",
+            "aonid": 203,
+            "game-obj": "Sources",
+            "name": "Pathfinder #192: Worst of All Possible Worlds pg. 82",
+            "type": "link"
+          },
+          "name": "Pathfinder #192: Worst of All Possible Worlds",
+          "page": 82,
+          "type": "source"
+        }
+      ],
+      "text": "Each harrowkin is connected one specific harrow suit and has the following shared abilities.  \n  \n**Defensive Suit** When the harrowkin attempts a saving throw connected to its suit\u2014that is, Fortitude (Hammers or Shields), Reflex (Keys or Books), or Will (Stars or Crowns)\u2014if they roll a success, they get a critical success instead.  \n  \n**Read the Cards** [-] (divination, occult) **Trigger** The harrowkin is about to roll initiative; **Effect** The harrowkin attempts to rewrite destiny. Roll 1d6 to determine a suit. The harrowkin gains the effects of the suit for 1 minute. If the suit matches the harrowkin's suit, the value is doubled.   \n  \n**Shuffle the Deck** [-] (divination, occult) **Frequency** once per day; **Requirements** The harrowkin has rolled initiative; **Effect** At the end of the current round, all creatures currently in initiative reroll their initiative, using the same modifiers as their original initiative roll, and use the new initiative values for all following rounds.",
+      "type": "section"
+    }
+  ],
   "sources": [
     {
       "link": {

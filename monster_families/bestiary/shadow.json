@@ -30,77 +30,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "effect": "The shadow teleports from its space to a clear space it can see that is in dim light or darkness within 60 feet. A shadow using this ability is slowed 1 for 1 round after arriving at its destination.",
-                "links": [
-                  {
-                    "alt": "dim light",
-                    "aonid": 408,
-                    "game-obj": "Rules",
-                    "name": "dim light",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "darkness",
-                    "aonid": 409,
-                    "game-obj": "Rules",
-                    "name": "darkness",
-                    "type": "link"
-                  }
-                ],
-                "name": "Shadow Hop",
-                "range": {
-                  "range": 60,
-                  "subtype": "range",
-                  "text": "within 60 feet",
-                  "type": "stat_block_section",
-                  "unit": "feet"
-                },
-                "requirement": "The shadow is in an area of dim light",
-                "subtype": "ability",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "magical",
-                      "aonid": 103,
-                      "game-obj": "Traits",
-                      "name": "magical",
-                      "type": "link"
-                    },
-                    "name": "magical",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "teleportation",
-                      "aonid": 156,
-                      "game-obj": "Traits",
-                      "name": "teleportation",
-                      "type": "link"
-                    },
-                    "name": "teleportation",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Shadow Variants')].sections[?(@.name=='Darting Shadows Some shadows have taken their ability to hide in shadows to a greater level, shifting from one shadow to another with supernatural ease. Darting shadows gain the following ability.')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "magical",
+                "aonid": 103,
+                "game-obj": "Traits",
+                "name": "magical",
+                "type": "link"
+              },
+              {
+                "alt": "teleportation",
+                "aonid": 156,
+                "game-obj": "Traits",
+                "name": "teleportation",
+                "type": "link"
+              },
+              {
+                "alt": "dim light",
+                "aonid": 408,
+                "game-obj": "Rules",
+                "name": "dim light",
+                "type": "link"
+              },
+              {
+                "alt": "darkness",
+                "aonid": 409,
+                "game-obj": "Rules",
+                "name": "darkness",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -115,43 +80,28 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "links": [
-                  {
-                    "alt": "undead",
-                    "aonid": 160,
-                    "game-obj": "Traits",
-                    "name": "undead",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "possession",
-                    "aonid": 225,
-                    "game-obj": "Spells",
-                    "name": "possession",
-                    "type": "link"
-                  }
-                ],
-                "name": "Inhabit",
-                "subtype": "ability",
-                "text": "The shadow attempts to possess an adjacent undead corporeal creature. This has the same effect as the *possession* spell, except the shadow doesn't have a physical body, so it's unaffected by the spell's restriction.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Shadow Variants')].sections[?(@.name=='Possessing Shadows')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "undead",
+                "aonid": 160,
+                "game-obj": "Traits",
+                "name": "undead",
+                "type": "link"
+              },
+              {
+                "alt": "possession",
+                "aonid": 225,
+                "game-obj": "Spells",
+                "name": "possession",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -161,32 +111,16 @@
         ],
         "name": "Possessing Shadows",
         "subtype": "monster_family",
-        "text": "Some greater shadows develop the coveted ability to possess a body. Only greater shadows can become possessing shadows, and they can't use Slink in Shadows or Steal Shadow while using Inhabit.",
         "type": "stat_block_section"
       },
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "name": "Shadow Touch",
-                "subtype": "ability",
-                "text": "The shadow Interacts with a simple physical object, such as picking up a book or opening a door (it can't manipulate a complicated object, like a lock). It can't carry more than a single physical object of up to 2 Bulk. It must use Shadow Touch to keep its hold on the item each turn, or it drops the item at the end of its turn.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Shadow Variants')].sections[?(@.name=='Shadow Thief')].abilities",
                 "target": "$.defense.automatic_abilities"
               }
             ],
@@ -197,7 +131,6 @@
         ],
         "name": "Shadow Thief",
         "subtype": "monster_family",
-        "text": "Some shadows gain the ability to handle objects. A shadow thief can't use Slink in Shadows or Steal Shadow while using Shadow Touch.",
         "type": "stat_block_section"
       }
     ],
@@ -209,6 +142,217 @@
     {
       "name": "Shadow Variants",
       "sections": [
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "effect": "The shadow teleports from its space to a clear space it can see that is in dim light or darkness within 60 feet. A shadow using this ability is slowed 1 for 1 round after arriving at its destination.",
+              "links": [
+                {
+                  "alt": "dim light",
+                  "aonid": 408,
+                  "game-obj": "Rules",
+                  "name": "dim light",
+                  "type": "link"
+                },
+                {
+                  "alt": "darkness",
+                  "aonid": 409,
+                  "game-obj": "Rules",
+                  "name": "darkness",
+                  "type": "link"
+                }
+              ],
+              "name": "Shadow Hop",
+              "range": {
+                "range": 60,
+                "subtype": "range",
+                "text": "within 60 feet",
+                "type": "stat_block_section",
+                "unit": "feet"
+              },
+              "requirement": "The shadow is in an area of dim light",
+              "subtype": "ability",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "magical",
+                    "aonid": 103,
+                    "game-obj": "Traits",
+                    "name": "magical",
+                    "type": "link"
+                  },
+                  "name": "magical",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "teleportation",
+                    "aonid": 156,
+                    "game-obj": "Traits",
+                    "name": "teleportation",
+                    "type": "link"
+                  },
+                  "name": "teleportation",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "magical",
+              "aonid": 103,
+              "game-obj": "Traits",
+              "name": "magical",
+              "type": "link"
+            },
+            {
+              "alt": "teleportation",
+              "aonid": 156,
+              "game-obj": "Traits",
+              "name": "teleportation",
+              "type": "link"
+            },
+            {
+              "alt": "dim light",
+              "aonid": 408,
+              "game-obj": "Rules",
+              "name": "dim light",
+              "type": "link"
+            },
+            {
+              "alt": "darkness",
+              "aonid": 409,
+              "game-obj": "Rules",
+              "name": "darkness",
+              "type": "link"
+            }
+          ],
+          "name": "Darting Shadows Some shadows have taken their ability to hide in shadows to a greater level, shifting from one shadow to another with supernatural ease. Darting shadows gain the following ability.",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #183: Field of Maidens pg. 73",
+                "href": "https://paizo.com/products/btq02c11",
+                "name": "Pathfinder #183: Field of Maidens pg. 73",
+                "type": "link"
+              },
+              "name": "Pathfinder #183: Field of Maidens",
+              "page": 73,
+              "type": "source"
+            }
+          ],
+          "text": "**Shadow Hop** [##] (magical, teleportation) **Requirements** The shadow is in an area of dim light; **Effect** The shadow teleports from its space to a clear space it can see that is in dim light or darkness within 60 feet. A shadow using this ability is slowed 1 for 1 round after arriving at its destination.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "links": [
+                {
+                  "alt": "undead",
+                  "aonid": 160,
+                  "game-obj": "Traits",
+                  "name": "undead",
+                  "type": "link"
+                },
+                {
+                  "alt": "possession",
+                  "aonid": 225,
+                  "game-obj": "Spells",
+                  "name": "possession",
+                  "type": "link"
+                }
+              ],
+              "name": "Inhabit",
+              "subtype": "ability",
+              "text": "The shadow attempts to possess an adjacent undead corporeal creature. This has the same effect as the *possession* spell, except the shadow doesn't have a physical body, so it's unaffected by the spell's restriction.",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "undead",
+              "aonid": 160,
+              "game-obj": "Traits",
+              "name": "undead",
+              "type": "link"
+            },
+            {
+              "alt": "possession",
+              "aonid": 225,
+              "game-obj": "Spells",
+              "name": "possession",
+              "type": "link"
+            }
+          ],
+          "name": "Possessing Shadows",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #183: Field of Maidens pg. 73",
+                "href": "https://paizo.com/products/btq02c11",
+                "name": "Pathfinder #183: Field of Maidens pg. 73",
+                "type": "link"
+              },
+              "name": "Pathfinder #183: Field of Maidens",
+              "page": 73,
+              "type": "source"
+            }
+          ],
+          "text": "Some greater shadows develop the coveted ability to possess a body. Only greater shadows can become possessing shadows, and they can't use Slink in Shadows or Steal Shadow while using Inhabit.  \n  \n**Inhabit** [##] The shadow attempts to possess an adjacent undead corporeal creature. This has the same effect as the *possession* spell, except the shadow doesn't have a physical body, so it's unaffected by the spell's restriction.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "name": "Shadow Touch",
+              "subtype": "ability",
+              "text": "The shadow Interacts with a simple physical object, such as picking up a book or opening a door (it can't manipulate a complicated object, like a lock). It can't carry more than a single physical object of up to 2 Bulk. It must use Shadow Touch to keep its hold on the item each turn, or it drops the item at the end of its turn.",
+              "type": "stat_block_section"
+            }
+          ],
+          "name": "Shadow Thief",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #183: Field of Maidens pg. 73",
+                "href": "https://paizo.com/products/btq02c11",
+                "name": "Pathfinder #183: Field of Maidens pg. 73",
+                "type": "link"
+              },
+              "name": "Pathfinder #183: Field of Maidens",
+              "page": 73,
+              "type": "source"
+            }
+          ],
+          "text": "Some shadows gain the ability to handle objects. A shadow thief can't use Slink in Shadows or Steal Shadow while using Shadow Touch.  \n  \n**Shadow Touch** [##] The shadow Interacts with a simple physical object, such as picking up a book or opening a door (it can't manipulate a complicated object, like a lock). It can't carry more than a single physical object of up to 2 Bulk. It must use Shadow Touch to keep its hold on the item each turn, or it drops the item at the end of its turn.",
+          "type": "section"
+        },
         {
           "name": "Shadow Locations",
           "sources": [

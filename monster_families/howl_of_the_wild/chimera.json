@@ -53,109 +53,35 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "acid",
-                    "formula": "2d10+9",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "range increment 30 feet",
-                    "aonid": 248,
-                    "game-obj": "Traits",
-                    "name": "range increment 30 feet",
-                    "type": "link"
-                  }
-                ],
-                "name": "Ranged",
-                "subtype": "ability",
-                "text": "acid spit +20 (range increment 30 feet),",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "area": [
-                  {
-                    "shape": "cone",
-                    "size": 30,
-                    "subtype": "area",
-                    "text": "30-foot cone",
-                    "type": "stat_block_section",
-                    "unit": "feet"
-                  }
-                ],
-                "damage": [
-                  {
-                    "damage_type": "acid",
-                    "formula": "9d6",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "frequency": "1d4 rounds",
-                "links": [
-                  {
-                    "alt": "basic",
-                    "aonid": 329,
-                    "game-obj": "Rules",
-                    "name": "basic",
-                    "type": "link"
-                  }
-                ],
-                "name": "Spray Acid",
-                "saving_throw": [
-                  {
-                    "basic": true,
-                    "dc": 26,
-                    "save_type": "Ref",
-                    "subtype": "save_dc",
-                    "text": "DC 26 basic Reflex save",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "subtype": "ability",
-                "text": "The chimera spews acid in a 30-foot cone, dealing 9d6 acid damage to all creatures in the area (DC 26 basic Reflex save). The chimera can't use Spray Acid again for 1d4 rounds.",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "acid",
-                      "aonid": 524,
-                      "game-obj": "Traits",
-                      "name": "acid",
-                      "type": "link"
-                    },
-                    "name": "acid",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Chimera Heads')].sections[?(@.name=='Ankhrav Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "range increment 30 feet",
+                "aonid": 248,
+                "game-obj": "Traits",
+                "name": "range increment 30 feet",
+                "type": "link"
+              },
+              {
+                "alt": "acid",
+                "aonid": 524,
+                "game-obj": "Traits",
+                "name": "acid",
+                "type": "link"
+              },
+              {
+                "alt": "basic",
+                "aonid": 329,
+                "game-obj": "Rules",
+                "name": "basic",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -170,102 +96,28 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "2d6+9",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "fatal d10",
-                    "aonid": 597,
-                    "game-obj": "Traits",
-                    "name": "fatal d10",
-                    "type": "link"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "hippogriff beak +22 (fatal d10),",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "link": {
-                  "alt": "Rend",
-                  "aonid": 73,
-                  "game-obj": "MonsterAbilities",
-                  "name": "Rend",
-                  "type": "link"
-                },
-                "name": "Rend",
-                "subtype": "ability",
-                "text": "hippogriff beak",
-                "type": "stat_block_section",
-                "universal_monster_ability": {
-                  "ability_type": "universal_monster_ability",
-                  "action_type": {
-                    "name": "One Action",
-                    "subtype": "action_type",
-                    "type": "stat_block_section"
-                  },
-                  "aonid": 73,
-                  "edition": "remastered",
-                  "effect": "The monster automatically deals that Strike's damage again to the enemy.",
-                  "game-id": "d5b010b5b150634db59b75339222f87b",
-                  "game-obj": "MonsterAbilities",
-                  "name": "Rend",
-                  "requirement": "The monster hit the same enemy with two consecutive Strikes of the listed type in the same round",
-                  "sources": [
-                    {
-                      "errata": {
-                        "alt": "1.1",
-                        "aonid": 221,
-                        "game-obj": "Sources",
-                        "name": "1.1",
-                        "type": "link"
-                      },
-                      "link": {
-                        "alt": "Monster Core pg. 360",
-                        "aonid": 221,
-                        "game-obj": "Sources",
-                        "name": "Monster Core pg. 360",
-                        "type": "link"
-                      },
-                      "name": "Monster Core",
-                      "page": 360,
-                      "type": "source"
-                    }
-                  ],
-                  "text": "A Rend entry lists a Strike the monster has;",
-                  "type": "ability"
-                }
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Chimera Heads')].sections[?(@.name=='Hippogriff Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "fatal d10",
+                "aonid": 597,
+                "game-obj": "Traits",
+                "name": "fatal d10",
+                "type": "link"
+              },
+              {
+                "alt": "Rend",
+                "aonid": 73,
+                "game-obj": "MonsterAbilities",
+                "name": "Rend",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -280,49 +132,35 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "poison",
-                    "formula": "3d8+4",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "effect": "chimeric rot",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "poison",
-                    "aonid": 669,
-                    "game-obj": "Traits",
-                    "name": "poison",
-                    "type": "link"
-                  }
-                ],
-                "name": "Ranged",
-                "subtype": "ability",
-                "text": "virulent spit +18 (poison),",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Chimera Heads')].sections[?(@.name=='Rotting Animal Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "poison",
+                "aonid": 669,
+                "game-obj": "Traits",
+                "name": "poison",
+                "type": "link"
+              },
+              {
+                "alt": "disease",
+                "aonid": 578,
+                "game-obj": "Traits",
+                "name": "disease",
+                "type": "link"
+              },
+              {
+                "alt": "sickened 1",
+                "aonid": 91,
+                "game-obj": "Conditions",
+                "name": "sickened 1",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -337,145 +175,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "2d8+7",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "effect": "Grab",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "agile",
-                    "aonid": 526,
-                    "game-obj": "Traits",
-                    "name": "agile",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "reach 10 feet",
-                    "aonid": 684,
-                    "game-obj": "Traits",
-                    "name": "reach 10 feet",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "Grab",
-                    "aonid": 45,
-                    "game-obj": "MonsterAbilities",
-                    "name": "Grab",
-                    "type": "link"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "snake fangs +20 (agile, reach 10 feet),",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "link": {
-                  "alt": "Constrict",
-                  "aonid": 57,
-                  "game-obj": "MonsterAbilities",
-                  "name": "Constrict",
-                  "type": "link"
-                },
-                "name": "Constrict",
-                "saving_throw": [
-                  {
-                    "dc": 24,
-                    "subtype": "save_dc",
-                    "text": "DC 24",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "subtype": "ability",
-                "text": "2d8 bludgeoning, DC 24",
-                "type": "stat_block_section",
-                "universal_monster_ability": {
-                  "ability_type": "universal_monster_ability",
-                  "aonid": 57,
-                  "edition": "remastered",
-                  "game-id": "a97c86171b6efc6d76d64b73d480ca20",
-                  "game-obj": "MonsterAbilities",
-                  "links": [
-                    {
-                      "alt": "grabbed",
-                      "aonid": 77,
-                      "game-obj": "Conditions",
-                      "name": "grabbed",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "restrained",
-                      "aonid": 90,
-                      "game-obj": "Conditions",
-                      "name": "restrained",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "basic",
-                      "aonid": 329,
-                      "game-obj": "Rules",
-                      "name": "basic",
-                      "type": "link"
-                    }
-                  ],
-                  "name": "Constrict",
-                  "sources": [
-                    {
-                      "errata": {
-                        "alt": "1.1",
-                        "aonid": 221,
-                        "game-obj": "Sources",
-                        "name": "1.1",
-                        "type": "link"
-                      },
-                      "link": {
-                        "alt": "Monster Core pg. 358",
-                        "aonid": 221,
-                        "game-obj": "Sources",
-                        "name": "Monster Core pg. 358",
-                        "type": "link"
-                      },
-                      "name": "Monster Core",
-                      "page": 358,
-                      "type": "source"
-                    }
-                  ],
-                  "text": "The monster deals the listed amount of damage to any number of creatures grabbed or restrained by it. Each of those creatures can attempt a basic Fortitude save with the listed DC.",
-                  "type": "ability"
-                }
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Chimera Heads')].sections[?(@.name=='Snake Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "agile",
+                "aonid": 526,
+                "game-obj": "Traits",
+                "name": "agile",
+                "type": "link"
+              },
+              {
+                "alt": "reach 10 feet",
+                "aonid": 684,
+                "game-obj": "Traits",
+                "name": "reach 10 feet",
+                "type": "link"
+              },
+              {
+                "alt": "Grab",
+                "aonid": 45,
+                "game-obj": "MonsterAbilities",
+                "name": "Grab",
+                "type": "link"
+              },
+              {
+                "alt": "Constrict",
+                "aonid": 57,
+                "game-obj": "MonsterAbilities",
+                "name": "Constrict",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -490,52 +225,21 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "2d10+9",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "snapping jaws +20,",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "interaction",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "hold its breath",
-                    "aonid": 2436,
-                    "game-obj": "Rules",
-                    "name": "hold its breath",
-                    "type": "link"
-                  }
-                ],
-                "name": "Deep Breath",
-                "subtype": "ability",
-                "text": "The chimera can hold its breath for 1 hour.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Chimera Heads')].sections[?(@.name=='Snapping Turtle Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "hold its breath",
+                "aonid": 2436,
+                "game-obj": "Rules",
+                "name": "hold its breath",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -550,73 +254,28 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "2d8+9",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "effect": "Knockdown",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "Knockdown",
-                    "aonid": 46,
-                    "game-obj": "MonsterAbilities",
-                    "name": "Knockdown",
-                    "type": "link"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "wolf jaws +20,",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "damage": [
-                  {
-                    "formula": "1d6",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "prone",
-                    "aonid": 88,
-                    "game-obj": "Conditions",
-                    "name": "prone",
-                    "type": "link"
-                  }
-                ],
-                "name": "Leader of the Pack",
-                "subtype": "ability",
-                "text": "The chimera's wolf jaws attacks deal 1d6 extra damage to prone creatures.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Chimera Heads')].sections[?(@.name=='Wolf Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "Knockdown",
+                "aonid": 46,
+                "game-obj": "MonsterAbilities",
+                "name": "Knockdown",
+                "type": "link"
+              },
+              {
+                "alt": "prone",
+                "aonid": 88,
+                "game-obj": "Conditions",
+                "name": "prone",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -631,107 +290,21 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "4d6+8",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "damage_type": "energy",
-                    "formula": "4d6",
-                    "notes": "see Draconic Bite",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "dragon jaws +27,",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "damage": [
-                  {
-                    "formula": "4d6",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "name": "Draconic Bite",
-                "subtype": "ability",
-                "text": "A greater chimera's dragon head deals and extra 4d6 damage of a type matching the damage dealt by its Dragon Breath.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "area": [
-                  {
-                    "shape": "cone",
-                    "size": 30,
-                    "subtype": "area",
-                    "text": "30-foot cone",
-                    "type": "stat_block_section",
-                    "unit": "feet"
-                  }
-                ],
-                "damage": [
-                  {
-                    "formula": "12d6",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "frequency": "1d4 rounds",
-                "links": [
-                  {
-                    "alt": "basic",
-                    "aonid": 329,
-                    "game-obj": "Rules",
-                    "name": "basic",
-                    "type": "link"
-                  }
-                ],
-                "name": "Dragon Breath",
-                "saving_throw": [
-                  {
-                    "basic": true,
-                    "dc": 33,
-                    "save_type": "Ref",
-                    "subtype": "save_dc",
-                    "text": "DC 33 basic Reflex",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "subtype": "ability",
-                "text": "The greater chimera deals 12d6 damage to all creatures in a 30-foot cone (DC 33 basic Reflex). This breath deals either acid, cold, electricity, fire, force, mental, sonic, or spirit, depending on the kind of dragon head the greater chimera possesses. The greater chimera can't use Dragon Breath again for 1d4 rounds.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Greater Chimera Heads')].sections[?(@.name=='Adult Dragon Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "basic",
+                "aonid": 329,
+                "game-obj": "Rules",
+                "name": "basic",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -746,223 +319,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "3d10+8",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "effect": "Grab",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "reach 10 feet",
-                    "aonid": 684,
-                    "game-obj": "Traits",
-                    "name": "reach 10 feet",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "Grab",
-                    "aonid": 45,
-                    "game-obj": "MonsterAbilities",
-                    "name": "Grab",
-                    "type": "link"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "worm jaws +27 (reach 10 feet),",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "link": {
-                  "alt": "Swallow Whole",
-                  "aonid": 77,
-                  "game-obj": "MonsterAbilities",
-                  "name": "Swallow Whole",
-                  "type": "link"
-                },
-                "links": [
-                  {
-                    "alt": "grabbed",
-                    "aonid": 77,
-                    "game-obj": "Conditions",
-                    "name": "grabbed",
-                    "type": "link"
-                  }
-                ],
-                "name": "Swallow Whole",
-                "subtype": "ability",
-                "text": "(attack) Large, 3d10+8 bludgeoning, Rupture 24; the target must be grabbed by the greater chimera's worm jaws",
-                "type": "stat_block_section",
-                "universal_monster_ability": {
-                  "ability_type": "universal_monster_ability",
-                  "action_type": {
-                    "name": "One Action",
-                    "subtype": "action_type",
-                    "type": "stat_block_section"
-                  },
-                  "aonid": 77,
-                  "edition": "remastered",
-                  "game-id": "4b6e038f83c4c35d932969c1fbdf7e15",
-                  "game-obj": "MonsterAbilities",
-                  "links": [
-                    {
-                      "alt": "grabbed",
-                      "aonid": 77,
-                      "game-obj": "Conditions",
-                      "name": "grabbed",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "restrained",
-                      "aonid": 90,
-                      "game-obj": "Conditions",
-                      "name": "restrained",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "Athletics",
-                      "aonid": 36,
-                      "game-obj": "Skills",
-                      "name": "Athletics",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "Grab",
-                      "aonid": 45,
-                      "game-obj": "MonsterAbilities",
-                      "name": "Grab",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "slowed 1",
-                      "aonid": 92,
-                      "game-obj": "Conditions",
-                      "name": "slowed 1",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "suffocating",
-                      "aonid": 468,
-                      "game-obj": "Rules",
-                      "name": "suffocating",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "Escapes",
-                      "aonid": 2296,
-                      "game-obj": "Actions",
-                      "name": "Escapes",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "unarmed",
-                      "aonid": 719,
-                      "game-obj": "Traits",
-                      "name": "unarmed",
-                      "type": "link"
-                    },
-                    {
-                      "alt": "off-guard",
-                      "aonid": 58,
-                      "game-obj": "Conditions",
-                      "name": "off-guard",
-                      "type": "link"
-                    }
-                  ],
-                  "name": "Swallow Whole",
-                  "sources": [
-                    {
-                      "errata": {
-                        "alt": "1.1",
-                        "aonid": 221,
-                        "game-obj": "Sources",
-                        "name": "1.1",
-                        "type": "link"
-                      },
-                      "link": {
-                        "alt": "Monster Core pg. 360",
-                        "aonid": 221,
-                        "game-obj": "Sources",
-                        "name": "Monster Core pg. 360",
-                        "type": "link"
-                      },
-                      "name": "Monster Core",
-                      "page": 360,
-                      "type": "source"
-                    }
-                  ],
-                  "text": "The monster attempts to swallow a creature of the listed size or smaller that it has grabbed or restrained in its jaws or mouth. If a swallowed creature is of the maximum size listed, the monster can't use Swallow Whole again. If the creature is smaller than the maximum, the monster can usually swallow more creatures; the GM determines the maximum. The monster attempts an Athletics check opposed by the target's Reflex DC. If it succeeds, it swallows the creature. The monster's mouth or jaws no longer clutch a creature it has swallowed, so the monster is free to use them to Strike or Grab once again. The monster can't attack creatures it has swallowed.  \n  \n A swallowed creature is grabbed, is slowed 1, and has to hold its breath or start suffocating. The swallowed creature takes the listed amount of damage when first swallowed and at the end of each of its turns while it's swallowed. If the victim Escapes this ability's grabbed condition, it exits through the monster's mouth. This frees any other creature captured in the monster's mouth or jaws. A swallowed creature can attack the monster that has swallowed it, but only with unarmed attacks or with weapons of light Bulk or less. The swallowing creature is off-guard against the attack. If the monster takes piercing or slashing damage equaling or exceeding the listed Rupture value from a single attack or spell, the swallowed creature cuts itself free. A creature that gets free by either Escaping or cutting itself free can immediately breathe and exits the swallowing monster's space.  \n  \n If the monster dies, a swallowed creature can be freed by creatures adjacent to the corpse if they spend a combined total of 3 actions cutting the monster open with a weapon or unarmed attack that deals piercing or slashing damage.",
-                  "traits": [
-                    {
-                      "alternate_link": {
-                        "alternate_type": "legacy",
-                        "aonid": 15,
-                        "game-obj": "Traits",
-                        "type": "alternate_link"
-                      },
-                      "edition": "remastered",
-                      "game-id": "23c17a4eee189983083f41b20ff9ff92",
-                      "game-obj": "Traits",
-                      "name": "Attack",
-                      "sources": [
-                        {
-                          "errata": {
-                            "alt": "2.0",
-                            "aonid": 216,
-                            "game-obj": "Sources",
-                            "name": "2.0",
-                            "type": "link"
-                          },
-                          "link": {
-                            "alt": "Player Core pg. 452",
-                            "aonid": 216,
-                            "game-obj": "Sources",
-                            "name": "Player Core pg. 452",
-                            "type": "link"
-                          },
-                          "name": "Player Core",
-                          "page": 452,
-                          "type": "source"
-                        }
-                      ],
-                      "text": "An ability with this trait involves an attack. For each attack you make beyond the first on your turn, you take a multiple attack penalty.",
-                      "type": "trait"
-                    }
-                  ],
-                  "type": "ability"
-                }
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Greater Chimera Heads')].sections[?(@.name=='Cave Worm Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "reach 10 feet",
+                "aonid": 684,
+                "game-obj": "Traits",
+                "name": "reach 10 feet",
+                "type": "link"
+              },
+              {
+                "alt": "Grab",
+                "aonid": 45,
+                "game-obj": "MonsterAbilities",
+                "name": "Grab",
+                "type": "link"
+              },
+              {
+                "alt": "Swallow Whole",
+                "aonid": 77,
+                "game-obj": "MonsterAbilities",
+                "name": "Swallow Whole",
+                "type": "link"
+              },
+              {
+                "alt": "grabbed",
+                "aonid": 77,
+                "game-obj": "Conditions",
+                "name": "grabbed",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -977,80 +369,28 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "3d8+12",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "effect": "chimeric venom",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "emperor cobra fangs +27,",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "damage": [
-                  {
-                    "damage_type": "poison",
-                    "formula": "6d6",
-                    "persistent": true,
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "persistent poison damage",
-                    "aonid": 29,
-                    "game-obj": "Conditions",
-                    "name": "persistent poison damage",
-                    "type": "link"
-                  }
-                ],
-                "name": "Chimeric Venom",
-                "subtype": "ability",
-                "text": "When the greater chimera critically hits a creature with emperor cobra fangs, it deals an additional 6d6 persistent poison damage.",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "poison",
-                      "aonid": 669,
-                      "game-obj": "Traits",
-                      "name": "poison",
-                      "type": "link"
-                    },
-                    "name": "poison",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Greater Chimera Heads')].sections[?(@.name=='Emperor Cobra Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "poison",
+                "aonid": 669,
+                "game-obj": "Traits",
+                "name": "poison",
+                "type": "link"
+              },
+              {
+                "alt": "persistent poison damage",
+                "aonid": 29,
+                "game-obj": "Conditions",
+                "name": "persistent poison damage",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -1065,89 +405,56 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "void",
-                    "formula": "3d8+8",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "agile",
-                    "aonid": 526,
-                    "game-obj": "Traits",
-                    "name": "agile",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "finesse",
-                    "aonid": 602,
-                    "game-obj": "Traits",
-                    "name": "finesse",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "magical",
-                    "aonid": 644,
-                    "game-obj": "Traits",
-                    "name": "magical",
-                    "type": "link"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "phantom slam +27 (agile, finesse, magical),",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "hp_automatic",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "force",
-                    "aonid": 610,
-                    "game-obj": "Traits",
-                    "name": "force",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "spirit",
-                    "aonid": 737,
-                    "game-obj": "Traits",
-                    "name": "spirit",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "ghost touch",
-                    "aonid": 2840,
-                    "game-obj": "Equipment",
-                    "name": "ghost touch",
-                    "type": "link"
-                  }
-                ],
-                "name": "Incorporeal Features",
-                "subtype": "ability",
-                "text": "The greater chimera gains resistance 5 to all damage (except force, spirit, and damage from Strikes with the *ghost touch* property rune).",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Greater Chimera Heads')].sections[?(@.name=='Phantasmal Beast Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "agile",
+                "aonid": 526,
+                "game-obj": "Traits",
+                "name": "agile",
+                "type": "link"
+              },
+              {
+                "alt": "finesse",
+                "aonid": 602,
+                "game-obj": "Traits",
+                "name": "finesse",
+                "type": "link"
+              },
+              {
+                "alt": "magical",
+                "aonid": 644,
+                "game-obj": "Traits",
+                "name": "magical",
+                "type": "link"
+              },
+              {
+                "alt": "force",
+                "aonid": 610,
+                "game-obj": "Traits",
+                "name": "force",
+                "type": "link"
+              },
+              {
+                "alt": "spirit",
+                "aonid": 737,
+                "game-obj": "Traits",
+                "name": "spirit",
+                "type": "link"
+              },
+              {
+                "alt": "ghost touch",
+                "aonid": 2840,
+                "game-obj": "Equipment",
+                "name": "ghost touch",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -1162,129 +469,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "3d10+8",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "deadly d10",
-                    "aonid": 570,
-                    "game-obj": "Traits",
-                    "name": "deadly d10",
-                    "type": "link"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "beak +26 (deadly d10),",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "area": [
-                  {
-                    "shape": "emanation",
-                    "size": 30,
-                    "subtype": "area",
-                    "text": "30-foot emanation",
-                    "type": "stat_block_section",
-                    "unit": "feet"
-                  }
-                ],
-                "damage": [
-                  {
-                    "damage_type": "sonic",
-                    "formula": "9d6",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "frequency": "1d4 rounds",
-                "links": [
-                  {
-                    "alt": "basic",
-                    "aonid": 329,
-                    "game-obj": "Rules",
-                    "name": "basic",
-                    "type": "link"
-                  }
-                ],
-                "name": "Ear-splitting Screech",
-                "saving_throw": [
-                  {
-                    "basic": true,
-                    "dc": 26,
-                    "save_type": "Fort",
-                    "subtype": "save_dc",
-                    "text": "DC 26 basic Fortitude save",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "subtype": "ability",
-                "text": "The screeching roc head emits a harsh cry that deals 9d6 sonic damage (DC 26 basic Fortitude save) in a 30-foot emanation. It can't use Ear-splitting Screech again for 1d4 rounds.",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "auditory",
-                      "aonid": 541,
-                      "game-obj": "Traits",
-                      "name": "auditory",
-                      "type": "link"
-                    },
-                    "name": "auditory",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "sonic",
-                      "aonid": 697,
-                      "game-obj": "Traits",
-                      "name": "sonic",
-                      "type": "link"
-                    },
-                    "name": "sonic",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "special_sense",
-                "ability_type": "ability",
-                "name": "Powerful Wings",
-                "subtype": "ability",
-                "text": "The greater chimera's fly Speed increases by 10 feet.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Greater Chimera Heads')].sections[?(@.name=='Screeching Roc Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "deadly d10",
+                "aonid": 570,
+                "game-obj": "Traits",
+                "name": "deadly d10",
+                "type": "link"
+              },
+              {
+                "alt": "auditory",
+                "aonid": 541,
+                "game-obj": "Traits",
+                "name": "auditory",
+                "type": "link"
+              },
+              {
+                "alt": "sonic",
+                "aonid": 697,
+                "game-obj": "Traits",
+                "name": "sonic",
+                "type": "link"
+              },
+              {
+                "alt": "basic",
+                "aonid": 329,
+                "game-obj": "Rules",
+                "name": "basic",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -1299,132 +519,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "piercing",
-                    "formula": "2d12+8",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "damage_type": "cold",
-                    "formula": "1d12",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "effect": "Knockdown",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "Knockdown",
-                    "aonid": 46,
-                    "game-obj": "MonsterAbilities",
-                    "name": "Knockdown",
-                    "type": "link"
-                  }
-                ],
-                "name": "Melee",
-                "subtype": "ability",
-                "text": "witchwarg jaws +25,",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "area": [
-                  {
-                    "shape": "cone",
-                    "size": 15,
-                    "subtype": "area",
-                    "text": "15-foot cone",
-                    "type": "stat_block_section",
-                    "unit": "feet"
-                  }
-                ],
-                "damage": [
-                  {
-                    "damage_type": "cold",
-                    "formula": "9d10",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "frequency": "1d4 rounds",
-                "links": [
-                  {
-                    "alt": "basic",
-                    "aonid": 329,
-                    "game-obj": "Rules",
-                    "name": "basic",
-                    "type": "link"
-                  }
-                ],
-                "name": "Freezing Breath",
-                "saving_throw": [
-                  {
-                    "basic": true,
-                    "dc": 33,
-                    "save_type": "Ref",
-                    "subtype": "save_dc",
-                    "text": "DC 33 basic Reflex save",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "subtype": "ability",
-                "text": "The greater chimera breathes a cloud of frost in a 15-foot cone that deals 9d10 cold damage (DC 33 basic Reflex save). The greater chimera can't use Freezing Breath again for 1d4 rounds.",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "cold",
-                      "aonid": 555,
-                      "game-obj": "Traits",
-                      "name": "cold",
-                      "type": "link"
-                    },
-                    "name": "cold",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "primal",
-                      "aonid": 676,
-                      "game-obj": "Traits",
-                      "name": "primal",
-                      "type": "link"
-                    },
-                    "name": "primal",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Greater Chimera Heads')].sections[?(@.name=='Witchwarg Head')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "Knockdown",
+                "aonid": 46,
+                "game-obj": "MonsterAbilities",
+                "name": "Knockdown",
+                "type": "link"
+              },
+              {
+                "alt": "cold",
+                "aonid": 555,
+                "game-obj": "Traits",
+                "name": "cold",
+                "type": "link"
+              },
+              {
+                "alt": "primal",
+                "aonid": 676,
+                "game-obj": "Traits",
+                "name": "primal",
+                "type": "link"
+              },
+              {
+                "alt": "basic",
+                "aonid": 329,
+                "game-obj": "Rules",
+                "name": "basic",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -1444,6 +574,739 @@
   "sections": [
     {
       "name": "Chimera Heads",
+      "sections": [
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "acid",
+                  "formula": "2d10+9",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "range increment 30 feet",
+                  "aonid": 248,
+                  "game-obj": "Traits",
+                  "name": "range increment 30 feet",
+                  "type": "link"
+                }
+              ],
+              "name": "Ranged",
+              "subtype": "ability",
+              "text": "acid spit +20 (range increment 30 feet),",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "area": [
+                {
+                  "shape": "cone",
+                  "size": 30,
+                  "subtype": "area",
+                  "text": "30-foot cone",
+                  "type": "stat_block_section",
+                  "unit": "feet"
+                }
+              ],
+              "damage": [
+                {
+                  "damage_type": "acid",
+                  "formula": "9d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "frequency": "1d4 rounds",
+              "links": [
+                {
+                  "alt": "basic",
+                  "aonid": 329,
+                  "game-obj": "Rules",
+                  "name": "basic",
+                  "type": "link"
+                }
+              ],
+              "name": "Spray Acid",
+              "saving_throw": [
+                {
+                  "basic": true,
+                  "dc": 26,
+                  "save_type": "Ref",
+                  "subtype": "save_dc",
+                  "text": "DC 26 basic Reflex save",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": "The chimera spews acid in a 30-foot cone, dealing 9d6 acid damage to all creatures in the area (DC 26 basic Reflex save). The chimera can't use Spray Acid again for 1d4 rounds.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "acid",
+                    "aonid": 524,
+                    "game-obj": "Traits",
+                    "name": "acid",
+                    "type": "link"
+                  },
+                  "name": "acid",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "range increment 30 feet",
+              "aonid": 248,
+              "game-obj": "Traits",
+              "name": "range increment 30 feet",
+              "type": "link"
+            },
+            {
+              "alt": "acid",
+              "aonid": 524,
+              "game-obj": "Traits",
+              "name": "acid",
+              "type": "link"
+            },
+            {
+              "alt": "basic",
+              "aonid": 329,
+              "game-obj": "Rules",
+              "name": "basic",
+              "type": "link"
+            }
+          ],
+          "name": "Ankhrav Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Ranged** [#] acid spit +20 (range increment 30 feet), **Damage** 2d10+9 acid  \n  \n**Spray Acid** [##] (acid) The chimera spews acid in a 30-foot cone, dealing 9d6 acid damage to all creatures in the area (DC 26 basic Reflex save). The chimera can't use Spray Acid again for 1d4 rounds.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "2d6+9",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "fatal d10",
+                  "aonid": 597,
+                  "game-obj": "Traits",
+                  "name": "fatal d10",
+                  "type": "link"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "hippogriff beak +22 (fatal d10),",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "link": {
+                "alt": "Rend",
+                "aonid": 73,
+                "game-obj": "MonsterAbilities",
+                "name": "Rend",
+                "type": "link"
+              },
+              "name": "Rend",
+              "subtype": "ability",
+              "text": "hippogriff beak",
+              "type": "stat_block_section",
+              "universal_monster_ability": {
+                "ability_type": "universal_monster_ability",
+                "action_type": {
+                  "name": "One Action",
+                  "subtype": "action_type",
+                  "type": "stat_block_section"
+                },
+                "aonid": 73,
+                "edition": "remastered",
+                "effect": "The monster automatically deals that Strike's damage again to the enemy.",
+                "game-id": "d5b010b5b150634db59b75339222f87b",
+                "game-obj": "MonsterAbilities",
+                "name": "Rend",
+                "requirement": "The monster hit the same enemy with two consecutive Strikes of the listed type in the same round",
+                "sources": [
+                  {
+                    "errata": {
+                      "alt": "1.1",
+                      "aonid": 221,
+                      "game-obj": "Sources",
+                      "name": "1.1",
+                      "type": "link"
+                    },
+                    "link": {
+                      "alt": "Monster Core pg. 360",
+                      "aonid": 221,
+                      "game-obj": "Sources",
+                      "name": "Monster Core pg. 360",
+                      "type": "link"
+                    },
+                    "name": "Monster Core",
+                    "page": 360,
+                    "type": "source"
+                  }
+                ],
+                "text": "A Rend entry lists a Strike the monster has;",
+                "type": "ability"
+              }
+            }
+          ],
+          "links": [
+            {
+              "alt": "fatal d10",
+              "aonid": 597,
+              "game-obj": "Traits",
+              "name": "fatal d10",
+              "type": "link"
+            },
+            {
+              "alt": "Rend",
+              "aonid": 73,
+              "game-obj": "MonsterAbilities",
+              "name": "Rend",
+              "type": "link"
+            }
+          ],
+          "name": "Hippogriff Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] hippogriff beak +22 (fatal d10), **Damage** 2d6+9 piercing  \n  \n**Rend** [#] hippogriff beak",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "poison",
+                  "formula": "3d8+4",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "effect": "chimeric rot",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "poison",
+                  "aonid": 669,
+                  "game-obj": "Traits",
+                  "name": "poison",
+                  "type": "link"
+                }
+              ],
+              "name": "Ranged",
+              "subtype": "ability",
+              "text": "virulent spit +18 (poison),",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "poison",
+              "aonid": 669,
+              "game-obj": "Traits",
+              "name": "poison",
+              "type": "link"
+            },
+            {
+              "alt": "disease",
+              "aonid": 578,
+              "game-obj": "Traits",
+              "name": "disease",
+              "type": "link"
+            },
+            {
+              "alt": "sickened 1",
+              "aonid": 91,
+              "game-obj": "Conditions",
+              "name": "sickened 1",
+              "type": "link"
+            }
+          ],
+          "name": "Rotting Animal Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Ranged** [#] virulent spit +18 (poison), **Damage** 3d8+4 poison plus chimeric rot  \n  \n Chimeric Rot (disease) When the chimera hits a creature with virulent spit they must succeed a DC 26 Fortitude saving throw or become sickened 1.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "2d8+7",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "effect": "Grab",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "agile",
+                  "aonid": 526,
+                  "game-obj": "Traits",
+                  "name": "agile",
+                  "type": "link"
+                },
+                {
+                  "alt": "reach 10 feet",
+                  "aonid": 684,
+                  "game-obj": "Traits",
+                  "name": "reach 10 feet",
+                  "type": "link"
+                },
+                {
+                  "alt": "Grab",
+                  "aonid": 45,
+                  "game-obj": "MonsterAbilities",
+                  "name": "Grab",
+                  "type": "link"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "snake fangs +20 (agile, reach 10 feet),",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "link": {
+                "alt": "Constrict",
+                "aonid": 57,
+                "game-obj": "MonsterAbilities",
+                "name": "Constrict",
+                "type": "link"
+              },
+              "name": "Constrict",
+              "saving_throw": [
+                {
+                  "dc": 24,
+                  "subtype": "save_dc",
+                  "text": "DC 24",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": "2d8 bludgeoning, DC 24",
+              "type": "stat_block_section",
+              "universal_monster_ability": {
+                "ability_type": "universal_monster_ability",
+                "aonid": 57,
+                "edition": "remastered",
+                "game-id": "a97c86171b6efc6d76d64b73d480ca20",
+                "game-obj": "MonsterAbilities",
+                "links": [
+                  {
+                    "alt": "grabbed",
+                    "aonid": 77,
+                    "game-obj": "Conditions",
+                    "name": "grabbed",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "restrained",
+                    "aonid": 90,
+                    "game-obj": "Conditions",
+                    "name": "restrained",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "basic",
+                    "aonid": 329,
+                    "game-obj": "Rules",
+                    "name": "basic",
+                    "type": "link"
+                  }
+                ],
+                "name": "Constrict",
+                "sources": [
+                  {
+                    "errata": {
+                      "alt": "1.1",
+                      "aonid": 221,
+                      "game-obj": "Sources",
+                      "name": "1.1",
+                      "type": "link"
+                    },
+                    "link": {
+                      "alt": "Monster Core pg. 358",
+                      "aonid": 221,
+                      "game-obj": "Sources",
+                      "name": "Monster Core pg. 358",
+                      "type": "link"
+                    },
+                    "name": "Monster Core",
+                    "page": 358,
+                    "type": "source"
+                  }
+                ],
+                "text": "The monster deals the listed amount of damage to any number of creatures grabbed or restrained by it. Each of those creatures can attempt a basic Fortitude save with the listed DC.",
+                "type": "ability"
+              }
+            }
+          ],
+          "links": [
+            {
+              "alt": "agile",
+              "aonid": 526,
+              "game-obj": "Traits",
+              "name": "agile",
+              "type": "link"
+            },
+            {
+              "alt": "reach 10 feet",
+              "aonid": 684,
+              "game-obj": "Traits",
+              "name": "reach 10 feet",
+              "type": "link"
+            },
+            {
+              "alt": "Grab",
+              "aonid": 45,
+              "game-obj": "MonsterAbilities",
+              "name": "Grab",
+              "type": "link"
+            },
+            {
+              "alt": "Constrict",
+              "aonid": 57,
+              "game-obj": "MonsterAbilities",
+              "name": "Constrict",
+              "type": "link"
+            }
+          ],
+          "name": "Snake Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] snake fangs +20 (agile, reach 10 feet), **Damage** 2d8+7 piercing plus Grab  \n  \n**Constrict** [#] 2d8 bludgeoning, DC 24",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "2d10+9",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "snapping jaws +20,",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "interaction",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "hold its breath",
+                  "aonid": 2436,
+                  "game-obj": "Rules",
+                  "name": "hold its breath",
+                  "type": "link"
+                }
+              ],
+              "name": "Deep Breath",
+              "subtype": "ability",
+              "text": "The chimera can hold its breath for 1 hour.",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "hold its breath",
+              "aonid": 2436,
+              "game-obj": "Rules",
+              "name": "hold its breath",
+              "type": "link"
+            }
+          ],
+          "name": "Snapping Turtle Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] snapping jaws +20, **Damage** 2d10+9 piercing   \n  \n**Deep Breath** The chimera can hold its breath for 1 hour.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "2d8+9",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "effect": "Knockdown",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "Knockdown",
+                  "aonid": 46,
+                  "game-obj": "MonsterAbilities",
+                  "name": "Knockdown",
+                  "type": "link"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "wolf jaws +20,",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "damage": [
+                {
+                  "formula": "1d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "prone",
+                  "aonid": 88,
+                  "game-obj": "Conditions",
+                  "name": "prone",
+                  "type": "link"
+                }
+              ],
+              "name": "Leader of the Pack",
+              "subtype": "ability",
+              "text": "The chimera's wolf jaws attacks deal 1d6 extra damage to prone creatures.",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "Knockdown",
+              "aonid": 46,
+              "game-obj": "MonsterAbilities",
+              "name": "Knockdown",
+              "type": "link"
+            },
+            {
+              "alt": "prone",
+              "aonid": 88,
+              "game-obj": "Conditions",
+              "name": "prone",
+              "type": "link"
+            }
+          ],
+          "name": "Wolf Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] wolf jaws +20, **Damage** 2d8+9 piercing plus Knockdown  \n  \n**Leader of the Pack** The chimera's wolf jaws attacks deal 1d6 extra damage to prone creatures.",
+          "type": "section"
+        }
+      ],
       "sources": [
         {
           "errata": {
@@ -1469,6 +1332,1011 @@
     },
     {
       "name": "Greater Chimera Heads",
+      "sections": [
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "4d6+8",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "damage_type": "energy",
+                  "formula": "4d6",
+                  "notes": "see Draconic Bite",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "dragon jaws +27,",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "damage": [
+                {
+                  "formula": "4d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "name": "Draconic Bite",
+              "subtype": "ability",
+              "text": "A greater chimera's dragon head deals and extra 4d6 damage of a type matching the damage dealt by its Dragon Breath.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "area": [
+                {
+                  "shape": "cone",
+                  "size": 30,
+                  "subtype": "area",
+                  "text": "30-foot cone",
+                  "type": "stat_block_section",
+                  "unit": "feet"
+                }
+              ],
+              "damage": [
+                {
+                  "formula": "12d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "frequency": "1d4 rounds",
+              "links": [
+                {
+                  "alt": "basic",
+                  "aonid": 329,
+                  "game-obj": "Rules",
+                  "name": "basic",
+                  "type": "link"
+                }
+              ],
+              "name": "Dragon Breath",
+              "saving_throw": [
+                {
+                  "basic": true,
+                  "dc": 33,
+                  "save_type": "Ref",
+                  "subtype": "save_dc",
+                  "text": "DC 33 basic Reflex",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": "The greater chimera deals 12d6 damage to all creatures in a 30-foot cone (DC 33 basic Reflex). This breath deals either acid, cold, electricity, fire, force, mental, sonic, or spirit, depending on the kind of dragon head the greater chimera possesses. The greater chimera can't use Dragon Breath again for 1d4 rounds.",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "basic",
+              "aonid": 329,
+              "game-obj": "Rules",
+              "name": "basic",
+              "type": "link"
+            }
+          ],
+          "name": "Adult Dragon Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] dragon jaws +27, **Damage** 4d6+8 piercing plus 4d6 energy damage (see Draconic Bite)  \n  \n**Draconic Bite** A greater chimera's dragon head deals and extra 4d6 damage of a type matching the damage dealt by its Dragon Breath.  \n  \n**Dragon Breath** [##] The greater chimera deals 12d6 damage to all creatures in a 30-foot cone (DC 33 basic Reflex). This breath deals either acid, cold, electricity, fire, force, mental, sonic, or spirit, depending on the kind of dragon head the greater chimera possesses. The greater chimera can't use Dragon Breath again for 1d4 rounds.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "3d10+8",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "effect": "Grab",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "reach 10 feet",
+                  "aonid": 684,
+                  "game-obj": "Traits",
+                  "name": "reach 10 feet",
+                  "type": "link"
+                },
+                {
+                  "alt": "Grab",
+                  "aonid": 45,
+                  "game-obj": "MonsterAbilities",
+                  "name": "Grab",
+                  "type": "link"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "worm jaws +27 (reach 10 feet),",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "link": {
+                "alt": "Swallow Whole",
+                "aonid": 77,
+                "game-obj": "MonsterAbilities",
+                "name": "Swallow Whole",
+                "type": "link"
+              },
+              "links": [
+                {
+                  "alt": "grabbed",
+                  "aonid": 77,
+                  "game-obj": "Conditions",
+                  "name": "grabbed",
+                  "type": "link"
+                }
+              ],
+              "name": "Swallow Whole",
+              "subtype": "ability",
+              "text": "(attack) Large, 3d10+8 bludgeoning, Rupture 24; the target must be grabbed by the greater chimera's worm jaws",
+              "type": "stat_block_section",
+              "universal_monster_ability": {
+                "ability_type": "universal_monster_ability",
+                "action_type": {
+                  "name": "One Action",
+                  "subtype": "action_type",
+                  "type": "stat_block_section"
+                },
+                "aonid": 77,
+                "edition": "remastered",
+                "game-id": "4b6e038f83c4c35d932969c1fbdf7e15",
+                "game-obj": "MonsterAbilities",
+                "links": [
+                  {
+                    "alt": "grabbed",
+                    "aonid": 77,
+                    "game-obj": "Conditions",
+                    "name": "grabbed",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "restrained",
+                    "aonid": 90,
+                    "game-obj": "Conditions",
+                    "name": "restrained",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "Athletics",
+                    "aonid": 36,
+                    "game-obj": "Skills",
+                    "name": "Athletics",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "Grab",
+                    "aonid": 45,
+                    "game-obj": "MonsterAbilities",
+                    "name": "Grab",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "slowed 1",
+                    "aonid": 92,
+                    "game-obj": "Conditions",
+                    "name": "slowed 1",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "suffocating",
+                    "aonid": 468,
+                    "game-obj": "Rules",
+                    "name": "suffocating",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "Escapes",
+                    "aonid": 2296,
+                    "game-obj": "Actions",
+                    "name": "Escapes",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "unarmed",
+                    "aonid": 719,
+                    "game-obj": "Traits",
+                    "name": "unarmed",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "off-guard",
+                    "aonid": 58,
+                    "game-obj": "Conditions",
+                    "name": "off-guard",
+                    "type": "link"
+                  }
+                ],
+                "name": "Swallow Whole",
+                "sources": [
+                  {
+                    "errata": {
+                      "alt": "1.1",
+                      "aonid": 221,
+                      "game-obj": "Sources",
+                      "name": "1.1",
+                      "type": "link"
+                    },
+                    "link": {
+                      "alt": "Monster Core pg. 360",
+                      "aonid": 221,
+                      "game-obj": "Sources",
+                      "name": "Monster Core pg. 360",
+                      "type": "link"
+                    },
+                    "name": "Monster Core",
+                    "page": 360,
+                    "type": "source"
+                  }
+                ],
+                "text": "The monster attempts to swallow a creature of the listed size or smaller that it has grabbed or restrained in its jaws or mouth. If a swallowed creature is of the maximum size listed, the monster can't use Swallow Whole again. If the creature is smaller than the maximum, the monster can usually swallow more creatures; the GM determines the maximum. The monster attempts an Athletics check opposed by the target's Reflex DC. If it succeeds, it swallows the creature. The monster's mouth or jaws no longer clutch a creature it has swallowed, so the monster is free to use them to Strike or Grab once again. The monster can't attack creatures it has swallowed.  \n  \n A swallowed creature is grabbed, is slowed 1, and has to hold its breath or start suffocating. The swallowed creature takes the listed amount of damage when first swallowed and at the end of each of its turns while it's swallowed. If the victim Escapes this ability's grabbed condition, it exits through the monster's mouth. This frees any other creature captured in the monster's mouth or jaws. A swallowed creature can attack the monster that has swallowed it, but only with unarmed attacks or with weapons of light Bulk or less. The swallowing creature is off-guard against the attack. If the monster takes piercing or slashing damage equaling or exceeding the listed Rupture value from a single attack or spell, the swallowed creature cuts itself free. A creature that gets free by either Escaping or cutting itself free can immediately breathe and exits the swallowing monster's space.  \n  \n If the monster dies, a swallowed creature can be freed by creatures adjacent to the corpse if they spend a combined total of 3 actions cutting the monster open with a weapon or unarmed attack that deals piercing or slashing damage.",
+                "traits": [
+                  {
+                    "alternate_link": {
+                      "alternate_type": "legacy",
+                      "aonid": 15,
+                      "game-obj": "Traits",
+                      "type": "alternate_link"
+                    },
+                    "edition": "remastered",
+                    "game-id": "23c17a4eee189983083f41b20ff9ff92",
+                    "game-obj": "Traits",
+                    "name": "Attack",
+                    "sources": [
+                      {
+                        "errata": {
+                          "alt": "2.0",
+                          "aonid": 216,
+                          "game-obj": "Sources",
+                          "name": "2.0",
+                          "type": "link"
+                        },
+                        "link": {
+                          "alt": "Player Core pg. 452",
+                          "aonid": 216,
+                          "game-obj": "Sources",
+                          "name": "Player Core pg. 452",
+                          "type": "link"
+                        },
+                        "name": "Player Core",
+                        "page": 452,
+                        "type": "source"
+                      }
+                    ],
+                    "text": "An ability with this trait involves an attack. For each attack you make beyond the first on your turn, you take a multiple attack penalty.",
+                    "type": "trait"
+                  }
+                ],
+                "type": "ability"
+              }
+            }
+          ],
+          "links": [
+            {
+              "alt": "reach 10 feet",
+              "aonid": 684,
+              "game-obj": "Traits",
+              "name": "reach 10 feet",
+              "type": "link"
+            },
+            {
+              "alt": "Grab",
+              "aonid": 45,
+              "game-obj": "MonsterAbilities",
+              "name": "Grab",
+              "type": "link"
+            },
+            {
+              "alt": "Swallow Whole",
+              "aonid": 77,
+              "game-obj": "MonsterAbilities",
+              "name": "Swallow Whole",
+              "type": "link"
+            },
+            {
+              "alt": "grabbed",
+              "aonid": 77,
+              "game-obj": "Conditions",
+              "name": "grabbed",
+              "type": "link"
+            }
+          ],
+          "name": "Cave Worm Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] worm jaws +27 (reach 10 feet), **Damage** 3d10+8 piercing plus Grab  \n  \n**Swallow Whole** [#] (attack) Large, 3d10+8 bludgeoning, Rupture 24; the target must be grabbed by the greater chimera's worm jaws",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "3d8+12",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "effect": "chimeric venom",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "emperor cobra fangs +27,",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "damage": [
+                {
+                  "damage_type": "poison",
+                  "formula": "6d6",
+                  "persistent": true,
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "persistent poison damage",
+                  "aonid": 29,
+                  "game-obj": "Conditions",
+                  "name": "persistent poison damage",
+                  "type": "link"
+                }
+              ],
+              "name": "Chimeric Venom",
+              "subtype": "ability",
+              "text": "When the greater chimera critically hits a creature with emperor cobra fangs, it deals an additional 6d6 persistent poison damage.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "poison",
+                    "aonid": 669,
+                    "game-obj": "Traits",
+                    "name": "poison",
+                    "type": "link"
+                  },
+                  "name": "poison",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "poison",
+              "aonid": 669,
+              "game-obj": "Traits",
+              "name": "poison",
+              "type": "link"
+            },
+            {
+              "alt": "persistent poison damage",
+              "aonid": 29,
+              "game-obj": "Conditions",
+              "name": "persistent poison damage",
+              "type": "link"
+            }
+          ],
+          "name": "Emperor Cobra Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] emperor cobra fangs +27, **Damage** 3d8+12 piercing plus chimeric venom  \n  \n**Chimeric Venom** (poison) When the greater chimera critically hits a creature with emperor cobra fangs, it deals an additional 6d6 persistent poison damage.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "void",
+                  "formula": "3d8+8",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "agile",
+                  "aonid": 526,
+                  "game-obj": "Traits",
+                  "name": "agile",
+                  "type": "link"
+                },
+                {
+                  "alt": "finesse",
+                  "aonid": 602,
+                  "game-obj": "Traits",
+                  "name": "finesse",
+                  "type": "link"
+                },
+                {
+                  "alt": "magical",
+                  "aonid": 644,
+                  "game-obj": "Traits",
+                  "name": "magical",
+                  "type": "link"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "phantom slam +27 (agile, finesse, magical),",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "hp_automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "force",
+                  "aonid": 610,
+                  "game-obj": "Traits",
+                  "name": "force",
+                  "type": "link"
+                },
+                {
+                  "alt": "spirit",
+                  "aonid": 737,
+                  "game-obj": "Traits",
+                  "name": "spirit",
+                  "type": "link"
+                },
+                {
+                  "alt": "ghost touch",
+                  "aonid": 2840,
+                  "game-obj": "Equipment",
+                  "name": "ghost touch",
+                  "type": "link"
+                }
+              ],
+              "name": "Incorporeal Features",
+              "subtype": "ability",
+              "text": "The greater chimera gains resistance 5 to all damage (except force, spirit, and damage from Strikes with the *ghost touch* property rune).",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "agile",
+              "aonid": 526,
+              "game-obj": "Traits",
+              "name": "agile",
+              "type": "link"
+            },
+            {
+              "alt": "finesse",
+              "aonid": 602,
+              "game-obj": "Traits",
+              "name": "finesse",
+              "type": "link"
+            },
+            {
+              "alt": "magical",
+              "aonid": 644,
+              "game-obj": "Traits",
+              "name": "magical",
+              "type": "link"
+            },
+            {
+              "alt": "force",
+              "aonid": 610,
+              "game-obj": "Traits",
+              "name": "force",
+              "type": "link"
+            },
+            {
+              "alt": "spirit",
+              "aonid": 737,
+              "game-obj": "Traits",
+              "name": "spirit",
+              "type": "link"
+            },
+            {
+              "alt": "ghost touch",
+              "aonid": 2840,
+              "game-obj": "Equipment",
+              "name": "ghost touch",
+              "type": "link"
+            }
+          ],
+          "name": "Phantasmal Beast Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] phantom slam +27 (agile, finesse, magical), **Damage** 3d8+8 void  \n  \n**Incorporeal Features** The greater chimera gains resistance 5 to all damage (except force, spirit, and damage from Strikes with the *ghost touch* property rune).",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "3d10+8",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "deadly d10",
+                  "aonid": 570,
+                  "game-obj": "Traits",
+                  "name": "deadly d10",
+                  "type": "link"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "beak +26 (deadly d10),",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "area": [
+                {
+                  "shape": "emanation",
+                  "size": 30,
+                  "subtype": "area",
+                  "text": "30-foot emanation",
+                  "type": "stat_block_section",
+                  "unit": "feet"
+                }
+              ],
+              "damage": [
+                {
+                  "damage_type": "sonic",
+                  "formula": "9d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "frequency": "1d4 rounds",
+              "links": [
+                {
+                  "alt": "basic",
+                  "aonid": 329,
+                  "game-obj": "Rules",
+                  "name": "basic",
+                  "type": "link"
+                }
+              ],
+              "name": "Ear-splitting Screech",
+              "saving_throw": [
+                {
+                  "basic": true,
+                  "dc": 26,
+                  "save_type": "Fort",
+                  "subtype": "save_dc",
+                  "text": "DC 26 basic Fortitude save",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": "The screeching roc head emits a harsh cry that deals 9d6 sonic damage (DC 26 basic Fortitude save) in a 30-foot emanation. It can't use Ear-splitting Screech again for 1d4 rounds.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "auditory",
+                    "aonid": 541,
+                    "game-obj": "Traits",
+                    "name": "auditory",
+                    "type": "link"
+                  },
+                  "name": "auditory",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "sonic",
+                    "aonid": 697,
+                    "game-obj": "Traits",
+                    "name": "sonic",
+                    "type": "link"
+                  },
+                  "name": "sonic",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "special_sense",
+              "ability_type": "ability",
+              "name": "Powerful Wings",
+              "subtype": "ability",
+              "text": "The greater chimera's fly Speed increases by 10 feet.",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "deadly d10",
+              "aonid": 570,
+              "game-obj": "Traits",
+              "name": "deadly d10",
+              "type": "link"
+            },
+            {
+              "alt": "auditory",
+              "aonid": 541,
+              "game-obj": "Traits",
+              "name": "auditory",
+              "type": "link"
+            },
+            {
+              "alt": "sonic",
+              "aonid": 697,
+              "game-obj": "Traits",
+              "name": "sonic",
+              "type": "link"
+            },
+            {
+              "alt": "basic",
+              "aonid": 329,
+              "game-obj": "Rules",
+              "name": "basic",
+              "type": "link"
+            }
+          ],
+          "name": "Screeching Roc Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] beak +26 (deadly d10), **Damage** 3d10+8 piercing  \n  \n**Ear-splitting Screech** [##] (auditory, sonic) The screeching roc head emits a harsh cry that deals 9d6 sonic damage (DC 26 basic Fortitude save) in a 30-foot emanation. It can't use Ear-splitting Screech again for 1d4 rounds.  \n  \n**Powerful Wings** The greater chimera's fly Speed increases by 10 feet.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "One Action",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "piercing",
+                  "formula": "2d12+8",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "damage_type": "cold",
+                  "formula": "1d12",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                },
+                {
+                  "effect": "Knockdown",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "Knockdown",
+                  "aonid": 46,
+                  "game-obj": "MonsterAbilities",
+                  "name": "Knockdown",
+                  "type": "link"
+                }
+              ],
+              "name": "Melee",
+              "subtype": "ability",
+              "text": "witchwarg jaws +25,",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "area": [
+                {
+                  "shape": "cone",
+                  "size": 15,
+                  "subtype": "area",
+                  "text": "15-foot cone",
+                  "type": "stat_block_section",
+                  "unit": "feet"
+                }
+              ],
+              "damage": [
+                {
+                  "damage_type": "cold",
+                  "formula": "9d10",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "frequency": "1d4 rounds",
+              "links": [
+                {
+                  "alt": "basic",
+                  "aonid": 329,
+                  "game-obj": "Rules",
+                  "name": "basic",
+                  "type": "link"
+                }
+              ],
+              "name": "Freezing Breath",
+              "saving_throw": [
+                {
+                  "basic": true,
+                  "dc": 33,
+                  "save_type": "Ref",
+                  "subtype": "save_dc",
+                  "text": "DC 33 basic Reflex save",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": "The greater chimera breathes a cloud of frost in a 15-foot cone that deals 9d10 cold damage (DC 33 basic Reflex save). The greater chimera can't use Freezing Breath again for 1d4 rounds.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "cold",
+                    "aonid": 555,
+                    "game-obj": "Traits",
+                    "name": "cold",
+                    "type": "link"
+                  },
+                  "name": "cold",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "primal",
+                    "aonid": 676,
+                    "game-obj": "Traits",
+                    "name": "primal",
+                    "type": "link"
+                  },
+                  "name": "primal",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "Knockdown",
+              "aonid": 46,
+              "game-obj": "MonsterAbilities",
+              "name": "Knockdown",
+              "type": "link"
+            },
+            {
+              "alt": "cold",
+              "aonid": 555,
+              "game-obj": "Traits",
+              "name": "cold",
+              "type": "link"
+            },
+            {
+              "alt": "primal",
+              "aonid": 676,
+              "game-obj": "Traits",
+              "name": "primal",
+              "type": "link"
+            },
+            {
+              "alt": "basic",
+              "aonid": 329,
+              "game-obj": "Rules",
+              "name": "basic",
+              "type": "link"
+            }
+          ],
+          "name": "Witchwarg Head",
+          "sources": [
+            {
+              "errata": {
+                "alt": "2.1",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "2.1",
+                "type": "link"
+              },
+              "link": {
+                "alt": "Howl of the Wild pg. 132",
+                "aonid": 226,
+                "game-obj": "Sources",
+                "name": "Howl of the Wild pg. 132",
+                "type": "link"
+              },
+              "name": "Howl of the Wild",
+              "page": 132,
+              "type": "source"
+            }
+          ],
+          "text": "**Melee** [#] witchwarg jaws +25, **Damage** 2d12+8 piercing plus 1d12 cold and Knockdown  \n  \n**Freezing Breath** [##] (cold, primal) The greater chimera breathes a cloud of frost in a 15-foot cone that deals 9d10 cold damage (DC 33 basic Reflex save). The greater chimera can't use Freezing Breath again for 1d4 rounds.",
+          "type": "section"
+        }
+      ],
       "sources": [
         {
           "errata": {

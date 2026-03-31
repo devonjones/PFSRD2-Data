@@ -151,36 +151,21 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "One Action",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "links": [
-                  {
-                    "alt": "hidden",
-                    "aonid": 79,
-                    "game-obj": "Conditions",
-                    "name": "hidden",
-                    "type": "link"
-                  }
-                ],
-                "name": "Pounce",
-                "subtype": "ability",
-                "text": "The creature Strides and makes a Strike at the end of that movement. If the creature began this action hidden, they remain hidden until after this ability's Strike.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Guerrilla Adjustments')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "hidden",
+                "aonid": 79,
+                "game-obj": "Conditions",
+                "name": "hidden",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -190,88 +175,16 @@
         ],
         "name": "Guerrilla Adjustments",
         "subtype": "monster_family",
-        "text": "Most military engagements take place in large areas, such as plains or cities, where there is the most territory or resources to be gained. However, guerrilla units fight in forests, swamps, and other tough locations, where they set up traps, ambushes, and use other surprise tactics. You can use these adjustments to turn a military NPC or troop into a guerrilla. These can also be useful for mercenaries or other non-military NPCs.",
         "type": "stat_block_section"
       },
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "links": [
-                  {
-                    "alt": "splash",
-                    "aonid": 699,
-                    "game-obj": "Traits",
-                    "name": "splash",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "off-guard",
-                    "aonid": 58,
-                    "game-obj": "Conditions",
-                    "name": "off-guard",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "troop",
-                    "aonid": 367,
-                    "game-obj": "Traits",
-                    "name": "troop",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "slowed 1",
-                    "aonid": 92,
-                    "game-obj": "Conditions",
-                    "name": "slowed 1",
-                    "type": "link"
-                  }
-                ],
-                "name": "Change Formation",
-                "subtype": "ability",
-                "text": "The troop reconfigures to assume one of the formations below they know. Using this action again ends any previous formation, and the troop can also use this action to revert to its default formation, ending any benefits and drawbacks. \n* **Loose** Members of the troop fan out to cover more ground. **Benefit** Any weaknesses the troop has to area and splash damage are suppressed. **Drawback** Enemies' saving throws against the troop's damaging effects are one degree of success better than they roll.\n* **Marching Column** This formation traverses long distances more rapidly. **Benefit** The troop gains a +10 foot circumstance bonus to all its Speeds. **Drawback** The troop is off-guard and takes a \u20132 penalty to Reflex saves.\n* **Turtle Shell** The troop interlocks their shields. Only a group with shields can use this formation. **Benefit** The troop gains a +2 circumstance bonus to AC against ranged attacks and to Reflex saves. **Drawback** The troop takes a \u201310-foot penalty to all its Speeds.\n* **Wedge** The troop aligns itself behind a powerful commander. **Benefit** The troop chooses an adjacent allied creature without the troop trait to fall in behind. Each time the chosen creature Strides, the troop follows as a free action, Striding to keep the chosen creature adjacent. **Drawback** The troop loses some of their autonomy. They're slowed 1 and can't voluntarily move away from their leader.",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "concentrate",
-                      "aonid": 561,
-                      "game-obj": "Traits",
-                      "name": "concentrate",
-                      "type": "link"
-                    },
-                    "name": "concentrate",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "move",
-                      "aonid": 658,
-                      "game-obj": "Traits",
-                      "name": "move",
-                      "type": "link"
-                    },
-                    "name": "move",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Troop Formations')].abilities",
                 "target": "$.defense.automatic_abilities"
               }
             ],
@@ -282,6 +195,48 @@
                 "game-obj": "Traits",
                 "name": "animal",
                 "type": "link"
+              },
+              {
+                "alt": "concentrate",
+                "aonid": 561,
+                "game-obj": "Traits",
+                "name": "concentrate",
+                "type": "link"
+              },
+              {
+                "alt": "move",
+                "aonid": 658,
+                "game-obj": "Traits",
+                "name": "move",
+                "type": "link"
+              },
+              {
+                "alt": "splash",
+                "aonid": 699,
+                "game-obj": "Traits",
+                "name": "splash",
+                "type": "link"
+              },
+              {
+                "alt": "off-guard",
+                "aonid": 58,
+                "game-obj": "Conditions",
+                "name": "off-guard",
+                "type": "link"
+              },
+              {
+                "alt": "troop",
+                "aonid": 367,
+                "game-obj": "Traits",
+                "name": "troop",
+                "type": "link"
+              },
+              {
+                "alt": "slowed 1",
+                "aonid": 92,
+                "game-obj": "Conditions",
+                "name": "slowed 1",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -291,7 +246,6 @@
         ],
         "name": "Troop Formations",
         "subtype": "monster_family",
-        "text": "Battle can be a complicated affair. Different situations call for varied arrangement of soldiers. You can add the Change Formation ability to a troop to give it more options, typically choosing two or three of the possible formations listed here. Troops with animal Intelligence (\u20134 or lower) or that aren't battle trained are typically unable to change formation without an outside force commanding them.",
         "type": "stat_block_section"
       }
     ],
@@ -299,6 +253,416 @@
   },
   "name": "Military",
   "schema_version": 1.0,
+  "sections": [
+    {
+      "abilities": [
+        {
+          "ability_category": "offensive",
+          "ability_type": "ability",
+          "action_type": {
+            "name": "One Action",
+            "subtype": "action_type",
+            "type": "stat_block_section"
+          },
+          "links": [
+            {
+              "alt": "hidden",
+              "aonid": 79,
+              "game-obj": "Conditions",
+              "name": "hidden",
+              "type": "link"
+            }
+          ],
+          "name": "Pounce",
+          "subtype": "ability",
+          "text": "The creature Strides and makes a Strike at the end of that movement. If the creature began this action hidden, they remain hidden until after this ability's Strike.",
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "hidden",
+          "aonid": 79,
+          "game-obj": "Conditions",
+          "name": "hidden",
+          "type": "link"
+        }
+      ],
+      "name": "Guerrilla Adjustments",
+      "sources": [
+        {
+          "link": {
+            "alt": "NPC Core pg. 88",
+            "aonid": 236,
+            "game-obj": "Sources",
+            "name": "NPC Core pg. 88",
+            "type": "link"
+          },
+          "name": "NPC Core",
+          "page": 88,
+          "type": "source"
+        }
+      ],
+      "text": "Most military engagements take place in large areas, such as plains or cities, where there is the most territory or resources to be gained. However, guerrilla units fight in forests, swamps, and other tough locations, where they set up traps, ambushes, and use other surprise tactics. You can use these adjustments to turn a military NPC or troop into a guerrilla. These can also be useful for mercenaries or other non-military NPCs. **Pounce** [#] The creature Strides and makes a Strike at the end of that movement. If the creature began this action hidden, they remain hidden until after this ability's Strike.",
+      "type": "section"
+    },
+    {
+      "abilities": [
+        {
+          "ability_category": "offensive",
+          "ability_type": "ability",
+          "action_type": {
+            "name": "Two Actions",
+            "subtype": "action_type",
+            "type": "stat_block_section"
+          },
+          "links": [
+            {
+              "alt": "splash",
+              "aonid": 699,
+              "game-obj": "Traits",
+              "name": "splash",
+              "type": "link"
+            },
+            {
+              "alt": "off-guard",
+              "aonid": 58,
+              "game-obj": "Conditions",
+              "name": "off-guard",
+              "type": "link"
+            },
+            {
+              "alt": "troop",
+              "aonid": 367,
+              "game-obj": "Traits",
+              "name": "troop",
+              "type": "link"
+            },
+            {
+              "alt": "slowed 1",
+              "aonid": 92,
+              "game-obj": "Conditions",
+              "name": "slowed 1",
+              "type": "link"
+            }
+          ],
+          "name": "Change Formation",
+          "subtype": "ability",
+          "text": "The troop reconfigures to assume one of the formations below they know. Using this action again ends any previous formation, and the troop can also use this action to revert to its default formation, ending any benefits and drawbacks. \n* **Loose** Members of the troop fan out to cover more ground. **Benefit** Any weaknesses the troop has to area and splash damage are suppressed. **Drawback** Enemies' saving throws against the troop's damaging effects are one degree of success better than they roll.\n* **Marching Column** This formation traverses long distances more rapidly. **Benefit** The troop gains a +10 foot circumstance bonus to all its Speeds. **Drawback** The troop is off-guard and takes a \u20132 penalty to Reflex saves.\n* **Turtle Shell** The troop interlocks their shields. Only a group with shields can use this formation. **Benefit** The troop gains a +2 circumstance bonus to AC against ranged attacks and to Reflex saves. **Drawback** The troop takes a \u201310-foot penalty to all its Speeds.\n* **Wedge** The troop aligns itself behind a powerful commander. **Benefit** The troop chooses an adjacent allied creature without the troop trait to fall in behind. Each time the chosen creature Strides, the troop follows as a free action, Striding to keep the chosen creature adjacent. **Drawback** The troop loses some of their autonomy. They're slowed 1 and can't voluntarily move away from their leader.",
+          "traits": [
+            {
+              "link": {
+                "alt": "concentrate",
+                "aonid": 561,
+                "game-obj": "Traits",
+                "name": "concentrate",
+                "type": "link"
+              },
+              "name": "concentrate",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "move",
+                "aonid": 658,
+                "game-obj": "Traits",
+                "name": "move",
+                "type": "link"
+              },
+              "name": "move",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            }
+          ],
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "animal",
+          "aonid": 531,
+          "game-obj": "Traits",
+          "name": "animal",
+          "type": "link"
+        },
+        {
+          "alt": "concentrate",
+          "aonid": 561,
+          "game-obj": "Traits",
+          "name": "concentrate",
+          "type": "link"
+        },
+        {
+          "alt": "move",
+          "aonid": 658,
+          "game-obj": "Traits",
+          "name": "move",
+          "type": "link"
+        },
+        {
+          "alt": "splash",
+          "aonid": 699,
+          "game-obj": "Traits",
+          "name": "splash",
+          "type": "link"
+        },
+        {
+          "alt": "off-guard",
+          "aonid": 58,
+          "game-obj": "Conditions",
+          "name": "off-guard",
+          "type": "link"
+        },
+        {
+          "alt": "troop",
+          "aonid": 367,
+          "game-obj": "Traits",
+          "name": "troop",
+          "type": "link"
+        },
+        {
+          "alt": "slowed 1",
+          "aonid": 92,
+          "game-obj": "Conditions",
+          "name": "slowed 1",
+          "type": "link"
+        }
+      ],
+      "name": "Troop Formations",
+      "sections": [
+        {
+          "links": [
+            {
+              "alt": "Corn leshy throng",
+              "aonid": 3658,
+              "game-obj": "NPCs",
+              "name": "Corn leshy throng",
+              "type": "link"
+            },
+            {
+              "alt": "demonbane warrior",
+              "aonid": 3632,
+              "game-obj": "NPCs",
+              "name": "demonbane warrior",
+              "type": "link"
+            },
+            {
+              "alt": "dwarf battalion",
+              "aonid": 3628,
+              "game-obj": "NPCs",
+              "name": "dwarf battalion",
+              "type": "link"
+            },
+            {
+              "alt": "dwarf general",
+              "aonid": 3629,
+              "game-obj": "NPCs",
+              "name": "dwarf general",
+              "type": "link"
+            },
+            {
+              "alt": "hobgoblin battalion",
+              "aonid": 3649,
+              "game-obj": "NPCs",
+              "name": "hobgoblin battalion",
+              "type": "link"
+            },
+            {
+              "alt": "hobgoblin spellbreaker",
+              "aonid": 3648,
+              "game-obj": "NPCs",
+              "name": "hobgoblin spellbreaker",
+              "type": "link"
+            },
+            {
+              "alt": "hobgoblin vanguard",
+              "aonid": 3650,
+              "game-obj": "NPCs",
+              "name": "hobgoblin vanguard",
+              "type": "link"
+            },
+            {
+              "alt": "orc skullcrushers",
+              "aonid": 3665,
+              "game-obj": "NPCs",
+              "name": "orc skullcrushers",
+              "type": "link"
+            }
+          ],
+          "name": "Crossover Ancestry NPCs",
+          "sources": [
+            {
+              "link": {
+                "alt": "NPC Core pg. 88",
+                "aonid": 236,
+                "game-obj": "Sources",
+                "name": "NPC Core pg. 88",
+                "type": "link"
+              },
+              "name": "NPC Core",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "Several of the NPCs elsewhere in NPC Core can fit well in this group: Corn leshy throng (level 4), demonbane warrior (level 5), dwarf battalion (level 6), dwarf general (level 8), hobgoblin battalion (level 5), hobgoblin spellbreaker (level 3), hobgoblin vanguard (level 8), orc skullcrushers (level 7)",
+          "type": "section"
+        },
+        {
+          "name": "Military Nomenclature",
+          "sources": [
+            {
+              "link": {
+                "alt": "NPC Core pg. 88",
+                "aonid": 236,
+                "game-obj": "Sources",
+                "name": "NPC Core pg. 88",
+                "type": "link"
+              },
+              "name": "NPC Core",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "Various cultures see war differently. Some see it as a game to be won, some as an art, and still others as the ultimate form of glory. These different perspectives can be reflected in the names used to describe military units and formations. Some militaries go to elaborate lengths to mislead their foes by bestowing ever-changing code names on various divisions and strategies. Others may borrow the names of beautiful animals or simply name units after favored weapons.",
+          "type": "section"
+        },
+        {
+          "links": [
+            {
+              "alt": "war horse",
+              "aonid": 3060,
+              "game-obj": "Monsters",
+              "name": "war horse",
+              "type": "link"
+            }
+          ],
+          "name": "Mounted Warfare",
+          "sources": [
+            {
+              "link": {
+                "alt": "NPC Core pg. 88",
+                "aonid": 236,
+                "game-obj": "Sources",
+                "name": "NPC Core pg. 88",
+                "type": "link"
+              },
+              "name": "NPC Core",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "Individual military NPCs who find themselves in open terrain might need to close the distance to their opponents. Consider giving an NPC like standard bearer or sniper a war horse, or having a drill sergeant or mage knight ride a veteran war horse.",
+          "type": "section"
+        },
+        {
+          "links": [
+            {
+              "alt": "spear",
+              "aonid": 365,
+              "game-obj": "Weapons",
+              "name": "spear",
+              "type": "link"
+            },
+            {
+              "alt": "Gozreh",
+              "aonid": 284,
+              "game-obj": "Deities",
+              "name": "Gozreh",
+              "type": "link"
+            },
+            {
+              "alt": "tridents",
+              "aonid": 401,
+              "game-obj": "Weapons",
+              "name": "tridents",
+              "type": "link"
+            }
+          ],
+          "name": "Signature Weapons",
+          "sources": [
+            {
+              "link": {
+                "alt": "NPC Core pg. 88",
+                "aonid": 236,
+                "game-obj": "Sources",
+                "name": "NPC Core pg. 88",
+                "type": "link"
+              },
+              "name": "NPC Core",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "Phalanx formations are classically seen using a spear as their weapon of choice. However, feel free to swap out this weapon for something more appropriate to the local culture. For example, a phalanx comprised of worshippers of Gozreh might wield tridents instead of spears.",
+          "type": "section"
+        },
+        {
+          "name": "Spoils Of War",
+          "sources": [
+            {
+              "link": {
+                "alt": "NPC Core pg. 88",
+                "aonid": 236,
+                "game-obj": "Sources",
+                "name": "NPC Core pg. 88",
+                "type": "link"
+              },
+              "name": "NPC Core",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "War is rarely a profitable venture for either side. Each battle wins little more than a better strategic position and, potentially, glory. Occasionally, a particularly potent enemy may have some magical gear, but most soldiers do not. An adventuring party should seek to leverage the army they fight for, as that is where they will often find the highest rewards, both in terms of gold and favors.",
+          "type": "section"
+        },
+        {
+          "links": [
+            {
+              "alt": "Hellknight plate",
+              "aonid": 25,
+              "game-obj": "Armor",
+              "name": "Hellknight plate",
+              "type": "link"
+            }
+          ],
+          "name": "Troop Gear",
+          "sources": [
+            {
+              "link": {
+                "alt": "NPC Core pg. 88",
+                "aonid": 236,
+                "game-obj": "Sources",
+                "name": "NPC Core pg. 88",
+                "type": "link"
+              },
+              "name": "NPC Core",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "Since the component members of a troop are individually much less powerful than the troop as a whole, a troop's gear is typically of negligible utility or value. However, the Hellknight cavalry brigade wear valuable Hellknight plate (worth 35 gp), and a party might be able to salvage a suit or two from their defeated foes\u2014if they're willing to risk the wrath of the Order of the Nail!",
+          "type": "section"
+        }
+      ],
+      "sources": [
+        {
+          "link": {
+            "alt": "NPC Core pg. 88",
+            "aonid": 236,
+            "game-obj": "Sources",
+            "name": "NPC Core pg. 88",
+            "type": "link"
+          },
+          "name": "NPC Core",
+          "page": 88,
+          "type": "source"
+        }
+      ],
+      "text": "Battle can be a complicated affair. Different situations call for varied arrangement of soldiers. You can add the Change Formation ability to a troop to give it more options, typically choosing two or three of the possible formations listed here. Troops with animal Intelligence (\u20134 or lower) or that aren't battle trained are typically unable to change formation without an outside force commanding them.  \n  \n**Change Formation** [##] (concentrate, move) The troop reconfigures to assume one of the formations below they know. Using this action again ends any previous formation, and the troop can also use this action to revert to its default formation, ending any benefits and drawbacks. \n* **Loose** Members of the troop fan out to cover more ground. **Benefit** Any weaknesses the troop has to area and splash damage are suppressed. **Drawback** Enemies' saving throws against the troop's damaging effects are one degree of success better than they roll.\n* **Marching Column** This formation traverses long distances more rapidly. **Benefit** The troop gains a +10 foot circumstance bonus to all its Speeds. **Drawback** The troop is off-guard and takes a \u20132 penalty to Reflex saves.\n* **Turtle Shell** The troop interlocks their shields. Only a group with shields can use this formation. **Benefit** The troop gains a +2 circumstance bonus to AC against ranged attacks and to Reflex saves. **Drawback** The troop takes a \u201310-foot penalty to all its Speeds.\n* **Wedge** The troop aligns itself behind a powerful commander. **Benefit** The troop chooses an adjacent allied creature without the troop trait to fall in behind. Each time the chosen creature Strides, the troop follows as a free action, Striding to keep the chosen creature adjacent. **Drawback** The troop loses some of their autonomy. They're slowed 1 and can't voluntarily move away from their leader.",
+      "type": "section"
+    }
+  ],
   "sources": [
     {
       "link": {

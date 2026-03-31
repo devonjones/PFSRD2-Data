@@ -30,27 +30,11 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "reactive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Reaction",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "effect": "The elemental melts into a column of boiling steam. For 1 minute or until the elemental is dealt cold damage, whichever comes first, any Strikes or abilities that deal cold damage instead deal fire damage, and the elemental's cold immunity and fire vulnerability are reversed.",
-                "name": "Vent Steam",
-                "subtype": "ability",
-                "trigger": "The elemental takes fire damage and is reduced to half its health or lower",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Melting Elementals')].abilities",
                 "target": "$.defense.automatic_abilities"
               }
             ],
@@ -84,7 +68,6 @@
         ],
         "name": "Melting Elementals",
         "subtype": "monster_family",
-        "text": "Add the following optional reaction to the icicle snake, blizzardborn, and icewyrm water elementalsfor a water elemental that changes phase in response to players' actions.",
         "type": "stat_block_section"
       }
     ],
@@ -254,6 +237,64 @@
         }
       ],
       "text": "Though fire and water classically oppose one another, in the right mixture they can become a dangerous combination. Water elementals heated to a scalding temperature through natural factors such as underwater volcanoes might deal 1d6 persistent fire damage with their Strikes, while fire elementals infused with moisture might exude clouds of obscuring or even blinding steam.",
+      "type": "section"
+    },
+    {
+      "abilities": [
+        {
+          "ability_category": "reactive",
+          "ability_type": "ability",
+          "action_type": {
+            "name": "Reaction",
+            "subtype": "action_type",
+            "type": "stat_block_section"
+          },
+          "effect": "The elemental melts into a column of boiling steam. For 1 minute or until the elemental is dealt cold damage, whichever comes first, any Strikes or abilities that deal cold damage instead deal fire damage, and the elemental's cold immunity and fire vulnerability are reversed.",
+          "name": "Vent Steam",
+          "subtype": "ability",
+          "trigger": "The elemental takes fire damage and is reduced to half its health or lower",
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "icicle snake",
+          "aonid": 663,
+          "game-obj": "Monsters",
+          "name": "icicle snake",
+          "type": "link"
+        },
+        {
+          "alt": "blizzardborn",
+          "aonid": 665,
+          "game-obj": "Monsters",
+          "name": "blizzardborn",
+          "type": "link"
+        },
+        {
+          "alt": "icewyrm",
+          "aonid": 666,
+          "game-obj": "Monsters",
+          "name": "icewyrm",
+          "type": "link"
+        }
+      ],
+      "name": "Melting Elementals",
+      "sources": [
+        {
+          "link": {
+            "alt": "Bestiary pg. 152",
+            "aonid": 2,
+            "game-obj": "Sources",
+            "name": "Bestiary pg. 152",
+            "type": "link"
+          },
+          "name": "Bestiary",
+          "page": 152,
+          "type": "source"
+        }
+      ],
+      "text": "Add the following optional reaction to the icicle snake, blizzardborn, and icewyrm water elementalsfor a water elemental that changes phase in response to players' actions.  \n**Vent Steam** [@] **Trigger** The elemental takes fire damage and is reduced to half its health or lower; **Effect** The elemental melts into a column of boiling steam. For 1 minute or until the elemental is dealt cold damage, whichever comes first, any Strikes or abilities that deal cold damage instead deal fire damage, and the elemental's cold immunity and fire vulnerability are reversed.",
       "type": "section"
     },
     {

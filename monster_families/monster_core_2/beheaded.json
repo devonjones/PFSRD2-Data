@@ -59,142 +59,70 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "reactive",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "sickened 1",
-                    "aonid": 91,
-                    "game-obj": "Conditions",
-                    "name": "sickened 1",
-                    "type": "link"
-                  }
-                ],
-                "name": "Bleeding",
-                "subtype": "ability",
-                "text": "The beheaded is covered in slimy blood. The target of a successful Strike is splattered with gore and must succeed at a Fortitude save or become sickened 1.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "Grab",
-                    "aonid": 45,
-                    "game-obj": "MonsterAbilities",
-                    "name": "Grab",
-                    "type": "link"
-                  }
-                ],
-                "name": "Entangling",
-                "subtype": "ability",
-                "text": "Long, stringy hair clings to the beheaded's scalp. Its Strikes gain the Grab ability (page 361).",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "automatic",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "frightened 1",
-                    "aonid": 76,
-                    "game-obj": "Conditions",
-                    "name": "frightened 1",
-                    "type": "link"
-                  }
-                ],
-                "name": "Fiendish",
-                "range": {
-                  "range": 30,
-                  "subtype": "range",
-                  "text": "30 feet",
-                  "type": "stat_block_section",
-                  "unit": "feet"
-                },
-                "subtype": "ability",
-                "text": "The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a Will save or be frightened 1.",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "aura",
-                      "aonid": 542,
-                      "game-obj": "Traits",
-                      "name": "aura",
-                      "type": "link"
-                    },
-                    "name": "aura",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "divine",
-                      "aonid": 579,
-                      "game-obj": "Traits",
-                      "name": "divine",
-                      "type": "link"
-                    },
-                    "name": "divine",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "emotion",
-                      "aonid": 590,
-                      "game-obj": "Traits",
-                      "name": "emotion",
-                      "type": "link"
-                    },
-                    "name": "emotion",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "fear",
-                      "aonid": 598,
-                      "game-obj": "Traits",
-                      "name": "fear",
-                      "type": "link"
-                    },
-                    "name": "fear",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "mental",
-                      "aonid": 647,
-                      "game-obj": "Traits",
-                      "name": "mental",
-                      "type": "link"
-                    },
-                    "name": "mental",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "interaction",
-                "ability_type": "ability",
-                "name": "Giant",
-                "subtype": "ability",
-                "text": "A beheaded created from the head of a giant is a Medium creature, gaining 2 levels and one or more additional beheaded abilities.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Beheaded Abilities')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "sickened 1",
+                "aonid": 91,
+                "game-obj": "Conditions",
+                "name": "sickened 1",
+                "type": "link"
+              },
+              {
+                "alt": "Grab",
+                "aonid": 45,
+                "game-obj": "MonsterAbilities",
+                "name": "Grab",
+                "type": "link"
+              },
+              {
+                "alt": "aura",
+                "aonid": 542,
+                "game-obj": "Traits",
+                "name": "aura",
+                "type": "link"
+              },
+              {
+                "alt": "divine",
+                "aonid": 579,
+                "game-obj": "Traits",
+                "name": "divine",
+                "type": "link"
+              },
+              {
+                "alt": "emotion",
+                "aonid": 590,
+                "game-obj": "Traits",
+                "name": "emotion",
+                "type": "link"
+              },
+              {
+                "alt": "fear",
+                "aonid": 598,
+                "game-obj": "Traits",
+                "name": "fear",
+                "type": "link"
+              },
+              {
+                "alt": "mental",
+                "aonid": 647,
+                "game-obj": "Traits",
+                "name": "mental",
+                "type": "link"
+              },
+              {
+                "alt": "frightened 1",
+                "aonid": 76,
+                "game-obj": "Conditions",
+                "name": "frightened 1",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -204,7 +132,6 @@
         ],
         "name": "Beheaded Abilities",
         "subtype": "monster_family",
-        "text": "Beheaded can manifest with a variety of abilities, such as those presented below.",
         "type": "stat_block_section"
       }
     ],
@@ -212,6 +139,259 @@
   },
   "name": "Beheaded",
   "schema_version": 1.0,
+  "sections": [
+    {
+      "abilities": [
+        {
+          "ability_category": "reactive",
+          "ability_type": "ability",
+          "links": [
+            {
+              "alt": "sickened 1",
+              "aonid": 91,
+              "game-obj": "Conditions",
+              "name": "sickened 1",
+              "type": "link"
+            }
+          ],
+          "name": "Bleeding",
+          "subtype": "ability",
+          "text": "The beheaded is covered in slimy blood. The target of a successful Strike is splattered with gore and must succeed at a Fortitude save or become sickened 1.",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_category": "offensive",
+          "ability_type": "ability",
+          "links": [
+            {
+              "alt": "Grab",
+              "aonid": 45,
+              "game-obj": "MonsterAbilities",
+              "name": "Grab",
+              "type": "link"
+            }
+          ],
+          "name": "Entangling",
+          "subtype": "ability",
+          "text": "Long, stringy hair clings to the beheaded's scalp. Its Strikes gain the Grab ability (page 361).",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_category": "automatic",
+          "ability_type": "ability",
+          "links": [
+            {
+              "alt": "frightened 1",
+              "aonid": 76,
+              "game-obj": "Conditions",
+              "name": "frightened 1",
+              "type": "link"
+            }
+          ],
+          "name": "Fiendish",
+          "range": {
+            "range": 30,
+            "subtype": "range",
+            "text": "30 feet",
+            "type": "stat_block_section",
+            "unit": "feet"
+          },
+          "subtype": "ability",
+          "text": "The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a Will save or be frightened 1.",
+          "traits": [
+            {
+              "link": {
+                "alt": "aura",
+                "aonid": 542,
+                "game-obj": "Traits",
+                "name": "aura",
+                "type": "link"
+              },
+              "name": "aura",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "divine",
+                "aonid": 579,
+                "game-obj": "Traits",
+                "name": "divine",
+                "type": "link"
+              },
+              "name": "divine",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "emotion",
+                "aonid": 590,
+                "game-obj": "Traits",
+                "name": "emotion",
+                "type": "link"
+              },
+              "name": "emotion",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "fear",
+                "aonid": 598,
+                "game-obj": "Traits",
+                "name": "fear",
+                "type": "link"
+              },
+              "name": "fear",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "mental",
+                "aonid": 647,
+                "game-obj": "Traits",
+                "name": "mental",
+                "type": "link"
+              },
+              "name": "mental",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            }
+          ],
+          "type": "stat_block_section"
+        },
+        {
+          "ability_category": "interaction",
+          "ability_type": "ability",
+          "name": "Giant",
+          "subtype": "ability",
+          "text": "A beheaded created from the head of a giant is a Medium creature, gaining 2 levels and one or more additional beheaded abilities.",
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "sickened 1",
+          "aonid": 91,
+          "game-obj": "Conditions",
+          "name": "sickened 1",
+          "type": "link"
+        },
+        {
+          "alt": "Grab",
+          "aonid": 45,
+          "game-obj": "MonsterAbilities",
+          "name": "Grab",
+          "type": "link"
+        },
+        {
+          "alt": "aura",
+          "aonid": 542,
+          "game-obj": "Traits",
+          "name": "aura",
+          "type": "link"
+        },
+        {
+          "alt": "divine",
+          "aonid": 579,
+          "game-obj": "Traits",
+          "name": "divine",
+          "type": "link"
+        },
+        {
+          "alt": "emotion",
+          "aonid": 590,
+          "game-obj": "Traits",
+          "name": "emotion",
+          "type": "link"
+        },
+        {
+          "alt": "fear",
+          "aonid": 598,
+          "game-obj": "Traits",
+          "name": "fear",
+          "type": "link"
+        },
+        {
+          "alt": "mental",
+          "aonid": 647,
+          "game-obj": "Traits",
+          "name": "mental",
+          "type": "link"
+        },
+        {
+          "alt": "frightened 1",
+          "aonid": 76,
+          "game-obj": "Conditions",
+          "name": "frightened 1",
+          "type": "link"
+        }
+      ],
+      "name": "Beheaded Abilities",
+      "sections": [
+        {
+          "links": [
+            {
+              "alt": "skeletons",
+              "aonid": 472,
+              "game-obj": "MonsterFamilies",
+              "name": "skeletons",
+              "type": "link"
+            },
+            {
+              "alt": "zombies",
+              "aonid": 487,
+              "game-obj": "MonsterFamilies",
+              "name": "zombies",
+              "type": "link"
+            },
+            {
+              "alt": "here",
+              "aonid": 2874,
+              "game-obj": "Rules",
+              "name": "here",
+              "type": "link"
+            }
+          ],
+          "name": "More Beheaded Abilities",
+          "sources": [
+            {
+              "link": {
+                "alt": "Monster Core 2 pg. 56",
+                "aonid": 276,
+                "game-obj": "Sources",
+                "name": "Monster Core 2 pg. 56",
+                "type": "link"
+              },
+              "name": "Monster Core 2",
+              "page": 56,
+              "type": "source"
+            }
+          ],
+          "text": "Since beheaded are very similar to skeletons or zombies (or at least the heads from those creatures), you can also customize them with abilities from the skeleton and zombie entries, though take care to avoid abilities that require bodies or limbs. If you give the beheaded more than one additional ability, you might want to increase its level and adjust its statistics accordingly. Use the guidelines here to determine to determine its new statistics.",
+          "type": "section"
+        }
+      ],
+      "sources": [
+        {
+          "link": {
+            "alt": "Monster Core 2 pg. 56",
+            "aonid": 276,
+            "game-obj": "Sources",
+            "name": "Monster Core 2 pg. 56",
+            "type": "link"
+          },
+          "name": "Monster Core 2",
+          "page": 56,
+          "type": "source"
+        }
+      ],
+      "text": "Beheaded can manifest with a variety of abilities, such as those presented below.  \n  \n**Bleeding** The beheaded is covered in slimy blood. The target of a successful Strike is splattered with gore and must succeed at a Fortitude save or become sickened 1.  \n**Entangling** Long, stringy hair clings to the beheaded's scalp. Its Strikes gain the Grab ability (page 361).  \n**Fiendish** (aura, divine, emotion, fear, mental) 30 feet. The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a Will save or be frightened 1.  \n**Giant** A beheaded created from the head of a giant is a Medium creature, gaining 2 levels and one or more additional beheaded abilities.",
+      "type": "section"
+    }
+  ],
   "sources": [
     {
       "link": {

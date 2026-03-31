@@ -53,48 +53,11 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_type": "ability",
-                "name": "1st Level or Higher:",
-                "subtype": "ability",
-                "text": "The sporeborn gains one sporeborn ability.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_type": "ability",
-                "name": "4th Level or Higher:",
-                "subtype": "ability",
-                "text": "The sporeborn gains two sporeborn abilities.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_type": "ability",
-                "name": "7th Level or Higher:",
-                "subtype": "ability",
-                "text": "The sporeborn gains three sporeborn abilities.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_type": "ability",
-                "name": "12th Level or Higher:",
-                "subtype": "ability",
-                "text": "The sporeborn gains four sporeborn abilities.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_type": "ability",
-                "name": "17th Level or Higher:",
-                "subtype": "ability",
-                "text": "The sporeborn gains five sporeborn abilities.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Creating Sporeborn')].abilities",
                 "target": "$.defense.automatic_abilities"
               }
             ],
@@ -109,104 +72,49 @@
           {
             "changes": [
               {
-                "abilities": [
-                  {
-                    "ability_category": "hp_automatic",
-                    "ability_type": "ability",
-                    "name": "Consume Biomatter",
-                    "subtype": "ability",
-                    "text": "If the sporeborn is adjacent to a helpless or unconscious creature, or a deceased creature who died in the past hour, the sporeborn can consume its flesh with mycelium tendrils to heal itself. This restores an amount of Hit Points equal to the sporeborn's level. If the creature is alive, the sporeborn deals damage equal to one of its unarmed attacks.",
-                    "traits": [
-                      {
-                        "link": {
-                          "alt": "manipulate",
-                          "aonid": 104,
-                          "game-obj": "Traits",
-                          "name": "manipulate",
-                          "type": "link"
-                        },
-                        "name": "manipulate",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "ability_category": "special_sense",
-                    "ability_type": "ability",
-                    "name": "Contagious Spores",
-                    "subtype": "ability",
-                    "text": "The sporeborn continues to infect creatures with sporeborn infestation, creating more of its own kind.",
-                    "traits": [
-                      {
-                        "link": {
-                          "alt": "disease",
-                          "aonid": 46,
-                          "game-obj": "Traits",
-                          "name": "disease",
-                          "type": "link"
-                        },
-                        "name": "disease",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      },
-                      {
-                        "link": {
-                          "alt": "fungus",
-                          "aonid": 77,
-                          "game-obj": "Traits",
-                          "name": "fungus",
-                          "type": "link"
-                        },
-                        "name": "fungus",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "ability_category": "hp_automatic",
-                    "ability_type": "ability",
-                    "name": "Sporeborn Infestation",
-                    "subtype": "ability",
-                    "text": "An infected creature can't heal damage it takes from sporeborn infestation until it has been cured of the disease.",
-                    "traits": [
-                      {
-                        "link": {
-                          "alt": "disease",
-                          "aonid": 46,
-                          "game-obj": "Traits",
-                          "name": "disease",
-                          "type": "link"
-                        },
-                        "name": "disease",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      },
-                      {
-                        "link": {
-                          "alt": "fungus",
-                          "aonid": 77,
-                          "game-obj": "Traits",
-                          "name": "fungus",
-                          "type": "link"
-                        },
-                        "name": "fungus",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "type": "stat_block_section"
-                  }
-                ],
                 "change_category": "abilities",
                 "effects": [
                   {
                     "operation": "add_items",
-                    "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                    "source": "$.sections[?(@.name=='Creating Sporeborn')].sections[?(@.name=='Sporeborn Abilities You can modify sporeborn with the following sporeborn abilities. Most sporeborn have one of these abilities, gaining more at higher levels.')].abilities",
                     "target": "$.defense.automatic_abilities"
+                  }
+                ],
+                "links": [
+                  {
+                    "alt": "manipulate",
+                    "aonid": 104,
+                    "game-obj": "Traits",
+                    "name": "manipulate",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "disease",
+                    "aonid": 46,
+                    "game-obj": "Traits",
+                    "name": "disease",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "disease",
+                    "aonid": 46,
+                    "game-obj": "Traits",
+                    "name": "disease",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
                   }
                 ],
                 "subtype": "change",
@@ -221,169 +129,11 @@
           {
             "changes": [
               {
-                "abilities": [
-                  {
-                    "ability_type": "affliction",
-                    "name": "Stage 1",
-                    "stages": [
-                      {
-                        "name": "Stage 2",
-                        "subtype": "affliction_stage",
-                        "text": "1d6 poison damage (1 day)",
-                        "type": "stat_block_section"
-                      },
-                      {
-                        "name": "Stage 3",
-                        "subtype": "affliction_stage",
-                        "text": "2d6 poison damage (1 day)",
-                        "type": "stat_block_section"
-                      },
-                      {
-                        "name": "Stage 4",
-                        "subtype": "affliction_stage",
-                        "text": "3d6 poison damage (1 day)",
-                        "type": "stat_block_section"
-                      },
-                      {
-                        "name": "Stage 5",
-                        "subtype": "affliction_stage",
-                        "text": "dead, rising as an uncontrolled sporeborn immediately",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "subtype": "ability",
-                    "text": "carrier with no ill effect (1 day);",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "ability_category": "automatic",
-                    "ability_type": "ability",
-                    "links": [
-                      {
-                        "alt": "fungus",
-                        "aonid": 77,
-                        "game-obj": "Traits",
-                        "name": "fungus",
-                        "type": "link"
-                      },
-                      {
-                        "alt": "poison",
-                        "aonid": 126,
-                        "game-obj": "Traits",
-                        "name": "poison",
-                        "type": "link"
-                      }
-                    ],
-                    "name": "Fungal Armor",
-                    "subtype": "ability",
-                    "text": "The sporeborn grows broad patches of dense fungus on the outside of the corpse. It gains resistance to bludgeoning damage equal to its level. Potent Poison (fungus, poison) The sporeborn fungus enhances the dead creature's natural toxins rather than diminishing them. Increase the DC of poison and spore abilities of the base creature by 2 rather than decreasing them.",
-                    "traits": [
-                      {
-                        "link": {
-                          "alt": "fungus",
-                          "aonid": 77,
-                          "game-obj": "Traits",
-                          "name": "fungus",
-                          "type": "link"
-                        },
-                        "name": "fungus",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "ability_category": "automatic",
-                    "ability_type": "ability",
-                    "links": [
-                      {
-                        "alt": "sickened",
-                        "aonid": 34,
-                        "game-obj": "Conditions",
-                        "name": "sickened",
-                        "type": "link"
-                      }
-                    ],
-                    "name": "Rancid Spore Pods",
-                    "subtype": "ability",
-                    "text": "The sporeborn is covered in spore pods that rupture when it takes any piercing damage or a critical hit. In either case, adjacent creatures are hit with spores, causing them to become sickened 1 unless they succeed at a Fortitude save.",
-                    "traits": [
-                      {
-                        "link": {
-                          "alt": "disease",
-                          "aonid": 46,
-                          "game-obj": "Traits",
-                          "name": "disease",
-                          "type": "link"
-                        },
-                        "name": "disease",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      },
-                      {
-                        "link": {
-                          "alt": "fungus",
-                          "aonid": 77,
-                          "game-obj": "Traits",
-                          "name": "fungus",
-                          "type": "link"
-                        },
-                        "name": "fungus",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "ability_category": "automatic",
-                    "ability_type": "ability",
-                    "damage": [
-                      {
-                        "damage_type": "poison",
-                        "formula": "1d6",
-                        "subtype": "attack_damage",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "name": "Spore Explosion",
-                    "subtype": "ability",
-                    "text": "When the sporeborn is destroyed, its body explodes, releasing toxic fumes and spores. Adjacent creatures take 1d6 poison damage per 2 levels (minimum 1d6) with a basic Fortitude save.",
-                    "traits": [
-                      {
-                        "link": {
-                          "alt": "fungus",
-                          "aonid": 77,
-                          "game-obj": "Traits",
-                          "name": "fungus",
-                          "type": "link"
-                        },
-                        "name": "fungus",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      },
-                      {
-                        "link": {
-                          "alt": "inhaled",
-                          "aonid": 96,
-                          "game-obj": "Traits",
-                          "name": "inhaled",
-                          "type": "link"
-                        },
-                        "name": "inhaled",
-                        "subtype": "trait",
-                        "type": "stat_block_section"
-                      }
-                    ],
-                    "type": "stat_block_section"
-                  }
-                ],
                 "change_category": "abilities",
                 "effects": [
                   {
                     "operation": "add_items",
-                    "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                    "source": "$.sections[?(@.name=='Creating Sporeborn')].sections[?(@.name=='Saving Throw')].abilities",
                     "target": "$.defense.automatic_abilities"
                   }
                 ],
@@ -394,6 +144,62 @@
                     "game-obj": "Rules",
                     "name": "DCs by Level table",
                     "type": "link"
+                  },
+                  {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "poison",
+                    "aonid": 126,
+                    "game-obj": "Traits",
+                    "name": "poison",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "disease",
+                    "aonid": 46,
+                    "game-obj": "Traits",
+                    "name": "disease",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "sickened",
+                    "aonid": 34,
+                    "game-obj": "Conditions",
+                    "name": "sickened",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  {
+                    "alt": "inhaled",
+                    "aonid": 96,
+                    "game-obj": "Traits",
+                    "name": "inhaled",
+                    "type": "link"
                   }
                 ],
                 "subtype": "change",
@@ -403,11 +209,9 @@
             ],
             "name": "Saving Throw",
             "subtype": "monster_family",
-            "text": "Use a Fortitude save for the creature's level using the DCs by Level table.",
             "type": "stat_block_section"
           }
         ],
-        "text": "A sporeborn gains the fungus, mindless, rare, and sporeborn traits, and its alignment is usually adjusted to true neutral.The DC of any creature abilities it had in life are reduced by 2. Remove any traits that represent its life, such as animal or humanoid, as well as all languages, including telepathy. The sporeborn has an Intelligence and Charisma modifier of \u20135.  \n All Creatures: The sporeborn gains darkvision and scent as an imprecise sense up to 30 feet.",
         "type": "stat_block_section"
       }
     ],
@@ -415,6 +219,522 @@
   },
   "name": "Sporeborn",
   "schema_version": 1.0,
+  "sections": [
+    {
+      "abilities": [
+        {
+          "ability_type": "ability",
+          "name": "1st Level or Higher:",
+          "subtype": "ability",
+          "text": "The sporeborn gains one sporeborn ability.",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_type": "ability",
+          "name": "4th Level or Higher:",
+          "subtype": "ability",
+          "text": "The sporeborn gains two sporeborn abilities.",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_type": "ability",
+          "name": "7th Level or Higher:",
+          "subtype": "ability",
+          "text": "The sporeborn gains three sporeborn abilities.",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_type": "ability",
+          "name": "12th Level or Higher:",
+          "subtype": "ability",
+          "text": "The sporeborn gains four sporeborn abilities.",
+          "type": "stat_block_section"
+        },
+        {
+          "ability_type": "ability",
+          "name": "17th Level or Higher:",
+          "subtype": "ability",
+          "text": "The sporeborn gains five sporeborn abilities.",
+          "type": "stat_block_section"
+        }
+      ],
+      "name": "Creating Sporeborn",
+      "sections": [
+        {
+          "abilities": [
+            {
+              "ability_category": "hp_automatic",
+              "ability_type": "ability",
+              "name": "Consume Biomatter",
+              "subtype": "ability",
+              "text": "If the sporeborn is adjacent to a helpless or unconscious creature, or a deceased creature who died in the past hour, the sporeborn can consume its flesh with mycelium tendrils to heal itself. This restores an amount of Hit Points equal to the sporeborn's level. If the creature is alive, the sporeborn deals damage equal to one of its unarmed attacks.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "manipulate",
+                    "aonid": 104,
+                    "game-obj": "Traits",
+                    "name": "manipulate",
+                    "type": "link"
+                  },
+                  "name": "manipulate",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "special_sense",
+              "ability_type": "ability",
+              "name": "Contagious Spores",
+              "subtype": "ability",
+              "text": "The sporeborn continues to infect creatures with sporeborn infestation, creating more of its own kind.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "disease",
+                    "aonid": 46,
+                    "game-obj": "Traits",
+                    "name": "disease",
+                    "type": "link"
+                  },
+                  "name": "disease",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  "name": "fungus",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "hp_automatic",
+              "ability_type": "ability",
+              "name": "Sporeborn Infestation",
+              "subtype": "ability",
+              "text": "An infected creature can't heal damage it takes from sporeborn infestation until it has been cured of the disease.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "disease",
+                    "aonid": 46,
+                    "game-obj": "Traits",
+                    "name": "disease",
+                    "type": "link"
+                  },
+                  "name": "disease",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  "name": "fungus",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "manipulate",
+              "aonid": 104,
+              "game-obj": "Traits",
+              "name": "manipulate",
+              "type": "link"
+            },
+            {
+              "alt": "disease",
+              "aonid": 46,
+              "game-obj": "Traits",
+              "name": "disease",
+              "type": "link"
+            },
+            {
+              "alt": "fungus",
+              "aonid": 77,
+              "game-obj": "Traits",
+              "name": "fungus",
+              "type": "link"
+            },
+            {
+              "alt": "disease",
+              "aonid": 46,
+              "game-obj": "Traits",
+              "name": "disease",
+              "type": "link"
+            },
+            {
+              "alt": "fungus",
+              "aonid": 77,
+              "game-obj": "Traits",
+              "name": "fungus",
+              "type": "link"
+            }
+          ],
+          "name": "Sporeborn Abilities You can modify sporeborn with the following sporeborn abilities. Most sporeborn have one of these abilities, gaining more at higher levels.",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #193: Mantle of Gold pg. 88",
+                "aonid": 206,
+                "game-obj": "Sources",
+                "name": "Pathfinder #193: Mantle of Gold pg. 88",
+                "type": "link"
+              },
+              "name": "Pathfinder #193: Mantle of Gold",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "**Consume Biomatter** (manipulate) If the sporeborn is adjacent to a helpless or unconscious creature, or a deceased creature who died in the past hour, the sporeborn can consume its flesh with mycelium tendrils to heal itself. This restores an amount of Hit Points equal to the sporeborn's level. If the creature is alive, the sporeborn deals damage equal to one of its unarmed attacks.  \n**Contagious Spores** (disease, fungus) The sporeborn continues to infect creatures with sporeborn infestation, creating more of its own kind.  \n**Sporeborn Infestation** (disease, fungus); An infected creature can't heal damage it takes from sporeborn infestation until it has been cured of the disease.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_type": "affliction",
+              "name": "Stage 1",
+              "stages": [
+                {
+                  "name": "Stage 2",
+                  "subtype": "affliction_stage",
+                  "text": "1d6 poison damage (1 day)",
+                  "type": "stat_block_section"
+                },
+                {
+                  "name": "Stage 3",
+                  "subtype": "affliction_stage",
+                  "text": "2d6 poison damage (1 day)",
+                  "type": "stat_block_section"
+                },
+                {
+                  "name": "Stage 4",
+                  "subtype": "affliction_stage",
+                  "text": "3d6 poison damage (1 day)",
+                  "type": "stat_block_section"
+                },
+                {
+                  "name": "Stage 5",
+                  "subtype": "affliction_stage",
+                  "text": "dead, rising as an uncontrolled sporeborn immediately",
+                  "type": "stat_block_section"
+                }
+              ],
+              "subtype": "ability",
+              "text": "carrier with no ill effect (1 day);",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "fungus",
+                  "aonid": 77,
+                  "game-obj": "Traits",
+                  "name": "fungus",
+                  "type": "link"
+                },
+                {
+                  "alt": "poison",
+                  "aonid": 126,
+                  "game-obj": "Traits",
+                  "name": "poison",
+                  "type": "link"
+                }
+              ],
+              "name": "Fungal Armor",
+              "subtype": "ability",
+              "text": "The sporeborn grows broad patches of dense fungus on the outside of the corpse. It gains resistance to bludgeoning damage equal to its level. Potent Poison (fungus, poison) The sporeborn fungus enhances the dead creature's natural toxins rather than diminishing them. Increase the DC of poison and spore abilities of the base creature by 2 rather than decreasing them.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  "name": "fungus",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "sickened",
+                  "aonid": 34,
+                  "game-obj": "Conditions",
+                  "name": "sickened",
+                  "type": "link"
+                }
+              ],
+              "name": "Rancid Spore Pods",
+              "subtype": "ability",
+              "text": "The sporeborn is covered in spore pods that rupture when it takes any piercing damage or a critical hit. In either case, adjacent creatures are hit with spores, causing them to become sickened 1 unless they succeed at a Fortitude save.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "disease",
+                    "aonid": 46,
+                    "game-obj": "Traits",
+                    "name": "disease",
+                    "type": "link"
+                  },
+                  "name": "disease",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  "name": "fungus",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "automatic",
+              "ability_type": "ability",
+              "damage": [
+                {
+                  "damage_type": "poison",
+                  "formula": "1d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "name": "Spore Explosion",
+              "subtype": "ability",
+              "text": "When the sporeborn is destroyed, its body explodes, releasing toxic fumes and spores. Adjacent creatures take 1d6 poison damage per 2 levels (minimum 1d6) with a basic Fortitude save.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "fungus",
+                    "aonid": 77,
+                    "game-obj": "Traits",
+                    "name": "fungus",
+                    "type": "link"
+                  },
+                  "name": "fungus",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "inhaled",
+                    "aonid": 96,
+                    "game-obj": "Traits",
+                    "name": "inhaled",
+                    "type": "link"
+                  },
+                  "name": "inhaled",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "DCs by Level table",
+              "aonid": 554,
+              "game-obj": "Rules",
+              "name": "DCs by Level table",
+              "type": "link"
+            },
+            {
+              "alt": "fungus",
+              "aonid": 77,
+              "game-obj": "Traits",
+              "name": "fungus",
+              "type": "link"
+            },
+            {
+              "alt": "fungus",
+              "aonid": 77,
+              "game-obj": "Traits",
+              "name": "fungus",
+              "type": "link"
+            },
+            {
+              "alt": "poison",
+              "aonid": 126,
+              "game-obj": "Traits",
+              "name": "poison",
+              "type": "link"
+            },
+            {
+              "alt": "disease",
+              "aonid": 46,
+              "game-obj": "Traits",
+              "name": "disease",
+              "type": "link"
+            },
+            {
+              "alt": "fungus",
+              "aonid": 77,
+              "game-obj": "Traits",
+              "name": "fungus",
+              "type": "link"
+            },
+            {
+              "alt": "sickened",
+              "aonid": 34,
+              "game-obj": "Conditions",
+              "name": "sickened",
+              "type": "link"
+            },
+            {
+              "alt": "fungus",
+              "aonid": 77,
+              "game-obj": "Traits",
+              "name": "fungus",
+              "type": "link"
+            },
+            {
+              "alt": "inhaled",
+              "aonid": 96,
+              "game-obj": "Traits",
+              "name": "inhaled",
+              "type": "link"
+            }
+          ],
+          "name": "Saving Throw",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #193: Mantle of Gold pg. 88",
+                "aonid": 206,
+                "game-obj": "Sources",
+                "name": "Pathfinder #193: Mantle of Gold pg. 88",
+                "type": "link"
+              },
+              "name": "Pathfinder #193: Mantle of Gold",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "Use a Fortitude save for the creature's level using the DCs by Level table.  \n**Stage 1** carrier with no ill effect (1 day);  \n**Stage 2** 1d6 poison damage (1 day);  \n**Stage 3** 2d6 poison damage (1 day);  \n**Stage 4** 3d6 poison damage (1 day);  \n**Stage 5** dead, rising as an uncontrolled sporeborn immediately  \n**Fungal Armor** (fungus) The sporeborn grows broad patches of dense fungus on the outside of the corpse. It gains resistance to bludgeoning damage equal to its level. Potent Poison (fungus, poison) The sporeborn fungus enhances the dead creature's natural toxins rather than diminishing them. Increase the DC of poison and spore abilities of the base creature by 2 rather than decreasing them.  \n**Rancid Spore Pods** (disease, fungus) The sporeborn is covered in spore pods that rupture when it takes any piercing damage or a critical hit. In either case, adjacent creatures are hit with spores, causing them to become sickened 1 unless they succeed at a Fortitude save.  \n**Spore Explosion** (fungus, inhaled) When the sporeborn is destroyed, its body explodes, releasing toxic fumes and spores. Adjacent creatures take 1d6 poison damage per 2 levels (minimum 1d6) with a basic Fortitude save.",
+          "type": "section"
+        },
+        {
+          "links": [
+            {
+              "alt": "create undead",
+              "aonid": 10,
+              "game-obj": "Rituals",
+              "name": "create undead",
+              "type": "link"
+            }
+          ],
+          "name": "Creating Mycoguardians",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #193: Mantle of Gold pg. 88",
+                "aonid": 206,
+                "game-obj": "Sources",
+                "name": "Pathfinder #193: Mantle of Gold pg. 88",
+                "type": "link"
+              },
+              "name": "Pathfinder #193: Mantle of Gold",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "To create a mycoguardian, such as a sporeborn, a ritualist can perform a ritual similar to *create undead* called *create mycoguardian*, but providing valuable parasitic fungal spores instead of black onyx. This ritual uses Fungus Lore (trained) or Nature (expert) for both the Primary Check and Secondary Checks, and lacks the Evil trait.",
+          "type": "section"
+        },
+        {
+          "name": "Different Mycoguardians",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #193: Mantle of Gold pg. 88",
+                "aonid": 206,
+                "game-obj": "Sources",
+                "name": "Pathfinder #193: Mantle of Gold pg. 88",
+                "type": "link"
+              },
+              "name": "Pathfinder #193: Mantle of Gold",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "In addition to the sporeborn presented here, there are many versions of the create mycoguardian ritual for making mycoguardians other than sporeborn, such as for aquatic chytridions and so on. Some forms of mycoguardians, such as mycelial mindbores, come to be using their own unique methods and can't be created with a version of *create mycoguardian*.",
+          "type": "section"
+        },
+        {
+          "name": "Fungal Ritualists",
+          "sources": [
+            {
+              "link": {
+                "alt": "Pathfinder #193: Mantle of Gold pg. 88",
+                "aonid": 206,
+                "game-obj": "Sources",
+                "name": "Pathfinder #193: Mantle of Gold pg. 88",
+                "type": "link"
+              },
+              "name": "Pathfinder #193: Mantle of Gold",
+              "page": 88,
+              "type": "source"
+            }
+          ],
+          "text": "While mycoguardians are rare, several different types of primal spellcasters might create a mycoguardian. Druids might turn the bodies of a poacher's victim against the poacher, seeking to avenge the wrongful death and rebalance the scales of life. Leshy spellcasters create mycoguardians to protect their hidden communities and sacred groves.  \n The fey of Northern Fangwood transform fallen or rotted trees into crustoreal mycoguardians, massive arboreal-looking creatures covered in parasitic lichen. These lumbering sentinels patrol their borders, crushing all non-fey who dare approach. There are rumors of crustoreals being imbued with negative energy from the Gravelands and going berserk.",
+          "type": "section"
+        }
+      ],
+      "sources": [
+        {
+          "link": {
+            "alt": "Pathfinder #193: Mantle of Gold pg. 88",
+            "aonid": 206,
+            "game-obj": "Sources",
+            "name": "Pathfinder #193: Mantle of Gold pg. 88",
+            "type": "link"
+          },
+          "name": "Pathfinder #193: Mantle of Gold",
+          "page": 88,
+          "type": "source"
+        }
+      ],
+      "text": "A sporeborn gains the fungus, mindless, rare, and sporeborn traits, and its alignment is usually adjusted to true neutral.The DC of any creature abilities it had in life are reduced by 2. Remove any traits that represent its life, such as animal or humanoid, as well as all languages, including telepathy. The sporeborn has an Intelligence and Charisma modifier of \u20135.  \n All Creatures: The sporeborn gains darkvision and scent as an imprecise sense up to 30 feet.  \n**1st Level or Higher:** The sporeborn gains one sporeborn ability.  \n**4th Level or Higher:** The sporeborn gains two sporeborn abilities.  \n**7th Level or Higher:** The sporeborn gains three sporeborn abilities.  \n**12th Level or Higher:** The sporeborn gains four sporeborn abilities.  \n**17th Level or Higher:** The sporeborn gains five sporeborn abilities.",
+      "type": "section"
+    }
+  ],
   "sources": [
     {
       "link": {

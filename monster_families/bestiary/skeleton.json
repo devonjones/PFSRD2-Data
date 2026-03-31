@@ -30,172 +30,84 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "hp_automatic",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "fast healing",
-                    "aonid": 15,
-                    "game-obj": "MonsterAbilities",
-                    "name": "fast healing",
-                    "type": "link"
-                  }
-                ],
-                "name": "Bloody",
-                "subtype": "ability",
-                "text": "The skeleton is covered in dripping blood and gains fast healing equal to its level.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "reactive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Reaction",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "effect": "The skeleton collapses into a pile of bones and the attack deals only normal damage. The skeleton can reform in a standing position as an action, but until it does, it is immobilized and flat-footed.",
-                "links": [
-                  {
-                    "alt": "immobilized",
-                    "aonid": 24,
-                    "game-obj": "Conditions",
-                    "name": "immobilized",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "flat-footed",
-                    "aonid": 16,
-                    "game-obj": "Conditions",
-                    "name": "flat-footed",
-                    "type": "link"
-                  }
-                ],
-                "name": "Collapse",
-                "subtype": "ability",
-                "trigger": "The skeleton is critically hit.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "damage": [
-                  {
-                    "damage_type": "slashing",
-                    "formula": "1d6",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "basic",
-                    "aonid": 329,
-                    "game-obj": "Rules",
-                    "name": "basic",
-                    "type": "link"
-                  }
-                ],
-                "name": "Explosive Death",
-                "subtype": "ability",
-                "text": "When the skeleton is destroyed, its bones shatter and explode as the necromantic energy holding it together is released. Adjacent creatures take 1d6 slashing damage per 2 levels (minimum 1d6) with a basic Reflex save.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "links": [
-                  {
-                    "alt": "Demoralize",
-                    "aonid": 53,
-                    "game-obj": "Actions",
-                    "name": "Demoralize",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "blind",
-                    "aonid": 1,
-                    "game-obj": "Conditions",
-                    "name": "blind",
-                    "type": "link"
-                  }
-                ],
-                "name": "Screaming Skull",
-                "range": {
-                  "range": 20,
-                  "subtype": "range",
-                  "text": "range of 20 feet",
-                  "type": "stat_block_section",
-                  "unit": "feet"
-                },
-                "subtype": "ability",
-                "text": "The skeleton removes its skull and throws it, making a jaws attack with a range of 20 feet. It then attempts to Demoralize each foe within 10 feet of the target. The head bounces, rolls, or even flies back, returning to the skeleton at the start of its next turn. The skeleton is blind until then.",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "auditory",
-                      "aonid": 16,
-                      "game-obj": "Traits",
-                      "name": "auditory",
-                      "type": "link"
-                    },
-                    "name": "auditory",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "emotion",
-                      "aonid": 60,
-                      "game-obj": "Traits",
-                      "name": "emotion",
-                      "type": "link"
-                    },
-                    "name": "emotion",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "fear",
-                      "aonid": 68,
-                      "game-obj": "Traits",
-                      "name": "fear",
-                      "type": "link"
-                    },
-                    "name": "fear",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "link": {
-                      "alt": "mental",
-                      "aonid": 106,
-                      "game-obj": "Traits",
-                      "name": "mental",
-                      "type": "link"
-                    },
-                    "name": "mental",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Skeleton Abilities')].sections[?(@.name=='Bestiary')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "fast healing",
+                "aonid": 15,
+                "game-obj": "MonsterAbilities",
+                "name": "fast healing",
+                "type": "link"
+              },
+              {
+                "alt": "immobilized",
+                "aonid": 24,
+                "game-obj": "Conditions",
+                "name": "immobilized",
+                "type": "link"
+              },
+              {
+                "alt": "flat-footed",
+                "aonid": 16,
+                "game-obj": "Conditions",
+                "name": "flat-footed",
+                "type": "link"
+              },
+              {
+                "alt": "basic",
+                "aonid": 329,
+                "game-obj": "Rules",
+                "name": "basic",
+                "type": "link"
+              },
+              {
+                "alt": "auditory",
+                "aonid": 16,
+                "game-obj": "Traits",
+                "name": "auditory",
+                "type": "link"
+              },
+              {
+                "alt": "emotion",
+                "aonid": 60,
+                "game-obj": "Traits",
+                "name": "emotion",
+                "type": "link"
+              },
+              {
+                "alt": "fear",
+                "aonid": 68,
+                "game-obj": "Traits",
+                "name": "fear",
+                "type": "link"
+              },
+              {
+                "alt": "mental",
+                "aonid": 106,
+                "game-obj": "Traits",
+                "name": "mental",
+                "type": "link"
+              },
+              {
+                "alt": "Demoralize",
+                "aonid": 53,
+                "game-obj": "Actions",
+                "name": "Demoralize",
+                "type": "link"
+              },
+              {
+                "alt": "blind",
+                "aonid": 1,
+                "game-obj": "Conditions",
+                "name": "blind",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -210,102 +122,42 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "automatic",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "fire",
-                    "aonid": 72,
-                    "game-obj": "Traits",
-                    "name": "fire",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "cold",
-                    "aonid": 27,
-                    "game-obj": "Traits",
-                    "name": "cold",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "persistent fire damage",
-                    "aonid": 29,
-                    "game-obj": "Conditions",
-                    "name": "persistent fire damage",
-                    "type": "link"
-                  }
-                ],
-                "name": "Blaze",
-                "subtype": "ability",
-                "text": "The skeleton is wreathed with fire, which doesn't consume its bones or gear. The skeleton gains immunity to fire and weakness 5 to cold, loses its resistance to cold, and its Strikes deal additional persistent fire damage equal to half the skeleton's level (minimum 1 damage).",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "name": "Bone Missile",
-                "subtype": "ability",
-                "text": "The skeleton yanks a rib from its ribcage to use as an arrow or javelin. The skeleton loses HP equal to its level (minimum 1), then makes a ranged Strike. This uses the attack bonus of whichever of the skeleton's other Strikes has the highest attack bonus and deals piercing damage equal to that Strike's damage plus the skeleton's level (minimum 1).",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "automatic",
-                "ability_type": "ability",
-                "area": [
-                  {
-                    "shape": "emanation",
-                    "size": 5,
-                    "subtype": "area",
-                    "text": "5-foot emanation",
-                    "type": "stat_block_section",
-                    "unit": "feet"
-                  }
-                ],
-                "damage": [
-                  {
-                    "damage_type": "poison",
-                    "formula": "1d6",
-                    "persistent": true,
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "links": [
-                  {
-                    "alt": "persistent poison damage",
-                    "aonid": 29,
-                    "game-obj": "Conditions",
-                    "name": "persistent poison damage",
-                    "type": "link"
-                  }
-                ],
-                "name": "Bone Powder",
-                "subtype": "ability",
-                "text": "**Source** When the skeleton takes physical damage from a critical hit, one of its bones is pulverized into a fine powder. All creatures in a 5-foot emanation that breathe take 1d6 persistent poison damage (plus an additional 1d6 for every 6 levels the skeleton has).",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "name": "Skeleton of Roses",
-                "subtype": "ability",
-                "text": "Thick briars have grown through the skeleton's bones, covering it in red roses with inch-long thorns. The skeleton's unarmed melee Strikes deal additional piercing damage equal to 1/3 the skeleton's level (minimum 1 damage). At the end of each of its turns, if the skeleton has caused piercing damage with its thorns, it regains HP equal to its level (minimum 1). Each time the skeleton regains HP in this way, another rose blossoms.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Skeleton Abilities')].sections[?(@.name=='Bestiary 3')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "fire",
+                "aonid": 72,
+                "game-obj": "Traits",
+                "name": "fire",
+                "type": "link"
+              },
+              {
+                "alt": "cold",
+                "aonid": 27,
+                "game-obj": "Traits",
+                "name": "cold",
+                "type": "link"
+              },
+              {
+                "alt": "persistent fire damage",
+                "aonid": 29,
+                "game-obj": "Conditions",
+                "name": "persistent fire damage",
+                "type": "link"
+              },
+              {
+                "alt": "persistent poison damage",
+                "aonid": 29,
+                "game-obj": "Conditions",
+                "name": "persistent poison damage",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -320,231 +172,133 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "special_sense",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "aquatic",
-                    "aonid": 168,
-                    "game-obj": "Traits",
-                    "name": "aquatic",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "aquatic ambush",
-                    "aonid": 2,
-                    "game-obj": "MonsterAbilities",
-                    "name": "aquatic ambush",
-                    "type": "link"
-                  }
-                ],
-                "name": "Aquatic Bones",
-                "subtype": "ability",
-                "text": "The skeleton has bones from aquatic creatures, allowing it to swim using a simple tail, paddles, or similar appendage. The skeleton has a swim Speed of 20 feet and gains the aquatic trait and the aquatic ambush ability.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Three Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "damage": [
-                  {
-                    "damage_type": "slashing",
-                    "formula": "1d6",
-                    "subtype": "attack_damage",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "effect": "The skeleton transforms into a cyclone of bones, taking up the same space, but twice as tall. It then Strides up to double its Speed. It can move through spaces occupied by other creatures, and this movement doesn't trigger reactions. Creatures the bone storm moves through take 1d6 slashing damage for every 2 levels of the skeleton, with a basic Reflex save against the hard DC for the creature's level. A level 1 or lower skeleton only moves; it doesn't deal damage. A creature attempts this save only once even if the bone storm moved through its space multiple times. At the end of the movement, the skeleton reforms.",
-                "frequency": "once per day",
-                "links": [
-                  {
-                    "alt": "basic",
-                    "aonid": 329,
-                    "game-obj": "Rules",
-                    "name": "basic",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "hard DC for the creature's level",
-                    "aonid": 554,
-                    "game-obj": "Rules",
-                    "name": "hard DC for the creature's level",
-                    "type": "link"
-                  }
-                ],
-                "name": "Bone Storm",
-                "subtype": "ability",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "special_sense",
-                "ability_type": "ability",
-                "name": "Crumbling Bones",
-                "subtype": "ability",
-                "text": "The skeleton is made from crumbling bones that drift in clouds of dust. The skeleton has a fly Speed of 20 but it must end its turn within no more than 5 feet off the ground, or it falls, taking damage as normal. In addition, the skeleton can move through any space that's large enough for its skull to fit through.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "automatic",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "cold",
-                    "aonid": 27,
-                    "game-obj": "Traits",
-                    "name": "cold",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "fire",
-                    "aonid": 72,
-                    "game-obj": "Traits",
-                    "name": "fire",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "basic",
-                    "aonid": 329,
-                    "game-obj": "Rules",
-                    "name": "basic",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "standard DC for its level",
-                    "aonid": 554,
-                    "game-obj": "Rules",
-                    "name": "standard DC for its level",
-                    "type": "link"
-                  }
-                ],
-                "name": "Frozen",
-                "subtype": "ability",
-                "text": "The skeleton's bones are covered in a thin layer of ice. The skeleton gains immunity to cold and weakness 5 to fire and loses resistance to fire. The skeleton is surrounded by an aura of cold that deals cold damage equal to half the skeleton's level to all adjacent creatures at the start of the skeleton's turn (basic Reflex save with a standard DC for its level).",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "offensive",
-                "ability_type": "ability",
-                "action_type": {
-                  "name": "Two Actions",
-                  "subtype": "action_type",
-                  "type": "stat_block_section"
-                },
-                "effect": "The skeleton erupts from the ground, Stands, and makes a melee Strike. The target is flat-footed against this Strike. If the Strike hits, the target is frightened 1 (or frightened 2 on a critical hit).",
-                "links": [
-                  {
-                    "alt": "undetected",
-                    "aonid": 39,
-                    "game-obj": "Conditions",
-                    "name": "undetected",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "flat-footed",
-                    "aonid": 16,
-                    "game-obj": "Conditions",
-                    "name": "flat-footed",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "frightened 1",
-                    "aonid": 19,
-                    "game-obj": "Conditions",
-                    "name": "frightened 1",
-                    "type": "link"
-                  }
-                ],
-                "name": "Grave Eruption",
-                "requirement": "The skeleton is undetected and buried in dirt, gravel, or other loose material",
-                "subtype": "ability",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "hp_automatic",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "acid",
-                    "aonid": 3,
-                    "game-obj": "Traits",
-                    "name": "acid",
-                    "type": "link"
-                  }
-                ],
-                "name": "Lacquered",
-                "subtype": "ability",
-                "text": "During the process to create the skeleton, it was covered with several layers of an alchemical lacquer, giving its bones a golden hue and granting added protection. The skeleton gains acid resistance 5 and a +2 status bonus to saves against effects that age or erode the target.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "reactive",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "Nimble Dodge",
-                    "aonid": 550,
-                    "game-obj": "Feats",
-                    "name": "Nimble Dodge",
-                    "type": "link"
-                  }
-                ],
-                "name": "Nimble",
-                "subtype": "ability",
-                "text": "The skeleton is particularly fast and nimble. Its land Speed increases by 10 feet and it has a climb Speed of 20 feet. In addition, it gains the Nimble Dodge reaction.",
-                "type": "stat_block_section"
-              },
-              {
-                "ability_category": "automatic",
-                "ability_type": "ability",
-                "links": [
-                  {
-                    "alt": "standard DC of the skeleton's level",
-                    "aonid": 554,
-                    "game-obj": "Rules",
-                    "name": "standard DC of the skeleton's level",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "sickened 1",
-                    "aonid": 34,
-                    "game-obj": "Conditions",
-                    "name": "sickened 1",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "slowed 1",
-                    "aonid": 35,
-                    "game-obj": "Conditions",
-                    "name": "slowed 1",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "disease",
-                    "aonid": 46,
-                    "game-obj": "Traits",
-                    "name": "disease",
-                    "type": "link"
-                  }
-                ],
-                "name": "Rotten",
-                "subtype": "ability",
-                "text": "The bones of this skeleton are black and rotten, having spent years in polluted water or some other foul substance. The skeleton loses its resistance to piercing and slashing damage and is surrounded by a horrific stench in a 10-foot aura. A creature entering or starting its turn in the aura must succeed at a Fortitude save against the standard DC of the skeleton's level or become sickened 1 (plus slowed 1 for as long as it remains sickened on a critical failure). While within the aura, affected creatures take a \u20132 circumstance penalty to saves against disease and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute.",
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Skeleton Abilities')].sections[?(@.name=='Book of the Dead')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "aquatic",
+                "aonid": 168,
+                "game-obj": "Traits",
+                "name": "aquatic",
+                "type": "link"
+              },
+              {
+                "alt": "aquatic ambush",
+                "aonid": 2,
+                "game-obj": "MonsterAbilities",
+                "name": "aquatic ambush",
+                "type": "link"
+              },
+              {
+                "alt": "basic",
+                "aonid": 329,
+                "game-obj": "Rules",
+                "name": "basic",
+                "type": "link"
+              },
+              {
+                "alt": "hard DC for the creature's level",
+                "aonid": 554,
+                "game-obj": "Rules",
+                "name": "hard DC for the creature's level",
+                "type": "link"
+              },
+              {
+                "alt": "cold",
+                "aonid": 27,
+                "game-obj": "Traits",
+                "name": "cold",
+                "type": "link"
+              },
+              {
+                "alt": "fire",
+                "aonid": 72,
+                "game-obj": "Traits",
+                "name": "fire",
+                "type": "link"
+              },
+              {
+                "alt": "basic",
+                "aonid": 329,
+                "game-obj": "Rules",
+                "name": "basic",
+                "type": "link"
+              },
+              {
+                "alt": "standard DC for its level",
+                "aonid": 554,
+                "game-obj": "Rules",
+                "name": "standard DC for its level",
+                "type": "link"
+              },
+              {
+                "alt": "undetected",
+                "aonid": 39,
+                "game-obj": "Conditions",
+                "name": "undetected",
+                "type": "link"
+              },
+              {
+                "alt": "flat-footed",
+                "aonid": 16,
+                "game-obj": "Conditions",
+                "name": "flat-footed",
+                "type": "link"
+              },
+              {
+                "alt": "frightened 1",
+                "aonid": 19,
+                "game-obj": "Conditions",
+                "name": "frightened 1",
+                "type": "link"
+              },
+              {
+                "alt": "acid",
+                "aonid": 3,
+                "game-obj": "Traits",
+                "name": "acid",
+                "type": "link"
+              },
+              {
+                "alt": "Nimble Dodge",
+                "aonid": 550,
+                "game-obj": "Feats",
+                "name": "Nimble Dodge",
+                "type": "link"
+              },
+              {
+                "alt": "standard DC of the skeleton's level",
+                "aonid": 554,
+                "game-obj": "Rules",
+                "name": "standard DC of the skeleton's level",
+                "type": "link"
+              },
+              {
+                "alt": "sickened 1",
+                "aonid": 34,
+                "game-obj": "Conditions",
+                "name": "sickened 1",
+                "type": "link"
+              },
+              {
+                "alt": "slowed 1",
+                "aonid": 35,
+                "game-obj": "Conditions",
+                "name": "slowed 1",
+                "type": "link"
+              },
+              {
+                "alt": "disease",
+                "aonid": 46,
+                "game-obj": "Traits",
+                "name": "disease",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -565,6 +319,755 @@
     {
       "name": "Skeleton Abilities",
       "sections": [
+        {
+          "abilities": [
+            {
+              "ability_category": "hp_automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "fast healing",
+                  "aonid": 15,
+                  "game-obj": "MonsterAbilities",
+                  "name": "fast healing",
+                  "type": "link"
+                }
+              ],
+              "name": "Bloody",
+              "subtype": "ability",
+              "text": "The skeleton is covered in dripping blood and gains fast healing equal to its level.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "reactive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Reaction",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "effect": "The skeleton collapses into a pile of bones and the attack deals only normal damage. The skeleton can reform in a standing position as an action, but until it does, it is immobilized and flat-footed.",
+              "links": [
+                {
+                  "alt": "immobilized",
+                  "aonid": 24,
+                  "game-obj": "Conditions",
+                  "name": "immobilized",
+                  "type": "link"
+                },
+                {
+                  "alt": "flat-footed",
+                  "aonid": 16,
+                  "game-obj": "Conditions",
+                  "name": "flat-footed",
+                  "type": "link"
+                }
+              ],
+              "name": "Collapse",
+              "subtype": "ability",
+              "trigger": "The skeleton is critically hit.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "damage": [
+                {
+                  "damage_type": "slashing",
+                  "formula": "1d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "basic",
+                  "aonid": 329,
+                  "game-obj": "Rules",
+                  "name": "basic",
+                  "type": "link"
+                }
+              ],
+              "name": "Explosive Death",
+              "subtype": "ability",
+              "text": "When the skeleton is destroyed, its bones shatter and explode as the necromantic energy holding it together is released. Adjacent creatures take 1d6 slashing damage per 2 levels (minimum 1d6) with a basic Reflex save.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "links": [
+                {
+                  "alt": "Demoralize",
+                  "aonid": 53,
+                  "game-obj": "Actions",
+                  "name": "Demoralize",
+                  "type": "link"
+                },
+                {
+                  "alt": "blind",
+                  "aonid": 1,
+                  "game-obj": "Conditions",
+                  "name": "blind",
+                  "type": "link"
+                }
+              ],
+              "name": "Screaming Skull",
+              "range": {
+                "range": 20,
+                "subtype": "range",
+                "text": "range of 20 feet",
+                "type": "stat_block_section",
+                "unit": "feet"
+              },
+              "subtype": "ability",
+              "text": "The skeleton removes its skull and throws it, making a jaws attack with a range of 20 feet. It then attempts to Demoralize each foe within 10 feet of the target. The head bounces, rolls, or even flies back, returning to the skeleton at the start of its next turn. The skeleton is blind until then.",
+              "traits": [
+                {
+                  "link": {
+                    "alt": "auditory",
+                    "aonid": 16,
+                    "game-obj": "Traits",
+                    "name": "auditory",
+                    "type": "link"
+                  },
+                  "name": "auditory",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "emotion",
+                    "aonid": 60,
+                    "game-obj": "Traits",
+                    "name": "emotion",
+                    "type": "link"
+                  },
+                  "name": "emotion",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "fear",
+                    "aonid": 68,
+                    "game-obj": "Traits",
+                    "name": "fear",
+                    "type": "link"
+                  },
+                  "name": "fear",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                },
+                {
+                  "link": {
+                    "alt": "mental",
+                    "aonid": 106,
+                    "game-obj": "Traits",
+                    "name": "mental",
+                    "type": "link"
+                  },
+                  "name": "mental",
+                  "subtype": "trait",
+                  "type": "stat_block_section"
+                }
+              ],
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "fast healing",
+              "aonid": 15,
+              "game-obj": "MonsterAbilities",
+              "name": "fast healing",
+              "type": "link"
+            },
+            {
+              "alt": "immobilized",
+              "aonid": 24,
+              "game-obj": "Conditions",
+              "name": "immobilized",
+              "type": "link"
+            },
+            {
+              "alt": "flat-footed",
+              "aonid": 16,
+              "game-obj": "Conditions",
+              "name": "flat-footed",
+              "type": "link"
+            },
+            {
+              "alt": "basic",
+              "aonid": 329,
+              "game-obj": "Rules",
+              "name": "basic",
+              "type": "link"
+            },
+            {
+              "alt": "auditory",
+              "aonid": 16,
+              "game-obj": "Traits",
+              "name": "auditory",
+              "type": "link"
+            },
+            {
+              "alt": "emotion",
+              "aonid": 60,
+              "game-obj": "Traits",
+              "name": "emotion",
+              "type": "link"
+            },
+            {
+              "alt": "fear",
+              "aonid": 68,
+              "game-obj": "Traits",
+              "name": "fear",
+              "type": "link"
+            },
+            {
+              "alt": "mental",
+              "aonid": 106,
+              "game-obj": "Traits",
+              "name": "mental",
+              "type": "link"
+            },
+            {
+              "alt": "Demoralize",
+              "aonid": 53,
+              "game-obj": "Actions",
+              "name": "Demoralize",
+              "type": "link"
+            },
+            {
+              "alt": "blind",
+              "aonid": 1,
+              "game-obj": "Conditions",
+              "name": "blind",
+              "type": "link"
+            }
+          ],
+          "name": "Bestiary",
+          "sources": [
+            {
+              "link": {
+                "alt": "Bestiary pg. 298",
+                "aonid": 2,
+                "game-obj": "Sources",
+                "name": "Bestiary pg. 298",
+                "type": "link"
+              },
+              "name": "Bestiary",
+              "page": 298,
+              "type": "source"
+            }
+          ],
+          "text": "**Bloody** The skeleton is covered in dripping blood and gains fast healing equal to its level.   \n  \n**Collapse** [@] **Trigger** The skeleton is critically hit. **Effect** The skeleton collapses into a pile of bones and the attack deals only normal damage. The skeleton can reform in a standing position as an action, but until it does, it is immobilized and flat-footed.  \n  \n**Explosive Death** When the skeleton is destroyed, its bones shatter and explode as the necromantic energy holding it together is released. Adjacent creatures take 1d6 slashing damage per 2 levels (minimum 1d6) with a basic Reflex save.  \n  \n**Screaming Skull** [##] (auditory, emotion, fear, mental) The skeleton removes its skull and throws it, making a jaws attack with a range of 20 feet. It then attempts to Demoralize each foe within 10 feet of the target. The head bounces, rolls, or even flies back, returning to the skeleton at the start of its next turn. The skeleton is blind until then.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "fire",
+                  "aonid": 72,
+                  "game-obj": "Traits",
+                  "name": "fire",
+                  "type": "link"
+                },
+                {
+                  "alt": "cold",
+                  "aonid": 27,
+                  "game-obj": "Traits",
+                  "name": "cold",
+                  "type": "link"
+                },
+                {
+                  "alt": "persistent fire damage",
+                  "aonid": 29,
+                  "game-obj": "Conditions",
+                  "name": "persistent fire damage",
+                  "type": "link"
+                }
+              ],
+              "name": "Blaze",
+              "subtype": "ability",
+              "text": "The skeleton is wreathed with fire, which doesn't consume its bones or gear. The skeleton gains immunity to fire and weakness 5 to cold, loses its resistance to cold, and its Strikes deal additional persistent fire damage equal to half the skeleton's level (minimum 1 damage).",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "name": "Bone Missile",
+              "subtype": "ability",
+              "text": "The skeleton yanks a rib from its ribcage to use as an arrow or javelin. The skeleton loses HP equal to its level (minimum 1), then makes a ranged Strike. This uses the attack bonus of whichever of the skeleton's other Strikes has the highest attack bonus and deals piercing damage equal to that Strike's damage plus the skeleton's level (minimum 1).",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "automatic",
+              "ability_type": "ability",
+              "area": [
+                {
+                  "shape": "emanation",
+                  "size": 5,
+                  "subtype": "area",
+                  "text": "5-foot emanation",
+                  "type": "stat_block_section",
+                  "unit": "feet"
+                }
+              ],
+              "damage": [
+                {
+                  "damage_type": "poison",
+                  "formula": "1d6",
+                  "persistent": true,
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "links": [
+                {
+                  "alt": "persistent poison damage",
+                  "aonid": 29,
+                  "game-obj": "Conditions",
+                  "name": "persistent poison damage",
+                  "type": "link"
+                }
+              ],
+              "name": "Bone Powder",
+              "subtype": "ability",
+              "text": "**Source** When the skeleton takes physical damage from a critical hit, one of its bones is pulverized into a fine powder. All creatures in a 5-foot emanation that breathe take 1d6 persistent poison damage (plus an additional 1d6 for every 6 levels the skeleton has).",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "name": "Skeleton of Roses",
+              "subtype": "ability",
+              "text": "Thick briars have grown through the skeleton's bones, covering it in red roses with inch-long thorns. The skeleton's unarmed melee Strikes deal additional piercing damage equal to 1/3 the skeleton's level (minimum 1 damage). At the end of each of its turns, if the skeleton has caused piercing damage with its thorns, it regains HP equal to its level (minimum 1). Each time the skeleton regains HP in this way, another rose blossoms.",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "fire",
+              "aonid": 72,
+              "game-obj": "Traits",
+              "name": "fire",
+              "type": "link"
+            },
+            {
+              "alt": "cold",
+              "aonid": 27,
+              "game-obj": "Traits",
+              "name": "cold",
+              "type": "link"
+            },
+            {
+              "alt": "persistent fire damage",
+              "aonid": 29,
+              "game-obj": "Conditions",
+              "name": "persistent fire damage",
+              "type": "link"
+            },
+            {
+              "alt": "persistent poison damage",
+              "aonid": 29,
+              "game-obj": "Conditions",
+              "name": "persistent poison damage",
+              "type": "link"
+            }
+          ],
+          "name": "Bestiary 3",
+          "sources": [
+            {
+              "link": {
+                "alt": "Bestiary pg. 298",
+                "aonid": 2,
+                "game-obj": "Sources",
+                "name": "Bestiary pg. 298",
+                "type": "link"
+              },
+              "name": "Bestiary",
+              "page": 298,
+              "type": "source"
+            }
+          ],
+          "text": "**Blaze** The skeleton is wreathed with fire, which doesn't consume its bones or gear. The skeleton gains immunity to fire and weakness 5 to cold, loses its resistance to cold, and its Strikes deal additional persistent fire damage equal to half the skeleton's level (minimum 1 damage).  \n  \n**Bone Missile** [##] The skeleton yanks a rib from its ribcage to use as an arrow or javelin. The skeleton loses HP equal to its level (minimum 1), then makes a ranged Strike. This uses the attack bonus of whichever of the skeleton's other Strikes has the highest attack bonus and deals piercing damage equal to that Strike's damage plus the skeleton's level (minimum 1).  \n  \n**Bone Powder** **Source** When the skeleton takes physical damage from a critical hit, one of its bones is pulverized into a fine powder. All creatures in a 5-foot emanation that breathe take 1d6 persistent poison damage (plus an additional 1d6 for every 6 levels the skeleton has).   \n  \n**Skeleton of Roses** Thick briars have grown through the skeleton's bones, covering it in red roses with inch-long thorns. The skeleton's unarmed melee Strikes deal additional piercing damage equal to 1/3 the skeleton's level (minimum 1 damage). At the end of each of its turns, if the skeleton has caused piercing damage with its thorns, it regains HP equal to its level (minimum 1). Each time the skeleton regains HP in this way, another rose blossoms.",
+          "type": "section"
+        },
+        {
+          "abilities": [
+            {
+              "ability_category": "special_sense",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "aquatic",
+                  "aonid": 168,
+                  "game-obj": "Traits",
+                  "name": "aquatic",
+                  "type": "link"
+                },
+                {
+                  "alt": "aquatic ambush",
+                  "aonid": 2,
+                  "game-obj": "MonsterAbilities",
+                  "name": "aquatic ambush",
+                  "type": "link"
+                }
+              ],
+              "name": "Aquatic Bones",
+              "subtype": "ability",
+              "text": "The skeleton has bones from aquatic creatures, allowing it to swim using a simple tail, paddles, or similar appendage. The skeleton has a swim Speed of 20 feet and gains the aquatic trait and the aquatic ambush ability.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Three Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "damage": [
+                {
+                  "damage_type": "slashing",
+                  "formula": "1d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "effect": "The skeleton transforms into a cyclone of bones, taking up the same space, but twice as tall. It then Strides up to double its Speed. It can move through spaces occupied by other creatures, and this movement doesn't trigger reactions. Creatures the bone storm moves through take 1d6 slashing damage for every 2 levels of the skeleton, with a basic Reflex save against the hard DC for the creature's level. A level 1 or lower skeleton only moves; it doesn't deal damage. A creature attempts this save only once even if the bone storm moved through its space multiple times. At the end of the movement, the skeleton reforms.",
+              "frequency": "once per day",
+              "links": [
+                {
+                  "alt": "basic",
+                  "aonid": 329,
+                  "game-obj": "Rules",
+                  "name": "basic",
+                  "type": "link"
+                },
+                {
+                  "alt": "hard DC for the creature's level",
+                  "aonid": 554,
+                  "game-obj": "Rules",
+                  "name": "hard DC for the creature's level",
+                  "type": "link"
+                }
+              ],
+              "name": "Bone Storm",
+              "subtype": "ability",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "special_sense",
+              "ability_type": "ability",
+              "name": "Crumbling Bones",
+              "subtype": "ability",
+              "text": "The skeleton is made from crumbling bones that drift in clouds of dust. The skeleton has a fly Speed of 20 but it must end its turn within no more than 5 feet off the ground, or it falls, taking damage as normal. In addition, the skeleton can move through any space that's large enough for its skull to fit through.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "cold",
+                  "aonid": 27,
+                  "game-obj": "Traits",
+                  "name": "cold",
+                  "type": "link"
+                },
+                {
+                  "alt": "fire",
+                  "aonid": 72,
+                  "game-obj": "Traits",
+                  "name": "fire",
+                  "type": "link"
+                },
+                {
+                  "alt": "basic",
+                  "aonid": 329,
+                  "game-obj": "Rules",
+                  "name": "basic",
+                  "type": "link"
+                },
+                {
+                  "alt": "standard DC for its level",
+                  "aonid": 554,
+                  "game-obj": "Rules",
+                  "name": "standard DC for its level",
+                  "type": "link"
+                }
+              ],
+              "name": "Frozen",
+              "subtype": "ability",
+              "text": "The skeleton's bones are covered in a thin layer of ice. The skeleton gains immunity to cold and weakness 5 to fire and loses resistance to fire. The skeleton is surrounded by an aura of cold that deals cold damage equal to half the skeleton's level to all adjacent creatures at the start of the skeleton's turn (basic Reflex save with a standard DC for its level).",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "offensive",
+              "ability_type": "ability",
+              "action_type": {
+                "name": "Two Actions",
+                "subtype": "action_type",
+                "type": "stat_block_section"
+              },
+              "effect": "The skeleton erupts from the ground, Stands, and makes a melee Strike. The target is flat-footed against this Strike. If the Strike hits, the target is frightened 1 (or frightened 2 on a critical hit).",
+              "links": [
+                {
+                  "alt": "undetected",
+                  "aonid": 39,
+                  "game-obj": "Conditions",
+                  "name": "undetected",
+                  "type": "link"
+                },
+                {
+                  "alt": "flat-footed",
+                  "aonid": 16,
+                  "game-obj": "Conditions",
+                  "name": "flat-footed",
+                  "type": "link"
+                },
+                {
+                  "alt": "frightened 1",
+                  "aonid": 19,
+                  "game-obj": "Conditions",
+                  "name": "frightened 1",
+                  "type": "link"
+                }
+              ],
+              "name": "Grave Eruption",
+              "requirement": "The skeleton is undetected and buried in dirt, gravel, or other loose material",
+              "subtype": "ability",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "hp_automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "acid",
+                  "aonid": 3,
+                  "game-obj": "Traits",
+                  "name": "acid",
+                  "type": "link"
+                }
+              ],
+              "name": "Lacquered",
+              "subtype": "ability",
+              "text": "During the process to create the skeleton, it was covered with several layers of an alchemical lacquer, giving its bones a golden hue and granting added protection. The skeleton gains acid resistance 5 and a +2 status bonus to saves against effects that age or erode the target.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "reactive",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "Nimble Dodge",
+                  "aonid": 550,
+                  "game-obj": "Feats",
+                  "name": "Nimble Dodge",
+                  "type": "link"
+                }
+              ],
+              "name": "Nimble",
+              "subtype": "ability",
+              "text": "The skeleton is particularly fast and nimble. Its land Speed increases by 10 feet and it has a climb Speed of 20 feet. In addition, it gains the Nimble Dodge reaction.",
+              "type": "stat_block_section"
+            },
+            {
+              "ability_category": "automatic",
+              "ability_type": "ability",
+              "links": [
+                {
+                  "alt": "standard DC of the skeleton's level",
+                  "aonid": 554,
+                  "game-obj": "Rules",
+                  "name": "standard DC of the skeleton's level",
+                  "type": "link"
+                },
+                {
+                  "alt": "sickened 1",
+                  "aonid": 34,
+                  "game-obj": "Conditions",
+                  "name": "sickened 1",
+                  "type": "link"
+                },
+                {
+                  "alt": "slowed 1",
+                  "aonid": 35,
+                  "game-obj": "Conditions",
+                  "name": "slowed 1",
+                  "type": "link"
+                },
+                {
+                  "alt": "disease",
+                  "aonid": 46,
+                  "game-obj": "Traits",
+                  "name": "disease",
+                  "type": "link"
+                }
+              ],
+              "name": "Rotten",
+              "subtype": "ability",
+              "text": "The bones of this skeleton are black and rotten, having spent years in polluted water or some other foul substance. The skeleton loses its resistance to piercing and slashing damage and is surrounded by a horrific stench in a 10-foot aura. A creature entering or starting its turn in the aura must succeed at a Fortitude save against the standard DC of the skeleton's level or become sickened 1 (plus slowed 1 for as long as it remains sickened on a critical failure). While within the aura, affected creatures take a \u20132 circumstance penalty to saves against disease and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute.",
+              "type": "stat_block_section"
+            }
+          ],
+          "links": [
+            {
+              "alt": "aquatic",
+              "aonid": 168,
+              "game-obj": "Traits",
+              "name": "aquatic",
+              "type": "link"
+            },
+            {
+              "alt": "aquatic ambush",
+              "aonid": 2,
+              "game-obj": "MonsterAbilities",
+              "name": "aquatic ambush",
+              "type": "link"
+            },
+            {
+              "alt": "basic",
+              "aonid": 329,
+              "game-obj": "Rules",
+              "name": "basic",
+              "type": "link"
+            },
+            {
+              "alt": "hard DC for the creature's level",
+              "aonid": 554,
+              "game-obj": "Rules",
+              "name": "hard DC for the creature's level",
+              "type": "link"
+            },
+            {
+              "alt": "cold",
+              "aonid": 27,
+              "game-obj": "Traits",
+              "name": "cold",
+              "type": "link"
+            },
+            {
+              "alt": "fire",
+              "aonid": 72,
+              "game-obj": "Traits",
+              "name": "fire",
+              "type": "link"
+            },
+            {
+              "alt": "basic",
+              "aonid": 329,
+              "game-obj": "Rules",
+              "name": "basic",
+              "type": "link"
+            },
+            {
+              "alt": "standard DC for its level",
+              "aonid": 554,
+              "game-obj": "Rules",
+              "name": "standard DC for its level",
+              "type": "link"
+            },
+            {
+              "alt": "undetected",
+              "aonid": 39,
+              "game-obj": "Conditions",
+              "name": "undetected",
+              "type": "link"
+            },
+            {
+              "alt": "flat-footed",
+              "aonid": 16,
+              "game-obj": "Conditions",
+              "name": "flat-footed",
+              "type": "link"
+            },
+            {
+              "alt": "frightened 1",
+              "aonid": 19,
+              "game-obj": "Conditions",
+              "name": "frightened 1",
+              "type": "link"
+            },
+            {
+              "alt": "acid",
+              "aonid": 3,
+              "game-obj": "Traits",
+              "name": "acid",
+              "type": "link"
+            },
+            {
+              "alt": "Nimble Dodge",
+              "aonid": 550,
+              "game-obj": "Feats",
+              "name": "Nimble Dodge",
+              "type": "link"
+            },
+            {
+              "alt": "standard DC of the skeleton's level",
+              "aonid": 554,
+              "game-obj": "Rules",
+              "name": "standard DC of the skeleton's level",
+              "type": "link"
+            },
+            {
+              "alt": "sickened 1",
+              "aonid": 34,
+              "game-obj": "Conditions",
+              "name": "sickened 1",
+              "type": "link"
+            },
+            {
+              "alt": "slowed 1",
+              "aonid": 35,
+              "game-obj": "Conditions",
+              "name": "slowed 1",
+              "type": "link"
+            },
+            {
+              "alt": "disease",
+              "aonid": 46,
+              "game-obj": "Traits",
+              "name": "disease",
+              "type": "link"
+            }
+          ],
+          "name": "Book of the Dead",
+          "sources": [
+            {
+              "link": {
+                "alt": "Bestiary pg. 298",
+                "aonid": 2,
+                "game-obj": "Sources",
+                "name": "Bestiary pg. 298",
+                "type": "link"
+              },
+              "name": "Bestiary",
+              "page": 298,
+              "type": "source"
+            }
+          ],
+          "text": "**Aquatic Bones** The skeleton has bones from aquatic creatures, allowing it to swim using a simple tail, paddles, or similar appendage. The skeleton has a swim Speed of 20 feet and gains the aquatic trait and the aquatic ambush ability.  \n  \n**Bone Storm** [###] **Frequency** once per day; **Effect** The skeleton transforms into a cyclone of bones, taking up the same space, but twice as tall. It then Strides up to double its Speed. It can move through spaces occupied by other creatures, and this movement doesn't trigger reactions. Creatures the bone storm moves through take 1d6 slashing damage for every 2 levels of the skeleton, with a basic Reflex save against the hard DC for the creature's level. A level 1 or lower skeleton only moves; it doesn't deal damage. A creature attempts this save only once even if the bone storm moved through its space multiple times. At the end of the movement, the skeleton reforms.  \n  \n**Crumbling Bones** The skeleton is made from crumbling bones that drift in clouds of dust. The skeleton has a fly Speed of 20 but it must end its turn within no more than 5 feet off the ground, or it falls, taking damage as normal. In addition, the skeleton can move through any space that's large enough for its skull to fit through.  \n  \n**Frozen** The skeleton's bones are covered in a thin layer of ice. The skeleton gains immunity to cold and weakness 5 to fire and loses resistance to fire. The skeleton is surrounded by an aura of cold that deals cold damage equal to half the skeleton's level to all adjacent creatures at the start of the skeleton's turn (basic Reflex save with a standard DC for its level).  \n  \n**Grave Eruption** [##] **Requirements** The skeleton is undetected and buried in dirt, gravel, or other loose material; **Effect** The skeleton erupts from the ground, Stands, and makes a melee Strike. The target is flat-footed against this Strike. If the Strike hits, the target is frightened 1 (or frightened 2 on a critical hit).  \n  \n**Lacquered** During the process to create the skeleton, it was covered with several layers of an alchemical lacquer, giving its bones a golden hue and granting added protection. The skeleton gains acid resistance 5 and a +2 status bonus to saves against effects that age or erode the target.  \n  \n**Nimble** The skeleton is particularly fast and nimble. Its land Speed increases by 10 feet and it has a climb Speed of 20 feet. In addition, it gains the Nimble Dodge reaction.  \n  \n**Rotten** The bones of this skeleton are black and rotten, having spent years in polluted water or some other foul substance. The skeleton loses its resistance to piercing and slashing damage and is surrounded by a horrific stench in a 10-foot aura. A creature entering or starting its turn in the aura must succeed at a Fortitude save against the standard DC of the skeleton's level or become sickened 1 (plus slowed 1 for as long as it remains sickened on a critical failure). While within the aura, affected creatures take a \u20132 circumstance penalty to saves against disease and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute.  \n This stench remains for 1 hour after the rotten skeleton has been destroyed unless the bones are burned, or the rot is washed away with at least 1 gallon of water.",
+          "type": "section"
+        },
         {
           "name": "Creating Skeletons",
           "sources": [

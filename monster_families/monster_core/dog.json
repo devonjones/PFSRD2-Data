@@ -59,86 +59,35 @@
       {
         "changes": [
           {
-            "abilities": [
-              {
-                "ability_category": "offensive",
-                "ability_type": "affliction",
-                "links": [
-                  {
-                    "alt": "sickened 1",
-                    "aonid": 91,
-                    "game-obj": "Conditions",
-                    "name": "sickened 1",
-                    "type": "link"
-                  },
-                  {
-                    "alt": "confused",
-                    "aonid": 63,
-                    "game-obj": "Conditions",
-                    "name": "confused",
-                    "type": "link"
-                  }
-                ],
-                "name": "Rabies",
-                "saving_throw": [
-                  {
-                    "dc": 17,
-                    "save_type": "Fort",
-                    "subtype": "save_dc",
-                    "text": "DC 17 Fortitude",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "stages": [
-                  {
-                    "name": "Stage 1",
-                    "subtype": "affliction_stage",
-                    "text": "sickened 1 (1 day)",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "name": "Stage 2",
-                    "subtype": "affliction_stage",
-                    "text": "sickened 2 (1 day)",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "name": "Stage 3",
-                    "subtype": "affliction_stage",
-                    "text": "confused (1 day)",
-                    "type": "stat_block_section"
-                  },
-                  {
-                    "name": "Stage 4",
-                    "subtype": "affliction_stage",
-                    "text": "dead.",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "subtype": "ability",
-                "traits": [
-                  {
-                    "link": {
-                      "alt": "disease",
-                      "aonid": 578,
-                      "game-obj": "Traits",
-                      "name": "disease",
-                      "type": "link"
-                    },
-                    "name": "disease",
-                    "subtype": "trait",
-                    "type": "stat_block_section"
-                  }
-                ],
-                "type": "stat_block_section"
-              }
-            ],
             "change_category": "abilities",
             "effects": [
               {
                 "operation": "add_items",
-                "source": "$.monster_family.subtypes[*].changes[*].abilities",
+                "source": "$.sections[?(@.name=='Rabies')].abilities",
                 "target": "$.defense.automatic_abilities"
+              }
+            ],
+            "links": [
+              {
+                "alt": "disease",
+                "aonid": 578,
+                "game-obj": "Traits",
+                "name": "disease",
+                "type": "link"
+              },
+              {
+                "alt": "sickened 1",
+                "aonid": 91,
+                "game-obj": "Conditions",
+                "name": "sickened 1",
+                "type": "link"
+              },
+              {
+                "alt": "confused",
+                "aonid": 63,
+                "game-obj": "Conditions",
+                "name": "confused",
+                "type": "link"
               }
             ],
             "subtype": "change",
@@ -148,7 +97,6 @@
         ],
         "name": "Rabies",
         "subtype": "monster_family",
-        "text": "Many societies adore dogs and value them for their loyalty as pets. For such pet owners, there's perhaps no affliction more horrible than rabies. While many animals can be stricken with this debilitating illness, the idea of a loyal family pet growing feral and violent makes it all the more feared.",
         "type": "stat_block_section"
       }
     ],
@@ -156,6 +104,131 @@
   },
   "name": "Dog",
   "schema_version": 1.0,
+  "sections": [
+    {
+      "abilities": [
+        {
+          "ability_category": "offensive",
+          "ability_type": "affliction",
+          "links": [
+            {
+              "alt": "sickened 1",
+              "aonid": 91,
+              "game-obj": "Conditions",
+              "name": "sickened 1",
+              "type": "link"
+            },
+            {
+              "alt": "confused",
+              "aonid": 63,
+              "game-obj": "Conditions",
+              "name": "confused",
+              "type": "link"
+            }
+          ],
+          "name": "Rabies",
+          "saving_throw": [
+            {
+              "dc": 17,
+              "save_type": "Fort",
+              "subtype": "save_dc",
+              "text": "DC 17 Fortitude",
+              "type": "stat_block_section"
+            }
+          ],
+          "stages": [
+            {
+              "name": "Stage 1",
+              "subtype": "affliction_stage",
+              "text": "sickened 1 (1 day)",
+              "type": "stat_block_section"
+            },
+            {
+              "name": "Stage 2",
+              "subtype": "affliction_stage",
+              "text": "sickened 2 (1 day)",
+              "type": "stat_block_section"
+            },
+            {
+              "name": "Stage 3",
+              "subtype": "affliction_stage",
+              "text": "confused (1 day)",
+              "type": "stat_block_section"
+            },
+            {
+              "name": "Stage 4",
+              "subtype": "affliction_stage",
+              "text": "dead.",
+              "type": "stat_block_section"
+            }
+          ],
+          "subtype": "ability",
+          "traits": [
+            {
+              "link": {
+                "alt": "disease",
+                "aonid": 578,
+                "game-obj": "Traits",
+                "name": "disease",
+                "type": "link"
+              },
+              "name": "disease",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            }
+          ],
+          "type": "stat_block_section"
+        }
+      ],
+      "links": [
+        {
+          "alt": "disease",
+          "aonid": 578,
+          "game-obj": "Traits",
+          "name": "disease",
+          "type": "link"
+        },
+        {
+          "alt": "sickened 1",
+          "aonid": 91,
+          "game-obj": "Conditions",
+          "name": "sickened 1",
+          "type": "link"
+        },
+        {
+          "alt": "confused",
+          "aonid": 63,
+          "game-obj": "Conditions",
+          "name": "confused",
+          "type": "link"
+        }
+      ],
+      "name": "Rabies",
+      "sources": [
+        {
+          "errata": {
+            "alt": "1.1",
+            "aonid": 221,
+            "game-obj": "Sources",
+            "name": "1.1",
+            "type": "link"
+          },
+          "link": {
+            "alt": "Monster Core pg. 102",
+            "aonid": 221,
+            "game-obj": "Sources",
+            "name": "Monster Core pg. 102",
+            "type": "link"
+          },
+          "name": "Monster Core",
+          "page": 102,
+          "type": "source"
+        }
+      ],
+      "text": "Many societies adore dogs and value them for their loyalty as pets. For such pet owners, there's perhaps no affliction more horrible than rabies. While many animals can be stricken with this debilitating illness, the idea of a loyal family pet growing feral and violent makes it all the more feared.  \n  \n**Rabies** (disease) **Saving Throw** DC 17 Fortitude; **Stage 1** sickened 1 (1 day); **Stage 2** sickened 2 (1 day); **Stage 3** confused (1 day); **Stage 4** dead.",
+      "type": "section"
+    }
+  ],
   "sources": [
     {
       "errata": {
