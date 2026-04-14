@@ -405,8 +405,23 @@
         "effects": [
           {
             "operation": "add_items",
-            "source": "$.changes[*].abilities",
-            "target": "$.defense.automatic_abilities"
+            "source": "$.changes[*].abilities[?(@.name=='Darkvision')]",
+            "target": "$.senses.special_senses"
+          },
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities[?(@.name=='Negative Healing')]",
+            "target": "$.defense.hitpoints[*].automatic_abilities"
+          },
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities[?(@.name=='Paralysis')]",
+            "target": "$.offense.offensive_actions"
+          },
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities[?(@.name=='Swift Leap')]",
+            "target": "$.offense.offensive_actions"
           }
         ],
         "links": [

@@ -372,8 +372,18 @@
         "effects": [
           {
             "operation": "add_items",
-            "source": "$.changes[*].abilities",
-            "target": "$.defense.automatic_abilities"
+            "source": "$.changes[*].abilities[?(@.name=='Darkvision')]",
+            "target": "$.senses.special_senses"
+          },
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities[?(@.name=='Negative Healing')]",
+            "target": "$.defense.hitpoints[*].automatic_abilities"
+          },
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities[?(@.name=='Drain Life')]",
+            "target": "$.offense.offensive_actions"
           }
         ],
         "links": [

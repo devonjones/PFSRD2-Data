@@ -491,7 +491,17 @@
         "effects": [
           {
             "operation": "add_items",
-            "source": "$.changes[*].abilities",
+            "source": "$.changes[*].abilities[?(@.name=='Darkvision')]",
+            "target": "$.senses.special_senses"
+          },
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities[?(@.name=='Negative Healing')]",
+            "target": "$.defense.hitpoints[*].automatic_abilities"
+          },
+          {
+            "operation": "add_items",
+            "source": "$.changes[*].abilities[?(@.name=='Lesser Despair')]",
             "target": "$.defense.automatic_abilities"
           }
         ],
