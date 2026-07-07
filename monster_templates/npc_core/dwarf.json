@@ -186,17 +186,42 @@
         "type": "stat_block_section"
       },
       {
-        "change_category": "damage",
+        "change_category": "strikes",
         "effects": [
           {
             "item": {
-              "name": "Clan Dagger",
-              "subtype": "offensive_action",
+              "name": "clan dagger",
+              "subtype": "gear",
               "type": "stat_block_section"
             },
             "operation": "add_item",
-            "target": "$.offense.offensive_actions",
-            "value_from": "$.offense.offensive_actions[*].attack.damage | min"
+            "target": "$.gear"
+          },
+          {
+            "operation": "select",
+            "selection": {
+              "description": "Optionally, add a clan dagger melee Strike that deals damage equal to the creature's lowest melee Strike.",
+              "max": 1,
+              "min": 0,
+              "options": [
+                {
+                  "item": {
+                    "damage_type": "piercing",
+                    "traits": [
+                      "Agile",
+                      "Parry",
+                      "Versatile B"
+                    ],
+                    "weapon": "clan dagger"
+                  },
+                  "name": "Clan Dagger Strike",
+                  "operation": "add_strike",
+                  "target": "$.offense.offensive_actions"
+                }
+              ],
+              "type": "select"
+            },
+            "target": "$.offense.offensive_actions"
           }
         ],
         "links": [

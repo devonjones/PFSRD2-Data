@@ -374,13 +374,15 @@
         "effects": [
           {
             "item": {
-              "name": "Fangs",
-              "subtype": "offensive_action",
-              "type": "stat_block_section"
+              "damage_type": "piercing",
+              "skip_if_weapons": [
+                "jaws",
+                "fangs"
+              ],
+              "weapon": "fangs"
             },
-            "operation": "add_item",
-            "target": "$.offense.offensive_actions",
-            "value_from": "$.offense.offensive_actions[*].attack.damage | min"
+            "operation": "add_strike",
+            "target": "$.offense.offensive_actions"
           }
         ],
         "subtype": "change",
