@@ -1,4 +1,10 @@
 {
+  "alternate_link": {
+    "alternate_type": "legacy",
+    "aonid": 2,
+    "game-obj": "MonsterTemplates",
+    "type": "alternate_link"
+  },
   "aonid": 23,
   "edition": "remastered",
   "game-id": "1ac203c8b12b284e3082679d2a086dd0",
@@ -75,9 +81,48 @@
     ],
     "changes": [
       {
+        "change_category": "hit_points",
+        "effects": [
+          {
+            "conditional": "$.creature_type.level >= 1 && $.creature_type.level <= 2",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -10
+          },
+          {
+            "conditional": "$.creature_type.level >= 3 && $.creature_type.level <= 5",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -15
+          },
+          {
+            "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 20",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -20
+          },
+          {
+            "conditional": "$.creature_type.level >= 21",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": -30
+          }
+        ],
+        "subtype": "change",
+        "text": "- Decrease the creature\u2019s HP based on its starting level.",
+        "type": "stat_block_section"
+      },
+      {
         "change_category": "level",
         "effects": [
           {
+            "conditional": "$.creature_type.level == 1",
+            "operation": "adjustment",
+            "target": "$.creature_type.level",
+            "value": -2
+          },
+          {
+            "conditional": "default",
             "operation": "adjustment",
             "target": "$.creature_type.level",
             "value": -1
@@ -199,38 +244,6 @@
         ],
         "subtype": "change",
         "text": "- Decrease the damage of its Strikes and other offensive abilities by 2. If the creature has limits on how many times or how often it can use an ability (such as a spellcaster\u2019s spells or a dragon\u2019s breath), decrease the damage by 4 instead.",
-        "type": "stat_block_section"
-      },
-      {
-        "change_category": "hit_points",
-        "effects": [
-          {
-            "conditional": "$.creature_type.level >= 1 && $.creature_type.level <= 2",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": -10
-          },
-          {
-            "conditional": "$.creature_type.level >= 3 && $.creature_type.level <= 5",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": -15
-          },
-          {
-            "conditional": "$.creature_type.level >= 6 && $.creature_type.level <= 20",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": -20
-          },
-          {
-            "conditional": "$.creature_type.level >= 21",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": -30
-          }
-        ],
-        "subtype": "change",
-        "text": "- Decrease the creature\u2019s HP based on its starting level.",
         "type": "stat_block_section"
       }
     ],
