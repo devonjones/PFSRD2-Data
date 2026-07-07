@@ -75,6 +75,13 @@
         "effects": [
           {
             "item": {
+              "modifiers": [
+                {
+                  "name": "imprecise",
+                  "subtype": "modifier",
+                  "type": "stat_block_section"
+                }
+              ],
               "name": "tremorsense",
               "range": {
                 "range": 60,
@@ -141,6 +148,19 @@
         "change_category": "speed",
         "effects": [
           {
+            "conditional": "$.creature_type.level >= 8 && $.offense.speed.movement[?(@.movement_type=='burrow')].value == null",
+            "item": {
+              "movement_type": "burrow",
+              "name": "burrow 40 feet",
+              "subtype": "speed",
+              "type": "stat_block_section",
+              "value": 40
+            },
+            "operation": "add_item",
+            "target": "$.offense.speed.movement"
+          },
+          {
+            "conditional": "$.creature_type.level <= 7 && $.offense.speed.movement[?(@.movement_type=='burrow')].value == null",
             "item": {
               "movement_type": "burrow",
               "name": "burrow 20 feet",

@@ -87,8 +87,20 @@
             "target": "$.creature_type.creature_types"
           },
           {
-            "name": "Plant",
-            "operation": "add_item",
+            "operation": "select",
+            "selection": {
+              "description": "If the creature is a growing plant, you can also add the plant trait",
+              "max": 1,
+              "min": 0,
+              "options": [
+                {
+                  "name": "Plant",
+                  "operation": "add_item",
+                  "target": "$.creature_type.creature_types"
+                }
+              ],
+              "type": "select"
+            },
             "target": "$.creature_type.creature_types"
           }
         ],
@@ -177,7 +189,18 @@
           {
             "conditional": "$.creature_type.level <= 3",
             "item": {
-              "name": "to fire and to damage from axes depending on its level",
+              "name": "fire",
+              "subtype": "weakness",
+              "type": "stat_block_section",
+              "value": 3
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].weaknesses"
+          },
+          {
+            "conditional": "$.creature_type.level <= 3",
+            "item": {
+              "name": "axes",
               "subtype": "weakness",
               "type": "stat_block_section",
               "value": 3
@@ -188,7 +211,18 @@
           {
             "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
             "item": {
-              "name": "to fire and to damage from axes depending on its level",
+              "name": "fire",
+              "subtype": "weakness",
+              "type": "stat_block_section",
+              "value": 5
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].weaknesses"
+          },
+          {
+            "conditional": "$.creature_type.level >= 4 && $.creature_type.level <= 8",
+            "item": {
+              "name": "axes",
               "subtype": "weakness",
               "type": "stat_block_section",
               "value": 5
@@ -199,7 +233,18 @@
           {
             "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
             "item": {
-              "name": "to fire and to damage from axes depending on its level",
+              "name": "fire",
+              "subtype": "weakness",
+              "type": "stat_block_section",
+              "value": 10
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].weaknesses"
+          },
+          {
+            "conditional": "$.creature_type.level >= 9 && $.creature_type.level <= 13",
+            "item": {
+              "name": "axes",
               "subtype": "weakness",
               "type": "stat_block_section",
               "value": 10
@@ -210,7 +255,18 @@
           {
             "conditional": "$.creature_type.level >= 14",
             "item": {
-              "name": "to fire and to damage from axes depending on its level",
+              "name": "fire",
+              "subtype": "weakness",
+              "type": "stat_block_section",
+              "value": 15
+            },
+            "operation": "add_item",
+            "target": "$.defense.hitpoints[*].weaknesses"
+          },
+          {
+            "conditional": "$.creature_type.level >= 14",
+            "item": {
+              "name": "axes",
               "subtype": "weakness",
               "type": "stat_block_section",
               "value": 15
