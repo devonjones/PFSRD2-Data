@@ -51,6 +51,51 @@
     ],
     "changes": [
       {
+        "change_category": "hit_points",
+        "effects": [
+          {
+            "conditional": "$.creature_type.level <= 1",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 10
+          },
+          {
+            "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 4",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 15
+          },
+          {
+            "conditional": "$.creature_type.level >= 5 && $.creature_type.level <= 19",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 20
+          },
+          {
+            "conditional": "$.creature_type.level >= 20",
+            "operation": "adjustment",
+            "target": "$.defense.hitpoints[*].hp",
+            "value": 30
+          }
+        ],
+        "subtype": "change",
+        "text": "- Increase the creature's HP by the amount listed on the table.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "level",
+        "effects": [
+          {
+            "operation": "adjustment",
+            "target": "$.creature_type.level",
+            "value": 1
+          }
+        ],
+        "subtype": "change",
+        "text": "Increase the creature's level by 1 and change its statistics as follows.",
+        "type": "stat_block_section"
+      },
+      {
         "change_category": "combat_stats",
         "effects": [
           {
@@ -162,38 +207,6 @@
         ],
         "subtype": "change",
         "text": "- Increase the damage of Strikes and other offensive abilities by 1. If an ability can be used only a small number of times (such as a dragon's Breath Weapon), increase the damage by 2 instead.",
-        "type": "stat_block_section"
-      },
-      {
-        "change_category": "hit_points",
-        "effects": [
-          {
-            "conditional": "$.creature_type.level <= 1",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": 10
-          },
-          {
-            "conditional": "$.creature_type.level >= 2 && $.creature_type.level <= 4",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": 15
-          },
-          {
-            "conditional": "$.creature_type.level >= 5 && $.creature_type.level <= 19",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": 20
-          },
-          {
-            "conditional": "$.creature_type.level >= 20",
-            "operation": "adjustment",
-            "target": "$.defense.hitpoints[*].hp",
-            "value": 30
-          }
-        ],
-        "subtype": "change",
-        "text": "- Increase the creature's HP by the amount listed on the table.",
         "type": "stat_block_section"
       },
       {
