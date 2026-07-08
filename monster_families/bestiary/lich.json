@@ -72,6 +72,57 @@
     }
   ],
   "monster_family": {
+    "changes": [
+      {
+        "change_category": "level",
+        "effects": [
+          {
+            "operation": "adjustment",
+            "target": "$.creature_type.level",
+            "value": 1
+          }
+        ],
+        "subtype": "change",
+        "text": "Increase the spellcaster's level by 1 and change its statistics as follows.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "combat_stats",
+        "effects": [
+          {
+            "operation": "adjustment",
+            "target": "$.offense.offensive_actions[*].spells.spell_attack",
+            "value": 2
+          },
+          {
+            "operation": "adjustment",
+            "target": "$.offense.offensive_actions[*].spells.saving_throw.dc",
+            "value": 2
+          }
+        ],
+        "subtype": "change",
+        "text": "Increase spell DCs and spell attack roll by 2.",
+        "type": "stat_block_section"
+      },
+      {
+        "change_category": "traits",
+        "effects": [
+          {
+            "name": "Undead",
+            "operation": "add_item",
+            "target": "$.creature_type.creature_types"
+          }
+        ],
+        "subtype": "change",
+        "text": "A lich gains the undead trait and becomes evil.",
+        "type": "stat_block_section"
+      },
+      {
+        "subtype": "change",
+        "text": "Liches lose all abilities that come from being a living creature.",
+        "type": "stat_block_section"
+      }
+    ],
     "name": "Lich",
     "subtype": "monster_family",
     "subtypes": [
