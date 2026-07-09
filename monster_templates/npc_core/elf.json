@@ -227,9 +227,27 @@
         "effects": [
           {
             "conditional": "$.offense.speed.movement[?(@.movement_type=='walk')].value < 30",
-            "operation": "replace",
-            "target": "$.offense.speed.movement[?(@.movement_type=='walk')].value",
-            "value": 30
+            "operation": "select",
+            "selection": {
+              "description": "- Optionally change Speed to 30 feet if lower.",
+              "max": 1,
+              "min": 0,
+              "options": [
+                {
+                  "effects": [
+                    {
+                      "conditional": "$.offense.speed.movement[?(@.movement_type=='walk')].value < 30",
+                      "operation": "replace",
+                      "target": "$.offense.speed.movement[?(@.movement_type=='walk')].value",
+                      "value": 30
+                    }
+                  ],
+                  "name": "Speed 30 feet"
+                }
+              ],
+              "type": "select"
+            },
+            "target": "$.offense.speed.movement[?(@.movement_type=='walk')].value"
           }
         ],
         "subtype": "change",
