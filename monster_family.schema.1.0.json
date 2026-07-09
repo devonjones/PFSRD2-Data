@@ -556,6 +556,42 @@
       ],
       "type": "object"
     },
+    "equivalent_link": {
+      "additionalProperties": false,
+      "properties": {
+        "edition": {
+          "enum": [
+            "legacy",
+            "remastered"
+          ]
+        },
+        "entry_type": {
+          "enum": [
+            "monster_templates",
+            "monster_families"
+          ]
+        },
+        "game_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "equivalent_link"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "game_id",
+        "entry_type",
+        "name",
+        "edition"
+      ],
+      "type": "object"
+    },
     "image": {
       "additionalProperties": false,
       "properties": {
@@ -1344,6 +1380,9 @@
         "legacy",
         "remastered"
       ]
+    },
+    "equivalent_link": {
+      "$ref": "#/definitions/equivalent_link"
     },
     "game-id": {
       "type": "string"
