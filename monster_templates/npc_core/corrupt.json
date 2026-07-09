@@ -149,8 +149,26 @@
         "change_category": "abilities",
         "effects": [
           {
-            "operation": "add_items",
-            "source": "$.abilities[?(@.name=='Official Bully')]",
+            "operation": "select",
+            "selection": {
+              "action": "choose_skill",
+              "description": "- Choose an Intelligence-, Wisdom-, or Charisma-based skill that's thematically important to the creature's office, such as Legal Lore for a judge. The creature gains the official bully ability for that skill.",
+              "max": 1,
+              "min": 1,
+              "options": [
+                {
+                  "effects": [
+                    {
+                      "operation": "add_items",
+                      "source": "$.abilities[?(@.name=='Official Bully')]",
+                      "target": "$.interaction_abilities"
+                    }
+                  ],
+                  "name": "Official Bully"
+                }
+              ],
+              "type": "select"
+            },
             "target": "$.interaction_abilities"
           }
         ],
