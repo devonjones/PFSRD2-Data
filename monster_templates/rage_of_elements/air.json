@@ -140,7 +140,7 @@
         "change_category": "speed",
         "effects": [
           {
-            "conditional": "$.creature_type.level >= 8 && $.offense.speed.movement[?(@.movement_type=='fly')].value == null",
+            "conditional": "$.creature_type.level >= 8",
             "item": {
               "movement_type": "fly",
               "name": "fly 25 feet",
@@ -149,6 +149,35 @@
               "value": 25
             },
             "operation": "add_item",
+            "target": "$.offense.speed.movement"
+          },
+          {
+            "conditional": "$.creature_type.level <= 7",
+            "operation": "select",
+            "selection": {
+              "description": "Below 8th level you can give the creature this fly Speed if it either doesn't have ranged attacks or you remove its ranged attacks; use discretion.",
+              "max": 1,
+              "min": 0,
+              "options": [
+                {
+                  "effects": [
+                    {
+                      "item": {
+                        "movement_type": "fly",
+                        "name": "fly 25 feet",
+                        "subtype": "speed",
+                        "type": "stat_block_section",
+                        "value": 25
+                      },
+                      "operation": "add_item",
+                      "target": "$.offense.speed.movement"
+                    }
+                  ],
+                  "name": "fly Speed 25 feet"
+                }
+              ],
+              "type": "select"
+            },
             "target": "$.offense.speed.movement"
           }
         ],
