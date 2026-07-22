@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "blog_image",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "name", "image", "sha256", "bytes", "provenance", "license", "crawled_at"],
+  "properties": {
+    "type": {"const": "blog_image"},
+    "name": {"type": "string"},
+    "image": {"type": "string"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bytes": {"type": "integer", "minimum": 1},
+    "content_type": {"type": ["string", "null"]},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["post_slug", "post_url", "post_year", "image_url"],
+      "properties": {
+        "post_slug": {"type": "string"},
+        "post_url": {"type": "string"},
+        "post_title": {"type": ["string", "null"]},
+        "post_year": {"type": "integer"},
+        "post_tags": {"type": "array", "items": {"type": "string"}},
+        "image_url": {"type": "string"},
+        "raw_src": {"type": "string"},
+        "alt": {"type": ["string", "null"]},
+        "caption": {"type": ["string", "null"]},
+        "dates_seen": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "policy_url"],
+      "properties": {
+        "policy": {"type": "string"},
+        "policy_url": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "subject": {
+      "type": ["object", "null"],
+      "description": "Pass 2: what the image depicts + CUP eligibility"
+    },
+    "crawled_at": {"type": "string"}
+  }
+}
