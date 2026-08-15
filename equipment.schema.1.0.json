@@ -474,6 +474,12 @@
         "damage_type": {
           "type": "string"
         },
+        "dice_count": {
+          "type": "integer"
+        },
+        "die_size": {
+          "type": "integer"
+        },
         "formula": {
           "type": "string"
         },
@@ -1678,6 +1684,9 @@
             "property"
           ]
         },
+        "grants_property_slots": {
+          "type": "integer"
+        },
         "host": {
           "enum": [
             "weapon",
@@ -1729,7 +1738,7 @@
       ],
       "type": "object"
     },
-    "rune_effect_modifier": {
+    "rune_effect": {
       "additionalProperties": false,
       "properties": {
         "maximum": {
@@ -1740,19 +1749,9 @@
         },
         "operation": {
           "enum": [
-            "add_modifier"
-          ]
-        },
-        "subject": {
-          "enum": [
-            "property_rune_slots",
-            "weapon_damage_dice",
-            "attack",
-            "ac",
-            "save",
-            "hardness",
-            "hit_points",
-            "break_threshold"
+            "add_modifier",
+            "replace",
+            "adjustment"
           ]
         },
         "subtype": {
@@ -1760,48 +1759,8 @@
             "rune_effect"
           ]
         },
-        "type": {
-          "enum": [
-            "stat_block_section"
-          ]
-        }
-      },
-      "required": [
-        "type",
-        "subtype",
-        "operation",
-        "subject",
-        "modifier"
-      ],
-      "type": "object"
-    },
-    "rune_effect_set": {
-      "additionalProperties": false,
-      "properties": {
-        "maximum": {
-          "type": "integer"
-        },
-        "operation": {
-          "enum": [
-            "set"
-          ]
-        },
-        "subject": {
-          "enum": [
-            "property_rune_slots",
-            "weapon_damage_dice",
-            "attack",
-            "ac",
-            "save",
-            "hardness",
-            "hit_points",
-            "break_threshold"
-          ]
-        },
-        "subtype": {
-          "enum": [
-            "rune_effect"
-          ]
+        "target": {
+          "type": "string"
         },
         "type": {
           "enum": [
@@ -1816,22 +1775,14 @@
         "type",
         "subtype",
         "operation",
-        "subject",
-        "value"
+        "target"
       ],
       "type": "object"
     },
     "rune_effects": {
       "additionalItems": false,
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/rune_effect_set"
-          },
-          {
-            "$ref": "#/definitions/rune_effect_modifier"
-          }
-        ]
+        "$ref": "#/definitions/rune_effect"
       },
       "type": "array"
     },
