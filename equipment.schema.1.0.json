@@ -578,6 +578,7 @@
           "enum": [
             "armor",
             "dexterity",
+            "item",
             "shield"
           ]
         },
@@ -587,6 +588,11 @@
         "subtype": {
           "enum": [
             "ac",
+            "attack",
+            "break_threshold",
+            "hardness",
+            "hit_points",
+            "save",
             "skill",
             "speed"
           ]
@@ -810,6 +816,9 @@
         "destruction": {
           "type": "string"
         },
+        "effects": {
+          "$ref": "#/definitions/rune_effects"
+        },
         "image": {
           "$ref": "#/definitions/image"
         },
@@ -832,6 +841,12 @@
           },
           "type": "array"
         },
+        "material": {
+          "$ref": "#/definitions/material"
+        },
+        "material_use": {
+          "$ref": "#/definitions/material_use"
+        },
         "name": {
           "type": "string"
         },
@@ -843,6 +858,9 @@
         },
         "price": {
           "$ref": "#/definitions/price"
+        },
+        "rune": {
+          "$ref": "#/definitions/rune"
         },
         "save_results": {
           "$ref": "#/definitions/save_results"
@@ -1148,6 +1166,225 @@
       ],
       "type": "object"
     },
+    "material": {
+      "additionalProperties": false,
+      "properties": {
+        "grades": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/material_grade"
+          },
+          "type": "array"
+        },
+        "grants_traits": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "precious": {
+          "type": "boolean"
+        },
+        "statistics": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/material_statistics"
+          },
+          "type": "array"
+        },
+        "subtype": {
+          "enum": [
+            "material"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "precious",
+        "statistics"
+      ],
+      "type": "object"
+    },
+    "material_grade": {
+      "additionalProperties": false,
+      "properties": {
+        "grade": {
+          "enum": [
+            "low",
+            "standard",
+            "high"
+          ]
+        },
+        "max_item_level": {
+          "type": "integer"
+        },
+        "max_rune_level": {
+          "type": "integer"
+        },
+        "subtype": {
+          "enum": [
+            "material_grade"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "grade"
+      ],
+      "type": "object"
+    },
+    "material_statistics": {
+      "additionalProperties": false,
+      "properties": {
+        "break_threshold": {
+          "type": "integer"
+        },
+        "form": {
+          "enum": [
+            "thin",
+            "item",
+            "structure"
+          ]
+        },
+        "grade": {
+          "enum": [
+            "low",
+            "standard",
+            "high"
+          ]
+        },
+        "hardness": {
+          "type": "integer"
+        },
+        "hit_points": {
+          "type": "integer"
+        },
+        "subtype": {
+          "enum": [
+            "material_statistics"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "form",
+        "hardness",
+        "hit_points",
+        "break_threshold"
+      ],
+      "type": "object"
+    },
+    "material_use": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/material_use_variant"
+        },
+        {
+          "$ref": "#/definitions/material_use_page"
+        }
+      ]
+    },
+    "material_use_page": {
+      "additionalProperties": false,
+      "properties": {
+        "host": {
+          "enum": [
+            "armor",
+            "shield",
+            "weapon"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "material_use"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "host"
+      ],
+      "type": "object"
+    },
+    "material_use_variant": {
+      "additionalProperties": false,
+      "properties": {
+        "break_threshold": {
+          "type": "integer"
+        },
+        "grade": {
+          "enum": [
+            "low",
+            "standard",
+            "high"
+          ]
+        },
+        "hardness": {
+          "type": "integer"
+        },
+        "hit_points": {
+          "type": "integer"
+        },
+        "host": {
+          "enum": [
+            "armor",
+            "shield",
+            "weapon"
+          ]
+        },
+        "item_form": {
+          "enum": [
+            "armor",
+            "weapon",
+            "shield",
+            "buckler",
+            "tower shield"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "material_use"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "host",
+        "item_form",
+        "grade"
+      ],
+      "type": "object"
+    },
     "modifier": {
       "additionalProperties": false,
       "properties": {
@@ -1415,6 +1652,203 @@
         "subtype",
         "value",
         "unit"
+      ],
+      "type": "object"
+    },
+    "rune": {
+      "additionalProperties": false,
+      "properties": {
+        "conflicts_with": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "form": {
+          "enum": [
+            "fundamental",
+            "property"
+          ]
+        },
+        "host": {
+          "enum": [
+            "weapon",
+            "armor",
+            "shield",
+            "accessory"
+          ]
+        },
+        "needs_review": {
+          "type": "boolean"
+        },
+        "requires": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/rune_requirement"
+          },
+          "type": "array"
+        },
+        "slot": {
+          "enum": [
+            "weapon_potency",
+            "striking",
+            "armor_potency",
+            "resilient",
+            "reinforcing",
+            "property"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "rune"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        },
+        "usage_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "form",
+        "slot",
+        "host"
+      ],
+      "type": "object"
+    },
+    "rune_effect_modifier": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum": {
+          "type": "integer"
+        },
+        "modifier": {
+          "$ref": "#/definitions/bonus"
+        },
+        "operation": {
+          "enum": [
+            "add_modifier"
+          ]
+        },
+        "subject": {
+          "enum": [
+            "property_rune_slots",
+            "weapon_damage_dice",
+            "attack",
+            "ac",
+            "save",
+            "hardness",
+            "hit_points",
+            "break_threshold"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "rune_effect"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "operation",
+        "subject",
+        "modifier"
+      ],
+      "type": "object"
+    },
+    "rune_effect_set": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum": {
+          "type": "integer"
+        },
+        "operation": {
+          "enum": [
+            "set"
+          ]
+        },
+        "subject": {
+          "enum": [
+            "property_rune_slots",
+            "weapon_damage_dice",
+            "attack",
+            "ac",
+            "save",
+            "hardness",
+            "hit_points",
+            "break_threshold"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "rune_effect"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "operation",
+        "subject",
+        "value"
+      ],
+      "type": "object"
+    },
+    "rune_effects": {
+      "additionalItems": false,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/rune_effect_set"
+          },
+          {
+            "$ref": "#/definitions/rune_effect_modifier"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "rune_requirement": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "enum": [
+            "in"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "path",
+        "op",
+        "values"
       ],
       "type": "object"
     },
