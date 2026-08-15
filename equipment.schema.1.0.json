@@ -874,6 +874,14 @@
         "special": {
           "type": "string"
         },
+        "spell_rank": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "spell_slots": {
+          "$ref": "#/definitions/spell_slots"
+        },
         "statistics": {
           "$ref": "#/definitions/statistics"
         },
@@ -2123,6 +2131,138 @@
         "type",
         "subtype",
         "movement"
+      ],
+      "type": "object"
+    },
+    "spell_slot_entry": {
+      "additionalProperties": false,
+      "properties": {
+        "rank": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            },
+            {
+              "enum": [
+                "cantrip"
+              ]
+            }
+          ]
+        },
+        "spells": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/spell_slot_spell"
+          },
+          "type": "array"
+        },
+        "subtype": {
+          "enum": [
+            "spell_slot_entry"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "rank",
+        "spells"
+      ],
+      "type": "object"
+    },
+    "spell_slot_spell": {
+      "additionalProperties": false,
+      "properties": {
+        "aonid": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "subtype": {
+          "enum": [
+            "spell_slot_spell"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "name"
+      ],
+      "type": "object"
+    },
+    "spell_slots": {
+      "additionalProperties": false,
+      "properties": {
+        "cantrips_free": {
+          "type": "boolean"
+        },
+        "capacity": {
+          "type": "integer"
+        },
+        "constraint_text": {
+          "type": "string"
+        },
+        "cumulative": {
+          "type": "boolean"
+        },
+        "entries": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/spell_slot_entry"
+          },
+          "type": "array"
+        },
+        "excluded_spell_types": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "holder": {
+          "enum": [
+            "scroll",
+            "wand",
+            "staff"
+          ]
+        },
+        "max_rank": {
+          "type": "integer"
+        },
+        "spell": {
+          "$ref": "#/definitions/spell_slot_spell"
+        },
+        "subtype": {
+          "enum": [
+            "spell_slots"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "holder"
       ],
       "type": "object"
     },
