@@ -17,30 +17,55 @@
         "subtype": "ability",
         "trigger": "The lathe is jostled or damaged, or its trigger is remotely pulled.",
         "type": "stat_block_section"
-      },
+      }
+    ],
+    "ac": 30,
+    "attacks": [
       {
-        "ability_type": "ability",
         "action_type": {
           "name": "One Action",
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "links": [
+        "attack_type": "ranged",
+        "bonus": {
+          "bonuses": [
+            26
+          ],
+          "subtype": "attack_bonus",
+          "type": "stat_block_section"
+        },
+        "damage": [
           {
-            "alt": "persistent bleed damage",
-            "aonid": 29,
-            "game-obj": "Conditions",
-            "name": "persistent bleed damage",
-            "type": "link"
+            "damage_type": "slashing",
+            "formula": "2d8+12",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          },
+          {
+            "damage_type": "bleed",
+            "formula": "1d8",
+            "links": [
+              {
+                "alt": "persistent bleed",
+                "aonid": 29,
+                "game-obj": "Conditions",
+                "name": "persistent bleed",
+                "type": "link"
+              }
+            ],
+            "notes": "on a critical hit",
+            "persistent": true,
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
           }
         ],
         "name": "Ranged",
-        "subtype": "ability",
-        "text": "sharpened fragment +26, Damage 2d8+12 slashing plus 1d8 persistent bleed damage on a critical hit",
-        "type": "stat_block_section"
+        "subtype": "attack",
+        "type": "stat_block_section",
+        "weapon": "sharpened fragment"
       }
     ],
-    "ac": 30,
     "bt": 36,
     "complexity": "Complex",
     "description": "The powered lathe's springs have been critically overwound so that when jostled or triggered, the lathe unwinds violently, hurling blades, gears, and sharp shards of metal around the room.",
@@ -104,7 +129,14 @@
         "type": "source"
       }
     ],
-    "stealth": "+19 (expert); DC 29 to notice the line of cord running from the lathe's trigger toward the door to area A2.",
+    "stealth": {
+      "name": "Stealth",
+      "note": "DC 29 to notice the line of cord running from the lathe's trigger toward the door to area A2.",
+      "proficiency": "expert",
+      "subtype": "stealth",
+      "type": "stat_block_section",
+      "value": 19
+    },
     "subtype": "hazard",
     "traits": [
       {

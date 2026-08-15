@@ -17,9 +17,19 @@
         "subtype": "ability",
         "trigger": "A creature steps into the square with the snare tripwire",
         "type": "stat_block_section"
-      },
+      }
+    ],
+    "ac": 24,
+    "attacks": [
       {
-        "ability_type": "ability",
+        "attack_type": "melee",
+        "bonus": {
+          "bonuses": [
+            20
+          ],
+          "subtype": "attack_bonus",
+          "type": "stat_block_section"
+        },
         "damage": [
           {
             "damage_type": "slashing",
@@ -30,58 +40,92 @@
           {
             "damage_type": "bleed",
             "formula": "1d6",
+            "links": [
+              {
+                "alt": "persistent bleed",
+                "aonid": 29,
+                "game-obj": "Conditions",
+                "name": "persistent bleed",
+                "type": "link"
+              }
+            ],
             "persistent": true,
             "subtype": "attack_damage",
             "type": "stat_block_section"
           },
           {
             "effect": "the target is grabbed",
+            "links": [
+              {
+                "alt": "grabbed",
+                "aonid": 77,
+                "game-obj": "Conditions",
+                "name": "grabbed",
+                "type": "link"
+              }
+            ],
             "subtype": "attack_damage",
             "type": "stat_block_section"
           },
           {
             "effect": "pulled off the ground (Escape DC 26). The persistent bleed can't be stopped while the creature is grabbed.",
+            "links": [
+              {
+                "alt": "Escape",
+                "aonid": 2296,
+                "game-obj": "Actions",
+                "name": "Escape",
+                "type": "link"
+              }
+            ],
             "subtype": "attack_damage",
             "type": "stat_block_section"
           }
         ],
-        "links": [
+        "name": "Melee",
+        "subtype": "attack",
+        "traits": [
           {
-            "alt": "deadly d10",
-            "aonid": 570,
+            "alternate_link": {
+              "alternate_type": "legacy",
+              "aonid": 174,
+              "game-obj": "Traits",
+              "type": "alternate_link"
+            },
+            "edition": "remastered",
+            "game-id": "c0d76f25881949145ec6769d79ad49b5",
             "game-obj": "Traits",
-            "name": "deadly d10",
-            "type": "link"
-          },
-          {
-            "alt": "persistent bleed",
-            "aonid": 29,
-            "game-obj": "Conditions",
-            "name": "persistent bleed",
-            "type": "link"
-          },
-          {
-            "alt": "grabbed",
-            "aonid": 77,
-            "game-obj": "Conditions",
-            "name": "grabbed",
-            "type": "link"
-          },
-          {
-            "alt": "Escape",
-            "aonid": 2296,
-            "game-obj": "Actions",
-            "name": "Escape",
-            "type": "link"
+            "name": "Deadly",
+            "sources": [
+              {
+                "errata": {
+                  "alt": "2.0",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "2.0",
+                  "type": "link"
+                },
+                "link": {
+                  "alt": "Player Core pg. 282",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "Player Core pg. 282",
+                  "type": "link"
+                },
+                "name": "Player Core",
+                "page": 282,
+                "type": "source"
+              }
+            ],
+            "text": "On a critical hit, the weapon adds a weapon damage die of the listed size. Roll this after doubling the weapon\u2019s damage. This increases to two dice if the weapon has a _greater striking rune_ and three dice if the weapon has a _major striking rune_. For instance, a rapier with a _greater striking rune_ deals 2d8 extra piercing damage on a critical hit. An ability that changes the size of the weapon\u2019s normal damage dice doesn\u2019t change the size of its deadly die.",
+            "type": "trait",
+            "value": "d10"
           }
         ],
-        "name": "Melee",
-        "subtype": "ability",
-        "text": "snare +20 (deadly d10),",
-        "type": "stat_block_section"
+        "type": "stat_block_section",
+        "weapon": "snare"
       }
     ],
-    "ac": 24,
     "bt": 24,
     "complexity": "Simple",
     "description": "Slender razor wire snags a creature, hauling them up into the air while causing deep, bloody wounds.",
@@ -151,7 +195,13 @@
         "type": "source"
       }
     ],
-    "stealth": "DC 28 (expert)",
+    "stealth": {
+      "dc": 28,
+      "name": "Stealth",
+      "proficiency": "expert",
+      "subtype": "stealth",
+      "type": "stat_block_section"
+    },
     "subtype": "hazard",
     "traits": [
       {

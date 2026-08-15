@@ -17,9 +17,19 @@
         "subtype": "ability",
         "trigger": "A creature steps into the square with the snare tripwire",
         "type": "stat_block_section"
-      },
+      }
+    ],
+    "ac": 21,
+    "attacks": [
       {
-        "ability_type": "ability",
+        "attack_type": "melee",
+        "bonus": {
+          "bonuses": [
+            15
+          ],
+          "subtype": "attack_bonus",
+          "type": "stat_block_section"
+        },
         "damage": [
           {
             "damage_type": "slashing",
@@ -30,53 +40,54 @@
           {
             "damage_type": "bleed",
             "formula": "1d6",
+            "links": [
+              {
+                "alt": "persistent bleed",
+                "aonid": 86,
+                "game-obj": "Conditions",
+                "name": "persistent bleed",
+                "type": "link"
+              }
+            ],
             "persistent": true,
             "subtype": "attack_damage",
             "type": "stat_block_section"
           },
           {
             "effect": "the target is grabbed (Escape DC 23). On a critical hit, the target is also knocked prone.",
+            "links": [
+              {
+                "alt": "grabbed",
+                "aonid": 77,
+                "game-obj": "Conditions",
+                "name": "grabbed",
+                "type": "link"
+              },
+              {
+                "alt": "Escape",
+                "aonid": 2296,
+                "game-obj": "Actions",
+                "name": "Escape",
+                "type": "link"
+              },
+              {
+                "alt": "prone",
+                "aonid": 88,
+                "game-obj": "Conditions",
+                "name": "prone",
+                "type": "link"
+              }
+            ],
             "subtype": "attack_damage",
             "type": "stat_block_section"
           }
         ],
-        "links": [
-          {
-            "alt": "persistent bleed",
-            "aonid": 86,
-            "game-obj": "Conditions",
-            "name": "persistent bleed",
-            "type": "link"
-          },
-          {
-            "alt": "grabbed",
-            "aonid": 77,
-            "game-obj": "Conditions",
-            "name": "grabbed",
-            "type": "link"
-          },
-          {
-            "alt": "Escape",
-            "aonid": 2296,
-            "game-obj": "Actions",
-            "name": "Escape",
-            "type": "link"
-          },
-          {
-            "alt": "prone",
-            "aonid": 88,
-            "game-obj": "Conditions",
-            "name": "prone",
-            "type": "link"
-          }
-        ],
         "name": "Melee",
-        "subtype": "ability",
-        "text": "snare +15,",
-        "type": "stat_block_section"
+        "subtype": "attack",
+        "type": "stat_block_section",
+        "weapon": "snare"
       }
     ],
-    "ac": 21,
     "bt": 20,
     "complexity": "Simple",
     "description": "Slender razor wire snags a creature, yanking its feet to knock it down.",
@@ -146,7 +157,12 @@
         "type": "source"
       }
     ],
-    "stealth": "DC 25",
+    "stealth": {
+      "dc": 25,
+      "name": "Stealth",
+      "subtype": "stealth",
+      "type": "stat_block_section"
+    },
     "subtype": "hazard",
     "traits": [
       {
