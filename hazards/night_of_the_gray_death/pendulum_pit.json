@@ -20,49 +20,6 @@
       },
       {
         "ability_type": "ability",
-        "damage": [
-          {
-            "damage_type": "force",
-            "formula": "4d10+22",
-            "subtype": "attack_damage",
-            "type": "stat_block_section"
-          },
-          {
-            "effect": "pendulum shove; no multiple attack penalty",
-            "subtype": "attack_damage",
-            "type": "stat_block_section"
-          }
-        ],
-        "links": [
-          {
-            "alt": "fatal",
-            "aonid": 178,
-            "game-obj": "Traits",
-            "name": "fatal",
-            "type": "link"
-          },
-          {
-            "alt": "force",
-            "aonid": 75,
-            "game-obj": "Traits",
-            "name": "force",
-            "type": "link"
-          },
-          {
-            "alt": "magical",
-            "aonid": 103,
-            "game-obj": "Traits",
-            "name": "magical",
-            "type": "link"
-          }
-        ],
-        "name": "Melee",
-        "subtype": "ability",
-        "text": "pendulum blade +38 (fatal d12, force, magical),",
-        "type": "stat_block_section"
-      },
-      {
-        "ability_type": "ability",
         "links": [
           {
             "alt": "forced movement",
@@ -76,6 +33,143 @@
         "subtype": "ability",
         "text": "A creature hit by a pendulum blade must succeed at a DC 44 Refex save or be moved 5 feet along the line of the pendulum's swing. This is forced movement.",
         "type": "stat_block_section"
+      }
+    ],
+    "attacks": [
+      {
+        "attack_type": "melee",
+        "bonus": {
+          "bonuses": [
+            38
+          ],
+          "subtype": "attack_bonus",
+          "type": "stat_block_section"
+        },
+        "damage": [
+          {
+            "damage_type": "force",
+            "formula": "4d10+22",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          },
+          {
+            "effect": "pendulum shove; no multiple attack penalty",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          }
+        ],
+        "name": "Melee",
+        "subtype": "attack",
+        "traits": [
+          {
+            "alternate_link": {
+              "alternate_type": "legacy",
+              "aonid": 178,
+              "game-obj": "Traits",
+              "type": "alternate_link"
+            },
+            "edition": "remastered",
+            "game-id": "db3dcba30733bab63da3438275614311",
+            "game-obj": "Traits",
+            "name": "Fatal",
+            "sources": [
+              {
+                "errata": {
+                  "alt": "2.0",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "2.0",
+                  "type": "link"
+                },
+                "link": {
+                  "alt": "Player Core pg. 282",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "Player Core pg. 282",
+                  "type": "link"
+                },
+                "name": "Player Core",
+                "page": 282,
+                "type": "source"
+              }
+            ],
+            "text": "The fatal trait includes a die size. On a critical hit, the weapon\u2019s damage die increases to that die size instead of the normal die size, and the weapon adds one additional damage die of the listed size.",
+            "type": "trait",
+            "value": "d12"
+          },
+          {
+            "alternate_link": {
+              "alternate_type": "legacy",
+              "aonid": 75,
+              "game-obj": "Traits",
+              "type": "alternate_link"
+            },
+            "edition": "remastered",
+            "game-id": "6a7f58e477505403e58cc11dfbae82ee",
+            "game-obj": "Traits",
+            "name": "Force",
+            "sources": [
+              {
+                "errata": {
+                  "alt": "2.0",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "2.0",
+                  "type": "link"
+                },
+                "link": {
+                  "alt": "Player Core pg. 456",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "Player Core pg. 456",
+                  "type": "link"
+                },
+                "name": "Player Core",
+                "page": 456,
+                "type": "source"
+              }
+            ],
+            "text": "Effects with this trait deal force damage or create objects made of pure magical force.",
+            "type": "trait"
+          },
+          {
+            "alternate_link": {
+              "alternate_type": "legacy",
+              "aonid": 103,
+              "game-obj": "Traits",
+              "type": "alternate_link"
+            },
+            "edition": "remastered",
+            "game-id": "15e2d048ce93e7b648064b09972535bc",
+            "game-obj": "Traits",
+            "name": "Magical",
+            "sources": [
+              {
+                "errata": {
+                  "alt": "2.0",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "2.0",
+                  "type": "link"
+                },
+                "link": {
+                  "alt": "Player Core pg. 458",
+                  "aonid": 216,
+                  "game-obj": "Sources",
+                  "name": "Player Core pg. 458",
+                  "type": "link"
+                },
+                "name": "Player Core",
+                "page": 458,
+                "type": "source"
+              }
+            ],
+            "text": "Something with the magical trait is imbued with magical energies not tied to a specific tradition of magic. Some items or effects are closely tied to a particular tradition of magic. In these cases, the item has the arcane, divine, occult, or primal trait instead of the magical trait. Any of these traits indicate that the item is magical.",
+            "type": "trait"
+          }
+        ],
+        "type": "stat_block_section",
+        "weapon": "pendulum blade"
       }
     ],
     "complexity": "Complex",
@@ -129,7 +223,14 @@
         "type": "source"
       }
     ],
-    "stealth": "+36 (Legendary) to realize the chamber is a complex rotating trap before it triggers. No check is necessary to notice the platforms and the pit.",
+    "stealth": {
+      "name": "Stealth",
+      "note": "to realize the chamber is a complex rotating trap before it triggers. No check is necessary to notice the platforms and the pit.",
+      "proficiency": "legendary",
+      "subtype": "stealth",
+      "type": "stat_block_section",
+      "value": 36
+    },
     "subtype": "hazard",
     "traits": [
       {

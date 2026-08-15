@@ -26,38 +26,6 @@
       },
       {
         "ability_type": "ability",
-        "damage": [
-          {
-            "damage_type": "cold",
-            "formula": "2d6",
-            "subtype": "attack_damage",
-            "type": "stat_block_section"
-          },
-          {
-            "damage_type": "cold",
-            "formula": "1d4",
-            "notes": "no multiple attack penalty",
-            "persistent": true,
-            "subtype": "attack_damage",
-            "type": "stat_block_section"
-          }
-        ],
-        "links": [
-          {
-            "alt": "persistent cold",
-            "aonid": 29,
-            "game-obj": "Conditions",
-            "name": "persistent cold",
-            "type": "link"
-          }
-        ],
-        "name": "Ranged",
-        "subtype": "ability",
-        "text": "frost jet +20,",
-        "type": "stat_block_section"
-      },
-      {
-        "ability_type": "ability",
         "critical_failure": "As failure, and the creature becomes fatigued.",
         "critical_success": "The creature isn't affected and is immune to this frostbite effect for 24 hours.",
         "failure": "The creature can't stop shivering and becomes clumsy 1.",
@@ -69,6 +37,47 @@
       }
     ],
     "ac": 27,
+    "attacks": [
+      {
+        "attack_type": "ranged",
+        "bonus": {
+          "bonuses": [
+            20
+          ],
+          "subtype": "attack_bonus",
+          "type": "stat_block_section"
+        },
+        "damage": [
+          {
+            "damage_type": "cold",
+            "formula": "2d6",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          },
+          {
+            "damage_type": "cold",
+            "formula": "1d4",
+            "links": [
+              {
+                "alt": "persistent cold",
+                "aonid": 29,
+                "game-obj": "Conditions",
+                "name": "persistent cold",
+                "type": "link"
+              }
+            ],
+            "notes": "no multiple attack penalty",
+            "persistent": true,
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          }
+        ],
+        "name": "Ranged",
+        "subtype": "attack",
+        "type": "stat_block_section",
+        "weapon": "frost jet"
+      }
+    ],
     "bt": 28,
     "complexity": "Complex",
     "description": "The white brick floor radiates ice-cold air.",
@@ -148,7 +157,14 @@
         "type": "source"
       }
     ],
-    "stealth": "+16 (expert) or DC 31 (master) to notice the cold fog rising from the floor",
+    "stealth": {
+      "name": "Stealth",
+      "note": "or DC 31 (master) to notice the cold fog rising from the floor",
+      "proficiency": "expert",
+      "subtype": "stealth",
+      "type": "stat_block_section",
+      "value": 16
+    },
     "subtype": "hazard",
     "traits": [
       {

@@ -57,31 +57,6 @@
       },
       {
         "ability_type": "ability",
-        "action_type": {
-          "name": "One Action",
-          "subtype": "action_type",
-          "type": "stat_block_section"
-        },
-        "damage": [
-          {
-            "damage_type": "slashing",
-            "formula": "4d8+14",
-            "subtype": "attack_damage",
-            "type": "stat_block_section"
-          },
-          {
-            "effect": "grasping ropes",
-            "subtype": "attack_damage",
-            "type": "stat_block_section"
-          }
-        ],
-        "name": "Melee",
-        "subtype": "ability",
-        "text": "barbed rope +20,",
-        "type": "stat_block_section"
-      },
-      {
-        "ability_type": "ability",
         "critical_failure": "As failure, but the target is also immobilized.",
         "failure": "The target is flat-footed until it cuts the ropes or Escapes (DC 25).",
         "links": [
@@ -115,6 +90,40 @@
       }
     ],
     "ac": 22,
+    "attacks": [
+      {
+        "action_type": {
+          "name": "One Action",
+          "subtype": "action_type",
+          "type": "stat_block_section"
+        },
+        "attack_type": "melee",
+        "bonus": {
+          "bonuses": [
+            20
+          ],
+          "subtype": "attack_bonus",
+          "type": "stat_block_section"
+        },
+        "damage": [
+          {
+            "damage_type": "slashing",
+            "formula": "4d8+14",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          },
+          {
+            "effect": "grasping ropes",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          }
+        ],
+        "name": "Melee",
+        "subtype": "attack",
+        "type": "stat_block_section",
+        "weapon": "barbed rope"
+      }
+    ],
     "bt": 27,
     "complexity": "Simple",
     "description": "Dozens of ropes embedded with steel barbs spring out from the walls when at least two creatures step on the rugs.",
@@ -179,7 +188,14 @@
         "type": "source"
       }
     ],
-    "stealth": "DC 25 (expert) to notice the pressure plates under the rugs",
+    "stealth": {
+      "dc": 25,
+      "name": "Stealth",
+      "note": "to notice the pressure plates under the rugs",
+      "proficiency": "expert",
+      "subtype": "stealth",
+      "type": "stat_block_section"
+    },
     "subtype": "hazard",
     "traits": [
       {

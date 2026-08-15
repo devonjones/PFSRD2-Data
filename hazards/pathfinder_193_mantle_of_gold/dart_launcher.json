@@ -54,16 +54,40 @@
         ],
         "trigger": "Pressure is applied to the floor tile",
         "type": "stat_block_section"
-      },
-      {
-        "ability_type": "ability",
-        "name": "Ranged",
-        "subtype": "ability",
-        "text": "darts +12, Damage 3d4 piercing damage plus 1d10 poison damage (DC 16 Fortitude negates the poison damage)",
-        "type": "stat_block_section"
       }
     ],
     "ac": 16,
+    "attacks": [
+      {
+        "attack_type": "ranged",
+        "bonus": {
+          "bonuses": [
+            12
+          ],
+          "subtype": "attack_bonus",
+          "type": "stat_block_section"
+        },
+        "damage": [
+          {
+            "damage_type": "piercing",
+            "formula": "3d4",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          },
+          {
+            "damage_type": "poison",
+            "formula": "1d10",
+            "notes": "DC 16 Fortitude negates the poison damage",
+            "subtype": "attack_damage",
+            "type": "stat_block_section"
+          }
+        ],
+        "name": "Ranged",
+        "subtype": "attack",
+        "type": "stat_block_section",
+        "weapon": "darts"
+      }
+    ],
     "bt": 12,
     "complexity": "Simple",
     "description": "A series of hidden launch tubes fire toxic darts at a 5-foot square.",
@@ -126,7 +150,12 @@
         "type": "source"
       }
     ],
-    "stealth": "DC 20",
+    "stealth": {
+      "dc": 20,
+      "name": "Stealth",
+      "subtype": "stealth",
+      "type": "stat_block_section"
+    },
     "subtype": "hazard",
     "traits": [
       {
