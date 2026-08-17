@@ -12,10 +12,7 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 2d10+6 fire damage, is fatigued, and is blinded for 1 round.",
-        "critical_success": "The creature is unaffected.",
         "effect": "The charge on the door explodes. All creatures within 10 feet take 2d10+6 fire damage, 1d10+3 piercing damage, and 1d6 persistent bleed damage (DC 22 basic Reflex save). The room is filled with steam, making all creatures within the room concealed. The trap then rolls initiative.",
-        "failure": "The creature takes 2d10+6 fire damage and is blinded for 1 round.",
         "links": [
           {
             "alt": "persistent bleed damage",
@@ -37,25 +34,10 @@
             "game-obj": "Conditions",
             "name": "concealed",
             "type": "link"
-          },
-          {
-            "alt": "blinded",
-            "aonid": 1,
-            "game-obj": "Conditions",
-            "name": "blinded",
-            "type": "link"
-          },
-          {
-            "alt": "fatigued",
-            "aonid": 15,
-            "game-obj": "Conditions",
-            "name": "fatigued",
-            "type": "link"
           }
         ],
         "name": "Explosive Charge",
         "subtype": "ability",
-        "success": "The creature takes 1d10+3 fire damage.",
         "trigger": "The desk switch is pressed or the trapdoor is opened",
         "type": "stat_block_section"
       }
@@ -94,6 +76,20 @@
     "level": 7,
     "links": [
       {
+        "alt": "blinded",
+        "aonid": 1,
+        "game-obj": "Conditions",
+        "name": "blinded",
+        "type": "link"
+      },
+      {
+        "alt": "fatigued",
+        "aonid": 15,
+        "game-obj": "Conditions",
+        "name": "fatigued",
+        "type": "link"
+      },
+      {
         "alt": "Thievery",
         "aonid": 17,
         "game-obj": "Skills",
@@ -103,6 +99,55 @@
     ],
     "name": "Explosive Steam Trap",
     "routine": "(1 action) The trapdoor emits a jet of superheated steam. Each creature in the room must attempt a DC 28 Fortitude save.",
+    "routine_results": {
+      "critical_failure": "The creature takes 2d10+6 fire damage, is fatigued, and is blinded for 1 round.",
+      "critical_success": "The creature is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "fire",
+              "formula": "1d10+3",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "fire",
+              "formula": "2d10+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "fire",
+              "formula": "2d10+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 2d10+6 fire damage and is blinded for 1 round.",
+      "subtype": "routine_results",
+      "success": "The creature takes 1d10+3 fire damage.",
+      "type": "stat_block_section"
+    },
     "saves": [
       {
         "name": "Fort",

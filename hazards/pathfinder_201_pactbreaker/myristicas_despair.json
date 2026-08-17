@@ -12,36 +12,9 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 2d6 mental damage, plus 2d6 persistent mental damage. While taking this persistent damage, they are dazzled.",
-        "critical_success": "The creature is unaffected.",
         "effect": "The illusion fades, and a sorrowful chill emanates from the giant tree. The haunt rolls initiative.",
-        "failure": "The creature is dazzled for 1 round and takes 2d6 mental damage.",
-        "links": [
-          {
-            "alt": "dazzled",
-            "aonid": 65,
-            "game-obj": "Conditions",
-            "name": "dazzled",
-            "type": "link"
-          },
-          {
-            "alt": "persistent mental damage",
-            "aonid": 29,
-            "game-obj": "Conditions",
-            "name": "persistent mental damage",
-            "type": "link"
-          },
-          {
-            "alt": "dazzled",
-            "aonid": 65,
-            "game-obj": "Conditions",
-            "name": "dazzled",
-            "type": "link"
-          }
-        ],
         "name": "Awaken",
         "subtype": "ability",
-        "success": "The creature is unaffected.",
         "traits": [
           {
             "alternate_link": {
@@ -215,6 +188,27 @@
     "level": 5,
     "links": [
       {
+        "alt": "dazzled",
+        "aonid": 65,
+        "game-obj": "Conditions",
+        "name": "dazzled",
+        "type": "link"
+      },
+      {
+        "alt": "persistent mental damage",
+        "aonid": 29,
+        "game-obj": "Conditions",
+        "name": "persistent mental damage",
+        "type": "link"
+      },
+      {
+        "alt": "dazzled",
+        "aonid": 65,
+        "game-obj": "Conditions",
+        "name": "dazzled",
+        "type": "link"
+      },
+      {
         "alt": "Nature",
         "aonid": 43,
         "game-obj": "Skills",
@@ -267,6 +261,49 @@
     "name": "Myristica's Despair",
     "reset": "Unless Silene is destroyed, this haunt can recharge itself after 1 hour.",
     "routine": "(1 action; emotion, mental, primal) Myristica bemoans her grove's fate, overwhelming foes with sorrow. Each creature in the grove must attempt a DC 23 Will save.",
+    "routine_results": {
+      "critical_failure": "The creature takes 2d6 mental damage, plus 2d6 persistent mental damage. While taking this persistent damage, they are dazzled.",
+      "critical_success": "The creature is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "2d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "2d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            {
+              "damage_type": "mental",
+              "formula": "2d6",
+              "persistent": true,
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature is dazzled for 1 round and takes 2d6 mental damage.",
+      "subtype": "routine_results",
+      "success": "The creature is unaffected.",
+      "type": "stat_block_section"
+    },
     "saves": [
       {
         "name": "Fort",

@@ -12,10 +12,51 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 2d10+6 bleed damage and is enfeebled 2 as long as it\u2019s bleeding.",
+        "critical_failure": "The creature takes 2d8+6 negative damage and is blinded for 1 round then dazzled for 1 round.",
         "critical_success": "The creature is unaffected.",
+        "degree_effects": [
+          {
+            "damage": [
+              {
+                "damage_type": "negative",
+                "formula": "1d8",
+                "subtype": "attack_damage",
+                "type": "stat_block_section"
+              }
+            ],
+            "degree": "success",
+            "subtype": "degree_effect",
+            "type": "stat_block_section"
+          },
+          {
+            "damage": [
+              {
+                "damage_type": "negative",
+                "formula": "1d8+6",
+                "subtype": "attack_damage",
+                "type": "stat_block_section"
+              }
+            ],
+            "degree": "failure",
+            "subtype": "degree_effect",
+            "type": "stat_block_section"
+          },
+          {
+            "damage": [
+              {
+                "damage_type": "negative",
+                "formula": "2d8+6",
+                "subtype": "attack_damage",
+                "type": "stat_block_section"
+              }
+            ],
+            "degree": "critical_failure",
+            "subtype": "degree_effect",
+            "type": "stat_block_section"
+          }
+        ],
         "effect": "A ghastly image of Belcorra, seemingly composed of fresh blood, rises from the bloodstain on the floor and rotates in place like a lighthouse. Beams of cold blue light shine from Belcorra\u2019s eyes and open mouth, causing blisters and decay to spread across flesh. Living creatures within a 30-foot burst from the center of area A11 must attempt a DC 20 Fortitude save. The haunt then rolls initiative.",
-        "failure": "The creature takes 1d10+6 bleed damage.",
+        "failure": "The creature takes 1d8+6 negative damage and is dazzled for 1 round.",
         "links": [
           {
             "alt": "burst",
@@ -37,25 +78,11 @@
             "game-obj": "Conditions",
             "name": "blinded",
             "type": "link"
-          },
-          {
-            "alt": "bleed",
-            "aonid": 86,
-            "game-obj": "Conditions",
-            "name": "bleed",
-            "type": "link"
-          },
-          {
-            "alt": "enfeebled",
-            "aonid": 71,
-            "game-obj": "Conditions",
-            "name": "enfeebled",
-            "type": "link"
           }
         ],
         "name": "Gauntlight Beam",
         "subtype": "ability",
-        "success": "The creature takes 1d10 bleed damage.",
+        "success": "The creature takes 1d8 negative damage.",
         "traits": [
           {
             "alternate_link": {
@@ -166,6 +193,20 @@
     "level": 3,
     "links": [
       {
+        "alt": "bleed",
+        "aonid": 86,
+        "game-obj": "Conditions",
+        "name": "bleed",
+        "type": "link"
+      },
+      {
+        "alt": "enfeebled",
+        "aonid": 71,
+        "game-obj": "Conditions",
+        "name": "enfeebled",
+        "type": "link"
+      },
+      {
         "alt": "Thievery",
         "aonid": 17,
         "game-obj": "Skills",
@@ -226,6 +267,55 @@
       }
     ],
     "routine": "(1 action) The bloody image opens its mouth and appears to inhale, drawing blood from the body of one creature in its line of sight within 90 feet from the center of area A11. The creature targeted must attempt a DC 20 Fortitude save.",
+    "routine_results": {
+      "critical_failure": "The creature takes 2d10+6 bleed damage and is enfeebled 2 as long as it\u2019s bleeding.",
+      "critical_success": "The creature is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "bleed",
+              "formula": "1d10",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "bleed",
+              "formula": "1d10+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "bleed",
+              "formula": "2d10+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 1d10+6 bleed damage.",
+      "subtype": "routine_results",
+      "success": "The creature takes 1d10 bleed damage.",
+      "type": "stat_block_section"
+    },
     "saves": [
       {
         "name": "Fort",

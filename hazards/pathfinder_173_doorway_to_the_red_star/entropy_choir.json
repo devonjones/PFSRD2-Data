@@ -19,10 +19,7 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The target takes 15d6 sonic damage and increases their drained condition by 1, to a maximum of drained 4.",
-        "critical_success": "The target is unaffected.",
         "effect": "The eerie call of the entropy choir saps the will of living creatures. A living creature who fails a DC 36 Will save becomes slowed 1 as long as they remain in area A3. The entropy choir then rolls initiative.",
-        "failure": "The target takes 10d6 sonic damage.",
         "links": [
           {
             "alt": "slowed 1",
@@ -30,18 +27,10 @@
             "game-obj": "Conditions",
             "name": "slowed 1",
             "type": "link"
-          },
-          {
-            "alt": "drained",
-            "aonid": 10,
-            "game-obj": "Conditions",
-            "name": "drained",
-            "type": "link"
           }
         ],
         "name": "Call to Nothingness",
         "subtype": "ability",
-        "success": "The target takes 5d6 sonic damage.",
         "traits": [
           {
             "alternate_link": {
@@ -292,6 +281,13 @@
     "level": 15,
     "links": [
       {
+        "alt": "drained",
+        "aonid": 10,
+        "game-obj": "Conditions",
+        "name": "drained",
+        "type": "link"
+      },
+      {
         "alt": "Religion",
         "aonid": 13,
         "game-obj": "Skills",
@@ -351,6 +347,55 @@
     "name": "Entropy Choir",
     "reset": "The entropy choir resets automatically after 24 hours, even if it has been disabled or destroyed. It fades away forever once Dwandek and other members of the cult to which it sings its praises are destroyed.",
     "routine": "(3 actions; auditory, divine, evocation, sonic) The choir continues to sing its grim dirge every round until it is disabled or destroyed. If there are any non-slowed living creatures in area A3 when its turn starts, it first uses Call to Nothingness as a single action. It uses its remaining actions (or all three actions if there are slowed living creatures in the room already) to focus soul-shattering choruses onto individual targets. The choir can target any living creature in area A3 with an action, but never more than once per round per creature. It prefers to attack slowed creatures over all others, but it targets non-slowed creatures if they're the only viable targets. A targeted creature must attempt a DC 36 Fortitude save.",
+    "routine_results": {
+      "critical_failure": "The target takes 15d6 sonic damage and increases their drained condition by 1, to a maximum of drained 4.",
+      "critical_success": "The target is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "sonic",
+              "formula": "5d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "sonic",
+              "formula": "10d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "sonic",
+              "formula": "15d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The target takes 10d6 sonic damage.",
+      "subtype": "routine_results",
+      "success": "The target takes 5d6 sonic damage.",
+      "type": "stat_block_section"
+    },
     "saves": [
       {
         "name": "Fort",

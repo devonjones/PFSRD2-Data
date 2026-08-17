@@ -12,9 +12,9 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 3d10+18 mental damage from the cacophonous choir in their head and is knocked prone.",
-        "critical_success": "The creature is unaffected.",
-        "failure": "The creature takes 2d10+9 mental damage from the cacophonous choir in their head.",
+        "critical_failure": "The creature is knocked prone and immobilized for 1 round.",
+        "critical_success": "The creature is unaffected by the haunt and is temporarily immune to it for 24 hours.",
+        "failure": "The creature is knocked prone.",
         "links": [
           {
             "alt": "prone",
@@ -40,7 +40,7 @@
         ],
         "name": "Prostrate",
         "subtype": "ability",
-        "success": "The creature takes 1d10 mental damage from the cacophonous choir in their head.",
+        "success": "The creature feels pressed down by the weight\u2014 it takes a 10-foot penalty to all its speeds for as long as it remains in the room.",
         "text": "Trigger A creature moves more than 10 feet into the room. Effect A great weight settles on all creatures in area A4, and they must attempt a DC 25 Will save.",
         "traits": [
           {
@@ -344,6 +344,55 @@
     "name": "The Power of Faith",
     "reset": "The haunt deactivates as soon as no living creatures are in area A4, then resets after 1 hour has passed. It can be permanently destroyed by clearing the fortress of all creatures that don't follow Torag and rededicating it to the god with a consecrate ritual.",
     "routine": "(3 actions; divine, enchantment, mental) Ghostly images of chanting dwarves float through the room, drifting between the creatures in the chamber. As they float, they use their 3 actions to target up to three different creatures in the room, touching their brows and filling that person's head with overwhelming but entirely mental choirs exalting the glory of Torag. The haunt targets prone creatures before other creatures, and a single creature cannot be targeted more than once per round. A targeted creature must attempt a DC 25 Will save; prone creatures take a \u20132 penalty on this saving throw.",
+    "routine_results": {
+      "critical_failure": "The creature takes 3d10+18 mental damage from the cacophonous choir in their head and is knocked prone.",
+      "critical_success": "The creature is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "1d10",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "2d10+9",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "3d10+18",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 2d10+9 mental damage from the cacophonous choir in their head.",
+      "subtype": "routine_results",
+      "success": "The creature takes 1d10 mental damage from the cacophonous choir in their head.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

@@ -12,10 +12,7 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 4d6 negative damage and becomes fatigued.",
-        "critical_success": "The creature suffers no ill effect and is thereafter immune to the pit of toil's routine.",
         "effect": "The surrounding dwarven shapes begin to chant in Dwarven, encouraging newcomers to join them as they grasp for them with their cold, incorporeal hands. The pit of toil rolls initiative.",
-        "failure": "The creature takes 2d6 negative damage and becomes enfeebled 1 for 1 round.",
         "links": [
           {
             "alt": "Dwarven",
@@ -23,25 +20,10 @@
             "game-obj": "Languages",
             "name": "Dwarven",
             "type": "link"
-          },
-          {
-            "alt": "enfeebled 1",
-            "aonid": 13,
-            "game-obj": "Conditions",
-            "name": "enfeebled 1",
-            "type": "link"
-          },
-          {
-            "alt": "fatigued",
-            "aonid": 15,
-            "game-obj": "Conditions",
-            "name": "fatigued",
-            "type": "link"
           }
         ],
         "name": "Invite Toil",
         "subtype": "ability",
-        "success": "The creature suffers no ill effect.",
         "trigger": "A living creature enters the pit",
         "type": "stat_block_section"
       }
@@ -51,6 +33,20 @@
     "disable": "DC 21 Crafting (expert) to shame the pit by miming skilled artistry, or DC 18 Religion (trained) to exorcise the haunt",
     "level": 2,
     "links": [
+      {
+        "alt": "enfeebled 1",
+        "aonid": 13,
+        "game-obj": "Conditions",
+        "name": "enfeebled 1",
+        "type": "link"
+      },
+      {
+        "alt": "fatigued",
+        "aonid": 15,
+        "game-obj": "Conditions",
+        "name": "fatigued",
+        "type": "link"
+      },
       {
         "alt": "Crafting",
         "aonid": 4,
@@ -82,6 +78,42 @@
     ],
     "name": "Pit of Toil",
     "routine": "(1 action; divine, necromancy) As the dwarves continue to chant and grasp at the living, the pit infuses all living creatures inside it with the ache and pain a body endures after hours of constant toil. Each living creature in the pit must attempt a DC 18 Fortitude save.",
+    "routine_results": {
+      "critical_failure": "The creature takes 4d6 negative damage and becomes fatigued.",
+      "critical_success": "The creature suffers no ill effect and is thereafter immune to the pit of toil's routine.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "negative",
+              "formula": "2d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "negative",
+              "formula": "4d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 2d6 negative damage and becomes enfeebled 1 for 1 round.",
+      "subtype": "routine_results",
+      "success": "The creature suffers no ill effect.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

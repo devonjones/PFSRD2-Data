@@ -18,10 +18,10 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature remains unconscious and takes 2d10+12 cold damage and 2d10+12 mental damage.",
-        "critical_success": "The creature is unaffected and wakes up.",
+        "critical_failure": "As failure, but if it's still unconscious after 1 hour, it wakes up automatically.",
+        "critical_success": "The creature is unaffected.",
         "effect": "Incense swiftly fills the room (even if the incense burners have been removed or were destroyed). All creatures in area A12 must attempt a DC 32 Fortitude save. The haunt then rolls initiative.",
-        "failure": "As success, but 1d10+6 cold and 1d10+6 mental damage, and with a DC 32 Will save to wake up.",
+        "failure": "The creature falls unconscious. If it's still unconscious after 1 minute, it wakes up automatically.",
         "links": [
           {
             "alt": "sickened 1",
@@ -40,7 +40,7 @@
         ],
         "name": "Light Incense Burners",
         "subtype": "ability",
-        "success": "The creature remains unconscious and takes 1d10 cold damage and 1d10 mental damage. This damage does not wake the creature, and those who are awake can see the unconscious creature thrash as if in the throes of a nightmare while their body rimes over with layers of frost. The creature can fight against the bitter cold and monstrous shapes by attempting a DC 28 Will save as a three-action activity on its turn\u2014 on a success, the creature wakes up.",
+        "success": "The creature is sickened 1 by the incense's scent.",
         "traits": [
           {
             "edition": "legacy",
@@ -285,6 +285,73 @@
     "name": "Etward's Nightmare",
     "reset": "The hazard resets when Etward dreams in this room.",
     "routine": "(2 actions; cold, enchantment, mental, occult) The haunt uses its first action to light incense burners again, forcing any creature that isn't already unconscious to save against that effect once more. Its second action is to cause any unconscious creatures in the room to experience horrific, vivid dreams about being lost in the arctic during a blizzard, while enormous furred figures\u2014 saumen kar\u2014lunge at them through the snow to attack repeatedly. Each unconscious creature must attempt a DC 28 Fortitude saving throw. If at the end of the round there are no unconscious creatures in the room, Etward's nightmare ends and the trap deactivates.",
+    "routine_results": {
+      "critical_failure": "The creature remains unconscious and takes 2d10+12 cold damage and 2d10+12 mental damage.",
+      "critical_success": "The creature is unaffected and wakes up.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "cold",
+              "formula": "1d10",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            {
+              "damage_type": "mental",
+              "formula": "1d10",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "1d10+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            {
+              "damage_type": "cold",
+              "formula": "1d10+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "cold",
+              "formula": "2d10+12",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            {
+              "damage_type": "mental",
+              "formula": "2d10+12",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "As success, but 1d10+6 cold and 1d10+6 mental damage, and with a DC 32 Will save to wake up.",
+      "subtype": "routine_results",
+      "success": "The creature remains unconscious and takes 1d10 cold damage and 1d10 mental damage. This damage does not wake the creature, and those who are awake can see the unconscious creature thrash as if in the throes of a nightmare while their body rimes over with layers of frost. The creature can fight against the bitter cold and monstrous shapes by attempting a DC 28 Will save as a three-action activity on its turn\u2014 on a success, the creature wakes up.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

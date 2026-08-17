@@ -12,10 +12,7 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 6d12+40 mental damage. If the creatures\u2019 next d20 roll is a critical success, they earn a critical failure instead. This is a misfortune effect.",
-        "critical_success": "The creature is unaffected and is immune to this effect for 10 minutes.",
         "effect": "Arcs of divine energy travel between the two circles. Each creature within the circles takes 4d10+26 spirit damage (DC 45 basic Fortitude save). If one of the ritual circles has been disabled, the hazard instead affects all creature in the room, but each creature gains a +2 circumstance bonus to their save. The hazard rolls initiative.",
-        "failure": "The creature takes 3d12+20 mental damage.",
         "links": [
           {
             "alt": "Seldeg",
@@ -30,18 +27,10 @@
             "game-obj": "Rules",
             "name": "basic",
             "type": "link"
-          },
-          {
-            "alt": "misfortune",
-            "aonid": 654,
-            "game-obj": "Traits",
-            "name": "misfortune",
-            "type": "link"
           }
         ],
         "name": "Reorder Reality",
         "subtype": "ability",
-        "success": "The creature is unaffected.",
         "trigger": "A creature other than Seldeg enters the area contained by the ritual circles",
         "type": "stat_block_section"
       }
@@ -51,6 +40,13 @@
     "disable": "DC 44 Arazni Lore or Iomedae Lore to recount a tale from history that grounds that deity in the current reality, DC 50 Crafting (legendary) to create a device to siphon energy from the ritual circle, or DC 46 Religion (legendary) to discharge the escalating divine energy; six successes (three successes per circle) are required to disarm the hazard",
     "level": 22,
     "links": [
+      {
+        "alt": "misfortune",
+        "aonid": 654,
+        "game-obj": "Traits",
+        "name": "misfortune",
+        "type": "link"
+      },
       {
         "alt": "Arazni Lore",
         "aonid": 41,
@@ -96,7 +92,43 @@
     ],
     "name": "Twist of Fate",
     "reset": "While atop the floating platform, Seldeg Bhedlis can use a 3-action activity with the auditory trait to reenergize the ritual. Doing so removes one success to disable the hazard and immediately triggers the hazard\u2019s Reorder Reality reaction.",
-    "routine": "(1 action; divine) The divine energy gathered by the ritual spikes. One of the eleven stained-glass windows (each depicting one of her Eleven Acts) transforms to feature Arazni instead. Any creature that can see the window change must attempt a DC 50 Will save.",
+    "routine": "(1 action; divine) The divine energy gathered by the ritual spikes. One of the eleven stained-glass windows (each depicting one of her Eleven Acts) transforms to feature Arazni instead. Any creature that can see the window change must attempt a DC 50 Will save.  \nIf all 11 windows transform, Seldeg\u2019s ritual finishes ahead of schedule. The stained-glass windows shatter, dealing 8d10+52 piercing damage (DC 50 Reflex save) to each creature in the room. The hazard then becomes inactive.",
+    "routine_results": {
+      "critical_failure": "The creature takes 6d12+40 mental damage. If the creatures\u2019 next d20 roll is a critical success, they earn a critical failure instead. This is a misfortune effect.",
+      "critical_success": "The creature is unaffected and is immune to this effect for 10 minutes.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "3d12+20",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "6d12+40",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 3d12+20 mental damage.",
+      "subtype": "routine_results",
+      "success": "The creature is unaffected.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {
@@ -120,7 +152,6 @@
       "value": 25
     },
     "subtype": "hazard",
-    "text": "If all 11 windows transform, Seldeg\u2019s ritual finishes ahead of schedule. The stained-glass windows shatter, dealing 8d10+52 piercing damage (DC 50 Reflex save) to each creature in the room. The hazard then becomes inactive.",
     "traits": [
       {
         "alternate_link": {

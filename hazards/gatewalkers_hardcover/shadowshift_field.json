@@ -18,13 +18,9 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 2d6+6 force damage.",
-        "critical_success": "As success, and the creature is healed by the primal magic, regaining 1d6 Hit Points.",
         "effect": "The hazard rolls initiative as the field of planar warping surges, filling the forest clearing.",
-        "failure": "The creature takes 1d6+3 force damage.",
         "name": "Shadowshift",
         "subtype": "ability",
-        "success": "The creature is unaffected and immune to the effect for 24 hours.",
         "traits": [
           {
             "alternate_link": {
@@ -117,6 +113,42 @@
     "name": "Shadowshift Field",
     "reset": "This effect continues for 1 day, after which it ends and cannot be triggered again without another ritual.",
     "routine": "(1 action) Each creature in the clearing must attempt a DC 17 Fortitude save as the planar warping threatens to create microscopic tears inside their body. Fey, plant creatures, and druids are unaffected.",
+    "routine_results": {
+      "critical_failure": "The creature takes 2d6+6 force damage.",
+      "critical_success": "As success, and the creature is healed by the primal magic, regaining 1d6 Hit Points.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "force",
+              "formula": "1d6+3",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "force",
+              "formula": "2d6+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 1d6+3 force damage.",
+      "subtype": "routine_results",
+      "success": "The creature is unaffected and immune to the effect for 24 hours.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {
