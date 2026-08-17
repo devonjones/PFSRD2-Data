@@ -582,7 +582,19 @@
             "subtype": "action_type",
             "type": "stat_block_section"
           },
+          "critical_failure": "The target drops to 0 Hit Points and becomes dying 1, or increases its dying condition by 1 if it\u2019s already dying. While the target is dying, the dragon remains at 1 Hit Point and dies instantly if the target loses the dying condition.",
+          "critical_success": "The target is unaffected.",
           "effect": "The dragon tethers their soul to the soul of a living creature within 60 feet, pulling it along into death. The target must attempt a Fortitude save.",
+          "failure": "The target takes void damage equal to the damage dealt by the dragon\u2019s Dooming Breath.",
+          "links": [
+            {
+              "alt": "dying",
+              "aonid": 69,
+              "game-obj": "Conditions",
+              "name": "dying",
+              "type": "link"
+            }
+          ],
           "name": "Die Together",
           "range": {
             "range": 60,
@@ -592,6 +604,7 @@
             "unit": "feet"
           },
           "subtype": "ability",
+          "success": "The target takes void damage equal to half the damage dealt by the dragon\u2019s Dooming Breath.",
           "traits": [
             {
               "link": {
@@ -634,43 +647,6 @@
           "type": "stat_block_section"
         },
         {
-          "ability_type": "ability",
-          "name": "Critical Success",
-          "subtype": "ability",
-          "text": "The target is unaffected.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Success",
-          "subtype": "ability",
-          "text": "The target takes void damage equal to half the damage dealt by the dragon\u2019s Dooming Breath.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Failure",
-          "subtype": "ability",
-          "text": "The target takes void damage equal to the damage dealt by the dragon\u2019s Dooming Breath.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
-            {
-              "alt": "dying",
-              "aonid": 69,
-              "game-obj": "Conditions",
-              "name": "dying",
-              "type": "link"
-            }
-          ],
-          "name": "Critical Failure",
-          "subtype": "ability",
-          "text": "The target drops to 0 Hit Points and becomes dying 1, or increases its dying condition by 1 if it\u2019s already dying. While the target is dying, the dragon remains at 1 Hit Point and dies instantly if the target loses the dying condition.",
-          "type": "stat_block_section"
-        },
-        {
           "ability_category": "offensive",
           "ability_type": "ability",
           "action_type": {
@@ -688,7 +664,10 @@
               "unit": "feet"
             }
           ],
+          "critical_failure": "The creature gains the fleeing condition for 1 round, is frightened 4, and is doomed 1. If the target is already doomed, the doomed value increases by 1 (to a maximum of doomed 4).",
+          "critical_success": "The creature is unaffected and is immune to Soul Roar for 1 minute.",
           "effect": "The dragon lets out a mighty roar that rouses their allies and rattles the souls of their enemies. Each ally in a 120-foot emanation gains temporary Hit Points equal to the dragon\u2019s level that last for 1 minute, while each enemy within that area must attempt a Will save.",
+          "failure": "The creature is frightened 2 and doomed 1. If the target is already doomed, the doomed value increases by 1 (to a maximum of doomed 4).",
           "frequency": "once per round",
           "links": [
             {
@@ -704,10 +683,32 @@
               "game-obj": "Rules",
               "name": "temporary Hit Points",
               "type": "link"
+            },
+            {
+              "alt": "frightened",
+              "aonid": 76,
+              "game-obj": "Conditions",
+              "name": "frightened",
+              "type": "link"
+            },
+            {
+              "alt": "doomed",
+              "aonid": 67,
+              "game-obj": "Conditions",
+              "name": "doomed",
+              "type": "link"
+            },
+            {
+              "alt": "fleeing",
+              "aonid": 74,
+              "game-obj": "Conditions",
+              "name": "fleeing",
+              "type": "link"
             }
           ],
           "name": "Soul Roar",
           "subtype": "ability",
+          "success": "The creature is frightened 1.",
           "traits": [
             {
               "link": {
@@ -770,61 +771,6 @@
               "type": "stat_block_section"
             }
           ],
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Critical Success",
-          "subtype": "ability",
-          "text": "The creature is unaffected and is immune to Soul Roar for 1 minute.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
-            {
-              "alt": "frightened",
-              "aonid": 76,
-              "game-obj": "Conditions",
-              "name": "frightened",
-              "type": "link"
-            }
-          ],
-          "name": "Success",
-          "subtype": "ability",
-          "text": "The creature is frightened 1.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
-            {
-              "alt": "doomed",
-              "aonid": 67,
-              "game-obj": "Conditions",
-              "name": "doomed",
-              "type": "link"
-            }
-          ],
-          "name": "Failure",
-          "subtype": "ability",
-          "text": "The creature is frightened 2 and doomed 1. If the target is already doomed, the doomed value increases by 1 (to a maximum of doomed 4).",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
-            {
-              "alt": "fleeing",
-              "aonid": 74,
-              "game-obj": "Conditions",
-              "name": "fleeing",
-              "type": "link"
-            }
-          ],
-          "name": "Critical Failure",
-          "subtype": "ability",
-          "text": "The creature gains the fleeing condition for 1 round, is frightened 4, and is doomed 1. If the target is already doomed, the doomed value increases by 1 (to a maximum of doomed 4).",
           "type": "stat_block_section"
         }
       ],
