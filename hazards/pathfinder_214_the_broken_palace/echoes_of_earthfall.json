@@ -12,10 +12,7 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 2d10+12 mental damage and believes they're pinned by rubble\u2014they're immobilized until the start of their next turn.",
-        "critical_success": "The creature is unaffected.",
         "effect": "The cavern erupts into terrified cries as a deep rumbling fills the room. All creatures in area C12 must succeed at a DC 22 Will save or become frightened 1 (frightened 2 on a critical failure). The haunt then rolls initiative.",
-        "failure": "The creature takes 1d10+6 mental damage and believes the room is filling with rubble\u2014they're slowed 1 until the start of their next turn as they spend their energy navigating the illusory rockfall.",
         "links": [
           {
             "alt": "frightened",
@@ -23,25 +20,10 @@
             "game-obj": "Conditions",
             "name": "frightened",
             "type": "link"
-          },
-          {
-            "alt": "slowed",
-            "aonid": 92,
-            "game-obj": "Conditions",
-            "name": "slowed",
-            "type": "link"
-          },
-          {
-            "alt": "immobilized",
-            "aonid": 81,
-            "game-obj": "Conditions",
-            "name": "immobilized",
-            "type": "link"
           }
         ],
         "name": "Final Cries of Horror",
         "subtype": "ability",
-        "success": "The creature takes 1d10 mental damage.",
         "traits": [
           {
             "alternate_link": {
@@ -159,6 +141,20 @@
     "level": 5,
     "links": [
       {
+        "alt": "slowed",
+        "aonid": 92,
+        "game-obj": "Conditions",
+        "name": "slowed",
+        "type": "link"
+      },
+      {
+        "alt": "immobilized",
+        "aonid": 81,
+        "game-obj": "Conditions",
+        "name": "immobilized",
+        "type": "link"
+      },
+      {
         "alt": "Religion",
         "aonid": 46,
         "game-obj": "Skills",
@@ -190,6 +186,55 @@
     "name": "Echoes of Earthfall",
     "reset": "The haunt deactivates once no living creatures are in the cave at the end of a round, then resets 1 hour later as the spiritual energy rebuilds to a breaking point.",
     "routine": "(1 action; illusion, mental) A thunderous explosion rocks the room as the ceiling appears to split open and collapse. This cave-in is an illusion formed from the memories of the dead, but it can inflict real damage. All creatures in the room must attempt a DC 22 Will save.",
+    "routine_results": {
+      "critical_failure": "The creature takes 2d10+12 mental damage and believes they're pinned by rubble\u2014they're immobilized until the start of their next turn.",
+      "critical_success": "The creature is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "1d10",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "1d10+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "2d10+12",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 1d10+6 mental damage and believes the room is filling with rubble\u2014they're slowed 1 until the start of their next turn as they spend their energy navigating the illusory rockfall.",
+      "subtype": "routine_results",
+      "success": "The creature takes 1d10 mental damage.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

@@ -12,22 +12,9 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature takes 8d6+26 sonic damage and is slowed 2 for 2 rounds.",
-        "critical_success": "The creature is unaffected.",
         "effect": "Pent-up magical energy from another world begins to release in waves of overwhelming sound. The hazard rolls initiative.",
-        "failure": "The creature takes 4d6+13 sonic damage and is slowed 1 for 2 rounds.",
-        "links": [
-          {
-            "alt": "deafened",
-            "aonid": 66,
-            "game-obj": "Conditions",
-            "name": "deafened",
-            "type": "link"
-          }
-        ],
         "name": "Bone-Shattering Rhythms",
         "subtype": "ability",
-        "success": "The creature takes 2d6+6 sonic damage and is deafened for 1 round.",
         "trigger": "Three or more characters enter the area of planar instability",
         "type": "stat_block_section"
       }
@@ -37,6 +24,13 @@
     "disable": "DC 38 Arcane (expert), Maelstrom Lore (expert), Occultism (master), Religion (master) to recognize and shore up the area against the localized planar instability causing a connection to the Oliphaunt of Jandelay. Four successes are needed to strengthen the area enough against the instability to end the hazard.",
     "level": 12,
     "links": [
+      {
+        "alt": "deafened",
+        "aonid": 66,
+        "game-obj": "Conditions",
+        "name": "deafened",
+        "type": "link"
+      },
       {
         "alt": "Oliphaunt's",
         "aonid": 3407,
@@ -83,6 +77,55 @@
     "name": "Trump of the Oliphaunt",
     "reset": "The area becomes unstable again after 24 hours.",
     "routine": "(1 action) Each creature in the area must attempt a DC 36 Fortitude save. A creature with the slowed condition from this hazard takes a \u20132 circumstance penalty on further saves against this effect.",
+    "routine_results": {
+      "critical_failure": "The creature takes 8d6+26 sonic damage and is slowed 2 for 2 rounds.",
+      "critical_success": "The creature is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "sonic",
+              "formula": "2d6+6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "sonic",
+              "formula": "4d6+13",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "sonic",
+              "formula": "8d6+26",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 4d6+13 sonic damage and is slowed 1 for 2 rounds.",
+      "subtype": "routine_results",
+      "success": "The creature takes 2d6+6 sonic damage and is deafened for 1 round.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

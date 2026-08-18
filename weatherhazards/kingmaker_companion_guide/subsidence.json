@@ -14,42 +14,8 @@
       },
       {
         "ability_type": "ability",
-        "critical_failure": "The character takes 16d6 bludgeoning damage from the subsidence and is buried. Buried PCs are at risk of suffocation; see Burial for details on how a buried creature can be rescued.",
-        "critical_success": "The character avoids the unexpected subsidence entirely.",
-        "failure": "The character takes 8d6 bludgeoning damage from the subsidence. If the subsidence is a sinkhole, the character ends up at the bottom of a hole 1d6 \u00d7 5 feet down and can clamber out with a successful DC 22 Athletics check. If the subsidence is a mudslide, rockslide, or avalanche, the character is knocked prone and swept 200 feet away.",
-        "links": [
-          {
-            "alt": "Athletics",
-            "aonid": 3,
-            "game-obj": "Skills",
-            "name": "Athletics",
-            "type": "link"
-          },
-          {
-            "alt": "prone",
-            "aonid": 31,
-            "game-obj": "Conditions",
-            "name": "prone",
-            "type": "link"
-          },
-          {
-            "alt": "suffocation",
-            "aonid": 468,
-            "game-obj": "Rules",
-            "name": "suffocation",
-            "type": "link"
-          },
-          {
-            "alt": "Burial",
-            "aonid": 647,
-            "game-obj": "Rules",
-            "name": "Burial",
-            "type": "link"
-          }
-        ],
         "name": "Prepare",
         "subtype": "ability",
-        "success": "The character takes 4d6 bludgeoning damage from the subsidence.",
         "text": "DC 22 Perception to take a less dangerous path through the region.",
         "type": "stat_block_section"
       },
@@ -63,8 +29,87 @@
     ],
     "description": "With little warning, the ground itself suddenly gives way, be it a caused by a small avalanche, rockslide, mudslide, or the sudden opening of a sinkhole.",
     "level": 5,
+    "links": [
+      {
+        "alt": "Athletics",
+        "aonid": 3,
+        "game-obj": "Skills",
+        "name": "Athletics",
+        "type": "link"
+      },
+      {
+        "alt": "prone",
+        "aonid": 31,
+        "game-obj": "Conditions",
+        "name": "prone",
+        "type": "link"
+      },
+      {
+        "alt": "suffocation",
+        "aonid": 468,
+        "game-obj": "Rules",
+        "name": "suffocation",
+        "type": "link"
+      },
+      {
+        "alt": "Burial",
+        "aonid": 647,
+        "game-obj": "Rules",
+        "name": "Burial",
+        "type": "link"
+      }
+    ],
     "name": "Subsidence",
     "routine": "A subsidence has no duration. Those who aren't prepared when it occurs attempt a DC 22 Reflex save.",
+    "routine_results": {
+      "critical_failure": "The character takes 16d6 bludgeoning damage from the subsidence and is buried. Buried PCs are at risk of suffocation; see Burial for details on how a buried creature can be rescued.",
+      "critical_success": "The character avoids the unexpected subsidence entirely.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "bludgeoning",
+              "formula": "4d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "bludgeoning",
+              "formula": "8d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "bludgeoning",
+              "formula": "16d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The character takes 8d6 bludgeoning damage from the subsidence. If the subsidence is a sinkhole, the character ends up at the bottom of a hole 1d6 \u00d7 5 feet down and can clamber out with a successful DC 22 Athletics check. If the subsidence is a mudslide, rockslide, or avalanche, the character is knocked prone and swept 200 feet away.",
+      "subtype": "routine_results",
+      "success": "The character takes 4d6 bludgeoning damage from the subsidence.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

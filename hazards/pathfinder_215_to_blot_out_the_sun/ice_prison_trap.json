@@ -12,9 +12,6 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The target takes double damage and increases its slowed condition by 2.",
-        "critical_success": "The target is unaffected.",
-        "failure": "The target takes full damage and increases its slowed condition by 1.",
         "links": [
           {
             "alt": "security badge",
@@ -29,18 +26,10 @@
             "game-obj": "Rules",
             "name": "basic",
             "type": "link"
-          },
-          {
-            "alt": "slowed",
-            "aonid": 92,
-            "game-obj": "Conditions",
-            "name": "slowed",
-            "type": "link"
           }
         ],
         "name": "Cryo Mist",
         "subtype": "ability",
-        "success": "The target takes half damage and increases its slowed condition by 1.",
         "trigger": "A creature enters the area, and that creature is not a clockwork soldier and is not openly wearing a security badge; Effect The trap fills the area with frigid air, which deals 2d8+7 cold damage to creatures in the area (DC 22 basic Fortitude save). Clockwork soldiers and any creatures openly wearing a *security badge* are immune to this damage. The trap then rolls initiative.",
         "type": "stat_block_section"
       }
@@ -50,6 +39,13 @@
     "disable": "DC 22 Thievery (expert) to disable the cryomisters, or DC 24 Arcana (expert) to trick the magical sensors, or *dispel magic* (3rd rank; counteract DC 24) to counteract the sensors",
     "level": 5,
     "links": [
+      {
+        "alt": "slowed",
+        "aonid": 92,
+        "game-obj": "Conditions",
+        "name": "slowed",
+        "type": "link"
+      },
       {
         "alt": "Thievery",
         "aonid": 50,
@@ -116,7 +112,15 @@
     ],
     "name": "Ice Prison Trap",
     "reset": "The trap resets after 10 minutes.",
-    "routine": "(1 action) On its turn, the trap fills the area with frigid air, which deals 2d8+7 cold damage to creatures in the area. Creatures damaged must attempt a DC 22 Fortitude save. Clockwork soldiers and any creatures wearing a *security badge* are immune to this damage. The accumulating ice causes the floor in the area to become difficult terrain that lasts for 1 minute after the trap\u2019s routine ends.",
+    "routine": "(1 action) On its turn, the trap fills the area with frigid air, which deals 2d8+7 cold damage to creatures in the area. Creatures damaged must attempt a DC 22 Fortitude save. Clockwork soldiers and any creatures wearing a *security badge* are immune to this damage. The accumulating ice causes the floor in the area to become difficult terrain that lasts for 1 minute after the trap\u2019s routine ends.  \nOnce a creature\u2019s actions are reduced to 0 by this slowed condition, the creature is completely encased in ice. The ice has Hardness 5 and 20 Hit Points, and its DC to Force Open is DC 22. Breaking the ice frees the creature and reduces their slowed condition by 1. Each round a creature is encased in ice, they take 1d8+7 cold damage (DC 22 basic Fortitude save).",
+    "routine_results": {
+      "critical_failure": "The target takes double damage and increases its slowed condition by 2.",
+      "critical_success": "The target is unaffected.",
+      "failure": "The target takes full damage and increases its slowed condition by 1.",
+      "subtype": "routine_results",
+      "success": "The target takes half damage and increases its slowed condition by 1.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {
@@ -139,7 +143,6 @@
       "value": 26
     },
     "subtype": "hazard",
-    "text": "Once a creature\u2019s actions are reduced to 0 by this slowed condition, the creature is completely encased in ice. The ice has Hardness 5 and 20 Hit Points, and its DC to Force Open is DC 22. Breaking the ice frees the creature and reduces their slowed condition by 1. Each round a creature is encased in ice, they take 1d8+7 cold damage (DC 22 basic Fortitude save).",
     "traits": [
       {
         "alternate_link": {

@@ -21,9 +21,6 @@
       },
       {
         "ability_type": "ability",
-        "critical_failure": "As failure, but the character is also lifted into the air and hurled 120 feet in a random direction, taking an additional 60 points of bludgeoning damage from the fall.",
-        "critical_success": "The character avoids the tornado and its debris.",
-        "failure": "The character takes 8d6 bludgeoning and 8d6 piercing damage from hurled debris, and they must save against the tornado's effects again on the following round.",
         "links": [
           {
             "alt": "Survival",
@@ -35,7 +32,6 @@
         ],
         "name": "Prepare",
         "subtype": "ability",
-        "success": "The character takes 4d6 bludgeoning and 4d6 piercing damage from hurled debris, but they avoid further damage from that particular tornado for the remainder of the hour.",
         "text": "DC 35 Survival (master) to know how best to prepare for the tornado if no existing shelters are available.",
         "type": "stat_block_section"
       },
@@ -51,6 +47,54 @@
     "level": 12,
     "name": "Tornado",
     "routine": "(1+ hours) When a tornado touches down, the funnel cloud can wreak amazing damage. While the area affected by a tornado is relatively limited, predicting where the tornado will travel during its brief, destructive lifetime is difficult. Underground chambers can provide shelter from tornadoes, but characters who seek shelter above ground are still in danger. Each hour that a tornado persists in the area, attempt a DC 16 flat check (for each PC sheltering above ground) or a DC 6 flat check (for each PC who isn't sheltered at all). On a success, that PC is exposed to the tornado's winds or its hurled debris and must attempt a DC 32 Reflex save.",
+    "routine_results": {
+      "critical_failure": "As failure, but the character is also lifted into the air and hurled 120 feet in a random direction, taking an additional 60 points of bludgeoning damage from the fall.",
+      "critical_success": "The character avoids the tornado and its debris.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "piercing",
+              "formula": "4d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            {
+              "damage_type": "bludgeoning",
+              "formula": "4d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "piercing",
+              "formula": "8d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            },
+            {
+              "damage_type": "bludgeoning",
+              "formula": "8d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The character takes 8d6 bludgeoning and 8d6 piercing damage from hurled debris, and they must save against the tornado's effects again on the following round.",
+      "subtype": "routine_results",
+      "success": "The character takes 4d6 bludgeoning and 4d6 piercing damage from hurled debris, but they avoid further damage from that particular tornado for the remainder of the hour.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

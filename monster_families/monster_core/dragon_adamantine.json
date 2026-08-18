@@ -1700,6 +1700,23 @@
             "subtype": "action_type",
             "type": "stat_block_section"
           },
+          "critical_failure": "As failure, and the dragon can make a jaws Strike against the creature as a free action. It can only attack one creature that critically failed its save.",
+          "critical_success": "The creature lands on its feet.",
+          "degree_effects": [
+            {
+              "damage": [
+                {
+                  "formula": "1d6",
+                  "subtype": "attack_damage",
+                  "type": "stat_block_section"
+                }
+              ],
+              "degree": "failure",
+              "subtype": "degree_effect",
+              "type": "stat_block_section"
+            }
+          ],
+          "failure": "The creature lands prone and takes 1d6 damage per every two levels of the dragon.",
           "links": [
             {
               "alt": "emanation",
@@ -1707,31 +1724,7 @@
               "game-obj": "Rules",
               "name": "emanation",
               "type": "link"
-            }
-          ],
-          "name": "Cratering Smash",
-          "saving_throw": [
-            {
-              "dc": 20,
-              "subtype": "save_dc",
-              "text": "DC 20",
-              "type": "stat_block_section"
-            }
-          ],
-          "subtype": "ability",
-          "text": "The dragon smashes itself into the ground, cratering the earth in a 10-foot deep, 60-foot wide emanation. Creatures in the area are thrown into the air and must attempt a Reflex save with a DC equal to the dragon's Avalanche Breath.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Critical Success",
-          "subtype": "ability",
-          "text": "The creature lands on its feet.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
+            },
             {
               "alt": "prone",
               "aonid": 88,
@@ -1740,30 +1733,10 @@
               "type": "link"
             }
           ],
-          "name": "Success",
+          "name": "Cratering Smash",
           "subtype": "ability",
-          "text": "The creature lands prone.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "damage": [
-            {
-              "formula": "1d6",
-              "subtype": "attack_damage",
-              "type": "stat_block_section"
-            }
-          ],
-          "name": "Failure",
-          "subtype": "ability",
-          "text": "The creature lands prone and takes 1d6 damage per every two levels of the dragon.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Critical Failure",
-          "subtype": "ability",
-          "text": "As failure, and the dragon can make a jaws Strike against the creature as a free action. It can only attack one creature that critically failed its save.",
+          "success": "The creature lands prone.",
+          "text": "The dragon smashes itself into the ground, cratering the earth in a 10-foot deep, 60-foot wide emanation. Creatures in the area are thrown into the air and must attempt a Reflex save with a DC equal to the dragon's Avalanche Breath.",
           "type": "stat_block_section"
         },
         {
@@ -1842,6 +1815,9 @@
         {
           "ability_category": "offensive",
           "ability_type": "ability",
+          "critical_failure": "The creature is petrified permanently into adamantine.",
+          "critical_success": "The creature is unaffected.",
+          "failure": "The creature is slowed 2.",
           "links": [
             {
               "alt": "Frightful Presence",
@@ -1849,10 +1825,25 @@
               "game-obj": "MonsterAbilities",
               "name": "Frightful Presence",
               "type": "link"
+            },
+            {
+              "alt": "slowed",
+              "aonid": 92,
+              "game-obj": "Conditions",
+              "name": "slowed",
+              "type": "link"
+            },
+            {
+              "alt": "petrified",
+              "aonid": 87,
+              "game-obj": "Conditions",
+              "name": "petrified",
+              "type": "link"
             }
           ],
           "name": "Petrifying Blow",
           "subtype": "ability",
+          "success": "The creature is slowed 1.",
           "text": "The adamantine dragon's attacks can turn creatures into sculptures to add to their hoard. A creature critically hit by the dragon's claw or jaw Strike must attempt a Fortitude save with a DC equal to the dragon's Frightful Presence. On a successful save, the creature is temporarily immune for 1 minute.",
           "traits": [
             {
@@ -1883,52 +1874,6 @@
           "type": "stat_block_section"
         },
         {
-          "ability_type": "ability",
-          "name": "Critical Success",
-          "subtype": "ability",
-          "text": "The creature is unaffected.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
-            {
-              "alt": "slowed",
-              "aonid": 92,
-              "game-obj": "Conditions",
-              "name": "slowed",
-              "type": "link"
-            }
-          ],
-          "name": "Success",
-          "subtype": "ability",
-          "text": "The creature is slowed 1.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Failure",
-          "subtype": "ability",
-          "text": "The creature is slowed 2.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
-            {
-              "alt": "petrified",
-              "aonid": 87,
-              "game-obj": "Conditions",
-              "name": "petrified",
-              "type": "link"
-            }
-          ],
-          "name": "Critical Failure",
-          "subtype": "ability",
-          "text": "The creature is petrified permanently into adamantine.",
-          "type": "stat_block_section"
-        },
-        {
           "ability_category": "offensive",
           "ability_type": "ability",
           "action_type": {
@@ -1936,7 +1881,17 @@
             "subtype": "action_type",
             "type": "stat_block_section"
           },
-          "effect": "The dragon Flies and makes up to two claw attacks against different creatures along their flight.",
+          "area": [
+            {
+              "shape": "emanation",
+              "size": 50,
+              "subtype": "area",
+              "text": "50-foot emanation",
+              "type": "stat_block_section",
+              "unit": "feet"
+            }
+          ],
+          "effect": "The dragon expels scales from their body in a 50-foot emanation. Creatures in the area take slashing damage equal to the dragon's Avalanche Breath (with a basic Reflex save of the same DC). The dragon receives the modifiers of Abandon Armor regardless of their Hit Points until after a night of rest.",
           "frequency": "one per day",
           "links": [
             {
@@ -1945,17 +1900,9 @@
               "game-obj": "Rules",
               "name": "emanation",
               "type": "link"
-            },
-            {
-              "alt": "Flies",
-              "aonid": 2312,
-              "game-obj": "Actions",
-              "name": "Flies",
-              "type": "link"
             }
           ],
           "name": "Repelling Blast",
-          "requirement": "The dragon has their Speed increased by Abandon Armor",
           "subtype": "ability",
           "traits": [
             {
@@ -1983,6 +1930,29 @@
               "type": "stat_block_section"
             }
           ],
+          "type": "stat_block_section"
+        },
+        {
+          "ability_category": "offensive",
+          "ability_type": "ability",
+          "action_type": {
+            "name": "Two Actions",
+            "subtype": "action_type",
+            "type": "stat_block_section"
+          },
+          "effect": "The dragon Flies and makes up to two claw attacks against different creatures along their flight.",
+          "links": [
+            {
+              "alt": "Flies",
+              "aonid": 2312,
+              "game-obj": "Actions",
+              "name": "Flies",
+              "type": "link"
+            }
+          ],
+          "name": "Scything Wings",
+          "requirement": "The dragon has their Speed increased by Abandon Armor",
+          "subtype": "ability",
           "type": "stat_block_section"
         }
       ],
@@ -2115,7 +2085,7 @@
           "type": "source"
         }
       ],
-      "text": "You can create a more unusual adamantine dragon by substituting any one of the following abilities for Burrowing Pounce, Draconic Frenzy, or Frightful Presence.   \n  \n**Cratering Smash** [##] The dragon smashes itself into the ground, cratering the earth in a 10-foot deep, 60-foot wide emanation. Creatures in the area are thrown into the air and must attempt a Reflex save with a DC equal to the dragon's Avalanche Breath.   \n**Critical Success** The creature lands on its feet.   \n**Success** The creature lands prone.   \n**Failure** The creature lands prone and takes 1d6 damage per every two levels of the dragon.   \n**Critical Failure** As failure, and the dragon can make a jaws Strike against the creature as a free action. It can only attack one creature that critically failed its save.   \n  \n**Magnetic Roar** [##] (metal, primal) With a mighty roar, the dragon attracts metal in a 60-foot emanation. Any unattended metal object of 1 Bulk or less flies to the dragon and sticks to their hide, granting a +2 item bonus to AC for 1 minute. Any creature holding a metal object of 1 Bulk or less must attempt at a Fortitude save with a DC equal to the dragon's Avalanche Breath DC or have their item pulled to the dragon and stuck for 1 round. A creature wearing metal armor instead must succeed at a Fortitude save against the DC + 2 or be pulled, taking 1d6 bludgeoning damage for every 10 feet it was moved, and become magnetically stuck to the dragon for 1 round. An object or creature can be unstuck with an Interact action.  \n  \n**Petrifying Blow** (metal, primal) The adamantine dragon's attacks can turn creatures into sculptures to add to their hoard. A creature critically hit by the dragon's claw or jaw Strike must attempt a Fortitude save with a DC equal to the dragon's Frightful Presence. On a successful save, the creature is temporarily immune for 1 minute.   \n**Critical Success** The creature is unaffected.   \n**Success** The creature is slowed 1.   \n**Failure** The creature is slowed 2.   \n**Critical Failure** The creature is petrified permanently into adamantine.   \n  \n**Repelling Blast** [##] (metal, primal); **Frequency** one per day; **Effect** The dragon expels scales from their body in a 50-foot emanation. Creatures in the area take slashing damage equal to the dragon's Avalanche Breath (with a basic Reflex save of the same DC). The dragon receives the modifiers of Abandon Armor regardless of their Hit Points until after a night of rest. Scything Wings [##] ; **Requirements** The dragon has their Speed increased by Abandon Armor; **Effect** The dragon Flies and makes up to two claw attacks against different creatures along their flight.",
+      "text": "You can create a more unusual adamantine dragon by substituting any one of the following abilities for Burrowing Pounce, Draconic Frenzy, or Frightful Presence.   \n  \n**Cratering Smash** [##] The dragon smashes itself into the ground, cratering the earth in a 10-foot deep, 60-foot wide emanation. Creatures in the area are thrown into the air and must attempt a Reflex save with a DC equal to the dragon's Avalanche Breath.   \n**Critical Success** The creature lands on its feet.   \n**Success** The creature lands prone.   \n**Failure** The creature lands prone and takes 1d6 damage per every two levels of the dragon.   \n**Critical Failure** As failure, and the dragon can make a jaws Strike against the creature as a free action. It can only attack one creature that critically failed its save.   \n  \n**Magnetic Roar** [##] (metal, primal) With a mighty roar, the dragon attracts metal in a 60-foot emanation. Any unattended metal object of 1 Bulk or less flies to the dragon and sticks to their hide, granting a +2 item bonus to AC for 1 minute. Any creature holding a metal object of 1 Bulk or less must attempt at a Fortitude save with a DC equal to the dragon's Avalanche Breath DC or have their item pulled to the dragon and stuck for 1 round. A creature wearing metal armor instead must succeed at a Fortitude save against the DC + 2 or be pulled, taking 1d6 bludgeoning damage for every 10 feet it was moved, and become magnetically stuck to the dragon for 1 round. An object or creature can be unstuck with an Interact action.  \n  \n**Petrifying Blow** (metal, primal) The adamantine dragon's attacks can turn creatures into sculptures to add to their hoard. A creature critically hit by the dragon's claw or jaw Strike must attempt a Fortitude save with a DC equal to the dragon's Frightful Presence. On a successful save, the creature is temporarily immune for 1 minute.   \n**Critical Success** The creature is unaffected.   \n**Success** The creature is slowed 1.   \n**Failure** The creature is slowed 2.   \n**Critical Failure** The creature is petrified permanently into adamantine.   \n  \n**Repelling Blast** [##] (metal, primal); **Frequency** one per day; **Effect** The dragon expels scales from their body in a 50-foot emanation. Creatures in the area take slashing damage equal to the dragon's Avalanche Breath (with a basic Reflex save of the same DC). The dragon receives the modifiers of Abandon Armor regardless of their Hit Points until after a night of rest.  \n  **Scything Wings** [##] ; **Requirements** The dragon has their Speed increased by Abandon Armor; **Effect** The dragon Flies and makes up to two claw attacks against different creatures along their flight.",
       "type": "section"
     },
     {

@@ -44,6 +44,13 @@
           },
           "type": "array"
         },
+        "degree_effects": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/degree_effect"
+          },
+          "type": "array"
+        },
         "duration": {
           "type": "string"
         },
@@ -512,6 +519,43 @@
       ],
       "type": "object"
     },
+    "degree_effect": {
+      "additionalProperties": false,
+      "description": "Structure extracted from one degree of success's text. A degree is a string field on its parent ability, so anything modelled about it lives here rather than on the degree itself. Deliberately extensible: `damage` is the only structured key today. saving_throw and skill_check wait on PFSRD2-Parser-2cby, because of the 163 DCs that appear in degree text corpus-wide only 46 are saving throws (64 are Escape DCs, 45 are flat checks, 7 are skill checks), so typing a degree's DC as save_dc would claim something the source did not say. `damage` is damage the degree's text mentions, which is not always damage the degree's subject takes: a small minority describe damage dealt to someone else (\"the morlock injures themself, taking 2d6 damage\"). A consumer that needs the subject must read the degree's text.",
+      "properties": {
+        "damage": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/attack_damage"
+          },
+          "type": "array"
+        },
+        "degree": {
+          "enum": [
+            "critical_success",
+            "success",
+            "failure",
+            "critical_failure"
+          ]
+        },
+        "subtype": {
+          "enum": [
+            "degree_effect"
+          ]
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype",
+        "degree"
+      ],
+      "type": "object"
+    },
     "hazard": {
       "additionalProperties": false,
       "properties": {
@@ -606,6 +650,9 @@
         },
         "routine": {
           "type": "string"
+        },
+        "routine_results": {
+          "$ref": "#/definitions/routine_results"
         },
         "saves": {
           "additionalItems": false,
@@ -1153,6 +1200,46 @@
       ],
       "type": "object"
     },
+    "routine_results": {
+      "additionalProperties": false,
+      "description": "Degrees of success for the save a routine calls for. Modelled rather than left in the routine prose, matching how an ability's degrees are modelled.",
+      "properties": {
+        "critical_failure": {
+          "type": "string"
+        },
+        "critical_success": {
+          "type": "string"
+        },
+        "degree_effects": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/degree_effect"
+          },
+          "type": "array"
+        },
+        "failure": {
+          "type": "string"
+        },
+        "subtype": {
+          "enum": [
+            "routine_results"
+          ]
+        },
+        "success": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "stat_block_section"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "subtype"
+      ],
+      "type": "object"
+    },
     "save": {
       "additionalProperties": false,
       "properties": {
@@ -1481,6 +1568,13 @@
         },
         "value": {
           "type": "string"
+        },
+        "degree_effects": {
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/degree_effect"
+          },
+          "type": "array"
         }
       },
       "required": [

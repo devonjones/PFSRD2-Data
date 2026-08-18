@@ -12,10 +12,10 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature believes it has been hopelessly lost in the alleys of the shadow maze for days, and it is incapacitated for 1 round and takes 20d6 mental damage from the perceived strain.",
-        "critical_success": "The creature sees through the illusions and can act normally.",
+        "critical_failure": "The creature not only believes it has entered a vast maze, but is overwhelmed with the sensation of being hopelessly lost. The creature is immobilized until the end of its next turn.",
+        "critical_success": "The creature sees through the illusions and can move freely through squares within the shadow maze's effect. It's temporarily immune to the effects of the trap's routine for 1 minute.",
         "effect": "Reality appears to shift around the creature, who perceives a sudden transformation in the surrounding terrain into a vast maze of underwater alleys and crumbling ruins. The creature must attempt a DC 37 Will save, and the shadow maze then rolls initiative.",
-        "failure": "As success, but the creature believes it has been wandering the alleys for several hours. It becomes slowed 2 for 1 round and takes 10d6 mental damage from the perceived strain.",
+        "failure": "The creature believes it has stepped into a vast maze. To those observing the creature outside of the shadow maze, the creature remains motionless. The creature becomes slowed 2 for 1 round, during which time all of its speeds are reduced to 5 feet.",
         "links": [
           {
             "alt": "slowed 2",
@@ -30,18 +30,11 @@
             "game-obj": "Conditions",
             "name": "immobilized",
             "type": "link"
-          },
-          {
-            "alt": "slowed 2",
-            "aonid": 35,
-            "game-obj": "Conditions",
-            "name": "slowed 2",
-            "type": "link"
           }
         ],
         "name": "Disorient",
         "subtype": "ability",
-        "success": "The creature treats all squares within the trap's area as difficult terrain, and the trap fills the creature's mind with sensations and false memories that it has been wandering these alleys for nearly an hour. The creature takes 5d6 mental damage from the perceived strain of navigating the alien flooded alleys.",
+        "success": "The creature understands that what it's experiencing is an illusion, but it isn't immune to the effects of the trap's routine.",
         "traits": [
           {
             "alternate_link": {
@@ -168,6 +161,13 @@
     "level": 16,
     "links": [
       {
+        "alt": "slowed 2",
+        "aonid": 35,
+        "game-obj": "Conditions",
+        "name": "slowed 2",
+        "type": "link"
+      },
+      {
         "alt": "Thievery",
         "aonid": 17,
         "game-obj": "Skills",
@@ -234,6 +234,55 @@
     "name": "Shadow Maze",
     "reset": "If disarmed, the trap resets in 1 hour as long as the two crystals in area C5 still function.",
     "routine": "(1 action; illusion, incapacitation, mental) The shadow maze shifts and adjusts its appearance, affecting all creatures currently located within its area. Any creatures in the area at this time must attempt a DC 37 Will save.",
+    "routine_results": {
+      "critical_failure": "The creature believes it has been hopelessly lost in the alleys of the shadow maze for days, and it is incapacitated for 1 round and takes 20d6 mental damage from the perceived strain.",
+      "critical_success": "The creature sees through the illusions and can act normally.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "5d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "10d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "20d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "As success, but the creature believes it has been wandering the alleys for several hours. It becomes slowed 2 for 1 round and takes 10d6 mental damage from the perceived strain.",
+      "subtype": "routine_results",
+      "success": "The creature treats all squares within the trap's area as difficult terrain, and the trap fills the creature's mind with sensations and false memories that it has been wandering these alleys for nearly an hour. The creature takes 5d6 mental damage from the perceived strain of navigating the alien flooded alleys.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

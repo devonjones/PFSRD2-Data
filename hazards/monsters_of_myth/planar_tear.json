@@ -12,13 +12,9 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature is moved 100 feet toward the rift. The harsh pull causes the creature to take 10d6 bludgeoning damage.",
-        "critical_success": "The creature resists the pull and doesn't move toward the rift.",
         "effect": "Ebeshra twists its body, aligning its segmented sections into a fine blade, and cuts the fabric of the Material Plane. It creates an enormous rift in a point in the sky within 1 mile. The rift is 100 feet long and 50 feet wide. The hazard rolls initiative.",
-        "failure": "The creature is moved 50 feet toward the rift.",
         "name": "Tear Reality",
         "subtype": "ability",
-        "success": "The creature is moved 25 feet toward the rift.",
         "trigger": "Ebeshra recognizes a nearby threat as needing an indisputable resolution, or a deity tasks Ebeshra with creating a planar rift",
         "type": "stat_block_section"
       }
@@ -80,7 +76,30 @@
     ],
     "name": "Planar Tear",
     "reset": "Ebeshra vanishes 1 minute after opening the rift, which closes the rift. Ebeshra must wait 1 week before it can open another planar rift.",
-    "routine": "(1 action) The rift pulls creatures within 500 feet toward it. The rift can pull any creature, regardless of its size. Creatures in the area must attempt a DC 45 Fortitude or Reflex save (the creature's choice) to resist the effects of this pull or attempt to grab something to avoid getting pulled.",
+    "routine": "(1 action) The rift pulls creatures within 500 feet toward it. The rift can pull any creature, regardless of its size. Creatures in the area must attempt a DC 45 Fortitude or Reflex save (the creature's choice) to resist the effects of this pull or attempt to grab something to avoid getting pulled.  \n  \nIf a creature is directly beneath the rift when the rift pulls it, the creature instead attempts a DC 50 Fortitude or Reflex save (the creature's choice) to avoid being pulled into the rift. On a failure, the creature is pulled up into the rift and thrown to a random point on the plane on the other side.",
+    "routine_results": {
+      "critical_failure": "The creature is moved 100 feet toward the rift. The harsh pull causes the creature to take 10d6 bludgeoning damage.",
+      "critical_success": "The creature resists the pull and doesn't move toward the rift.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "bludgeoning",
+              "formula": "10d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature is moved 50 feet toward the rift.",
+      "subtype": "routine_results",
+      "success": "The creature is moved 25 feet toward the rift.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {
@@ -104,7 +123,6 @@
       "value": 32
     },
     "subtype": "hazard",
-    "text": "If a creature is directly beneath the rift when the rift pulls it, the creature instead attempts a DC 50 Fortitude or Reflex save (the creature's choice) to avoid being pulled into the rift. On a failure, the creature is pulled up into the rift and thrown to a random point on the plane on the other side.",
     "traits": [
       {
         "alternate_link": {

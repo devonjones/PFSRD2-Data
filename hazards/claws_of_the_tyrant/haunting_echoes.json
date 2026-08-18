@@ -12,10 +12,7 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "The creature\u2019s frightened condition is reduced by 1.",
-        "critical_success": "The creature takes 2d4 mental damage and its frightened condition increases by 1, to a maximum of frightened 3.",
         "effect": "The spirits manifest with a terrible wailing. Each creature in the area must succeed at a DC 20 Will save or be frightened 1 (or frightened 2 on a critical failure). Frightened creatures are immobilized for as long as they remain frightened. The haunt then rolls initiative.",
-        "failure": "The creature is unaffected.",
         "links": [
           {
             "alt": "frightened",
@@ -34,7 +31,6 @@
         ],
         "name": "Manifest",
         "subtype": "ability",
-        "success": "The creature takes 1d4 mental damage.",
         "traits": [
           {
             "alternate_link": {
@@ -246,6 +242,42 @@
     "name": "Haunting Echoes",
     "reset": "The haunt falls silent for 24 hours once all frightened creatures die or reduce their frightened condition\u2019s value to 0. During this time, a creature that isn\u2019t frightened can exorcise the spirits with a DC 18 Religion check, permanently destroying the haunt.",
     "routine": "(1 action; auditory, emotion, fear, mental) The haunt attempts an Intimidation check with a +11 modifier against the Will DC of each frightened creature as it bombards them with the voices of their dead loved ones.",
+    "routine_results": {
+      "critical_failure": "The creature\u2019s frightened condition is reduced by 1.",
+      "critical_success": "The creature takes 2d4 mental damage and its frightened condition increases by 1, to a maximum of frightened 3.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "2d4",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "mental",
+              "formula": "1d4",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature is unaffected.",
+      "subtype": "routine_results",
+      "success": "The creature takes 1d4 mental damage.",
+      "type": "stat_block_section"
+    },
     "sources": [
       {
         "link": {

@@ -12,10 +12,7 @@
           "subtype": "action_type",
           "type": "stat_block_section"
         },
-        "critical_failure": "As failure, but 4d6+14 poison damageand enfeebled 2.",
-        "critical_success": "The creature is unaffected.",
         "effect": "A dozen eyes blink open on the spherical shape to glare at the triggering creature, who must succeed at a DC 22 Will save or become frightened 1 (frightened 2 on a critical failure). The trap then rolls initiative.",
-        "failure": "The creature takes 2d6+7 poison damage and becomes enfeebled 1 as their flesh and muscles grow limp and saggy.",
         "links": [
           {
             "alt": "frightened",
@@ -23,18 +20,10 @@
             "game-obj": "Conditions",
             "name": "frightened",
             "type": "link"
-          },
-          {
-            "alt": "enfeebled",
-            "aonid": 71,
-            "game-obj": "Conditions",
-            "name": "enfeebled",
-            "type": "link"
           }
         ],
         "name": "Open Eyes",
         "subtype": "ability",
-        "success": "The creature takes 2d6 poison damage.",
         "traits": [
           {
             "alternate_link": {
@@ -277,6 +266,13 @@
     "level": 5,
     "links": [
       {
+        "alt": "enfeebled",
+        "aonid": 71,
+        "game-obj": "Conditions",
+        "name": "enfeebled",
+        "type": "link"
+      },
+      {
         "alt": "Thievery",
         "aonid": 50,
         "game-obj": "Skills",
@@ -322,6 +318,55 @@
     "name": "Flesh for the Hollow Star",
     "reset": "The trap deactivates and resets after a worshipper of Azathoth spends 1 hour in prayer before it.",
     "routine": "(2 actions; necromancy, occult) The eyes open like mouths to extrude a whipping tangle of filaments that lash out at a target in area F19 or within 10 feet of any entrance into the room. The filaments can't attack a single target more than once per round. A creature targeted by a filament must attempt a DC 22 Fortitude save. The body of a creature slain by poison damage from this hazard melts into a heap and then splits open to allow a gibbering mouther to slither free; this creature attacks any non-worshipper of Azathoth it sees, or otherwise slithers off to area F20 to splash and gyre in the waters of the lake.",
+    "routine_results": {
+      "critical_failure": "As failure, but 4d6+14 poison damage and enfeebled 2.",
+      "critical_success": "The creature is unaffected.",
+      "degree_effects": [
+        {
+          "damage": [
+            {
+              "damage_type": "poison",
+              "formula": "2d6",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "success",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "poison",
+              "formula": "2d6+7",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        },
+        {
+          "damage": [
+            {
+              "damage_type": "poison",
+              "formula": "4d6+14",
+              "subtype": "attack_damage",
+              "type": "stat_block_section"
+            }
+          ],
+          "degree": "critical_failure",
+          "subtype": "degree_effect",
+          "type": "stat_block_section"
+        }
+      ],
+      "failure": "The creature takes 2d6+7 poison damage and becomes enfeebled 1 as their flesh and muscles grow limp and saggy.",
+      "subtype": "routine_results",
+      "success": "The creature takes 2d6 poison damage.",
+      "type": "stat_block_section"
+    },
     "saves": [
       {
         "name": "Fort",
