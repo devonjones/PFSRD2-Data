@@ -568,6 +568,8 @@
               "unit": "feet"
             }
           ],
+          "critical_failure": "As failure, plus it must immediately spend its next action coughing.",
+          "failure": "The creature begins coughing and until the start of its next turn it must succeed at a DC 5 flat check if it attempts any action that requires it to speak, or it loses the action.",
           "links": [
             {
               "alt": "emanation",
@@ -582,6 +584,13 @@
               "game-obj": "Conditions",
               "name": "concealed",
               "type": "link"
+            },
+            {
+              "alt": "flat check",
+              "aonid": 333,
+              "game-obj": "Rules",
+              "name": "flat check",
+              "type": "link"
             }
           ],
           "name": "Cloud of Ashes",
@@ -595,6 +604,7 @@
             }
           ],
           "subtype": "ability",
+          "success": "The creature is unaffected.",
           "text": "The dragon blows a cloud of ashes and smoke out through their scales, surrounding themself in a 15-foot emanation that lasts until the end of their next turn. All creatures within the cloud become concealed to both sight and scent, and all creatures outside the cloud are concealed to creatures within it. Any creature that enters the area or begins its turn in the area must attempt a Fortitude save with a DC equal to the dragon\u2019s Pyre Breath.",
           "traits": [
             {
@@ -614,67 +624,7 @@
         },
         {
           "ability_type": "ability",
-          "name": "Success",
-          "subtype": "ability",
-          "text": "The creature is unaffected.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
           "links": [
-            {
-              "alt": "flat check",
-              "aonid": 333,
-              "game-obj": "Rules",
-              "name": "flat check",
-              "type": "link"
-            }
-          ],
-          "name": "Failure",
-          "saving_throw": [
-            {
-              "dc": 5,
-              "save_type": "Flat Check",
-              "subtype": "save_dc",
-              "text": "DC 5 flat check",
-              "type": "stat_block_section"
-            }
-          ],
-          "subtype": "ability",
-          "text": "The creature begins coughing and until the start of its next turn it must succeed at a DC 5 flat check if it attempts any action that requires it to speak, or it loses the action.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "links": [
-            {
-              "alt": "aura",
-              "aonid": 542,
-              "game-obj": "Traits",
-              "name": "aura",
-              "type": "link"
-            },
-            {
-              "alt": "fire",
-              "aonid": 604,
-              "game-obj": "Traits",
-              "name": "fire",
-              "type": "link"
-            },
-            {
-              "alt": "misfortune",
-              "aonid": 654,
-              "game-obj": "Traits",
-              "name": "misfortune",
-              "type": "link"
-            },
-            {
-              "alt": "primal",
-              "aonid": 676,
-              "game-obj": "Traits",
-              "name": "primal",
-              "type": "link"
-            },
             {
               "alt": "persistent fire damage",
               "aonid": 86,
@@ -683,9 +633,66 @@
               "type": "link"
             }
           ],
-          "name": "Critical Failure",
+          "name": "Inextinguishable Aura",
+          "range": {
+            "range": 90,
+            "subtype": "range",
+            "text": "90 feet",
+            "type": "stat_block_section",
+            "unit": "feet"
+          },
           "subtype": "ability",
-          "text": "As failure, plus it must immediately spend its next action coughing. Inextinguishable Aura (aura, fire, misfortune, primal) 90 feet. Flames burn underwater in this aura and cannot be doused by non-magical water. When a creature within this aura attempts a flat check to end persistent fire damage, it must roll twice and take the worse result.",
+          "text": "Flames burn underwater in this aura and cannot be doused by non-magical water. When a creature within this aura attempts a flat check to end persistent fire damage, it must roll twice and take the worse result.",
+          "traits": [
+            {
+              "link": {
+                "alt": "aura",
+                "aonid": 542,
+                "game-obj": "Traits",
+                "name": "aura",
+                "type": "link"
+              },
+              "name": "aura",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "fire",
+                "aonid": 604,
+                "game-obj": "Traits",
+                "name": "fire",
+                "type": "link"
+              },
+              "name": "fire",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "misfortune",
+                "aonid": 654,
+                "game-obj": "Traits",
+                "name": "misfortune",
+                "type": "link"
+              },
+              "name": "misfortune",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            },
+            {
+              "link": {
+                "alt": "primal",
+                "aonid": 676,
+                "game-obj": "Traits",
+                "name": "primal",
+                "type": "link"
+              },
+              "name": "primal",
+              "subtype": "trait",
+              "type": "stat_block_section"
+            }
+          ],
           "type": "stat_block_section"
         },
         {
@@ -696,6 +703,8 @@
             "subtype": "action_type",
             "type": "stat_block_section"
           },
+          "critical_success": "The creature can spend a reaction to make a melee Strike against a target of its choice.",
+          "failure": "The creature immediately makes a melee Strike against a target of the dragon\u2019s choice. The creature cannot use reactions until the start of its next turn.",
           "name": "Inflame Emotions",
           "range": {
             "range": 90,
@@ -705,6 +714,7 @@
             "unit": "feet"
           },
           "subtype": "ability",
+          "success": "The creature is unaffected.",
           "text": "The dragon sends out a wave of heat that inflames emotions within 90 feet. Creatures within it must attempt a Will save with a DC equal to the dragon\u2019s Frightful Presence DC. Regardless of the results, they are then immune to Inflame Emotions for 1 minute.",
           "traits": [
             {
@@ -756,27 +766,6 @@
               "type": "stat_block_section"
             }
           ],
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Critical Success",
-          "subtype": "ability",
-          "text": "The creature can spend a reaction to make a melee Strike against a target of its choice.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Success",
-          "subtype": "ability",
-          "text": "The creature is unaffected.",
-          "type": "stat_block_section"
-        },
-        {
-          "ability_type": "ability",
-          "name": "Failure",
-          "subtype": "ability",
-          "text": "The creature immediately makes a melee Strike against a target of the dragon\u2019s choice. The creature cannot use reactions until the start of its next turn.",
           "type": "stat_block_section"
         }
       ],
@@ -888,7 +877,7 @@
           "type": "source"
         }
       ],
-      "text": "Some cinder dragons burn more or less fiercely, giving them different abilities than most of their kind. You can adjust a cinder dragon of any age by substituting Draconic Frenzy, Frightful Presence, or Stoke the Flames for any one of the following abilities.   \n  \n**Cloud of Ashes** [#] (primal) The dragon blows a cloud of ashes and smoke out through their scales, surrounding themself in a 15-foot emanation that lasts until the end of their next turn. All creatures within the cloud become concealed to both sight and scent, and all creatures outside the cloud are concealed to creatures within it. Any creature that enters the area or begins its turn in the area must attempt a Fortitude save with a DC equal to the dragon\u2019s Pyre Breath.   \n**Success** The creature is unaffected.   \n**Failure** The creature begins coughing and until the start of its next turn it must succeed at a DC 5 flat check if it attempts any action that requires it to speak, or it loses the action.  \n**Critical Failure** As failure, plus it must immediately spend its next action coughing. Inextinguishable Aura (aura, fire, misfortune, primal) 90 feet. Flames burn underwater in this aura and cannot be doused by non-magical water. When a creature within this aura attempts a flat check to end persistent fire damage, it must roll twice and take the worse result.   \n  \n**Inflame Emotions** [##] (aura, fire, mental, primal) 90 feet. The dragon sends out a wave of heat that inflames emotions within 90 feet. Creatures within it must attempt a Will save with a DC equal to the dragon\u2019s Frightful Presence DC. Regardless of the results, they are then immune to Inflame Emotions for 1 minute.   \n**Critical Success** The creature can spend a reaction to make a melee Strike against a target of its choice.   \n**Success** The creature is unaffected.   \n**Failure** The creature immediately makes a melee Strike against a target of the dragon\u2019s choice. The creature cannot use reactions until the start of its next turn.",
+      "text": "Some cinder dragons burn more or less fiercely, giving them different abilities than most of their kind. You can adjust a cinder dragon of any age by substituting Draconic Frenzy, Frightful Presence, or Stoke the Flames for any one of the following abilities.   \n  \n**Cloud of Ashes** [#] (primal) The dragon blows a cloud of ashes and smoke out through their scales, surrounding themself in a 15-foot emanation that lasts until the end of their next turn. All creatures within the cloud become concealed to both sight and scent, and all creatures outside the cloud are concealed to creatures within it. Any creature that enters the area or begins its turn in the area must attempt a Fortitude save with a DC equal to the dragon\u2019s Pyre Breath.   \n**Success** The creature is unaffected.   \n**Failure** The creature begins coughing and until the start of its next turn it must succeed at a DC 5 flat check if it attempts any action that requires it to speak, or it loses the action.  \n**Critical Failure** As failure, plus it must immediately spend its next action coughing.  \n**Inextinguishable Aura** (aura, fire, misfortune, primal) 90 feet. Flames burn underwater in this aura and cannot be doused by non-magical water. When a creature within this aura attempts a flat check to end persistent fire damage, it must roll twice and take the worse result.   \n  \n**Inflame Emotions** [##] (aura, fire, mental, primal) 90 feet. The dragon sends out a wave of heat that inflames emotions within 90 feet. Creatures within it must attempt a Will save with a DC equal to the dragon\u2019s Frightful Presence DC. Regardless of the results, they are then immune to Inflame Emotions for 1 minute.   \n**Critical Success** The creature can spend a reaction to make a melee Strike against a target of its choice.   \n**Success** The creature is unaffected.   \n**Failure** The creature immediately makes a melee Strike against a target of the dragon\u2019s choice. The creature cannot use reactions until the start of its next turn.",
       "type": "section"
     },
     {
