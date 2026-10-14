@@ -14,16 +14,16 @@ These are the rules this reviewer applies. Quote them from here.
 1. **Never hand-edit data.** Every JSON change comes from a parser run.
 2. **Schema compliance.** Every JSON file must validate against its `*.schema.*.json`.
 3. **Link preservation.** Link objects (`game-obj`, `aonid`) must not collapse to plain text.
-4. **game-id is unique.** Two objects sharing a `game-id` is a parser bug. The fix keeps the later duplicate, or folds the edition into the id.
+4. **game-id is unique.** A document's own `game-id` is its top-level `game-id` key (types without one, such as monsters, have none). Two documents sharing it is a parser bug. A `game-id` nested inside a document, on a trait, link or other referenced object, is a reference and repeats by design. The fix keeps the later duplicate, or folds the edition into the id.
 5. **Newer AoN ID wins on reprints.** When two AoN pages write the same output filename, the newer object legitimately overwrites the older one. A file's directory names the book whose page produced the filename, not the book the surviving object came from.
 
 ## What to flag
 
 - **Lost links (P2).** A hunk removes an object carrying `aonid`/`game-obj` and adds the same text as a plain string. Count link objects in the old and new versions of the file and report both numbers.
-- **Duplicate game-ids (P2).** For each changed file, grep its `game-id` across the repo. Report every collision that isn't a reprint (rule 5).
-- **Changes outside the stated scope (P2).** The PR body names the content type and the parser change. Changed files in directories that change can't explain point to an unintended side effect. Report the count per directory.
+- **Duplicate game-ids (P2).** For each changed file with a top-level `game-id`, look for that value as the top-level `game-id` of another file (`jq -r '.["game-id"] // empty'`). Report every collision that isn't a reprint (rule 5). Ignore nested `game-id`s.
+- **Changes outside the stated scope (P2).** The PR body (`gh pr view <PR> --json body --jq .body`) names the content type and the parser change. Changed files in directories that change can't explain point to an unintended side effect. Report the count per directory.
 - **Schema drift (P2).** A schema change that removes or renames a property, or changes its type, while JSON still uses the old shape. Additions don't count.
-- **Encoding or markup leaks (P3).** New `Â`, raw `<b>`, `<span>` or HTML entities inside string values. The parser should have stripped them.
+- **Encoding or markup leaks (P3).** New `\u00C2` (`Â`) artifacts, raw `<b>`, `<span>` or HTML entities inside string values, outside `license` blocks (license text legitimately carries `<b>`). The parser should have stripped them.
 
 ## Do NOT flag
 
