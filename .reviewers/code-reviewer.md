@@ -20,10 +20,10 @@ These are the rules this reviewer applies. Quote them from here.
 ## What to flag
 
 - **Lost links (P2).** A hunk removes an object carrying `aonid`/`game-obj` and adds the same text as a plain string. Count link objects in the old and new versions of the file and report both numbers.
-- **Duplicate game-ids (P2).** For each changed file with a top-level `game-id`, look for that value as the top-level `game-id` of another file (`jq -r '.["game-id"] // empty'`). Report every collision that isn't a reprint (rule 5). Ignore nested `game-id`s.
+- **Duplicate game-ids (P2).** For each changed file with a top-level `game-id`, build one map from top-level `game-id` to files in a single pass over the repo's JSON (`jq -r '.["game-id"] // empty'`). A collision is a changed file's id shared with a file of a different basename; the same basename in another directory is a reprint (rule 5). Ignore nested `game-id`s.
 - **Changes outside the stated scope (P2).** The PR body (`gh pr view <PR> --json body --jq .body`) names the content type and the parser change. Changed files in directories that change can't explain point to an unintended side effect. Report the count per directory.
 - **Schema drift (P2).** A schema change that removes or renames a property, or changes its type, while JSON still uses the old shape. Additions don't count.
-- **Encoding or markup leaks (P3).** New `\u00C2` (`Â`) artifacts, raw `<b>`, `<span>` or HTML entities inside string values, outside `license` blocks (license text legitimately carries `<b>`). The parser should have stripped them.
+- **Encoding or markup leaks (P3).** New `\u00c2` (`Â`) artifacts (this JSON escapes with lowercase hex; grep case-insensitively), raw `<b>`, `<span>` or HTML entities inside string values, outside license text (the `license` key, and files under `license/`), which legitimately carries `<b>`. The parser should have stripped them.
 
 ## Do NOT flag
 
